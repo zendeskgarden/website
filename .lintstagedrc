@@ -1,0 +1,14 @@
+{
+  "*.{js,ts,tsx}": [
+    "stylelint",
+    "eslint",
+    "prettier --write"
+  ],
+  "*.md": [
+    "markdownlint",
+    "prettier --write"
+  ],
+  "**/package.json": [
+    "prettier-package-json --write"
+  ]
+}
