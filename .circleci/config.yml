@@ -30,6 +30,9 @@ jobs:
           paths:
             - ./.cache
             - ./public
+      - run:
+          name: Deploy Site
+          command: yarn deploy
 workflows:
     build-site:
       jobs:
