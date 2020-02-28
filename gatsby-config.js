@@ -7,9 +7,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Zendesk Garden`,
-    description: `Garden is a design system for Zendesk where we grow beautifully simple and accessible UI components.`,
-    author: `@zendesk`
+    title: 'Zendesk Garden',
+    description: `Garden is a design system for Zendesk where we grow beautifully simple and accessible UI components.`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
