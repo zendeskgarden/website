@@ -1,30 +1,26 @@
 version: 2.1
+orbs:
+  node: circleci/node@1.1.6
 jobs:
-  build:
-    docker:
-      - image: circleci/node:erbium
+  build-site:
+    executor:
+      name: node/default
+      tag: erbium
     steps:
       - checkout # checkout out source code to project directory
-      - restore_cache:
-          name: Restore Yarn dependencies
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+      - node/with-cache:
+          cache-key: yarn.lock
+          dir: ~/.cache/yarn
+          steps:
+            - run: yarn install --frozen-lockfile
+      - run:
+          name: Lint files
+          command: yarn lint
       - restore_cache:
           name: Restore Gatsby .cache directory
           # Invalidate using Gatsby logic https://www.gatsbyjs.org/docs/build-caching/#clearing-cache
           keys:
             - gatsby-cache-{{ checksum "package.json" }}-{{ checksum "gatsby-config.js" }}-{{ checksum "gatsby-node.js" }}
-      - run:
-          name: Install dependencies
-          command: yarn install --frozen-lockfile
-      - save_cache:
-          name: Save Yarn dependency cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
-      - run:
-          name: Lint files
-          command: yarn lint
       - run:
           name: Build Site
           command: yarn build
@@ -33,3 +29,8 @@ jobs:
           key: gatsby-cache-{{ checksum "package.json" }}-{{ checksum "gatsby-config.js" }}-{{ checksum "gatsby-node.js" }}
           paths:
             - ./.cache
+            - ./public
+workflows:
+    build-site:
+      jobs:
+        - build-site
