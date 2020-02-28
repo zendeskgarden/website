@@ -1,7 +1,8 @@
 /**
- * Implement Gatsby's Node APIs in this file.
+ * Copyright Zendesk, Inc.
  *
- * See: https://www.gatsbyjs.org/docs/node-apis/
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
 // You can delete this file if you're not using it
