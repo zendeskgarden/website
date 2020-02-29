@@ -16,6 +16,9 @@ jobs:
       - run:
           name: Lint files
           command: yarn lint
+      - run:
+          name: Compile Typescript files
+          command: yarn tsc
       - restore_cache:
           name: Restore Gatsby .cache directory
           # Invalidate using Gatsby logic https://www.gatsbyjs.org/docs/build-caching/#clearing-cache
