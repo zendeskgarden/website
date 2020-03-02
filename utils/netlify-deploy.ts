@@ -11,6 +11,8 @@ import path from 'path';
 import NetlifyAPI from 'netlify';
 import { Octokit } from '@octokit/rest';
 
+type Environment = 'production' | 'preview';
+
 /**
  * Ensure all required ENV variables are available
  */
@@ -37,7 +39,7 @@ const octokit = new Octokit({
 
 const client = new NetlifyAPI(process.env.NETLIFY_TOKEN);
 
-function createGithubDeployment(environment: string) {
+function createGithubDeployment(environment: Environment) {
   return octokit.repos.createDeployment({
     owner: process.env.CIRCLE_PROJECT_USERNAME!,
     repo: process.env.CIRCLE_PROJECT_REPONAME!,
@@ -46,7 +48,7 @@ function createGithubDeployment(environment: string) {
     environment,
     description: 'Publishes a preview version of the Garden website.',
     required_contexts: [],
-    transient_environment: environment !== 'master'
+    transient_environment: environment !== 'production'
   });
 }
 
@@ -67,16 +69,16 @@ function createGithubDeploymentStatus(
   });
 }
 
-function deployNetlifySite(buildDir: string, environment: string) {
+function deployNetlifySite(buildDir: string, environment: Environment) {
   return client.deploy(process.env.NETLIFY_SITE_ID, buildDir, {
-    draft: environment !== 'master',
+    draft: environment !== 'production',
     message: `Deploy of SHA "${process.env.CIRCLE_SHA1}"`
   });
 }
 
 async function createNetlifyPreview() {
   try {
-    let environment = 'preview';
+    let environment: Environment = 'preview';
 
     if (process.env.CIRCLE_BRANCH === 'master') {
       environment = 'production';
