@@ -19,9 +19,9 @@ function validateEnvironment() {
     'CIRCLE_PROJECT_USERNAME',
     'CIRCLE_PROJECT_REPONAME',
     'CIRCLE_SHA1',
-    'NETLIFY_AUTH_TOKEN',
+    'NETLIFY_TOKEN',
     'NETLIFY_SITE_ID',
-    'GITHUB_AUTH_TOKEN'
+    'GITHUB_TOKEN'
   ];
 
   for (const envVariable of requiredVars) {
@@ -31,13 +31,11 @@ function validateEnvironment() {
   }
 }
 
-validateEnvironment();
-
 const octokit = new Octokit({
-  auth: process.env.GITHUB_AUTH_TOKEN
+  auth: process.env.GITHUB_TOKEN
 });
 
-const client = new NetlifyAPI(process.env.NETLIFY_AUTH_TOKEN);
+const client = new NetlifyAPI(process.env.NETLIFY_TOKEN);
 
 function createGithubDeployment(environment: string) {
   return octokit.repos.createDeployment({
@@ -118,4 +116,5 @@ async function createNetlifyPreview() {
   }
 }
 
+validateEnvironment();
 createNetlifyPreview();
