@@ -30,6 +30,9 @@ jobs:
           paths:
             - ./.cache
             - ./public
+      - run:
+          name: Deploy Site
+          command: yarn ts-node --project tsconfig.node.json utils/netlify-deploy.ts
 workflows:
     build-site:
       jobs:
