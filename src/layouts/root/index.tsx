@@ -7,13 +7,15 @@
 
 import React, { useRef } from 'react';
 import { css, createGlobalStyle } from 'styled-components';
-import { useStaticQuery, graphql, Link } from 'gatsby';
-import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Link } from 'gatsby';
+import { ReactComponent as GardenWordmark } from '../../images/garden-wordmark.svg';
+import { ThemeProvider, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 /**
  * Include global CSS resets
  */
 import '@zendeskgarden/css-bedrock/dist/index.css';
+import { math } from 'polished';
 
 const GlobalStyling = createGlobalStyle`
   /* stylelint-disable-next-line selector-max-id, selector-max-specificity */
@@ -23,22 +25,30 @@ const GlobalStyling = createGlobalStyle`
   #gatsby-focus-wrapper {
     height: 100%;
   }
+
+  .heading-anchor {
+    margin-left: -24px;
+    padding-right: 4px;
+  }
 `;
 
 export const RootLayout: React.FC = ({ children }) => {
   const focusVisibleRef = useRef(null);
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `);
 
   return (
-    <ThemeProvider focusVisibleRef={focusVisibleRef}>
+    <ThemeProvider
+      focusVisibleRef={focusVisibleRef}
+      theme={{ ...DEFAULT_THEME, palette: { ...DEFAULT_THEME.palette } }}
+    >
       <GlobalStyling />
       <div
         ref={focusVisibleRef}
@@ -56,7 +66,12 @@ export const RootLayout: React.FC = ({ children }) => {
             right: 0;
             left: 0;
             z-index: 1;
-            border-bottom: ${props => props.theme.borders.md};
+            border-bottom: ${p =>
+              `${math(`${p.theme.borderWidths.sm} / 2`)} ${p.theme.borderStyles.solid} ${getColor(
+                'neutralHue',
+                400,
+                p.theme
+              )}`};
             background-color: ${p => p.theme.colors.background};
             padding: ${props => props.theme.space.md};
           `}
@@ -65,9 +80,15 @@ export const RootLayout: React.FC = ({ children }) => {
             to="/"
             css={`
               text-decoration: none;
+              line-height: 0;
             `}
           >
-            {data.site.siteMetadata.title}
+            <GardenWordmark
+              css={`
+                width: 100px;
+                height: 20px;
+              `}
+            />
           </Link>
           <div
             css={`
@@ -84,7 +105,7 @@ export const RootLayout: React.FC = ({ children }) => {
             Content
           </Link>
           <Link
-            to="/design"
+            to="/"
             css={css`
               margin-left: ${p => p.theme.space.md};
               text-decoration: none;
@@ -93,7 +114,7 @@ export const RootLayout: React.FC = ({ children }) => {
             Design
           </Link>
           <Link
-            to="/components"
+            to="/"
             css={css`
               margin-left: ${p => p.theme.space.md};
               text-decoration: none;
@@ -112,7 +133,12 @@ export const RootLayout: React.FC = ({ children }) => {
         </div>
         <footer
           css={css`
-            border-top: ${props => props.theme.borders.md};
+            border-top: ${p =>
+              `${math(`${p.theme.borderWidths.sm} / 2`)} ${p.theme.borderStyles.solid} ${getColor(
+                'neutralHue',
+                400,
+                p.theme
+              )}`};
             padding: ${p => p.theme.space.md};
             text-align: center;
           `}

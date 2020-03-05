@@ -7,34 +7,62 @@
 
 import React from 'react';
 import { css } from 'styled-components';
-import { XXXL, LG } from '@zendeskgarden/react-typography';
+import { math } from 'polished';
+import { XXXL, LG, SM } from '@zendeskgarden/react-typography';
 import { getColor } from '@zendeskgarden/react-theming';
 
-export const TitledLayout: React.FC<{ title: React.ReactNode; description?: React.ReactNode }> = ({
-  title,
-  description,
-  children
-}) => {
+export const TitledLayout: React.FC<{
+  title: React.ReactNode;
+  description?: React.ReactNode;
+  author?: React.ReactNode;
+  modifiedDate?: React.ReactNode;
+}> = ({ title, description, author, modifiedDate, children }) => {
   return (
     <>
-      <XXXL
-        tag="h1"
+      <div
         css={css`
-          margin-bottom: ${p => p.theme.space.xs};
+          border-bottom: ${p =>
+            `${math(`${p.theme.borderWidths.sm} / 2`)} ${p.theme.borderStyles.solid} ${getColor(
+              'neutralHue',
+              400,
+              p.theme
+            )}`};
         `}
       >
-        {title}
-      </XXXL>
-      {description && (
-        <LG
+        <XXXL
+          tag="h1"
           css={css`
-            margin-bottom: ${p => p.theme.space.lg};
-            color: ${p => getColor('neutralHue', 600, p.theme)};
+            margin-bottom: ${p => p.theme.space.sm};
           `}
         >
-          {description}
-        </LG>
-      )}
+          {title}
+        </XXXL>
+        {description && (
+          <LG
+            css={css`
+              margin-bottom: ${p => p.theme.space.sm};
+              max-width: 300px;
+              color: ${p => getColor('neutralHue', 600, p.theme)};
+            `}
+          >
+            {description}
+          </LG>
+        )}
+        <SM
+          css={css`
+            margin-bottom: ${p => p.theme.space.sm};
+            color: ${p => getColor('neutralHue', 500, p.theme)};
+            font-weight: ${p => p.theme.fontWeights.semibold};
+
+            & > * {
+              margin-right: ${p => p.theme.space.sm};
+            }
+          `}
+        >
+          {author && <span>{author}</span>}
+          {modifiedDate && <span>{modifiedDate}</span>}
+        </SM>
+      </div>
       {children}
     </>
   );

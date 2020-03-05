@@ -7,6 +7,8 @@
 
 import React from 'react';
 import { css } from 'styled-components';
+import { math } from 'polished';
+import { getColor } from '@zendeskgarden/react-theming';
 
 export const SidebarLayout: React.FC<{ sidebar?: React.ReactNode }> = ({ sidebar, children }) => {
   return (
@@ -17,7 +19,12 @@ export const SidebarLayout: React.FC<{ sidebar?: React.ReactNode }> = ({ sidebar
     >
       <div
         css={css`
-          border-right: ${p => p.theme.borders.md};
+          border-right: ${p =>
+            `${math(`${p.theme.borderWidths.sm} / 2`)} ${p.theme.borderStyles.solid} ${getColor(
+              'neutralHue',
+              400,
+              p.theme
+            )}`};
           width: 300px;
         `}
       >
@@ -25,7 +32,7 @@ export const SidebarLayout: React.FC<{ sidebar?: React.ReactNode }> = ({ sidebar
           css={css`
             position: sticky;
             top: 80px;
-            padding: ${p => p.theme.space.sm};
+            padding: ${p => p.theme.space.lg};
             height: calc(100vh - 140px);
             overflow-y: auto;
           `}
@@ -36,7 +43,6 @@ export const SidebarLayout: React.FC<{ sidebar?: React.ReactNode }> = ({ sidebar
       <main
         css={css`
           flex-grow: 1;
-          padding: ${p => p.theme.space.md};
         `}
       >
         {children}
