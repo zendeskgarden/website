@@ -1,17 +1,17 @@
 {
   "private": true,
-  "name": "zendeskgarden-website",
+  "name": "@zendeskgarden/website",
   "version": "0.0.0",
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "format": "prettier --loglevel warn --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format": "prettier-package-json --write && yarn format:all --write",
+    "format:all": "prettier --loglevel warn '**/*.{js,jsx,ts,tsx,json,md}'",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:md",
-    "lint:css": "stylelint \"src/**/*.{js,ts,tsx}\"",
+    "lint:css": "stylelint 'src/**/*.{js,ts,tsx}'",
     "lint:js": "eslint ./ --ext js,ts,tsx --max-warnings 0",
     "lint:md": "markdownlint ./*.md src/**/*.md",
-    "serve": "gatsby serve",
-    "start": "gatsby develop",
+    "start": "gatsby develop --open",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "devDependencies": {
