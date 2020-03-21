@@ -11,8 +11,9 @@
     "lint:css": "stylelint 'src/**/*.{js,ts,tsx}'",
     "lint:js": "eslint ./ --ext js,ts,tsx --max-warnings 0",
     "lint:md": "markdownlint ./*.md src/**/*.md",
+    "prepare": "yarn build",
     "start": "gatsby develop --open",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "prettier-package-json --list-different && yarn format:all --check && yarn lint"
   },
   "devDependencies": {
     "@octokit/rest": "17.0.0",
