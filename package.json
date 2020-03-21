@@ -6,7 +6,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "format": "prettier-package-json --write && yarn format:all --write",
-    "format:all": "prettier --loglevel warn '**/*.{js,jsx,ts,tsx,json,md}'",
+    "format:all": "prettier --loglevel warn '**/*.{js,jsx,ts,tsx,json,md,yml}'",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:md",
     "lint:css": "stylelint 'src/**/*.{js,ts,tsx}'",
     "lint:js": "eslint ./ --ext js,ts,tsx --max-warnings 0",
@@ -54,5 +54,8 @@
     "stylelint-processor-styled-components": "1.10.0",
     "ts-node": "8.6.2",
     "typescript": "3.8.2"
+  },
+  "resolutions": {
+    "@types/vfile-message": "1.0.1"
   }
 }
