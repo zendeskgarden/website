@@ -28,12 +28,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
+          name: Restoring Gatsby Cache
           key: *gatsby_cache_key
       - node/with-cache:
           cache-key: yarn.lock
           steps:
             - run: yarn --frozen-lockfile
       - save_cache:
+          name: Saving Gatsby Cache
           key: *gatsby_cache_key
           paths:
             - ./.cache
