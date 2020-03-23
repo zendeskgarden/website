@@ -5,4 +5,4 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-// You can delete this file if you're not using it
+export { wrapRootElement } from './utils/gatsby-theme';

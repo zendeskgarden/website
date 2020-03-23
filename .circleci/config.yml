@@ -1,11 +1,22 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
-jobs:
-  build-site:
+
+references:
+  executor: &executor
     executor:
       name: node/default
-      tag: erbium
+      tag: erbium # keep in sync with .nvmrc
+
+  workspace_root: &workspace_root ~/project
+
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+jobs:
+  test:
+    <<: *executor
     steps:
       - checkout # checkout out source code to project directory
       - node/with-cache:
@@ -13,9 +24,16 @@ jobs:
           dir: ~/.cache/yarn
           steps:
             - run: yarn install --frozen-lockfile
-      - run:
-          name: Lint files
-          command: yarn lint
+      - persist_to_workspace:
+          root: *workspace_root
+          paths: .
+      - run: yarn lint
+      - run: yarn tsc
+
+  build:
+    <<: *executor
+    steps:
+      - *attach_workspace
       - restore_cache:
           name: Restore Gatsby .cache directory
           # Invalidate using Gatsby logic https://www.gatsbyjs.org/docs/build-caching/#clearing-cache
@@ -30,10 +48,25 @@ jobs:
           paths:
             - ./.cache
             - ./public
-      - run:
-          name: Deploy Site
-          command: yarn ts-node --project tsconfig.node.json utils/netlify-deploy.ts
+      - persist_to_workspace:
+          root: *workspace_root
+          paths: public
+
+  deploy:
+    <<: *executor
+    steps:
+      - *attach_workspace
+      - run: yarn ts-node --project tsconfig.node.json utils/netlify-deploy.ts
+
 workflows:
-    build-site:
-      jobs:
-        - build-site
+  main:
+    jobs:
+      - test
+      - build:
+          requires:
+            - test
+          context: maintainer
+      - deploy:
+          requires:
+            - build
+          context: maintainer

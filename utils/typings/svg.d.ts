@@ -5,4 +5,4 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { wrapRootElement } from './utils/gatsby-theme';
+declare module '*.svg';
