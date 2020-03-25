@@ -6,7 +6,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "format": "prettier-package-json --write && yarn format:all --write",
-    "format:all": "prettier --loglevel warn '**/*.{js,jsx,ts,tsx,json,md,yml}'",
+    "format:all": "prettier --loglevel warn '**/*.{js,jsx,ts,tsx,json,md,yml}' '!.github/ISSUE_TEMPLATE.md'",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:md",
     "lint:css": "stylelint 'src/**/*.{js,ts,tsx}'",
     "lint:js": "eslint ./ --ext js,ts,tsx --max-warnings 0",
