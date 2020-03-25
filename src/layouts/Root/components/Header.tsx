@@ -54,25 +54,23 @@ const StyledHeader = styled.header.attrs({ role: 'banner' })`
 const Logo: React.FC = () => (
   <div
     css={css`
-      height: 100%;
-      line-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       @media (max-width: ${p => p.theme.breakpoints.md}) {
         flex-grow: 1;
       }
     `}
   >
-    <Link
-      aria-label="Zendesk Garden"
-      to="/"
-      css={`
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-      `}
-    >
-      <div>
+    <Link aria-label="Zendesk Garden" to="/">
+      <div
+        css={`
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        `}
+      >
         <GardenIcon
           css={css`
             width: auto;
@@ -107,26 +105,23 @@ const MobileSearch = React.forwardRef<HTMLInputElement>((props, ref) => (
       align-items: center;
       justify-content: center;
       padding: ${p => p.theme.space.xxs};
-      height: 100%;
     `}
   >
-    <SearchInput ref={ref} isCompact={false} />
+    <SearchInput ref={ref} />
   </div>
 ));
 
-const SearchInput = React.forwardRef<
-  HTMLInputElement,
-  { isCompact: boolean } & HTMLAttributes<HTMLInputElement>
->(({ isCompact, ...props }, ref) => (
-  <MediaInput
-    start={<SearchStroke />}
-    placeholder="Search..."
-    aria-label="Search"
-    isCompact={isCompact}
-    ref={ref}
-    {...props}
-  />
-));
+const SearchInput = React.forwardRef<HTMLInputElement, HTMLAttributes<HTMLInputElement>>(
+  (props, ref) => (
+    <MediaInput
+      start={<SearchStroke />}
+      placeholder="Search..."
+      aria-label="Search"
+      ref={ref}
+      {...props}
+    />
+  )
+);
 
 const MobileNavButton: React.FC<{
   isExpanded: boolean;
@@ -277,7 +272,7 @@ const DesktopNav: React.FC = () => (
         margin-left: ${p => p.theme.space.sm};
       `}
     >
-      <SearchInput isCompact={false} />
+      <SearchInput />
     </StyledDesktopNavItem>
   </nav>
 );
@@ -299,6 +294,7 @@ const Header: React.FC = () => {
         css={css`
           display: flex;
           height: 100%;
+          min-height: 100%;
         `}
       >
         <MobileNavButton

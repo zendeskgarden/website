@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 const SEO: React.FC<{
   description?: string;
   lang?: string;
-  meta?: any[];
+  meta?: HTMLMetaElement[];
   title: string;
 }> = ({ description, lang, meta, title }) => {
   const { site } = useStaticQuery(

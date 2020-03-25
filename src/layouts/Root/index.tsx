@@ -35,7 +35,7 @@ const RootLayout: React.FC = ({ children }) => {
       css={`
         display: flex;
         flex-direction: column;
-        height: 100%;
+        min-height: 100vh;
       `}
     >
       <GlobalStyling />
