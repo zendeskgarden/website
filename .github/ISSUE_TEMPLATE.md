@@ -12,7 +12,9 @@
 
 ## Steps to Reproduce
 
-1. 1. 1.
+1.
+1.
+1.
 
 ### Fine Print
 
