@@ -13,7 +13,7 @@ const SEO: React.FC<{
   description?: string;
   lang?: string;
   meta?: HTMLMetaElement[];
-  title: string;
+  title?: string;
 }> = ({ description, lang, meta, title }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -35,8 +35,8 @@ const SEO: React.FC<{
       htmlAttributes={{
         lang
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={title || site.siteMetadata.title}
+      titleTemplate={title ? `%s / ${site.siteMetadata.title}` : undefined}
       meta={[
         {
           name: `description`,

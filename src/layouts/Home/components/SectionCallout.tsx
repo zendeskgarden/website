@@ -8,6 +8,7 @@
 import React, { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
+import { XXL, LG } from '@zendeskgarden/react-typography';
 
 export const StyledSectionHeader = styled.div`
   text-transform: uppercase;
@@ -31,25 +32,23 @@ export const SectionCallout: React.FC<{
     >
       {section}
     </StyledSectionHeader>
-    <h2
+    <XXL
+      tag="h2"
       css={css`
         margin-bottom: ${p => p.theme.space.xs};
-        line-height: ${p => p.theme.lineHeights.xxl};
-        font-size: ${p => p.theme.fontSizes.xxl};
         font-weight: ${p => p.theme.fontWeights.semibold};
       `}
     >
       {header}
-    </h2>
-    <p
+    </XXL>
+    <LG
+      tag="p"
       css={css`
-        line-height: ${p => p.theme.lineHeights.lg};
         color: ${p => getColor('grey', 700, p.theme)};
-        font-size: ${p => p.theme.fontSizes.lg};
       `}
     >
       {description}
-    </p>
+    </LG>
     {children}
   </div>
 );

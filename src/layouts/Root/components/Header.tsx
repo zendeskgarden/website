@@ -9,13 +9,13 @@ import React, { useState, HTMLAttributes, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { Link } from 'gatsby';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColor, PALETTE } from '@zendeskgarden/react-theming';
 import { MediaInput } from '@zendeskgarden/react-forms';
 import { ReactComponent as MenuStroke } from '@zendeskgarden/svg-icons/src/16/menu-stroke.svg';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
-import { ReactComponent as GardenIcon } from '../../../images/garden-icon.svg';
-import { ReactComponent as GardenWordmark } from '../../../images/garden-wordmark.svg';
+import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
+import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/26/wordmark-garden.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
 
 const StyledDesktopNavItem = styled.div`
@@ -74,18 +74,20 @@ const Logo: React.FC = () => (
         <GardenIcon
           css={css`
             width: auto;
-            height: ${p => p.theme.lineHeights.md};
+            height: ${p => p.theme.lineHeights.lg};
+            color: ${PALETTE.green[400]};
 
             @media (max-width: ${p => p.theme.breakpoints.md}) {
-              height: ${p => p.theme.iconSizes.lg};
+              height: ${p => p.theme.space.base * 6.5}px;
             }
           `}
         />
         <GardenWordmark
           css={css`
-            margin-left: ${p => p.theme.space.xs};
+            margin-left: ${p => p.theme.space.xxs};
             width: auto;
-            height: ${p => p.theme.lineHeights.md};
+            height: ${p => p.theme.lineHeights.lg};
+            color: ${PALETTE.kale[700]};
 
             @media (max-width: ${p => p.theme.breakpoints.md}) {
               display: none;

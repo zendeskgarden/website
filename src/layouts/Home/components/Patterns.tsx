@@ -51,7 +51,7 @@ export const Patterns: React.FC = () => {
               }
             `}
           >
-            <Img fluid={patternsImage.childImageSharp.fluid} alt="Garden patterns " />
+            <Img fluid={patternsImage.childImageSharp.fluid} alt="Garden patterns" />
           </Col>
           <Col
             sm={12}

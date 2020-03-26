@@ -9,7 +9,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { math } from 'polished';
 import { getColor } from '@zendeskgarden/react-theming';
-import { ReactComponent as GardenIcon } from '../../../images/garden-icon.svg';
+import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
 
 const StyledFooterItem = styled.div`
@@ -81,7 +81,7 @@ const Footer: React.FC = () => (
           css={css`
             flex-basis: ${p => math(`${p.theme.iconSizes.md} + ${p.theme.space.md}`)};
             flex-grow: 1;
-            padding: 0 ${p => p.theme.space.md};
+            padding: 0 ${p => p.theme.space.sm};
           `}
         >
           Garden is a design system for Zendesk where we grow beautifully simple and accessible UI

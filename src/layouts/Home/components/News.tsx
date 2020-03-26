@@ -10,12 +10,12 @@ import { useStaticQuery, graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { XXL } from '@zendeskgarden/react-typography';
+import { Anchor } from '@zendeskgarden/react-buttons';
 import MaxWidthLayout from 'layouts/MaxWidth';
 
-const StyledSectionHeader = styled.h2`
+const StyledSectionHeader = styled(XXL).attrs({ tag: 'h2' })`
   margin-bottom: ${p => p.theme.space.md};
-  line-height: ${p => p.theme.lineHeights.xxl};
-  font-size: ${p => p.theme.fontSizes.xxl};
   font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
@@ -50,7 +50,7 @@ export const News: React.FC = () => {
           right: 50%;
           bottom: 0;
           left: 0;
-          background-color: ${p => getColor('green', 200, p.theme)};
+          background-color: ${p => p.theme.palette.green[200]};
 
           @media (max-width: ${p => p.theme.breakpoints.lg}) {
             display: none;
@@ -113,7 +113,7 @@ export const News: React.FC = () => {
                         margin-bottom: ${p => p.theme.space.lg};
                       `}
                     >
-                      <a
+                      <Anchor
                         href={edge.node.url}
                         css={css`
                           color: ${p => p.theme.colors.foreground};
@@ -121,13 +121,13 @@ export const News: React.FC = () => {
                         `}
                       >
                         {edge.node.title}
-                      </a>
+                      </Anchor>
                       <p
                         css={css`
                           color: ${p => getColor('grey', 700, p.theme)};
                         `}
                       >
-                        Article by <a href={edge.node.author_url}>{edge.node.author}</a>
+                        Article by <Anchor href={edge.node.author_url}>{edge.node.author}</Anchor>
                       </p>
                     </Col>
                   );

@@ -14,7 +14,7 @@ import HomeLayout from 'layouts/Home';
 const IndexPage: React.FC = () => {
   return (
     <RootLayout>
-      <SEO title="Home" />
+      <SEO />
       <HomeLayout />
     </RootLayout>
   );

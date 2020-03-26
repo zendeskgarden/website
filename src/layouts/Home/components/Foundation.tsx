@@ -10,6 +10,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import { css } from 'styled-components';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { LG } from '@zendeskgarden/react-typography';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SectionCallout, StyledSectionHeader } from './SectionCallout';
 import { HomeLink } from './HomeLink';
@@ -43,15 +44,14 @@ const FoundationLink: React.FC<{
       >
         {group}
       </StyledSectionHeader>
-      <h3
+      <LG
+        tag="h3"
         css={css`
           margin-bottom: ${p => p.theme.space.xs};
-          line-height: ${p => p.theme.lineHeights.lg};
-          font-size: ${p => p.theme.fontSizes.lg};
         `}
       >
         {title}
-      </h3>
+      </LG>
       <HomeLink to={url}>
         Browse{' '}
         <span

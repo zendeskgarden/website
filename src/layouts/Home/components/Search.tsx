@@ -10,6 +10,7 @@ import Img from 'gatsby-image';
 import { css } from 'styled-components';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { MediaInput } from '@zendeskgarden/react-forms';
+import { LG } from '@zendeskgarden/react-typography';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 
 import MaxWidthLayout from 'layouts/MaxWidth';
@@ -89,17 +90,16 @@ export const Search: React.FC = () => {
                 >
                   Search the Garden
                 </h1>
-                <p
+                <LG
+                  tag="p"
                   css={css`
                     margin-bottom: ${p => p.theme.space.md};
                     max-width: 340px;
-                    line-height: ${p => p.theme.lineHeights.lg};
-                    font-size: ${p => p.theme.fontSizes.lg};
                   `}
                 >
                   The source of truth for tools, standards, and best practices when building
                   products at Zendesk.
-                </p>
+                </LG>
                 <div
                   css={css`
                     width: 340px;
