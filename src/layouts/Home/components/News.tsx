@@ -8,7 +8,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColor, PALETTE } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { XXL } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
@@ -50,7 +50,7 @@ export const News: React.FC = () => {
           right: 50%;
           bottom: 0;
           left: 0;
-          background-color: ${p => p.theme.palette.green[200]};
+          background-color: ${PALETTE.green[200]};
 
           @media (max-width: ${p => p.theme.breakpoints.lg}) {
             display: none;
@@ -79,7 +79,7 @@ export const News: React.FC = () => {
               md={6}
               lg={4}
               css={css`
-                background-color: ${p => getColor('green', 200, p.theme)};
+                background-color: ${PALETTE.green[200]};
                 padding-top: ${p => p.theme.space.xxl};
                 padding-right: ${p => p.theme.space.xxl};
                 padding-bottom: ${p => p.theme.space.xxl};
