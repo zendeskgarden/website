@@ -47,7 +47,6 @@ jobs:
     steps:
       - *attach_workspace
       - run: yarn test
-      - run: yarn tsc
 
   deploy:
     <<: *executor

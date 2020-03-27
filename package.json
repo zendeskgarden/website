@@ -13,7 +13,7 @@
     "lint:md": "markdownlint ./*.md src/**/*.md",
     "prepare": "yarn build",
     "start": "gatsby develop --open",
-    "test": "prettier-package-json --list-different && yarn format:all --check && yarn lint"
+    "test": "prettier-package-json --list-different && yarn format:all --check && yarn lint && yarn tsc"
   },
   "devDependencies": {
     "@octokit/rest": "17.0.0",
