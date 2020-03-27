@@ -6,51 +6,47 @@ references:
   executor: &executor
     executor:
       name: node/default
-      tag: erbium # keep in sync with .nvmrc
+      tag: lts
 
   workspace_root: &workspace_root ~/project
+
+  # Combination of https://circleci.com/orbs/registry/orb/circleci/node#commands-with-cache and https://www.gatsbyjs.org/docs/build-caching/#clearing-cache
+  gatsby_cache_key: &gatsby_cache_key gatsby-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum "gatsby-config.js" }}-{{ checksum "gatsby-node.js" }}
 
   attach_workspace: &attach_workspace
     attach_workspace:
       at: *workspace_root
 
-jobs:
-  test:
-    <<: *executor
-    steps:
-      - checkout # checkout out source code to project directory
-      - node/with-cache:
-          cache-key: yarn.lock
-          dir: ~/.cache/yarn
-          steps:
-            - run: yarn install --frozen-lockfile
-      - persist_to_workspace:
-          root: *workspace_root
-          paths: .
-      - run: yarn lint
-      - run: yarn tsc
+  persist_to_workspace: &persist_to_workspace
+    persist_to_workspace:
+      root: *workspace_root
+      paths: .
 
+jobs:
   build:
     <<: *executor
     steps:
-      - *attach_workspace
+      - checkout
       - restore_cache:
-          name: Restore Gatsby .cache directory
-          # Invalidate using Gatsby logic https://www.gatsbyjs.org/docs/build-caching/#clearing-cache
-          keys:
-            - gatsby-cache-{{ checksum "package.json" }}-{{ checksum "gatsby-config.js" }}-{{ checksum "gatsby-node.js" }}
-      - run:
-          name: Build Site
-          command: yarn build
+          name: Restoring Gatsby Cache
+          key: *gatsby_cache_key
+      - node/with-cache:
+          cache-key: yarn.lock
+          steps:
+            - run: yarn --frozen-lockfile
       - save_cache:
-          name: Save Gatsby cache
-          key: gatsby-cache-{{ checksum "package.json" }}-{{ checksum "gatsby-config.js" }}-{{ checksum "gatsby-node.js" }}
+          name: Saving Gatsby Cache
+          key: *gatsby_cache_key
           paths:
             - ./.cache
             - ./public
-      - persist_to_workspace:
-          root: *workspace_root
-          paths: public
+      - *persist_to_workspace
+
+  test:
+    <<: *executor
+    steps:
+      - *attach_workspace
+      - run: yarn test
 
   deploy:
     <<: *executor
@@ -61,12 +57,11 @@ jobs:
 workflows:
   main:
     jobs:
-      - test
-      - build:
-          requires:
-            - test
-          context: maintainer
-      - deploy:
+      - build
+      - test:
           requires:
             - build
+      - deploy:
+          requires:
+            - test
           context: maintainer

@@ -1,18 +1,19 @@
 {
   "private": true,
-  "name": "zendeskgarden-website",
+  "name": "@zendeskgarden/website",
   "version": "0.0.0",
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "format": "prettier --loglevel warn --write \"**/*.{js,jsx,ts,tsx,json,md,yml}\"",
+    "format": "prettier-package-json --write && yarn format:all --write",
+    "format:all": "prettier --loglevel warn '**/*.{js,jsx,ts,tsx,json,md,yml}' '!.github/ISSUE_TEMPLATE.md'",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:md",
-    "lint:css": "stylelint \"src/**/*.{js,ts,tsx}\"",
+    "lint:css": "stylelint 'src/**/*.{js,ts,tsx}'",
     "lint:js": "eslint ./ --ext js,ts,tsx --max-warnings 0",
     "lint:md": "markdownlint ./*.md src/**/*.md",
-    "serve": "gatsby serve",
-    "start": "gatsby develop",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "prepare": "yarn build",
+    "start": "gatsby develop --open",
+    "test": "prettier-package-json --list-different && yarn format:all --check && yarn lint && yarn tsc"
   },
   "devDependencies": {
     "@octokit/rest": "17.0.0",
