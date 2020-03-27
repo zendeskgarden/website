@@ -31,13 +31,15 @@
     "no-unused-expressions": ["error", { "allowShortCircuit": true }],
     "no-irregular-whitespace": ["error", { "skipTemplates": true }],
     "prefer-named-capture-group": "off",
-    "react/prop-types": ["error", { "ignore": ["children"] }],
+    "react/prop-types": "off",
+    "react/display-name": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/camelcase": ["error", { "properties": "never" }],
     "@typescript-eslint/interface-name-prefix": ["error", "always"],
-    "@typescript-eslint/no-non-null-assertion": "off"
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-var-requires": "off"
   }
 }

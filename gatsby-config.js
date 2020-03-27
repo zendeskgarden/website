@@ -5,20 +5,30 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+const path = require('path');
+const { PALETTE } = require('@zendeskgarden/react-theming');
+
 module.exports = {
   siteMetadata: {
     title: 'Zendesk Garden',
     description: `Garden is a design system for Zendesk where we grow beautifully simple and accessible UI components.`
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`
+        path: path.join(__dirname, 'src/images')
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `news`,
+        path: path.join(__dirname, 'content/news')
+      }
+    },
+    `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -27,14 +37,44 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#1F73B7`,
-        theme_color: `#1F73B7`,
+        background_color: PALETTE.blue[600],
+        theme_color: PALETTE.blue[600],
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+        icon: `src/images/garden-icon.svg`
       }
-    }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    },
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true,
+        allExtensions: true
+      }
+    },
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        components: path.join(__dirname, 'src/components'),
+        layouts: path.join(__dirname, 'src/layouts')
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        svgo: true,
+        svgoConfig: {
+          plugins: [
+            { removeViewBox: false },
+            { cleanupIDs: true },
+            {
+              addAttributesToSVGElement: {
+                attributes: [{ focusable: false }, { role: 'presentation' }]
+              }
+            }
+          ]
+        }
+      }
+    },
+    'gatsby-source-news'
   ]
 };
