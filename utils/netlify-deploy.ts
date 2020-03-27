@@ -112,6 +112,10 @@ async function createNetlifyPreview() {
     } = await createGithubDeploymentStatus(deploymentId, deployStatus, environment, deployUrl);
 
     console.log(`Deployment Status "${deploymentStatusId}" created.`);
+
+    if (deployStatus === 'error') {
+      process.exit(1);
+    }
   } catch (error) {
     console.error(error);
     process.exit(1);

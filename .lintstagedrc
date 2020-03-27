@@ -1,7 +1,7 @@
 {
   "*.{js,ts,tsx}": [
     "stylelint",
-    "eslint",
+    "eslint --max-warnings 0",
     "prettier --write"
   ],
   "*.md": [
