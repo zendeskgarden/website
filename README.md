@@ -10,7 +10,7 @@
 > :seedling: Garden is a design system for Zendesk
 
 This repo contains the [Gatsby](https://www.gatsbyjs.org/)-powered site for
-garden.zendesk.com.
+[garden.zendesk.com](https://garden.zendesk.com/).
 
 ## Contribution
 
