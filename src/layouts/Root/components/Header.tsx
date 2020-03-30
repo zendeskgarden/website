@@ -10,6 +10,7 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { Link } from 'gatsby';
 import { getColor, PALETTE } from '@zendeskgarden/react-theming';
+import { IconButton } from '@zendeskgarden/react-buttons';
 import { MediaInput } from '@zendeskgarden/react-forms';
 import { ReactComponent as MenuStroke } from '@zendeskgarden/svg-icons/src/16/menu-stroke.svg';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
@@ -133,40 +134,22 @@ const MobileNavButton: React.FC<{
   return (
     <div
       css={css`
+        padding: ${p => p.theme.space.base * 1.5}px; /* (header - button) x .5 */
+
         @media (min-width: ${p => p.theme.breakpoints.md}) {
           display: none;
         }
       `}
     >
-      <button
-        css={css`
-          margin: 0;
-          border: none;
-          background-color: transparent;
-          padding: 0 ${p => p.theme.space.md};
-          height: 100%;
-          line-height: 0;
-          color: ${p => getColor('grey', 800, p.theme)};
-
-          > * {
-            width: ${p => p.theme.iconSizes.lg};
-            height: ${p => p.theme.iconSizes.lg};
-          }
-
-          &:focus {
-            outline: none;
-          }
-
-          &:hover {
-            background-color: ${p => getColor('grey', 200, p.theme)};
-          }
-        `}
+      <IconButton
         aria-label={label}
         aria-expanded={isExpanded}
+        isPill={false}
+        size="large"
         {...other}
       >
         {isExpanded ? <CloseStroke /> : icon}
-      </button>
+      </IconButton>
     </div>
   );
 };
