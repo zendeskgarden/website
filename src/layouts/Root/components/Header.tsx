@@ -125,11 +125,13 @@ const SearchInput = React.forwardRef<HTMLInputElement, HTMLAttributes<HTMLInputE
   )
 );
 
-const MobileNavButton: React.FC<{
-  isExpanded: boolean;
-  label: string;
-  icon: React.ReactNode;
-} & HTMLAttributes<HTMLButtonElement>> = ({ isExpanded, label, icon, ...other }) => {
+const MobileNavButton: React.FC<
+  {
+    isExpanded: boolean;
+    label: string;
+    icon: React.ReactNode;
+  } & HTMLAttributes<HTMLButtonElement>
+> = ({ isExpanded, label, icon, ...other }) => {
   return (
     <div
       css={css`
