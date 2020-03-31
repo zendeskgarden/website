@@ -19,11 +19,13 @@ export const StyledSectionHeader = styled.div`
   font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
-export const SectionCallout: React.FC<{
-  section: string;
-  header: string;
-  description: string;
-} & HTMLAttributes<HTMLDivElement>> = ({ section, header, description, children, ...props }) => (
+export const SectionCallout: React.FC<
+  {
+    section: string;
+    header: string;
+    description: string;
+  } & HTMLAttributes<HTMLDivElement>
+> = ({ section, header, description, children, ...props }) => (
   <div {...props}>
     <StyledSectionHeader
       css={css`
