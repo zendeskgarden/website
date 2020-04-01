@@ -36,7 +36,7 @@ const StyledDesktopNavLink = styled(Link)`
 `;
 
 const StyledHeader = styled.header.attrs({ role: 'banner' })`
-  z-index: 1;
+  z-index: 2;
   border-bottom: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
   box-shadow: ${p => p.theme.shadows.lg('0', '10px', getColor('kale', 600, p.theme, 0.15)!)};
   padding: 0 ${p => p.theme.space.md};
@@ -74,7 +74,6 @@ const Logo: React.FC = () => (
       >
         <GardenIcon
           css={css`
-            width: auto;
             height: ${p => p.theme.lineHeights.lg};
             color: ${PALETTE.green[400]};
 
@@ -86,7 +85,6 @@ const Logo: React.FC = () => (
         <GardenWordmark
           css={css`
             margin-left: ${p => p.theme.space.xxs};
-            width: auto;
             height: ${p => p.theme.lineHeights.lg};
             color: ${PALETTE.kale[700]};
 
@@ -156,12 +154,15 @@ const MobileNavButton: React.FC<
   );
 };
 
-const StyledMobileNavLink = styled(Link).attrs({ activeClassName: 'is-active' })`
+const StyledMobileNavLink = styled(Link).attrs({
+  activeClassName: 'is-active',
+  partiallyActive: true
+})`
   display: flex;
   align-items: center;
+  opacity: 0.6;
   margin-top: ${p => p.theme.space.base * 2}px;
   border-radius: ${props => props.theme.borderRadii.md};
-  box-sizing: border-box;
   padding: ${p => `0 ${p.theme.space.base * 2}px`};
   min-height: 32px;
 
@@ -214,7 +215,6 @@ const MobileNav: React.FC = () => {
         right: 0;
         bottom: 0;
         left: 0;
-        z-index: 1;
         background-color: ${p => getColor('kale', 700, p.theme)};
         padding: ${p => p.theme.space.lg};
         color: ${p => p.theme.colors.background};

@@ -10,7 +10,7 @@ import styled from 'styled-components';
 const MaxWidthLayout = styled.div`
   margin-right: auto;
   margin-left: auto;
-  max-width: ${p => p.theme.breakpoints.xl};
+  max-width: 1440px;
 `;
 
 export default MaxWidthLayout;

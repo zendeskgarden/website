@@ -28,9 +28,19 @@ module.exports = {
         path: path.join(__dirname, 'content/news')
       }
     },
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: path.join(__dirname, 'content/uxcs')
+      }
+    },
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-yaml`,
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-remove-trailing-slashes`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -41,6 +51,22 @@ module.exports = {
         theme_color: PALETTE.blue[600],
         display: `minimal-ui`,
         icon: `src/images/garden-icon.svg`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          'gatsby-remark-smartypants',
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              className: 'anchor',
+              icon:
+                '<svg class="octicon-link" xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-linecap="round" d="M3.4 8.4L1.6 6.6C.3 5.2.3 3 1.6 1.6 3 .2 5.2.2 6.5 1.6l3.2 3.2c1.4 1.4 1.4 3.6 0 4.9-.4.4-.8.7-1.3.8m4.2-2.8l1.8 1.8c1.4 1.4 1.4 3.6 0 4.9-1.4 1.4-3.6 1.4-4.9 0l-3.2-3.2c-1.4-1.4-1.4-3.6 0-4.9.4-.4.8-.7 1.3-.8"/></svg>'
+            }
+          }
+        ]
       }
     },
     {

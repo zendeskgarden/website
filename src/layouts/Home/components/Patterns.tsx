@@ -70,7 +70,7 @@ export const Patterns: React.FC = () => {
               css={css`
                 margin-right: auto;
                 margin-left: auto;
-                max-width: 300px;
+                max-width: 380px;
 
                 @media (max-width: ${p => p.theme.breakpoints.md}) {
                   margin-right: 0;
