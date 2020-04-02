@@ -11,8 +11,9 @@
   padding-right: 4px;
 }
 
-.markdown-body .anchor:focus {
+.markdown-body .anchor:focus .octicon-link {
   outline: none;
+  visibility: visible;
 }
 
 .markdown-body h1 .octicon-link,

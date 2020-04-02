@@ -34,7 +34,7 @@ export const Search: React.FC = () => {
   return (
     <div
       css={css`
-        margin-bottom: ${p => p.theme.space.xxl};
+        margin-bottom: ${p => p.theme.space.base * 20}px;
         background-color: ${p => p.theme.palette.oatMilk};
       `}
     >

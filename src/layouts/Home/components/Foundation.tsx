@@ -100,7 +100,7 @@ export const Foundation: React.FC = () => {
       <Grid
         gutters="lg"
         css={css`
-          margin-bottom: ${p => p.theme.space.xxl};
+          margin-bottom: ${p => p.theme.space.base * 20}px;
         `}
       >
         <Row>

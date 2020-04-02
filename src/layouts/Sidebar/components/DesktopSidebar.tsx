@@ -10,7 +10,6 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { Link } from 'gatsby';
 import { getColor } from '@zendeskgarden/react-theming';
-import { SM } from '@zendeskgarden/react-typography';
 import { ISidebarSection } from '..';
 
 const StyledSidebarLink = styled(Link).attrs({ activeClassName: 'is-active' })`
@@ -48,17 +47,19 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
         margin-bottom: ${p => p.theme.space.md};
       `}
     >
-      <SM
+      <div
         css={css`
           margin-bottom: ${p => p.theme.space.xxs};
           text-transform: uppercase;
+          line-height: ${p => p.theme.lineHeights.sm};
           letter-spacing: 0.5px;
           color: ${p => getColor('kale', 600, p.theme)};
+          font-size: ${p => p.theme.fontSizes.xs};
           font-weight: ${p => p.theme.fontWeights.semibold};
         `}
       >
         {section.title}
-      </SM>
+      </div>
       {section.items && (
         <ul
           css={`

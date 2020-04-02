@@ -78,7 +78,7 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
           text-transform: uppercase;
           line-height: ${p => p.theme.lineHeights.sm};
           letter-spacing: 0.5px;
-          font-size: ${p => p.theme.fontSizes.sm};
+          font-size: ${p => p.theme.fontSizes.xs};
           font-weight: ${p => p.theme.fontWeights.semibold};
         `}
       >
