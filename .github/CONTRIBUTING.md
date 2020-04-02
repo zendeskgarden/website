@@ -8,6 +8,13 @@ request, follow the [steps](#pull-request-workflow) below. We follow a
 [code of conduct](CODE_OF_CONDUCT.md) as our guide for community
 behavior.
 
+## Environment Variables
+
+We use the [Abstract SDK](https://sdk.goabstract.com/) to source versioned
+content and images throughout the site. To build this solution
+[generate an Abstract API token](https://sdk.goabstract.com/docs/authentication/#generating-an-access-token)
+and add it to your environment under the `ABSTRACT_TOKEN` name.
+
 ## Development Workflow
 
 Before you start, be sure [yarn](https://yarnpkg.com/en/) is installed
