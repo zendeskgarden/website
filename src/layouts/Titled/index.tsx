@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { css } from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
 import { LG } from '@zendeskgarden/react-typography';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { TOCBlock, TOC, IHeading } from './components/TOC';
@@ -23,7 +23,7 @@ const TitledLayout: React.FC<{
         <h1
           css={css`
             margin-bottom: ${p => p.theme.space.md};
-            line-height: ${p => p.theme.space.base * 12.5}px;
+            line-height: ${p => getLineHeight('56px', `${p.theme.space.base * 12}px`)};
             font-size: ${p => p.theme.space.base * 12}px;
             font-weight: ${p => p.theme.fontWeights.bold};
           `}

@@ -15,6 +15,7 @@ import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/
 
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { useStaticQuery, graphql } from 'gatsby';
+import { getLineHeight } from '@zendeskgarden/react-theming';
 
 export const Search: React.FC = () => {
   const { bannerImage } = useStaticQuery(
@@ -78,7 +79,7 @@ export const Search: React.FC = () => {
                 <h1
                   css={css`
                     margin-bottom: ${p => p.theme.space.md};
-                    line-height: ${p => p.theme.space.base * 12.5}px;
+                    line-height: ${p => getLineHeight('56px', `${p.theme.space.base * 12}px`)};
                     font-size: ${p => p.theme.space.base * 12}px;
                     font-weight: ${p => p.theme.fontWeights.bold};
 
