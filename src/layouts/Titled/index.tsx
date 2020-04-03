@@ -6,11 +6,22 @@
  */
 
 import React from 'react';
-import { css } from 'styled-components';
+import { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
 import { LG } from '@zendeskgarden/react-typography';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { TOCBlock, TOC, IHeading } from './components/TOC';
+
+const headerStyles = (p: ThemeProps<DefaultTheme>) => {
+  const fontSize = `${p.theme.space.base * 12}px`;
+
+  return css`
+    margin-bottom: ${p.theme.space.md};
+    line-height: ${getLineHeight(`${p.theme.space.base * 14}px`, fontSize)};
+    font-size: ${fontSize};
+    font-weight: ${p.theme.fontWeights.bold};
+  `;
+};
 
 const TitledLayout: React.FC<{
   title: React.ReactNode;
@@ -22,10 +33,7 @@ const TitledLayout: React.FC<{
       <Col lg={12} xl={9}>
         <h1
           css={css`
-            margin-bottom: ${p => p.theme.space.md};
-            line-height: ${p => getLineHeight('56px', `${p.theme.space.base * 12}px`)};
-            font-size: ${p => p.theme.space.base * 12}px;
-            font-weight: ${p => p.theme.fontWeights.bold};
+            ${headerStyles}
           `}
         >
           {title}
