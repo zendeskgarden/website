@@ -1,0 +1,20 @@
+- title: Introduction
+  items:
+    - id: /content
+      title: Overview
+- title: Foundations
+  items:
+    - id: /content/voice-and-tone
+      title: Voice and tone
+    - id: /content/word-list
+      title: Word list
+- title: Style
+  items:
+    - id: /content/basics
+      title: Basics
+    - id: /content/grammar
+      title: Grammar
+    - id: /content/numbers
+      title: Numbers
+    - id: /content/punctuation
+      title: Punctuation

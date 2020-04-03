@@ -7,7 +7,7 @@
 
 import React from 'react';
 import Img from 'gatsby-image';
-import { css } from 'styled-components';
+import { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { MediaInput } from '@zendeskgarden/react-forms';
 import { LG } from '@zendeskgarden/react-typography';
@@ -15,6 +15,23 @@ import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/
 
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { useStaticQuery, graphql } from 'gatsby';
+import { getLineHeight } from '@zendeskgarden/react-theming';
+
+const headerStyling = (p: ThemeProps<DefaultTheme>) => {
+  const fontSize = `${p.theme.space.base * 12}px`;
+
+  return css`
+    margin-bottom: ${p.theme.space.md};
+    line-height: ${getLineHeight(`${p.theme.space.base * 14}px`, fontSize)};
+    font-size: ${fontSize};
+    font-weight: ${p.theme.fontWeights.bold};
+
+    @media (max-width: ${p.theme.breakpoints.lg}) {
+      line-height: ${p.theme.lineHeights.xxxl};
+      font-size: ${p.theme.fontSizes.xxxl};
+    }
+  `;
+};
 
 export const Search: React.FC = () => {
   const { bannerImage } = useStaticQuery(
@@ -34,7 +51,7 @@ export const Search: React.FC = () => {
   return (
     <div
       css={css`
-        margin-bottom: ${p => p.theme.space.xxl};
+        margin-bottom: ${p => p.theme.space.base * 20}px;
         background-color: ${p => p.theme.palette.oatMilk};
       `}
     >
@@ -77,15 +94,7 @@ export const Search: React.FC = () => {
               <div>
                 <h1
                   css={css`
-                    margin-bottom: ${p => p.theme.space.md};
-                    line-height: ${p => p.theme.space.base * 12.5}px;
-                    font-size: ${p => p.theme.space.base * 12}px;
-                    font-weight: ${p => p.theme.fontWeights.bold};
-
-                    @media (max-width: ${p => p.theme.breakpoints.lg}) {
-                      line-height: ${p => p.theme.lineHeights.xxxl};
-                      font-size: ${p => p.theme.fontSizes.xxxl};
-                    }
+                    ${headerStyling}
                   `}
                 >
                   Search the Garden

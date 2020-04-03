@@ -100,7 +100,7 @@ export const Foundation: React.FC = () => {
       <Grid
         gutters="lg"
         css={css`
-          margin-bottom: ${p => p.theme.space.xxl};
+          margin-bottom: ${p => p.theme.space.base * 20}px;
         `}
       >
         <Row>
@@ -116,7 +116,7 @@ export const Foundation: React.FC = () => {
               header="The foundations for making products with Garden"
               description="This site is an evolving library of shared knowledge that intentionally blurs the line between design, content strategy, and engineering to reinforce a cohesive user experience throughout Zendesk’s product suite."
               css={css`
-                max-width: 300px;
+                max-width: 380px;
 
                 @media (max-width: ${p => p.theme.breakpoints.lg}) {
                   max-width: 420px;

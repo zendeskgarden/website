@@ -1,0 +1,103 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
+import { getColor } from '@zendeskgarden/react-theming';
+import { ReactComponent as OverflowStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
+import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import MaxWidthLayout from 'layouts/MaxWidth';
+import { MobileSidebar } from './components/MobileSidebar';
+import { DesktopSidebar } from './components/DesktopSidebar';
+
+export interface ISidebarSection {
+  title: string;
+  id?: string;
+  items?: ISidebarSection[];
+}
+
+const StyledMobileNavButton = styled.button<{ isExpanded: boolean }>`
+  display: none;
+  position: fixed;
+  right: ${p => p.theme.space.md};
+  bottom: ${p => p.theme.space.md};
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+  z-index: 1;
+  border: none;
+  border-radius: 100px;
+  background-color: ${p =>
+    p.isExpanded ? p.theme.colors.background : getColor('kale', 800, p.theme)};
+  padding: ${p => p.theme.space.xs};
+  color: ${p => (p.isExpanded ? getColor('kale', 800, p.theme) : p.theme.colors.background)};
+
+  &:focus {
+    outline: none;
+  }
+
+  & > svg {
+    width: ${p => p.theme.iconSizes.lg};
+    height: ${p => p.theme.iconSizes.lg};
+  }
+
+  @media (max-width: ${p => p.theme.breakpoints.lg}) {
+    display: flex;
+  }
+`;
+
+export const SidebarLayout: React.FC<{ sidebar: ISidebarSection[] }> = ({ children, sidebar }) => {
+  const [isMobileSidebarExpanded, setIsMobileSidebarExpanded] = useState(false);
+
+  return (
+    <div
+      css={`
+        position: relative;
+      `}
+    >
+      <MaxWidthLayout>
+        <div
+          css={css`
+            display: flex;
+            /* IE11 requires a specific min-height to fill height */
+            min-height: calc(100vh - 204px);
+          `}
+        >
+          <DesktopSidebar sidebar={sidebar} />
+          <div
+            css={css`
+              flex-grow: 1;
+              background-color: ${p => p.theme.colors.background};
+              padding: ${p => p.theme.space.lg} ${p => p.theme.space.md};
+
+              @media (max-width: ${p => p.theme.breakpoints.lg}) {
+                padding: ${p => p.theme.space.lg} ${p => p.theme.space.sm};
+              }
+            `}
+          >
+            <div
+              css={css`
+                margin-right: auto;
+                margin-left: auto;
+                max-width: ${p => p.theme.breakpoints.lg};
+              `}
+            >
+              {children}
+            </div>
+          </div>
+          {isMobileSidebarExpanded && <MobileSidebar sidebar={sidebar} />}
+          <StyledMobileNavButton
+            onClick={() => setIsMobileSidebarExpanded(!isMobileSidebarExpanded)}
+            isExpanded={isMobileSidebarExpanded}
+          >
+            {isMobileSidebarExpanded ? <CloseStroke /> : <OverflowStroke />}
+          </StyledMobileNavButton>
+        </div>
+      </MaxWidthLayout>
+    </div>
+  );
+};

@@ -35,7 +35,7 @@ export const Patterns: React.FC = () => {
       <Grid
         gutters="lg"
         css={css`
-          margin-bottom: ${p => p.theme.space.xxl};
+          margin-bottom: ${p => p.theme.space.base * 20}px;
         `}
       >
         <Row alignItems="center" justifyContent="center">
@@ -70,7 +70,7 @@ export const Patterns: React.FC = () => {
               css={css`
                 margin-right: auto;
                 margin-left: auto;
-                max-width: 300px;
+                max-width: 380px;
 
                 @media (max-width: ${p => p.theme.breakpoints.md}) {
                   margin-right: 0;

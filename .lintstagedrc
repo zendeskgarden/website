@@ -4,7 +4,7 @@
     "eslint --max-warnings 0",
     "prettier --write"
   ],
-  "*.md": [
+  "*.{md,mdx}": [
     "markdownlint",
     "prettier --write"
   ],
