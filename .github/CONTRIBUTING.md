@@ -10,7 +10,7 @@ behavior.
 
 ## Environment Variables
 
-We use the [Abstract SDK](https://sdk.goabstract.com/) to source versioned
+Garden uses the [Abstract SDK](https://sdk.goabstract.com/) to source versioned
 content and images throughout the site. To build this solution
 [generate an Abstract API token](https://sdk.goabstract.com/docs/authentication/#generating-an-access-token)
 and add it to your environment under the `ABSTRACT_TOKEN` name.
