@@ -57,7 +57,14 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
+          require.resolve('./plugins/gatsby-remark-abstract-assets'),
           'gatsby-remark-smartypants',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1000
+            }
+          },
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
@@ -101,6 +108,14 @@ module.exports = {
         }
       }
     },
-    'gatsby-source-news'
+    'gatsby-source-news',
+    {
+      resolve: 'gatsby-source-abstract',
+      options: {
+        apiToken: process.env.ABSTRACT_TOKEN,
+        projectId: '27ff5784-e1c4-4f8c-a914-c03c380c8ea9',
+        branch: '8a6f273a-b41e-413c-924f-2f2766ccc7a5'
+      }
+    }
   ]
 };
