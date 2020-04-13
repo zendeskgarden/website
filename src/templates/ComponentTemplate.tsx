@@ -14,11 +14,11 @@ import SEO from 'components/SEO';
 import { MarkdownProvider } from 'components/MarkdownProvider';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-const ContentLayoutTemplate: React.FC<{ data: any }> = ({ data: { mdx, navigation } }) => {
+const ComponentLayoutTemplate: React.FC<{ data: any }> = ({ data: { mdx, navigation } }) => {
   return (
     <RootLayout>
       <SEO
-        title={`${mdx.frontmatter.title} / Content`}
+        title={`${mdx.frontmatter.title} / Components`}
         description={mdx.frontmatter.description || mdx.excerpt}
       />
       <SidebarLayout sidebar={navigation.childrenNavYaml}>
@@ -28,7 +28,9 @@ const ContentLayoutTemplate: React.FC<{ data: any }> = ({ data: { mdx, navigatio
           toc={mdx.tableOfContents.items}
         >
           <MarkdownProvider>
-            <MDXRenderer>{mdx.body}</MDXRenderer>
+            <MDXRenderer package={mdx.reactPackage} propSheets={mdx.reactPropSheets}>
+              {mdx.body}
+            </MDXRenderer>
           </MarkdownProvider>
         </TitledLayout>
       </SidebarLayout>
@@ -36,10 +38,10 @@ const ContentLayoutTemplate: React.FC<{ data: any }> = ({ data: { mdx, navigatio
   );
 };
 
-export default ContentLayoutTemplate;
+export default ComponentLayoutTemplate;
 
 export const pageQuery = graphql`
-  query ContentPostQuery($id: String) {
+  query ComponentPostQuery($id: String) {
     mdx(id: { eq: $id }) {
       id
       body
@@ -49,8 +51,19 @@ export const pageQuery = graphql`
         title
         description
       }
+      reactPackage {
+        version
+        name
+        description
+      }
+      reactPropSheets {
+        displayName
+        description
+        methods
+        props
+      }
     }
-    navigation: file(sourceInstanceName: { eq: "content" }, relativePath: { eq: "nav.yml" }) {
+    navigation: file(sourceInstanceName: { eq: "components" }, relativePath: { eq: "nav.yml" }) {
       childrenNavYaml {
         title
         items {

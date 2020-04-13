@@ -35,6 +35,31 @@ module.exports = {
         path: path.join(__dirname, 'content/uxcs')
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `components`,
+        path: path.join(__dirname, 'content/components')
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `react-components`,
+        path: path.join(__dirname, 'react-components/packages'),
+        ignore: ['**/*.!(ts|tsx)']
+      }
+    },
+    'gatsby-source-news',
+    'gatsby-source-react-packages',
+    {
+      resolve: 'gatsby-source-abstract',
+      options: {
+        apiToken: process.env.ABSTRACT_TOKEN,
+        projectId: '27ff5784-e1c4-4f8c-a914-c03c380c8ea9',
+        branch: '8a6f273a-b41e-413c-924f-2f2766ccc7a5'
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-react-helmet`,
@@ -70,7 +95,7 @@ module.exports = {
             options: {
               className: 'anchor',
               icon:
-                '<svg class="octicon-link" xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-linecap="round" d="M3.4 8.4L1.6 6.6C.3 5.2.3 3 1.6 1.6 3 .2 5.2.2 6.5 1.6l3.2 3.2c1.4 1.4 1.4 3.6 0 4.9-.4.4-.8.7-1.3.8m4.2-2.8l1.8 1.8c1.4 1.4 1.4 3.6 0 4.9-1.4 1.4-3.6 1.4-4.9 0l-3.2-3.2c-1.4-1.4-1.4-3.6 0-4.9.4-.4.8-.7 1.3-.8"/></svg>'
+                '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-linecap="round" d="M3.4 8.4L1.6 6.6C.3 5.2.3 3 1.6 1.6 3 .2 5.2.2 6.5 1.6l3.2 3.2c1.4 1.4 1.4 3.6 0 4.9-.4.4-.8.7-1.3.8m4.2-2.8l1.8 1.8c1.4 1.4 1.4 3.6 0 4.9-1.4 1.4-3.6 1.4-4.9 0l-3.2-3.2c-1.4-1.4-1.4-3.6 0-4.9.4-.4.8-.7 1.3-.8"/></svg>'
             }
           }
         ]
@@ -106,15 +131,6 @@ module.exports = {
             }
           ]
         }
-      }
-    },
-    'gatsby-source-news',
-    {
-      resolve: 'gatsby-source-abstract',
-      options: {
-        apiToken: process.env.ABSTRACT_TOKEN,
-        projectId: '27ff5784-e1c4-4f8c-a914-c03c380c8ea9',
-        branch: '8a6f273a-b41e-413c-924f-2f2766ccc7a5'
       }
     }
   ]

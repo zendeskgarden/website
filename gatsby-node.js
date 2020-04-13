@@ -34,9 +34,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
     query {
-      content: allMdx(
-        filter: { fields: { sourceInstanceName: { eq: "content" } }, frontmatter: {} }
-      ) {
+      content: allMdx(filter: { fields: { sourceInstanceName: { eq: "content" } } }) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+          }
+        }
+      }
+      components: allMdx(filter: { fields: { sourceInstanceName: { eq: "components" } } }) {
         edges {
           node {
             id
@@ -59,6 +67,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage({
       path: `/content${node.fields.slug}`,
       component: path.resolve(`./src/templates/ContentTemplate.tsx`),
+      context: { id: node.id }
+    });
+  });
+
+  const componentPosts = result.data.components.edges;
+
+  componentPosts.forEach(({ node }) => {
+    createPage({
+      path: `/components${node.fields.slug}`,
+      component: path.resolve(`./src/templates/ComponentTemplate.tsx`),
       context: { id: node.id }
     });
   });
