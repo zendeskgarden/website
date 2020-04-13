@@ -88,13 +88,14 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
           <input type="hidden" name="parameters" value={parameters} />
           <input type="hidden" name="query" value="module=src/Example.tsx" />
           <Tooltip content="Fork in Codesandbox">
-            <StyledFooterButton type="submit">
+            <StyledFooterButton aria-label="Fork in Codesandbox" type="submit">
               <LightningBoltStroke />
             </StyledFooterButton>
           </Tooltip>
         </form>
         <Tooltip content={tooltipContent}>
           <StyledFooterButton
+            aria-label="Copy to clipboard"
             onClick={() => {
               copyToClipboard(code);
               setTooltipContent('Code copied to clipboard...');
@@ -104,7 +105,10 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
           </StyledFooterButton>
         </Tooltip>
         <Tooltip content={isCodeVisible ? 'Hide code' : 'Show code'}>
-          <StyledFooterButton onClick={() => setIsCodeVisible(!isCodeVisible)}>
+          <StyledFooterButton
+            aria-label={isCodeVisible ? 'Hide code' : 'Show code'}
+            onClick={() => setIsCodeVisible(!isCodeVisible)}
+          >
             <MarkupStroke />
           </StyledFooterButton>
         </Tooltip>
