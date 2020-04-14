@@ -17,8 +17,8 @@ import { H2, H3, H4, H5, H6, P } from './components/typography';
 const GlobalStyle = createGlobalStyle`
   .anchor {
     visibility: hidden;
-    margin-left: -20px;
-    padding-right: 4px;
+    margin-left: -${p => p.theme.space.md};
+    padding-right: ${p => p.theme.space.xxs};
     line-height: 1;
     color: ${p => p.theme.colors.foreground};
   }

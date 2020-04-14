@@ -48,7 +48,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   }, [code]);
 
   useEffect(() => {
-    let timeout: any;
+    let timeout: NodeJS.Timeout;
 
     if (tooltipContent !== initialTooltipContent) {
       timeout = setTimeout(() => {
