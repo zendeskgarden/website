@@ -20,21 +20,19 @@ export interface ISidebarSection {
   items?: ISidebarSection[];
 }
 
-const StyledMobileNavButton = styled.button<{ isExpanded: boolean }>`
+const StyledMobileNavButton = styled.button`
   display: none;
   position: fixed;
   right: ${p => p.theme.space.md};
   bottom: ${p => p.theme.space.md};
   align-items: center;
   justify-content: center;
-  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
   z-index: 1;
   border: none;
   border-radius: 100px;
-  background-color: ${p =>
-    p.isExpanded ? p.theme.colors.background : getColor('kale', 800, p.theme)};
+  background-color: ${p => getColor('kale', 800, p.theme)};
   padding: ${p => p.theme.space.xs};
-  color: ${p => (p.isExpanded ? getColor('kale', 800, p.theme) : p.theme.colors.background)};
+  color: ${p => p.theme.colors.background};
 
   &:focus {
     outline: none;
@@ -92,7 +90,6 @@ export const SidebarLayout: React.FC<{ sidebar: ISidebarSection[] }> = ({ childr
           {isMobileSidebarExpanded && <MobileSidebar sidebar={sidebar} />}
           <StyledMobileNavButton
             onClick={() => setIsMobileSidebarExpanded(!isMobileSidebarExpanded)}
-            isExpanded={isMobileSidebarExpanded}
           >
             {isMobileSidebarExpanded ? <CloseStroke /> : <OverflowStroke />}
           </StyledMobileNavButton>

@@ -7,7 +7,6 @@
 
 import React, { useState, HTMLAttributes, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { rgba } from 'polished';
 import { Link } from 'gatsby';
 import { getColor, PALETTE } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
@@ -18,27 +17,28 @@ import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/26/wordmark-garden.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
+import { StyledNavigationLink } from './StyledNavigationLink';
 
 const StyledDesktopNavItem = styled.div`
   display: flex;
   align-items: center;
+  margin-left: ${p => p.theme.space.sm};
 `;
 
-const StyledDesktopNavLink = styled(Link)`
+const StyledDesktopNavLink = styled(StyledNavigationLink).attrs({ partiallyActive: true })`
   display: flex;
   align-items: center;
-  align-self: stretch;
   justify-content: center;
-  padding: ${p => p.theme.space.sm};
-  line-height: ${p => p.theme.lineHeights.md};
-  color: ${p => getColor('grey', 800, p.theme)};
-  font-size: ${p => p.theme.fontSizes.md};
 `;
 
 const StyledHeader = styled.header.attrs({ role: 'banner' })`
-  z-index: 2;
-  border-bottom: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
-  box-shadow: ${p => p.theme.shadows.lg('0', '10px', getColor('kale', 600, p.theme, 0.15)!)};
+  z-index: 999; /* Ensure header is always placed above menus and content */
+  box-shadow: ${p =>
+    p.theme.shadows.lg(
+      `${p.theme.space.base * 4}px`,
+      `${p.theme.space.base * 6}px`,
+      getColor('kale', 600, p.theme, 0.05)!
+    )};
   padding: 0 ${p => p.theme.space.md};
   height: ${p => p.theme.space.base * 20}px;
 
@@ -154,48 +154,9 @@ const MobileNavButton: React.FC<
   );
 };
 
-const StyledMobileNavLink = styled(Link).attrs({
-  activeClassName: 'is-active',
-  partiallyActive: true
-})`
-  display: flex;
-  align-items: center;
-  opacity: 0.6;
+const StyledMobileNavLink = styled(StyledNavigationLink).attrs({ partiallyActive: true })`
+  display: block;
   margin-top: ${p => p.theme.space.base * 2}px;
-  border-radius: ${props => props.theme.borderRadii.md};
-  padding: ${p => `0 ${p.theme.space.base * 2}px`};
-  min-height: 32px;
-
-  &,
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &:hover {
-    opacity: 1;
-    background-color: ${p => rgba(p.theme.palette.white as string, 0.1)};
-  }
-
-  &.is-active {
-    opacity: 1;
-    background-color: ${p => rgba(p.theme.palette.white as string, 0.1)};
-    cursor: pointer;
-  }
-
-  &[data-garden-focus-visible] {
-    opacity: 1;
-    box-shadow: ${p => p.theme.shadows.md(rgba(p.theme.palette.white as string, 0.2))};
-  }
-
-  &:not([data-garden-header='true']):active {
-    background-color: ${p => rgba(p.theme.palette.white as string, 0.03)};
-  }
 `;
 
 const MobileNav: React.FC = () => {
@@ -215,9 +176,9 @@ const MobileNav: React.FC = () => {
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: ${p => getColor('kale', 700, p.theme)};
-        padding: ${p => p.theme.space.lg};
-        color: ${p => p.theme.colors.background};
+        z-index: 3;
+        background-color: ${p => p.theme.palette.tofu};
+        padding: ${p => p.theme.space.lg} ${p => p.theme.space.xxl};
       `}
     >
       <StyledMobileNavLink to="/content">Content</StyledMobileNavLink>
@@ -254,11 +215,7 @@ const DesktopNav: React.FC = () => (
     <StyledDesktopNavItem>
       <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
     </StyledDesktopNavItem>
-    <StyledDesktopNavItem
-      css={css`
-        margin-left: ${p => p.theme.space.sm};
-      `}
-    >
+    <StyledDesktopNavItem>
       <SearchInput />
     </StyledDesktopNavItem>
   </nav>
@@ -276,44 +233,47 @@ const Header: React.FC = () => {
   }, [isSearchVisible]);
 
   return (
-    <StyledHeader>
-      <MaxWidthLayout
-        css={css`
-          display: flex;
-          height: 100%;
-          min-height: 100%;
-        `}
-      >
-        <MobileNavButton
-          icon={<SearchStroke />}
-          label="Search"
-          isExpanded={isSearchVisible}
-          onClick={() => {
-            setIsSearchVisible(!isSearchVisible);
+    <>
+      <StyledHeader>
+        <MaxWidthLayout
+          css={css`
+            display: flex;
+            height: 100%;
+            min-height: 100%;
+          `}
+        >
+          <MobileNavButton
+            icon={<SearchStroke />}
+            label="Search"
+            isExpanded={isSearchVisible}
+            onClick={() => {
+              setIsSearchVisible(!isSearchVisible);
 
-            if (!isSearchVisible) {
-              setIsNavigationVisible(false);
-            }
-          }}
-        />
-        {!isSearchVisible && <Logo />}
-        {isSearchVisible && <MobileSearch ref={inputRef} />}
-        <MobileNavButton
-          icon={<MenuStroke />}
-          label="Global navigation"
-          isExpanded={isNavigationVisible}
-          onClick={() => {
-            setIsNavigationVisible(!isNavigationVisible);
+              if (!isSearchVisible) {
+                setIsNavigationVisible(false);
+              }
+            }}
+          />
+          {!isSearchVisible && <Logo />}
+          {isSearchVisible && <MobileSearch ref={inputRef} />}
+          <MobileNavButton
+            icon={<MenuStroke />}
+            label="Global navigation"
+            isExpanded={isNavigationVisible}
+            onClick={() => {
+              setIsNavigationVisible(!isNavigationVisible);
 
-            if (!isNavigationVisible) {
-              setIsSearchVisible(false);
-            }
-          }}
-        />
-        <DesktopNav />
-      </MaxWidthLayout>
+              if (!isNavigationVisible) {
+                setIsSearchVisible(false);
+              }
+            }}
+          />
+          <DesktopNav />
+        </MaxWidthLayout>
+      </StyledHeader>
+
       {isNavigationVisible && <MobileNav />}
-    </StyledHeader>
+    </>
   );
 };
 

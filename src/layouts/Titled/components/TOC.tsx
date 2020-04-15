@@ -55,6 +55,13 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
   const OFFSET = 500;
   const [activeHeadingUrl, setActiveHeadingUrl] = useState<string>();
 
+  const isValidTocHeading = useCallback(
+    (url: string) => {
+      return data.some(heading => heading.url === url);
+    },
+    [data]
+  );
+
   const findActiveHeading = useCallback(
     throttle(() => {
       const headerAnchors = document.getElementsByClassName('anchor') as HTMLCollectionOf<
@@ -65,12 +72,14 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
         const { top } = headerAnchor.getBoundingClientRect();
 
         if (top >= 0 && top <= OFFSET) {
-          setActiveHeadingUrl(headerAnchor.hash);
+          if (isValidTocHeading(headerAnchor.hash)) {
+            setActiveHeadingUrl(headerAnchor.hash);
+          }
           break;
         }
       }
     }, 100),
-    []
+    [isValidTocHeading]
   );
 
   useEffect(() => {
@@ -116,7 +125,14 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
       </li>
       {data.map(heading => (
         <StyledTocItem key={heading.url} isActive={activeHeadingUrl === heading.url}>
-          <Anchor href={heading.url}>{heading.title}</Anchor>
+          <Anchor
+            href={heading.url}
+            css={css`
+              padding: ${p => p.theme.space.xxs} 0;
+            `}
+          >
+            {heading.title}
+          </Anchor>
         </StyledTocItem>
       ))}
     </ul>

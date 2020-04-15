@@ -7,36 +7,13 @@
 
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { rgba } from 'polished';
-import { Link } from 'gatsby';
 import { getColor } from '@zendeskgarden/react-theming';
 import { ISidebarSection } from '..';
+import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
 
-const StyledSidebarLink = styled(Link).attrs({ activeClassName: 'is-active' })`
+const StyledSidebarLink = styled(StyledNavigationLink)`
   display: block;
   margin-left: -${p => p.theme.space.xs};
-  border-radius: ${p => p.theme.borderRadii.md};
-  padding: ${p => p.theme.space.base * 1.5}px ${p => p.theme.space.xs};
-  color: ${p => p.theme.colors.foreground};
-
-  &:focus,
-  &:hover,
-  &:active {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  &.is-active {
-    background-color: ${p => rgba(p.theme.palette.black as string, 0.1)};
-  }
-
-  &[data-garden-focus-visible] {
-    box-shadow: ${p => p.theme.shadows.md(getColor('blue', 400, p.theme, 0.35)!)};
-  }
-
-  &:active {
-    background-color: ${p => rgba(p.theme.palette.black as string, 0.05)};
-  }
 `;
 
 export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sidebar }) => {
