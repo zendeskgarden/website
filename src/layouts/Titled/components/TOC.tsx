@@ -45,9 +45,9 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
   </div>
 );
 
-const StyledTocItem = styled.li<{ isActive: boolean }>`
+const StyledTocItem = styled.li<{ isCurrent: boolean }>`
   margin-left: -${p => p.theme.borderWidths.sm};
-  border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', p.isActive ? 800 : 300, p.theme)};
+  border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', p.isCurrent ? 800 : 300, p.theme)};
   padding-left: ${p => p.theme.space.md};
 `;
 
@@ -124,7 +124,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
         </SM>
       </li>
       {data.map(heading => (
-        <StyledTocItem key={heading.url} isActive={activeHeadingUrl === heading.url}>
+        <StyledTocItem key={heading.url} isCurrent={activeHeadingUrl === heading.url}>
           <Anchor
             href={heading.url}
             css={css`
