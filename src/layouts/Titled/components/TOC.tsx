@@ -45,15 +45,22 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
   </div>
 );
 
-const StyledTocItem = styled.li<{ isActive: boolean }>`
+const StyledTocItem = styled.li<{ isCurrent: boolean }>`
   margin-left: -${p => p.theme.borderWidths.sm};
-  border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', p.isActive ? 800 : 300, p.theme)};
+  border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', p.isCurrent ? 800 : 300, p.theme)};
   padding-left: ${p => p.theme.space.md};
 `;
 
 export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
   const OFFSET = 500;
   const [activeHeadingUrl, setActiveHeadingUrl] = useState<string>();
+
+  const isValidTocHeading = useCallback(
+    (url: string) => {
+      return data.some(heading => heading.url === url);
+    },
+    [data]
+  );
 
   const findActiveHeading = useCallback(
     throttle(() => {
@@ -65,12 +72,14 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
         const { top } = headerAnchor.getBoundingClientRect();
 
         if (top >= 0 && top <= OFFSET) {
-          setActiveHeadingUrl(headerAnchor.hash);
+          if (isValidTocHeading(headerAnchor.hash)) {
+            setActiveHeadingUrl(headerAnchor.hash);
+          }
           break;
         }
       }
     }, 100),
-    []
+    [isValidTocHeading]
   );
 
   useEffect(() => {
@@ -115,8 +124,15 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
         </SM>
       </li>
       {data.map(heading => (
-        <StyledTocItem key={heading.url} isActive={activeHeadingUrl === heading.url}>
-          <Anchor href={heading.url}>{heading.title}</Anchor>
+        <StyledTocItem key={heading.url} isCurrent={activeHeadingUrl === heading.url}>
+          <Anchor
+            href={heading.url}
+            css={css`
+              padding: ${p => p.theme.space.xxs} 0;
+            `}
+          >
+            {heading.title}
+          </Anchor>
         </StyledTocItem>
       ))}
     </ul>
