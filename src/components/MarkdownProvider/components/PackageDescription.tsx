@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { UnorderedList } from '@zendeskgarden/react-typography';
 
 export interface IPackage {
   version: string;
@@ -15,10 +16,10 @@ export interface IPackage {
 
 export const PackageDescription: React.FC<{ data: IPackage }> = ({ data }) => {
   return (
-    <ul>
-      <li>Name: {data.name}</li>
-      <li>Version: {data.version}</li>
-      <li>Description: {data.description}</li>
-    </ul>
+    <UnorderedList>
+      <UnorderedList.Item>Name: {data.name}</UnorderedList.Item>
+      <UnorderedList.Item>Version: {data.version}</UnorderedList.Item>
+      <UnorderedList.Item>Description: {data.description}</UnorderedList.Item>
+    </UnorderedList>
   );
 };

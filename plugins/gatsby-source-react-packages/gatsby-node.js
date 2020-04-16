@@ -1,4 +1,3 @@
-/* eslint-disable no-await-in-loop */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -61,6 +60,7 @@ exports.sourceNodes = async ({ actions, reporter }) => {
 
   reporter.info('Sourcing Garden react-component packages...');
 
+  /* eslint-disable no-await-in-loop */
   for (const file of await readdir(packagesRoot)) {
     if (file === '.template') {
       continue;
@@ -83,6 +83,7 @@ exports.sourceNodes = async ({ actions, reporter }) => {
 
     await createNode(node);
   }
+  /* eslint-enable no-await-in-loop */
 };
 
 exports.createResolvers = ({ createResolvers, cache }) => {

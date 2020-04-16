@@ -57,7 +57,6 @@ const packageJson = `
     "react-dom": "latest",
     "styled-components": "latest",
     "@zendeskgarden/css-bedrock": "^7.0.33",
-    "@zendeskgarden/css-variables": "^6.4.3",
     "@zendeskgarden/react-avatars": "^8.0.0",
     "@zendeskgarden/react-buttons": "^8.0.0",
     "@zendeskgarden/react-chrome": "^8.0.0",
