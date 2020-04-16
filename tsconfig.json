@@ -16,5 +16,6 @@
     "experimentalDecorators": true,
     "noEmit": true,
     "typeRoots": ["./utils/typings", "./node_modules/@types"]
-  }
+  },
+  "exclude": ["./react-components"]
 }

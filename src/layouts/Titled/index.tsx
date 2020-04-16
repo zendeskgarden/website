@@ -26,7 +26,7 @@ const headerStyles = (p: ThemeProps<DefaultTheme>) => {
 const TitledLayout: React.FC<{
   title: React.ReactNode;
   subTitle?: React.ReactNode;
-  toc: IHeading[];
+  toc?: IHeading[];
 }> = ({ children, title, subTitle, toc }) => (
   <Grid gutters="lg">
     <Row>
