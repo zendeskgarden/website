@@ -45,6 +45,7 @@
     "babel-eslint": "10.1.0",
     "babel-plugin-styled-components": "1.10.7",
     "bottleneck": "2.19.5",
+    "cheerio": "1.0.0-rc.3",
     "codesandbox": "2.1.12",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.1",

@@ -8,7 +8,6 @@
 import React, { useState, useCallback, useEffect, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
-import { SM } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import throttle from 'lodash/throttle';
 
@@ -22,15 +21,18 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
   ...props
 }) => (
   <div {...props}>
-    <SM
+    <div
       css={css`
         text-transform: uppercase;
+        line-height: ${p => p.theme.lineHeights.sm};
         letter-spacing: 0.5px;
         color: ${p => getColor('grey', 600, p.theme)};
+        font-size: ${p => p.theme.fontSizes.xs};
+        font-weight: ${p => p.theme.fontWeights.semibold};
       `}
     >
       Content
-    </SM>
+    </div>
     <ul
       css={css`
         margin-bottom: ${p => p.theme.space.lg};
@@ -112,16 +114,19 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
           padding-left: ${p => p.theme.space.md};
         `}
       >
-        <SM
+        <div
           css={css`
             margin-left: -${p => p.theme.borderWidths.sm};
             text-transform: uppercase;
+            line-height: ${p => p.theme.lineHeights.sm};
             letter-spacing: 0.5px;
             color: ${p => getColor('grey', 600, p.theme)};
+            font-size: ${p => p.theme.fontSizes.xs};
+            font-weight: ${p => p.theme.fontWeights.semibold};
           `}
         >
           Content
-        </SM>
+        </div>
       </li>
       {data.map(heading => (
         <StyledTocItem key={heading.url} isCurrent={activeHeadingUrl === heading.url}>

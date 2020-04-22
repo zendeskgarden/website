@@ -64,6 +64,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   return (
     <div
       css={css`
+        margin: ${p => p.theme.space.md} 0;
         border: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
         border-radius: ${p => p.theme.borderRadii.md};
       `}
@@ -75,7 +76,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
         css={css`
           display: flex;
           justify-content: flex-end;
-          background-color: ${p => p.theme.palette.tofu};
+          background-color: ${p => getColor('grey', 200, p.theme)};
           padding: ${p => p.theme.space.xxs} ${p => p.theme.space.xs};
         `}
       >

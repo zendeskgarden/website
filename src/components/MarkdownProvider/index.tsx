@@ -12,7 +12,21 @@ import { MDXProvider } from '@mdx-js/react';
 import { CodeExample } from './components/CodeExample';
 import { PackageDescription } from './components/PackageDescription';
 import { PropSheets } from './components/PropSheets';
-import { H2, H3, H4, H5, H6, P } from './components/typography';
+import {
+  StyledH2,
+  StyledH3,
+  StyledH4,
+  StyledH5,
+  StyledH6,
+  StyledP,
+  StyledBlockquote,
+  StyledHr,
+  StyledPre
+} from './components/Typography';
+import { MDSyntaxHighlighter } from './components/Code';
+import { Code } from '@zendeskgarden/react-typography';
+import { UL, OL, LI } from './components/Lists';
+import { Table, TR, TH, TD, TBody, THead } from './components/Table';
 
 const GlobalStyle = createGlobalStyle`
   .anchor {
@@ -48,12 +62,26 @@ export const MarkdownProvider: React.FC = ({ children }) => (
         CodeExample,
         PackageDescription,
         PropSheets,
-        h2: H2,
-        h3: H3,
-        h4: H4,
-        h5: H5,
-        h6: H6,
-        p: P
+        h2: StyledH2,
+        h3: StyledH3,
+        h4: StyledH4,
+        h5: StyledH5,
+        h6: StyledH6,
+        p: StyledP,
+        blockquote: StyledBlockquote,
+        hr: StyledHr,
+        inlineCode: Code,
+        pre: StyledPre,
+        code: MDSyntaxHighlighter,
+        ul: UL,
+        ol: OL,
+        li: LI,
+        table: Table,
+        thead: THead,
+        tbody: TBody,
+        tr: TR,
+        td: TD,
+        th: TH
       }}
     >
       {children}

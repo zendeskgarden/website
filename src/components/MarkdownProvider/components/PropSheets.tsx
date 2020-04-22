@@ -13,7 +13,7 @@ import { MD } from '@zendeskgarden/react-typography';
 import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
 
 import { IPackage } from './PackageDescription';
-import { H3, P } from './typography';
+import { StyledH3, StyledP } from './Typography';
 
 export const PropSheets: React.FC<{ data: ComponentDoc[]; reactPackage: IPackage }> = ({
   data,
@@ -24,11 +24,11 @@ export const PropSheets: React.FC<{ data: ComponentDoc[]; reactPackage: IPackage
       {data &&
         data.map((propSheet, index) => (
           <div key={`${propSheet.displayName}-${index}`}>
-            <H3>{propSheet.displayName}</H3>
+            <StyledH3>{propSheet.displayName}</StyledH3>
             <MD isMonospace>
               import {`{${propSheet.displayName}}`} from &quot;{reactPackage.name}&quot;;
             </MD>
-            <P>{propSheet.description}</P>
+            <StyledP>{propSheet.description}</StyledP>
             <Table>
               <Head>
                 <HeaderRow>
