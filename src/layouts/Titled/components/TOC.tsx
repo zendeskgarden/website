@@ -10,6 +10,7 @@ import styled, { css } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import throttle from 'lodash/throttle';
+import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 
 export interface IHeading {
   url: string;
@@ -21,18 +22,7 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
   ...props
 }) => (
   <div {...props}>
-    <div
-      css={css`
-        text-transform: uppercase;
-        line-height: ${p => p.theme.lineHeights.sm};
-        letter-spacing: 0.5px;
-        color: ${p => getColor('grey', 600, p.theme)};
-        font-size: ${p => p.theme.fontSizes.xs};
-        font-weight: ${p => p.theme.fontWeights.semibold};
-      `}
-    >
-      Content
-    </div>
+    <StyledSectionHeader>Content</StyledSectionHeader>
     <ul
       css={css`
         margin-bottom: ${p => p.theme.space.lg};
@@ -114,19 +104,13 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
           padding-left: ${p => p.theme.space.md};
         `}
       >
-        <div
+        <StyledSectionHeader
           css={css`
             margin-left: -${p => p.theme.borderWidths.sm};
-            text-transform: uppercase;
-            line-height: ${p => p.theme.lineHeights.sm};
-            letter-spacing: 0.5px;
-            color: ${p => getColor('grey', 600, p.theme)};
-            font-size: ${p => p.theme.fontSizes.xs};
-            font-weight: ${p => p.theme.fontWeights.semibold};
           `}
         >
           Content
-        </div>
+        </StyledSectionHeader>
       </li>
       {data.map(heading => (
         <StyledTocItem key={heading.url} isCurrent={activeHeadingUrl === heading.url}>

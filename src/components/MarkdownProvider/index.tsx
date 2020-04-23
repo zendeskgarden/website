@@ -18,13 +18,14 @@ import {
   StyledH4,
   StyledH5,
   StyledH6,
-  StyledP,
   StyledBlockquote,
   StyledHr,
-  StyledPre
+  StyledPre,
+  StyledStrong,
+  StyledEmphasis
 } from './components/Typography';
 import { MDSyntaxHighlighter } from './components/Code';
-import { Code } from '@zendeskgarden/react-typography';
+import { Code, Paragraph } from '@zendeskgarden/react-typography';
 import { UL, OL, LI } from './components/Lists';
 import { Table, TR, TH, TD, TBody, THead } from './components/Table';
 
@@ -67,9 +68,11 @@ export const MarkdownProvider: React.FC = ({ children }) => (
         h4: StyledH4,
         h5: StyledH5,
         h6: StyledH6,
-        p: StyledP,
+        p: Paragraph,
         blockquote: StyledBlockquote,
         hr: StyledHr,
+        strong: StyledStrong,
+        em: StyledEmphasis,
         inlineCode: Code,
         pre: StyledPre,
         code: MDSyntaxHighlighter,

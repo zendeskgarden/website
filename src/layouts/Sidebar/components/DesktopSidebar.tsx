@@ -10,6 +10,7 @@ import styled, { css } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
 import { ISidebarSection } from '..';
 import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
+import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 
 const StyledSidebarLink = styled(StyledNavigationLink)`
   display: block;
@@ -24,19 +25,14 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
         margin-bottom: ${p => p.theme.space.md};
       `}
     >
-      <div
+      <StyledSectionHeader
         css={css`
           margin-bottom: ${p => p.theme.space.xxs};
-          text-transform: uppercase;
-          line-height: ${p => p.theme.lineHeights.sm};
-          letter-spacing: 0.5px;
           color: ${p => getColor('kale', 600, p.theme)};
-          font-size: ${p => p.theme.fontSizes.xs};
-          font-weight: ${p => p.theme.fontWeights.semibold};
         `}
       >
         {section.title}
-      </div>
+      </StyledSectionHeader>
       {section.items && (
         <ul
           css={`

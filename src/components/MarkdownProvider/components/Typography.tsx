@@ -8,7 +8,7 @@
 import React from 'react';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
-import { XXL, XL, LG, MD } from '@zendeskgarden/react-typography';
+import { XXL, XL, LG } from '@zendeskgarden/react-typography';
 
 const headerSpacing = (p: ThemeProps<DefaultTheme>) => {
   return css`
@@ -38,17 +38,6 @@ export const StyledH6 = styled(LG).attrs({ tag: 'h6' })`
   ${headerSpacing}
 `;
 
-export const StyledP = styled(MD).attrs({ tag: 'p' })`
-  /*
-   * May be removed once
-   * https://github.com/zendeskgarden/react-components/pull/724
-   * is released.
-   */
-  & + & {
-    margin-top: ${props => props.theme.lineHeights.md};
-  }
-`;
-
 export const StyledBlockquote = styled.blockquote`
   margin-top: ${p => p.theme.space.md};
   margin-bottom: ${p => p.theme.space.md};
@@ -57,7 +46,7 @@ export const StyledBlockquote = styled.blockquote`
   color: ${p => getColor('grey', 600, p.theme)};
   font-style: italic;
 
-  ${StyledP} {
+  p {
     line-height: ${p => p.theme.lineHeights.lg};
     font-size: ${p => p.theme.space.base * 4}px;
   }
@@ -75,3 +64,11 @@ export const StyledHr = styled.hr`
 export const StyledPre: React.FC = ({ children }) => {
   return <>{children}</>;
 };
+
+export const StyledStrong = styled.strong`
+  font-weight: ${p => p.theme.fontWeights.bold};
+`;
+
+export const StyledEmphasis = styled.em`
+  font-style: italic;
+`;

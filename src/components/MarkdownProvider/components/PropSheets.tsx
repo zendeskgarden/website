@@ -9,11 +9,11 @@ import React from 'react';
 import { css } from 'styled-components';
 import { ComponentDoc } from 'react-docgen-typescript';
 import { getColor } from '@zendeskgarden/react-theming';
-import { MD } from '@zendeskgarden/react-typography';
+import { MD, Paragraph } from '@zendeskgarden/react-typography';
 import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
 
 import { IPackage } from './PackageDescription';
-import { StyledH3, StyledP } from './Typography';
+import { StyledH3 } from './Typography';
 
 export const PropSheets: React.FC<{ data: ComponentDoc[]; reactPackage: IPackage }> = ({
   data,
@@ -28,7 +28,7 @@ export const PropSheets: React.FC<{ data: ComponentDoc[]; reactPackage: IPackage
             <MD isMonospace>
               import {`{${propSheet.displayName}}`} from &quot;{reactPackage.name}&quot;;
             </MD>
-            <StyledP>{propSheet.description}</StyledP>
+            <Paragraph>{propSheet.description}</Paragraph>
             <Table>
               <Head>
                 <HeaderRow>
