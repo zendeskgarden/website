@@ -62,3 +62,11 @@ connecting them to everyday ideas. Some tips on using metaphor and analogy:
 For content that’s understood by the widest possible audience, aim for an eighth grade reading level.
 Test content readability using Hemingway App, Grammarly, or Storytoolz.
 To make writing readable use simple words and short sentences with fewer clauses.
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

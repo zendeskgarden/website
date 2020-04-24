@@ -6,30 +6,33 @@
  */
 
 import React from 'react';
-import { graphql } from 'gatsby';
 import RootLayout from 'layouts/Root';
 import { SidebarLayout } from 'layouts/Sidebar';
 import TitledLayout from 'layouts/Titled';
 import SEO from 'components/SEO';
 import { MarkdownProvider } from 'components/MarkdownProvider';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import navigation from '../nav/content.yml';
 
-const ContentLayoutTemplate: React.FC<{ data: any }> = ({ data: { mdx, navigation } }) => {
+const ContentLayoutTemplate: React.FC<{ data: any; pageContext: any }> = ({
+  children,
+  data,
+  pageContext
+}) => {
+  const { mdx } = data;
+
   return (
     <RootLayout>
       <SEO
-        title={`${mdx.frontmatter.title} / Content`}
-        description={mdx.frontmatter.description || mdx.excerpt}
+        title={`${pageContext.frontmatter.title} / Content`}
+        description={pageContext.frontmatter.description || mdx.excerpt}
       />
-      <SidebarLayout sidebar={navigation.childrenNavYaml}>
+      <SidebarLayout sidebar={navigation}>
         <TitledLayout
-          title={mdx.frontmatter.title}
-          subTitle={mdx.frontmatter.description}
+          title={pageContext.frontmatter.title}
+          subTitle={pageContext.frontmatter.description}
           toc={mdx.tableOfContents.items}
         >
-          <MarkdownProvider>
-            <MDXRenderer>{mdx.body}</MDXRenderer>
-          </MarkdownProvider>
+          <MarkdownProvider>{children}</MarkdownProvider>
         </TitledLayout>
       </SidebarLayout>
     </RootLayout>
@@ -37,27 +40,3 @@ const ContentLayoutTemplate: React.FC<{ data: any }> = ({ data: { mdx, navigatio
 };
 
 export default ContentLayoutTemplate;
-
-export const pageQuery = graphql`
-  query ContentPostQuery($id: String) {
-    mdx(id: { eq: $id }) {
-      id
-      body
-      excerpt
-      tableOfContents(maxDepth: 2)
-      frontmatter {
-        title
-        description
-      }
-    }
-    navigation: file(sourceInstanceName: { eq: "content" }, relativePath: { eq: "nav.yml" }) {
-      childrenNavYaml {
-        title
-        items {
-          id
-          title
-        }
-      }
-    }
-  }
-`;

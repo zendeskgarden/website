@@ -1,6 +1,5 @@
 ---
 title: Button
-slug: /button
 description: >
   Buttons provide a quick, direct way for users to make a
   decision or initiate an action. Use buttons to indicate
@@ -16,8 +15,8 @@ propSheets:
 
 Buttons can be default, primary, or basic in type.
 
-import ButtonTypes from './examples/ButtonTypes.tsx';
-import ButtonTypesCode from '!!raw-loader!./examples/ButtonTypes.tsx';
+import ButtonTypes from '../../examples/button/ButtonTypes.tsx';
+import ButtonTypesCode from '!!raw-loader!../../examples/button/ButtonTypes.tsx';
 
 <CodeExample code={ButtonTypesCode}>
   <ButtonTypes />
@@ -27,8 +26,8 @@ import ButtonTypesCode from '!!raw-loader!./examples/ButtonTypes.tsx';
 
 Buttons can be small, default, or large sizes.
 
-import ButtonSizes from './examples/ButtonSizes.tsx';
-import ButtonSizesCode from '!!raw-loader!./examples/ButtonSizes.tsx';
+import ButtonSizes from '../../examples/button/ButtonSizes.tsx';
+import ButtonSizesCode from '!!raw-loader!../../examples/button/ButtonSizes.tsx';
 
 <CodeExample code={ButtonSizesCode}>
   <ButtonSizes />
@@ -38,8 +37,8 @@ import ButtonSizesCode from '!!raw-loader!./examples/ButtonSizes.tsx';
 
 The stretched property will make the button expand to fill its parents width.
 
-import ButtonStretched from './examples/ButtonStretched.tsx';
-import ButtonStretchedCode from '!!raw-loader!./examples/ButtonStretched.tsx';
+import ButtonStretched from '../../examples/button/ButtonStretched.tsx';
+import ButtonStretchedCode from '!!raw-loader!../../examples/button/ButtonStretched.tsx';
 
 <CodeExample code={ButtonStretchedCode}>
   <ButtonStretched />
@@ -56,8 +55,8 @@ See the [Destructive actions pattern](#todo) section for guidelines.
 
 ### Disabled
 
-import ButtonDanger from './examples/ButtonDanger.tsx';
-import ButtonDangerCode from '!!raw-loader!./examples/ButtonDanger.tsx';
+import ButtonDanger from '../../examples/button/ButtonDanger.tsx';
+import ButtonDangerCode from '!!raw-loader!../../examples/button/ButtonDanger.tsx';
 
 Mark a button disabled with the disabled property.
 [Read more about disabled state usage](#todo)
@@ -68,5 +67,13 @@ Mark a button disabled with the disabled property.
 
 ## Package
 
-<PackageDescription data={props.package} />
-<PropSheets data={props.propSheets} reactPackage={props.package} />
+<PackageDescription data={props.data.mdx.package} />
+<PropSheets data={props.data.mdx.propsSheets} reactPackage={props.data.mdx.package} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

@@ -8,7 +8,7 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { MDXProvider } from '@mdx-js/react';
-
+import { Code, Paragraph } from '@zendeskgarden/react-typography';
 import { CodeExample } from './components/CodeExample';
 import { PackageDescription } from './components/PackageDescription';
 import { PropSheets } from './components/PropSheets';
@@ -25,7 +25,6 @@ import {
   StyledEmphasis
 } from './components/Typography';
 import { MDSyntaxHighlighter } from './components/Code';
-import { Code, Paragraph } from '@zendeskgarden/react-typography';
 import { UL, OL, LI } from './components/Lists';
 import { Table, TR, TH, TD, TBody, THead } from './components/Table';
 
@@ -60,9 +59,15 @@ export const MarkdownProvider: React.FC = ({ children }) => (
     <GlobalStyle />
     <MDXProvider
       components={{
+        /**
+         * Helper components
+         */
         CodeExample,
         PackageDescription,
         PropSheets,
+        /**
+         * Markdown elements
+         */
         h2: StyledH2,
         h3: StyledH3,
         h4: StyledH4,
