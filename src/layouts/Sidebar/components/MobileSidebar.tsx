@@ -7,8 +7,10 @@
 
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { ISidebarSection } from '..';
+import { getColor } from '@zendeskgarden/react-theming';
 import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
+import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
+import { ISidebarSection } from '..';
 
 const StyledSidebarLink = styled(StyledNavigationLink)`
   display: block;
@@ -34,14 +36,15 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
       <li
         css={css`
           margin-bottom: ${p => p.theme.space.xxs};
-          text-transform: uppercase;
-          line-height: ${p => p.theme.lineHeights.sm};
-          letter-spacing: 0.5px;
-          font-size: ${p => p.theme.fontSizes.xs};
-          font-weight: ${p => p.theme.fontWeights.semibold};
         `}
       >
-        {section.title}
+        <StyledSectionHeader
+          css={css`
+            color: ${p => getColor('kale', 600, p.theme)};
+          `}
+        >
+          {section.title}
+        </StyledSectionHeader>
       </li>
       {section.items?.map(item => {
         return (

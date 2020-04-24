@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+import { rgba } from 'polished';
 import { getColor } from '@zendeskgarden/react-theming';
 import { ReactComponent as OverflowStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
@@ -28,7 +29,7 @@ const StyledMobileNavButton = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 1;
-  border: none;
+  border: ${p => p.theme.borders.sm} ${p => rgba(p.theme.palette.white as string, 0.2)};
   border-radius: 100px;
   background-color: ${p => getColor('kale', 800, p.theme)};
   padding: ${p => p.theme.space.xs};

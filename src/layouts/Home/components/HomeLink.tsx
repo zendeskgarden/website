@@ -7,13 +7,7 @@
 
 import React from 'react';
 import { Link, GatsbyLinkProps } from 'gatsby';
-import styled from 'styled-components';
-
-const StyleHomeLink = styled(Link)`
-  line-height: ${p => p.theme.lineHeights.sm};
-  font-size: ${p => p.theme.fontSizes.sm};
-`;
 
 export const HomeLink: React.FC<Omit<GatsbyLinkProps<any>, 'ref'>> = ({ children, ...props }) => (
-  <StyleHomeLink {...props}>{children} →</StyleHomeLink>
+  <Link {...props}>{children} →</Link>
 );

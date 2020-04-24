@@ -50,6 +50,7 @@ const Footer: React.FC = () => (
         css={css`
           display: flex;
           flex-wrap: wrap;
+          align-items: center;
           border-top: ${p => p.theme.borders.sm} ${p => getColor('kale', 500, p.theme)};
           padding-top: ${p => p.theme.space.md};
 
@@ -72,8 +73,9 @@ const Footer: React.FC = () => (
         >
           <GardenIcon
             css={css`
-              width: ${p => p.theme.iconSizes.md};
-              height: ${p => p.theme.iconSizes.md};
+              width: ${p => p.theme.iconSizes.lg};
+              height: ${p => p.theme.iconSizes.lg};
+              color: ${p => getColor('green', 400, p.theme)};
             `}
           />
         </div>

@@ -8,9 +8,9 @@
 import React, { useState, useCallback, useEffect, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
-import { SM } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import throttle from 'lodash/throttle';
+import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 
 export interface IHeading {
   url: string;
@@ -22,15 +22,7 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
   ...props
 }) => (
   <div {...props}>
-    <SM
-      css={css`
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: ${p => getColor('grey', 600, p.theme)};
-      `}
-    >
-      Content
-    </SM>
+    <StyledSectionHeader>Content</StyledSectionHeader>
     <ul
       css={css`
         margin-bottom: ${p => p.theme.space.lg};
@@ -112,16 +104,13 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
           padding-left: ${p => p.theme.space.md};
         `}
       >
-        <SM
+        <StyledSectionHeader
           css={css`
             margin-left: -${p => p.theme.borderWidths.sm};
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: ${p => getColor('grey', 600, p.theme)};
           `}
         >
           Content
-        </SM>
+        </StyledSectionHeader>
       </li>
       {data.map(heading => (
         <StyledTocItem key={heading.url} isCurrent={activeHeadingUrl === heading.url}>
