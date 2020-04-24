@@ -11,19 +11,19 @@ import { SidebarLayout } from 'layouts/Sidebar';
 import TitledLayout from 'layouts/Titled';
 import SEO from 'components/SEO';
 import { MarkdownProvider } from 'components/MarkdownProvider';
-import navigation from '../nav/components.yml';
+import navigation from '../nav/design.yml';
 
-const ComponentLayoutTemplate: React.FC<{ data: any; pageContext: any }> = ({
+const DesignLayoutTemplate: React.FC<{ data: any; pageContext: any }> = ({
+  children,
   data,
-  pageContext,
-  children
+  pageContext
 }) => {
   const { mdx } = data;
 
   return (
     <RootLayout>
       <SEO
-        title={`${pageContext.frontmatter.title} / Components`}
+        title={`${pageContext.frontmatter.title} / Design`}
         description={pageContext.frontmatter.description || mdx.excerpt}
       />
       <SidebarLayout sidebar={navigation}>
@@ -39,4 +39,4 @@ const ComponentLayoutTemplate: React.FC<{ data: any; pageContext: any }> = ({
   );
 };
 
-export default ComponentLayoutTemplate;
+export default DesignLayoutTemplate;

@@ -1,0 +1,93 @@
+---
+title: Installation
+description: >
+  Garden SVG Icons
+---
+
+import { graphql } from 'gatsby';
+
+## Installation
+
+```bash
+npm install @zendeskgarden/svg-icons
+```
+
+The package contains a `src` folder with individual SVG icons along with a combined
+"spritemap" `dist` of SVG symbols.
+
+View the [zendeskgarden/svg-icons](https://github.com/zendeskgarden/svg-icons) repository for more information.
+
+## Usage
+
+Garden SVGs come in two flavors – monochrome and two-tone. The primary fill/stroke will always
+be specified as `currentColor`. This means CSS text color style will cascade to the icon. Two-tone
+icons can receive a secondary color via the `fill` style property. In the following example,
+the top arrow of the "sort" icon will be blue; the bottom arrow will be red.
+
+Once installed, SVG icons may be accessed in a variety of ways. The following list demonstrates
+several possibilities, however usage will vary depending on the particular needs of your application.
+
+### React
+
+A common approach for consuming SVG icons in React codebases is the
+[@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack) Webpack plugin.
+
+Update your `webpackage.config.js`:
+
+```js
+{
+  test: /\.svg$/,
+  use: ['@svgr/webpack'],
+}
+```
+
+In your code:
+
+```js
+import SearchStroke from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
+
+const App = () => (
+  <div>
+    <SearchStroke />
+  </div>
+);
+```
+
+### PostCSS
+
+To consume SVG icons with PostCSS you may use the [postcss-inline-svg](https://github.com/TrySound/postcss-inline-svg)
+plugin to compile SVGs to CSS.
+
+Configure the plugin:
+
+```json
+"postcss-inline-svg": {
+  "path": "node_modules/@zendeskgarden/svg-icons/src"
+}
+```
+
+Load an SVG in your source CSS:
+
+```css
+.icon {
+  background-image: svg-load('14/remove.svg', color: #007fab);
+}
+```
+
+Build via PostCSS to inline the SVG into your destination CSS as a data URI::
+
+<!-- markdownlint-disable line-length -->
+
+```css
+.icon {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' color='%23007FAB' ...");
+}
+```
+
+<!-- markdownlint-enable line-length -->
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
