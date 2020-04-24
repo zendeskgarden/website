@@ -32,14 +32,21 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `content`,
-        path: path.join(__dirname, 'content/uxcs')
+        path: path.join(__dirname, 'src/pages/content')
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `design`,
+        path: path.join(__dirname, 'src/pages/design')
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `components`,
-        path: path.join(__dirname, 'content/components')
+        path: path.join(__dirname, 'src/pages/components')
       }
     },
     {
@@ -48,6 +55,14 @@ module.exports = {
         name: `react-components`,
         path: path.join(__dirname, 'react-components/packages'),
         ignore: ['**/*.!(ts|tsx)']
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `svg-icons`,
+        path: path.join(__dirname, 'node_modules/@zendeskgarden/svg-icons/src'),
+        ignore: ['**/*.!(svg)']
       }
     },
     'gatsby-source-news',
@@ -62,6 +77,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
+    `gatsby-transformer-garden-svg`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-remove-trailing-slashes`,
@@ -81,6 +97,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        defaultLayouts: {
+          content: require.resolve('./src/templates/ContentTemplate.tsx'),
+          design: require.resolve('./src/templates/DesignTemplate.tsx'),
+          components: require.resolve('./src/templates/ComponentTemplate.tsx')
+        },
         gatsbyRemarkPlugins: [
           require.resolve('./plugins/gatsby-remark-abstract-assets'),
           'gatsby-remark-smartypants',

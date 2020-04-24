@@ -4,5 +4,7 @@
       title: Overview
 - title: Components
   items:
-    - id: /components/button
-      title: Button
+    - title: Buttons
+      items:
+        - id: /components/button
+          title: Button

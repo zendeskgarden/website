@@ -1,5 +1,5 @@
 ---
-title: Punctuation
+title: Grammar
 description: >
   Lorem ipsum dolor sit amet, consectetur adipiscing
   elit, sed do eiusmod tempor incididunt ut labore et
@@ -7,3 +7,11 @@ description: >
 ---
 
 Coming soon
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

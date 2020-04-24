@@ -3,6 +3,7 @@
   "first-line-h1": false,
   "first-header-h1": false,
   "no-inline-html": false,
+  "no-space-in-code": false,
   "MD013": {
     "line_length": 100,
     "tables": false

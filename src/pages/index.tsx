@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-
+import { graphql } from 'gatsby';
 import SEO from 'components/SEO';
 import RootLayout from 'layouts/Root';
 import HomeLayout from 'layouts/Home';
@@ -21,3 +21,28 @@ const IndexPage: React.FC = () => {
 };
 
 export default IndexPage;
+
+/**
+ * Global GraphQL Fragments
+ */
+export const SidebarPageFragment = graphql`
+  fragment SidebarPageFragment on Query {
+    mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {
+      id
+      excerpt
+      body
+      tableOfContents(maxDepth: 3)
+      package: reactPackage {
+        version
+        name
+        description
+      }
+      propsSheets: reactPropSheets {
+        displayName
+        description
+        methods
+        props
+      }
+    }
+  }
+`;
