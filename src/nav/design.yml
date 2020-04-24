@@ -1,0 +1,18 @@
+- title: Introduction
+  items:
+    - id: /design
+      title: Overview
+- title: SVG Icons
+  items:
+    - id: /design/icons/installation
+      title: Installation
+    - title: Icons
+      items:
+        - id: /design/icons/12
+          title: 12px
+        - id: /design/icons/16
+          title: 16px
+        - id: /design/icons/26
+          title: 26px
+        - id: /design/icons/wordmarks
+          title: Wordmarks
