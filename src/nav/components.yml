@@ -8,3 +8,15 @@
       items:
         - id: /components/button
           title: Button
+    - title: Icons
+      items:
+        - id: /components/icons/installation
+          title: Installation
+        - id: /components/icons/12
+          title: 12px
+        - id: /components/icons/16
+          title: 16px
+        - id: /components/icons/26
+          title: 26px
+        - id: /components/icons/wordmarks
+          title: Wordmarks
