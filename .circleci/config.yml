@@ -52,7 +52,7 @@ jobs:
     <<: *executor
     steps:
       - *attach_workspace
-      - run: yarn ts-node --project tsconfig.node.json utils/netlify-deploy.ts
+      - run: utils/deploy.js
 
 workflows:
   main:
