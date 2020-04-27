@@ -2082,7 +2082,7 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react-dom@16.9.6":
+"@types/react-dom@^16.9.6":
   version "16.9.6"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.6.tgz#9e7f83d90566521cc2083be2277c6712dcaf754c"
   integrity sha512-S6ihtlPMDotrlCJE9ST1fRmYrQNNwfgL61UB4I1W7M6kPulUKx9fXAleW5zpdIjUQ4fTaaog8uERezjsGUj9HQ==
@@ -2118,7 +2118,7 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/react@16.9.34":
+"@types/react@^16.9.34":
   version "16.9.34"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.34.tgz#f7d5e331c468f53affed17a8a4d488cd44ea9349"
   integrity sha512-8AJlYMOfPe1KGLKyHpflCg5z46n0b5DbRfqDksxBLBTUpB75ypDBAO9eCUcjNwE6LCUslwTz00yyG/X9gaVtow==
@@ -4948,7 +4948,7 @@ core-js-pure@^3.0.0:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.6.4.tgz#4bf1ba866e25814f149d4e9aaa08c36173506e3a"
   integrity sha512-epIhRLkXdgv32xIUFaaAry2wdxZYBi6bgM7cB136dzzXXa+dFyRLTZeLUJxnd8ShrmyVXBub63n2NHo2JAt8Cw==
 
-core-js@2, core-js@^2.4.0, core-js@^2.6.11, core-js@^2.6.5:
+core-js@2, core-js@2.6.11, core-js@^2.4.0, core-js@^2.6.11, core-js@^2.6.5:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
   integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
