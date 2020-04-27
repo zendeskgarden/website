@@ -30,10 +30,9 @@ jobs:
       - restore_cache:
           name: Restoring Gatsby Cache
           key: *gatsby_cache_key
-      - node/with-cache:
+      - node/install-packages:
           cache-key: yarn.lock
-          steps:
-            - run: yarn --frozen-lockfile
+          pkg-manager: yarn
       - save_cache:
           name: Saving Gatsby Cache
           key: *gatsby_cache_key
