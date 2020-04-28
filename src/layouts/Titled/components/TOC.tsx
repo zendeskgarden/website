@@ -7,14 +7,15 @@
 
 import React, { useState, useCallback, useEffect, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
+import throttle from 'lodash/throttle';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
-import throttle from 'lodash/throttle';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 
 export interface IHeading {
   url: string;
   title: string;
+  items?: IHeading[];
 }
 
 export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivElement>> = ({
@@ -31,16 +32,31 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
       {data.map(heading => (
         <li key={heading.url}>
           <Anchor href={heading.url}>{heading.title}</Anchor>
+          {heading.items && (
+            <ul
+              css={css`
+                margin-left: ${p => p.theme.space.xs};
+              `}
+            >
+              {heading.items!.map(subHeading => (
+                <li key={subHeading.url}>
+                  <Anchor href={subHeading.url}>{subHeading.title}</Anchor>
+                </li>
+              ))}
+            </ul>
+          )}
         </li>
       ))}
     </ul>
   </div>
 );
 
-const StyledTocItem = styled.li<{ isCurrent: boolean }>`
-  margin-left: -${p => p.theme.borderWidths.sm};
-  border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', p.isCurrent ? 800 : 300, p.theme)};
-  padding-left: ${p => p.theme.space.md};
+const StyledAnchor = styled(Anchor)<{ isCurrent: boolean }>`
+  display: block;
+  margin: ${p => p.theme.space.xxs} 0;
+  margin-left: ${p => p.isCurrent && `-${p.theme.borderWidths.sm}`};
+  border-left: ${p => p.isCurrent && `${p.theme.borders.sm} ${getColor('grey', 800, p.theme)}`};
+  text-align: left;
 `;
 
 export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
@@ -49,7 +65,17 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
 
   const isValidTocHeading = useCallback(
     (url: string) => {
-      return data.some(heading => heading.url === url);
+      return data.some(heading => {
+        if (heading.url === url) {
+          return true;
+        }
+
+        if (heading.items) {
+          return heading.items.some(subHeading => subHeading.url === url);
+        }
+
+        return false;
+      });
     },
     [data]
   );
@@ -91,39 +117,58 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
   }
 
   return (
-    <ul
+    <div
       css={css`
         position: sticky;
         top: 32px;
         margin-left: ${p => p.theme.space.lg};
       `}
     >
-      <li
+      <StyledSectionHeader
         css={css`
-          padding-bottom: ${p => p.theme.space.xs};
-          padding-left: ${p => p.theme.space.md};
+          margin-bottom: ${p => p.theme.space.xs};
+          margin-left: ${p => p.theme.space.md};
         `}
       >
-        <StyledSectionHeader
-          css={css`
-            margin-left: -${p => p.theme.borderWidths.sm};
-          `}
-        >
-          Content
-        </StyledSectionHeader>
-      </li>
-      {data.map(heading => (
-        <StyledTocItem key={heading.url} isCurrent={activeHeadingUrl === heading.url}>
-          <Anchor
-            href={heading.url}
-            css={css`
-              padding: ${p => p.theme.space.xxs} 0;
-            `}
-          >
-            {heading.title}
-          </Anchor>
-        </StyledTocItem>
-      ))}
-    </ul>
+        Content
+      </StyledSectionHeader>
+      <ul
+        css={css`
+          margin-left: -${p => p.theme.borderWidths.sm};
+          border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+        `}
+      >
+        {data.map(heading => (
+          <li key={heading.url}>
+            <StyledAnchor
+              href={heading.url}
+              isCurrent={activeHeadingUrl === heading.url}
+              css={css`
+                padding-left: ${p => p.theme.space.md};
+              `}
+            >
+              {heading.title}
+            </StyledAnchor>
+            {heading.items && (
+              <ul>
+                {heading.items.map(subHeading => (
+                  <li key={subHeading.url}>
+                    <StyledAnchor
+                      href={subHeading.url}
+                      isCurrent={activeHeadingUrl === subHeading.url}
+                      css={css`
+                        padding-left: ${p => p.theme.space.lg};
+                      `}
+                    >
+                      {subHeading.title}
+                    </StyledAnchor>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };

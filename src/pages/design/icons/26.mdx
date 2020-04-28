@@ -1,0 +1,35 @@
+---
+title: 26px Icons
+description: >
+  Garden SVG Icons
+---
+
+import { SvgSearch } from '../../../examples/design/icons/SvgSearch';
+
+<SvgSearch data={props.data.svgIcons} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    svgIcons: allFile(
+      filter: {
+        sourceInstanceName: { eq: "svg-icons" }
+        relativeDirectory: { eq: "26" }
+        name: { glob: "!wordmark-*" }
+      }
+    ) {
+      totalCount
+      edges {
+        node {
+          name
+          relativeDirectory
+          childGardenSvg {
+            content
+          }
+        }
+      }
+    }
+  }
+`;

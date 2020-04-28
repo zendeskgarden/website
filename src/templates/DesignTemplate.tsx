@@ -12,10 +12,10 @@ import { SidebarLayout } from 'layouts/Sidebar';
 import TitledLayout from 'layouts/Titled';
 import SEO from 'components/SEO';
 import { MarkdownProvider } from 'components/MarkdownProvider';
-import navigation from '../nav/content.yml';
+import navigation from '../nav/design.yml';
 import { IPageData, IPageContext } from './types';
 
-const ContentLayoutTemplate: React.FC<PageProps<IPageData, IPageContext>> = ({
+const DesignLayoutTemplate: React.FC<PageProps<IPageData, IPageContext>> = ({
   children,
   data,
   pageContext
@@ -25,7 +25,7 @@ const ContentLayoutTemplate: React.FC<PageProps<IPageData, IPageContext>> = ({
   return (
     <RootLayout>
       <SEO
-        title={`${pageContext.frontmatter.title} / Content`}
+        title={`${pageContext.frontmatter.title} / Design`}
         description={pageContext.frontmatter.description || mdx.excerpt}
       />
       <SidebarLayout sidebar={navigation}>
@@ -41,4 +41,4 @@ const ContentLayoutTemplate: React.FC<PageProps<IPageData, IPageContext>> = ({
   );
 };
 
-export default ContentLayoutTemplate;
+export default DesignLayoutTemplate;

@@ -9,7 +9,9 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { getColor } from '@zendeskgarden/react-theming';
 
-export const StyledNavigationLink = styled(Link).attrs({ activeClassName: 'is-current' })`
+export const StyledNavigationLink = styled(Link).attrs(p => ({
+  activeClassName: p.activeClassName || 'is-current'
+}))`
   border-radius: ${p => p.theme.borderRadii.md};
   padding: ${p => p.theme.space.base * 1.5}px ${p => p.theme.space.xs};
   color: ${p => p.theme.colors.foreground};

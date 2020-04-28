@@ -1,6 +1,5 @@
 ---
 title: Overview
-slug: /
 description: >
   At Zendesk, we have standards
 ---
@@ -28,3 +27,11 @@ on a rock climbing wall. Language that's easier to “grasp” makes a product e
 > language can show empathy, invoke delight, or reassure users when things aren't going well.
 >
 > Abraham Lincoln
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

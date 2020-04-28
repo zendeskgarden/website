@@ -1,0 +1,51 @@
+---
+title: Wordmarks
+description: >
+  Garden SVG Icons
+---
+
+import { SvgSearch } from '../../../examples/design/icons/SvgSearch';
+
+## Wordmarks
+
+<SvgSearch searchEnabled={false} data={props.data.wordmarks} />
+
+## Wordmark Layout
+
+The wordmarks shown below are positioned using size-relative margins that ensure the baseline of the
+word is aligned with the bottom of the logo. In addition, whitespace is added between the logo and
+the wordmark. Logos and wordmarks can be combined to produce a variety of layouts; however, it is
+critical that the end result adheres to published [brand guidelines](https://brandland.zendesk.com/brand-identity).
+
+import WordmarkLayout from '../../../examples/design/icons/WordmarkLayout.tsx';
+import WordmarkLayoutCode from '!!raw-loader!../../../examples/design/icons/WordmarkLayout.tsx';
+
+<CodeExample code={WordmarkLayoutCode}>
+  <WordmarkLayout />
+</CodeExample>
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    wordmarks: allFile(
+      filter: {
+        sourceInstanceName: { eq: "svg-icons" }
+        relativeDirectory: { eq: "26" }
+        name: { glob: "wordmark-*" }
+      }
+    ) {
+      totalCount
+      edges {
+        node {
+          name
+          relativeDirectory
+          childGardenSvg {
+            content
+          }
+        }
+      }
+    }
+  }
+`;

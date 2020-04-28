@@ -29,55 +29,19 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions;
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions;
+  const componentExt = path.extname(page.component);
 
-  const result = await graphql(`
-    query {
-      content: allMdx(filter: { fields: { sourceInstanceName: { eq: "content" } } }) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-          }
-        }
-      }
-      components: allMdx(filter: { fields: { sourceInstanceName: { eq: "components" } } }) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `);
+  if (componentExt === '.md' || componentExt === '.mdx') {
+    deletePage(page);
 
-  if (result.errors) {
-    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+    createPage({
+      ...page,
+      context: {
+        ...page.context,
+        fileAbsolutePath: page.component
+      }
+    });
   }
-
-  const contentPosts = result.data.content.edges;
-
-  contentPosts.forEach(({ node }) => {
-    createPage({
-      path: `/content${node.fields.slug}`,
-      component: path.resolve(`./src/templates/ContentTemplate.tsx`),
-      context: { id: node.id }
-    });
-  });
-
-  const componentPosts = result.data.components.edges;
-
-  componentPosts.forEach(({ node }) => {
-    createPage({
-      path: `/components${node.fields.slug}`,
-      component: path.resolve(`./src/templates/ComponentTemplate.tsx`),
-      context: { id: node.id }
-    });
-  });
 };

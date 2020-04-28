@@ -1,0 +1,17 @@
+---
+title: Overview
+description: >
+  A standard overview
+---
+
+## Introduction
+
+TODO
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

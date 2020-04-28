@@ -7,6 +7,7 @@
 
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { useLocation } from '@reach/router';
 import { getColor } from '@zendeskgarden/react-theming';
 import { ISidebarSection } from '..';
 import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
@@ -18,6 +19,8 @@ const StyledSidebarLink = styled(StyledNavigationLink)`
 `;
 
 export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sidebar }) => {
+  const { pathname } = useLocation();
+
   const sidebarContent = sidebar.map(section => (
     <li
       key={section.title}
@@ -42,14 +45,41 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
           `}
         >
           {section.items?.map(item => {
+            const isExpanded = (item.items || []).some(nestedItem => nestedItem.id === pathname);
+
             return (
               <li
                 key={`${section.title}-${item.title}`}
                 css={css`
-                  margin-top: ${p => p.theme.space.xs};
+                  margin-top: ${p => p.theme.space.xxs};
                 `}
               >
-                <StyledSidebarLink to={item.id!}>{item.title}</StyledSidebarLink>
+                <StyledSidebarLink
+                  to={item.id ? item.id : item.items![0].id!}
+                  activeClassName={item.id ? undefined : 'active-heading'}
+                >
+                  {item.title}
+                </StyledSidebarLink>
+                {isExpanded && (
+                  <ul
+                    css={css`
+                      padding-left: ${p => p.theme.space.sm};
+                    `}
+                  >
+                    {item.items!.map(nestedItem => (
+                      <li
+                        key={`${item.title}-${nestedItem.title}`}
+                        css={css`
+                          margin-top: ${p => p.theme.space.xxs};
+                        `}
+                      >
+                        <StyledSidebarLink to={nestedItem.id!}>
+                          {nestedItem.title}
+                        </StyledSidebarLink>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             );
           })}
