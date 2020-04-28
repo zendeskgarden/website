@@ -99,7 +99,7 @@ export const SvgSearch: React.FC<{
             margin-bottom: ${p => p.theme.space.lg};
           `}
         >
-          <Label>Search</Label>
+          <Label>Filter Icons</Label>
           <MediaInput
             start={<SearchStroke />}
             value={inputValue}

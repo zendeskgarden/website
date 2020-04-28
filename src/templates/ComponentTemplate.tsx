@@ -6,14 +6,16 @@
  */
 
 import React from 'react';
+import { PageProps } from 'gatsby';
 import RootLayout from 'layouts/Root';
 import { SidebarLayout } from 'layouts/Sidebar';
 import TitledLayout from 'layouts/Titled';
 import SEO from 'components/SEO';
 import { MarkdownProvider } from 'components/MarkdownProvider';
 import navigation from '../nav/components.yml';
+import { IPageData, IPageContext } from './types';
 
-const ComponentLayoutTemplate: React.FC<{ data: any; pageContext: any }> = ({
+const ComponentLayoutTemplate: React.FC<PageProps<IPageData, IPageContext>> = ({
   data,
   pageContext,
   children
