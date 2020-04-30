@@ -76,13 +76,6 @@ exports.sourceNodes = async (
           cache.set(FILE_CACHE_KEY, assets);
         }
 
-        /**
-         * TEMPORARY
-         *
-         * The Abstract SDK does not filter by `sha` https://github.com/goabstract/abstract-sdk/issues/230
-         */
-        assets = assets.filter(asset => asset.sha === file.sha);
-
         return Promise.all(
           assets.map(async asset => {
             const assetNode = abstractAssetNode(asset, {
