@@ -12,11 +12,18 @@ import { Field, MediaInput, Label } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { Code, XL } from '@zendeskgarden/react-typography';
 import styled, { css } from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
+
+const StyledIconWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 ${p => p.theme.space.lg};
+`;
 
 const StyledSvgWrapper = styled.div<{ isAnswerBot?: boolean }>`
   display: flex;
   align-items: center;
+  margin: 0 0 ${p => p.theme.space.sm};
   fill: ${p => p.isAnswerBot && '#616788'};
   color: ${p => p.isAnswerBot && '#d0eeec'};
 `;
@@ -55,38 +62,16 @@ export const SvgSearch: React.FC<{
         return edge.node.name.trim().toLowerCase().includes(formattedSearchValue);
       })
       .map(edge => (
-        <Col key={edge.node.name} lg={4} md={4} xs={6}>
-          <div
-            css={css`
-              display: flex;
-              margin-bottom: ${p => p.theme.space.xs};
-            `}
-          >
+        <Col key={edge.node.name} lg={3} md={4} xs={6}>
+          <StyledIconWrapper>
             <StyledSvgWrapper
               isAnswerBot={edge.node.name === 'answer-bot'}
               dangerouslySetInnerHTML={{ __html: edge.node.childGardenSvg.content }}
             />
-            <div
-              css={css`
-                display: flex;
-                align-items: center;
-                margin-left: ${p => p.theme.space.xxs};
-                overflow: hidden;
-              `}
-            >
-              <Code
-                size="small"
-                css={css`
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                  white-space: nowrap;
-                `}
-                title={edge.node.name}
-              >
-                {edge.node.name}
-              </Code>
-            </div>
-          </div>
+            <Code size="small" title={edge.node.name}>
+              {edge.node.name}
+            </Code>
+          </StyledIconWrapper>
         </Col>
       ));
   }, [data, debouncedInputValue]);
@@ -99,7 +84,7 @@ export const SvgSearch: React.FC<{
             margin-bottom: ${p => p.theme.space.lg};
           `}
         >
-          <Label>Filter Icons</Label>
+          <Label>Filter icons</Label>
           <MediaInput
             start={<SearchStroke />}
             value={inputValue}
@@ -116,13 +101,7 @@ export const SvgSearch: React.FC<{
                 text-align: center;
               `}
             >
-              <XL
-                css={css`
-                  color: ${p => getColor('grey', 400, p.theme)};
-                `}
-              >
-                No icons found
-              </XL>
+              <XL>No icons found</XL>
             </Col>
           )}
         </Row>
