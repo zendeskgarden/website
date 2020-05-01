@@ -1,0 +1,60 @@
+---
+title: Anchor
+description: >
+  The Anchor component is a link used to navigate from one location to another.
+---
+
+| When to use                       | When not to use                                  |
+| --------------------------------- | ------------------------------------------------ |
+| To navigate from page to page     | To prompt an action or submit data, use a Button |
+| To display links inline with text |                                                  |
+| To navigate with a page           |                                                  |
+
+## Examples
+
+### Default
+
+An Anchor is used as a link to signal navigation.
+
+<!-- TODO: Hook up coded example -->
+
+<CodeExample>
+  <a href="https://share.getcloudapp.com/v1uD0b4L">Example</a>
+</CodeExample>
+
+### External Anchor
+
+An External Anchor shows an icon at the end of the link and opens it in a new window or tab.
+
+<!-- TODO: Hook up coded example -->
+
+<CodeExample>
+  <a href="https://share.getcloudapp.com/yAu2yDrZ">Example</a>
+</CodeExample>
+
+### Danger
+
+A Danger Anchor can be used to communicate that navigating away from your location
+will have destructive results.
+
+<!-- TODO: Hook up coded example -->
+
+<CodeExample>
+  <a href="https://share.getcloudapp.com/2NuXlwqe">Example</a>
+</CodeExample>
+
+## Configuration
+
+<!-- TODO: Hook up Configuration section -->
+
+### API
+
+<!-- TODO: Hook up API sheet -->
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
