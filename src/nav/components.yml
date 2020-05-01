@@ -6,5 +6,5 @@
   items:
     - title: Buttons
       items:
-        - id: /components/button
+        - id: /components/buttons/button
           title: Button
