@@ -4,6 +4,8 @@
       title: Overview
 - title: Components
   items:
+    - title: Breadcrumbs
+      id: /components/breadcrumbs
     - title: Buttons
       items:
         - id: /components/buttons/anchor
