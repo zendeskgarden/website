@@ -23,7 +23,7 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
   ...props
 }) => (
   <div {...props}>
-    <StyledSectionHeader>Content</StyledSectionHeader>
+    <StyledSectionHeader>Table of Contents</StyledSectionHeader>
     <ul
       css={css`
         margin-bottom: ${p => p.theme.space.lg};
@@ -130,7 +130,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
           margin-left: ${p => p.theme.space.md};
         `}
       >
-        Content
+        Table of Contents
       </StyledSectionHeader>
       <ul
         css={css`
