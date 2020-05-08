@@ -6,13 +6,9 @@
  */
 
 const createNodeHelpers = require('gatsby-node-helpers').default;
-const envalid = require('envalid');
 const AbstractSdk = require('abstract-sdk');
 const Bottleneck = require('bottleneck');
 const { createRemoteFileNode } = require('gatsby-source-filesystem');
-
-require('dotenv').config();
-envalid.cleanEnv(process.env, { ABSTRACT_TOKEN: envalid.str() });
 
 /** Limit Abstract requests to avoid rate limiting */
 const rateLimiter = new Bottleneck({

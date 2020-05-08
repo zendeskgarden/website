@@ -5,8 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+const envalid = require('envalid');
 const path = require('path');
 const { PALETTE } = require('@zendeskgarden/react-theming');
+
+require('dotenv').config();
+envalid.cleanEnv(process.env, { ABSTRACT_TOKEN: envalid.str() });
 
 module.exports = {
   siteMetadata: {
