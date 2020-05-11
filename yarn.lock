@@ -2282,6 +2282,13 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-11.0.4.tgz#771515025526a1b898629b2cca2219bcda56d0f9"
   integrity sha512-19gAst+jXlZ9PiURd4ZGT1TVoYKrNIGbZpZkBjyGQIfSLLo2ech+mFS/S6Njx+EaaKKbacxoa8ZszxsJLK3onw==
 
+"@zendeskgarden/react-avatars@8.6.0":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-avatars/-/react-avatars-8.6.0.tgz#4a87e53bc943e63306307839857a5425aa37c0f8"
+  integrity sha512-fDcDVFYHFnFnRk7Li2+gVXCqEN3CrZ7JKnjlBnfcuxU2SdVHtCHtwSKuYeDLtb8wjdwnb9Nk8bm32EUHGmlMLg==
+  dependencies:
+    polished "^3.5.1"
+
 "@zendeskgarden/react-buttons@8.6.0":
   version "8.6.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.6.0.tgz#f9f584584eccac8b4e4e8337b9210e56c9e9a08c"

@@ -8,10 +8,12 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { MDXProvider } from '@mdx-js/react';
-import { Code, Paragraph } from '@zendeskgarden/react-typography';
+import { Code, Paragraph, MD } from '@zendeskgarden/react-typography';
 import { CodeExample } from './components/CodeExample';
 import { PackageDescription } from './components/PackageDescription';
 import { PropSheets } from './components/PropSheets';
+import { Usage } from './components/Usage';
+import { BestPractice, BestPracticeSection } from './components/BestPractice';
 import {
   StyledH2,
   StyledH3,
@@ -60,11 +62,18 @@ export const MarkdownProvider: React.FC = ({ children }) => (
     <MDXProvider
       components={{
         /**
+         * Garden components
+         */
+        MD,
+        /**
          * Helper components
          */
         CodeExample,
         PackageDescription,
         PropSheets,
+        Usage,
+        BestPractice,
+        BestPracticeSection,
         /**
          * Markdown elements
          */
