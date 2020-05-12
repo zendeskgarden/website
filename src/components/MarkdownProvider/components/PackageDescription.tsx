@@ -8,7 +8,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
-import { MD } from '@zendeskgarden/react-typography';
 
 export interface IPackage {
   version: string;
@@ -31,29 +30,29 @@ const ConfigListLabel = styled.p`
   font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
-export const PackageDescription: React.FC<{ data: IPackage }> = ({ data }) => {
+export const PackageDescription: React.FC<{ data: IPackage }> = ({ data }, props) => {
   return (
     <ConfigContainer>
       <ConfigListItem>
         <ConfigListLabel>Name</ConfigListLabel>
-        <MD isMonospace>
+        <pre>
           {data.version} • <a href="https://www.google.com">View source</a> •{' '}
           <a href="https://www.google.com">View on NPM</a>
-        </MD>
+        </pre>
       </ConfigListItem>
       <ConfigListItem>
         <ConfigListLabel>Install</ConfigListLabel>
-        <MD isMonospace>npm install {data.name}</MD>
+        <pre>npm install {data.name}</pre>
       </ConfigListItem>
       <ConfigListItem>
         <ConfigListLabel>Deps</ConfigListLabel>
-        <MD isMonospace>npm install TBD</MD>
+        <pre>npm install {props.deps}</pre>
       </ConfigListItem>
       <ConfigListItem>
         <ConfigListLabel>Import</ConfigListLabel>
-        <MD isMonospace>
+        <pre>
           import {data.name} from {data.name}
-        </MD>
+        </pre>
       </ConfigListItem>
     </ConfigContainer>
   );
