@@ -19,7 +19,7 @@ const headerStyles = (p: ThemeProps<DefaultTheme>) => {
     margin-bottom: ${p.theme.space.md};
     line-height: ${getLineHeight(`${p.theme.space.base * 14}px`, fontSize)};
     font-size: ${fontSize};
-    font-weight: ${p.theme.fontWeights.bold};
+    font-weight: ${p.theme.fontWeights.semibold};
   `;
 };
 
@@ -43,7 +43,7 @@ const TitledLayout: React.FC<{
             tag="p"
             css={css`
               margin-bottom: ${p => p.theme.space.lg};
-              max-width: 450px;
+              max-width: 550px;
             `}
           >
             {subTitle}

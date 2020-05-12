@@ -71,18 +71,18 @@ export const SidebarLayout: React.FC<{ sidebar: ISidebarSection[] }> = ({ childr
             css={css`
               flex-grow: 1;
               background-color: ${p => p.theme.colors.background};
-              padding: ${p => p.theme.space.lg} ${p => p.theme.space.md};
+              padding: ${p => p.theme.space.lg} ${p => p.theme.space.md}
+                ${p => p.theme.space.base * 30}px;
 
               @media (max-width: ${p => p.theme.breakpoints.lg}) {
-                padding: ${p => p.theme.space.lg} ${p => p.theme.space.sm};
+                padding: ${p => p.theme.space.lg} ${p => p.theme.space.sm} ${p => p.theme.space.xxl};
               }
             `}
           >
             <div
               css={css`
                 margin-right: auto;
-                margin-left: auto;
-                max-width: ${p => p.theme.breakpoints.lg};
+                max-width: ${p => p.theme.breakpoints.xl};
               `}
             >
               {children}

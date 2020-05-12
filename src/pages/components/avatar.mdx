@@ -91,9 +91,20 @@ This helps the user quickly distinguish between a person or a system when scanni
   </BestPracticeSection>
 </BestPractice>
 
-## Package
+<BestPractice>
+  <BestPracticeSection type="do" imageSource="components-avatar-shape-circle">
+    <ul>
+      <li>Use a circular shape to represent a person.</li>
+    </ul>
+  </BestPracticeSection>
+</BestPractice>
+
+## Configuration
 
 <PackageDescription data={props.data.mdx.package} />
+
+### API
+
 <PropSheets data={props.data.mdx.propsSheets} reactPackage={props.data.mdx.package} />
 
 import { graphql } from 'gatsby';

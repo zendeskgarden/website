@@ -12,7 +12,6 @@ import { MD } from '@zendeskgarden/react-typography';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
-
 import { getColor } from '@zendeskgarden/react-theming';
 
 export interface IStyledBestPracticeTextProps {
@@ -27,6 +26,38 @@ export interface IFileNode {
 export interface IFileEdge {
   node: IFileNode;
 }
+
+const StyledBestPracticeRow = styled.div`
+  display: grid;
+  grid-gap: ${p => p.theme.space.base * 4}px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin: ${props => props.theme.space.base * 12}px 0;
+`;
+
+const StyledBestPracticeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: ${props => props.theme.space.base * 6}px;
+`;
+
+const StyledBestPracticeImageContainer = styled.div<HTMLDivElement>`
+  display: flex;
+  justify-content: center;
+  border: ${props => `${props.theme.borders.sm} ${getColor('grey', 300, props.theme)}`};
+  border-bottom: none;
+  border-top-left-radius: ${props => props.theme.borderRadii.md};
+  border-top-right-radius: ${props => props.theme.borderRadii.md};
+
+  & img {
+    object-fit: contain;
+  }
+`;
+
+const StyledTitle = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: ${props => props.theme.space.base * 2}px;
+`;
 
 const StyledBestPracticeText = styled.div<IStyledBestPracticeTextProps>`
   border-top: ${props => `${props.theme.borders.md} ${getColor(props.hue, 500, props.theme)}`};
@@ -57,51 +88,15 @@ const StyledIcon = styled(({ children, ...props }) =>
   color: ${props => getColor(props.hue, 500, props.theme)};
 `;
 
-const StyledHeaderIcon = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: ${props => props.theme.space.xs};
-`;
-
-const StyledBestPractice = styled.div`
-  display: flex;
-  justify-content: space-around;
-
-  @media (max-width: ${p => p.theme.breakpoints.md}) {
-    justify-content: space-between;
-  }
-
-  @media (max-width: ${p => p.theme.breakpoints.sm}) {
-    display: block;
-  }
-`;
-
 export const BestPractice = (props: HTMLAttributes<HTMLDivElement>) => {
-  return <StyledBestPractice {...props} />;
+  return <StyledBestPracticeRow {...props} />;
 };
 
-const StyledBestPracticeContainer = styled.div`
-  display: flex;
-  flex-basis: 0;
-  flex-direction: column;
-  flex-grow: 1;
-  margin-bottom: ${props => props.theme.space.xxl};
-
-  @media (min-width: ${p => p.theme.breakpoints.sm}) {
-    margin: ${props => props.theme.space.md} ${props => props.theme.space.xs};
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-`;
-
-const useAvatarFiles = () =>
-  useStaticQuery(graphql`
+export const BestPracticeSection: React.FC<{
+  type: 'do' | 'dont' | 'caution';
+  imageSource?: string;
+}> = props => {
+  const data = useStaticQuery(graphql`
     {
       allFile(filter: { name: { regex: "/components-avatar/" } }) {
         edges {
@@ -160,16 +155,18 @@ export const BestPracticeSection: React.FC<{
 
   return (
     <StyledBestPracticeContainer>
-      {props.imageSource && <img src={IMAGES[props.imageSource]} alt={altText} />}
+      <StyledBestPracticeImageContainer>
+        {props.imageSource && <img src={IMAGES[props.imageSource]} alt={altText} />}
+      </StyledBestPracticeImageContainer>
       <StyledBestPracticeText hue={hue}>
-        <StyledHeaderIcon>
+        <StyledTitle>
           <StyledIcon hue={hue}>
             <Icon />
           </StyledIcon>
           <MD tag="h4" isBold>
             {title}
           </MD>
-        </StyledHeaderIcon>
+        </StyledTitle>
         {props.children}
       </StyledBestPracticeText>
     </StyledBestPracticeContainer>

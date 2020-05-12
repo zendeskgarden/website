@@ -10,9 +10,10 @@ import styled from 'styled-components';
 import { MD } from '@zendeskgarden/react-typography';
 
 const StyledUsage = styled.div`
-  @media (min-width: ${p => p.theme.breakpoints.sm}) {
-    display: flex;
-  }
+  display: grid;
+  grid-gap: ${p => p.theme.space.base * 6}px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin: 0 0 ${p => p.theme.space.base * 9}px;
 `;
 
 export const Usage: React.FC = props => <StyledUsage {...props} />;

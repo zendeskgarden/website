@@ -12,14 +12,16 @@ import { XXL, XL, LG } from '@zendeskgarden/react-typography';
 
 const headerSpacing = (p: ThemeProps<DefaultTheme>) => {
   return css`
-    margin-top: ${p.theme.space.md};
+    margin-top: ${p.theme.space.lg};
     margin-bottom: ${p.theme.space.sm};
-    padding-bottom: ${p.theme.space.xs};
   `;
 };
 
 export const StyledH2 = styled(XXL).attrs({ tag: 'h2' })`
   ${headerSpacing}
+  border-bottom: solid 1px ${p => getColor('grey', 300, p.theme)};
+  padding: 0 0 ${p => p.theme.space.base * 4}px;
+  font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
 export const StyledH3 = styled(XL).attrs({ tag: 'h3' })`
@@ -66,7 +68,7 @@ export const StyledPre: React.FC = ({ children }) => {
 };
 
 export const StyledStrong = styled.strong`
-  font-weight: ${p => p.theme.fontWeights.bold};
+  font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
 export const StyledEmphasis = styled.em`

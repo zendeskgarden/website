@@ -64,7 +64,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   return (
     <div
       css={css`
-        margin: ${p => p.theme.space.md} 0;
+        margin: ${p => p.theme.space.md} 0 ${p => p.theme.space.xxl};
         border: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
         border-radius: ${p => p.theme.borderRadii.md};
       `}
