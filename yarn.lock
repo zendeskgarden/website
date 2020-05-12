@@ -2314,6 +2314,11 @@
   dependencies:
     polished "^3.5.1"
 
+"@zendeskgarden/react-notifications@8.6.0":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-notifications/-/react-notifications-8.6.0.tgz#aa514073578c6a58f48bf381f39f929be3237ada"
+  integrity sha512-wKRgreuIzVgZUb1ULR4dZ3eGWPdZZiIoANbr9rSiR5rLN+Jkn8NYy35Jzqipi1TevLEscZsSJuUIx1VgcvaMrQ==
+
 "@zendeskgarden/react-tables@8.6.0":
   version "8.6.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tables/-/react-tables-8.6.0.tgz#25ae8c146bf6b5e81061a9be30077c549dca5d55"

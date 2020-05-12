@@ -82,7 +82,7 @@ exports.sourceNodes = async (
 
             createParentChildLink({ parent: fileNode, child: assetNode });
 
-            await createRemoteFileNode({
+            const remoteFileNode = await createRemoteFileNode({
               url: assetNode.url,
               parentNodeId: assetNode.id,
               getCache,
@@ -95,6 +95,8 @@ exports.sourceNodes = async (
               name: `${assetNode.layerName}${assetNode.formatName && `-${assetNode.formatName}`}`,
               reporter
             });
+
+            createParentChildLink({ parent: assetNode, child: remoteFileNode });
           })
         );
       } catch (error) {

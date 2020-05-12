@@ -9,6 +9,7 @@ import React, { cloneElement, HTMLAttributes } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { MD } from '@zendeskgarden/react-typography';
+import { Well } from '@zendeskgarden/react-notifications';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
@@ -118,6 +119,41 @@ const staticQueries: Record<string, Function> = {
   avatar: useAvatarFiles
 };
 
+const StyledWell = styled<any>(Well)`
+  border: none;
+  border-top: 3px solid;
+  border-radius: 0;
+  border-color: ${props => getColor(props.hue, 500, props.theme)};
+  background: ${props => getColor('neutralHue', 100, props.theme)};
+  padding: ${props => `${props.theme.space.md}`};
+
+  ul {
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    padding: ${props => props.theme.space.base}px 0;
+  }
+
+  li:not(:last-child) {
+    border-bottom: ${props =>
+      `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
+  }
+`;
+
+const StyledBestPracticeImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  border: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
+  border-bottom: none;
+  border-top-left-radius: ${props => props.theme.borderRadii.md};
+  border-top-right-radius: ${props => props.theme.borderRadii.md};
+  & img {
+    object-fit: contain;
+  }
+`;
+
 export const BestPracticeSection: React.FC<{
   type: 'do' | 'dont' | 'caution';
   imageSource?: string;
@@ -160,8 +196,10 @@ export const BestPracticeSection: React.FC<{
 
   return (
     <StyledBestPracticeContainer>
-      {props.imageSource && <img src={IMAGES[props.imageSource]} alt={altText} />}
-      <StyledBestPracticeText hue={hue}>
+      <StyledBestPracticeImageContainer>
+        {props.imageSource && <img src={IMAGES[props.imageSource]} alt={altText} />}
+      </StyledBestPracticeImageContainer>
+      <StyledWell hue={hue}>
         <StyledHeaderIcon>
           <StyledIcon hue={hue}>
             <Icon />
@@ -171,7 +209,7 @@ export const BestPracticeSection: React.FC<{
           </MD>
         </StyledHeaderIcon>
         {props.children}
-      </StyledBestPracticeText>
+      </StyledWell>
     </StyledBestPracticeContainer>
   );
 };

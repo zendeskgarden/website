@@ -35,6 +35,7 @@
     "@zendeskgarden/react-buttons": "8.6.0",
     "@zendeskgarden/react-forms": "8.6.0",
     "@zendeskgarden/react-grid": "8.6.0",
+    "@zendeskgarden/react-notifications": "8.6.0",
     "@zendeskgarden/react-tables": "8.6.0",
     "@zendeskgarden/react-theming": "8.6.0",
     "@zendeskgarden/react-tooltips": "8.6.0",

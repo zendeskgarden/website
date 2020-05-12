@@ -96,10 +96,19 @@ This helps the user quickly distinguish between a person or a system when scanni
 <PackageDescription data={props.data.mdx.package} />
 <PropSheets data={props.data.mdx.propsSheets} reactPackage={props.data.mdx.package} />
 
+<img src={props.data.abstractAsset.children[0].publicURL} />
+
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    abstractAsset(layerName: { eq: "components-avatar-shape-circle" }) {
+      children {
+        ... on File {
+          publicURL
+        }
+      }
+    }
   }
 `;
