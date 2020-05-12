@@ -7,6 +7,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import { MD } from '@zendeskgarden/react-typography';
 
 const StyledUsage = styled.div`
   @media (min-width: ${p => p.theme.breakpoints.sm}) {
@@ -15,3 +16,20 @@ const StyledUsage = styled.div`
 `;
 
 export const Usage: React.FC = props => <StyledUsage {...props} />;
+
+export interface IUsageSectionProps {
+  type: string;
+}
+
+export const UsageSection: React.FC<{
+  type: string;
+}> = ({ type, children }) => {
+  return (
+    <div>
+      <MD tag="h4" isBold>
+        {type === 'use' ? 'When to use' : 'When NOT to use'}
+      </MD>
+      <u>{children}</u>
+    </div>
+  );
+};

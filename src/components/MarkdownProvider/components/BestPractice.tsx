@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { cloneElement, HTMLAttributes } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { MD } from '@zendeskgarden/react-typography';
@@ -33,7 +33,7 @@ const StyledBestPracticeText = styled.div<IStyledBestPracticeTextProps>`
   border-bottom-left-radius: ${props => props.theme.borderRadii.md};
   border-bottom-right-radius: ${props => props.theme.borderRadii.md};
   background: ${props => getColor('neutralHue', 100, props.theme)};
-  padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 6}px`};
+  padding: ${props => `${props.theme.space.md}`};
 
   ul {
     margin: 0;
@@ -51,16 +51,16 @@ const StyledBestPracticeText = styled.div<IStyledBestPracticeTextProps>`
 `;
 
 const StyledIcon = styled(({ children, ...props }) =>
-  React.cloneElement(React.Children.only(children), props)
+  cloneElement(React.Children.only(children), props)
 )`
-  margin-right: ${props => props.theme.space.base * 2}px;
+  margin-right: ${props => props.theme.space.xs};
   color: ${props => getColor(props.hue, 500, props.theme)};
 `;
 
 const StyledHeaderIcon = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: ${props => props.theme.space.base * 2}px;
+  margin-bottom: ${props => props.theme.space.xs};
 `;
 
 const StyledBestPractice = styled.div`
@@ -85,10 +85,10 @@ const StyledBestPracticeContainer = styled.div`
   flex-basis: 0;
   flex-direction: column;
   flex-grow: 1;
-  margin-bottom: ${props => props.theme.space.base * 12}px;
+  margin-bottom: ${props => props.theme.space.xxl};
 
   @media (min-width: ${p => p.theme.breakpoints.sm}) {
-    margin: ${props => props.theme.space.base * 4}px ${props => props.theme.space.base * 2}px;
+    margin: ${props => props.theme.space.md} ${props => props.theme.space.xs};
 
     &:first-child {
       margin-left: 0;
@@ -98,17 +98,10 @@ const StyledBestPracticeContainer = styled.div`
       margin-right: 0;
     }
   }
-
-  @media (max-width: ${p => p.theme.breakpoints.sm}) {
-    margin-bottom: ${props => props.theme.space.base * 4}px;
-  }
 `;
 
-export const BestPracticeSection: React.FC<{
-  type: 'do' | 'dont' | 'caution';
-  imageSource?: string;
-}> = props => {
-  const data = useStaticQuery(graphql`
+const useAvatarFiles = () =>
+  useStaticQuery(graphql`
     {
       allFile(filter: { name: { regex: "/components-avatar/" } }) {
         edges {
@@ -120,6 +113,22 @@ export const BestPracticeSection: React.FC<{
       }
     }
   `);
+
+const staticQueries: Record<string, Function> = {
+  avatar: useAvatarFiles
+};
+
+export const BestPracticeSection: React.FC<{
+  type: 'do' | 'dont' | 'caution';
+  imageSource?: string;
+}> = props => {
+  let component;
+  let data;
+
+  if (props.imageSource) {
+    component = props.imageSource?.split('-')[1];
+    data = staticQueries[component]();
+  }
 
   const edges: IFileEdge[] = data.allFile.edges;
 
