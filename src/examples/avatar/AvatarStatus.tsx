@@ -25,7 +25,7 @@ const Example = () => {
         <StyledCol>
           <Avatar backgroundColor={iconColor} size="large">
             <img
-              alt=""
+              alt="standard avatar"
               src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
             />
           </Avatar>
@@ -33,7 +33,7 @@ const Example = () => {
         <StyledCol>
           <Avatar backgroundColor={iconColor} size="large" status="available">
             <img
-              alt=""
+              alt="available avatar"
               src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
             />
           </Avatar>
@@ -41,7 +41,7 @@ const Example = () => {
         <StyledCol>
           <Avatar backgroundColor={iconColor} size="large" status="away">
             <img
-              alt=""
+              alt="away avatar"
               src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
             />
           </Avatar>

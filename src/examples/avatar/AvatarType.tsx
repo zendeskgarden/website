@@ -25,7 +25,7 @@ const Example = () => {
       <Row alignItems="center">
         <StyledCol>
           <Avatar backgroundColor={iconColor} size="large">
-            <UserStrokeIcon role="img" aria-label="User" />
+            <UserStrokeIcon role="img" aria-label="icon avatar" />
           </Avatar>
         </StyledCol>
         <StyledCol>
