@@ -92,11 +92,8 @@ export const BestPractice = (props: HTMLAttributes<HTMLDivElement>) => {
   return <StyledBestPracticeRow {...props} />;
 };
 
-export const BestPracticeSection: React.FC<{
-  type: 'do' | 'dont' | 'caution';
-  imageSource?: string;
-}> = props => {
-  const data = useStaticQuery(graphql`
+const useAvatarFiles = () =>
+  useStaticQuery(graphql`
     {
       allFile(filter: { name: { regex: "/components-avatar/" } }) {
         edges {
