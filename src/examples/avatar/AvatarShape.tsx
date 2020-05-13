@@ -14,7 +14,6 @@ import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/z
 import { ReactComponent as UserStrokeIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const StyledCol = styled(Col)`
-  margin-bottom: ${p => p.theme.space.sm};
   text-align: center;
 `;
 

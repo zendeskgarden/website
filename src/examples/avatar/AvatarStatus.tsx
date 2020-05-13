@@ -12,7 +12,6 @@ import { Avatar } from '@zendeskgarden/react-avatars';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 
 const StyledCol = styled(Col)`
-  margin-bottom: ${p => p.theme.space.sm};
   text-align: center;
 `;
 
@@ -23,7 +22,15 @@ const Example = () => {
     <Grid>
       <Row alignItems="center">
         <StyledCol>
-          <Avatar backgroundColor={iconColor} size="large">
+          <Avatar backgroundColor={iconColor} status="away">
+            <img
+              alt="away avatar"
+              src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
+            />
+          </Avatar>
+        </StyledCol>
+        <StyledCol>
+          <Avatar backgroundColor={iconColor}>
             <img
               alt="standard avatar"
               src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
@@ -31,17 +38,9 @@ const Example = () => {
           </Avatar>
         </StyledCol>
         <StyledCol>
-          <Avatar backgroundColor={iconColor} size="large" status="available">
+          <Avatar backgroundColor={iconColor} status="available">
             <img
               alt="available avatar"
-              src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
-            />
-          </Avatar>
-        </StyledCol>
-        <StyledCol>
-          <Avatar backgroundColor={iconColor} size="large" status="away">
-            <img
-              alt="away avatar"
               src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
             />
           </Avatar>

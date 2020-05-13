@@ -15,21 +15,18 @@ const StyledUsage = styled.div`
   }
 `;
 
+export const Use: React.FC = props => (
+  <div>
+    <MD isBold>When to use</MD>
+    {props.children}
+  </div>
+);
+
+export const Misuse: React.FC = props => (
+  <div>
+    <MD isBold>When NOT to use</MD>
+    {props.children}
+  </div>
+);
+
 export const Usage: React.FC = props => <StyledUsage {...props} />;
-
-export interface IUsageSectionProps {
-  type: string;
-}
-
-export const UsageSection: React.FC<{
-  type: string;
-}> = ({ type, children }) => {
-  return (
-    <div>
-      <MD tag="h4" isBold>
-        {type === 'use' ? 'When to use' : 'When NOT to use'}
-      </MD>
-      <u>{children}</u>
-    </div>
-  );
-};

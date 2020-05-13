@@ -12,8 +12,8 @@ import { Code, Paragraph } from '@zendeskgarden/react-typography';
 import { CodeExample } from './components/CodeExample';
 import { PackageDescription } from './components/PackageDescription';
 import { PropSheets } from './components/PropSheets';
-import { Usage, UsageSection } from './components/Usage';
-import { BestPractice, BestPracticeSection } from './components/BestPractice';
+import { Usage, Use, Misuse } from './components/Usage';
+import { BestPractice, Do, Dont, Caution } from './components/BestPractice';
 import {
   StyledH2,
   StyledH3,
@@ -68,9 +68,12 @@ export const MarkdownProvider: React.FC = ({ children }) => (
         PackageDescription,
         PropSheets,
         Usage,
-        UsageSection,
+        Use,
+        Misuse,
+        Do,
+        Dont,
+        Caution,
         BestPractice,
-        BestPracticeSection,
         /**
          * Markdown elements
          */

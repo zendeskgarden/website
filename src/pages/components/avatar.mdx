@@ -9,25 +9,25 @@ propSheets:
 ---
 
 <Usage>
-  <UsageSection type="use">
+  <Use>
     <ul>
       <li>To briefly explain the function of a user interface element</li>
       <li>To give contextual help or information regarding ambiguous actions</li>
     </ul>
-  </UsageSection>
-  <UsageSection type="misuse">
+  </Use>
+  <Misuse>
     <ul>
       <li>To display actions vital to using the UI</li>
       <li>To display truncated text a native `title` attribute should be used</li>
     </ul>
-  </UsageSection>
+  </Misuse>
 </Usage>
 
 ## Examples
 
 ### Shape
 
-An Avatar can be a circle or rounded square. View the shape usage best practices.
+An Avatar can be a circle or rounded square. View the shape usage [best practices](#todo).
 
 import AvatarShape from '../../examples/avatar/AvatarShape.tsx';
 import AvatarShapeCode from '!!raw-loader!../../examples/avatar/AvatarShape.tsx';
@@ -79,16 +79,29 @@ profile picture. Rounded squares are used for system applications like objects, 
 This helps the user quickly distinguish between a person or a system when scanning.
 
 <BestPractice>
-  <BestPracticeSection type="do" imageSource="components-avatar-shape-circle">
+  <Do imageSource={props.data.avatarShapeCircle.children[0].publicURL}>
     <ul>
       <li>Use a circular shape to represent a person.</li>
     </ul>
-  </BestPracticeSection>
-  <BestPracticeSection type="dont" imageSource="components-avatar-shape-square">
+  </Do>
+  <Dont imageSource={props.data.avatarShapeCircle.children[0].publicURL}>
     <ul>
       <li>Use the rounded square shape to represent objects, brands, or products</li>
     </ul>
-  </BestPracticeSection>
+  </Dont>
+</BestPractice>
+
+<BestPractice>
+  <Do imageSource={props.data.avatarShapeCircle.children[0].publicURL}>
+    <ul>
+      <li>Use a circular shape to represent a person.</li>
+    </ul>
+  </Do>
+  <Dont imageSource={props.data.avatarShapeCircle.children[0].publicURL}>
+    <ul>
+      <li>Use the rounded square shape to represent objects, brands, or products</li>
+    </ul>
+  </Dont>
 </BestPractice>
 
 ## Package
@@ -96,14 +109,19 @@ This helps the user quickly distinguish between a person or a system when scanni
 <PackageDescription data={props.data.mdx.package} />
 <PropSheets data={props.data.mdx.propsSheets} reactPackage={props.data.mdx.package} />
 
-<img src={props.data.abstractAsset.children[0].publicURL} />
-
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    abstractAsset(layerName: { eq: "components-avatar-shape-circle" }) {
+    avatarShapeCircle: abstractAsset(layerName: { eq: "components-avatar-shape-circle" }) {
+      children {
+        ... on File {
+          publicURL
+        }
+      }
+    }
+    avatarShapeSquare: abstractAsset(layerName: { eq: "components-avatar-shape-square" }) {
       children {
         ... on File {
           publicURL
