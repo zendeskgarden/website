@@ -8,23 +8,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MD } from '@zendeskgarden/react-typography';
+import { Row, Col } from '@zendeskgarden/react-grid';
 
 export const Use: React.FC = props => (
-  <div>
+  <Col>
     <MD isBold>When to use</MD>
     {props.children}
-  </div>
+  </Col>
 );
 
 export const Misuse: React.FC = props => (
-  <div>
+  <Col>
     <MD isBold>When NOT to use</MD>
     {props.children}
-  </div>
+  </Col>
 );
 
-export const Usage = styled.div`
-  @media (min-width: ${p => p.theme.breakpoints.sm}) {
-    display: flex;
+export const Usage = styled(Row)`
+  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+    flex-direction: column;
   }
 `;

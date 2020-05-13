@@ -43,6 +43,7 @@ const StyledTitle = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: ${props => props.theme.space.xs};
+  color: ${props => getColor('neutralHue', 800, props.theme)};
 `;
 
 export const BestPractice = styled.div`
@@ -63,7 +64,7 @@ const StyledBestPracticeContainer = styled.div`
   flex-basis: 0;
   flex-direction: column;
   flex-grow: 1;
-  margin-bottom: ${props => props.theme.space.xxl};
+  margin: ${props => props.theme.space.xl} 0;
 
   @media (min-width: ${p => p.theme.breakpoints.sm}) {
     margin: ${props => props.theme.space.md} ${props => props.theme.space.xs};
@@ -103,6 +104,7 @@ const StyledWell = styled(Well)<IStyledWell>`
 
 const StyledBestPracticeImageContainer = styled.div`
   display: flex;
+  align-items: center;
   justify-content: center;
   border: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
   border-bottom: none;
