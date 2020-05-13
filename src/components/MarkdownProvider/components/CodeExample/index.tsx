@@ -36,7 +36,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const [isRtl, setIsRtl] = useState(false);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const focusVisibleRef = useRef(null);
-  const initialTooltipContent = 'Copy to clipboard';
+  const initialTooltipContent = 'Copy';
   const [tooltipContent, setTooltipContent] = useState(initialTooltipContent);
 
   const exampleTheme = useMemo<DefaultTheme>(() => {
@@ -64,7 +64,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   return (
     <div
       css={css`
-        margin: ${p => p.theme.space.md} 0;
+        margin: ${p => p.theme.space.md} 0 ${p => p.theme.space.xxl};
         border: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
         border-radius: ${p => p.theme.borderRadii.md};
       `}
@@ -88,8 +88,8 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
         <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_blank">
           <input type="hidden" name="parameters" value={parameters} />
           <input type="hidden" name="query" value="module=src/Example.tsx" />
-          <Tooltip content="Fork in Codesandbox">
-            <StyledFooterButton aria-label="Fork in Codesandbox" type="submit">
+          <Tooltip content="Open Codesandbox">
+            <StyledFooterButton aria-label="Open Codesandbox" type="submit">
               <LightningBoltStroke />
             </StyledFooterButton>
           </Tooltip>
@@ -99,7 +99,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
             aria-label="Copy to clipboard"
             onClick={() => {
               copyToClipboard(code);
-              setTooltipContent('Code copied to clipboard...');
+              setTooltipContent('Copied');
             }}
           >
             <CopyStroke />

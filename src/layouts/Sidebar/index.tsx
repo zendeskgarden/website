@@ -21,6 +21,21 @@ export interface ISidebarSection {
   items?: ISidebarSection[];
 }
 
+const ContentContainer = styled.div`
+  flex-grow: 1;
+  background-color: ${p => p.theme.colors.background};
+  padding: ${p => p.theme.space.lg} ${p => p.theme.space.md};
+
+  @media (max-width: ${p => p.theme.breakpoints.lg}) {
+    padding: ${p => p.theme.space.lg} ${p => p.theme.space.sm};
+  }
+`;
+
+const Content = styled.div`
+  margin-right: auto;
+  max-width: ${p => p.theme.breakpoints.xl};
+`;
+
 const StyledMobileNavButton = styled.button`
   display: none;
   position: fixed;
@@ -67,27 +82,9 @@ export const SidebarLayout: React.FC<{ sidebar: ISidebarSection[] }> = ({ childr
           `}
         >
           <DesktopSidebar sidebar={sidebar} />
-          <div
-            css={css`
-              flex-grow: 1;
-              background-color: ${p => p.theme.colors.background};
-              padding: ${p => p.theme.space.lg} ${p => p.theme.space.md};
-
-              @media (max-width: ${p => p.theme.breakpoints.lg}) {
-                padding: ${p => p.theme.space.lg} ${p => p.theme.space.sm};
-              }
-            `}
-          >
-            <div
-              css={css`
-                margin-right: auto;
-                margin-left: auto;
-                max-width: ${p => p.theme.breakpoints.lg};
-              `}
-            >
-              {children}
-            </div>
-          </div>
+          <ContentContainer>
+            <Content>{children}</Content>
+          </ContentContainer>
           {isMobileSidebarExpanded && <MobileSidebar sidebar={sidebar} />}
           <StyledMobileNavButton
             onClick={() => setIsMobileSidebarExpanded(!isMobileSidebarExpanded)}

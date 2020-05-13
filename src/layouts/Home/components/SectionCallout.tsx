@@ -8,14 +8,13 @@
 import React, { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
-import { XXL, LG } from '@zendeskgarden/react-typography';
+import { XXL, LG, SM } from '@zendeskgarden/react-typography';
 
-export const StyledSectionHeader = styled.div`
+export const StyledSectionHeader = styled(SM)`
   text-transform: uppercase;
   line-height: ${p => p.theme.lineHeights.sm};
   letter-spacing: 0.5px;
   color: ${p => getColor('neutralHue', 500, p.theme)};
-  font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
@@ -27,13 +26,7 @@ export const SectionCallout: React.FC<
   } & HTMLAttributes<HTMLDivElement>
 > = ({ section, header, description, children, ...props }) => (
   <div {...props}>
-    <StyledSectionHeader
-      css={css`
-        margin-bottom: ${p => p.theme.space.xs};
-      `}
-    >
-      {section}
-    </StyledSectionHeader>
+    <StyledSectionHeader>{section}</StyledSectionHeader>
     <XXL
       tag="h2"
       css={css`

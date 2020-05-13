@@ -6,36 +6,49 @@
  */
 
 import React from 'react';
-import { css } from 'styled-components';
+import styled from 'styled-components';
 import { ComponentDoc } from 'react-docgen-typescript';
-import { getColor } from '@zendeskgarden/react-theming';
-import { MD, Paragraph } from '@zendeskgarden/react-typography';
-import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
+import { Paragraph, Code } from '@zendeskgarden/react-typography';
+import {
+  Table,
+  Head,
+  Body,
+  HeaderRow,
+  HeaderCell,
+  Row as GRow,
+  Cell
+} from '@zendeskgarden/react-tables';
+import { StyledH4 as Title } from './Typography';
 
-import { IPackage } from './PackageDescription';
-import { StyledH3 } from './Typography';
+const API = styled.div`
+  margin: ${p => p.theme.space.base * 6}px 0;
+`;
 
-export const PropSheets: React.FC<{ data: ComponentDoc[]; reactPackage: IPackage }> = ({
-  data,
-  reactPackage
-}) => {
+const Row = styled(GRow)`
+  font-family: ${p => p.theme.fonts.mono};
+`;
+
+const HeaderContainer = styled.div`
+  margin: 0 0 ${p => p.theme.space.base * 6}px;
+`;
+
+export const PropSheets: React.FC<{ data: ComponentDoc[] }> = ({ data }) => {
   return (
-    <>
+    <API>
       {data &&
         data.map((propSheet, index) => (
           <div key={`${propSheet.displayName}-${index}`}>
-            <StyledH3>{propSheet.displayName}</StyledH3>
-            <MD isMonospace>
-              import {`{${propSheet.displayName}}`} from &quot;{reactPackage.name}&quot;;
-            </MD>
-            <Paragraph>{propSheet.description}</Paragraph>
+            <HeaderContainer>
+              <Title>{propSheet.displayName}</Title>
+              <Paragraph>{propSheet.description}</Paragraph>
+            </HeaderContainer>
             <Table>
               <Head>
                 <HeaderRow>
-                  <HeaderCell>Prop name</HeaderCell>
+                  <HeaderCell>Property</HeaderCell>
+                  <HeaderCell>Description</HeaderCell>
                   <HeaderCell>Type</HeaderCell>
                   <HeaderCell>Default</HeaderCell>
-                  <HeaderCell>Description</HeaderCell>
                 </HeaderRow>
               </Head>
               <Body>
@@ -44,30 +57,12 @@ export const PropSheets: React.FC<{ data: ComponentDoc[]; reactPackage: IPackage
 
                   return (
                     <Row key={`${propSheet.displayName}-${propSheetKey}`}>
-                      <Cell
-                        css={css`
-                          color: ${p => getColor('kale', 400, p.theme)};
-                          font-family: ${p => p.theme.fonts.mono};
-                        `}
-                      >
-                        {prop.name}
-                      </Cell>
-                      <Cell
-                        css={css`
-                          color: ${p => getColor('red', 600, p.theme)};
-                          font-family: ${p => p.theme.fonts.mono};
-                        `}
-                      >
-                        {prop.type.name}
-                      </Cell>
-                      <Cell
-                        css={css`
-                          font-family: ${p => p.theme.fonts.mono};
-                        `}
-                      >
-                        {prop.defaultValue ? prop.defaultValue.value : '-'}
+                      <Cell>
+                        <Code>{prop.name}</Code>
                       </Cell>
                       <Cell>{prop.description}</Cell>
+                      <Cell>{prop.type.name}</Cell>
+                      <Cell>{prop.defaultValue ? prop.defaultValue.value : '-'}</Cell>
                     </Row>
                   );
                 })}
@@ -75,6 +70,6 @@ export const PropSheets: React.FC<{ data: ComponentDoc[]; reactPackage: IPackage
             </Table>
           </div>
         ))}
-    </>
+    </API>
   );
 };

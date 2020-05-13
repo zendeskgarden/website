@@ -47,7 +47,6 @@ import ButtonStretchedCode from '!!raw-loader!../../examples/button/ButtonStretc
 ### Danger
 
 Danger styling is for buttons that have a destructive intent.
-See the [Destructive actions pattern](#todo) section for guidelines.
 
 <CodeExample code={ButtonDangerCode}>
   <ButtonDanger />
@@ -58,16 +57,14 @@ See the [Destructive actions pattern](#todo) section for guidelines.
 import ButtonDanger from '../../examples/button/ButtonDanger.tsx';
 import ButtonDangerCode from '!!raw-loader!../../examples/button/ButtonDanger.tsx';
 
-Mark a button disabled with the disabled property.
-[Read more about disabled state usage](#todo)
+A disabled button prevents user interaction and is not perceived by a screen reader.
 
-## Best practices
-
-### Writing button labels
-
-## Package
+## Configuration
 
 <PackageDescription data={props.data.mdx.package} />
+
+### API
+
 <PropSheets data={props.data.mdx.propsSheets} reactPackage={props.data.mdx.package} />
 
 import { graphql } from 'gatsby';

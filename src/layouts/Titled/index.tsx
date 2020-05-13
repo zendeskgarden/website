@@ -6,22 +6,29 @@
  */
 
 import React from 'react';
-import { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
-import { LG } from '@zendeskgarden/react-typography';
+import styled, { css } from 'styled-components';
+import { getColor } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { LG, XXXL } from '@zendeskgarden/react-typography';
 import { TOCBlock, TOC, IHeading } from './components/TOC';
 
-const headerStyles = (p: ThemeProps<DefaultTheme>) => {
-  const fontSize = `${p.theme.space.base * 12}px`;
+const TitleContainer = styled.div`
+  margin-bottom: ${p => p.theme.space.lg};
+  border-bottom: solid 1px ${p => getColor('grey', 300, p.theme)};
+  padding-bottom: ${p => p.theme.space.md};
+`;
 
-  return css`
-    margin-bottom: ${p.theme.space.md};
-    line-height: ${getLineHeight(`${p.theme.space.base * 14}px`, fontSize)};
-    font-size: ${fontSize};
-    font-weight: ${p.theme.fontWeights.bold};
-  `;
-};
+const PageTitle = styled(XXXL)`
+  margin-bottom: ${p => p.theme.space.sm};
+  line-height: 1;
+  font-size: ${p => p.theme.space.base * 12}px;
+  font-weight: ${p => p.theme.fontWeights.semibold};
+`;
+
+const SubTitle = styled(LG)`
+  max-width: 550px;
+  color: ${p => p.theme.palette.grey[600]};
+`;
 
 const TitledLayout: React.FC<{
   title: React.ReactNode;
@@ -31,30 +38,10 @@ const TitledLayout: React.FC<{
   <Grid gutters="lg">
     <Row>
       <Col lg={12} xl={9}>
-        <h1
-          css={css`
-            ${headerStyles}
-          `}
-        >
-          {title}
-        </h1>
-        {subTitle && (
-          <LG
-            tag="p"
-            css={css`
-              margin-bottom: ${p => p.theme.space.lg};
-              max-width: 450px;
-            `}
-          >
-            {subTitle}
-          </LG>
-        )}
-        <hr
-          css={css`
-            margin-bottom: ${p => p.theme.space.lg};
-            border-color: ${p => getColor('grey', 300, p.theme)};
-          `}
-        />
+        <TitleContainer>
+          <PageTitle tag="h1">{title}</PageTitle>
+          {subTitle && <SubTitle>{subTitle}</SubTitle>}
+        </TitleContainer>
         {toc && (
           <TOCBlock
             data={toc}

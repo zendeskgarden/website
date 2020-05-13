@@ -93,12 +93,8 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
       aria-label="Primary"
       css={css`
         background-color: ${p => p.theme.palette.tofu};
-        padding: ${p => p.theme.space.lg} ${p => p.theme.space.md} ${p => p.theme.space.lg} 0;
+        padding: ${p => p.theme.space.lg} ${p => p.theme.space.md};
         min-width: 220px;
-
-        @media (max-width: 1440px) {
-          padding: ${p => p.theme.space.lg} ${p => p.theme.space.md};
-        }
 
         @media (max-width: ${p => p.theme.breakpoints.lg}) {
           display: none;

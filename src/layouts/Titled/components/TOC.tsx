@@ -53,10 +53,11 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
 
 const StyledAnchor = styled(Anchor)<{ isCurrent: boolean }>`
   display: block;
-  margin: ${p => p.theme.space.xxs} 0;
+  margin: ${p => p.theme.space.base * 0.5}px 0;
   margin-left: ${p => p.isCurrent && `-${p.theme.borderWidths.sm}`};
   border-left: ${p => p.isCurrent && `${p.theme.borders.sm} ${getColor('grey', 800, p.theme)}`};
   text-align: left;
+  font-size: ${p => p.theme.fontSizes.sm};
 `;
 
 export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
@@ -121,7 +122,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
       css={css`
         position: sticky;
         top: 32px;
-        margin-left: ${p => p.theme.space.lg};
+        margin-left: ${p => p.theme.space.sm};
       `}
     >
       <StyledSectionHeader
