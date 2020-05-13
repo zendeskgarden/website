@@ -21,7 +21,7 @@ const headerSpacing = (p: ThemeProps<DefaultTheme>) => {
 export const StyledH2 = styled(XXL).attrs({ tag: 'h2' })`
   ${headerSpacing}
   margin-top: ${p => p.theme.space.xxl};
-  border-bottom: solid 1px ${getColor('grey', 300, p => p.theme)};
+  border-bottom: solid 1px ${p => getColor('grey', 300, p.theme)};
   padding: 0 0 ${p => p.theme.space.base * 4}px;
 `;
 
