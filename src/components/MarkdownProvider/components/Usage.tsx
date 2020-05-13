@@ -9,12 +9,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { MD } from '@zendeskgarden/react-typography';
 
-const StyledUsage = styled.div`
-  @media (min-width: ${p => p.theme.breakpoints.sm}) {
-    display: flex;
-  }
-`;
-
 export const Use: React.FC = props => (
   <div>
     <MD isBold>When to use</MD>
@@ -29,4 +23,8 @@ export const Misuse: React.FC = props => (
   </div>
 );
 
-export const Usage: React.FC = props => <StyledUsage {...props} />;
+export const Usage = styled.div`
+  @media (min-width: ${p => p.theme.breakpoints.sm}) {
+    display: flex;
+  }
+`;

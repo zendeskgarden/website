@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { cloneElement, ReactNode, HTMLAttributes } from 'react';
+import React, { cloneElement, ReactNode } from 'react';
 import styled from 'styled-components';
 import { MD } from '@zendeskgarden/react-typography';
 import { Well } from '@zendeskgarden/react-notifications';
@@ -45,7 +45,7 @@ const StyledTitle = styled.div`
   margin-bottom: ${props => props.theme.space.xs};
 `;
 
-const StyledBestPractice = styled.div`
+export const BestPractice = styled.div`
   display: flex;
   justify-content: space-around;
 
@@ -160,8 +160,4 @@ export const Caution: React.FC = props => (
     icon={<AlertErrorStrokeIcon />}
     {...props}
   />
-);
-
-export const BestPractice = (props: HTMLAttributes<HTMLDivElement>) => (
-  <StyledBestPractice {...props} />
 );

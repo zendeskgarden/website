@@ -27,7 +27,7 @@ propSheets:
 
 ### Shape
 
-An Avatar can be a circle or rounded square. View the shape usage [best practices](#todo).
+An Avatar can be a circle or rounded square. View the shape usage [best practices](#best-practices).
 
 import AvatarShape from '../../examples/avatar/AvatarShape.tsx';
 import AvatarShapeCode from '!!raw-loader!../../examples/avatar/AvatarShape.tsx';
@@ -77,19 +77,6 @@ import AvatarStatusCode from '!!raw-loader!../../examples/avatar/AvatarStatus.ts
 Circular Avatars are used to represent a person because the shape is most often associated with a
 profile picture. Rounded squares are used for system applications like objects, brands, or products.
 This helps the user quickly distinguish between a person or a system when scanning.
-
-<BestPractice>
-  <Do imageSource={props.data.avatarShapeCircle.children[0].publicURL}>
-    <ul>
-      <li>Use a circular shape to represent a person.</li>
-    </ul>
-  </Do>
-  <Dont imageSource={props.data.avatarShapeCircle.children[0].publicURL}>
-    <ul>
-      <li>Use the rounded square shape to represent objects, brands, or products</li>
-    </ul>
-  </Dont>
-</BestPractice>
 
 <BestPractice>
   <Do imageSource={props.data.avatarShapeCircle.children[0].publicURL}>
