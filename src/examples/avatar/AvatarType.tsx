@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { ReactComponent as UserStrokeIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const Example = () => {
-  const iconColor = DEFAULT_THEME.palette.grey[600];
+  const iconColor = PALETTE.grey[600];
 
   return (
     <Grid>
@@ -24,10 +24,12 @@ const Example = () => {
         </Col>
         <Col textAlign="center">
           <Avatar backgroundColor={iconColor}>
+            {/* eslint-disable jsx-a11y/img-redundant-alt */}
             <img
-              alt="example avatar"
+              alt="image avatar"
               src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
             />
+            {/* eslint-enable jsx-a11y/img-redundant-alt */}
           </Avatar>
         </Col>
         <Col textAlign="center">

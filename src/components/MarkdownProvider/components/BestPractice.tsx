@@ -86,20 +86,6 @@ const StyledWell = styled(Well)<IStyledWell>`
   border-color: ${props => getColor(props.hue, 500, props.theme)};
   background: ${props => getColor('neutralHue', 100, props.theme)};
   padding: ${props => `${props.theme.space.md}`};
-
-  ul {
-    margin: 0;
-    list-style: none;
-  }
-
-  li {
-    padding: ${props => props.theme.space.base}px 0;
-  }
-
-  li:not(:last-child) {
-    border-bottom: ${props =>
-      `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
-  }
 `;
 
 const StyledBestPracticeImageContainer = styled.div`

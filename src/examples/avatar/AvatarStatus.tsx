@@ -6,12 +6,12 @@
  */
 
 import React from 'react';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
-  const iconColor = DEFAULT_THEME.palette.grey[600];
+  const iconColor = PALETTE.grey[600];
 
   return (
     <Grid>

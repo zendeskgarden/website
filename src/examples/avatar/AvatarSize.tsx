@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { ReactComponent as UserStrokeIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const Example = () => {
-  const iconColor = DEFAULT_THEME.palette.grey[600];
+  const iconColor = PALETTE.grey[600];
 
   return (
     <Grid>

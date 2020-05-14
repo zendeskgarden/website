@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
@@ -17,12 +17,12 @@ const Example = () => {
     <Grid>
       <Row alignItems="center">
         <Col textAlign="center">
-          <Avatar backgroundColor={DEFAULT_THEME.palette.grey[600]} size="medium">
+          <Avatar backgroundColor={PALETTE.grey[600]} size="medium">
             <UserStrokeIcon role="img" aria-label="User" />
           </Avatar>
         </Col>
         <Col textAlign="center">
-          <Avatar backgroundColor={DEFAULT_THEME.palette.kale[700]} size="medium" isSystem>
+          <Avatar backgroundColor={PALETTE.kale[700]} size="medium" isSystem>
             <ZendeskIcon role="img" aria-label="Zendesk" />
           </Avatar>
         </Col>
