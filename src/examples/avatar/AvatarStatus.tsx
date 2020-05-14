@@ -6,14 +6,9 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-
-const StyledCol = styled(Col)`
-  text-align: center;
-`;
 
 const Example = () => {
   const iconColor = DEFAULT_THEME.palette.grey[600];
@@ -21,30 +16,30 @@ const Example = () => {
   return (
     <Grid>
       <Row alignItems="center">
-        <StyledCol>
+        <Col textAlign="center">
           <Avatar backgroundColor={iconColor} status="away">
             <img
               alt="away avatar"
               src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
             />
           </Avatar>
-        </StyledCol>
-        <StyledCol>
+        </Col>
+        <Col textAlign="center">
           <Avatar backgroundColor={iconColor}>
             <img
               alt="standard avatar"
               src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
             />
           </Avatar>
-        </StyledCol>
-        <StyledCol>
+        </Col>
+        <Col textAlign="center">
           <Avatar backgroundColor={iconColor} status="available">
             <img
               alt="available avatar"
               src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
             />
           </Avatar>
-        </StyledCol>
+        </Col>
       </Row>
     </Grid>
   );
