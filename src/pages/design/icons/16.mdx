@@ -13,6 +13,7 @@ export const pageQuery = graphql`
     ...SidebarPageFragment
     svgIcons: allFile(
       filter: { sourceInstanceName: { eq: "svg-icons" }, relativeDirectory: { eq: "16" } }
+      sort: { fields: name, order: ASC }
     ) {
       edges {
         node {
