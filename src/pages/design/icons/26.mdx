@@ -17,6 +17,7 @@ export const pageQuery = graphql`
         relativeDirectory: { eq: "26" }
         name: { glob: "!wordmark-*" }
       }
+      sort: { fields: name, order: ASC }
     ) {
       totalCount
       edges {
