@@ -6,14 +6,14 @@
  */
 
 import React, { cloneElement, ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
 import { Well, Title, Paragraph } from '@zendeskgarden/react-notifications';
 import { getColor } from '@zendeskgarden/react-theming';
 
-interface IStyledCaptionProps {
+interface IStyledWellProps {
   hue: string;
 }
 
@@ -25,7 +25,7 @@ interface ISectionProps {
   icon: ReactNode;
 }
 
-const StyledFigure = styled.figure`
+const WellContainerStyles = css`
   display: flex;
   flex-basis: 0;
   flex-direction: column;
@@ -52,14 +52,20 @@ const StyledImg = styled.img`
   border-top-right-radius: ${p => p.theme.borderRadii.md};
 `;
 
-const StyledCaption = styled(props => <Well isRecessed {...props} />).attrs({
-  forwardedAs: 'figcaption'
-})<IStyledCaptionProps>`
+const StyledFigure = styled.figure`
+  ${WellContainerStyles}
+`;
+
+const StyledWell = styled(props => <Well isRecessed {...props} />).attrs(p => ({
+  forwardedAs: p.tag
+}))<IStyledWellProps>`
   border: none;
   border-top: ${p => p.theme.borders.md};
   border-radius: 0;
   border-color: ${p => getColor(p.hue, 500, p.theme)};
   padding: ${p => p.theme.space.md};
+
+  ${p => p.tag !== 'figcaption' && WellContainerStyles}
 `;
 
 const StyledIcon = styled(({ children, ...props }) =>
@@ -82,18 +88,28 @@ const StyledBestPractice = styled.div`
   }
 `;
 
-export const Section: React.FC<ISectionProps> = props => (
-  <StyledFigure>
-    <StyledImg alt={props.altText} src={props.imageSource} />
-    <StyledCaption hue={props.hue}>
+export const Section: React.FC<ISectionProps> = props => {
+  const content = (
+    <>
       <Title>
         <StyledIcon hue={props.hue}>{props.icon}</StyledIcon>
         {props.title}
       </Title>
       <Paragraph>{props.children}</Paragraph>
-    </StyledCaption>
-  </StyledFigure>
-);
+    </>
+  );
+
+  return props.imageSource ? (
+    <StyledFigure>
+      <StyledImg alt={props.altText} src={props.imageSource} />
+      <StyledWell tag="figcaption" hue={props.hue}>
+        {content}
+      </StyledWell>
+    </StyledFigure>
+  ) : (
+    <StyledWell hue={props.hue}>{content}</StyledWell>
+  );
+};
 
 export const Dont: React.FC<ISectionProps> = props => (
   <Section title="Not this" altText="not this" hue="dangerHue" icon={<XStrokeIcon />} {...props} />
