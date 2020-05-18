@@ -24,7 +24,7 @@ export const Misuse: React.FC = props => (
   </Col>
 );
 
-export const Usage = styled(Row)`
+export const StyledUsage = styled(Row)`
   @media (max-width: ${p => p.theme.breakpoints.sm}) {
     flex-direction: column;
   }

@@ -7,46 +7,69 @@
 
 import React, { cloneElement, ReactNode } from 'react';
 import styled from 'styled-components';
-import { MD } from '@zendeskgarden/react-typography';
-import { Well } from '@zendeskgarden/react-notifications';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
-
+import { Well, Title, Paragraph } from '@zendeskgarden/react-notifications';
 import { getColor } from '@zendeskgarden/react-theming';
 
-export interface IStyledBestPracticeTextProps {
+interface IStyledCaptionProps {
   hue: string;
 }
 
-export interface IFileNode {
-  name: string;
-  publicURL: string;
-}
-
-export interface IFileEdge {
-  node: IFileNode;
-}
-
-export interface IStyledWell {
+interface ISectionProps {
   hue: string;
+  title: string;
+  altText: string;
+  imageSource: string;
+  icon: ReactNode;
 }
+
+const StyledFigure = styled.figure`
+  display: flex;
+  flex-basis: 0;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: ${p => p.theme.space.xl} 0;
+
+  @media (min-width: ${p => p.theme.breakpoints.sm}) {
+    margin: ${p => p.theme.space.md} ${p => p.theme.space.xs};
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+`;
+
+const StyledImg = styled.img`
+  border: ${p => `${p.theme.borders.sm} ${getColor('neutralHue', 300, p.theme)}`};
+  border-bottom: none;
+  border-top-left-radius: ${p => p.theme.borderRadii.md};
+  border-top-right-radius: ${p => p.theme.borderRadii.md};
+`;
+
+const StyledCaption = styled(props => <Well isRecessed {...props} />).attrs({
+  forwardedAs: 'figcaption'
+})<IStyledCaptionProps>`
+  border: none;
+  border-top: ${p => p.theme.borders.md};
+  border-radius: 0;
+  border-color: ${p => getColor(p.hue, 500, p.theme)};
+  padding: ${p => p.theme.space.md};
+`;
 
 const StyledIcon = styled(({ children, ...props }) =>
   cloneElement(React.Children.only(children), props)
 )`
-  margin-right: ${props => props.theme.space.xs};
-  color: ${props => getColor(props.hue, 500, props.theme)};
+  margin-right: ${p => p.theme.space.xs};
+  color: ${p => getColor(p.hue, 500, p.theme)};
 `;
 
-const StyledTitle = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: ${props => props.theme.space.xs};
-  color: ${props => getColor('neutralHue', 800, props.theme)};
-`;
-
-export const BestPractice = styled.div`
+const StyledBestPractice = styled.div`
   display: flex;
   justify-content: space-around;
 
@@ -59,78 +82,24 @@ export const BestPractice = styled.div`
   }
 `;
 
-const StyledBestPracticeContainer = styled.div`
-  display: flex;
-  flex-basis: 0;
-  flex-direction: column;
-  flex-grow: 1;
-  margin: ${props => props.theme.space.xl} 0;
-
-  @media (min-width: ${p => p.theme.breakpoints.sm}) {
-    margin: ${props => props.theme.space.md} ${props => props.theme.space.xs};
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-`;
-
-const StyledWell = styled(Well)<IStyledWell>`
-  border: none;
-  border-top: ${props => props.theme.borders.md};
-  border-radius: 0;
-  border-color: ${props => getColor(props.hue, 500, props.theme)};
-  background: ${props => getColor('neutralHue', 100, props.theme)};
-  padding: ${props => `${props.theme.space.md}`};
-`;
-
-const StyledBestPracticeImageContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
-  border-bottom: none;
-  border-top-left-radius: ${props => props.theme.borderRadii.md};
-  border-top-right-radius: ${props => props.theme.borderRadii.md};
-
-  & img {
-    border-top-left-radius: ${props => props.theme.borderRadii.md};
-    border-top-right-radius: ${props => props.theme.borderRadii.md};
-  }
-`;
-
-export interface ISectionProps {
-  hue: string;
-  title?: string;
-  altText?: string;
-  imageSource?: string;
-  icon?: ReactNode;
-}
-
-const Section: React.FC<ISectionProps> = props => (
-  <StyledBestPracticeContainer>
-    <StyledBestPracticeImageContainer>
-      {props.imageSource && <img src={props.imageSource} alt={props.altText} />}
-    </StyledBestPracticeImageContainer>
-    <StyledWell hue={props.hue}>
-      <StyledTitle>
+export const Section: React.FC<ISectionProps> = props => (
+  <StyledFigure>
+    <StyledImg alt={props.altText} src={props.imageSource} />
+    <StyledCaption hue={props.hue}>
+      <Title>
         <StyledIcon hue={props.hue}>{props.icon}</StyledIcon>
-        <MD isBold>{props.title}</MD>
-      </StyledTitle>
-      {props.children}
-    </StyledWell>
-  </StyledBestPracticeContainer>
+        {props.title}
+      </Title>
+      <Paragraph>{props.children}</Paragraph>
+    </StyledCaption>
+  </StyledFigure>
 );
 
-export const Dont: React.FC = props => (
+export const Dont: React.FC<ISectionProps> = props => (
   <Section title="Not this" altText="not this" hue="dangerHue" icon={<XStrokeIcon />} {...props} />
 );
 
-export const Do: React.FC = props => (
+export const Do: React.FC<ISectionProps> = props => (
   <Section
     title="Do this"
     altText="do this"
@@ -140,7 +109,7 @@ export const Do: React.FC = props => (
   />
 );
 
-export const Caution: React.FC = props => (
+export const Caution: React.FC<ISectionProps> = props => (
   <Section
     title="Caution"
     altText="caution"
@@ -148,4 +117,8 @@ export const Caution: React.FC = props => (
     icon={<AlertErrorStrokeIcon />}
     {...props}
   />
+);
+
+export const BestPractice: React.FC = props => (
+  <StyledBestPractice>{props.children}</StyledBestPractice>
 );
