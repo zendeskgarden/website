@@ -25,17 +25,17 @@ const Example = () => {
           </Avatar>
         </Col>
         <Col textAlign="center">
-          <Avatar backgroundColor={iconColor}>
+          <Avatar backgroundColor={iconColor} status="available">
             <img
-              alt="standard avatar"
+              alt="available avatar"
               src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
             />
           </Avatar>
         </Col>
         <Col textAlign="center">
-          <Avatar backgroundColor={iconColor} status="available">
+          <Avatar backgroundColor={iconColor} status={'active' as any} badge={8}>
             <img
-              alt="available avatar"
+              alt="active avatar"
               src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
             />
           </Avatar>
