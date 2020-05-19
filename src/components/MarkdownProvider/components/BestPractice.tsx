@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { cloneElement, ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import React, { cloneElement, ReactNode, ReactElement } from 'react';
+import styled from 'styled-components';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
 import { Well, Title, Paragraph } from '@zendeskgarden/react-notifications';
 import { getColor } from '@zendeskgarden/react-theming';
+import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 
 interface IStyledWellProps {
   hue: string;
@@ -25,7 +26,7 @@ interface ISectionProps {
   icon: ReactNode;
 }
 
-const WellContainerStyles = css`
+const StyledFigure = styled.figure`
   display: flex;
   flex-basis: 0;
   flex-direction: column;
@@ -52,10 +53,6 @@ const StyledImg = styled.img`
   border-top-right-radius: ${p => p.theme.borderRadii.md};
 `;
 
-const StyledFigure = styled.figure`
-  ${WellContainerStyles}
-`;
-
 const StyledWell = styled(props => <Well isRecessed {...props} />).attrs(p => ({
   forwardedAs: p.tag
 }))<IStyledWellProps>`
@@ -64,8 +61,6 @@ const StyledWell = styled(props => <Well isRecessed {...props} />).attrs(p => ({
   border-radius: 0;
   border-color: ${p => getColor(p.hue, 500, p.theme)};
   padding: ${p => p.theme.space.md};
-
-  ${p => p.tag !== 'figcaption' && WellContainerStyles}
 `;
 
 const StyledIcon = styled(({ children, ...props }) =>
@@ -75,41 +70,29 @@ const StyledIcon = styled(({ children, ...props }) =>
   color: ${p => getColor(p.hue, 500, p.theme)};
 `;
 
-const StyledBestPractice = styled.div`
+const StyledTitle = styled(Title)`
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+`;
 
-  @media (max-width: ${p => p.theme.breakpoints.md}) {
-    justify-content: space-between;
-  }
-
+const StyledRow = styled(Row)`
   @media (max-width: ${p => p.theme.breakpoints.sm}) {
-    display: block;
+    flex-direction: column;
   }
 `;
 
-export const Section: React.FC<ISectionProps> = props => {
-  const content = (
-    <>
-      <Title>
+export const Section: React.FC<ISectionProps> = props => (
+  <StyledFigure>
+    {props.imageSource && <StyledImg alt={props.altText} src={props.imageSource} />}
+    <StyledWell tag="figcaption" hue={props.hue}>
+      <StyledTitle>
         <StyledIcon hue={props.hue}>{props.icon}</StyledIcon>
         {props.title}
-      </Title>
+      </StyledTitle>
       <Paragraph>{props.children}</Paragraph>
-    </>
-  );
-
-  return props.imageSource ? (
-    <StyledFigure>
-      <StyledImg alt={props.altText} src={props.imageSource} />
-      <StyledWell tag="figcaption" hue={props.hue}>
-        {content}
-      </StyledWell>
-    </StyledFigure>
-  ) : (
-    <StyledWell hue={props.hue}>{content}</StyledWell>
-  );
-};
+    </StyledWell>
+  </StyledFigure>
+);
 
 export const Dont: React.FC<ISectionProps> = props => (
   <Section title="Not this" altText="not this" hue="dangerHue" icon={<XStrokeIcon />} {...props} />
@@ -136,5 +119,11 @@ export const Caution: React.FC<ISectionProps> = props => (
 );
 
 export const BestPractice: React.FC = props => (
-  <StyledBestPractice>{props.children}</StyledBestPractice>
+  <Grid>
+    <StyledRow>
+      {React.Children.map(props.children, child => (
+        <Col>{React.cloneElement(child as ReactElement)}</Col>
+      ))}
+    </StyledRow>
+  </Grid>
 );
