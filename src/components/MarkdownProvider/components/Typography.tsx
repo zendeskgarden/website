@@ -8,7 +8,7 @@
 import React from 'react';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
-import { XXL, XL, LG } from '@zendeskgarden/react-typography';
+import { XXL, XL, LG, Span } from '@zendeskgarden/react-typography';
 
 const headerSpacing = (p: ThemeProps<DefaultTheme>) => {
   return css`
@@ -65,9 +65,7 @@ export const StyledPre: React.FC = ({ children }) => {
   return <>{children}</>;
 };
 
-export const StyledStrong = styled.strong`
-  font-weight: ${p => p.theme.fontWeights.bold};
-`;
+export const StyledStrong = styled(Span).attrs({ tag: 'strong', isBold: true })``;
 
 export const StyledEmphasis = styled.em`
   font-style: italic;
