@@ -55,6 +55,7 @@ const SEO: React.FC<{
           content: `website`
         }
       ].concat(meta!)}
+      link={[{ rel: `mask-icon`, href: 'mask-icon.svg', color: '#03363D' }]}
     />
   );
 };

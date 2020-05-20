@@ -89,13 +89,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Zendesk Garden`,
+        short_name: `Garden`,
+        description: `Garden is a design system for Zendesk where we grow beautifully simple and accessible UI components.`,
         start_url: `/`,
         background_color: PALETTE.blue[600],
         theme_color: PALETTE.blue[600],
         display: `minimal-ui`,
-        icon: `src/images/garden-icon.svg`
+        icon: `src/images/garden-icon.png`
       }
     },
     {
