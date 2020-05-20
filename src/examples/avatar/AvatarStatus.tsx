@@ -33,7 +33,7 @@ const Example = () => {
           </Avatar>
         </Col>
         <Col textAlign="center">
-          <Avatar backgroundColor={iconColor} status={'active' as any} badge={8}>
+          <Avatar backgroundColor={iconColor} badge={8}>
             <img
               alt="active avatar"
               src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"

@@ -61,7 +61,7 @@ const packageJson = `
     "@zendeskgarden/react-buttons": "^8.0.0",
     "@zendeskgarden/react-chrome": "^8.0.0",
     "@zendeskgarden/react-dropdowns": "^8.0.0",
-    "@zendeskgarden/react-grid": "^8.0.0",
+    "@zendeskgarden/react-grid": "latest",
     "@zendeskgarden/react-loaders": "^8.0.0",
     "@zendeskgarden/react-modals": "^8.0.0",
     "@zendeskgarden/react-notifications": "^8.0.0",
@@ -71,7 +71,7 @@ const packageJson = `
     "@zendeskgarden/react-tags": "^8.0.0",
     "@zendeskgarden/react-theming": "^8.0.0",
     "@zendeskgarden/react-typography": "^8.0.0",
-    "@zendeskgarden/svg-icons": "^6.10.0"
+    "@zendeskgarden/svg-icons": "^6.17.0"
   }
 }
 `;
