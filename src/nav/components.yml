@@ -4,6 +4,8 @@
       title: Overview
 - title: Components
   items:
+    - title: Avatar
+      id: /components/avatar
     - title: Buttons
       items:
         - id: /components/button

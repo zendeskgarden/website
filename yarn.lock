@@ -2282,6 +2282,13 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-11.0.4.tgz#771515025526a1b898629b2cca2219bcda56d0f9"
   integrity sha512-19gAst+jXlZ9PiURd4ZGT1TVoYKrNIGbZpZkBjyGQIfSLLo2ech+mFS/S6Njx+EaaKKbacxoa8ZszxsJLK3onw==
 
+"@zendeskgarden/react-avatars@8.6.0":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-avatars/-/react-avatars-8.6.0.tgz#4a87e53bc943e63306307839857a5425aa37c0f8"
+  integrity sha512-fDcDVFYHFnFnRk7Li2+gVXCqEN3CrZ7JKnjlBnfcuxU2SdVHtCHtwSKuYeDLtb8wjdwnb9Nk8bm32EUHGmlMLg==
+  dependencies:
+    polished "^3.5.1"
+
 "@zendeskgarden/react-buttons@8.6.0":
   version "8.6.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.6.0.tgz#f9f584584eccac8b4e4e8337b9210e56c9e9a08c"
@@ -2300,12 +2307,17 @@
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.5.1"
 
-"@zendeskgarden/react-grid@8.6.0":
-  version "8.6.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-grid/-/react-grid-8.6.0.tgz#abd1c1d0f436309c31a962872c4cb79bcfa3b7f2"
-  integrity sha512-Tlu7swDrPFF0TBK9peLDkaDoQI5mJ6u5bV1Bo+OHaHNuBCw1t/k3I2grzQ7zM/TPnZYl80Uh7UGjSZK0hJtZRA==
+"@zendeskgarden/react-grid@8.9.0":
+  version "8.9.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-grid/-/react-grid-8.9.0.tgz#de268013e483a76c3a46a490ba88fe902bf9d054"
+  integrity sha512-AM0kAYvmh65chkw2FuF5SfYbklXbR/SWRGm87iape8Q96bx6IBkWDvhEI8WUqZFujMm3IGPymZFLr73ramYADg==
   dependencies:
     polished "^3.5.1"
+
+"@zendeskgarden/react-notifications@8.6.0":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-notifications/-/react-notifications-8.6.0.tgz#aa514073578c6a58f48bf381f39f929be3237ada"
+  integrity sha512-wKRgreuIzVgZUb1ULR4dZ3eGWPdZZiIoANbr9rSiR5rLN+Jkn8NYy35Jzqipi1TevLEscZsSJuUIx1VgcvaMrQ==
 
 "@zendeskgarden/react-tables@8.6.0":
   version "8.6.0"
