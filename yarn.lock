@@ -2282,6 +2282,13 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-11.0.4.tgz#771515025526a1b898629b2cca2219bcda56d0f9"
   integrity sha512-19gAst+jXlZ9PiURd4ZGT1TVoYKrNIGbZpZkBjyGQIfSLLo2ech+mFS/S6Njx+EaaKKbacxoa8ZszxsJLK3onw==
 
+"@zendeskgarden/react-avatars@8.10.0":
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-avatars/-/react-avatars-8.10.0.tgz#59862a9f0637aa88c0192c6c531d77a6a0d4f358"
+  integrity sha512-K6r2NfmNx0B0gdBxKKlfOEQYybNwayfjOgyfgI+Tu5uOlB176dX1mQu+/aV5MIbe+UQvMZVTQ2osv+vy/9n2bQ==
+  dependencies:
+    polished "^3.5.1"
+
 "@zendeskgarden/react-buttons@8.10.0":
   version "8.10.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.10.0.tgz#5d70ac9f6bc37feddd89a747e290bee8e4acbef7"
@@ -2306,6 +2313,11 @@
   integrity sha512-IuUWPK9U85t9Nb/Vi9pVmd+jj8+eS41sVlj5aG6AglhdgXTuHlhaHF8eF/JDog7ONgdY2NQ8MENNR8sxe+sduQ==
   dependencies:
     polished "^3.5.1"
+
+"@zendeskgarden/react-notifications@8.10.0":
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-notifications/-/react-notifications-8.10.0.tgz#bd60d6c67a06acc65fcdf3b7a01e2192255d4829"
+  integrity sha512-W5jdAWnKHZM7Y/878A7iwbFE3onA8EvUtapU+VA+5epnXZ3sJS6tx7R6ANRidrSplu/v9Ug+T/RNtBYpKKzX0w==
 
 "@zendeskgarden/react-tables@8.10.0":
   version "8.10.0"

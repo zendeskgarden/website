@@ -18,7 +18,7 @@ const listStyling = css`
 export const UL: React.FC = props => {
   return (
     <ListContext.Provider value="ul">
-      <UnorderedList {...props} css={listStyling} />
+      <UnorderedList {...props} css={listStyling} type="disc" />
     </ListContext.Provider>
   );
 };
