@@ -7,7 +7,6 @@
 
 const envalid = require('envalid');
 const path = require('path');
-const { PALETTE } = require('@zendeskgarden/react-theming');
 
 require('dotenv').config();
 envalid.cleanEnv(process.env, { ABSTRACT_TOKEN: envalid.str() });
@@ -86,19 +85,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-netlify`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Zendesk Garden`,
-        short_name: `Garden`,
-        description: `Garden is a design system for Zendesk where we grow beautifully simple and accessible UI components.`,
-        start_url: `/`,
-        background_color: PALETTE.blue[600],
-        theme_color: PALETTE.blue[600],
-        display: `minimal-ui`,
-        icon: `src/images/garden-icon.png`
-      }
-    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
