@@ -8,6 +8,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+const { PALETTE } = require('@zendeskgarden/react-theming');
 
 const SEO: React.FC<{
   description?: string;
@@ -39,23 +40,23 @@ const SEO: React.FC<{
       titleTemplate={title ? `%s / ${site.siteMetadata.title}` : undefined}
       meta={[
         {
+          name: `application-name`,
+          content: site.siteMetadata.title
+        },
+        {
           name: `description`,
           content: metaDescription
         },
         {
-          property: `og:title`,
-          content: title
-        },
-        {
-          property: `og:description`,
-          content: metaDescription
-        },
-        {
-          property: `og:type`,
-          content: `website`
+          name: `msapplication-config`,
+          content: `browserconfig.xml`
         }
       ].concat(meta!)}
-      link={[{ rel: `mask-icon`, href: 'mask-icon.svg', color: '#03363D' }]}
+      link={[
+        { rel: `mask-icon`, href: 'mask-icon.svg', color: PALETTE.kale[700] },
+        { rel: `apple-touch-icon`, href: 'apple-touch-icon.png' },
+        { rel: `shortcut icon`, href: 'favicon.ico' }
+      ]}
     />
   );
 };
