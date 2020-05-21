@@ -53,9 +53,9 @@ const SEO: React.FC<{
         }
       ].concat(meta!)}
       link={[
-        { rel: `mask-icon`, href: 'mask-icon.svg', color: PALETTE.kale[700] },
-        { rel: `apple-touch-icon`, href: 'apple-touch-icon.png' },
-        { rel: `shortcut icon`, href: 'favicon.ico' }
+        { rel: `mask-icon`, href: `mask-icon.svg`, color: PALETTE.kale[700] },
+        { rel: `apple-touch-icon`, href: `apple-touch-icon.png` },
+        { rel: `shortcut icon`, href: `favicon.ico` }
       ]}
     />
   );
