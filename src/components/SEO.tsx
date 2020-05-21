@@ -40,22 +40,22 @@ const SEO: React.FC<{
       titleTemplate={title ? `%s / ${site.siteMetadata.title}` : undefined}
       meta={[
         {
-          name: `application-name`,
+          name: 'application-name',
           content: site.siteMetadata.title
         },
         {
-          name: `description`,
+          name: 'description',
           content: metaDescription
         },
         {
-          name: `msapplication-config`,
-          content: `browserconfig.xml`
+          name: 'msapplication-config',
+          content: 'browserconfig.xml'
         }
       ].concat(meta!)}
       link={[
-        { rel: `mask-icon`, href: `mask-icon.svg`, color: PALETTE.kale[700] },
-        { rel: `apple-touch-icon`, href: `apple-touch-icon.png` },
-        { rel: `shortcut icon`, href: `favicon.ico` }
+        { rel: 'mask-icon', href: 'mask-icon.svg', color: PALETTE.kale[700] },
+        { rel: 'apple-touch-icon', href: 'apple-touch-icon.png' },
+        { rel: 'shortcut icon', href: 'favicon.ico' }
       ]}
     />
   );
