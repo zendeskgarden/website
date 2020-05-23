@@ -52,7 +52,7 @@
     "core-js": "2.6.11",
     "dotenv": "8.2.0",
     "envalid": "6.0.1",
-    "eslint": "6.8.0",
+    "eslint": "7.1.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-notice": "0.8.10",
