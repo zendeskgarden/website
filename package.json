@@ -30,7 +30,7 @@
     "@typescript-eslint/eslint-plugin": "2.30.0",
     "@typescript-eslint/parser": "2.29.0",
     "@zendeskgarden/css-bedrock": "8.0.0",
-    "@zendeskgarden/eslint-config": "11.0.4",
+    "@zendeskgarden/eslint-config": "12.0.1",
     "@zendeskgarden/react-avatars": "8.10.0",
     "@zendeskgarden/react-buttons": "8.10.0",
     "@zendeskgarden/react-forms": "8.10.0",
