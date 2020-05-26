@@ -95,26 +95,26 @@ export const Section: React.FC<ISectionProps> = props => (
 );
 
 export const Dont: React.FC<ISectionProps> = props => (
-  <Section title="Not this" altText="not this" hue="dangerHue" icon={<XStrokeIcon />} {...props} />
+  <Section {...props} title="Not this" altText="not this" hue="dangerHue" icon={<XStrokeIcon />} />
 );
 
 export const Do: React.FC<ISectionProps> = props => (
   <Section
+    {...props}
     title="Do this"
     altText="do this"
     hue="successHue"
     icon={<CheckLgStrokeIcon />}
-    {...props}
   />
 );
 
 export const Caution: React.FC<ISectionProps> = props => (
   <Section
+    {...props}
     title="Caution"
     altText="caution"
     hue="warningHue"
     icon={<AlertErrorStrokeIcon />}
-    {...props}
   />
 );
 
