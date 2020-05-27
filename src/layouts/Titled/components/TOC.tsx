@@ -80,6 +80,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
     [data]
   );
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const findActiveHeading = useCallback(
     throttle(() => {
       const headerAnchors = document.getElementsByClassName('anchor') as HTMLCollectionOf<
