@@ -39,6 +39,7 @@ export const SvgSearch: React.FC<{
   const [inputValue, setInputValue] = useState('');
   const [debouncedInputValue, setDebouncedInputValue] = useState(inputValue);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const updatedDebouncedInputValue = useCallback(
     debounce((value: string) => {
       setDebouncedInputValue(value);
