@@ -78,7 +78,8 @@ exports.sourceNodes = async ({ actions, reporter }) => {
       id: packageJson.name,
       name: packageJson.name,
       description: packageJson.description,
-      version: packageJson.version
+      version: packageJson.version,
+      peerDependencies: packageJson.peerDependencies && Object.keys(packageJson.peerDependencies)
     });
 
     await createNode(node);

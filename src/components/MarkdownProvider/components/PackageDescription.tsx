@@ -13,6 +13,7 @@ import { getColor } from '@zendeskgarden/react-theming';
 export interface IPackage {
   version: string;
   name: string;
+  peerDependencies: string[];
 }
 
 const StyledUnorderedList = styled(UnorderedList)`
@@ -22,6 +23,8 @@ const StyledUnorderedList = styled(UnorderedList)`
 const StyledListItem = styled(UnorderedList.Item)`
   list-style: none;
 `;
+
+// Try to get rid of this extra div. Automatically creates a div in UL
 
 const StyledListItemRow = styled.div`
   display: flex;
@@ -37,18 +40,19 @@ const StyledListItemLabel = styled.label`
   font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
-// The List.Item automatically creates a child div that is kind of annoying
-
-export const PackageDescription: React.FC<{ data: IPackage }> = ({ data }, props) => {
+export const PackageDescription: React.FC<{ data: IPackage }> = ({ data }) => {
   return (
     <StyledUnorderedList>
       <StyledListItem>
         <StyledListItemRow>
           <StyledListItemLabel>Name</StyledListItemLabel>
-          <p>
-            {data.version} • <a href="https://www.google.com">View source</a> •{' '}
-            <a href="https://www.google.com">View on NPM</a>
-          </p>
+          <span>
+            {data.version} •{' '}
+            <a href="https://github.com/zendeskgarden/react-components/tree/master/packages/avatars">
+              View source
+            </a>{' '}
+            • <a href="https://www.npmjs.com/package/@zendeskgarden/react-avatars">View on NPM</a>
+          </span>
         </StyledListItemRow>
       </StyledListItem>
       <StyledListItem>
@@ -60,13 +64,13 @@ export const PackageDescription: React.FC<{ data: IPackage }> = ({ data }, props
       <StyledListItem>
         <StyledListItemRow>
           <StyledListItemLabel>Deps</StyledListItemLabel>
-          npm install <span>{props.deps}</span>
+          npm install {data.peerDependencies.join(' ')}
         </StyledListItemRow>
       </StyledListItem>
       <StyledListItem>
         <StyledListItemRow>
           <StyledListItemLabel>Import</StyledListItemLabel>
-          import {data.name} from {data.name}
+          import
         </StyledListItemRow>
       </StyledListItem>
     </StyledUnorderedList>
