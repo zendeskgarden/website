@@ -43,7 +43,7 @@ const StyledListItemLabel = styled.label`
 `;
 
 const StyledSpan = styled(Span)`
-  margin-right: 12px;
+  margin-right: ${p => p.theme.space.base * 3}px;
 `;
 
 export const PackageDescription: React.FC<{ data: IPackage; components: ComponentDoc[] }> = ({
