@@ -10,8 +10,8 @@ import { Anchor } from '@zendeskgarden/react-buttons';
 
 const Example = () => {
   return (
-    <Anchor isExternal href="#" target="_blank">
-      Go to the Garden
+    <Anchor isExternal href="https://garden.zendesk.com/" target="_blank">
+      Open a new Garden
     </Anchor>
   );
 };

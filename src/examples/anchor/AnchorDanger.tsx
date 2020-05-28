@@ -10,8 +10,8 @@ import { Anchor } from '@zendeskgarden/react-buttons';
 
 const Example = () => {
   return (
-    <Anchor isDanger href="#">
-      Go to the Garden
+    <Anchor isDanger href="#danger">
+      Leave the Garden
     </Anchor>
   );
 };
