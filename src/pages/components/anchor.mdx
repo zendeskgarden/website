@@ -7,13 +7,6 @@ propSheets:
   - buttons/src/elements/Anchor.tsx
 ---
 
-import AnchorDefault from '../../examples/anchor/AnchorDefault.tsx';
-import AnchorDefaultCode from '!!raw-loader!../../examples/anchor/AnchorDefault.tsx';
-import AnchorExternal from '../../examples/anchor/AnchorExternal.tsx';
-import AnchorExternalCode from '!!raw-loader!../../examples/anchor/AnchorExternal.tsx';
-import AnchorDanger from '../../examples/anchor/AnchorDanger.tsx';
-import AnchorDangerCode from '!!raw-loader!../../examples/anchor/AnchorDanger.tsx';
-
 <Usage>
   <Use>
     <ul>
@@ -35,7 +28,11 @@ import AnchorDangerCode from '!!raw-loader!../../examples/anchor/AnchorDanger.ts
 
 ### Default
 
-An Anchor is used as a link to signal navigation.
+The Anchor component is a styled `<a>` tag. It accepts all standard anchor attributes and is used as
+a link to signal navigation.
+
+import AnchorDefault from '../../examples/anchor/AnchorDefault.tsx';
+import AnchorDefaultCode from '!!raw-loader!../../examples/anchor/AnchorDefault.tsx';
 
 <CodeExample code={AnchorDefaultCode}>
   <AnchorDefault />
@@ -43,7 +40,10 @@ An Anchor is used as a link to signal navigation.
 
 ### External Anchor
 
-Shows an icon at the end of the link and opens it in a new window or tab.
+Inserts an icon at the end of the link to signal when a link opens in a new window or tab.
+
+import AnchorExternal from '../../examples/anchor/AnchorExternal.tsx';
+import AnchorExternalCode from '!!raw-loader!../../examples/anchor/AnchorExternal.tsx';
 
 <CodeExample code={AnchorExternalCode}>
   <AnchorExternal />
@@ -51,7 +51,11 @@ Shows an icon at the end of the link and opens it in a new window or tab.
 
 ### Danger
 
-Communicates that navigating away from your location will have destructive results.
+Applies danger styling to communicate that navigating away from your location will have destructive
+results.
+
+import AnchorDanger from '../../examples/anchor/AnchorDanger.tsx';
+import AnchorDangerCode from '!!raw-loader!../../examples/anchor/AnchorDanger.tsx';
 
 <CodeExample code={AnchorDangerCode}>
   <AnchorDanger />

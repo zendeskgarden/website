@@ -9,7 +9,11 @@ import React from 'react';
 import { Anchor } from '@zendeskgarden/react-buttons';
 
 const Example = () => {
-  return <Anchor isExternal>Go to the Garden</Anchor>;
+  return (
+    <Anchor isExternal href="#" target="_blank">
+      Go to the Garden
+    </Anchor>
+  );
 };
 
 export default Example;
