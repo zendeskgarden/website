@@ -20,7 +20,7 @@ export interface IPackage {
 }
 
 const StyledUnorderedList = styled(UnorderedList)`
-  margin: 0 0 ${p => p.theme.space.base * 12}px;
+  margin: 0 0 ${p => p.theme.space.xxl};
   border-bottom: solid 1px ${p => getColor('grey', 300, p.theme)};
 `;
 
@@ -46,20 +46,20 @@ const StyledSpan = styled(Span)`
   margin-right: ${p => p.theme.space.base * 3}px;
 `;
 
-export const PackageDescription: React.FC<{ data: IPackage; components: ComponentDoc[] }> = ({
-  data,
-  components
+export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: ComponentDoc[] }> = ({
+  reactPackage,
+  propSheets
 }) => {
   return (
     <StyledUnorderedList>
       <StyledListItem>
         <StyledListItemLabel>Name</StyledListItemLabel>
         {/* This is showing the version on this page and not the latest available. Need to fix */}
-        <StyledSpan>{data.version}</StyledSpan>
+        <StyledSpan>{reactPackage.version}</StyledSpan>
         <StyledSpan>•</StyledSpan>
         <StyledSpan>
           <Anchor
-            href={`https://github.com/zendeskgarden/react-components/tree/master/packages/${data.packageName}`}
+            href={`https://github.com/zendeskgarden/react-components/tree/master/packages/${reactPackage.packageName}`}
             target="_blank"
           >
             View source
@@ -68,7 +68,7 @@ export const PackageDescription: React.FC<{ data: IPackage; components: Componen
         <StyledSpan>•</StyledSpan>
         <StyledSpan>
           <Anchor
-            href={`https://www.npmjs.com/package/@zendeskgarden/react-${data.packageName}`}
+            href={`https://www.npmjs.com/package/@zendeskgarden/react-${reactPackage.packageName}`}
             target="_blank"
           >
             View on NPM
@@ -77,16 +77,18 @@ export const PackageDescription: React.FC<{ data: IPackage; components: Componen
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel>Install</StyledListItemLabel>
-        npm install {data.name}
+        npm install {reactPackage.name}
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel>Deps</StyledListItemLabel>
-        npm install {data.peerDependencies.join(' ')}
+        npm install {reactPackage.peerDependencies.join(' ')}
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel>Import</StyledListItemLabel>
-        import {`{ ${components && components.map(e => e.displayName).join(', ')} }`} from &apos;
-        {data.name}
+        import{' '}
+        {`{ ${propSheets && propSheets.map(propSheet => propSheet.displayName).join(', ')} }`} from
+        &apos;
+        {reactPackage.name}
         &apos;
       </StyledListItem>
     </StyledUnorderedList>

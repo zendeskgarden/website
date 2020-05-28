@@ -13,11 +13,11 @@ import { Paragraph } from '@zendeskgarden/react-typography';
 import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
 import { StyledH3 } from './Typography';
 
-export const PropSheets: React.FC<{ data: ComponentDoc[] }> = ({ data }) => {
+export const PropSheets: React.FC<{ propSheets: ComponentDoc[] }> = ({ propSheets }) => {
   return (
     <>
-      {data &&
-        data.map((propSheet, index) => (
+      {propSheets &&
+        propSheets.map((propSheet, index) => (
           <div key={`${propSheet.displayName}-${index}`}>
             <StyledH3>{propSheet.displayName}</StyledH3>
             <Paragraph>{propSheet.description}</Paragraph>
