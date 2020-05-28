@@ -9,25 +9,17 @@ import React from 'react';
 import { css } from 'styled-components';
 import { ComponentDoc } from 'react-docgen-typescript';
 import { getColor } from '@zendeskgarden/react-theming';
-import { MD, Paragraph } from '@zendeskgarden/react-typography';
+import { Paragraph } from '@zendeskgarden/react-typography';
 import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
-
-import { IPackage } from './PackageDescription';
 import { StyledH3 } from './Typography';
 
-export const PropSheets: React.FC<{ data: ComponentDoc[]; reactPackage: IPackage }> = ({
-  data,
-  reactPackage
-}) => {
+export const PropSheets: React.FC<{ data: ComponentDoc[] }> = ({ data }) => {
   return (
     <>
       {data &&
         data.map((propSheet, index) => (
           <div key={`${propSheet.displayName}-${index}`}>
             <StyledH3>{propSheet.displayName}</StyledH3>
-            <MD isMonospace>
-              import {`{${propSheet.displayName}}`} from &quot;{reactPackage.name}&quot;;
-            </MD>
             <Paragraph>{propSheet.description}</Paragraph>
             <Table>
               <Head>
