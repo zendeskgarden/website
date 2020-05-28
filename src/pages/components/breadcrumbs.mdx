@@ -36,19 +36,5 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    avatarShapeCircle: abstractAsset(layerName: { eq: "components-avatar-shape-circle" }) {
-      children {
-        ... on File {
-          publicURL
-        }
-      }
-    }
-    avatarShapeSquare: abstractAsset(layerName: { eq: "components-avatar-shape-square" }) {
-      children {
-        ... on File {
-          publicURL
-        }
-      }
-    }
   }
 `;
