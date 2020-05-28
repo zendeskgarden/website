@@ -67,6 +67,7 @@ export const SvgSearch: React.FC<{
           <StyledIconWrapper>
             <StyledSvgWrapper
               isAnswerBot={edge.node.name === 'answer-bot'}
+              // eslint-disable-next-line @typescript-eslint/naming-convention
               dangerouslySetInnerHTML={{ __html: edge.node.childGardenSvg.content }}
             />
             <Code size="small" title={edge.node.name}>
