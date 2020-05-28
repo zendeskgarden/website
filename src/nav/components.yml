@@ -6,6 +6,8 @@
   items:
     - title: Avatar
       id: /components/avatar
+    - title: Breadcrumbs
+      id: /components/breadcrumbs
     - title: Buttons
       items:
         - id: /components/button
