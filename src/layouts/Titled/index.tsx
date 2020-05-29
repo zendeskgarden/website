@@ -28,7 +28,7 @@ const TitledLayout: React.FC<{
   subTitle?: React.ReactNode;
   toc?: IHeading[];
 }> = ({ children, title, subTitle, toc }) => (
-  <Grid gutters="lg">
+  <Grid>
     <Row>
       <Col lg={12} xl={9}>
         <h1
