@@ -54,14 +54,24 @@ const StyledCaption = styled(p => <Well isRecessed {...p} />).attrs(p => ({
   forwardedAs: p.tag
 }))<IStyledCaptionProps>`
   border: none;
-  border-top: ${p => p.theme.borders.md};
+  border-top: ${p => `${p.theme.borders.md} ${getColor(p.hue, 500, p.theme)}`};
   border-radius: 0;
-  border-color: ${p => getColor(p.hue, 500, p.theme)};
   padding: ${p => p.theme.space.md};
   color: ${p => p.theme.colors.foreground};
 
   & > p {
     margin-top: ${p => `${p.theme.space.base * 4}px`};
+  }
+
+  & > ul {
+    list-style-type: none;
+    margin-left: 0;
+
+    & > li:not(:first-child) {
+      margin-top: ${p => p.theme.space.xs};
+      border-top: ${p => `${p.theme.borders.sm} ${getColor('neutralHue', 300, p.theme)}`};
+      padding-top: ${p => p.theme.space.xs};
+    }
   }
 `;
 
