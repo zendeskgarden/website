@@ -5,45 +5,38 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { cloneElement, ReactNode, ReactElement } from 'react';
+import React, { cloneElement, ReactNode } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
-import { Well, Title, Paragraph } from '@zendeskgarden/react-notifications';
+import { Well, Title } from '@zendeskgarden/react-notifications';
 import { getColor } from '@zendeskgarden/react-theming';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Row, Col } from '@zendeskgarden/react-grid';
 
-interface IStyledWellProps {
-  hue: string;
-}
+const StyledRow = styled(Row)`
+  margin-top: ${p => p.theme.space.lg};
+  margin-bottom: ${p => p.theme.space.xxl};
 
-interface ISectionProps {
-  hue: string;
-  title: string;
-  altText: string;
-  imageSource: string;
-  icon: ReactNode;
-}
+  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+    margin-top: ${p => `${p.theme.space.base * 6}px`};
+    margin-bottom: ${p => p.theme.space.lg};
+  }
+`;
+
+const StyledCol = styled(Col)`
+  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+    &:not(:first-child) {
+      margin-top: ${p => `${p.theme.space.base * 6}px`};
+    }
+  }
+`;
 
 const StyledFigure = styled.figure`
   display: flex;
   flex-basis: 0;
   flex-direction: column;
   flex-grow: 1;
-  margin: ${p => p.theme.space.xl} 0;
-
-  @media (min-width: ${p => p.theme.breakpoints.sm}) {
-    margin: ${p => p.theme.space.md} ${p => p.theme.space.xs};
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
 `;
 
 const StyledImg = styled.img`
@@ -53,14 +46,28 @@ const StyledImg = styled.img`
   border-top-right-radius: ${p => p.theme.borderRadii.md};
 `;
 
-const StyledWell = styled(props => <Well isRecessed {...props} />).attrs(p => ({
+interface IStyledCaptionProps {
+  hue: string;
+}
+
+const StyledCaption = styled(p => <Well isRecessed {...p} />).attrs(p => ({
   forwardedAs: p.tag
-}))<IStyledWellProps>`
+}))<IStyledCaptionProps>`
   border: none;
   border-top: ${p => p.theme.borders.md};
   border-radius: 0;
   border-color: ${p => getColor(p.hue, 500, p.theme)};
   padding: ${p => p.theme.space.md};
+  color: ${p => p.theme.colors.foreground};
+
+  & > p {
+    margin-top: ${p => `${p.theme.space.base * 4}px`};
+  }
+`;
+
+const StyledTitle = styled(p => <Title {...p} />).attrs(p => ({ forwardedAs: p.tag }))`
+  display: flex;
+  align-items: center;
 `;
 
 const StyledIcon = styled(({ children, ...props }) =>
@@ -70,60 +77,68 @@ const StyledIcon = styled(({ children, ...props }) =>
   color: ${p => getColor(p.hue, 500, p.theme)};
 `;
 
-const StyledTitle = styled(Title)`
-  display: flex;
-  align-items: center;
-`;
+interface ICaptionProps {
+  hue: string;
+  title: string;
+  icon: ReactNode;
+  imageSource?: string;
+}
 
-const StyledRow = styled(Row)`
-  @media (max-width: ${p => p.theme.breakpoints.sm}) {
-    flex-direction: column;
+const Caption: React.FC<ICaptionProps> = props => (
+  <StyledCaption tag={props.imageSource ? 'figcaption' : undefined} hue={props.hue}>
+    <StyledTitle tag="strong">
+      <StyledIcon hue={props.hue}>{props.icon}</StyledIcon>
+      {props.title}
+    </StyledTitle>
+    {props.children}
+  </StyledCaption>
+);
+
+interface ISectionProps extends ICaptionProps {
+  imageAlt?: string;
+}
+
+export const Section: React.FC<ISectionProps> = props => {
+  if (props.imageSource) {
+    return (
+      <StyledFigure>
+        <StyledImg alt={props.imageAlt} src={props.imageSource} />
+        <Caption {...props} />
+      </StyledFigure>
+    );
   }
-`;
 
-export const Section: React.FC<ISectionProps> = props => (
-  <StyledFigure>
-    {props.imageSource && <StyledImg alt={props.altText} src={props.imageSource} />}
-    <StyledWell tag="figcaption" hue={props.hue}>
-      <StyledTitle>
-        <StyledIcon hue={props.hue}>{props.icon}</StyledIcon>
-        {props.title}
-      </StyledTitle>
-      <Paragraph>{props.children}</Paragraph>
-    </StyledWell>
-  </StyledFigure>
-);
-
-export const Dont: React.FC<ISectionProps> = props => (
-  <Section {...props} title="Not this" altText="not this" hue="dangerHue" icon={<XStrokeIcon />} />
-);
+  return <Caption {...props} />;
+};
 
 export const Do: React.FC<ISectionProps> = props => (
   <Section
     {...props}
     title="Do this"
-    altText="do this"
+    imageAlt="do this"
     hue="successHue"
     icon={<CheckLgStrokeIcon />}
   />
+);
+
+export const Dont: React.FC<ISectionProps> = props => (
+  <Section {...props} title="Not this" imageAlt="not this" hue="dangerHue" icon={<XStrokeIcon />} />
 );
 
 export const Caution: React.FC<ISectionProps> = props => (
   <Section
     {...props}
     title="Caution"
-    altText="caution"
+    imageAlt="caution"
     hue="warningHue"
     icon={<AlertErrorStrokeIcon />}
   />
 );
 
 export const BestPractice: React.FC = props => (
-  <Grid>
-    <StyledRow>
-      {React.Children.map(props.children, child => (
-        <Col>{React.cloneElement(child as ReactElement)}</Col>
-      ))}
-    </StyledRow>
-  </Grid>
+  <StyledRow>
+    {React.Children.map(props.children, child => (
+      <StyledCol sm>{child}</StyledCol>
+    ))}
+  </StyledRow>
 );
