@@ -21,17 +21,17 @@ export interface IPackage {
 
 const StyledUnorderedList = styled(UnorderedList)`
   margin: 0 0 ${p => p.theme.space.xxl};
-  border-bottom: solid 1px ${p => getColor('grey', 300, p.theme)};
+  border-bottom: ${p => `${p.theme.borders.sm} ${getColor('grey', 300, p.theme)}`};
 `;
 
 const StyledListItem = styled(UnorderedList.Item)`
   list-style: none;
 
-  & > :first-child {
+  & > div {
     display: flex;
-    margin: ${p => p.theme.space.base * 3}px 0;
-    border-top: solid 1px ${p => getColor('grey', 300, p.theme)};
-    padding: ${p => p.theme.space.base * 3}px 0 0;
+    margin: ${p => p.theme.space.sm} 0;
+    border-top: ${p => `${p.theme.borders.sm} ${getColor('grey', 300, p.theme)}`};
+    padding: ${p => p.theme.space.sm} 0 0;
     font-family: ${p => p.theme.fonts.mono};
   }
 `;
@@ -43,7 +43,7 @@ const StyledListItemLabel = styled.label`
 `;
 
 const StyledSpan = styled(Span)`
-  margin-right: ${p => p.theme.space.base * 3}px;
+  margin-right: ${p => p.theme.space.sm};
 `;
 
 export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: ComponentDoc[] }> = ({
@@ -54,7 +54,6 @@ export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: Compo
     <StyledUnorderedList>
       <StyledListItem>
         <StyledListItemLabel>Name</StyledListItemLabel>
-        {/* This is showing the version on this page and not the latest available. Need to fix */}
         <StyledSpan>{reactPackage.version}</StyledSpan>
         <StyledSpan>•</StyledSpan>
         <StyledSpan>
