@@ -2250,6 +2250,13 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+"@zendeskgarden/container-breadcrumb@^0.4.1":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-breadcrumb/-/container-breadcrumb-0.4.3.tgz#78556f2f61621e6d3e661c2c708e736cc457a18b"
+  integrity sha512-yzeGTbTWqJZEMBWDeUW6dJY4Gye+Do9dEKMzvJWTw8nli+57VVL1ysLd87dM7CDT5eirJ5aWw65ERre+e1xogg==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+
 "@zendeskgarden/container-buttongroup@^0.3.1":
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-buttongroup/-/container-buttongroup-0.3.5.tgz#f7e99e7c549338bed16671e346dad4bf7e1b9f72"
@@ -2328,6 +2335,14 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/react-avatars/-/react-avatars-8.10.0.tgz#59862a9f0637aa88c0192c6c531d77a6a0d4f358"
   integrity sha512-K6r2NfmNx0B0gdBxKKlfOEQYybNwayfjOgyfgI+Tu5uOlB176dX1mQu+/aV5MIbe+UQvMZVTQ2osv+vy/9n2bQ==
   dependencies:
+    polished "^3.5.1"
+
+"@zendeskgarden/react-breadcrumbs@8.10.0":
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-breadcrumbs/-/react-breadcrumbs-8.10.0.tgz#9385ac2798ce018d265cc3b35f6cb73fb648f740"
+  integrity sha512-cugz0h7A+4+8UGOVCzuzMnWZECgdf9+W1c2fBlhE1OX6tJqxX5n9/+5V4fhh+RRMkMKL8otDJ0fWzHHoBrppxg==
+  dependencies:
+    "@zendeskgarden/container-breadcrumb" "^0.4.1"
     polished "^3.5.1"
 
 "@zendeskgarden/react-buttons@8.10.0":

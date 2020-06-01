@@ -1,0 +1,40 @@
+---
+title: Breadcrumbs
+description: >
+  Breadcrumbs mark and communicate the current location of where a user is within the product.
+package: '@zendeskgarden/react-breadcrumbs'
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To inform the user of where they are in a nested navigation</li>
+      <li>To quickly navigate back to a parent page</li>
+    </ul>
+  </Use>
+</Usage>
+
+## Examples
+
+### Default
+
+Breadcrumbs work in combination with the [Anchor](/components/anchor) component for linking.
+
+import BreadcrumbsDefault from '../../examples/breadcrumbs/BreadcrumbsDefault.tsx';
+import BreadcrumbsDefaultCode from '!!raw-loader!../../examples/breadcrumbs/BreadcrumbsDefault.tsx';
+
+<CodeExample code={BreadcrumbsDefaultCode}>
+  <BreadcrumbsDefault />
+</CodeExample>
+
+## Configuration
+
+<PackageDescription data={props.data.mdx.package} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
