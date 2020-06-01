@@ -9,12 +9,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Dropdown, Field, Select, Label } from '@zendeskgarden/react-dropdowns';
 
-const StyledSelect = styled(Select)`
-  * {
-    box-sizing: initial;
-  }
-`;
-
 const StyledField = styled(Field)`
   * {
     /* stylelint-disable-next-line declaration-no-important */
@@ -27,7 +21,7 @@ const Example = () => {
     <Dropdown>
       <StyledField>
         <Label>Label</Label>
-        <StyledSelect disabled>Item 1</StyledSelect>
+        <Select disabled>Item 1</Select>
       </StyledField>
     </Dropdown>
   );

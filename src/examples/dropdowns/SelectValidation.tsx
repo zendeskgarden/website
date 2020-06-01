@@ -18,12 +18,6 @@ import {
   Message
 } from '@zendeskgarden/react-dropdowns';
 
-const StyledSelect = styled(Select)`
-  * {
-    box-sizing: initial;
-  }
-`;
-
 const StyledField = styled(Field)`
   * {
     /* stylelint-disable-next-line declaration-no-important */
@@ -39,7 +33,7 @@ const Example = () => {
           <Dropdown selectedItem="success">
             <StyledField>
               <Label>Success</Label>
-              <StyledSelect validation="success">Veggies es bonus</StyledSelect>
+              <Select validation="success">Veggies es bonus</Select>
               <Message validation="success">Success validation message</Message>
             </StyledField>
             <Menu>
@@ -51,7 +45,7 @@ const Example = () => {
           <Dropdown selectedItem="warning">
             <StyledField>
               <Label>Warning</Label>
-              <StyledSelect validation="warning">Veggies es bonus</StyledSelect>
+              <Select validation="warning">Veggies es bonus</Select>
               <Message validation="warning">Warning validation message</Message>
             </StyledField>
             <Menu>
@@ -63,7 +57,7 @@ const Example = () => {
           <Dropdown selectedItem="error">
             <StyledField>
               <Label>Error</Label>
-              <StyledSelect validation="error">Veggies es bonus</StyledSelect>
+              <Select validation="error">Veggies es bonus</Select>
               <Message validation="error">Error validation message</Message>
             </StyledField>
             <Menu>

@@ -20,12 +20,6 @@ const items = [
   { label: 'Item 3', value: 'item-3' }
 ];
 
-const StyledSelect = styled(Select)`
-  * {
-    box-sizing: initial;
-  }
-`;
-
 const StyledField = styled(Field)`
   * {
     /* stylelint-disable-next-line declaration-no-important */
@@ -44,7 +38,7 @@ const Example = () => {
     >
       <StyledField>
         <Label>Label</Label>
-        <StyledSelect>{selectedItem.label}</StyledSelect>
+        <Select>{selectedItem.label}</Select>
       </StyledField>
       <Menu>
         {items.map(option => (
