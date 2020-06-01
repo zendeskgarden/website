@@ -29,20 +29,21 @@ const StyledField = styled(Field)`
 `;
 
 const Example = () => {
-  const [selectedItem, setSelectedItem] = useState(items[0]);
+  const [selectedDefaultItem, setSelectedDefaultItem] = useState(items[0]);
+  const [selectedCompactItem, setSelectedCompactItem] = useState(items[0]);
 
   return (
     <Grid>
       <Row>
         <Col>
           <Dropdown
-            selectedItem={selectedItem}
-            onSelect={setSelectedItem}
+            selectedItem={selectedCompactItem}
+            onSelect={setSelectedCompactItem}
             downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
           >
             <StyledField>
               <Label>Plants</Label>
-              <Select isCompact>{selectedItem.label}</Select>
+              <Select isCompact>{selectedCompactItem.label}</Select>
             </StyledField>
             <Menu isCompact>
               {items.map(option => (
@@ -55,13 +56,13 @@ const Example = () => {
         </Col>
         <Col>
           <Dropdown
-            selectedItem={selectedItem}
-            onSelect={setSelectedItem}
+            selectedItem={selectedDefaultItem}
+            onSelect={setSelectedDefaultItem}
             downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
           >
             <StyledField>
               <Label>Plants</Label>
-              <Select>{selectedItem.label}</Select>
+              <Select>{selectedDefaultItem.label}</Select>
             </StyledField>
             <Menu>
               {items.map(option => (
