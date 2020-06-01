@@ -20,8 +20,8 @@ const Example = () => {
   return (
     <Dropdown>
       <StyledField>
-        <Label>Label</Label>
-        <Select disabled>Item 1</Select>
+        <Label>Plants</Label>
+        <Select disabled>Cactus</Select>
       </StyledField>
     </Dropdown>
   );

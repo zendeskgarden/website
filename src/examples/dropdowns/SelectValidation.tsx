@@ -32,9 +32,9 @@ const Example = () => {
         <Col>
           <Dropdown selectedItem="success">
             <StyledField>
-              <Label>Success</Label>
-              <Select validation="success">Veggies es bonus</Select>
-              <Message validation="success">Success validation message</Message>
+              <Label>Plants</Label>
+              <Select validation="success">Cactus</Select>
+              <Message validation="success">Cactus was successfully submitted</Message>
             </StyledField>
             <Menu>
               <Item disabled>Mock dropdown with no selection logic</Item>
@@ -44,9 +44,9 @@ const Example = () => {
         <Col>
           <Dropdown selectedItem="warning">
             <StyledField>
-              <Label>Warning</Label>
-              <Select validation="warning">Veggies es bonus</Select>
-              <Message validation="warning">Warning validation message</Message>
+              <Label>Plants</Label>
+              <Select validation="warning">Cactus</Select>
+              <Message validation="warning">A cactus is a very dry plant</Message>
             </StyledField>
             <Menu>
               <Item disabled>Mock dropdown with no selection logic</Item>
@@ -56,9 +56,9 @@ const Example = () => {
         <Col>
           <Dropdown selectedItem="error">
             <StyledField>
-              <Label>Error</Label>
-              <Select validation="error">Veggies es bonus</Select>
-              <Message validation="error">Error validation message</Message>
+              <Label>Plants</Label>
+              <Select validation="error">Cactus</Select>
+              <Message validation="error">Cactus is currently unavailable</Message>
             </StyledField>
             <Menu>
               <Item disabled>Mock dropdown with no selection logic</Item>

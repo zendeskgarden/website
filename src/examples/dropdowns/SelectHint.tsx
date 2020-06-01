@@ -15,9 +15,9 @@ interface IItem {
 }
 
 const items = [
-  { label: 'Item 1', value: 'item-1' },
-  { label: 'Item 2', value: 'item-2' },
-  { label: 'Item 3', value: 'item-3' }
+  { label: 'Cactus', value: 'item-1' },
+  { label: 'Orchid', value: 'item-2' },
+  { label: 'Succulent', value: 'item-3' }
 ];
 
 const StyledField = styled(Field)`
@@ -38,7 +38,7 @@ const Example = () => {
     >
       <StyledField>
         <Label>Label</Label>
-        <Hint>Hint description text</Hint>
+        <Hint>Choose your favorite plant</Hint>
         <Select>{selectedItem.label}</Select>
       </StyledField>
       <Menu>
