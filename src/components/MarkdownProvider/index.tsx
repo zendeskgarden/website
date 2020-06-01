@@ -26,6 +26,7 @@ import {
   StyledStrong,
   StyledEmphasis
 } from './components/Typography';
+import { Anchor } from '@zendeskgarden/react-buttons';
 import { MDSyntaxHighlighter } from './components/Code';
 import { UL, OL, LI } from './components/Lists';
 import { Table, TR, TH, TD, TBody, THead } from './components/Table';
@@ -83,6 +84,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
         h5: StyledH5,
         h6: StyledH6,
         p: Paragraph,
+        a: Anchor,
         blockquote: StyledBlockquote,
         hr: StyledHr,
         strong: StyledStrong,
