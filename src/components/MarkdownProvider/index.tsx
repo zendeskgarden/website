@@ -12,7 +12,7 @@ import { Code, Paragraph } from '@zendeskgarden/react-typography';
 import { CodeExample } from './components/CodeExample';
 import { PackageDescription } from './components/PackageDescription';
 import { PropSheets } from './components/PropSheets';
-import { StyledUsage as Usage, Use, Misuse } from './components/Usage';
+import { Usage, Use, Misuse } from './components/Usage';
 import { BestPractice, Do, Dont, Caution } from './components/BestPractice';
 import {
   StyledH2,
