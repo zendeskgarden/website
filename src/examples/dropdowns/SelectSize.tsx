@@ -6,7 +6,6 @@
  */
 
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { Dropdown, Field, Menu, Item, Select, Label } from '@zendeskgarden/react-dropdowns';
 
@@ -21,13 +20,6 @@ const items = [
   { label: 'Succulent', value: 'item-3' }
 ];
 
-const StyledField = styled(Field)`
-  * {
-    /* stylelint-disable-next-line declaration-no-important */
-    appearance: none !important;
-  }
-`;
-
 const Example = () => {
   const [selectedDefaultItem, setSelectedDefaultItem] = useState(items[0]);
   const [selectedCompactItem, setSelectedCompactItem] = useState(items[0]);
@@ -37,15 +29,15 @@ const Example = () => {
       <Row>
         <Col>
           <Dropdown
-            selectedItem={selectedCompactItem}
-            onSelect={setSelectedCompactItem}
+            selectedItem={selectedDefaultItem}
+            onSelect={setSelectedDefaultItem}
             downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
           >
-            <StyledField>
+            <Field>
               <Label>Plants</Label>
-              <Select isCompact>{selectedCompactItem.label}</Select>
-            </StyledField>
-            <Menu isCompact>
+              <Select>{selectedDefaultItem.label}</Select>
+            </Field>
+            <Menu>
               {items.map(option => (
                 <Item key={option.value} value={option}>
                   {option.label}
@@ -56,15 +48,15 @@ const Example = () => {
         </Col>
         <Col>
           <Dropdown
-            selectedItem={selectedDefaultItem}
-            onSelect={setSelectedDefaultItem}
+            selectedItem={selectedCompactItem}
+            onSelect={setSelectedCompactItem}
             downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
           >
-            <StyledField>
+            <Field>
               <Label>Plants</Label>
-              <Select>{selectedDefaultItem.label}</Select>
-            </StyledField>
-            <Menu>
+              <Select isCompact>{selectedCompactItem.label}</Select>
+            </Field>
+            <Menu isCompact>
               {items.map(option => (
                 <Item key={option.value} value={option}>
                   {option.label}

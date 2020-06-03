@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import {
   Dropdown,
@@ -18,24 +17,17 @@ import {
   Message
 } from '@zendeskgarden/react-dropdowns';
 
-const StyledField = styled(Field)`
-  * {
-    /* stylelint-disable-next-line declaration-no-important */
-    appearance: none !important;
-  }
-`;
-
 const Example = () => {
   return (
     <Grid>
       <Row>
         <Col>
           <Dropdown selectedItem="success">
-            <StyledField>
+            <Field>
               <Label>Plants</Label>
               <Select validation="success">Cactus</Select>
               <Message validation="success">Cactus was successfully submitted</Message>
-            </StyledField>
+            </Field>
             <Menu>
               <Item disabled>Mock dropdown with no selection logic</Item>
             </Menu>
@@ -43,11 +35,11 @@ const Example = () => {
         </Col>
         <Col>
           <Dropdown selectedItem="warning">
-            <StyledField>
+            <Field>
               <Label>Plants</Label>
               <Select validation="warning">Cactus</Select>
               <Message validation="warning">A cactus is a very dry plant</Message>
-            </StyledField>
+            </Field>
             <Menu>
               <Item disabled>Mock dropdown with no selection logic</Item>
             </Menu>
@@ -55,11 +47,11 @@ const Example = () => {
         </Col>
         <Col>
           <Dropdown selectedItem="error">
-            <StyledField>
+            <Field>
               <Label>Plants</Label>
               <Select validation="error">Cactus</Select>
               <Message validation="error">Cactus is currently unavailable</Message>
-            </StyledField>
+            </Field>
             <Menu>
               <Item disabled>Mock dropdown with no selection logic</Item>
             </Menu>

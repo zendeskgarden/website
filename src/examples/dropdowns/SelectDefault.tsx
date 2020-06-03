@@ -6,7 +6,6 @@
  */
 
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { Dropdown, Field, Menu, Item, Select, Label } from '@zendeskgarden/react-dropdowns';
 
 interface IItem {
@@ -20,13 +19,6 @@ const items = [
   { label: 'Succulent', value: 'item-3' }
 ];
 
-const StyledField = styled(Field)`
-  * {
-    /* stylelint-disable-next-line declaration-no-important */
-    appearance: none !important;
-  }
-`;
-
 const Example = () => {
   const [selectedItem, setSelectedItem] = useState(items[0]);
 
@@ -36,10 +28,10 @@ const Example = () => {
       onSelect={setSelectedItem}
       downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
     >
-      <StyledField>
+      <Field>
         <Label>Plants</Label>
         <Select>{selectedItem.label}</Select>
-      </StyledField>
+      </Field>
       <Menu>
         {items.map(option => (
           <Item key={option.value} value={option}>
