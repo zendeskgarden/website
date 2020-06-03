@@ -21,11 +21,10 @@ interface IPackage {
 const StyledUnorderedList = styled(UnorderedList)`
   margin: 0 0 ${p => p.theme.space.xxl};
   border-bottom: ${p => `${p.theme.borders.sm} ${getColor('grey', 200, p.theme)}`};
+  list-style: none;
 `;
 
 const StyledListItem = styled(UnorderedList.Item)`
-  list-style: none;
-
   & > div {
     display: flex;
     margin: ${p => p.theme.space.base * 2.5}px 0;
@@ -43,7 +42,9 @@ const StyledDot = styled(Span)`
   color: ${p => getColor('grey', 600, p.theme)};
 `;
 
-const StyledMD = styled(MD)`
+const StyledMono = styled(MD)`
+  /* 1px nudge to align mono type with 14px label baseline */
+  line-height: 21px;
   color: ${p => getColor('grey', 700, p.theme)};
 `;
 
@@ -66,28 +67,28 @@ export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: Compo
         <Anchor
           href={`https://www.npmjs.com/package/@zendeskgarden/react-${reactPackage.packageName}`}
         >
-          View on NPM
+          View on npm
         </Anchor>
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel isBold>Install</StyledListItemLabel>
-        <StyledMD isMonospace>npm install {reactPackage.name}</StyledMD>
+        <StyledMono isMonospace>npm install {reactPackage.name}</StyledMono>
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel isBold>Deps</StyledListItemLabel>
-        <StyledMD isMonospace>
+        <StyledMono isMonospace>
           npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
-        </StyledMD>
+        </StyledMono>
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel isBold>Import</StyledListItemLabel>
-        <StyledMD isMonospace>
+        <StyledMono isMonospace>
           import{' '}
           {`{ ${propSheets && propSheets.map(propSheet => propSheet.displayName).join(', ')} }`}{' '}
           from &apos;
           {reactPackage.name}
           &apos;
-        </StyledMD>
+        </StyledMono>
       </StyledListItem>
     </StyledUnorderedList>
   );
