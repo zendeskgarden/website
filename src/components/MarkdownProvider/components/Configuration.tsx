@@ -12,16 +12,15 @@ import { Anchor } from '@zendeskgarden/react-buttons';
 import { getColor } from '@zendeskgarden/react-theming';
 import { ComponentDoc } from 'react-docgen-typescript';
 
-export interface IPackage {
+interface IPackage {
   version: string;
   name: string;
-  peerDependencies: string[];
   packageName: string;
 }
 
 const StyledUnorderedList = styled(UnorderedList)`
   margin: 0 0 ${p => p.theme.space.xxl};
-  border-bottom: ${p => `${p.theme.borders.sm} ${getColor('grey', 300, p.theme)}`};
+  border-bottom: ${p => `${p.theme.borders.sm} ${getColor('grey', 200, p.theme)}`};
 `;
 
 const StyledListItem = styled(UnorderedList.Item)`
@@ -29,9 +28,9 @@ const StyledListItem = styled(UnorderedList.Item)`
 
   & > div {
     display: flex;
-    margin: ${p => p.theme.space.sm} 0;
-    border-top: ${p => `${p.theme.borders.sm} ${getColor('grey', 300, p.theme)}`};
-    padding: ${p => p.theme.space.sm} 0 0;
+    margin: ${p => p.theme.space.base * 2.5}px 0;
+    border-top: ${p => `${p.theme.borders.sm} ${getColor('grey', 200, p.theme)}`};
+    padding: ${p => p.theme.space.base * 2.5}px 0 0;
     font-family: ${p => p.theme.fonts.mono};
   }
 `;
@@ -42,8 +41,8 @@ const StyledListItemLabel = styled.label`
   font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
-const StyledSpan = styled(Span)`
-  margin-right: ${p => p.theme.space.sm};
+const StyledDot = styled(Span)`
+  margin: 0 ${p => p.theme.space.sm};
 `;
 
 export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: ComponentDoc[] }> = ({
@@ -54,25 +53,21 @@ export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: Compo
     <StyledUnorderedList>
       <StyledListItem>
         <StyledListItemLabel>Name</StyledListItemLabel>
-        <StyledSpan>{reactPackage.version}</StyledSpan>
-        <StyledSpan>•</StyledSpan>
-        <StyledSpan>
-          <Anchor
-            href={`https://github.com/zendeskgarden/react-components/tree/master/packages/${reactPackage.packageName}`}
-            target="_blank"
-          >
-            View source
-          </Anchor>
-        </StyledSpan>
-        <StyledSpan>•</StyledSpan>
-        <StyledSpan>
-          <Anchor
-            href={`https://www.npmjs.com/package/@zendeskgarden/react-${reactPackage.packageName}`}
-            target="_blank"
-          >
-            View on NPM
-          </Anchor>
-        </StyledSpan>
+        {reactPackage.version}
+        <StyledDot>•</StyledDot>
+        <Anchor
+          href={`https://github.com/zendeskgarden/react-components/tree/master/packages/${reactPackage.packageName}`}
+          target="_blank"
+        >
+          View source
+        </Anchor>
+        <StyledDot>•</StyledDot>
+        <Anchor
+          href={`https://www.npmjs.com/package/@zendeskgarden/react-${reactPackage.packageName}`}
+          target="_blank"
+        >
+          View on NPM
+        </Anchor>
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel>Install</StyledListItemLabel>
@@ -80,7 +75,7 @@ export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: Compo
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel>Deps</StyledListItemLabel>
-        npm install {reactPackage.peerDependencies.join(' ')}
+        npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel>Import</StyledListItemLabel>
