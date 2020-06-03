@@ -7,7 +7,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { UnorderedList, Span } from '@zendeskgarden/react-typography';
+import { UnorderedList, Span, MD } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { getColor } from '@zendeskgarden/react-theming';
 import { ComponentDoc } from 'react-docgen-typescript';
@@ -31,7 +31,6 @@ const StyledListItem = styled(UnorderedList.Item)`
     margin: ${p => p.theme.space.base * 2.5}px 0;
     border-top: ${p => `${p.theme.borders.sm} ${getColor('grey', 200, p.theme)}`};
     padding: ${p => p.theme.space.base * 2.5}px 0 0;
-    font-family: ${p => p.theme.fonts.mono};
   }
 `;
 
@@ -42,7 +41,12 @@ const StyledListItemLabel = styled.label`
 `;
 
 const StyledDot = styled(Span)`
-  margin: 0 ${p => p.theme.space.sm};
+  margin: 0 ${p => p.theme.space.xs};
+  color: ${p => getColor('grey', 600, p.theme)};
+`;
+
+const StyledMD = styled(MD)`
+  color: ${p => getColor('grey', 700, p.theme)};
 `;
 
 export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: ComponentDoc[] }> = ({
@@ -57,33 +61,35 @@ export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: Compo
         <StyledDot>•</StyledDot>
         <Anchor
           href={`https://github.com/zendeskgarden/react-components/tree/master/packages/${reactPackage.packageName}`}
-          target="_blank"
         >
           View source
         </Anchor>
         <StyledDot>•</StyledDot>
         <Anchor
           href={`https://www.npmjs.com/package/@zendeskgarden/react-${reactPackage.packageName}`}
-          target="_blank"
         >
           View on NPM
         </Anchor>
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel>Install</StyledListItemLabel>
-        npm install {reactPackage.name}
+        <StyledMD isMonospace>npm install {reactPackage.name}</StyledMD>
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel>Deps</StyledListItemLabel>
-        npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
+        <StyledMD isMonospace>
+          npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
+        </StyledMD>
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel>Import</StyledListItemLabel>
-        import{' '}
-        {`{ ${propSheets && propSheets.map(propSheet => propSheet.displayName).join(', ')} }`} from
-        &apos;
-        {reactPackage.name}
-        &apos;
+        <StyledMD isMonospace>
+          import{' '}
+          {`{ ${propSheets && propSheets.map(propSheet => propSheet.displayName).join(', ')} }`}{' '}
+          from &apos;
+          {reactPackage.name}
+          &apos;
+        </StyledMD>
       </StyledListItem>
     </StyledUnorderedList>
   );
