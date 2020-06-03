@@ -34,10 +34,8 @@ const StyledListItem = styled(UnorderedList.Item)`
   }
 `;
 
-const StyledListItemLabel = styled.label`
+const StyledListItemLabel = styled(MD)`
   min-width: ${p => p.theme.space.base * 20}px;
-  font-family: ${p => p.theme.fonts.system};
-  font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
 const StyledDot = styled(Span)`
@@ -56,7 +54,7 @@ export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: Compo
   return (
     <StyledUnorderedList>
       <StyledListItem>
-        <StyledListItemLabel>Name</StyledListItemLabel>
+        <StyledListItemLabel isBold>Name</StyledListItemLabel>
         {reactPackage.version}
         <StyledDot>•</StyledDot>
         <Anchor
@@ -72,17 +70,17 @@ export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: Compo
         </Anchor>
       </StyledListItem>
       <StyledListItem>
-        <StyledListItemLabel>Install</StyledListItemLabel>
+        <StyledListItemLabel isBold>Install</StyledListItemLabel>
         <StyledMD isMonospace>npm install {reactPackage.name}</StyledMD>
       </StyledListItem>
       <StyledListItem>
-        <StyledListItemLabel>Deps</StyledListItemLabel>
+        <StyledListItemLabel isBold>Deps</StyledListItemLabel>
         <StyledMD isMonospace>
           npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
         </StyledMD>
       </StyledListItem>
       <StyledListItem>
-        <StyledListItemLabel>Import</StyledListItemLabel>
+        <StyledListItemLabel isBold>Import</StyledListItemLabel>
         <StyledMD isMonospace>
           import{' '}
           {`{ ${propSheets && propSheets.map(propSheet => propSheet.displayName).join(', ')} }`}{' '}
