@@ -36,7 +36,6 @@ export const SidebarPageFragment = graphql`
         version
         name
         description
-        peerDependencies
         packageName
       }
       propsSheets: reactPropSheets {
