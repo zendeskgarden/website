@@ -24,7 +24,7 @@ const Example = () => {
         <Col>
           <Dropdown selectedItem="success">
             <Field>
-              <Label>Plants</Label>
+              <Label>Plant</Label>
               <Select validation="success">Cactus</Select>
               <Message validation="success">Cactus was successfully submitted</Message>
             </Field>

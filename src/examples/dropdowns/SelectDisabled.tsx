@@ -12,7 +12,7 @@ const Example = () => {
   return (
     <Dropdown>
       <Field>
-        <Label>Plants</Label>
+        <Label>Plant</Label>
         <Select disabled>Cactus</Select>
       </Field>
     </Dropdown>
