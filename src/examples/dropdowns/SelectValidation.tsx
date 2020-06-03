@@ -36,7 +36,7 @@ const Example = () => {
         <Col>
           <Dropdown selectedItem="warning">
             <Field>
-              <Label>Plants</Label>
+              <Label>Plant</Label>
               <Select validation="warning">Cactus</Select>
               <Message validation="warning">A cactus is a very dry plant</Message>
             </Field>
@@ -48,7 +48,7 @@ const Example = () => {
         <Col>
           <Dropdown selectedItem="error">
             <Field>
-              <Label>Plants</Label>
+              <Label>Plant</Label>
               <Select validation="error">Cactus</Select>
               <Message validation="error">Cactus is currently unavailable</Message>
             </Field>

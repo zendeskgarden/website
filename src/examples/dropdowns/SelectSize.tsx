@@ -53,7 +53,7 @@ const Example = () => {
             downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
           >
             <Field>
-              <Label>Plants</Label>
+              <Label>Plant</Label>
               <Select isCompact>{selectedCompactItem.label}</Select>
             </Field>
             <Menu isCompact>
