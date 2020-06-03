@@ -18,3 +18,5 @@
       items:
         - id: /components/select
           title: Select
+        - id: /components/multiselect
+          title: Multiselect
