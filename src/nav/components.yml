@@ -20,3 +20,5 @@
           title: Select
         - id: /components/multiselect
           title: Multiselect
+    - title: Tabs
+      id: /components/tabs

@@ -1,0 +1,103 @@
+---
+title: Tabs
+description: >
+  Tabs organize related content within a single page. This helps users alternate between
+  views without refreshing.
+package: '@zendeskgarden/react-tabs'
+propSheets:
+  - tabs/src/elements/Tabs.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To provide pre-filtered views of a single dataset</li>
+      <li>To organize related content and controls within a page</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>As a secondary navigation bar that spans multiple pages</li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## Examples
+
+### Default
+
+The basic usage of a Tab component.
+
+import TabsDefault from '../../examples/tabs/TabsDefault.tsx';
+import TabsDefaultCode from '!!raw-loader!../../examples/tabs/TabsDefault.tsx';
+
+<CodeExample code={TabsDefaultCode}>
+  <TabsDefault />
+</CodeExample>
+
+### Vertical
+
+Tabs are horizontal by default but can be manually set to stack vertically.
+
+import TabsVertical from '../../examples/tabs/TabsVertical.tsx';
+import TabsVerticalCode from '!!raw-loader!../../examples/tabs/TabsVertical.tsx';
+
+<CodeExample code={TabsVerticalCode}>
+  <div style={{ width: '320px' }}>
+    <TabsVertical />
+  </div>
+</CodeExample>
+
+### Disabled
+
+Individual tabs can be disabled to prevent users from interacting with them.
+
+import TabsDisabled from '../../examples/tabs/TabsDisabled.tsx';
+import TabsDisabledCode from '!!raw-loader!../../examples/tabs/TabsDisabled.tsx';
+
+<CodeExample code={TabsDisabledCode}>
+  <TabsDisabled />
+</CodeExample>
+
+## Best practices
+
+### Be mindful of horizontal tab length
+
+When more than 5 tabs are needed or the tab strings are lengthy, consider a vertical tab layout. Tab
+labels are internationalized and many languages contain more characters per word than English.
+
+Horizontal tabs do not wrap or overflow so anything that exceeds the width of the page will become
+truncated and may hide important actions.
+
+import tabHorizDo from '../../images/components-tabs-horizontal-do.png';
+import tabHorizDont from '../../images/components-tabs-horizontal-dont.png';
+
+<BestPractice>
+  <Do imageSource={tabHorizDo}>Use a circular shape to represent a person.</Do>
+  <Dont imageSource={tabHorizDont}>Use a long tab label that causes formatting problems.</Dont>
+</BestPractice>
+
+## Accessibility
+
+### Automatic activation
+
+Garden doesn't endorse the use of [automatic activation in
+tabs](https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs-1/tabs.html). There is no way of
+guaranteeing that tab content will not require a network request or page refresh and it will
+inevitably cause inconsistency in tab interactions across products.
+
+## Configuration
+
+<!-- TODO: Add correct configuration component when it merges -->
+
+## API
+
+<!-- TODO: Add correct API component when it merges-->
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
