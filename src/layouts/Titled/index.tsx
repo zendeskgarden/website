@@ -7,38 +7,22 @@
 
 import React from 'react';
 import { css } from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
-import { LG } from '@zendeskgarden/react-typography';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Subtitle } from './components/Subtitle';
 import { TOCBlock, TOC, IHeading } from './components/TOC';
-import { StyledH1 } from 'components/MarkdownProvider/components/Typography';
+import { StyledH1, StyledHr } from 'components/MarkdownProvider/components/Typography';
 
 const TitledLayout: React.FC<{
   title: React.ReactNode;
-  subTitle?: React.ReactNode;
+  subtitle?: React.ReactNode;
   toc?: IHeading[];
-}> = ({ children, title, subTitle, toc }) => (
+}> = ({ children, title, subtitle, toc }) => (
   <Grid>
     <Row>
       <Col lg={12} xl={9}>
         <StyledH1>{title}</StyledH1>
-        {subTitle && (
-          <LG
-            tag="p"
-            css={css`
-              margin-bottom: ${p => p.theme.space.lg};
-              max-width: 450px;
-            `}
-          >
-            {subTitle}
-          </LG>
-        )}
-        <hr
-          css={css`
-            margin-bottom: ${p => p.theme.space.lg};
-            border-color: ${p => getColor('grey', 300, p.theme)};
-          `}
-        />
+        {subtitle && <Subtitle>{subtitle}</Subtitle>}
+        <StyledHr />
         {toc && (
           <TOCBlock
             data={toc}

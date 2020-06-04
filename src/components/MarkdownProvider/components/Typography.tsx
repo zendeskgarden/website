@@ -65,7 +65,7 @@ export const StyledBlockquote = styled.blockquote`
 
 export const StyledHr = styled.hr`
   margin: ${p => p.theme.space.md} 0;
-  border-top: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+  border-top: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
 `;
 
 /**

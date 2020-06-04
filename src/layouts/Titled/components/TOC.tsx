@@ -122,7 +122,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
       css={css`
         position: sticky;
         top: 32px;
-        margin-left: ${p => p.theme.space.lg};
+        margin-left: ${p => p.theme.space.base * 15}px;
       `}
     >
       <StyledSectionHeader
@@ -136,7 +136,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
       <ul
         css={css`
           margin-left: -${p => p.theme.borderWidths.sm};
-          border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+          border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
         `}
       >
         {data.map(heading => (
