@@ -1,0 +1,101 @@
+---
+title: Select
+description: >
+  Select allows a user to pick one option from a list.
+  This helps simplify the UI when space is limited.
+package: '@zendeskgarden/react-dropdowns'
+propSheets:
+  - dropdowns/src/elements/Select/Select.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To make a selection from a list of options</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        To filter a large list of options, consider an{' '}
+        <a href="/components/autocomplete">Autocomplete</a>
+      </li>
+      <li>
+        To make multiple selections from a list, use a{' '}
+        <a href="/components/multiselect">Multiselect</a>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## Examples
+
+### Default
+
+Select works in combination with the Menu component to display available options.
+
+import SelectDefault from '../../examples/dropdowns/SelectDefault.tsx';
+import SelectDefaultCode from '!!raw-loader!../../examples/dropdowns/SelectDefault.tsx';
+
+<CodeExample code={SelectDefaultCode}>
+  <SelectDefault />
+</CodeExample>
+
+### Hint
+
+Hint copy gives further clarification.
+
+import SelectHint from '../../examples/dropdowns/SelectHint.tsx';
+import SelectHintCode from '!!raw-loader!../../examples/dropdowns/SelectHint.tsx';
+
+<CodeExample code={SelectHintCode}>
+  <SelectHint />
+</CodeExample>
+
+### Validation
+
+Select styling can represent success, warning, or danger. This should be used in combination with
+the Message component to display validation text.
+
+import SelectValidation from '../../examples/dropdowns/SelectValidation.tsx';
+import SelectValidationCode from '!!raw-loader!../../examples/dropdowns/SelectValidation.tsx';
+
+<CodeExample code={SelectValidationCode}>
+  <SelectValidation />
+</CodeExample>
+
+### Size
+
+Select can be default or compact in size.
+
+import SelectSize from '../../examples/dropdowns/SelectSize.tsx';
+import SelectSizeCode from '!!raw-loader!../../examples/dropdowns/SelectSize.tsx';
+
+<CodeExample code={SelectSizeCode}>
+  <SelectSize />
+</CodeExample>
+
+### Disabled
+
+Mark the input disabled to restrict user interaction. [Read more](#best-practices) about best
+practices for disabled usage.
+
+import SelectDisabled from '../../examples/dropdowns/SelectDisabled.tsx';
+import SelectDisabledCode from '!!raw-loader!../../examples/dropdowns/SelectDisabled.tsx';
+
+<CodeExample code={SelectDisabledCode}>
+  <SelectDisabled />
+</CodeExample>
+
+## Package
+
+<PackageDescription data={props.data.mdx.package} />
+<PropSheets data={props.data.mdx.propsSheets} reactPackage={props.data.mdx.package} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
