@@ -8,18 +8,18 @@
 import React from 'react';
 import { css } from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
-import { StyledH4 } from './Typography';
+import { StyledH4 as Title } from './Typography';
 
 export const Use: React.FC = props => (
   <Col sm>
-    <StyledH4 tag="div">When to use</StyledH4>
+    <Title tag="div">When to use</Title>
     {props.children}
   </Col>
 );
 
 export const Misuse: React.FC = props => (
   <Col sm>
-    <StyledH4 tag="div">When NOT to use</StyledH4>
+    <Title tag="div">When NOT to use</Title>
     {props.children}
   </Col>
 );

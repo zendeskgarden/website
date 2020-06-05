@@ -2345,10 +2345,10 @@
     "@zendeskgarden/container-breadcrumb" "^0.4.1"
     polished "^3.5.1"
 
-"@zendeskgarden/react-buttons@8.10.0":
-  version "8.10.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.10.0.tgz#5d70ac9f6bc37feddd89a747e290bee8e4acbef7"
-  integrity sha512-HksAXn5MaDtBfU6OaEvhwW9gWP7rg8XuG2aXWEefbZPp0LUn82sH8hsNb9uIR8c12rMI0x2ElSbt9BVDRVvKjw==
+"@zendeskgarden/react-buttons@8.12.0":
+  version "8.12.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.12.0.tgz#6f2f7373c75e3599b733e1da9b38e1b0063899be"
+  integrity sha512-7wOsWxYYoiNi+jRI5Ql+WyRAl5XnJ2NhKeaMQEwiXpYraAzohqioK6f/GBpLKguq+fVAbmKTHAwjyxiIXOXI2Q==
   dependencies:
     "@zendeskgarden/container-buttongroup" "^0.3.1"
     "@zendeskgarden/container-keyboardfocus" "^0.4.1"
