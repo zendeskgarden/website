@@ -18,7 +18,7 @@ const headerStyles = (p: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledH1 = styled.h1.attrs({ tag: 'h1' })`
+export const StyledH1 = styled.h1`
   ${headerStyles}
 
   line-height: ${p => getLineHeight(p.theme.space.base * 13, p.theme.space.xxl)};
@@ -37,7 +37,7 @@ export const StyledH3 = styled(XXL).attrs({ tag: 'h3' })`
   ${headerStyles}
 `;
 
-export const StyledH4 = styled(XL).attrs({ tag: 'h4' })`
+export const StyledH4 = styled(XL).attrs(p => ({ tag: p.tag || 'h4' }))`
   ${headerStyles}
 `;
 

@@ -7,10 +7,10 @@
 
 import React from 'react';
 import ReactSyntaxHighlighter from 'react-syntax-highlighter';
-import dracula from 'react-syntax-highlighter/dist/esm/styles/hljs/dracula';
+import style from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark';
 
 export const SyntaxHighlighter: React.FC = ({ children }) => (
-  <ReactSyntaxHighlighter language="typescript" style={dracula}>
+  <ReactSyntaxHighlighter language="typescript" style={style}>
     {children}
   </ReactSyntaxHighlighter>
 );

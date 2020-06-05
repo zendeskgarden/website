@@ -6,21 +6,30 @@
  */
 
 import React from 'react';
-import { MD } from '@zendeskgarden/react-typography';
+import { css } from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { StyledH4 } from './Typography';
 
 export const Use: React.FC = props => (
   <Col sm>
-    <MD isBold>When to use</MD>
+    <StyledH4 tag="div">When to use</StyledH4>
     {props.children}
   </Col>
 );
 
 export const Misuse: React.FC = props => (
   <Col sm>
-    <MD isBold>When NOT to use</MD>
+    <StyledH4 tag="div">When NOT to use</StyledH4>
     {props.children}
   </Col>
 );
 
-export const Usage = Row;
+export const Usage: React.FC = props => (
+  <Row
+    css={css`
+      margin-bottom: ${p => p.theme.space.base * 7}px;
+    `}
+  >
+    {props.children}
+  </Row>
+);

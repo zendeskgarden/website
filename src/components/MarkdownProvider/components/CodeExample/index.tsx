@@ -24,7 +24,7 @@ const StyledExampleWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ${p => p.theme.space.lg};
+  padding: ${p => p.theme.space.md};
   direction: ${p => p.theme.rtl && 'rtl'};
 `;
 

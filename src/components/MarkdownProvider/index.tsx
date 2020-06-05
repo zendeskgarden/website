@@ -58,7 +58,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const MarkdownProvider: React.FC = ({ children }) => (
-  <div>
+  <>
     <GlobalStyle />
     <MDXProvider
       components={{
@@ -105,5 +105,5 @@ export const MarkdownProvider: React.FC = ({ children }) => (
     >
       {children}
     </MDXProvider>
-  </div>
+  </>
 );
