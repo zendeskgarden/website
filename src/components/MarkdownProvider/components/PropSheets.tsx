@@ -29,50 +29,60 @@ export const PropSheets: React.FC<{ data: ComponentDoc[]; reactPackage: IPackage
               import {`{${propSheet.displayName}}`} from &quot;{reactPackage.name}&quot;;
             </MD>
             <Paragraph>{propSheet.description}</Paragraph>
-            <Table>
-              <Head>
-                <HeaderRow>
-                  <HeaderCell>Prop name</HeaderCell>
-                  <HeaderCell>Type</HeaderCell>
-                  <HeaderCell>Default</HeaderCell>
-                  <HeaderCell>Description</HeaderCell>
-                </HeaderRow>
-              </Head>
-              <Body>
-                {Object.keys(propSheet.props).map(propSheetKey => {
-                  const prop = propSheet.props[propSheetKey];
+            <div
+              css={`
+                overflow: auto;
+              `}
+            >
+              <Table
+                css={`
+                  min-width: 700px;
+                `}
+              >
+                <Head>
+                  <HeaderRow>
+                    <HeaderCell>Prop name</HeaderCell>
+                    <HeaderCell>Type</HeaderCell>
+                    <HeaderCell>Default</HeaderCell>
+                    <HeaderCell>Description</HeaderCell>
+                  </HeaderRow>
+                </Head>
+                <Body>
+                  {Object.keys(propSheet.props).map(propSheetKey => {
+                    const prop = propSheet.props[propSheetKey];
 
-                  return (
-                    <Row key={`${propSheet.displayName}-${propSheetKey}`}>
-                      <Cell
-                        css={css`
-                          color: ${p => getColor('kale', 400, p.theme)};
-                          font-family: ${p => p.theme.fonts.mono};
-                        `}
-                      >
-                        {prop.name}
-                      </Cell>
-                      <Cell
-                        css={css`
-                          color: ${p => getColor('red', 600, p.theme)};
-                          font-family: ${p => p.theme.fonts.mono};
-                        `}
-                      >
-                        {prop.type.name}
-                      </Cell>
-                      <Cell
-                        css={css`
-                          font-family: ${p => p.theme.fonts.mono};
-                        `}
-                      >
-                        {prop.defaultValue ? prop.defaultValue.value : '-'}
-                      </Cell>
-                      <Cell>{prop.description}</Cell>
-                    </Row>
-                  );
-                })}
-              </Body>
-            </Table>
+                    return (
+                      <Row key={`${propSheet.displayName}-${propSheetKey}`}>
+                        <Cell
+                          css={css`
+                            color: ${p => getColor('kale', 400, p.theme)};
+                            font-family: ${p => p.theme.fonts.mono};
+                          `}
+                        >
+                          {prop.name}
+                        </Cell>
+                        <Cell
+                          css={css`
+                            color: ${p => getColor('red', 600, p.theme)};
+                            font-family: ${p => p.theme.fonts.mono};
+                          `}
+                        >
+                          {prop.type.name}
+                        </Cell>
+                        <Cell
+                          css={css`
+                            font-family: ${p => p.theme.fonts.mono};
+                          `}
+                        >
+                          {prop.defaultValue ? prop.defaultValue.value : '-'}
+                        </Cell>
+                        <Cell>{prop.description}</Cell>
+                      </Row>
+                    );
+                  })}
+                </Body>
+              </Table>
+            </div>
           </div>
         ))}
     </>

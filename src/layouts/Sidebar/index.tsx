@@ -72,6 +72,7 @@ export const SidebarLayout: React.FC<{ sidebar: ISidebarSection[] }> = ({ childr
               flex-grow: 1;
               background-color: ${p => p.theme.colors.background};
               padding: ${p => p.theme.space.lg} ${p => p.theme.space.md};
+              max-width: 100vw;
 
               @media (max-width: ${p => p.theme.breakpoints.lg}) {
                 padding: ${p => p.theme.space.lg} ${p => p.theme.space.sm};

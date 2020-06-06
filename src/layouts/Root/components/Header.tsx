@@ -74,18 +74,15 @@ const Logo: React.FC = () => (
       >
         <GardenIcon
           css={css`
-            height: ${p => p.theme.lineHeights.lg};
+            width: ${p => p.theme.iconSizes.lg};
+            height: ${p => p.theme.iconSizes.lg};
             color: ${PALETTE.green[400]};
-
-            @media (max-width: ${p => p.theme.breakpoints.md}) {
-              height: ${p => p.theme.space.base * 6.5}px;
-            }
           `}
         />
         <GardenWordmark
           css={css`
-            margin-left: ${p => p.theme.space.xxs};
-            height: ${p => p.theme.lineHeights.lg};
+            margin-left: ${p => p.theme.space.xs};
+            height: ${p => p.theme.iconSizes.lg};
             color: ${PALETTE.kale[700]};
 
             @media (max-width: ${p => p.theme.breakpoints.md}) {

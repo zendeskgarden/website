@@ -35,7 +35,7 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
           {heading.items && (
             <ul
               css={css`
-                margin-left: ${p => p.theme.space.xs};
+                margin-left: ${p => p.theme.space.md};
               `}
             >
               {heading.items!.map(subHeading => (
