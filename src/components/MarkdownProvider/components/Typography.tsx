@@ -8,7 +8,7 @@
 import React from 'react';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
-import { XXXL, XXL, XL, LG, MD, Span } from '@zendeskgarden/react-typography';
+import { XXXL, XXL, XL, LG, MD, Span, Paragraph } from '@zendeskgarden/react-typography';
 
 const headerStyles = (p: ThemeProps<DefaultTheme>) => {
   return css`
@@ -60,6 +60,10 @@ export const StyledBlockquote = styled(LG).attrs({ tag: 'blockquote' })`
 export const StyledHr = styled.hr`
   margin: ${p => p.theme.space.md} 0;
   border-top: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
+`;
+
+export const StyledParagraph = styled(Paragraph)`
+  margin-bottom: ${p => p.theme.space.md};
 `;
 
 /**
