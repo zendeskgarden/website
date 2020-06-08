@@ -96,17 +96,18 @@ const Example = () => {
             }}
           >
             <Field>
-              <Label>Default</Label>
+              <Label>Compact</Label>
               <Multiselect
+                isCompact
                 renderItem={({ value, removeValue }: any) => (
-                  <Tag size="large">
+                  <Tag>
                     <span>{value}</span>
                     <Tag.Close onClick={() => removeValue()} />
                   </Tag>
                 )}
               />
             </Field>
-            <Menu>{renderOptions()}</Menu>
+            <Menu isCompact>{renderOptions()}</Menu>
           </Dropdown>
         </Col>
         <Col>
@@ -122,18 +123,17 @@ const Example = () => {
             }}
           >
             <Field>
-              <Label>Compact</Label>
+              <Label>Default</Label>
               <Multiselect
-                isCompact
                 renderItem={({ value, removeValue }: any) => (
-                  <Tag>
+                  <Tag size="large">
                     <span>{value}</span>
                     <Tag.Close onClick={() => removeValue()} />
                   </Tag>
                 )}
               />
             </Field>
-            <Menu isCompact>{renderOptions()}</Menu>
+            <Menu>{renderOptions()}</Menu>
           </Dropdown>
         </Col>
       </Row>
