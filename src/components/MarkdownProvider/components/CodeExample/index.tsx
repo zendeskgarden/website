@@ -14,7 +14,6 @@ import { ReactComponent as MarkupStroke } from '@zendeskgarden/svg-icons/src/16/
 import { ReactComponent as CopyStroke } from '@zendeskgarden/svg-icons/src/16/copy-stroke.svg';
 import { ReactComponent as LightningBoltStroke } from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
 import { ReactComponent as DirectionRtlStroke } from '@zendeskgarden/svg-icons/src/16/direction-rtl-stroke.svg';
-
 import { SyntaxHighlighter } from './components/SyntaxHighlighter';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
 import { copyToClipboard } from './utils/copyToClipboard';
@@ -33,6 +32,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const focusVisibleRef = useRef(null);
   const initialTooltipContent = 'Copy to clipboard';
   const [tooltipContent, setTooltipContent] = useState(initialTooltipContent);
+  const COPYRIGHT_REGEXP = /\/\*\*\n\s\*\sCopyright[\s\S]*\*\/\n\n/gmu;
 
   const exampleTheme = useMemo<DefaultTheme>(() => {
     return { ...DEFAULT_THEME, rtl: isRtl };
@@ -131,7 +131,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
           </ToggleIconButton>
         </Tooltip>
       </div>
-      {isCodeVisible && <SyntaxHighlighter>{code}</SyntaxHighlighter>}
+      {isCodeVisible && <SyntaxHighlighter>{code.replace(COPYRIGHT_REGEXP, '')}</SyntaxHighlighter>}
     </div>
   );
 };
