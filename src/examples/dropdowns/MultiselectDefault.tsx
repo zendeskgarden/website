@@ -7,26 +7,14 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import debounce from 'lodash.debounce';
-import {
-  Dropdown,
-  Multiselect,
-  Field,
-  Menu,
-  Item,
-  Hint,
-  Label
-} from '@zendeskgarden/react-dropdowns';
+import { Dropdown, Multiselect, Field, Menu, Item, Label } from '@zendeskgarden/react-dropdowns';
 import { Tag } from '@zendeskgarden/react-tags';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 
 const options = [
   'Asparagus',
-  'Bean',
   'Brussel sprouts',
-  'Cabbage',
   'Cauliflower',
-  'Celery',
-  'Cucumber',
   'Garlic',
   'Jerusalem artichoke',
   'Kale',
@@ -34,12 +22,8 @@ const options = [
   'Onion',
   'Mushroom',
   'Potato',
-  'Pumpkin',
   'Radish',
-  'Shallot',
-  'Silverbeet',
   'Spinach',
-  'Sweet Potato',
   'Tomato',
   'Yam',
   'Zucchini'
@@ -104,10 +88,8 @@ const Example = () => {
             }}
           >
             <Field>
-              <Label>Multiselect</Label>
-              <Hint>This example includes basic debounce logic</Hint>
+              <Label>Vegetables</Label>
               <Multiselect
-                isCompact
                 renderItem={({ value, removeValue }: any) => (
                   <Tag>
                     <span>{value}</span>
@@ -116,7 +98,7 @@ const Example = () => {
                 )}
               />
             </Field>
-            <Menu isCompact>{renderOptions()}</Menu>
+            <Menu>{renderOptions()}</Menu>
           </Dropdown>
         </Col>
       </Row>

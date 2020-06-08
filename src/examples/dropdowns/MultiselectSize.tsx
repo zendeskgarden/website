@@ -13,12 +13,8 @@ import { Tag } from '@zendeskgarden/react-tags';
 
 const options = [
   'Asparagus',
-  'Bean',
   'Brussel sprouts',
-  'Cabbage',
   'Cauliflower',
-  'Celery',
-  'Cucumber',
   'Garlic',
   'Jerusalem artichoke',
   'Kale',
@@ -26,12 +22,8 @@ const options = [
   'Onion',
   'Mushroom',
   'Potato',
-  'Pumpkin',
   'Radish',
-  'Shallot',
-  'Silverbeet',
   'Spinach',
-  'Sweet Potato',
   'Tomato',
   'Yam',
   'Zucchini'
@@ -96,7 +88,7 @@ const Example = () => {
             }}
           >
             <Field>
-              <Label>Compact</Label>
+              <Label>Vegetables</Label>
               <Multiselect
                 isCompact
                 renderItem={({ value, removeValue }: any) => (
@@ -123,7 +115,7 @@ const Example = () => {
             }}
           >
             <Field>
-              <Label>Default</Label>
+              <Label>Vegetables</Label>
               <Multiselect
                 renderItem={({ value, removeValue }: any) => (
                   <Tag size="large">

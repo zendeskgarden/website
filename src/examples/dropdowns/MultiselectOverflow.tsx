@@ -13,25 +13,17 @@ import { Tag } from '@zendeskgarden/react-tags';
 
 const options = [
   'Asparagus',
-  'Jerusalem artichoke',
-  'Bean',
   'Brussel sprouts',
-  'Cabbage',
   'Cauliflower',
-  'Celery',
-  'Cucumber',
   'Garlic',
+  'Jerusalem artichoke',
   'Kale',
   'Lettuce',
   'Onion',
   'Mushroom',
   'Potato',
-  'Pumpkin',
   'Radish',
-  'Shallot',
-  'Silverbeet',
   'Spinach',
-  'Sweet Potato',
   'Tomato',
   'Yam',
   'Zucchini'
@@ -69,11 +61,11 @@ const Example = () => {
 
   const renderOptions = () => {
     if (isLoading) {
-      return <Item disabled>Loading items...</Item>;
+      return <Item disabled>Loading vegetables...</Item>;
     }
 
     if (matchingOptions.length === 0) {
-      return <Item disabled>No matches found</Item>;
+      return <Item disabled>No vegetables found</Item>;
     }
 
     return matchingOptions.map(option => (
@@ -99,9 +91,8 @@ const Example = () => {
             }}
           >
             <Field>
-              <Label>Multiselect with overflow</Label>
+              <Label>Vegetables</Label>
               <Multiselect
-                isCompact
                 renderItem={({ value, removeValue }: any) => (
                   <Tag>
                     <span>{value}</span>
@@ -110,7 +101,7 @@ const Example = () => {
                 )}
               />
             </Field>
-            <Menu isCompact>{renderOptions()}</Menu>
+            <Menu>{renderOptions()}</Menu>
           </Dropdown>
         </Col>
       </Row>
