@@ -37,15 +37,13 @@ import TabsDefaultCode from '!!raw-loader!../../examples/tabs/TabsDefault.tsx';
 
 ### Vertical
 
-Tabs are horizontal by default but can be manually set to stack vertically.
+Tab layout is horizontal by default but can be set to stack vertically.
 
 import TabsVertical from '../../examples/tabs/TabsVertical.tsx';
 import TabsVerticalCode from '!!raw-loader!../../examples/tabs/TabsVertical.tsx';
 
 <CodeExample code={TabsVerticalCode}>
-  <div style={{ width: '320px' }}>
-    <TabsVertical />
-  </div>
+  <TabsVertical />
 </CodeExample>
 
 ### Disabled
@@ -64,7 +62,7 @@ import TabsDisabledCode from '!!raw-loader!../../examples/tabs/TabsDisabled.tsx'
 ### Be mindful of horizontal tab length
 
 When more than 5 tabs are needed or the tab strings are lengthy, consider a vertical tab layout. Tab
-labels are internationalized and many languages contain more characters per word than English.
+labels are internationalized and the number of characters per word is greatly varied.
 
 Horizontal tabs do not wrap or overflow so anything that exceeds the width of the page will become
 truncated and may hide important actions.
@@ -73,18 +71,14 @@ import tabHorizDo from '../../images/components-tabs-horizontal-do.png';
 import tabHorizDont from '../../images/components-tabs-horizontal-dont.png';
 
 <BestPractice>
-  <Do imageSource={tabHorizDo}>Use a circular shape to represent a person.</Do>
+  <Do imageSource={tabHorizDo}>
+    <ul>
+      <li>Write concise labels, ideally one word</li>
+      <li>Account for responsive resizing with vertical Tabs</li>
+    </ul>
+  </Do>
   <Dont imageSource={tabHorizDont}>Use a long tab label that causes formatting problems.</Dont>
 </BestPractice>
-
-## Accessibility
-
-### Automatic activation
-
-Garden doesn't endorse the use of [automatic activation in
-tabs](https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs-1/tabs.html). There is no way of
-guaranteeing that tab content will not require a network request or page refresh and it will
-inevitably cause inconsistency in tab interactions across products.
 
 ## Configuration
 
