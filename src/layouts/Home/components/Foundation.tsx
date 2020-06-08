@@ -83,7 +83,7 @@ export const Foundation: React.FC = () => {
             }
           }
         }
-        designImage: abstractAsset(layerName: { eq: "home-pillars-content" }) {
+        designImage: abstractAsset(layerName: { eq: "home-pillars-design" }) {
           childFile {
             childImageSharp {
               fluid(maxWidth: 288, traceSVG: { background: "#03363D", color: "white" }) {
@@ -92,7 +92,7 @@ export const Foundation: React.FC = () => {
             }
           }
         }
-        componentsImage: abstractAsset(layerName: { eq: "home-pillars-content" }) {
+        componentsImage: abstractAsset(layerName: { eq: "home-pillars-components" }) {
           childFile {
             childImageSharp {
               fluid(maxWidth: 288, traceSVG: { background: "#03363D", color: "white" }) {

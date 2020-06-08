@@ -56,7 +56,7 @@ const packageJson = `
     "react": "latest",
     "react-dom": "latest",
     "styled-components": "latest",
-    "@zendeskgarden/css-bedrock": "^7.0.33",
+    "@zendeskgarden/css-bedrock": "^8.x",
     "@zendeskgarden/react-avatars": "^8.x",
     "@zendeskgarden/react-breadcrumbs": "^8.x",
     "@zendeskgarden/react-buttons": "^8.x",
@@ -77,9 +77,27 @@ const packageJson = `
 }
 `;
 
+const prettierRc = `
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "fluid": false
+}
+`;
+
 export const retrieveCodesandboxParameters = (code: string): string => {
   return getParameters({
     files: {
+      '.prettierrc': {
+        content: prettierRc,
+        isBinary: false
+      },
       'package.json': {
         content: packageJson,
         isBinary: false
