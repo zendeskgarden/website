@@ -866,7 +866,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2", "@babel/runtime@^7.9.6":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.1", "@babel/runtime@^7.9.2", "@babel/runtime@^7.9.6":
   version "7.9.6"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.6.tgz#a9102eb5cadedf3f31d08a9ecf294af7827ea29f"
   integrity sha512-64AF1xY3OAkFHqOb9s4jpgk1Mm5vDZ4L3acHvAml+53nO1XbXLuDodsVpO4OIUsmemlUHMxNdYMNJmsvOwLrvQ==
@@ -874,9 +874,9 @@
     regenerator-runtime "^0.13.4"
 
 "@babel/standalone@^7.9.6":
-  version "7.9.6"
-  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.9.6.tgz#7a5f82c6fa29959b12f708213be6de8ec0b79338"
-  integrity sha512-UE0vm/4vuwzGgGNY9wR78ft3DUcHvAU0o/esXas2qjUL8yHMAEc04OmLkb3dfkUwlqbQ4+vC1OLBzwhcoIqLsA==
+  version "7.10.1"
+  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.10.1.tgz#36057177f8d42628e97744e76ba4851fc7369045"
+  integrity sha512-WYJ4SIteSGsgHK2/8YIuXm16IZ7LzuLxmEDc5UPYTGeTF31ibhpJZbZtgSQuhoTpSNh14euPSdBPQ91DiPveHA==
 
 "@babel/template@^7.8.3", "@babel/template@^7.8.6":
   version "7.8.6"
@@ -2288,7 +2288,7 @@
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-utilities" "^0.5.3"
 
-"@zendeskgarden/container-selection@^1.3.5":
+"@zendeskgarden/container-selection@^1.3.1", "@zendeskgarden/container-selection@^1.3.5":
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.5.tgz#72d88e62796665ef08d6c0de779a66f91ed9c8b6"
   integrity sha512-GtcZ5sP4/p7mSVMcFtWoE5LGLVCs4yZZnuWKCAGb61tWiqh3T14L/tO2UCzYKs4vqs6CtLkKg86BTduNBTkqNg==
@@ -2354,10 +2354,31 @@
     "@zendeskgarden/container-keyboardfocus" "^0.4.1"
     polished "^3.5.1"
 
+"@zendeskgarden/react-dropdowns@8.12.0":
+  version "8.12.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-dropdowns/-/react-dropdowns-8.12.0.tgz#d11536272fa94d7df5e35e6bb1129253f85a7e15"
+  integrity sha512-OGyUibClMXIvsBmOfvZHZt7IXni9ZdAy1iqRrhF+DtQDmZUWEemXgN/rhoBwHKPngtFsz+4TVjmFOPWU/7b+bA==
+  dependencies:
+    "@zendeskgarden/container-selection" "^1.3.1"
+    "@zendeskgarden/container-utilities" "^0.5.1"
+    "@zendeskgarden/react-forms" "^8.12.0"
+    downshift "^5.0.0"
+    polished "^3.5.1"
+    react-popper "^1.3.4"
+
 "@zendeskgarden/react-forms@8.10.0":
   version "8.10.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.10.0.tgz#9ade7033359418b5e582f9b685b7e4ec90e87c00"
   integrity sha512-NJeino0c8g+2TH2FHkJ7krTZ7Qp30pq1j2xlD7GPcHbySlheGc6ta+7oD7J0h1pC5KwSSxEQOVRTv4Ni8I5ong==
+  dependencies:
+    "@zendeskgarden/container-field" "^1.3.1"
+    "@zendeskgarden/container-utilities" "^0.5.1"
+    polished "^3.5.1"
+
+"@zendeskgarden/react-forms@^8.12.0":
+  version "8.12.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.12.0.tgz#ba48e922286a9eb5f1acf743e8cb00538afb8ade"
+  integrity sha512-Iz0yGofnWR7DMF0c7O9+Xq9qRO/uuYc8IkzDg6DYzL3h9p6lNyz9E71v8uAVbm0WgUIiwoBL/lrx6367ksdm7Q==
   dependencies:
     "@zendeskgarden/container-field" "^1.3.1"
     "@zendeskgarden/container-utilities" "^0.5.1"
@@ -4549,6 +4570,11 @@ compression@^1.7.4:
     safe-buffer "5.1.2"
     vary "~1.1.2"
 
+compute-scroll-into-view@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/compute-scroll-into-view/-/compute-scroll-into-view-1.0.13.tgz#be1b1663b0e3f56cd5f7713082549f562a3477e2"
+  integrity sha512-o+w9w7A98aAFi/GjK8cxSV+CdASuPa2rR5UWs3+yHkJzWqaKoBEufFNWYaXInCSmUfDCVhesG+v9MTWqOjsxFg==
+
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
@@ -5822,6 +5848,16 @@ download@^7.1.0:
     make-dir "^1.2.0"
     p-event "^2.1.0"
     pify "^3.0.0"
+
+downshift@^5.0.0:
+  version "5.4.2"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-5.4.2.tgz#3f6b7bf4ad7e0ff5503414efe3a398421763ebae"
+  integrity sha512-IVwIc4iw5OF5Bi/MbITarW2E8/5akm++5b6UL7aXyPoZmuVe4ilFGaQaktdFW/IwuzHieIwaWj4AQgI0lQNslQ==
+  dependencies:
+    "@babel/runtime" "^7.9.1"
+    compute-scroll-into-view "^1.0.13"
+    prop-types "^15.7.2"
+    react-is "^16.13.1"
 
 duplexer2@~0.1.4:
   version "0.1.4"
@@ -13998,7 +14034,7 @@ react-hot-loader@^4.12.21:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
-react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
+react-is@^16.12.0, react-is@^16.13.1, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==

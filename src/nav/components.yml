@@ -14,3 +14,7 @@
           title: Anchor
         - id: /components/button
           title: Button
+    - title: Dropdowns
+      items:
+        - id: /components/select
+          title: Select
