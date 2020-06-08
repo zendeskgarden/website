@@ -17,6 +17,7 @@ import {
   Label
 } from '@zendeskgarden/react-dropdowns';
 import { Tag } from '@zendeskgarden/react-tags';
+import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 
 const options = [
   'Asparagus',
@@ -88,32 +89,38 @@ const Example = () => {
   };
 
   return (
-    <Dropdown
-      inputValue={inputValue}
-      selectedItems={selectedItems}
-      onSelect={items => setSelectedItems(items)}
-      downshiftProps={{ defaultHighlightedIndex: 0 }}
-      onStateChange={changes => {
-        if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-          setInputValue((changes as any).inputValue);
-        }
-      }}
-    >
-      <Field>
-        <Label>Multiselect with debounce</Label>
-        <Hint>This example includes basic debounce logic</Hint>
-        <Multiselect
-          isCompact
-          renderItem={({ value, removeValue }: any) => (
-            <Tag>
-              <span>{value}</span>
-              <Tag.Close onClick={() => removeValue()} />
-            </Tag>
-          )}
-        />
-      </Field>
-      <Menu isCompact>{renderOptions()}</Menu>
-    </Dropdown>
+    <Grid>
+      <Row>
+        <Col>
+          <Dropdown
+            inputValue={inputValue}
+            selectedItems={selectedItems}
+            onSelect={items => setSelectedItems(items)}
+            downshiftProps={{ defaultHighlightedIndex: 0 }}
+            onStateChange={changes => {
+              if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
+                setInputValue((changes as any).inputValue);
+              }
+            }}
+          >
+            <Field>
+              <Label>Multiselect</Label>
+              <Hint>This example includes basic debounce logic</Hint>
+              <Multiselect
+                isCompact
+                renderItem={({ value, removeValue }: any) => (
+                  <Tag>
+                    <span>{value}</span>
+                    <Tag.Close onClick={() => removeValue()} />
+                  </Tag>
+                )}
+              />
+            </Field>
+            <Menu isCompact>{renderOptions()}</Menu>
+          </Dropdown>
+        </Col>
+      </Row>
+    </Grid>
   );
 };
 

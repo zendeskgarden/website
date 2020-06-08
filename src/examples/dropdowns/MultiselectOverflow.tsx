@@ -6,15 +6,8 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  Dropdown,
-  Multiselect,
-  Field,
-  Menu,
-  Item,
-  Hint,
-  Label
-} from '@zendeskgarden/react-dropdowns';
+import { Dropdown, Multiselect, Field, Menu, Item, Label } from '@zendeskgarden/react-dropdowns';
+import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import debounce from 'lodash.debounce';
 import { Tag } from '@zendeskgarden/react-tags';
 
@@ -51,7 +44,8 @@ const Example = () => {
     options[2],
     options[3],
     options[4],
-    options[5]
+    options[5],
+    options[6]
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -90,32 +84,37 @@ const Example = () => {
   };
 
   return (
-    <Dropdown
-      inputValue={inputValue}
-      selectedItems={selectedItems}
-      onSelect={items => setSelectedItems(items)}
-      downshiftProps={{ defaultHighlightedIndex: 0 }}
-      onStateChange={changes => {
-        if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-          setInputValue((changes as any).inputValue);
-        }
-      }}
-    >
-      <Field>
-        <Label>Multiselect with debounce</Label>
-        <Hint>This example includes basic debounce logic</Hint>
-        <Multiselect
-          isCompact
-          renderItem={({ value, removeValue }: any) => (
-            <Tag>
-              <span style={{ maxWidth: '100px' }}>{value}</span>
-              <Tag.Close onClick={() => removeValue()} />
-            </Tag>
-          )}
-        />
-      </Field>
-      <Menu isCompact>{renderOptions()}</Menu>
-    </Dropdown>
+    <Grid>
+      <Row>
+        <Col>
+          <Dropdown
+            inputValue={inputValue}
+            selectedItems={selectedItems}
+            onSelect={items => setSelectedItems(items)}
+            downshiftProps={{ defaultHighlightedIndex: 0 }}
+            onStateChange={changes => {
+              if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
+                setInputValue((changes as any).inputValue);
+              }
+            }}
+          >
+            <Field>
+              <Label>Multiselect with overflow</Label>
+              <Multiselect
+                isCompact
+                renderItem={({ value, removeValue }: any) => (
+                  <Tag>
+                    <span>{value}</span>
+                    <Tag.Close onClick={() => removeValue()} />
+                  </Tag>
+                )}
+              />
+            </Field>
+            <Menu isCompact>{renderOptions()}</Menu>
+          </Dropdown>
+        </Col>
+      </Row>
+    </Grid>
   );
 };
 

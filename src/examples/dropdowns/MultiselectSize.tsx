@@ -6,15 +6,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  Dropdown,
-  Multiselect,
-  Field,
-  Menu,
-  Item,
-  Hint,
-  Label
-} from '@zendeskgarden/react-dropdowns';
+import { Dropdown, Multiselect, Field, Menu, Item, Label } from '@zendeskgarden/react-dropdowns';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import debounce from 'lodash.debounce';
 import { Tag } from '@zendeskgarden/react-tags';
@@ -105,10 +97,9 @@ const Example = () => {
           >
             <Field>
               <Label>Default</Label>
-              <Hint>This example includes basic debounce logic</Hint>
               <Multiselect
                 renderItem={({ value, removeValue }: any) => (
-                  <Tag>
+                  <Tag size="large">
                     <span>{value}</span>
                     <Tag.Close onClick={() => removeValue()} />
                   </Tag>
@@ -132,7 +123,6 @@ const Example = () => {
           >
             <Field>
               <Label>Compact</Label>
-              <Hint>This example includes basic debounce logic</Hint>
               <Multiselect
                 isCompact
                 renderItem={({ value, removeValue }: any) => (
