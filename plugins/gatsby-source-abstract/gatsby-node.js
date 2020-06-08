@@ -58,18 +58,27 @@ exports.sourceNodes = async (
         if (assets) {
           reporter.info(`Retrieving assets for file "${file.name}" with CACHE...`);
         } else {
-          assets = await rateLimiter.schedule(() => {
+          const fetchAssets = async () => {
             reporter.info(`Retrieving assets for file "${file.name}" with API...`);
 
-            return abstractClient.assets.file({
+            assets = [];
+
+            const cursor = abstractClient.assets.file({
               projectId: configOptions.projectId,
               branchId: configOptions.branch,
               fileId: file.id,
               sha: file.sha
             });
-          });
+            const pages = AbstractSdk.paginate(cursor);
 
-          cache.set(FILE_CACHE_KEY, assets);
+            for await (const page of pages) {
+              assets = [...assets, ...page];
+            }
+
+            cache.set(FILE_CACHE_KEY, assets);
+          };
+
+          await rateLimiter.schedule(fetchAssets);
         }
 
         return Promise.all(
