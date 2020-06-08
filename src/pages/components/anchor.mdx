@@ -63,11 +63,11 @@ import AnchorDangerCode from '!!raw-loader!../../examples/anchor/AnchorDanger.ts
 
 ## Configuration
 
-<PackageDescription data={props.data.mdx.package} />
+<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
 
 ## API
 
-<PropSheets data={props.data.mdx.propsSheets} reactPackage={props.data.mdx.package} />
+<PropSheets propSheets={props.data.mdx.propsSheets} />
 
 import { graphql } from 'gatsby';
 

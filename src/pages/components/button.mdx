@@ -61,14 +61,13 @@ import ButtonDangerCode from '!!raw-loader!../../examples/button/ButtonDanger.ts
 Mark a button disabled with the disabled property.
 [Read more about disabled state usage](#todo)
 
-## Best practices
+## Configuration
 
-### Writing button labels
+<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
 
-## Package
+## API
 
-<PackageDescription data={props.data.mdx.package} />
-<PropSheets data={props.data.mdx.propsSheets} reactPackage={props.data.mdx.package} />
+<PropSheets propSheets={props.data.mdx.propsSheets} />
 
 import { graphql } from 'gatsby';
 

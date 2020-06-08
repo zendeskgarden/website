@@ -10,7 +10,7 @@ import { createGlobalStyle } from 'styled-components';
 import { MDXProvider } from '@mdx-js/react';
 import { Code, Paragraph } from '@zendeskgarden/react-typography';
 import { CodeExample } from './components/CodeExample';
-import { PackageDescription } from './components/PackageDescription';
+import { Configuration } from './components/Configuration';
 import { PropSheets } from './components/PropSheets';
 import { Usage, Use, Misuse } from './components/Usage';
 import { BestPractice, Do, Dont, Caution } from './components/BestPractice';
@@ -66,7 +66,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
          * Helper components
          */
         CodeExample,
-        PackageDescription,
+        Configuration,
         PropSheets,
         Usage,
         Use,
