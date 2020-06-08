@@ -52,12 +52,13 @@ import MultiselectOverflowCode from '!!raw-loader!../../examples/dropdowns/Multi
   <MultiselectOverflow />
 </CodeExample>
 
-## Best practices
+## Configuration
 
-## Package
+<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
 
-<PackageDescription data={props.data.mdx.package} />
-<PropSheets data={props.data.mdx.propsSheets} reactPackage={props.data.mdx.package} />
+## API
+
+<PropSheets propSheets={props.data.mdx.propsSheets} />
 
 import { graphql } from 'gatsby';
 
