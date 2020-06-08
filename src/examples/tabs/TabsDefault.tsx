@@ -30,7 +30,7 @@ const Example = () => {
       <TabPanel item="tab-3">
         Cornus is a genus of about 30–60 species of woody plants in the family Cornaceae, commonly
         known as dogwoods, which can generally be distinguished by their blossoms, berries, and
-        distinctive bark
+        distinctive bark.
       </TabPanel>
     </Tabs>
   );

@@ -6,6 +6,9 @@ description: >
 package: '@zendeskgarden/react-tabs'
 propSheets:
   - tabs/src/elements/Tabs.tsx
+  - tabs/src/elements/Tab.tsx
+  - tabs/src/elements/TabList.tsx
+  - tabs/src/elements/TabPanel.tsx
 ---
 
 <Usage>
@@ -62,36 +65,48 @@ import TabsDisabledCode from '!!raw-loader!../../examples/tabs/TabsDisabled.tsx'
 ### Be mindful of horizontal tab length
 
 When more than 5 tabs are needed or the tab strings are lengthy, consider a vertical tab layout. Tab
-labels are internationalized and the number of characters per word is greatly varied.
-
-Horizontal tabs do not wrap or overflow so anything that exceeds the width of the page will become
-truncated and may hide important actions.
-
-import tabHorizDo from '../../images/components-tabs-horizontal-do.png';
-import tabHorizDont from '../../images/components-tabs-horizontal-dont.png';
+labels are internationalized and the number of characters per word is greatly varied. Horizontal
+tabs do not wrap or overflow so anything that exceeds the width of the page will become truncated
+and may hide important actions.
 
 <BestPractice>
-  <Do imageSource={tabHorizDo}>
+  <Do imageSource={props.data.tabHorizDo.children[0].publicURL}>
     <ul>
       <li>Write concise labels, ideally one word</li>
       <li>Account for responsive resizing with vertical Tabs</li>
     </ul>
   </Do>
-  <Dont imageSource={tabHorizDont}>Use a long tab label that causes formatting problems.</Dont>
+  <Dont imageSource={props.data.tabHorizDont.children[0].publicURL}>
+    <p>Don't use lengthy tab labels, this can cause tab content to overflow and become hidden.</p>
+  </Dont>
 </BestPractice>
 
 ## Configuration
 
-<!-- TODO: Add correct configuration component when it merges -->
+<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
 
 ## API
 
-<!-- TODO: Add correct API component when it merges-->
+<PropSheets propSheets={props.data.mdx.propsSheets} />
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    tabHorizDo: abstractAsset(layerName: { eq: "components-tabs-horizontal-do" }) {
+      children {
+        ... on File {
+          publicURL
+        }
+      }
+    }
+    tabHorizDont: abstractAsset(layerName: { eq: "components-tabs-horizontal-dont" }) {
+      children {
+        ... on File {
+          publicURL
+        }
+      }
+    }
   }
 `;
