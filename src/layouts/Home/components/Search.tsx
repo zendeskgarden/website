@@ -37,10 +37,12 @@ export const Search: React.FC = () => {
   const { bannerImage } = useStaticQuery(
     graphql`
       query {
-        bannerImage: file(relativePath: { eq: "home-banner.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 540) {
-              ...GatsbyImageSharpFluid_noBase64
+        bannerImage: abstractAsset(layerName: { eq: "home-hero-logo" }) {
+          childFile {
+            childImageSharp {
+              fluid(maxWidth: 540) {
+                ...GatsbyImageSharpFluid_noBase64
+              }
             }
           }
         }
@@ -69,7 +71,7 @@ export const Search: React.FC = () => {
               `}
             >
               <Img
-                fluid={bannerImage.childImageSharp.fluid}
+                fluid={bannerImage.childFile.childImageSharp.fluid}
                 alt="Garden search banner image"
                 css={css`
                   margin-top: ${p => p.theme.space.xxl};
@@ -78,6 +80,7 @@ export const Search: React.FC = () => {
                   width: 100%;
                   max-width: 540px;
                 `}
+                imgStyle={{ width: 540, maxWidth: '100%', height: 540, maxHeight: '100%' }}
               />
             </Col>
             <Col
