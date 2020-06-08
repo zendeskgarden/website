@@ -35,10 +35,10 @@ export const SectionCallout: React.FC<
       {section}
     </StyledSectionHeader>
     <XXL
+      isBold
       tag="h2"
       css={css`
         margin-bottom: ${p => p.theme.space.xs};
-        font-weight: ${p => p.theme.fontWeights.semibold};
       `}
     >
       {header}
