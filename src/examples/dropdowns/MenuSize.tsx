@@ -17,9 +17,9 @@ const Example = () => {
         <Col textAlign="center">
           <Dropdown>
             <Trigger>
-              <Button>Compact</Button>
+              <Button>Default</Button>
             </Trigger>
-            <Menu isCompact>
+            <Menu>
               <Item value="cactus">Cactus</Item>
               <Item value="flower">Flower</Item>
               <Item value="succulent">Succulent</Item>
@@ -29,9 +29,9 @@ const Example = () => {
         <Col textAlign="center">
           <Dropdown>
             <Trigger>
-              <Button>Default</Button>
+              <Button size="small">Compact</Button>
             </Trigger>
-            <Menu>
+            <Menu isCompact>
               <Item value="cactus">Cactus</Item>
               <Item value="flower">Flower</Item>
               <Item value="succulent">Succulent</Item>
