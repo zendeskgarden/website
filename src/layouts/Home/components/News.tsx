@@ -75,29 +75,10 @@ export const News: React.FC = () => {
           <Row>
             <Col
               sm={12}
-              md={6}
-              lg={4}
-              css={css`
-                background-color: ${PALETTE.green[200]};
-                padding-top: ${p => p.theme.space.xxl};
-                padding-right: ${p => p.theme.space.xxl};
-                padding-bottom: ${p => p.theme.space.xxl};
-
-                @media (max-width: ${p => p.theme.breakpoints.md}) {
-                  padding: ${p => p.theme.space.xxl};
-                }
-              `}
-            >
-              <StyledSectionHeader>Site Updates</StyledSectionHeader>
-              <p>TODO</p>
-            </Col>
-            <Col
-              sm={12}
-              md={6}
+              md={12}
               lg={8}
               css={css`
                 background-color: ${p => getColor('grey', 200, p.theme)};
-
                 padding: ${p => p.theme.space.xxl};
               `}
             >

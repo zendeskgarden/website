@@ -16,3 +16,5 @@
           title: 26px
         - id: /design/icons/wordmarks
           title: Wordmarks
+    - title: Color
+      id: https://garden.zendesk.com/css-components/utilities/color/

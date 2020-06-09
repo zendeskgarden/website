@@ -1,0 +1,18 @@
+---
+title: Versions
+description: >
+  Description will be here
+---
+
+Garden website release documentation
+
+- [Versions 7](https://garden-v7.netlify.app/)
+- [Versions 6](https://garden-v6.netlify.app/)
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

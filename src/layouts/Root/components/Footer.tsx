@@ -6,15 +6,11 @@
  */
 
 import React from 'react';
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 import { math } from 'polished';
 import { getColor } from '@zendeskgarden/react-theming';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
-
-const StyledFooterItem = styled.div`
-  margin-right: ${p => p.theme.space.lg};
-`;
 
 const Footer: React.FC = () => (
   <footer
@@ -27,25 +23,6 @@ const Footer: React.FC = () => (
     `}
   >
     <MaxWidthLayout>
-      <div
-        css={css`
-          display: flex;
-          padding-bottom: ${p => p.theme.space.md};
-
-          @media (max-width: ${p => p.theme.breakpoints.md}) {
-            flex-direction: column;
-            padding-left: ${p => math(`${p.theme.iconSizes.md} + ${p.theme.space.md}`)};
-            text-align: center;
-          }
-        `}
-      >
-        <StyledFooterItem>Site Updates</StyledFooterItem>
-        <StyledFooterItem>License</StyledFooterItem>
-        <StyledFooterItem>Contribute</StyledFooterItem>
-        <StyledFooterItem>Blog</StyledFooterItem>
-        <StyledFooterItem>Github</StyledFooterItem>
-        <StyledFooterItem>v8.x.x</StyledFooterItem>
-      </div>
       <div
         css={css`
           display: flex;
