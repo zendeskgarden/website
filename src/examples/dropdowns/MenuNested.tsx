@@ -32,7 +32,7 @@ const Example = () => {
         if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
           updatedState.isOpen =
             changes.selectedItem === 'flowers' ||
-            changes.selectedItem === 'general-settings' ||
+            changes.selectedItem === 'plants' ||
             changes.isOpen;
         }
 
@@ -41,7 +41,7 @@ const Example = () => {
 
           if (updatedState.tempSelectedItem === 'flowers') {
             stateAndHelpers.setHighlightedIndex(1);
-          } else if (updatedState.tempSelectedItem === 'general-settings') {
+          } else if (updatedState.tempSelectedItem === 'plants') {
             stateAndHelpers.setHighlightedIndex(3);
           }
         }
@@ -54,10 +54,10 @@ const Example = () => {
       <Trigger>
         <Button>Menu</Button>
       </Trigger>
-      <Menu placement="end" hasArrow>
+      <Menu placement="end">
         {state.tempSelectedItem === 'flowers' ? (
           <>
-            <PreviousItem value="general-settings">Flowers</PreviousItem>
+            <PreviousItem value="plants">Flowers</PreviousItem>
             <Separator />
             <Item value="daisy">Daisy</Item>
             <Item value="blue-gem">Blue Gem</Item>
