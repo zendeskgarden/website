@@ -15,7 +15,7 @@ interface IItem {
 
 const items = [
   { label: 'Cactus', value: 'item-1' },
-  { label: 'Flower', value: 'item-2' },
+  { label: 'Flower', value: 'item-2', disabled: true },
   { label: 'Succulent', value: 'item-3' }
 ];
 
@@ -34,7 +34,7 @@ const Example = () => {
       </Field>
       <Menu>
         {items.map(option => (
-          <Item key={option.value} value={option} disabled={option.label === 'Flower'}>
+          <Item key={option.value} value={option} disabled={option.disabled}>
             {option.label}
           </Item>
         ))}
