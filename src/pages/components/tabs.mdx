@@ -29,7 +29,7 @@ propSheets:
 
 ### Default
 
-The basic usage of a Tab component.
+This is the basic usage of a Tab component.
 
 import TabsDefault from '../../examples/tabs/TabsDefault.tsx';
 import TabsDefaultCode from '!!raw-loader!../../examples/tabs/TabsDefault.tsx';
@@ -60,27 +60,6 @@ import TabsDisabledCode from '!!raw-loader!../../examples/tabs/TabsDisabled.tsx'
   <TabsDisabled />
 </CodeExample>
 
-## Best practices
-
-### Be mindful of horizontal tab length
-
-When more than 5 tabs are needed or the tab strings are lengthy, consider a vertical tab layout. Tab
-labels are internationalized and the number of characters per word is greatly varied. Horizontal
-tabs do not wrap or overflow so anything that exceeds the width of the page will become truncated
-and may hide important actions.
-
-<BestPractice>
-  <Do imageSource={props.data.tabHorizDo.children[0].publicURL}>
-    <ul>
-      <li>Write concise labels, ideally one word</li>
-      <li>Account for responsive resizing with vertical Tabs</li>
-    </ul>
-  </Do>
-  <Dont imageSource={props.data.tabHorizDont.children[0].publicURL}>
-    <p>Don't use lengthy tab labels, this can cause tab content to overflow and become hidden.</p>
-  </Dont>
-</BestPractice>
-
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
@@ -94,19 +73,5 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    tabHorizDo: abstractAsset(layerName: { eq: "components-tabs-horizontal-do" }) {
-      children {
-        ... on File {
-          publicURL
-        }
-      }
-    }
-    tabHorizDont: abstractAsset(layerName: { eq: "components-tabs-horizontal-dont" }) {
-      children {
-        ... on File {
-          publicURL
-        }
-      }
-    }
   }
 `;
