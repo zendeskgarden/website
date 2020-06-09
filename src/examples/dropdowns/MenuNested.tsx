@@ -12,7 +12,6 @@ import {
   Item,
   Trigger,
   Separator,
-  HeaderItem,
   NextItem,
   PreviousItem
 } from '@zendeskgarden/react-dropdowns';
@@ -32,7 +31,7 @@ const Example = () => {
 
         if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
           updatedState.isOpen =
-            changes.selectedItem === 'specific-settings' ||
+            changes.selectedItem === 'flowers' ||
             changes.selectedItem === 'general-settings' ||
             changes.isOpen;
         }
@@ -40,7 +39,7 @@ const Example = () => {
         if (Object.prototype.hasOwnProperty.call(changes, 'selectedItem')) {
           updatedState.tempSelectedItem = changes.selectedItem;
 
-          if (updatedState.tempSelectedItem === 'specific-settings') {
+          if (updatedState.tempSelectedItem === 'flowers') {
             stateAndHelpers.setHighlightedIndex(1);
           } else if (updatedState.tempSelectedItem === 'general-settings') {
             stateAndHelpers.setHighlightedIndex(3);
@@ -53,25 +52,22 @@ const Example = () => {
       }}
     >
       <Trigger>
-        <Button>Tree Layout</Button>
+        <Button>Menu</Button>
       </Trigger>
       <Menu placement="end" hasArrow>
-        {state.tempSelectedItem === 'specific-settings' ? (
+        {state.tempSelectedItem === 'flowers' ? (
           <>
-            <PreviousItem value="general-settings">Specific Settings</PreviousItem>
+            <PreviousItem value="general-settings">Flowers</PreviousItem>
             <Separator />
-            <Item value="cool-setting">Cool setting</Item>
-            <Item value="uncool-setting">Uncool setting</Item>
-            <Item value="another-setting">Another cool setting</Item>
+            <Item value="daisy">Daisy</Item>
+            <Item value="blue-gem">Blue Gem</Item>
+            <Item value="cala-lily">Cala Lily</Item>
           </>
         ) : (
           <>
-            <HeaderItem>General Settings</HeaderItem>
-            <Item value="profile">Profile</Item>
-            <Item value="settings">Settings</Item>
-            <Item value="user-images">User Images</Item>
-            <NextItem value="specific-settings">Specific Settings</NextItem>
-            <Item value="theme-editor">Theme Editor</Item>
+            <Item value="cactus">Cactus</Item>
+            <NextItem value="flowers">Flowers</NextItem>
+            <Item value="shrub">Shrub</Item>
           </>
         )}
       </Menu>

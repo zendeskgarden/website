@@ -5,6 +5,18 @@ description: >
 package: '@zendeskgarden/react-dropdowns'
 propSheets:
   - dropdowns/src/elements/Menu/Menu.tsx
+  - dropdowns/src/elements/Menu/Separator.tsx
+  - dropdowns/src/elements/Menu/Items/AddItem.tsx
+  - dropdowns/src/elements/Menu/Items/HeaderIcon.tsx
+  - dropdowns/src/elements/Menu/Items/HeaderItem.tsx
+  - dropdowns/src/elements/Menu/Items/Item.tsx
+  - dropdowns/src/elements/Menu/Items/ItemMeta.tsx
+  - dropdowns/src/elements/Menu/Items/MediaBody.tsx
+  - dropdowns/src/elements/Menu/Items/MediaFigure.tsx
+  - dropdowns/src/elements/Menu/Items/MediaItem.tsx
+  - dropdowns/src/elements/Menu/Items/NextItem.tsx
+  - dropdowns/src/elements/Menu/Items/PreviousItem.tsx
+  - dropdowns/src/elements/Menu/Items/PreviousItem.tsx
 ---
 
 <Usage>
@@ -82,6 +94,40 @@ import MenuNestedCode from '!!raw-loader!../../examples/dropdowns/MenuNested.tsx
 
 <CodeExample code={MenuNestedCode}>
   <MenuNested />
+</CodeExample>
+
+### Disable
+
+Items within a Menu can be disabled to limit a user from interacting with it. See
+[best practices](#todo) for disabled usage.
+
+import MenuDisable from '../../examples/dropdowns/MenuDisable.tsx';
+import MenuDisableCode from '!!raw-loader!../../examples/dropdowns/MenuDisable.tsx';
+
+<CodeExample code={MenuDisableCode}>
+  <MenuDisable />
+</CodeExample>
+
+### Size
+
+Can be default or compact in size. This reduces vertical padding on menu items.
+
+import MenuSize from '../../examples/dropdowns/MenuSize.tsx';
+import MenuSizeCode from '!!raw-loader!../../examples/dropdowns/MenuSize.tsx';
+
+<CodeExample code={MenuSizeCode}>
+  <MenuSize />
+</CodeExample>
+
+### Media Items
+
+Meta text can be paired with Menu items for additional clarity.
+
+import MenuMedia from '../../examples/dropdowns/MenuMedia.tsx';
+import MenuMediaCode from '!!raw-loader!../../examples/dropdowns/MenuMedia.tsx';
+
+<CodeExample code={MenuMediaCode}>
+  <MenuMedia />
 </CodeExample>
 
 ## Configuration
