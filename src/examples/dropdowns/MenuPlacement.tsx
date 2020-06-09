@@ -32,7 +32,7 @@ const Example = () => {
       <Trigger>
         <Button>Menu</Button>
       </Trigger>
-      <Menu placement={PLACEMENTS.end}>
+      <Menu placement={PLACEMENTS.bottomStart}>
         <Item value="cactus">Cactus</Item>
         <Item value="flower">Flower</Item>
         <Item value="succulent">Succulent</Item>
