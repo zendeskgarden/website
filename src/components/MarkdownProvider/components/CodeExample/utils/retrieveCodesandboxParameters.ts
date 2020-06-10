@@ -56,6 +56,7 @@ const packageJson = `
     "react": "latest",
     "react-dom": "latest",
     "styled-components": "latest",
+    "lodash.debounce": "latest",
     "@zendeskgarden/css-bedrock": "^8.x",
     "@zendeskgarden/react-avatars": "^8.x",
     "@zendeskgarden/react-breadcrumbs": "^8.x",

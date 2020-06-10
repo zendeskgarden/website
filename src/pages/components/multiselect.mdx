@@ -1,0 +1,69 @@
+---
+title: Multiselect
+description: >
+  Multiselect is a form component that allows multiple selections to be made from a list of
+  options. The options can be dynamically filtered based on what is typed.
+package: '@zendeskgarden/react-dropdowns'
+propSheets:
+  - dropdowns/src/elements/Multiselect/Multiselect.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To make multiple selections from a list of options</li>
+      <li>To filter a data set by keywords</li>
+    </ul>
+  </Use>
+</Usage>
+
+## Examples
+
+### Default Usage
+
+The default usage of a Multiselect component.
+
+import MultiselectDefault from '../../examples/dropdowns/MultiselectDefault.tsx';
+import MultiselectDefaultCode from '!!raw-loader!../../examples/dropdowns/MultiselectDefault.tsx';
+
+<CodeExample code={MultiselectDefaultCode}>
+  <MultiselectDefault />
+</CodeExample>
+
+### Size
+
+Multiselect can be compact or default in size.
+
+import MultiselectSize from '../../examples/dropdowns/MultiselectSize.tsx';
+import MultiselectSizeCode from '!!raw-loader!../../examples/dropdowns/MultiselectSize.tsx';
+
+<CodeExample code={MultiselectSizeCode}>
+  <MultiselectSize />
+</CodeExample>
+
+### Overflow
+
+Tags overflow when space is limited.
+
+import MultiselectOverflow from '../../examples/dropdowns/MultiselectOverflow.tsx';
+import MultiselectOverflowCode from '!!raw-loader!../../examples/dropdowns/MultiselectOverflow.tsx';
+
+<CodeExample code={MultiselectOverflowCode}>
+  <MultiselectOverflow />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+
+## API
+
+<PropSheets propSheets={props.data.mdx.propsSheets} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

@@ -6,6 +6,11 @@ description: >
 package: '@zendeskgarden/react-dropdowns'
 propSheets:
   - dropdowns/src/elements/Select/Select.tsx
+  - dropdowns/src/elements/Dropdown/Dropdown.tsx
+  - dropdowns/src/elements/Fields/Field.tsx
+  - dropdowns/src/elements/Fields/Hint.tsx
+  - dropdowns/src/elements/Fields/Label.tsx
+  - dropdowns/src/elements/Fields/Message.tsx
 ---
 
 <Usage>
@@ -87,10 +92,13 @@ import SelectDisabledCode from '!!raw-loader!../../examples/dropdowns/SelectDisa
   <SelectDisabled />
 </CodeExample>
 
-## Package
+## Configuration
 
-<PackageDescription data={props.data.mdx.package} />
-<PropSheets data={props.data.mdx.propsSheets} reactPackage={props.data.mdx.package} />
+<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+
+## API
+
+<PropSheets propSheets={props.data.mdx.propsSheets} />
 
 import { graphql } from 'gatsby';
 
