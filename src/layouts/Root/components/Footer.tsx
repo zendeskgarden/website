@@ -10,13 +10,13 @@ import styled, { css } from 'styled-components';
 import { math } from 'polished';
 import { getColor } from '@zendeskgarden/react-theming';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
-import { Link } from './StyledNavigationLink'
+import { Link } from './StyledNavigationLink';
 import MaxWidthLayout from 'layouts/MaxWidth';
 
 const StyledFooterItem = styled(Link)`
-  margin-right: ${ p => p.theme.space.lg};
-  color: ${ p => p.theme.colors.background};
+  margin-right: ${p => p.theme.space.lg};
   cursor: pointer;
+  color: ${p => p.theme.colors.background};
 `;
 
 const Footer: React.FC = () => (
@@ -41,9 +41,11 @@ const Footer: React.FC = () => (
           }
         `}
       >
-        <StyledFooterItem to='https://design.zendesk.com'>Blog</StyledFooterItem>
-        <StyledFooterItem to='https://www.github.com/zendeskgarden/react-components'>GitHub</StyledFooterItem>
-        <StyledFooterItem to='/components/versions'>Versions</StyledFooterItem>
+        <StyledFooterItem to="https://design.zendesk.com">Blog</StyledFooterItem>
+        <StyledFooterItem to="https://www.github.com/zendeskgarden/react-components">
+          GitHub
+        </StyledFooterItem>
+        <StyledFooterItem to="/components/versions">Versions</StyledFooterItem>
       </div>
       <div
         css={css`
@@ -99,7 +101,7 @@ const Footer: React.FC = () => (
         </div>
       </div>
     </MaxWidthLayout>
-  </footer >
+  </footer>
 );
 
 export default Footer;
