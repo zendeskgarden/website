@@ -181,7 +181,7 @@ const MobileNav: React.FC = () => {
       <StyledMobileNavLink to="/content">Content</StyledMobileNavLink>
       <StyledMobileNavLink to="/design">Design</StyledMobileNavLink>
       <StyledMobileNavLink to="/components">Components</StyledMobileNavLink>
-      <StyledMobileNavLink to="/patterns">Patterns</StyledMobileNavLink>
+      {/* <StyledMobileNavLink to="/patterns">Patterns</StyledMobileNavLink> */}
     </div>
   );
 };
@@ -209,12 +209,12 @@ const DesktopNav: React.FC = () => (
     <StyledDesktopNavItem>
       <StyledDesktopNavLink to="/components">Components</StyledDesktopNavLink>
     </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
+    {/* <StyledDesktopNavItem>
       <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
+    </StyledDesktopNavItem> 
     <StyledDesktopNavItem>
       <SearchInput />
-    </StyledDesktopNavItem>
+    </StyledDesktopNavItem> */}
   </nav>
 );
 
