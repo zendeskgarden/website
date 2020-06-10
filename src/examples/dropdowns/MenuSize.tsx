@@ -11,11 +11,12 @@ import { Button } from '@zendeskgarden/react-buttons';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
+  /* eslint-disable no-alert */
   return (
     <Grid>
       <Row>
         <Col textAlign="center">
-          <Dropdown>
+          <Dropdown onSelect={item => alert(item)}>
             <Trigger>
               <Button>Default</Button>
             </Trigger>
@@ -27,7 +28,7 @@ const Example = () => {
           </Dropdown>
         </Col>
         <Col textAlign="center">
-          <Dropdown>
+          <Dropdown onSelect={item => alert(item)}>
             <Trigger>
               <Button size="small">Compact</Button>
             </Trigger>
