@@ -13,10 +13,10 @@ import { getColor } from '@zendeskgarden/react-theming';
 interface ILink {
   children: string;
   to: string;
-  activeClassName: string;
+  activeClassName?: string;
 }
 
-const Link = ({ children, to, ...props }: ILink) => {
+export const Link = ({ children, to, ...props }: ILink) => {
   const internal = /^\/(?!\/)/u.test(to);
 
   if (internal) {

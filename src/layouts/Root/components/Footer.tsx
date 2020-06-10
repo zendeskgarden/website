@@ -6,11 +6,18 @@
  */
 
 import React from 'react';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { math } from 'polished';
 import { getColor } from '@zendeskgarden/react-theming';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
+import { Link } from './StyledNavigationLink'
 import MaxWidthLayout from 'layouts/MaxWidth';
+
+const StyledFooterItem = styled(Link)`
+  margin-right: ${ p => p.theme.space.lg};
+  color: ${ p => p.theme.colors.background};
+  cursor: pointer;
+`;
 
 const Footer: React.FC = () => (
   <footer
@@ -26,11 +33,25 @@ const Footer: React.FC = () => (
       <div
         css={css`
           display: flex;
+          padding-bottom: ${p => p.theme.space.md};
+          @media (max-width: ${p => p.theme.breakpoints.md}) {
+            flex-direction: column;
+            padding-left: ${p => math(`${p.theme.iconSizes.md} + ${p.theme.space.md}`)};
+            text-align: center;
+          }
+        `}
+      >
+        <StyledFooterItem to='https://design.zendesk.com'>Blog</StyledFooterItem>
+        <StyledFooterItem to='https://www.github.com/zendeskgarden/react-components'>GitHub</StyledFooterItem>
+        <StyledFooterItem to='/components/versions'>Versions</StyledFooterItem>
+      </div>
+      <div
+        css={css`
+          display: flex;
           flex-wrap: wrap;
           align-items: center;
           border-top: ${p => p.theme.borders.sm} ${p => getColor('kale', 500, p.theme)};
           padding-top: ${p => p.theme.space.md};
-
           @media (max-width: ${p => p.theme.breakpoints.md}) {
             flex-direction: column;
             align-items: center;
@@ -42,7 +63,6 @@ const Footer: React.FC = () => (
           css={css`
             display: flex;
             align-items: center;
-
             @media (max-width: ${p => p.theme.breakpoints.md}) {
               margin-bottom: ${p => p.theme.space.md};
             }
@@ -79,7 +99,7 @@ const Footer: React.FC = () => (
         </div>
       </div>
     </MaxWidthLayout>
-  </footer>
+  </footer >
 );
 
 export default Footer;
