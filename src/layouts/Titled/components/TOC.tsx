@@ -11,6 +11,7 @@ import throttle from 'lodash/throttle';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
+import { StyledHr } from 'components/MarkdownProvider/components/Typography';
 
 export interface IHeading {
   url: string;
@@ -24,11 +25,7 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
 }) => (
   <div {...props}>
     <StyledSectionHeader>Table of Contents</StyledSectionHeader>
-    <ul
-      css={css`
-        margin-bottom: ${p => p.theme.space.lg};
-      `}
-    >
+    <ul>
       {data.map(heading => (
         <li key={heading.url}>
           <Anchor href={heading.url}>{heading.title}</Anchor>
@@ -48,6 +45,7 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
         </li>
       ))}
     </ul>
+    <StyledHr />
   </div>
 );
 

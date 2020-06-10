@@ -10,7 +10,7 @@ import { getColor } from '@zendeskgarden/react-theming';
 import { LG } from '@zendeskgarden/react-typography';
 
 export const Subtitle = styled(LG).attrs({ tag: 'p' })`
-  max-width: 460px;
+  max-width: 540px;
   color: ${p => getColor('neutralHue', 600, p.theme)};
   font-size: ${p => p.theme.space.base * 4}px;
 `;
