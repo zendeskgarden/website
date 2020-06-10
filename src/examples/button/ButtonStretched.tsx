@@ -10,26 +10,25 @@ import styled from 'styled-components';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 
-const StyledCol = styled(Col)`
-  margin-bottom: ${p => p.theme.space.sm};
-  text-align: center;
+const StyledRow = styled(Row)`
+  margin-top: ${p => p.theme.space.md};
 `;
 
 const Example = () => {
   return (
     <Grid>
       <Row>
-        <StyledCol>
+        <Col textAlign="center">
+          <Button isStretched>Stretched</Button>
+        </Col>
+      </Row>
+      <StyledRow>
+        <Col textAlign="center">
           <Button isPrimary isStretched>
             Stretched
           </Button>
-        </StyledCol>
-      </Row>
-      <Row>
-        <StyledCol>
-          <Button isStretched>Stretched</Button>
-        </StyledCol>
-      </Row>
+        </Col>
+      </StyledRow>
     </Grid>
   );
 };

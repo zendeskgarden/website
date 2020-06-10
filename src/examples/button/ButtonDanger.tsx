@@ -6,32 +6,26 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
-
-const StyledCol = styled(Col)`
-  margin-bottom: ${p => p.theme.space.sm};
-  text-align: center;
-`;
 
 const Example = () => {
   return (
     <Grid>
       <Row alignItems="center">
-        <StyledCol>
+        <Col textAlign="center">
+          <Button isDanger>Default</Button>
+        </Col>
+        <Col textAlign="center">
           <Button isPrimary isDanger>
-            Danger
+            Primary
           </Button>
-        </StyledCol>
-        <StyledCol>
-          <Button isDanger>Danger</Button>
-        </StyledCol>
-        <StyledCol>
+        </Col>
+        <Col textAlign="center">
           <Button isBasic isDanger>
-            Danger
+            Basic
           </Button>
-        </StyledCol>
+        </Col>
       </Row>
     </Grid>
   );

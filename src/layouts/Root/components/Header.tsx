@@ -11,7 +11,7 @@ import { Link } from 'gatsby';
 import { getColor, PALETTE } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { MediaInput } from '@zendeskgarden/react-forms';
-import { ReactComponent as MenuStroke } from '@zendeskgarden/svg-icons/src/16/menu-stroke.svg';
+import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
@@ -74,18 +74,15 @@ const Logo: React.FC = () => (
       >
         <GardenIcon
           css={css`
-            height: ${p => p.theme.lineHeights.lg};
+            width: ${p => p.theme.iconSizes.lg};
+            height: ${p => p.theme.iconSizes.lg};
             color: ${PALETTE.green[400]};
-
-            @media (max-width: ${p => p.theme.breakpoints.md}) {
-              height: ${p => p.theme.space.base * 6.5}px;
-            }
           `}
         />
         <GardenWordmark
           css={css`
-            margin-left: ${p => p.theme.space.xxs};
-            height: ${p => p.theme.lineHeights.lg};
+            margin-left: ${p => p.theme.space.xs};
+            height: ${p => p.theme.iconSizes.lg};
             color: ${PALETTE.kale[700]};
 
             @media (max-width: ${p => p.theme.breakpoints.md}) {
@@ -257,7 +254,7 @@ const Header: React.FC = () => {
           {!isSearchVisible && <Logo />}
           {isSearchVisible && <MobileSearch ref={inputRef} />}
           <MobileNavButton
-            icon={<MenuStroke />}
+            icon={<OverflowVerticalStroke />}
             label="Global navigation"
             isExpanded={isNavigationVisible}
             onClick={() => {

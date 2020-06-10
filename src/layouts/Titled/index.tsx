@@ -6,55 +6,23 @@
  */
 
 import React from 'react';
-import { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
-import { LG } from '@zendeskgarden/react-typography';
+import { css } from 'styled-components';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Subtitle } from './components/Subtitle';
 import { TOCBlock, TOC, IHeading } from './components/TOC';
-
-const headerStyles = (p: ThemeProps<DefaultTheme>) => {
-  const fontSize = `${p.theme.space.base * 12}px`;
-
-  return css`
-    margin-bottom: ${p.theme.space.md};
-    line-height: ${getLineHeight(`${p.theme.space.base * 14}px`, fontSize)};
-    font-size: ${fontSize};
-    font-weight: ${p.theme.fontWeights.bold};
-  `;
-};
+import { StyledH1, StyledHr } from 'components/MarkdownProvider/components/Typography';
 
 const TitledLayout: React.FC<{
   title: React.ReactNode;
-  subTitle?: React.ReactNode;
+  subtitle?: React.ReactNode;
   toc?: IHeading[];
-}> = ({ children, title, subTitle, toc }) => (
+}> = ({ children, title, subtitle, toc }) => (
   <Grid>
     <Row>
       <Col lg={12} xl={9}>
-        <h1
-          css={css`
-            ${headerStyles}
-          `}
-        >
-          {title}
-        </h1>
-        {subTitle && (
-          <LG
-            tag="p"
-            css={css`
-              margin-bottom: ${p => p.theme.space.lg};
-              max-width: 450px;
-            `}
-          >
-            {subTitle}
-          </LG>
-        )}
-        <hr
-          css={css`
-            margin-bottom: ${p => p.theme.space.lg};
-            border-color: ${p => getColor('grey', 300, p.theme)};
-          `}
-        />
+        <StyledH1>{title}</StyledH1>
+        {subtitle && <Subtitle>{subtitle}</Subtitle>}
+        <StyledHr />
         {toc && (
           <TOCBlock
             data={toc}

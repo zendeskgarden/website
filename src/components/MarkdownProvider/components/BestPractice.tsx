@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { cloneElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
@@ -13,6 +13,7 @@ import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons
 import { Well, Title } from '@zendeskgarden/react-notifications';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { math } from 'polished';
 
 const StyledRow = styled(Row)`
   margin-top: ${p => p.theme.space.lg};
@@ -44,6 +45,9 @@ const StyledImg = styled.img`
   border-bottom: none;
   border-top-left-radius: ${p => p.theme.borderRadii.md};
   border-top-right-radius: ${p => p.theme.borderRadii.md};
+  padding: ${p => p.theme.space.md};
+  object-fit: cover;
+  max-height: 216px;
 `;
 
 interface IStyledCaptionProps {
@@ -56,15 +60,12 @@ const StyledCaption = styled(p => <Well isRecessed {...p} />).attrs(p => ({
   border: none;
   border-top: ${p => `${p.theme.borders.md} ${getColor(p.hue, 500, p.theme)}`};
   border-radius: 0;
-  padding: ${p => p.theme.space.md};
+  padding-bottom: ${p => p.theme.space.base * 7}px;
   color: ${p => p.theme.colors.foreground};
-
-  & > p {
-    margin-top: ${p => `${p.theme.space.base * 4}px`};
-  }
 
   & > ul {
     list-style-type: none;
+    margin-bottom: 0;
     margin-left: 0;
 
     & > li:not(:first-child) {
@@ -73,18 +74,26 @@ const StyledCaption = styled(p => <Well isRecessed {...p} />).attrs(p => ({
       padding-top: ${p => p.theme.space.xs};
     }
   }
+
+  & > p:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const StyledTitle = styled(p => <Title {...p} />).attrs(p => ({ forwardedAs: p.tag }))`
   display: flex;
   align-items: center;
-`;
+  margin-left: -${p => math(`${p.theme.iconSizes.md} + ${p.theme.space.xs}`)};
+  color: ${p => getColor(p.hue, 600, p.theme)};
 
-const StyledIcon = styled(({ children, ...props }) =>
-  cloneElement(React.Children.only(children), props)
-)`
-  margin-right: ${p => p.theme.space.xs};
-  color: ${p => getColor(p.hue, 500, p.theme)};
+  /* stylelint-disable-next-line no-descending-specificity */
+  & + p {
+    margin-top: ${p => `${p.theme.space.base * 4}px`};
+  }
+
+  & > svg {
+    margin-right: ${p => p.theme.space.xs};
+  }
 `;
 
 interface ICaptionProps {
@@ -96,8 +105,8 @@ interface ICaptionProps {
 
 const Caption: React.FC<ICaptionProps> = props => (
   <StyledCaption tag={props.imageSource ? 'figcaption' : undefined} hue={props.hue}>
-    <StyledTitle tag="strong">
-      <StyledIcon hue={props.hue}>{props.icon}</StyledIcon>
+    <StyledTitle tag="strong" hue={props.hue}>
+      {props.icon}
       {props.title}
     </StyledTitle>
     {props.children}

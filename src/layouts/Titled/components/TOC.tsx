@@ -11,6 +11,7 @@ import throttle from 'lodash/throttle';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
+import { StyledHr } from 'components/MarkdownProvider/components/Typography';
 
 export interface IHeading {
   url: string;
@@ -24,18 +25,14 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
 }) => (
   <div {...props}>
     <StyledSectionHeader>Table of Contents</StyledSectionHeader>
-    <ul
-      css={css`
-        margin-bottom: ${p => p.theme.space.lg};
-      `}
-    >
+    <ul>
       {data.map(heading => (
         <li key={heading.url}>
           <Anchor href={heading.url}>{heading.title}</Anchor>
           {heading.items && (
             <ul
               css={css`
-                margin-left: ${p => p.theme.space.xs};
+                margin-left: ${p => p.theme.space.md};
               `}
             >
               {heading.items!.map(subHeading => (
@@ -48,6 +45,7 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
         </li>
       ))}
     </ul>
+    <StyledHr />
   </div>
 );
 
@@ -122,7 +120,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
       css={css`
         position: sticky;
         top: 32px;
-        margin-left: ${p => p.theme.space.lg};
+        margin-left: ${p => p.theme.space.base * 15}px;
       `}
     >
       <StyledSectionHeader
@@ -136,7 +134,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
       <ul
         css={css`
           margin-left: -${p => p.theme.borderWidths.sm};
-          border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+          border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
         `}
       >
         {data.map(heading => (

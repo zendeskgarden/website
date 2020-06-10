@@ -8,7 +8,7 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { MDXProvider } from '@mdx-js/react';
-import { Code, Paragraph } from '@zendeskgarden/react-typography';
+import { Code } from '@zendeskgarden/react-typography';
 import { CodeExample } from './components/CodeExample';
 import { Configuration } from './components/Configuration';
 import { PropSheets } from './components/PropSheets';
@@ -22,6 +22,7 @@ import {
   StyledH6,
   StyledBlockquote,
   StyledHr,
+  StyledParagraph,
   StyledPre,
   StyledStrong,
   StyledEmphasis
@@ -58,7 +59,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const MarkdownProvider: React.FC = ({ children }) => (
-  <div>
+  <>
     <GlobalStyle />
     <MDXProvider
       components={{
@@ -83,7 +84,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
         h4: StyledH4,
         h5: StyledH5,
         h6: StyledH6,
-        p: Paragraph,
+        p: StyledParagraph,
         a: Anchor,
         blockquote: StyledBlockquote,
         hr: StyledHr,
@@ -105,5 +106,5 @@ export const MarkdownProvider: React.FC = ({ children }) => (
     >
       {children}
     </MDXProvider>
-  </div>
+  </>
 );

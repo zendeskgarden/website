@@ -28,7 +28,11 @@ const FoundationLink: React.FC<{
       height: 100%;
     `}
   >
-    <Img fluid={image.childImageSharp.fluid} alt={`${group} overview image`} />
+    <Img
+      fluid={image.childFile.childImageSharp.fluid}
+      alt={`${group} overview image`}
+      imgStyle={{ width: 288, minWidth: '100%', height: 220, minHeight: '100%', maxHeight: '100%' }}
+    />
     <div
       css={css`
         display: flex;
@@ -70,24 +74,30 @@ export const Foundation: React.FC = () => {
   const { contentImage, componentsImage, designImage } = useStaticQuery(
     graphql`
       query {
-        contentImage: file(relativePath: { eq: "home-content.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 600, traceSVG: { background: "#03363D", color: "white" }) {
-              ...GatsbyImageSharpFluid_tracedSVG
+        contentImage: abstractAsset(layerName: { eq: "home-pillars-content" }) {
+          childFile {
+            childImageSharp {
+              fluid(maxWidth: 288, traceSVG: { background: "#03363D", color: "white" }) {
+                ...GatsbyImageSharpFluid_tracedSVG
+              }
             }
           }
         }
-        designImage: file(relativePath: { eq: "home-design.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 600, traceSVG: { background: "#03363D", color: "white" }) {
-              ...GatsbyImageSharpFluid_tracedSVG
+        designImage: abstractAsset(layerName: { eq: "home-pillars-design" }) {
+          childFile {
+            childImageSharp {
+              fluid(maxWidth: 288, traceSVG: { background: "#03363D", color: "white" }) {
+                ...GatsbyImageSharpFluid_tracedSVG
+              }
             }
           }
         }
-        componentsImage: file(relativePath: { eq: "home-components.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 600, traceSVG: { background: "#03363D", color: "white" }) {
-              ...GatsbyImageSharpFluid_tracedSVG
+        componentsImage: abstractAsset(layerName: { eq: "home-pillars-components" }) {
+          childFile {
+            childImageSharp {
+              fluid(maxWidth: 288, traceSVG: { background: "#03363D", color: "white" }) {
+                ...GatsbyImageSharpFluid_tracedSVG
+              }
             }
           }
         }

@@ -31,7 +31,7 @@ const DesignLayoutTemplate: React.FC<PageProps<IPageData, IPageContext>> = ({
       <SidebarLayout sidebar={navigation}>
         <TitledLayout
           title={pageContext.frontmatter.title}
-          subTitle={pageContext.frontmatter.description}
+          subtitle={pageContext.frontmatter.description}
           toc={mdx.tableOfContents.items}
         >
           <MarkdownProvider>{children}</MarkdownProvider>

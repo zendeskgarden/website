@@ -19,10 +19,12 @@ export const Patterns: React.FC = () => {
   const { patternsImage } = useStaticQuery(
     graphql`
       query {
-        patternsImage: file(relativePath: { eq: "home-patterns.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 600) {
-              ...GatsbyImageSharpFluid
+        patternsImage: abstractAsset(layerName: { eq: "home-pillars-patterns" }) {
+          childFile {
+            childImageSharp {
+              fluid(maxWidth: 808) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }
@@ -51,7 +53,11 @@ export const Patterns: React.FC = () => {
               }
             `}
           >
-            <Img fluid={patternsImage.childImageSharp.fluid} alt="Garden patterns" />
+            <Img
+              fluid={patternsImage.childFile.childImageSharp.fluid}
+              alt="Garden patterns"
+              imgStyle={{ width: 808, maxWidth: '100%', height: 488, maxHeight: '100%' }}
+            />
           </Col>
           <Col
             sm={12}

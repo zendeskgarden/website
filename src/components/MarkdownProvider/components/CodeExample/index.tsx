@@ -9,13 +9,11 @@ import React, { useRef, useState, useMemo, useEffect } from 'react';
 import styled, { css, DefaultTheme } from 'styled-components';
 import { ThemeProvider, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
-import { IconButton } from '@zendeskgarden/react-buttons';
+import { IconButton, ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as MarkupStroke } from '@zendeskgarden/svg-icons/src/16/markup-stroke.svg';
 import { ReactComponent as CopyStroke } from '@zendeskgarden/svg-icons/src/16/copy-stroke.svg';
 import { ReactComponent as LightningBoltStroke } from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
-import { ReactComponent as DirectionLtrStroke } from '@zendeskgarden/svg-icons/src/16/direction-ltr-stroke.svg';
 import { ReactComponent as DirectionRtlStroke } from '@zendeskgarden/svg-icons/src/16/direction-rtl-stroke.svg';
-
 import { SyntaxHighlighter } from './components/SyntaxHighlighter';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
 import { copyToClipboard } from './utils/copyToClipboard';
@@ -24,12 +22,8 @@ const StyledExampleWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ${p => p.theme.space.lg};
+  padding: ${p => p.theme.space.md};
   direction: ${p => p.theme.rtl && 'rtl'};
-`;
-
-const StyledFooterButton = styled(IconButton).attrs({ isPill: false, focusInset: true })`
-  margin-left: ${p => p.theme.space.xxs};
 `;
 
 export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
@@ -38,6 +32,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const focusVisibleRef = useRef(null);
   const initialTooltipContent = 'Copy to clipboard';
   const [tooltipContent, setTooltipContent] = useState(initialTooltipContent);
+  const COPYRIGHT_REGEXP = /\/\*\*\n\s\*\sCopyright[\s\S]*\*\/\n\n/gmu;
 
   const exampleTheme = useMemo<DefaultTheme>(() => {
     return { ...DEFAULT_THEME, rtl: isRtl };
@@ -64,8 +59,8 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   return (
     <div
       css={css`
-        margin: ${p => p.theme.space.md} 0;
-        border: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
+        margin-bottom: ${p => p.theme.space.xl};
+        border: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
         border-radius: ${p => p.theme.borderRadii.md};
       `}
     >
@@ -76,45 +71,67 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
         css={css`
           display: flex;
           justify-content: flex-end;
-          background-color: ${p => getColor('grey', 200, p.theme)};
-          padding: ${p => p.theme.space.xxs} ${p => p.theme.space.xs};
+          border-top: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+          background-color: ${p => getColor('grey', 100, p.theme)};
+          padding: ${p => p.theme.space.xxs} ${p => p.theme.space.sm};
         `}
       >
-        <Tooltip content={isRtl ? 'Enable LTR' : 'Enable RTL'}>
-          <StyledFooterButton onClick={() => setIsRtl(!isRtl)}>
-            {isRtl ? <DirectionRtlStroke /> : <DirectionLtrStroke />}
-          </StyledFooterButton>
+        <Tooltip content="Toggle RTL">
+          <ToggleIconButton
+            onClick={() => setIsRtl(!isRtl)}
+            isPressed={isRtl}
+            isPill={false}
+            focusInset
+          >
+            <DirectionRtlStroke />
+          </ToggleIconButton>
         </Tooltip>
         <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_blank">
           <input type="hidden" name="parameters" value={parameters} />
           <input type="hidden" name="query" value="module=src/Example.tsx" />
           <Tooltip content="Fork in Codesandbox">
-            <StyledFooterButton aria-label="Fork in Codesandbox" type="submit">
+            <IconButton
+              isPill={false}
+              focusInset
+              type="submit"
+              css={css`
+                margin-left: ${p => p.theme.space.sm};
+              `}
+            >
               <LightningBoltStroke />
-            </StyledFooterButton>
+            </IconButton>
           </Tooltip>
         </form>
         <Tooltip content={tooltipContent}>
-          <StyledFooterButton
-            aria-label="Copy to clipboard"
+          <IconButton
             onClick={() => {
               copyToClipboard(code);
               setTooltipContent('Code copied to clipboard...');
             }}
+            isPill={false}
+            focusInset
+            css={css`
+              margin-left: ${p => p.theme.space.sm};
+            `}
           >
             <CopyStroke />
-          </StyledFooterButton>
+          </IconButton>
         </Tooltip>
         <Tooltip content={isCodeVisible ? 'Hide code' : 'Show code'}>
-          <StyledFooterButton
-            aria-label={isCodeVisible ? 'Hide code' : 'Show code'}
+          <ToggleIconButton
             onClick={() => setIsCodeVisible(!isCodeVisible)}
+            isPressed={isCodeVisible}
+            isPill={false}
+            focusInset
+            css={css`
+              margin-left: ${p => p.theme.space.sm};
+            `}
           >
             <MarkupStroke />
-          </StyledFooterButton>
+          </ToggleIconButton>
         </Tooltip>
       </div>
-      {isCodeVisible && <SyntaxHighlighter>{code}</SyntaxHighlighter>}
+      {isCodeVisible && <SyntaxHighlighter>{code.replace(COPYRIGHT_REGEXP, '')}</SyntaxHighlighter>}
     </div>
   );
 };

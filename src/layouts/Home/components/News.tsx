@@ -14,9 +14,8 @@ import { XXL } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import MaxWidthLayout from 'layouts/MaxWidth';
 
-const StyledSectionHeader = styled(XXL).attrs({ tag: 'h2' })`
+const StyledSectionHeader = styled(XXL).attrs({ tag: 'h2', isBold: true })`
   margin-bottom: ${p => p.theme.space.md};
-  font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
 export const News: React.FC = () => {

@@ -7,54 +7,63 @@
 
 import React from 'react';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
-import { XXL, XL, LG, Span } from '@zendeskgarden/react-typography';
+import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
+import { XXXL, XXL, XL, LG, MD, Span, Paragraph } from '@zendeskgarden/react-typography';
 
-const headerSpacing = (p: ThemeProps<DefaultTheme>) => {
+const headerStyles = (p: ThemeProps<DefaultTheme>) => {
   return css`
-    margin-top: ${p.theme.space.md};
     margin-bottom: ${p.theme.space.sm};
-    padding-bottom: ${p.theme.space.xs};
+    color: ${getColor('chromeHue', 700, p.theme)};
+    font-weight: ${p.theme.fontWeights.semibold};
   `;
 };
 
-export const StyledH2 = styled(XXL).attrs({ tag: 'h2' })`
-  ${headerSpacing}
+export const StyledH1 = styled.h1`
+  ${headerStyles}
+
+  line-height: ${p => getLineHeight(p.theme.space.base * 13, p.theme.space.xxl)};
+  font-size: ${p => p.theme.space.xxl};
+  font-weight: ${p => p.theme.fontWeights.bold};
 `;
 
-export const StyledH3 = styled(XL).attrs({ tag: 'h3' })`
-  ${headerSpacing}
+export const StyledH2 = styled(XXXL).attrs({ tag: 'h2' })`
+  ${headerStyles}
+
+  margin-top: ${p => p.theme.space.md};
+  margin-bottom: ${p => p.theme.space.md};
 `;
 
-export const StyledH4 = styled(LG).attrs({ tag: 'h4' })`
-  ${headerSpacing}
+export const StyledH3 = styled(XXL).attrs({ tag: 'h3' })`
+  ${headerStyles}
+`;
+
+export const StyledH4 = styled(XL).attrs(p => ({ tag: p.tag || 'h4' }))`
+  ${headerStyles}
 `;
 
 export const StyledH5 = styled(LG).attrs({ tag: 'h5' })`
-  ${headerSpacing}
+  ${headerStyles}
 `;
 
-export const StyledH6 = styled(LG).attrs({ tag: 'h6' })`
-  ${headerSpacing}
+export const StyledH6 = styled(MD).attrs({ tag: 'h6' })`
+  ${headerStyles}
 `;
 
-export const StyledBlockquote = styled.blockquote`
-  margin-top: ${p => p.theme.space.md};
-  margin-bottom: ${p => p.theme.space.md};
-  border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
-  padding-left: ${p => p.theme.space.sm};
+export const StyledBlockquote = styled(LG).attrs({ tag: 'blockquote' })`
+  margin-left: ${p => p.theme.space.base * 4}px;
+  border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
+  padding-left: ${p => p.theme.space.base * 4}px;
   color: ${p => getColor('grey', 600, p.theme)};
-  font-style: italic;
-
-  p {
-    line-height: ${p => p.theme.lineHeights.lg};
-    font-size: ${p => p.theme.space.base * 4}px;
-  }
+  font-size: ${p => p.theme.space.base * 4}px;
 `;
 
 export const StyledHr = styled.hr`
   margin: ${p => p.theme.space.md} 0;
-  border-top: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+  border-top: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
+`;
+
+export const StyledParagraph = styled(Paragraph)`
+  margin-bottom: ${p => p.theme.space.md};
 `;
 
 /**
@@ -67,6 +76,6 @@ export const StyledPre: React.FC = ({ children }) => {
 
 export const StyledStrong = styled(Span).attrs({ tag: 'strong', isBold: true })``;
 
-export const StyledEmphasis = styled.em`
+export const StyledEmphasis = styled(Span).attrs({ tag: 'em' })`
   font-style: italic;
 `;
