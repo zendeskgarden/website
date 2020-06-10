@@ -1,0 +1,199 @@
+---
+title: Text inputs
+description: >
+  A text input is a form field that lets the user enter text.
+package: '@zendeskgarden/react-forms'
+propSheets:
+  - forms/src/elements/Input.tsx
+  - forms/src/elements/Textarea.tsx
+  - forms/src/elements/MediaInput.tsx
+  - forms/src/elements/FauxInput.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>Use an Input to let the user enter text</li>
+      <li>Use a Textarea for multiline text</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>For read-only objects, use text</li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## Examples
+
+### Input
+
+A text input is a form field that lets the user enter text.
+
+import Input from '../../examples/text-inputs/Input.tsx';
+import InputCode from '!!raw-loader!../../examples/text-inputs/Input.tsx';
+
+<CodeExample code={InputCode}>
+  <Input />
+</CodeExample>
+
+### Textarea
+
+A Textarea accommodates multiline text. Its height is fixed by default, and can be resizable using
+the `isResizable` property.
+
+import Textarea from '../../examples/text-inputs/Textarea.tsx';
+import TextareaCode from '!!raw-loader!../../examples/text-inputs/Textarea.tsx';
+
+<CodeExample code={TextareaCode}>
+  <Textarea />
+</CodeExample>
+
+### MediaInput
+
+A MediaInput can have embedded icons, to further clarify its purpose.
+
+import Icons from '../../examples/text-inputs/MediaInput.tsx';
+import IconsCode from '!!raw-loader!../../examples/text-inputs/MediaInput.tsx';
+
+<CodeExample code={IconsCode}>
+  <Icons />
+</CodeExample>
+
+### FauxInput
+
+A FauxInput makes non-inputs look like inputs.
+
+import FauxInput from '../../examples/text-inputs/FauxInput.tsx';
+import FauxInputCode from '!!raw-loader!../../examples/text-inputs/FauxInput.tsx';
+
+<CodeExample code={FauxInputCode}>
+  <FauxInput />
+</CodeExample>
+
+### Regular weight label
+
+Text input labels are emphasized by default. They can be regular weight using the `isRegular`
+property.
+
+Regular labels are not recommended for text inputs, as they flatten visual hierarchy making
+scanning more difficult.
+
+import RegularWeightLabel from '../../examples/text-inputs/RegularWeightLabel.tsx';
+import RegularWeightLabelCode from '!!raw-loader!../../examples/text-inputs/RegularWeightLabel.tsx';
+
+<CodeExample code={RegularWeightLabelCode}>
+  <RegularWeightLabel />
+</CodeExample>
+
+### Hint
+
+Hint adds additional context to the text Input’s label.
+
+import Hint from '../../examples/text-inputs/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/text-inputs/Hint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
+</CodeExample>
+
+### Size
+
+A text Input can be default or compact.
+
+import Size from '../../examples/text-inputs/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/text-inputs/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+### Bare
+
+Input borders and padding can be removed using the `isBare` property. Use an
+[aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute)
+to label the input.
+
+import Bare from '../../examples/text-inputs/Bare.tsx';
+import BareCode from '!!raw-loader!../../examples/text-inputs/Bare.tsx';
+
+<CodeExample code={BareCode}>
+  <Bare />
+</CodeExample>
+
+### Focus inset
+
+Box-shadow focus styling can be inset using the `focusInset` property.
+
+This keeps the focus contained within the input area when it is flush with another component.
+
+import FocusInset from '../../examples/text-inputs/FocusInset.tsx';
+import FocusInsetCode from '!!raw-loader!../../examples/text-inputs/FocusInset.tsx';
+
+<CodeExample code={FocusInsetCode}>
+  <FocusInset />
+</CodeExample>
+
+### Placeholder
+
+Placeholder text gives an example of content format. See [Placeholder text](#TODO) standard for
+best practices.
+
+import Placeholder from '../../examples/text-inputs/Placeholder.tsx';
+import PlaceholderCode from '!!raw-loader!../../examples/text-inputs/Placeholder.tsx';
+
+<CodeExample code={PlaceholderCode}>
+  <Placeholder />
+</CodeExample>
+
+### Validation
+
+Success, warning, or danger validation messages are shown using the Message component with the text
+Input.
+
+import Validation from '../../examples/text-inputs/Validation.tsx';
+import ValidationCode from '!!raw-loader!../../examples/text-inputs/Validation.tsx';
+
+<CodeExample code={ValidationCode}>
+  <Validation />
+</CodeExample>
+
+### Inline
+
+An Input uses `display:block` by default. It can use `display:inline`. See example code for inline
+styling overrides.
+
+import Inline from '../../examples/text-inputs/Inline.tsx';
+import InlineCode from '!!raw-loader!../../examples/text-inputs/Inline.tsx';
+
+<CodeExample code={InlineCode}>
+  <Inline />
+</CodeExample>
+
+### Disabled
+
+A disabled Input is not interactive, and not perceived by a screen reader. See [Disabled UI](#TODO)
+pattern guidelines for best practices.
+
+import Disabled from '../../examples/text-inputs/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/text-inputs/Disabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+
+## API
+
+<PropSheets propSheets={props.data.mdx.propsSheets} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
