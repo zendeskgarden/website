@@ -9,28 +9,26 @@ import React from 'react';
 import { Dropdown, Menu, Item, ItemMeta, Trigger } from '@zendeskgarden/react-dropdowns';
 import { Button } from '@zendeskgarden/react-buttons';
 
-const Example = () => {
-  return (
-    <Dropdown onSelect={item => alert(item)}>
-      <Trigger>
-        <Button>Menu</Button>
-      </Trigger>
-      <Menu>
-        <Item value="cactus">
-          Cactus
-          <ItemMeta>10 available</ItemMeta>
-        </Item>
-        <Item value="flower">
-          Flower
-          <ItemMeta>20 available</ItemMeta>
-        </Item>
-        <Item value="succulent">
-          Succulent
-          <ItemMeta>30 available</ItemMeta>
-        </Item>
-      </Menu>
-    </Dropdown>
-  );
-};
+const Example = () => (
+  <Dropdown onSelect={item => alert(item)}>
+    <Trigger>
+      <Button>Menu</Button>
+    </Trigger>
+    <Menu>
+      <Item value="cactus">
+        Cactus
+        <ItemMeta>10 available</ItemMeta>
+      </Item>
+      <Item value="flower">
+        Flower
+        <ItemMeta>20 available</ItemMeta>
+      </Item>
+      <Item value="succulent">
+        Succulent
+        <ItemMeta>30 available</ItemMeta>
+      </Item>
+    </Menu>
+  </Dropdown>
+);
 
 export default Example;

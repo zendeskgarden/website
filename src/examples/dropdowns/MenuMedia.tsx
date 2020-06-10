@@ -23,41 +23,39 @@ import {
 } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
-const Example = () => {
-  return (
-    <Dropdown>
-      <Trigger>
-        <Button>Menu</Button>
-      </Trigger>
-      <Menu>
-        <HeaderItem hasIcon>
-          <HeaderIcon>
-            <LeafIcon />
-          </HeaderIcon>
-          Plants
-        </HeaderItem>
-        <Separator />
-        <MediaItem value="cactus">
-          <MediaFigure>
-            <LeafIcon />
-          </MediaFigure>
-          <MediaBody>
-            Cactus
-            <ItemMeta>15 available</ItemMeta>
-          </MediaBody>
-        </MediaItem>
-        <Item value="flower">
-          <MediaFigure>
-            <LeafIcon />
-          </MediaFigure>
-          <MediaBody>Flower</MediaBody>
-        </Item>
-        <Item value="succulent">Succulent</Item>
-        <Separator />
-        <AddItem value="add-plant">Add plant</AddItem>
-      </Menu>
-    </Dropdown>
-  );
-};
+const Example = () => (
+  <Dropdown>
+    <Trigger>
+      <Button>Menu</Button>
+    </Trigger>
+    <Menu>
+      <HeaderItem hasIcon>
+        <HeaderIcon>
+          <LeafIcon />
+        </HeaderIcon>
+        Plants
+      </HeaderItem>
+      <Separator />
+      <MediaItem value="cactus">
+        <MediaFigure>
+          <LeafIcon />
+        </MediaFigure>
+        <MediaBody>
+          Cactus
+          <ItemMeta>15 available</ItemMeta>
+        </MediaBody>
+      </MediaItem>
+      <Item value="flower">
+        <MediaFigure>
+          <LeafIcon />
+        </MediaFigure>
+        <MediaBody>Flower</MediaBody>
+      </Item>
+      <Item value="succulent">Succulent</Item>
+      <Separator />
+      <AddItem value="add-plant">Add plant</AddItem>
+    </Menu>
+  </Dropdown>
+);
 
 export default Example;

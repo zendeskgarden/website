@@ -32,21 +32,19 @@ const Center = styled.div`
   padding: 150px 0;
 `;
 
-const Example = () => {
-  return (
-    <Center>
-      <Dropdown onSelect={item => alert(item)}>
-        <Trigger>
-          <Button>Menu</Button>
-        </Trigger>
-        <Menu placement={PLACEMENTS.topStart}>
-          <Item value="cactus">Cactus</Item>
-          <Item value="flower">Flower</Item>
-          <Item value="succulent">Succulent</Item>
-        </Menu>
-      </Dropdown>
-    </Center>
-  );
-};
+const Example = () => (
+  <Center>
+    <Dropdown onSelect={item => alert(item)}>
+      <Trigger>
+        <Button>Menu</Button>
+      </Trigger>
+      <Menu placement={PLACEMENTS.topStart}>
+        <Item value="cactus">Cactus</Item>
+        <Item value="flower">Flower</Item>
+        <Item value="succulent">Succulent</Item>
+      </Menu>
+    </Dropdown>
+  </Center>
+);
 
 export default Example;
