@@ -8,6 +8,7 @@
 import React from 'react';
 import { Dropdown, Menu, Item, Trigger, GARDEN_PLACEMENT } from '@zendeskgarden/react-dropdowns';
 import { Button } from '@zendeskgarden/react-buttons';
+import styled from 'styled-components';
 
 const PLACEMENTS: Record<string, GARDEN_PLACEMENT> = {
   auto: 'auto',
@@ -25,19 +26,27 @@ const PLACEMENTS: Record<string, GARDEN_PLACEMENT> = {
   startBottom: 'start-bottom'
 };
 
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 150px 0;
+`;
+
 const Example = () => {
+  /* eslint-disable no-alert */
   return (
-    /* eslint-disable no-alert */
-    <Dropdown onSelect={item => alert(item)}>
-      <Trigger>
-        <Button>Menu</Button>
-      </Trigger>
-      <Menu placement={PLACEMENTS.bottomStart}>
-        <Item value="cactus">Cactus</Item>
-        <Item value="flower">Flower</Item>
-        <Item value="succulent">Succulent</Item>
-      </Menu>
-    </Dropdown>
+    <Center>
+      <Dropdown onSelect={item => alert(item)}>
+        <Trigger>
+          <Button>Menu</Button>
+        </Trigger>
+        <Menu placement={PLACEMENTS.topStart}>
+          <Item value="cactus">Cactus</Item>
+          <Item value="flower">Flower</Item>
+          <Item value="succulent">Succulent</Item>
+        </Menu>
+      </Dropdown>
+    </Center>
   );
 };
 
