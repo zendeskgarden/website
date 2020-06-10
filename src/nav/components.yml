@@ -60,15 +60,15 @@
           title: Toggle
     - title: Loaders
       items:
-        - id: https://zendeskgarden.github.io/react-components/grid
+        - id: https://zendeskgarden.github.io/react-components/loaders
           title: Dots
-        - id: https://zendeskgarden.github.io/react-components/grid
+        - id: https://zendeskgarden.github.io/react-components/loaders
           title: Progress
-        - id: https://zendeskgarden.github.io/react-components/grid
+        - id: https://zendeskgarden.github.io/react-components/loaders
           title: Skeleton
-        - id: https://zendeskgarden.github.io/react-components/grid
+        - id: https://zendeskgarden.github.io/react-components/loaders
           title: Spinner
-        - id: https://zendeskgarden.github.io/react-components/grid
+        - id: https://zendeskgarden.github.io/react-components/loaders
           title: Inline
     - title: Modal
       id: https://zendeskgarden.github.io/react-components/modals
