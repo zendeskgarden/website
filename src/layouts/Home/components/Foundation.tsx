@@ -31,7 +31,7 @@ const FoundationLink: React.FC<{
     <Img
       fluid={image.childFile.childImageSharp.fluid}
       alt={`${group} overview image`}
-      imgStyle={{ width: 288, minWidth: '100%', height: 220, minHeight: '100%' }}
+      imgStyle={{ width: 288, minWidth: '100%', height: 220, minHeight: '100%', maxHeight: '100%' }}
     />
     <div
       css={css`
