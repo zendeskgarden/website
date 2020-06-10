@@ -74,9 +74,6 @@ export const News: React.FC = () => {
         <Grid gutters="lg">
           <Row>
             <Col
-              sm={12}
-              md={12}
-              lg={8}
               css={css`
                 background-color: ${p => getColor('grey', 200, p.theme)};
                 padding: ${p => p.theme.space.xxl};
@@ -88,7 +85,7 @@ export const News: React.FC = () => {
                   return (
                     <Col
                       key={`${edge.node.url}-${index}`}
-                      sm={6}
+                      sm={4}
                       css={css`
                         margin-bottom: ${p => p.theme.space.lg};
                       `}
