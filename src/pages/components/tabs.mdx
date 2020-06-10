@@ -1,0 +1,77 @@
+---
+title: Tabs
+description: >
+  Tabs organize related content within a single page. This helps users alternate between
+  views without refreshing.
+package: '@zendeskgarden/react-tabs'
+propSheets:
+  - tabs/src/elements/Tabs.tsx
+  - tabs/src/elements/Tab.tsx
+  - tabs/src/elements/TabList.tsx
+  - tabs/src/elements/TabPanel.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To provide pre-filtered views of a single dataset</li>
+      <li>To organize related content and controls within a page</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>As a secondary navigation bar that spans multiple pages</li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## Examples
+
+### Default
+
+This is the basic usage of a Tab component.
+
+import TabsDefault from '../../examples/tabs/TabsDefault.tsx';
+import TabsDefaultCode from '!!raw-loader!../../examples/tabs/TabsDefault.tsx';
+
+<CodeExample code={TabsDefaultCode}>
+  <TabsDefault />
+</CodeExample>
+
+### Vertical
+
+Tab layout is horizontal by default but can be set to stack vertically.
+
+import TabsVertical from '../../examples/tabs/TabsVertical.tsx';
+import TabsVerticalCode from '!!raw-loader!../../examples/tabs/TabsVertical.tsx';
+
+<CodeExample code={TabsVerticalCode}>
+  <TabsVertical />
+</CodeExample>
+
+### Disabled
+
+Individual tabs can be disabled to prevent users from interacting with them.
+
+import TabsDisabled from '../../examples/tabs/TabsDisabled.tsx';
+import TabsDisabledCode from '!!raw-loader!../../examples/tabs/TabsDisabled.tsx';
+
+<CodeExample code={TabsDisabledCode}>
+  <TabsDisabled />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+
+## API
+
+<PropSheets propSheets={props.data.mdx.propsSheets} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
