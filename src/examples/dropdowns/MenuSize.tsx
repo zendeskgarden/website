@@ -11,7 +11,6 @@ import { Button } from '@zendeskgarden/react-buttons';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
-  /* eslint-disable no-alert */
   return (
     <Grid>
       <Row>

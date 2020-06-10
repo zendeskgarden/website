@@ -33,7 +33,6 @@ const Center = styled.div`
 `;
 
 const Example = () => {
-  /* eslint-disable no-alert */
   return (
     <Center>
       <Dropdown onSelect={item => alert(item)}>

@@ -11,7 +11,6 @@ import { Button } from '@zendeskgarden/react-buttons';
 
 const Example = () => {
   return (
-    /* eslint-disable no-alert */
     <Dropdown onSelect={item => alert(item)}>
       <Trigger>
         <Button>Menu</Button>

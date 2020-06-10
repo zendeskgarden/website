@@ -25,6 +25,7 @@
   },
   "rules": {
     "prettier/prettier": "error",
+    "no-alert": "off",
     "sort-imports": "off",
     "valid-jsdoc": "off",
     "require-jsdoc": "off",
