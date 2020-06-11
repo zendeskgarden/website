@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { Field, Label, Hint, Input } from '@zendeskgarden/react-forms';
+import { Field, Label, Input } from '@zendeskgarden/react-forms';
 
 const Example = () => (
   <Grid>
@@ -15,7 +15,6 @@ const Example = () => (
       <Col>
         <Field>
           <Label>Plant</Label>
-          <Hint>Plants in the Garden</Hint>
           <Input />
         </Field>
       </Col>

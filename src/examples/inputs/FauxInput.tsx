@@ -11,7 +11,7 @@ import { Field, Label, FauxInput } from '@zendeskgarden/react-forms';
 const Example = () => (
   <Field>
     <Label>Plant</Label>
-    <FauxInput />
+    <FauxInput>Tulip</FauxInput>
   </Field>
 );
 
