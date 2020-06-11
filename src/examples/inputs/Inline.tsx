@@ -15,7 +15,6 @@ const StyledField = styled(Field)`
 `;
 
 const StyledLabel = styled(Label)`
-  /* stylelint-disable-next-line property-no-unknown */
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.sm};
 `;
 
