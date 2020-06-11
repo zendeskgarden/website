@@ -16,7 +16,7 @@ import MaxWidthLayout from 'layouts/MaxWidth';
 const StyledFooterItem = styled(Link)`
   margin-right: ${p => p.theme.space.lg};
   cursor: pointer;
-  color: ${p => p.theme.colors.background};
+  color: ${p => p.theme.palette.white};
 `;
 
 const Footer: React.FC = () => (
