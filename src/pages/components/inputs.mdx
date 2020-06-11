@@ -1,5 +1,5 @@
 ---
-title: Text inputs
+title: Inputs
 description: >
   A text input is a form field that lets the user enter text.
 package: '@zendeskgarden/react-forms'
@@ -30,8 +30,8 @@ propSheets:
 
 A text input is a form field that lets the user enter text.
 
-import Input from '../../examples/text-inputs/Input.tsx';
-import InputCode from '!!raw-loader!../../examples/text-inputs/Input.tsx';
+import Input from '../../examples/inputs/Input.tsx';
+import InputCode from '!!raw-loader!../../examples/inputs/Input.tsx';
 
 <CodeExample code={InputCode}>
   <Input />
@@ -42,8 +42,8 @@ import InputCode from '!!raw-loader!../../examples/text-inputs/Input.tsx';
 A Textarea accommodates multiline text. Its height is fixed by default, and can be resizable using
 the `isResizable` property.
 
-import Textarea from '../../examples/text-inputs/Textarea.tsx';
-import TextareaCode from '!!raw-loader!../../examples/text-inputs/Textarea.tsx';
+import Textarea from '../../examples/inputs/Textarea.tsx';
+import TextareaCode from '!!raw-loader!../../examples/inputs/Textarea.tsx';
 
 <CodeExample code={TextareaCode}>
   <Textarea />
@@ -53,8 +53,8 @@ import TextareaCode from '!!raw-loader!../../examples/text-inputs/Textarea.tsx';
 
 A MediaInput can have embedded icons, to further clarify its purpose.
 
-import Icons from '../../examples/text-inputs/MediaInput.tsx';
-import IconsCode from '!!raw-loader!../../examples/text-inputs/MediaInput.tsx';
+import Icons from '../../examples/inputs/MediaInput.tsx';
+import IconsCode from '!!raw-loader!../../examples/inputs/MediaInput.tsx';
 
 <CodeExample code={IconsCode}>
   <Icons />
@@ -64,8 +64,8 @@ import IconsCode from '!!raw-loader!../../examples/text-inputs/MediaInput.tsx';
 
 A FauxInput makes non-inputs look like inputs.
 
-import FauxInput from '../../examples/text-inputs/FauxInput.tsx';
-import FauxInputCode from '!!raw-loader!../../examples/text-inputs/FauxInput.tsx';
+import FauxInput from '../../examples/inputs/FauxInput.tsx';
+import FauxInputCode from '!!raw-loader!../../examples/inputs/FauxInput.tsx';
 
 <CodeExample code={FauxInputCode}>
   <FauxInput />
@@ -79,8 +79,8 @@ property.
 Regular labels are not recommended for text inputs, as they flatten visual hierarchy making
 scanning more difficult.
 
-import RegularWeightLabel from '../../examples/text-inputs/RegularWeightLabel.tsx';
-import RegularWeightLabelCode from '!!raw-loader!../../examples/text-inputs/RegularWeightLabel.tsx';
+import RegularWeightLabel from '../../examples/inputs/RegularWeightLabel.tsx';
+import RegularWeightLabelCode from '!!raw-loader!../../examples/inputs/RegularWeightLabel.tsx';
 
 <CodeExample code={RegularWeightLabelCode}>
   <RegularWeightLabel />
@@ -90,8 +90,8 @@ import RegularWeightLabelCode from '!!raw-loader!../../examples/text-inputs/Regu
 
 Hint adds additional context to the text Input’s label.
 
-import Hint from '../../examples/text-inputs/Hint.tsx';
-import HintCode from '!!raw-loader!../../examples/text-inputs/Hint.tsx';
+import Hint from '../../examples/inputs/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/inputs/Hint.tsx';
 
 <CodeExample code={HintCode}>
   <Hint />
@@ -101,8 +101,8 @@ import HintCode from '!!raw-loader!../../examples/text-inputs/Hint.tsx';
 
 A text Input can be default or compact.
 
-import Size from '../../examples/text-inputs/Size.tsx';
-import SizeCode from '!!raw-loader!../../examples/text-inputs/Size.tsx';
+import Size from '../../examples/inputs/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/inputs/Size.tsx';
 
 <CodeExample code={SizeCode}>
   <Size />
@@ -114,8 +114,8 @@ Input borders and padding can be removed using the `isBare` property. Use an
 [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute)
 to label the input.
 
-import Bare from '../../examples/text-inputs/Bare.tsx';
-import BareCode from '!!raw-loader!../../examples/text-inputs/Bare.tsx';
+import Bare from '../../examples/inputs/Bare.tsx';
+import BareCode from '!!raw-loader!../../examples/inputs/Bare.tsx';
 
 <CodeExample code={BareCode}>
   <Bare />
@@ -127,8 +127,8 @@ Box-shadow focus styling can be inset using the `focusInset` property.
 
 This keeps the focus contained within the input area when it is flush with another component.
 
-import FocusInset from '../../examples/text-inputs/FocusInset.tsx';
-import FocusInsetCode from '!!raw-loader!../../examples/text-inputs/FocusInset.tsx';
+import FocusInset from '../../examples/inputs/FocusInset.tsx';
+import FocusInsetCode from '!!raw-loader!../../examples/inputs/FocusInset.tsx';
 
 <CodeExample code={FocusInsetCode}>
   <FocusInset />
@@ -139,8 +139,8 @@ import FocusInsetCode from '!!raw-loader!../../examples/text-inputs/FocusInset.t
 Placeholder text gives an example of content format. See [Placeholder text](#TODO) standard for
 best practices.
 
-import Placeholder from '../../examples/text-inputs/Placeholder.tsx';
-import PlaceholderCode from '!!raw-loader!../../examples/text-inputs/Placeholder.tsx';
+import Placeholder from '../../examples/inputs/Placeholder.tsx';
+import PlaceholderCode from '!!raw-loader!../../examples/inputs/Placeholder.tsx';
 
 <CodeExample code={PlaceholderCode}>
   <Placeholder />
@@ -151,8 +151,8 @@ import PlaceholderCode from '!!raw-loader!../../examples/text-inputs/Placeholder
 Success, warning, or danger validation messages are shown using the Message component with the text
 Input.
 
-import Validation from '../../examples/text-inputs/Validation.tsx';
-import ValidationCode from '!!raw-loader!../../examples/text-inputs/Validation.tsx';
+import Validation from '../../examples/inputs/Validation.tsx';
+import ValidationCode from '!!raw-loader!../../examples/inputs/Validation.tsx';
 
 <CodeExample code={ValidationCode}>
   <Validation />
@@ -163,8 +163,8 @@ import ValidationCode from '!!raw-loader!../../examples/text-inputs/Validation.t
 An Input uses `display:block` by default. It can use `display:inline`. See example code for inline
 styling overrides.
 
-import Inline from '../../examples/text-inputs/Inline.tsx';
-import InlineCode from '!!raw-loader!../../examples/text-inputs/Inline.tsx';
+import Inline from '../../examples/inputs/Inline.tsx';
+import InlineCode from '!!raw-loader!../../examples/inputs/Inline.tsx';
 
 <CodeExample code={InlineCode}>
   <Inline />
@@ -175,8 +175,8 @@ import InlineCode from '!!raw-loader!../../examples/text-inputs/Inline.tsx';
 A disabled Input is not interactive, and not perceived by a screen reader. See [Disabled UI](#TODO)
 pattern guidelines for best practices.
 
-import Disabled from '../../examples/text-inputs/Disabled.tsx';
-import DisabledCode from '!!raw-loader!../../examples/text-inputs/Disabled.tsx';
+import Disabled from '../../examples/inputs/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/inputs/Disabled.tsx';
 
 <CodeExample code={DisabledCode}>
   <Disabled />
