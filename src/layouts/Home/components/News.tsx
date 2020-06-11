@@ -49,7 +49,7 @@ export const News: React.FC = () => {
           right: 50%;
           bottom: 0;
           left: 0;
-          background-color: ${PALETTE.green[200]};
+          background-color: ${p => getColor('grey', 200, p.theme)};
 
           @media (max-width: ${p => p.theme.breakpoints.lg}) {
             display: none;
