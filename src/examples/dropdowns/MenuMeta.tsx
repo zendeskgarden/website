@@ -10,7 +10,7 @@ import { Dropdown, Menu, Item, ItemMeta, Trigger } from '@zendeskgarden/react-dr
 import { Button } from '@zendeskgarden/react-buttons';
 
 const Example = () => (
-  <Dropdown onSelect={item => alert(item)}>
+  <Dropdown onSelect={item => alert(`You planted a ${item}`)}>
     <Trigger>
       <Button>Menu</Button>
     </Trigger>

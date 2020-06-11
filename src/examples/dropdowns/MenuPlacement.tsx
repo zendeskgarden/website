@@ -34,7 +34,7 @@ const Center = styled.div`
 
 const Example = () => (
   <Center>
-    <Dropdown onSelect={item => alert(item)}>
+    <Dropdown onSelect={item => alert(`You planted a ${item}`)}>
       <Trigger>
         <Button>Menu</Button>
       </Trigger>

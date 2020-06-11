@@ -26,6 +26,11 @@ const Example = () => {
   return (
     <Dropdown
       isOpen={state.isOpen}
+      onSelect={item => {
+        if (item !== 'plants' && item !== 'flowers') {
+          alert(`You planted a ${item}`);
+        }
+      }}
       onStateChange={(changes, stateAndHelpers) => {
         const updatedState: any = {};
 
@@ -57,11 +62,11 @@ const Example = () => {
       <Menu placement="end">
         {state.tempSelectedItem === 'flowers' ? (
           <>
-            <PreviousItem value="plants">Flowers</PreviousItem>
+            <PreviousItem value="plants">Plants</PreviousItem>
             <Separator />
             <Item value="daisy">Daisy</Item>
-            <Item value="blue-gem">Blue Gem</Item>
-            <Item value="cala-lily">Cala Lily</Item>
+            <Item value="tulip">Tulip</Item>
+            <Item value="rose">Rose</Item>
           </>
         ) : (
           <>

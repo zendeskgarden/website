@@ -24,7 +24,13 @@ import {
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => (
-  <Dropdown>
+  <Dropdown
+    onSelect={item => {
+      const message = item === 'add-plant' ? 'A plant can be added soon' : `You planted a ${item}`;
+
+      alert(message);
+    }}
+  >
     <Trigger>
       <Button>Menu</Button>
     </Trigger>

@@ -14,7 +14,7 @@ const Example = () => (
   <Grid>
     <Row>
       <Col textAlign="center">
-        <Dropdown onSelect={item => alert(item)}>
+        <Dropdown onSelect={item => alert(`You planted a ${item}`)}>
           <Trigger>
             <Button>Default</Button>
           </Trigger>
@@ -26,7 +26,7 @@ const Example = () => (
         </Dropdown>
       </Col>
       <Col textAlign="center">
-        <Dropdown onSelect={item => alert(item)}>
+        <Dropdown onSelect={item => alert(`You planted a ${item}`)}>
           <Trigger>
             <Button size="small">Compact</Button>
           </Trigger>
