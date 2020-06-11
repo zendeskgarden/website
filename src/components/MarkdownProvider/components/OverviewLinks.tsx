@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { ISidebarSection } from '../../../layouts/Sidebar';
-import { LG, UnorderedList, MD } from '@zendeskgarden/react-typography';
+import { LG, UnorderedList } from '@zendeskgarden/react-typography';
 import { Link } from '../../../layouts/Root/components/StyledNavigationLink';
 import styled from 'styled-components';
 
@@ -29,7 +29,7 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
             if (group.items) {
               return (
                 <StyledListItem>
-                  <MD>{group.title}</MD>
+                  {group.title}
                   <UnorderedList>
                     <UnorderedList.Item>
                       {group.items.map(child => {
