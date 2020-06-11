@@ -8,7 +8,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-import { getColor, PALETTE } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { XXL } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';

@@ -8,7 +8,7 @@
 import React from 'react';
 import { Search } from './components/Search';
 import { Foundation } from './components/Foundation';
-import { Patterns } from './components/Patterns';
+// import { Patterns } from './components/Patterns';
 import { News } from './components/News';
 
 const HomeLayout: React.FC = () => {
@@ -16,7 +16,7 @@ const HomeLayout: React.FC = () => {
     <>
       <Search />
       <Foundation />
-      <Patterns />
+      {/* <Patterns /> */}
       <News />
     </>
   );
