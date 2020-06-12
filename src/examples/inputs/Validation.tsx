@@ -6,12 +6,24 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { Field, Label, Input, Message } from '@zendeskgarden/react-forms';
 
+const StyledRow = styled(Row)`
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    display: flex;
+    flex-direction: column;
+
+    > div:not(:first-child) {
+      margin-top: ${props => props.theme.space.sm};
+    }
+  }
+`;
+
 const Example = () => (
   <Grid>
-    <Row>
+    <StyledRow>
       <Col>
         <Field>
           <Label>Plant</Label>
@@ -33,7 +45,7 @@ const Example = () => (
           <Message validation="error">A cactus belongs in the desert</Message>
         </Field>
       </Col>
-    </Row>
+    </StyledRow>
   </Grid>
 );
 
