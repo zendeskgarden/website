@@ -2,8 +2,18 @@
   items:
     - id: /components
       title: Overview
+- title: Foundations
+  items:
+    - id: /components/versions
+      title: Versions
+    - id: https://zendeskgarden.github.io/react-containers
+      title: Containers
+    - id: https://zendeskgarden.github.io/react-components/theming
+      title: Theme
 - title: Components
   items:
+    - title: Accordion
+      id: https://zendeskgarden.github.io/react-components/accordions
     - title: Avatar
       id: /components/avatar
     - title: Breadcrumbs
@@ -14,11 +24,75 @@
           title: Anchor
         - id: /components/button
           title: Button
+        - id: /components/button-group
+          title: Button Group
+        - id: /components/split-button
+          title: Split Button
+        - id: /components/icon-button
+          title: Icon Button
+    - title: Chrome
+      id: https://zendeskgarden.github.io/react-components/chrome
+    - title: Datepicker
+      id: https://zendeskgarden.github.io/react-components/datepickers
     - title: Dropdowns
       items:
-        - id: /components/select
-          title: Select
+        - id: /components/autocomplete
+          title: Autocomplete
+        - id: /components/menu
+          title: Menu
         - id: /components/multiselect
           title: Multiselect
+        - id: /components/select
+          title: Select
+    - title: Grid
+      id: https://zendeskgarden.github.io/react-components/grid
+    - title: Forms
+      items:
+        - id: /components/checkbox
+          title: Checkbox
+        - id: /components/radio
+          title: Radio
+        - id: /components/range
+          title: Range
+        - id: /components/text-input
+          title: Text input
+        - id: /components/toggle
+          title: Toggle
+    - title: Loaders
+      items:
+        - id: https://zendeskgarden.github.io/react-components/loaders
+          title: Dots
+        - id: https://zendeskgarden.github.io/react-components/loaders
+          title: Progress
+        - id: https://zendeskgarden.github.io/react-components/loaders
+          title: Skeleton
+        - id: https://zendeskgarden.github.io/react-components/loaders
+          title: Spinner
+        - id: https://zendeskgarden.github.io/react-components/loaders
+          title: Inline
+    - title: Modal
+      id: https://zendeskgarden.github.io/react-components/modals
+    - title: Notification
+      items:
+        - id: https://zendeskgarden.github.io/react-components/notifications
+          title: Alert
+        - id: https://zendeskgarden.github.io/react-components/notifications
+          title: Notification
+    - title: Pagination
+      id: https://zendeskgarden.github.io/react-components/pagination
+    - title: Stepper
+      id: https://zendeskgarden.github.io/react-components/accordions/#stepper
+    - title: Table
+      id: https://zendeskgarden.github.io/react-components/tables
     - title: Tabs
       id: /components/tabs
+    - title: Tags
+      id: https://zendeskgarden.github.io/react-components/tags
+    - title: Tiles
+      id: https://zendeskgarden.github.io/react-components/forms/#tiles
+    - title: Tooltip
+      id: https://zendeskgarden.github.io/react-components/tooltips
+    - title: Typography
+      id: /components/typography
+    - title: Well
+      id: https://zendeskgarden.github.io/react-components/notifications

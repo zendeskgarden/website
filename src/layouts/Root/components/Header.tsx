@@ -151,6 +151,16 @@ const MobileNavButton: React.FC<
   );
 };
 
+/* Temporary empty placeholder div with explicit button dimensions for search functionality on mobile */
+const TemporaryBox = styled.div`
+  width: 60px;
+  height: 60px;
+
+  @media (min-width: ${p => p.theme.breakpoints.md}) {
+    display: none;
+  }
+`;
+
 const StyledMobileNavLink = styled(StyledNavigationLink).attrs({ partiallyActive: true })`
   display: block;
   margin-top: ${p => p.theme.space.base * 2}px;
@@ -181,7 +191,7 @@ const MobileNav: React.FC = () => {
       <StyledMobileNavLink to="/content">Content</StyledMobileNavLink>
       <StyledMobileNavLink to="/design">Design</StyledMobileNavLink>
       <StyledMobileNavLink to="/components">Components</StyledMobileNavLink>
-      <StyledMobileNavLink to="/patterns">Patterns</StyledMobileNavLink>
+      {/* <StyledMobileNavLink to="/patterns">Patterns</StyledMobileNavLink> */}
     </div>
   );
 };
@@ -209,12 +219,12 @@ const DesktopNav: React.FC = () => (
     <StyledDesktopNavItem>
       <StyledDesktopNavLink to="/components">Components</StyledDesktopNavLink>
     </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
+    {/* <StyledDesktopNavItem>
       <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
+    </StyledDesktopNavItem> 
     <StyledDesktopNavItem>
       <SearchInput />
-    </StyledDesktopNavItem>
+    </StyledDesktopNavItem> */}
   </nav>
 );
 
@@ -239,7 +249,7 @@ const Header: React.FC = () => {
             min-height: 100%;
           `}
         >
-          <MobileNavButton
+          {/* <MobileNavButton
             icon={<SearchStroke />}
             label="Search"
             isExpanded={isSearchVisible}
@@ -250,7 +260,8 @@ const Header: React.FC = () => {
                 setIsNavigationVisible(false);
               }
             }}
-          />
+          /> */}
+          <TemporaryBox />
           {!isSearchVisible && <Logo />}
           {isSearchVisible && <MobileSearch ref={inputRef} />}
           <MobileNavButton

@@ -8,7 +8,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-import { getColor, PALETTE } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { XXL } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
@@ -49,7 +49,7 @@ export const News: React.FC = () => {
           right: 50%;
           bottom: 0;
           left: 0;
-          background-color: ${PALETTE.green[200]};
+          background-color: ${p => getColor('grey', 200, p.theme)};
 
           @media (max-width: ${p => p.theme.breakpoints.lg}) {
             display: none;
@@ -74,30 +74,8 @@ export const News: React.FC = () => {
         <Grid gutters="lg">
           <Row>
             <Col
-              sm={12}
-              md={6}
-              lg={4}
-              css={css`
-                background-color: ${PALETTE.green[200]};
-                padding-top: ${p => p.theme.space.xxl};
-                padding-right: ${p => p.theme.space.xxl};
-                padding-bottom: ${p => p.theme.space.xxl};
-
-                @media (max-width: ${p => p.theme.breakpoints.md}) {
-                  padding: ${p => p.theme.space.xxl};
-                }
-              `}
-            >
-              <StyledSectionHeader>Site Updates</StyledSectionHeader>
-              <p>TODO</p>
-            </Col>
-            <Col
-              sm={12}
-              md={6}
-              lg={8}
               css={css`
                 background-color: ${p => getColor('grey', 200, p.theme)};
-
                 padding: ${p => p.theme.space.xxl};
               `}
             >
@@ -107,7 +85,7 @@ export const News: React.FC = () => {
                   return (
                     <Col
                       key={`${edge.node.url}-${index}`}
-                      sm={6}
+                      sm={4}
                       css={css`
                         margin-bottom: ${p => p.theme.space.lg};
                       `}

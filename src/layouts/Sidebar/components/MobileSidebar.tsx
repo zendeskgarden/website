@@ -100,6 +100,7 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
         left: 0;
         background-color: ${p => p.theme.palette.tofu};
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.xxl};
+        overflow: scroll;
 
         @media (max-width: ${p => p.theme.breakpoints.md}) {
           top: ${p => p.theme.space.base * 15}px;

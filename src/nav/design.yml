@@ -16,3 +16,5 @@
           title: 26px
         - id: /design/icons/wordmarks
           title: Wordmarks
+    - title: Color
+      id: https://zendeskgarden.github.io/react-components/theming/#!/PALETTE

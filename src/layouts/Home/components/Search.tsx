@@ -9,9 +9,9 @@ import React from 'react';
 import Img from 'gatsby-image';
 import { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { MediaInput } from '@zendeskgarden/react-forms';
+// import { MediaInput } from '@zendeskgarden/react-forms';
 import { LG } from '@zendeskgarden/react-typography';
-import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
+// import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -100,7 +100,7 @@ export const Search: React.FC = () => {
                     ${headerStyling}
                   `}
                 >
-                  Search the Garden
+                  Welcome to Garden
                 </h1>
                 <LG
                   tag="p"
@@ -112,7 +112,7 @@ export const Search: React.FC = () => {
                   The source of truth for tools, standards, and best practices when building
                   products at Zendesk.
                 </LG>
-                <div
+                {/* <div
                   css={css`
                     width: 340px;
 
@@ -126,7 +126,7 @@ export const Search: React.FC = () => {
                     aria-label="Garden search"
                     start={<SearchStroke />}
                   />
-                </div>
+                </div> */}
               </div>
             </Col>
           </Row>

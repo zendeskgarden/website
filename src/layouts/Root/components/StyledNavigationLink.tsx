@@ -5,9 +5,34 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
 import { getColor } from '@zendeskgarden/react-theming';
+
+interface ILink {
+  children: string;
+  to: string;
+  activeClassName?: string;
+}
+
+export const Link = ({ children, to, ...props }: ILink) => {
+  const internal = /^\/(?!\/)/u.test(to);
+
+  if (internal) {
+    return (
+      <GatsbyLink to={to} {...props}>
+        {children}
+      </GatsbyLink>
+    );
+  }
+
+  return (
+    <a href={to} {...props}>
+      {children}
+    </a>
+  );
+};
 
 export const StyledNavigationLink = styled(Link).attrs(p => ({
   activeClassName: p.activeClassName || 'is-current'
