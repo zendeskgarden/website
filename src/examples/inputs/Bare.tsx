@@ -11,7 +11,7 @@ import { Field, Label, Input } from '@zendeskgarden/react-forms';
 const Example = () => (
   <Field>
     <Label>Plant</Label>
-    <Input isBare placeholder="Plants" />
+    <Input isBare placeholder="Type plant name" />
   </Field>
 );
 
