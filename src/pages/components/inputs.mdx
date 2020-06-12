@@ -1,44 +1,61 @@
 ---
 title: Inputs
 description: >
-  A text input is a form field that lets the user enter text.
+  An input is a form field where the user can enter data.
 package: '@zendeskgarden/react-forms'
 propSheets:
   - forms/src/elements/FauxInput.tsx
-  - forms/src/elements/Field.tsx
-  - forms/src/elements/Hint.tsx
+  - forms/src/elements/common/Field.tsx
+  - forms/src/elements/common/Hint.tsx
   - forms/src/elements/Input.tsx
-  - forms/src/elements/Label.tsx
+  - forms/src/elements/common/Label.tsx
   - forms/src/elements/MediaInput.tsx
-  - forms/src/elements/Message.tsx
+  - forms/src/elements/common/Message.tsx
   - forms/src/elements/Textarea.tsx
 ---
 
 <Usage>
   <Use>
     <ul>
-      <li>Use an Input to let the user enter text</li>
-      <li>Use a Textarea for multiline text</li>
+      <li>To let the user enter data</li>
+      <li>To enter multiline text, use a Textarea</li>
     </ul>
   </Use>
-  <Misuse>
-    <ul>
-      <li>For read-only objects, use text</li>
-    </ul>
-  </Misuse>
 </Usage>
 
 ## Examples
 
-### Input
+### Default
 
-A text input is a form field that lets the user enter text.
+An Input is accompanied with a label indicating its purpose.
 
 import Input from '../../examples/inputs/Input.tsx';
 import InputCode from '!!raw-loader!../../examples/inputs/Input.tsx';
 
 <CodeExample code={InputCode}>
   <Input />
+</CodeExample>
+
+### Size
+
+A text Input can be default or compact in size.
+
+import Size from '../../examples/inputs/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/inputs/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+### Hint
+
+Hint text adds additional context to the text Input’s label.
+
+import Hint from '../../examples/inputs/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/inputs/Hint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
 </CodeExample>
 
 ### Textarea
@@ -53,9 +70,9 @@ import TextareaCode from '!!raw-loader!../../examples/inputs/Textarea.tsx';
   <Textarea />
 </CodeExample>
 
-### MediaInput
+### Media
 
-A MediaInput can have embedded icons, to further clarify its purpose.
+An input can contain media elements to further clarify its purpose.
 
 import Icons from '../../examples/inputs/MediaInput.tsx';
 import IconsCode from '!!raw-loader!../../examples/inputs/MediaInput.tsx';
@@ -66,50 +83,13 @@ import IconsCode from '!!raw-loader!../../examples/inputs/MediaInput.tsx';
 
 ### FauxInput
 
-A FauxInput makes non-inputs look like inputs.
+Provides input styling without native input backing.
 
 import FauxInput from '../../examples/inputs/FauxInput.tsx';
 import FauxInputCode from '!!raw-loader!../../examples/inputs/FauxInput.tsx';
 
 <CodeExample code={FauxInputCode}>
   <FauxInput />
-</CodeExample>
-
-### Regular weight label
-
-Text input labels are emphasized by default. They can be regular weight using the `isRegular`
-property.
-
-Regular labels are not recommended for text inputs, as they flatten visual hierarchy making
-scanning more difficult.
-
-import RegularWeightLabel from '../../examples/inputs/RegularWeightLabel.tsx';
-import RegularWeightLabelCode from '!!raw-loader!../../examples/inputs/RegularWeightLabel.tsx';
-
-<CodeExample code={RegularWeightLabelCode}>
-  <RegularWeightLabel />
-</CodeExample>
-
-### Hint
-
-Hint adds additional context to the text Input’s label.
-
-import Hint from '../../examples/inputs/Hint.tsx';
-import HintCode from '!!raw-loader!../../examples/inputs/Hint.tsx';
-
-<CodeExample code={HintCode}>
-  <Hint />
-</CodeExample>
-
-### Size
-
-A text Input can be default or compact.
-
-import Size from '../../examples/inputs/Size.tsx';
-import SizeCode from '!!raw-loader!../../examples/inputs/Size.tsx';
-
-<CodeExample code={SizeCode}>
-  <Size />
 </CodeExample>
 
 ### Bare
@@ -125,9 +105,8 @@ import BareCode from '!!raw-loader!../../examples/inputs/Bare.tsx';
 
 ### Focus inset
 
-Box-shadow focus styling can be inset using the `focusInset` property.
-
-This keeps the focus contained within the input area when it is flush with another component.
+Input focus styling can be inset using the `focusInset` property. This keeps the focus contained
+within the input area when it is flush with another component.
 
 import FocusInset from '../../examples/inputs/FocusInset.tsx';
 import FocusInsetCode from '!!raw-loader!../../examples/inputs/FocusInset.tsx';
@@ -138,8 +117,7 @@ import FocusInsetCode from '!!raw-loader!../../examples/inputs/FocusInset.tsx';
 
 ### Placeholder
 
-Placeholder text gives an example of content format. See [Placeholder text](#TODO) standard for
-best practices.
+Placeholder text gives an example of content format.
 
 import Placeholder from '../../examples/inputs/Placeholder.tsx';
 import PlaceholderCode from '!!raw-loader!../../examples/inputs/Placeholder.tsx';
@@ -150,8 +128,7 @@ import PlaceholderCode from '!!raw-loader!../../examples/inputs/Placeholder.tsx'
 
 ### Validation
 
-Success, warning, or danger validation messages are shown using the Message component with the text
-Input.
+Success, warning, or danger validation messages are shown using the Message component.
 
 import Validation from '../../examples/inputs/Validation.tsx';
 import ValidationCode from '!!raw-loader!../../examples/inputs/Validation.tsx';
@@ -160,21 +137,9 @@ import ValidationCode from '!!raw-loader!../../examples/inputs/Validation.tsx';
   <Validation />
 </CodeExample>
 
-### Inline
-
-An Input can be styled to have an inline layout. See example code for inline styling overrides.
-
-import Inline from '../../examples/inputs/Inline.tsx';
-import InlineCode from '!!raw-loader!../../examples/inputs/Inline.tsx';
-
-<CodeExample code={InlineCode}>
-  <Inline />
-</CodeExample>
-
 ### Disabled
 
-A disabled Input is not interactive, and not perceived by a screen reader. See [Disabled UI](#TODO)
-pattern guidelines for best practices.
+A disabled Input is not interactive and not perceived by a screen reader.
 
 import Disabled from '../../examples/inputs/Disabled.tsx';
 import DisabledCode from '!!raw-loader!../../examples/inputs/Disabled.tsx';
