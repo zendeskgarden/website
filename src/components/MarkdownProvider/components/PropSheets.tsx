@@ -9,9 +9,9 @@ import React from 'react';
 import { css } from 'styled-components';
 import { ComponentDoc } from 'react-docgen-typescript';
 import { getColor } from '@zendeskgarden/react-theming';
-import { Paragraph } from '@zendeskgarden/react-typography';
+import { MD } from '@zendeskgarden/react-typography';
 import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
-import { StyledH3 } from './Typography';
+import { StyledH3, StyledParagraph } from './Typography';
 
 export const PropSheets: React.FC<{ propSheets: ComponentDoc[] }> = ({ propSheets }) => {
   return (
@@ -20,61 +20,71 @@ export const PropSheets: React.FC<{ propSheets: ComponentDoc[] }> = ({ propSheet
         propSheets.map((propSheet, index) => (
           <div key={`${propSheet.displayName}-${index}`}>
             <StyledH3>{propSheet.displayName}</StyledH3>
-            <Paragraph>{propSheet.description}</Paragraph>
-            <div
-              css={`
-                overflow: auto;
-              `}
-            >
-              <Table
-                css={`
-                  min-width: 700px;
+            {propSheet.description && <StyledParagraph>{propSheet.description}</StyledParagraph>}
+            {Object.keys(propSheet.props).length > 0 && (
+              <div
+                css={css`
+                  margin-bottom: ${p => p.theme.space.xl};
+                  overflow: auto;
                 `}
               >
-                <Head>
-                  <HeaderRow>
-                    <HeaderCell>Prop name</HeaderCell>
-                    <HeaderCell>Type</HeaderCell>
-                    <HeaderCell>Default</HeaderCell>
-                    <HeaderCell>Description</HeaderCell>
-                  </HeaderRow>
-                </Head>
-                <Body>
-                  {Object.keys(propSheet.props).map(propSheetKey => {
-                    const prop = propSheet.props[propSheetKey];
+                <Table
+                  css={`
+                    min-width: 700px;
+                  `}
+                >
+                  <Head>
+                    <HeaderRow>
+                      <HeaderCell>Prop name</HeaderCell>
+                      <HeaderCell>Type</HeaderCell>
+                      <HeaderCell>Default</HeaderCell>
+                      <HeaderCell>Description</HeaderCell>
+                    </HeaderRow>
+                  </Head>
+                  <Body>
+                    {Object.keys(propSheet.props).map(propSheetKey => {
+                      const prop = propSheet.props[propSheetKey];
 
-                    return (
-                      <Row key={`${propSheet.displayName}-${propSheetKey}`}>
-                        <Cell
-                          css={css`
-                            color: ${p => getColor('kale', 400, p.theme)};
-                            font-family: ${p => p.theme.fonts.mono};
-                          `}
-                        >
-                          {prop.name}
-                        </Cell>
-                        <Cell
-                          css={css`
-                            color: ${p => getColor('red', 600, p.theme)};
-                            font-family: ${p => p.theme.fonts.mono};
-                          `}
-                        >
-                          {prop.type.name}
-                        </Cell>
-                        <Cell
-                          css={css`
-                            font-family: ${p => p.theme.fonts.mono};
-                          `}
-                        >
-                          {prop.defaultValue ? prop.defaultValue.value : '-'}
-                        </Cell>
-                        <Cell>{prop.description}</Cell>
-                      </Row>
-                    );
-                  })}
-                </Body>
-              </Table>
-            </div>
+                      return (
+                        <Row key={`${propSheet.displayName}-${propSheetKey}`}>
+                          <Cell>
+                            <MD
+                              tag="span"
+                              isMonospace
+                              css={css`
+                                color: ${p => getColor('neutralHue', 700, p.theme)};
+                              `}
+                            >
+                              {prop.name}
+                            </MD>
+                          </Cell>
+                          <Cell>
+                            <MD
+                              tag="span"
+                              isMonospace
+                              css={css`
+                                word-break: break-word;
+                                color: ${p => getColor('red', 700, p.theme)};
+                              `}
+                            >
+                              {prop.type.name}
+                            </MD>
+                          </Cell>
+                          <Cell>
+                            <MD tag="span" isMonospace>
+                              {prop.defaultValue ? prop.defaultValue.value : '–'}
+                            </MD>
+                          </Cell>
+                          <Cell>
+                            <MD tag="span">{prop.description}</MD>
+                          </Cell>
+                        </Row>
+                      );
+                    })}
+                  </Body>
+                </Table>
+              </div>
+            )}
           </div>
         ))}
     </>
