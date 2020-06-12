@@ -1,10 +1,142 @@
 ---
 title: Menu
 description: >
-  Description will be here
+  Menus display a list of available choices.
+package: '@zendeskgarden/react-dropdowns'
+propSheets:
+  - dropdowns/src/elements/Menu/Menu.tsx
+  - dropdowns/src/elements/Menu/Separator.tsx
+  - dropdowns/src/elements/Menu/Items/AddItem.tsx
+  - dropdowns/src/elements/Menu/Items/HeaderIcon.tsx
+  - dropdowns/src/elements/Menu/Items/HeaderItem.tsx
+  - dropdowns/src/elements/Menu/Items/Item.tsx
+  - dropdowns/src/elements/Menu/Items/ItemMeta.tsx
+  - dropdowns/src/elements/Menu/Items/MediaBody.tsx
+  - dropdowns/src/elements/Menu/Items/MediaFigure.tsx
+  - dropdowns/src/elements/Menu/Items/MediaItem.tsx
+  - dropdowns/src/elements/Menu/Items/NextItem.tsx
+  - dropdowns/src/elements/Menu/Items/PreviousItem.tsx
+  - dropdowns/src/elements/Menu/Items/PreviousItem.tsx
 ---
 
-Content here
+<Usage>
+  <Use>
+    <ul>
+      <li>To display a list of choices, such as options or actions</li>
+    </ul>
+  </Use>
+</Usage>
+
+## Examples
+
+### Select Menu
+
+Works in combination with a [Select](/components/select) to display a list of options.
+
+import MenuSelect from '../../examples/dropdowns/MenuSelect.tsx';
+import MenuSelectCode from '!!raw-loader!../../examples/dropdowns/MenuSelect.tsx';
+
+<CodeExample code={MenuSelectCode}>
+  <MenuSelect />
+</CodeExample>
+
+### Button Menu
+
+Works in combination with a Trigger to display a list of menu items.
+
+import MenuButton from '../../examples/dropdowns/MenuButton.tsx';
+import MenuButtonCode from '!!raw-loader!../../examples/dropdowns/MenuButton.tsx';
+
+<CodeExample code={MenuButtonCode}>
+  <MenuButton />
+</CodeExample>
+
+### Placement
+
+Menu placement can be oriented around a trigger element in different positions. The default
+placement is `bottom-start`. This example demonstrates the `top-start` placement.
+
+import MenuPlacement from '../../examples/dropdowns/MenuPlacement.tsx';
+import MenuPlacementCode from '!!raw-loader!../../examples/dropdowns/MenuPlacement.tsx';
+
+<CodeExample code={MenuPlacementCode}>
+  <MenuPlacement />
+</CodeExample>
+
+### Arrow
+
+An arrow can be added to the Menu to give the user a sense of what element is triggering it.
+
+import MenuArrow from '../../examples/dropdowns/MenuArrow.tsx';
+import MenuArrowCode from '!!raw-loader!../../examples/dropdowns/MenuArrow.tsx';
+
+<CodeExample code={MenuArrowCode}>
+  <MenuArrow />
+</CodeExample>
+
+### Meta
+
+Meta text can be paired with Menu items for additional clarity.
+
+import MenuMeta from '../../examples/dropdowns/MenuMeta.tsx';
+import MenuMetaCode from '!!raw-loader!../../examples/dropdowns/MenuMeta.tsx';
+
+<CodeExample code={MenuMetaCode}>
+  <MenuMeta />
+</CodeExample>
+
+### Nested
+
+Can contain nested levels for additional categorization of menu items.
+
+import MenuNested from '../../examples/dropdowns/MenuNested.tsx';
+import MenuNestedCode from '!!raw-loader!../../examples/dropdowns/MenuNested.tsx';
+
+<CodeExample code={MenuNestedCode}>
+  <MenuNested />
+</CodeExample>
+
+### Disabled
+
+Items within a Menu can be disabled to limit a user from interacting with it. See
+[best practices](#todo) for disabled usage.
+
+import MenuDisabled from '../../examples/dropdowns/MenuDisabled.tsx';
+import MenuDisabledCode from '!!raw-loader!../../examples/dropdowns/MenuDisabled.tsx';
+
+<CodeExample code={MenuDisabledCode}>
+  <MenuDisabled />
+</CodeExample>
+
+### Size
+
+Can be default or compact in size. This reduces vertical padding on menu items.
+
+import MenuSize from '../../examples/dropdowns/MenuSize.tsx';
+import MenuSizeCode from '!!raw-loader!../../examples/dropdowns/MenuSize.tsx';
+
+<CodeExample code={MenuSizeCode}>
+  <MenuSize />
+</CodeExample>
+
+### Media Items
+
+Meta text can be paired with Menu items for additional clarity.
+
+import MenuMedia from '../../examples/dropdowns/MenuMedia.tsx';
+import MenuMediaCode from '!!raw-loader!../../examples/dropdowns/MenuMedia.tsx';
+
+<CodeExample code={MenuMediaCode}>
+  <MenuMedia />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+
+## API
+
+<PropSheets propSheets={props.data.mdx.propsSheets} />
 
 import { graphql } from 'gatsby';
 
