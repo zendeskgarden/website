@@ -14,7 +14,7 @@ const Example = () => (
     <Trigger>
       <Button>Menu</Button>
     </Trigger>
-    <Menu hasArrow>
+    <Menu>
       <Item value="cactus">Cactus</Item>
       <Item value="flower" disabled>
         Flower
