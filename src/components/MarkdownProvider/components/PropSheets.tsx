@@ -11,6 +11,7 @@ import { ComponentDoc } from 'react-docgen-typescript';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Paragraph } from '@zendeskgarden/react-typography';
 import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
+import { Markdown } from './Markdown';
 import { StyledH3 } from './Typography';
 
 export const PropSheets: React.FC<{ propSheets: ComponentDoc[] }> = ({ propSheets }) => {
@@ -20,7 +21,9 @@ export const PropSheets: React.FC<{ propSheets: ComponentDoc[] }> = ({ propSheet
         propSheets.map((propSheet, index) => (
           <div key={`${propSheet.displayName}-${index}`}>
             <StyledH3>{propSheet.displayName}</StyledH3>
-            <Paragraph>{propSheet.description}</Paragraph>
+            <Paragraph>
+              <Markdown>{propSheet.description}</Markdown>
+            </Paragraph>
             <div
               css={`
                 overflow: auto;
@@ -68,7 +71,9 @@ export const PropSheets: React.FC<{ propSheets: ComponentDoc[] }> = ({ propSheet
                         >
                           {prop.defaultValue ? prop.defaultValue.value : '-'}
                         </Cell>
-                        <Cell>{prop.description}</Cell>
+                        <Cell>
+                          <Markdown>{prop.description}</Markdown>
+                        </Cell>
                       </Row>
                     );
                   })}
