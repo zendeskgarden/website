@@ -15,14 +15,50 @@ const readdir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
 const lstat = util.promisify(fs.lstat);
 
+const GARDEN_REACT_COMPONENT = 'ReactComponent';
 const GARDEN_REACT_PACKAGE_ID = 'ReactPackage';
 const GARDEN_REACT_PROP_SHEET_ID = 'PropSheetJson';
 const { createNodeFactory, generateTypeName } = createNodeHelpers({
   typePrefix: `Garden`
 });
 
+const componentNode = createNodeFactory(GARDEN_REACT_COMPONENT);
 const packageNode = createNodeFactory(GARDEN_REACT_PACKAGE_ID);
 const propSheetJsonNode = createNodeFactory(GARDEN_REACT_PROP_SHEET_ID);
+const TSCONFIG_PATH = path.resolve(__dirname, '..', '..', 'react-components', 'tsconfig.json');
+const PARSER_OPTIONS = {
+  propFilter: props =>
+    !(props.description.includes('@ignore') || props.parent.fileName.includes('node_modules')),
+  shouldRemoveUndefinedFromOptional: true
+};
+const PARSER = reactDocgenTypescript.withCustomConfig(TSCONFIG_PATH, PARSER_OPTIONS);
+
+const parseComponents = filePaths => {
+  const components = PARSER.parse(filePaths);
+
+  return components.map(component => {
+    const props = {};
+
+    Object.keys(component.props)
+      .sort()
+      .forEach(key => {
+        const prop = component.props[key];
+
+        props[key] = {
+          description: prop.description,
+          default: prop.defaultValue && prop.defaultValue.value,
+          required: prop.required,
+          type: prop.type.name.replace('"', "'")
+        };
+      });
+
+    return {
+      name: component.displayName,
+      description: component.description,
+      props
+    };
+  });
+};
 
 /**
  * Remove all `extends` prop sheets (i.e. `HTMLAttributes`)
@@ -45,6 +81,11 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       props: JSON
       methods: [JSON]
+    }
+    type ${generateTypeName(GARDEN_REACT_COMPONENT)} @dontInfer {
+      name: String
+      description: String
+      props: JSON
     }
   `;
 
@@ -90,7 +131,7 @@ exports.sourceNodes = async ({ actions, reporter }) => {
 exports.createResolvers = ({ createResolvers, cache }) => {
   const resolvers = {
     File: {
-      /** Add a `propSheet` resolver as the build time can be long if added as a transformer plugin. */
+      // Add a `propSheet` resolver as the build time can be long if added as a transformer plugin.
       propSheet: {
         type: generateTypeName(GARDEN_REACT_PROP_SHEET_ID),
         resolve: async source => {
@@ -105,6 +146,21 @@ exports.createResolvers = ({ createResolvers, cache }) => {
           }
 
           return propSheetJsonNode(cachedPropSheet);
+        }
+      },
+      component: {
+        type: generateTypeName(GARDEN_REACT_COMPONENT),
+        resolve: async source => {
+          const key = `component-cache-${source.internal.contentDigest}`;
+          let component = await cache.get(key);
+
+          if (!component) {
+            component = parseComponents(source.absolutePath)[0];
+
+            await cache.set(key, component);
+          }
+
+          return componentNode(component);
         }
       }
     },
@@ -151,6 +207,36 @@ exports.createResolvers = ({ createResolvers, cache }) => {
             );
 
             return parsePropSheet(propSheetAbsolutePaths);
+          }
+
+          return undefined;
+        }
+      },
+      reactComponents: {
+        type: [generateTypeName(GARDEN_REACT_COMPONENT)],
+        resolve: async (source, args, context) => {
+          const components = source.frontmatter.components;
+
+          if (components) {
+            const componentNodes = await Promise.all(
+              components.map(component => {
+                const query = {
+                  query: {
+                    filter: {
+                      sourceInstanceName: { eq: 'react-components' },
+                      relativePath: { eq: component }
+                    }
+                  },
+                  type: 'File',
+                  firstOnly: true
+                };
+
+                return context.nodeModel.runQuery(query);
+              })
+            );
+            const filePaths = componentNodes.map(node => node.absolutePath);
+
+            return parseComponents(filePaths);
           }
 
           return undefined;

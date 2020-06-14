@@ -44,6 +44,11 @@ export const SidebarPageFragment = graphql`
         methods
         props
       }
+      components: reactComponents {
+        name
+        description
+        props
+      }
     }
   }
 `;

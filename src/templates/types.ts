@@ -8,6 +8,13 @@
 import { ComponentDoc } from 'react-docgen-typescript';
 import { IHeading } from 'layouts/Titled/components/TOC';
 
+interface IPropData {
+  description: string;
+  default: string;
+  required: boolean;
+  type: string;
+}
+
 export interface IPageData {
   mdx: {
     id: string;
@@ -20,6 +27,13 @@ export interface IPageData {
       description: string;
     };
     propSheets: [ComponentDoc];
+    components: [
+      {
+        name: string;
+        description: string;
+        props: Record<string, IPropData>;
+      }
+    ];
   };
 }
 
