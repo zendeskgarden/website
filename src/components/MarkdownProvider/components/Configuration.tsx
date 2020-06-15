@@ -19,7 +19,7 @@ interface IPackage {
 }
 
 const StyledUnorderedList = styled(UnorderedList)`
-  margin: 0 0 ${p => p.theme.space.xxl};
+  margin: 0 0 ${p => p.theme.space.xl};
   border-bottom: ${p => `${p.theme.borders.sm} ${getColor('grey', 200, p.theme)}`};
   list-style: none;
 `;
@@ -27,13 +27,14 @@ const StyledUnorderedList = styled(UnorderedList)`
 const StyledListItem = styled(UnorderedList.Item)`
   & > div {
     display: flex;
+    align-items: baseline;
     margin: ${p => p.theme.space.base * 2.5}px 0;
     border-top: ${p => `${p.theme.borders.sm} ${getColor('grey', 200, p.theme)}`};
     padding: ${p => p.theme.space.base * 2.5}px 0 0;
   }
 `;
 
-const StyledListItemLabel = styled(MD)`
+const StyledListItemLabel = styled(Span)`
   min-width: ${p => p.theme.space.base * 20}px;
 `;
 
@@ -42,9 +43,7 @@ const StyledDot = styled(Span)`
   color: ${p => getColor('grey', 600, p.theme)};
 `;
 
-const StyledMono = styled(MD)`
-  /* 1px nudge to align mono type with 14px label baseline */
-  line-height: 21px;
+const StyledMono = styled(MD).attrs({ isMonospace: true, tag: 'span' })`
   color: ${p => getColor('grey', 700, p.theme)};
 `;
 
@@ -72,17 +71,17 @@ export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: Compo
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel isBold>Install</StyledListItemLabel>
-        <StyledMono isMonospace>npm install {reactPackage.name}</StyledMono>
+        <StyledMono>npm install {reactPackage.name}</StyledMono>
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel isBold>Deps</StyledListItemLabel>
-        <StyledMono isMonospace>
+        <StyledMono>
           npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
         </StyledMono>
       </StyledListItem>
       <StyledListItem>
         <StyledListItemLabel isBold>Import</StyledListItemLabel>
-        <StyledMono isMonospace>
+        <StyledMono>
           import{' '}
           {`{ ${propSheets && propSheets.map(propSheet => propSheet.displayName).join(', ')} }`}{' '}
           from &apos;
