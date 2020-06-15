@@ -4,7 +4,6 @@ description: >
   Foundations for creating purposeful UI.
 ---
 
-import { OverviewLinks } from '../../components/MarkdownProvider';
 import links from '../../nav/design.yml';
 
 <OverviewLinks nav={links} />
@@ -14,12 +13,5 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    avatarShapeCircle: abstractAsset(layerName: { eq: "components-avatar-shape-circle" }) {
-      children {
-        ... on File {
-          publicURL
-        }
-      }
-    }
   }
 `;
