@@ -5,12 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { css } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
 import { MD, Ellipsis } from '@zendeskgarden/react-typography';
 import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
 import { IComponentData } from 'src/templates/types';
+import { Tag } from '@zendeskgarden/react-tags';
+import { MDSyntaxHighlighter } from './Code';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
+import { Button } from '@zendeskgarden/react-buttons';
 
 export const PropSheet: React.FC<{ component: IComponentData }> = ({ component }) => (
   <>
@@ -37,6 +41,31 @@ export const PropSheet: React.FC<{ component: IComponentData }> = ({ component }
           <Body>
             {Object.keys(component.props).map(name => {
               const prop = component.props[name];
+              let defaultValue: string | ReactElement = prop.defaultValue || '–';
+              let defaultMonospace = true;
+
+              if (prop.required && !prop.defaultValue) {
+                defaultValue = <Tag>Required</Tag>;
+                defaultMonospace = false;
+              }
+
+              const type =
+                prop.type.indexOf('=>') === -1 ? (
+                  prop.type
+                ) : (
+                  <Tooltip
+                    css={`
+                      max-width: 700px;
+                    `}
+                    type="light"
+                    size="small"
+                    placement="top-start"
+                    zIndex={100}
+                    content={<MDSyntaxHighlighter>{prop.type}</MDSyntaxHighlighter>}
+                  >
+                    <Button isLink>func</Button>
+                  </Tooltip>
+                );
 
               return (
                 <Row key={`${component.name}-${name}`}>
@@ -60,12 +89,12 @@ export const PropSheet: React.FC<{ component: IComponentData }> = ({ component }
                         color: ${p => getColor('red', 700, p.theme)};
                       `}
                     >
-                      {prop.type}
+                      {type}
                     </MD>
                   </Cell>
                   <Cell>
-                    <MD tag="span" isMonospace>
-                      {prop.defaultValue || '–'}
+                    <MD tag="span" isMonospace={defaultMonospace}>
+                      {defaultValue}
                     </MD>
                   </Cell>
                   <Cell>
