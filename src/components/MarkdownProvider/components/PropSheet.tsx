@@ -56,7 +56,7 @@ export const PropSheet: React.FC<{ component: IComponentData }> = ({ component }
                 ) : (
                   <Tooltip
                     css={`
-                      max-width: 700px;
+                      max-width: 460px;
                     `}
                     type="light"
                     size="small"
