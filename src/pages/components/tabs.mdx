@@ -9,6 +9,11 @@ propSheets:
   - tabs/src/elements/Tab.tsx
   - tabs/src/elements/TabList.tsx
   - tabs/src/elements/TabPanel.tsx
+components:
+  - tabs/src/elements/Tabs.tsx
+  - tabs/src/elements/Tab.tsx
+  - tabs/src/elements/TabList.tsx
+  - tabs/src/elements/TabPanel.tsx
 ---
 
 <Usage>
@@ -66,7 +71,21 @@ import TabsDisabledCode from '!!raw-loader!../../examples/tabs/TabsDisabled.tsx'
 
 ## API
 
-<PropSheets propSheets={props.data.mdx.propsSheets} />
+### Tabs
+
+<PropSheet component={props.data.mdx.components[0]} />
+
+### Tab
+
+<PropSheet component={props.data.mdx.components[1]} />
+
+### TabList
+
+<PropSheet component={props.data.mdx.components[2]} />
+
+### TabPanel
+
+<PropSheet component={props.data.mdx.components[3]} />
 
 import { graphql } from 'gatsby';
 

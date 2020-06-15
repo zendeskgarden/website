@@ -6,6 +6,8 @@ description: >
 package: '@zendeskgarden/react-avatars'
 propSheets:
   - avatars/src/elements/Avatar.tsx
+components:
+  - avatars/src/elements/Avatar.tsx
 ---
 
 <Usage>
@@ -86,7 +88,9 @@ This helps the user quickly distinguish between a person or a system when scanni
 
 ## API
 
-<PropSheets propSheets={props.data.mdx.propsSheets} />
+### Avatar
+
+<PropSheet component={props.data.mdx.components[0]} />
 
 import { graphql } from 'gatsby';
 

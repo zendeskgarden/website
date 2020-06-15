@@ -47,7 +47,16 @@ const parseComponents = filePaths => {
         let defaultValue = prop.defaultValue && prop.defaultValue.value;
 
         if (type === 'boolean' && defaultValue === null) {
+          // Indicate boolean default 'false' values.
           defaultValue = 'false';
+        }
+
+        if (
+          (type === 'string' && defaultValue !== null) ||
+          type.indexOf(`'${defaultValue}'`) !== -1
+        ) {
+          // Surround default string literals with quotes.
+          defaultValue = `'${defaultValue}'`;
         }
 
         props[key] = {

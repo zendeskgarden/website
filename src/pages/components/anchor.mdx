@@ -5,6 +5,8 @@ description: >
 package: '@zendeskgarden/react-buttons'
 propSheets:
   - buttons/src/elements/Anchor.tsx
+components:
+  - buttons/src/elements/Anchor.tsx
 ---
 
 <Usage>
@@ -67,7 +69,9 @@ import AnchorDangerCode from '!!raw-loader!../../examples/anchor/AnchorDanger.ts
 
 ## API
 
-<PropSheets propSheets={props.data.mdx.propsSheets} />
+### Anchor
+
+<PropSheet component={props.data.mdx.components[0]} />
 
 import { graphql } from 'gatsby';
 

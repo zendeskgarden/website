@@ -7,6 +7,8 @@ description: >
 package: '@zendeskgarden/react-buttons'
 propSheets:
   - buttons/src/elements/Button.tsx
+components:
+  - buttons/src/elements/Button.tsx
 ---
 
 ## Examples
@@ -67,7 +69,9 @@ Mark a button disabled with the disabled property.
 
 ## API
 
-<PropSheets propSheets={props.data.mdx.propsSheets} />
+### Button
+
+<PropSheet component={props.data.mdx.components[0]} />
 
 import { graphql } from 'gatsby';
 
