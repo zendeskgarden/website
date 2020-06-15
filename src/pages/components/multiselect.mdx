@@ -11,6 +11,13 @@ propSheets:
   - dropdowns/src/elements/Fields/Hint.tsx
   - dropdowns/src/elements/Fields/Label.tsx
   - dropdowns/src/elements/Menu/Items/Item.tsx
+components:
+  - dropdowns/src/elements/Multiselect/Multiselect.tsx
+  - dropdowns/src/elements/Dropdown/Dropdown.tsx
+  - dropdowns/src/elements/Fields/Field.tsx
+  - dropdowns/src/elements/Fields/Hint.tsx
+  - dropdowns/src/elements/Fields/Label.tsx
+  - dropdowns/src/elements/Menu/Items/Item.tsx
 ---
 
 <Usage>
@@ -63,7 +70,29 @@ import MultiselectOverflowCode from '!!raw-loader!../../examples/dropdowns/Multi
 
 ## API
 
-<PropSheets propSheets={props.data.mdx.propsSheets} />
+### Multiselect
+
+<PropSheet component={props.data.mdx.components[0]} />
+
+### Dropdown
+
+<PropSheet component={props.data.mdx.components[1]} />
+
+### Field
+
+<PropSheet component={props.data.mdx.components[2]} />
+
+### Hint
+
+<PropSheet component={props.data.mdx.components[3]} />
+
+### Label
+
+<PropSheet component={props.data.mdx.components[4]} />
+
+### Item
+
+<PropSheet component={props.data.mdx.components[5]} />
 
 import { graphql } from 'gatsby';
 

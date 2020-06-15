@@ -43,12 +43,18 @@ const parseComponents = filePaths => {
       .sort()
       .forEach(key => {
         const prop = component.props[key];
+        const type = prop.type.name.replace(/"/gu, "'");
+        let defaultValue = prop.defaultValue && prop.defaultValue.value;
+
+        if (type === 'boolean' && defaultValue === null) {
+          defaultValue = 'false';
+        }
 
         props[key] = {
           description: prop.description,
-          default: prop.defaultValue && prop.defaultValue.value,
+          defaultValue,
           required: prop.required,
-          type: prop.type.name.replace('"', "'")
+          type
         };
       });
 

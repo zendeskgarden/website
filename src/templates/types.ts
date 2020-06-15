@@ -10,9 +10,15 @@ import { IHeading } from 'layouts/Titled/components/TOC';
 
 interface IPropData {
   description: string;
-  default: string;
+  defaultValue: string;
   required: boolean;
   type: string;
+}
+
+export interface IComponentData {
+  name: string;
+  description: string;
+  props: Record<string, IPropData>;
 }
 
 export interface IPageData {
@@ -27,13 +33,7 @@ export interface IPageData {
       description: string;
     };
     propSheets: [ComponentDoc];
-    components: [
-      {
-        name: string;
-        description: string;
-        props: Record<string, IPropData>;
-      }
-    ];
+    components: [IComponentData];
   };
 }
 
