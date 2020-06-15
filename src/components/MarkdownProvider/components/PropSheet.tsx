@@ -15,6 +15,7 @@ import { Tag } from '@zendeskgarden/react-tags';
 import { MDSyntaxHighlighter } from './Code';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { Button } from '@zendeskgarden/react-buttons';
+import { Markdown } from './Markdown';
 
 export const PropSheet: React.FC<{ component: IComponentData }> = ({ component }) => (
   <>
@@ -104,7 +105,7 @@ export const PropSheet: React.FC<{ component: IComponentData }> = ({ component }
                         word-break: break-word;
                       `}
                     >
-                      {prop.description}
+                      <Markdown>{prop.description}</Markdown>
                     </MD>
                   </Cell>
                 </Row>
