@@ -19,13 +19,13 @@ const StyledCol = styled(Col)`
 const Example = () => (
   <Grid>
     <Row>
-      <StyledCol sm={4}>
+      <Col sm={4}>
         <Field>
           <Label>Plant</Label>
           <Input validation="success" />
           <Message validation="success">A cactus is a beautiful plant</Message>
         </Field>
-      </StyledCol>
+      </Col>
       <StyledCol sm={4}>
         <Field>
           <Label>Plant</Label>
