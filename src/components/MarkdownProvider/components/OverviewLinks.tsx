@@ -44,7 +44,7 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
             }
 
             return (
-              <StyledListItem key={`${group.title}`}>
+              <StyledListItem key={group.title}>
                 <Link to={`${group.id}`}>{group.title}</Link>
               </StyledListItem>
             );
