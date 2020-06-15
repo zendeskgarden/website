@@ -12,6 +12,7 @@ import { getColor } from '@zendeskgarden/react-theming';
 import { MD, Ellipsis } from '@zendeskgarden/react-typography';
 import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
 import { StyledH3, StyledParagraph } from './Typography';
+import { Markdown } from './Markdown';
 
 export const PropSheets: React.FC<{ propSheets: ComponentDoc[] }> = ({ propSheets }) => (
   <>
@@ -19,7 +20,11 @@ export const PropSheets: React.FC<{ propSheets: ComponentDoc[] }> = ({ propSheet
       propSheets.map((propSheet, index) => (
         <div key={`${propSheet.displayName}-${index}`}>
           <StyledH3>{propSheet.displayName}</StyledH3>
-          {propSheet.description && <StyledParagraph>{propSheet.description}</StyledParagraph>}
+          {propSheet.description && (
+            <StyledParagraph>
+              <Markdown>{propSheet.description}</Markdown>
+            </StyledParagraph>
+          )}
           {Object.keys(propSheet.props).length > 0 && (
             <div
               css={css`
@@ -81,7 +86,7 @@ export const PropSheets: React.FC<{ propSheets: ComponentDoc[] }> = ({ propSheet
                               word-break: break-word;
                             `}
                           >
-                            {prop.description}
+                            <Markdown>{prop.description}</Markdown>
                           </MD>
                         </Cell>
                       </Row>

@@ -14,23 +14,9 @@ import { Configuration } from './components/Configuration';
 import { PropSheets } from './components/PropSheets';
 import { Usage, Use, Misuse } from './components/Usage';
 import { BestPractice, Do, Dont, Caution } from './components/BestPractice';
-import {
-  StyledH2,
-  StyledH3,
-  StyledH4,
-  StyledH5,
-  StyledH6,
-  StyledBlockquote,
-  StyledHr,
-  StyledParagraph,
-  StyledPre,
-  StyledStrong,
-  StyledEmphasis
-} from './components/Typography';
-import { Anchor } from '@zendeskgarden/react-buttons';
+import { COMPONENTS, Markdown } from './components/Markdown';
+import { StyledPre } from './components/Typography';
 import { MDSyntaxHighlighter } from './components/Code';
-import { UL, OL, LI } from './components/Lists';
-import { Table, TR, TH, TD, TBody, THead } from './components/Table';
 
 const GlobalStyle = createGlobalStyle`
   .anchor {
@@ -76,32 +62,14 @@ export const MarkdownProvider: React.FC = ({ children }) => (
         Dont,
         Caution,
         BestPractice,
+        Markdown,
         /**
          * Markdown elements
          */
-        h2: StyledH2,
-        h3: StyledH3,
-        h4: StyledH4,
-        h5: StyledH5,
-        h6: StyledH6,
-        p: StyledParagraph,
-        a: Anchor,
-        blockquote: StyledBlockquote,
-        hr: StyledHr,
-        strong: StyledStrong,
-        em: StyledEmphasis,
+        ...COMPONENTS,
         inlineCode: Code,
         pre: StyledPre,
-        code: MDSyntaxHighlighter,
-        ul: UL,
-        ol: OL,
-        li: LI,
-        table: Table,
-        thead: THead,
-        tbody: TBody,
-        tr: TR,
-        td: TD,
-        th: TH
+        code: MDSyntaxHighlighter
       }}
     >
       {children}

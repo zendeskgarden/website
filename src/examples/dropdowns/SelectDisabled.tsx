@@ -8,15 +8,13 @@
 import React from 'react';
 import { Dropdown, Field, Select, Label } from '@zendeskgarden/react-dropdowns';
 
-const Example = () => {
-  return (
-    <Dropdown>
-      <Field>
-        <Label>Plant</Label>
-        <Select disabled>Cactus</Select>
-      </Field>
-    </Dropdown>
-  );
-};
+const Example = () => (
+  <Dropdown>
+    <Field>
+      <Label>Plant</Label>
+      <Select disabled>Cactus</Select>
+    </Field>
+  </Dropdown>
+);
 
 export default Example;

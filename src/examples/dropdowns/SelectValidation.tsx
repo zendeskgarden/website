@@ -17,49 +17,47 @@ import {
   Message
 } from '@zendeskgarden/react-dropdowns';
 
-const Example = () => {
-  return (
-    <Grid>
-      <Row>
-        <Col>
-          <Dropdown selectedItem="success">
-            <Field>
-              <Label>Plant</Label>
-              <Select validation="success">Cactus</Select>
-              <Message validation="success">Cactus was successfully submitted</Message>
-            </Field>
-            <Menu>
-              <Item disabled>Mock dropdown with no selection logic</Item>
-            </Menu>
-          </Dropdown>
-        </Col>
-        <Col>
-          <Dropdown selectedItem="warning">
-            <Field>
-              <Label>Plant</Label>
-              <Select validation="warning">Cactus</Select>
-              <Message validation="warning">A cactus is a very dry plant</Message>
-            </Field>
-            <Menu>
-              <Item disabled>Mock dropdown with no selection logic</Item>
-            </Menu>
-          </Dropdown>
-        </Col>
-        <Col>
-          <Dropdown selectedItem="error">
-            <Field>
-              <Label>Plant</Label>
-              <Select validation="error">Cactus</Select>
-              <Message validation="error">Cactus is currently unavailable</Message>
-            </Field>
-            <Menu>
-              <Item disabled>Mock dropdown with no selection logic</Item>
-            </Menu>
-          </Dropdown>
-        </Col>
-      </Row>
-    </Grid>
-  );
-};
+const Example = () => (
+  <Grid>
+    <Row>
+      <Col>
+        <Dropdown selectedItem="success">
+          <Field>
+            <Label>Plant</Label>
+            <Select validation="success">Cactus</Select>
+            <Message validation="success">Cactus was successfully submitted</Message>
+          </Field>
+          <Menu>
+            <Item disabled>Mock dropdown with no selection logic</Item>
+          </Menu>
+        </Dropdown>
+      </Col>
+      <Col>
+        <Dropdown selectedItem="warning">
+          <Field>
+            <Label>Plant</Label>
+            <Select validation="warning">Cactus</Select>
+            <Message validation="warning">A cactus is a very dry plant</Message>
+          </Field>
+          <Menu>
+            <Item disabled>Mock dropdown with no selection logic</Item>
+          </Menu>
+        </Dropdown>
+      </Col>
+      <Col>
+        <Dropdown selectedItem="error">
+          <Field>
+            <Label>Plant</Label>
+            <Select validation="error">Cactus</Select>
+            <Message validation="error">Cactus is currently unavailable</Message>
+          </Field>
+          <Menu>
+            <Item disabled>Mock dropdown with no selection logic</Item>
+          </Menu>
+        </Dropdown>
+      </Col>
+    </Row>
+  </Grid>
+);
 
 export default Example;
