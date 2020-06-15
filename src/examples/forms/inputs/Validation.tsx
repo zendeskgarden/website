@@ -10,42 +10,37 @@ import styled from 'styled-components';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { Field, Label, Input, Message } from '@zendeskgarden/react-forms';
 
-const StyledRow = styled(Row)`
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
-    display: flex;
-    flex-direction: column;
-
-    > div:not(:first-child) {
-      margin-top: ${props => props.theme.space.sm};
-    }
+const StyledCol = styled(Col)`
+  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+    margin-top: ${p => p.theme.space.sm};
   }
 `;
 
 const Example = () => (
   <Grid>
-    <StyledRow>
-      <Col>
+    <Row>
+      <StyledCol sm={4}>
         <Field>
           <Label>Plant</Label>
           <Input validation="success" />
           <Message validation="success">A cactus is a beautiful plant</Message>
         </Field>
-      </Col>
-      <Col>
+      </StyledCol>
+      <StyledCol sm={4}>
         <Field>
           <Label>Plant</Label>
           <Input validation="warning" />
           <Message validation="warning">A cactus has thorns</Message>
         </Field>
-      </Col>
-      <Col>
+      </StyledCol>
+      <StyledCol sm={4}>
         <Field>
           <Label>Plant</Label>
           <Input validation="error" />
           <Message validation="error">A cactus belongs in the desert</Message>
         </Field>
-      </Col>
-    </StyledRow>
+      </StyledCol>
+    </Row>
   </Grid>
 );
 
