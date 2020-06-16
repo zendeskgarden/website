@@ -17,6 +17,7 @@ import { BestPractice, Do, Dont, Caution } from './components/BestPractice';
 import { COMPONENTS, Markdown } from './components/Markdown';
 import { StyledPre } from './components/Typography';
 import { MDSyntaxHighlighter } from './components/Code';
+import { OverviewLinks } from './components/OverviewLinks';
 
 const GlobalStyle = createGlobalStyle`
   .anchor {
@@ -63,6 +64,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
         Caution,
         BestPractice,
         Markdown,
+        OverviewLinks,
         /**
          * Markdown elements
          */
