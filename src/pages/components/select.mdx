@@ -4,13 +4,6 @@ description: >
   Select allows a user to pick one option from a list.
   This helps simplify the UI when space is limited.
 package: '@zendeskgarden/react-dropdowns'
-propSheets:
-  - dropdowns/src/elements/Select/Select.tsx
-  - dropdowns/src/elements/Dropdown/Dropdown.tsx
-  - dropdowns/src/elements/Fields/Field.tsx
-  - dropdowns/src/elements/Fields/Hint.tsx
-  - dropdowns/src/elements/Fields/Label.tsx
-  - dropdowns/src/elements/Fields/Message.tsx
 components:
   - dropdowns/src/elements/Select/Select.tsx
   - dropdowns/src/elements/Dropdown/Dropdown.tsx
@@ -53,7 +46,7 @@ import SelectDefaultCode from '!!raw-loader!../../examples/dropdowns/SelectDefau
   <SelectDefault />
 </CodeExample>
 
-### Hint
+### Hint copy
 
 Hint copy gives further clarification.
 
@@ -101,7 +94,7 @@ import SelectDisabledCode from '!!raw-loader!../../examples/dropdowns/SelectDisa
 
 ## Configuration
 
-<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 

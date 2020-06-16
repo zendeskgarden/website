@@ -38,12 +38,6 @@ export const SidebarPageFragment = graphql`
         description
         packageName
       }
-      propsSheets: reactPropSheets {
-        displayName
-        description
-        methods
-        props
-      }
       components: reactComponents {
         name
         description

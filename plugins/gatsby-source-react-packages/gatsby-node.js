@@ -15,16 +15,14 @@ const readdir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
 const lstat = util.promisify(fs.lstat);
 
-const GARDEN_REACT_COMPONENT = 'ReactComponent';
+const GARDEN_REACT_COMPONENT_ID = 'ReactComponent';
 const GARDEN_REACT_PACKAGE_ID = 'ReactPackage';
-const GARDEN_REACT_PROP_SHEET_ID = 'PropSheetJson';
 const { createNodeFactory, generateTypeName } = createNodeHelpers({
   typePrefix: `Garden`
 });
 
-const componentNode = createNodeFactory(GARDEN_REACT_COMPONENT);
+const componentNode = createNodeFactory(GARDEN_REACT_COMPONENT_ID);
 const packageNode = createNodeFactory(GARDEN_REACT_PACKAGE_ID);
-const propSheetJsonNode = createNodeFactory(GARDEN_REACT_PROP_SHEET_ID);
 const TSCONFIG_PATH = path.resolve(__dirname, '..', '..', 'react-components', 'tsconfig.json');
 const PARSER_OPTIONS = {
   propFilter: props =>
@@ -44,7 +42,8 @@ const parseComponents = filePaths => {
       .forEach(key => {
         const prop = component.props[key];
         const type = prop.type.name.replace(/"/gu, "'");
-        let defaultValue = prop.defaultValue && prop.defaultValue.value;
+        let defaultValue =
+          prop.defaultValue && prop.defaultValue.value && prop.defaultValue.value.toString();
 
         if (
           (type === 'string' && defaultValue !== null) ||
@@ -70,29 +69,11 @@ const parseComponents = filePaths => {
   });
 };
 
-/**
- * Remove all `extends` prop sheets (i.e. `HTMLAttributes`)
- */
-const parsePropSheet = reactDocgenTypescript.withCustomConfig(
-  path.resolve(__dirname, '../../react-components/tsconfig.json'),
-  {
-    propFilter: props => {
-      return props.parent.fileName.indexOf('node_modules') === -1;
-    }
-  }
-).parse;
-
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = `
-    type ${generateTypeName(GARDEN_REACT_PROP_SHEET_ID)} @dontInfer {
-      displayName: String
-      description: String
-      props: JSON
-      methods: [JSON]
-    }
-    type ${generateTypeName(GARDEN_REACT_COMPONENT)} @dontInfer {
+    type ${generateTypeName(GARDEN_REACT_COMPONENT_ID)} @dontInfer {
       name: String
       description: String
       props: JSON
@@ -141,25 +122,9 @@ exports.sourceNodes = async ({ actions, reporter }) => {
 exports.createResolvers = ({ createResolvers, cache }) => {
   const resolvers = {
     File: {
-      // Add a `propSheet` resolver as the build time can be long if added as a transformer plugin.
-      propSheet: {
-        type: generateTypeName(GARDEN_REACT_PROP_SHEET_ID),
-        resolve: async source => {
-          // Use the files digest as the cache invalidation key.
-          const propSheetCacheKey = `prop-sheet-cache-${source.internal.contentDigest}`;
-          let cachedPropSheet = await cache.get(propSheetCacheKey);
-
-          if (!cachedPropSheet) {
-            cachedPropSheet = parsePropSheet(source.absolutePath)[0];
-
-            await cache.set(propSheetCacheKey, cachedPropSheet);
-          }
-
-          return propSheetJsonNode(cachedPropSheet);
-        }
-      },
+      // Add a `component` resolver as the build time can be long if added as a transformer plugin.
       component: {
-        type: generateTypeName(GARDEN_REACT_COMPONENT),
+        type: generateTypeName(GARDEN_REACT_COMPONENT_ID),
         resolve: async source => {
           const key = `component-cache-${source.internal.contentDigest}`;
           let component = await cache.get(key);
@@ -193,37 +158,8 @@ exports.createResolvers = ({ createResolvers, cache }) => {
           return undefined;
         }
       },
-      reactPropSheets: {
-        type: [generateTypeName(GARDEN_REACT_PROP_SHEET_ID)],
-        resolve: async (source, args, context) => {
-          if (source.frontmatter.propSheets) {
-            const propSheetFileNodes = await Promise.all(
-              source.frontmatter.propSheets.map(propSheet =>
-                context.nodeModel.runQuery({
-                  query: {
-                    filter: {
-                      sourceInstanceName: { eq: 'react-components' },
-                      relativePath: { eq: propSheet }
-                    }
-                  },
-                  type: 'File',
-                  firstOnly: true
-                })
-              )
-            );
-
-            const propSheetAbsolutePaths = propSheetFileNodes.map(
-              propSheet => propSheet.absolutePath
-            );
-
-            return parsePropSheet(propSheetAbsolutePaths);
-          }
-
-          return undefined;
-        }
-      },
       reactComponents: {
-        type: [generateTypeName(GARDEN_REACT_COMPONENT)],
+        type: [generateTypeName(GARDEN_REACT_COMPONENT_ID)],
         resolve: async (source, args, context) => {
           const components = source.frontmatter.components;
 

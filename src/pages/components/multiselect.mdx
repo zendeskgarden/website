@@ -4,13 +4,6 @@ description: >
   Multiselect is a form component that allows multiple selections to be made from a list of
   options. The options can be dynamically filtered based on what is typed.
 package: '@zendeskgarden/react-dropdowns'
-propSheets:
-  - dropdowns/src/elements/Multiselect/Multiselect.tsx
-  - dropdowns/src/elements/Dropdown/Dropdown.tsx
-  - dropdowns/src/elements/Fields/Field.tsx
-  - dropdowns/src/elements/Fields/Hint.tsx
-  - dropdowns/src/elements/Fields/Label.tsx
-  - dropdowns/src/elements/Menu/Items/Item.tsx
 components:
   - dropdowns/src/elements/Multiselect/Multiselect.tsx
   - dropdowns/src/elements/Dropdown/Dropdown.tsx
@@ -66,7 +59,7 @@ import MultiselectOverflowCode from '!!raw-loader!../../examples/dropdowns/Multi
 
 ## Configuration
 
-<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 

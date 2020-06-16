@@ -4,11 +4,6 @@ description: >
   Tabs organize related content within a single page. This helps users alternate between
   views without refreshing.
 package: '@zendeskgarden/react-tabs'
-propSheets:
-  - tabs/src/elements/Tabs.tsx
-  - tabs/src/elements/Tab.tsx
-  - tabs/src/elements/TabList.tsx
-  - tabs/src/elements/TabPanel.tsx
 components:
   - tabs/src/elements/Tabs.tsx
   - tabs/src/elements/Tab.tsx
@@ -67,7 +62,7 @@ import TabsDisabledCode from '!!raw-loader!../../examples/tabs/TabsDisabled.tsx'
 
 ## Configuration
 
-<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
