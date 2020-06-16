@@ -1,0 +1,165 @@
+---
+title: Inputs
+description: >
+  An input is a form field where the user can enter data.
+package: '@zendeskgarden/react-forms'
+propSheets:
+  - forms/src/elements/FauxInput.tsx
+  - forms/src/elements/common/Field.tsx
+  - forms/src/elements/common/Hint.tsx
+  - forms/src/elements/Input.tsx
+  - forms/src/elements/common/Label.tsx
+  - forms/src/elements/MediaInput.tsx
+  - forms/src/elements/common/Message.tsx
+  - forms/src/elements/Textarea.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To let the user enter data</li>
+      <li>To enter multiline text, use a Textarea</li>
+    </ul>
+  </Use>
+</Usage>
+
+## Examples
+
+### Default
+
+An Input is accompanied with a label indicating its purpose.
+
+import Input from '../../examples/forms/inputs/Input.tsx';
+import InputCode from '!!raw-loader!../../examples/forms/inputs/Input.tsx';
+
+<CodeExample code={InputCode}>
+  <Input />
+</CodeExample>
+
+### Size
+
+A text Input can be default or compact in size.
+
+import Size from '../../examples/forms/inputs/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/forms/inputs/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+### Hint
+
+Hint text adds additional context to the text Input’s label.
+
+import Hint from '../../examples/forms/inputs/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/forms/inputs/Hint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
+</CodeExample>
+
+### Textarea
+
+A Textarea accommodates multiline text. Its height is fixed by default, and can be resizable using
+the `isResizable` property.
+
+import Textarea from '../../examples/forms/inputs/Textarea.tsx';
+import TextareaCode from '!!raw-loader!../../examples/forms/inputs/Textarea.tsx';
+
+<CodeExample code={TextareaCode}>
+  <Textarea />
+</CodeExample>
+
+### Media
+
+An input can contain media elements to further clarify its purpose.
+
+import Icons from '../../examples/forms/inputs/MediaInput.tsx';
+import IconsCode from '!!raw-loader!../../examples/forms/inputs/MediaInput.tsx';
+
+<CodeExample code={IconsCode}>
+  <Icons />
+</CodeExample>
+
+### FauxInput
+
+Provides input styling without native input backing.
+
+import FauxInput from '../../examples/forms/inputs/FauxInput.tsx';
+import FauxInputCode from '!!raw-loader!../../examples/forms/inputs/FauxInput.tsx';
+
+<CodeExample code={FauxInputCode}>
+  <FauxInput />
+</CodeExample>
+
+### Bare
+
+Input borders and padding can be removed using the `isBare` property.
+
+import Bare from '../../examples/forms/inputs/Bare.tsx';
+import BareCode from '!!raw-loader!../../examples/forms/inputs/Bare.tsx';
+
+<CodeExample code={BareCode}>
+  <Bare />
+</CodeExample>
+
+### Focus inset
+
+Input focus styling can be inset using the `focusInset` property. This keeps the focus contained
+within the input area when it is flush with another component.
+
+import FocusInset from '../../examples/forms/inputs/FocusInset.tsx';
+import FocusInsetCode from '!!raw-loader!../../examples/forms/inputs/FocusInset.tsx';
+
+<CodeExample code={FocusInsetCode}>
+  <FocusInset />
+</CodeExample>
+
+### Placeholder
+
+Placeholder text gives an example of content format.
+
+import Placeholder from '../../examples/forms/inputs/Placeholder.tsx';
+import PlaceholderCode from '!!raw-loader!../../examples/forms/inputs/Placeholder.tsx';
+
+<CodeExample code={PlaceholderCode}>
+  <Placeholder />
+</CodeExample>
+
+### Validation
+
+Success, warning, or danger validation messages are shown using the Message component.
+
+import Validation from '../../examples/forms/inputs/Validation.tsx';
+import ValidationCode from '!!raw-loader!../../examples/forms/inputs/Validation.tsx';
+
+<CodeExample code={ValidationCode}>
+  <Validation />
+</CodeExample>
+
+### Disabled
+
+A disabled Input is not interactive and not perceived by a screen reader.
+
+import Disabled from '../../examples/forms/inputs/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/inputs/Disabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+
+## API
+
+<PropSheets propSheets={props.data.mdx.propsSheets} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
