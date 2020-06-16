@@ -17,7 +17,7 @@ import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Markdown } from './Markdown';
 
-export const PropSheet: React.FC<{ components: [IComponentData]; componentName: string }> = ({
+export const PropSheet: React.FC<{ components: IComponentData[]; componentName: string }> = ({
   components,
   componentName
 }) => {
