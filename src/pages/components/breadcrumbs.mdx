@@ -3,6 +3,8 @@ title: Breadcrumbs
 description: >
   Breadcrumbs mark and communicate the current location of where a user is within the product.
 package: '@zendeskgarden/react-breadcrumbs'
+components:
+  - breadcrumbs/src/elements/Breadcrumb.tsx
 ---
 
 <Usage>
@@ -29,7 +31,7 @@ import BreadcrumbsDefaultCode from '!!raw-loader!../../examples/breadcrumbs/Brea
 
 ## Configuration
 
-<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 import { graphql } from 'gatsby';
 

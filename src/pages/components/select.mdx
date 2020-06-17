@@ -4,7 +4,7 @@ description: >
   Select allows a user to pick one option from a list.
   This helps simplify the UI when space is limited.
 package: '@zendeskgarden/react-dropdowns'
-propSheets:
+components:
   - dropdowns/src/elements/Select/Select.tsx
   - dropdowns/src/elements/Dropdown/Dropdown.tsx
   - dropdowns/src/elements/Fields/Field.tsx
@@ -46,7 +46,7 @@ import SelectDefaultCode from '!!raw-loader!../../examples/dropdowns/SelectDefau
   <SelectDefault />
 </CodeExample>
 
-### Hint
+### Hint copy
 
 Hint copy gives further clarification.
 
@@ -94,11 +94,33 @@ import SelectDisabledCode from '!!raw-loader!../../examples/dropdowns/SelectDisa
 
 ## Configuration
 
-<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
-<PropSheets propSheets={props.data.mdx.propsSheets} />
+### Select
+
+<PropSheet components={props.data.mdx.components} componentName="select" />
+
+### Dropdown
+
+<PropSheet components={props.data.mdx.components} componentName="dropdown" />
+
+### Field
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Hint
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Label
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+### Message
+
+<PropSheet components={props.data.mdx.components} componentName="message" />
 
 import { graphql } from 'gatsby';
 

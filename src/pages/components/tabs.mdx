@@ -4,7 +4,7 @@ description: >
   Tabs organize related content within a single page. This helps users alternate between
   views without refreshing.
 package: '@zendeskgarden/react-tabs'
-propSheets:
+components:
   - tabs/src/elements/Tabs.tsx
   - tabs/src/elements/Tab.tsx
   - tabs/src/elements/TabList.tsx
@@ -62,11 +62,25 @@ import TabsDisabledCode from '!!raw-loader!../../examples/tabs/TabsDisabled.tsx'
 
 ## Configuration
 
-<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
-<PropSheets propSheets={props.data.mdx.propsSheets} />
+### Tabs
+
+<PropSheet components={props.data.mdx.components} componentName="tabs" />
+
+### Tab
+
+<PropSheet components={props.data.mdx.components} componentName="tab" />
+
+### TabList
+
+<PropSheet components={props.data.mdx.components} componentName="tabList" />
+
+### TabPanel
+
+<PropSheet components={props.data.mdx.components} componentName="tabPanel" />
 
 import { graphql } from 'gatsby';
 

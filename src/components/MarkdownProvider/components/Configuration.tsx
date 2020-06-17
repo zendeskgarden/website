@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { UnorderedList, Span, MD } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { getColor } from '@zendeskgarden/react-theming';
-import { ComponentDoc } from 'react-docgen-typescript';
+import { IComponentData } from 'src/templates/types';
 
 interface IPackage {
   version: string;
@@ -47,9 +47,9 @@ const StyledMono = styled(MD).attrs({ isMonospace: true, tag: 'span' })`
   color: ${p => getColor('grey', 700, p.theme)};
 `;
 
-export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: ComponentDoc[] }> = ({
+export const Configuration: React.FC<{ reactPackage: IPackage; components: IComponentData[] }> = ({
   reactPackage,
-  propSheets
+  components
 }) => {
   return (
     <StyledUnorderedList>
@@ -79,16 +79,16 @@ export const Configuration: React.FC<{ reactPackage: IPackage; propSheets: Compo
           npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
         </StyledMono>
       </StyledListItem>
-      <StyledListItem>
-        <StyledListItemLabel isBold>Import</StyledListItemLabel>
-        <StyledMono>
-          import{' '}
-          {`{ ${propSheets && propSheets.map(propSheet => propSheet.displayName).join(', ')} }`}{' '}
-          from &apos;
-          {reactPackage.name}
-          &apos;
-        </StyledMono>
-      </StyledListItem>
+      {components && (
+        <StyledListItem>
+          <StyledListItemLabel isBold>Import</StyledListItemLabel>
+          <StyledMono>
+            import {`{ ${components.map(component => component.name).join(', ')} }`} from &apos;
+            {reactPackage.name}
+            &apos;
+          </StyledMono>
+        </StyledListItem>
+      )}
     </StyledUnorderedList>
   );
 };

@@ -11,7 +11,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { Code } from '@zendeskgarden/react-typography';
 import { CodeExample } from './components/CodeExample';
 import { Configuration } from './components/Configuration';
-import { PropSheets } from './components/PropSheets';
+import { PropSheet } from './components/PropSheet';
 import { Usage, Use, Misuse } from './components/Usage';
 import { BestPractice, Do, Dont, Caution } from './components/BestPractice';
 import { COMPONENTS, Markdown } from './components/Markdown';
@@ -55,7 +55,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
          */
         CodeExample,
         Configuration,
-        PropSheets,
+        PropSheet,
         Usage,
         Use,
         Misuse,

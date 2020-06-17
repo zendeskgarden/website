@@ -4,7 +4,7 @@ description: >
   Multiselect is a form component that allows multiple selections to be made from a list of
   options. The options can be dynamically filtered based on what is typed.
 package: '@zendeskgarden/react-dropdowns'
-propSheets:
+components:
   - dropdowns/src/elements/Multiselect/Multiselect.tsx
   - dropdowns/src/elements/Dropdown/Dropdown.tsx
   - dropdowns/src/elements/Fields/Field.tsx
@@ -59,11 +59,33 @@ import MultiselectOverflowCode from '!!raw-loader!../../examples/dropdowns/Multi
 
 ## Configuration
 
-<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
-<PropSheets propSheets={props.data.mdx.propsSheets} />
+### Multiselect
+
+<PropSheet components={props.data.mdx.components} componentName="multiselect" />
+
+### Dropdown
+
+<PropSheet components={props.data.mdx.components} componentName="dropdown" />
+
+### Field
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Hint
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Label
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+### Item
+
+<PropSheet components={props.data.mdx.components} componentName="item" />
 
 import { graphql } from 'gatsby';
 

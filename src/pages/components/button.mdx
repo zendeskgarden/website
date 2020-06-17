@@ -5,7 +5,7 @@ description: >
   decision or initiate an action. Use buttons to indicate
   important actions and move users through their flow.
 package: '@zendeskgarden/react-buttons'
-propSheets:
+components:
   - buttons/src/elements/Button.tsx
 ---
 
@@ -63,11 +63,13 @@ Mark a button disabled with the disabled property.
 
 ## Configuration
 
-<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
-<PropSheets propSheets={props.data.mdx.propsSheets} />
+### Button
+
+<PropSheet components={props.data.mdx.components} componentName="button" />
 
 import { graphql } from 'gatsby';
 

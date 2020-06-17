@@ -5,8 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ComponentDoc } from 'react-docgen-typescript';
 import { IHeading } from 'layouts/Titled/components/TOC';
+
+interface IPropData {
+  description: string;
+  defaultValue: string;
+  required: boolean;
+  type: string;
+}
+
+export interface IComponentData {
+  name: string;
+  description: string;
+  props: Record<string, IPropData>;
+}
 
 export interface IPageData {
   mdx: {
@@ -19,7 +31,7 @@ export interface IPageData {
       name: string;
       description: string;
     };
-    propSheets: [ComponentDoc];
+    components: [IComponentData];
   };
 }
 

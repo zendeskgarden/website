@@ -3,7 +3,7 @@ title: Anchor
 description: >
   The Anchor component is a link used to navigate from one location to another.
 package: '@zendeskgarden/react-buttons'
-propSheets:
+components:
   - buttons/src/elements/Anchor.tsx
 ---
 
@@ -63,11 +63,13 @@ import AnchorDangerCode from '!!raw-loader!../../examples/anchor/AnchorDanger.ts
 
 ## Configuration
 
-<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
-<PropSheets propSheets={props.data.mdx.propsSheets} />
+### Anchor
+
+<PropSheet components={props.data.mdx.components} componentName="anchor" />
 
 import { graphql } from 'gatsby';
 

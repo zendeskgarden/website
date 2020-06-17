@@ -15,36 +15,68 @@ const readdir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
 const lstat = util.promisify(fs.lstat);
 
+const GARDEN_REACT_COMPONENT_ID = 'ReactComponent';
 const GARDEN_REACT_PACKAGE_ID = 'ReactPackage';
-const GARDEN_REACT_PROP_SHEET_ID = 'PropSheetJson';
 const { createNodeFactory, generateTypeName } = createNodeHelpers({
   typePrefix: `Garden`
 });
 
+const componentNode = createNodeFactory(GARDEN_REACT_COMPONENT_ID);
 const packageNode = createNodeFactory(GARDEN_REACT_PACKAGE_ID);
-const propSheetJsonNode = createNodeFactory(GARDEN_REACT_PROP_SHEET_ID);
+const TSCONFIG_PATH = path.resolve(__dirname, '..', '..', 'react-components', 'tsconfig.json');
+const PARSER_OPTIONS = {
+  propFilter: props =>
+    !(props.description.includes('@ignore') || props.parent.fileName.includes('node_modules')),
+  shouldRemoveUndefinedFromOptional: true
+};
+const PARSER = reactDocgenTypescript.withCustomConfig(TSCONFIG_PATH, PARSER_OPTIONS);
 
-/**
- * Remove all `extends` prop sheets (i.e. `HTMLAttributes`)
- */
-const parsePropSheet = reactDocgenTypescript.withCustomConfig(
-  path.resolve(__dirname, '../../react-components/tsconfig.json'),
-  {
-    propFilter: props => {
-      return props.parent.fileName.indexOf('node_modules') === -1;
-    }
-  }
-).parse;
+const parseComponents = filePaths => {
+  const components = PARSER.parse(filePaths);
+
+  return components.map(component => {
+    const props = {};
+
+    Object.keys(component.props)
+      .sort()
+      .forEach(key => {
+        const prop = component.props[key];
+        const type = prop.type.name.replace(/"/gu, "'");
+        let defaultValue =
+          prop.defaultValue && prop.defaultValue.value && prop.defaultValue.value.toString();
+
+        if (
+          (type === 'string' && defaultValue !== null) ||
+          type.indexOf(`'${defaultValue}'`) !== -1
+        ) {
+          // Surround default string literals with quotes.
+          defaultValue = `'${defaultValue}'`;
+        }
+
+        props[key] = {
+          description: prop.description,
+          defaultValue,
+          required: prop.required,
+          type
+        };
+      });
+
+    return {
+      name: component.displayName,
+      description: component.description,
+      props
+    };
+  });
+};
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = `
-    type ${generateTypeName(GARDEN_REACT_PROP_SHEET_ID)} @dontInfer {
-      displayName: String
+    type ${generateTypeName(GARDEN_REACT_COMPONENT_ID)} @dontInfer {
+      name: String
       description: String
       props: JSON
-      methods: [JSON]
     }
   `;
 
@@ -90,21 +122,20 @@ exports.sourceNodes = async ({ actions, reporter }) => {
 exports.createResolvers = ({ createResolvers, cache }) => {
   const resolvers = {
     File: {
-      /** Add a `propSheet` resolver as the build time can be long if added as a transformer plugin. */
-      propSheet: {
-        type: generateTypeName(GARDEN_REACT_PROP_SHEET_ID),
+      // Add a `component` resolver as the build time can be long if added as a transformer plugin.
+      component: {
+        type: generateTypeName(GARDEN_REACT_COMPONENT_ID),
         resolve: async source => {
-          // Use the files digest as the cache invalidation key.
-          const propSheetCacheKey = `prop-sheet-cache-${source.internal.contentDigest}`;
-          let cachedPropSheet = await cache.get(propSheetCacheKey);
+          const key = `component-cache-${source.internal.contentDigest}`;
+          let component = await cache.get(key);
 
-          if (!cachedPropSheet) {
-            cachedPropSheet = parsePropSheet(source.absolutePath)[0];
+          if (!component) {
+            component = parseComponents(source.absolutePath)[0];
 
-            await cache.set(propSheetCacheKey, cachedPropSheet);
+            await cache.set(key, component);
           }
 
-          return propSheetJsonNode(cachedPropSheet);
+          return componentNode(component);
         }
       }
     },
@@ -127,30 +158,31 @@ exports.createResolvers = ({ createResolvers, cache }) => {
           return undefined;
         }
       },
-      reactPropSheets: {
-        type: [generateTypeName(GARDEN_REACT_PROP_SHEET_ID)],
+      reactComponents: {
+        type: [generateTypeName(GARDEN_REACT_COMPONENT_ID)],
         resolve: async (source, args, context) => {
-          if (source.frontmatter.propSheets) {
-            const propSheetFileNodes = await Promise.all(
-              source.frontmatter.propSheets.map(propSheet =>
-                context.nodeModel.runQuery({
+          const components = source.frontmatter.components;
+
+          if (components) {
+            const componentNodes = await Promise.all(
+              components.map(component => {
+                const query = {
                   query: {
                     filter: {
                       sourceInstanceName: { eq: 'react-components' },
-                      relativePath: { eq: propSheet }
+                      relativePath: { eq: component }
                     }
                   },
                   type: 'File',
                   firstOnly: true
-                })
-              )
-            );
+                };
 
-            const propSheetAbsolutePaths = propSheetFileNodes.map(
-              propSheet => propSheet.absolutePath
+                return context.nodeModel.runQuery(query);
+              })
             );
+            const filePaths = componentNodes.map(node => node.absolutePath);
 
-            return parsePropSheet(propSheetAbsolutePaths);
+            return parseComponents(filePaths);
           }
 
           return undefined;
