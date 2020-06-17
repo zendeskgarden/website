@@ -6,7 +6,7 @@
  */
 
 import React, { useRef, useState, useMemo, useEffect } from 'react';
-import styled, { css, DefaultTheme } from 'styled-components';
+import { css, DefaultTheme } from 'styled-components';
 import { ThemeProvider, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { IconButton, ToggleIconButton } from '@zendeskgarden/react-buttons';
@@ -17,14 +17,7 @@ import { ReactComponent as DirectionRtlStroke } from '@zendeskgarden/svg-icons/s
 import { SyntaxHighlighter } from './components/SyntaxHighlighter';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
 import { copyToClipboard } from './utils/copyToClipboard';
-
-const StyledExampleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: ${p => p.theme.space.md};
-  direction: ${p => p.theme.rtl && 'rtl'};
-`;
+import { Row, Col } from '@zendeskgarden/react-grid';
 
 export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const [isRtl, setIsRtl] = useState(false);
@@ -65,7 +58,19 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
       `}
     >
       <ThemeProvider theme={exampleTheme} focusVisibleRef={focusVisibleRef}>
-        <StyledExampleWrapper>{children}</StyledExampleWrapper>
+        <Row
+          css={css`
+            padding: ${p => p.theme.space.md};
+          `}
+        >
+          <Col
+            css={css`
+              direction: ${p => p.theme.rtl && 'rtl'};
+            `}
+          >
+            {children}
+          </Col>
+        </Row>
       </ThemeProvider>
       <div
         css={css`
