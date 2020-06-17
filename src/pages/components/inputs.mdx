@@ -3,7 +3,7 @@ title: Inputs
 description: >
   An input is a form field where the user can enter data.
 package: '@zendeskgarden/react-forms'
-propSheets:
+components:
   - forms/src/elements/FauxInput.tsx
   - forms/src/elements/common/Field.tsx
   - forms/src/elements/common/Hint.tsx
@@ -47,7 +47,7 @@ import SizeCode from '!!raw-loader!../../examples/forms/inputs/Size.tsx';
   <Size />
 </CodeExample>
 
-### Hint
+### Hint text
 
 Hint text adds additional context to the text Input’s label.
 
@@ -58,7 +58,7 @@ import HintCode from '!!raw-loader!../../examples/forms/inputs/Hint.tsx';
   <Hint />
 </CodeExample>
 
-### Textarea
+### Textarea input
 
 A Textarea accommodates multiline text. Its height is fixed by default, and can be resizable using
 the `isResizable` property.
@@ -70,7 +70,7 @@ import TextareaCode from '!!raw-loader!../../examples/forms/inputs/Textarea.tsx'
   <Textarea />
 </CodeExample>
 
-### Media
+### Media input
 
 An input can contain media elements to further clarify its purpose.
 
@@ -81,7 +81,7 @@ import IconsCode from '!!raw-loader!../../examples/forms/inputs/MediaInput.tsx';
   <Icons />
 </CodeExample>
 
-### FauxInput
+### Faux input
 
 Provides input styling without native input backing.
 
@@ -150,11 +150,41 @@ import DisabledCode from '!!raw-loader!../../examples/forms/inputs/Disabled.tsx'
 
 ## Configuration
 
-<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
-<PropSheets propSheets={props.data.mdx.propsSheets} />
+### FauxInput
+
+<PropSheet components={props.data.mdx.components} componentName="fauxInput" />
+
+### Field
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Hint
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Input
+
+<PropSheet components={props.data.mdx.components} componentName="input" />
+
+### Label
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+### MediaInput
+
+<PropSheet components={props.data.mdx.components} componentName="mediaInput" />
+
+### Message
+
+<PropSheet components={props.data.mdx.components} componentName="message" />
+
+### Textarea
+
+<PropSheet components={props.data.mdx.components} componentName="textarea" />
 
 import { graphql } from 'gatsby';
 
