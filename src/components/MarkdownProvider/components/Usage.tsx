@@ -12,14 +12,14 @@ import { StyledH4 as Title } from './Typography';
 
 export const Use: React.FC = props => (
   <Col sm>
-    <Title tag="div">When to use</Title>
+    <Title tag="div">Used for this</Title>
     {props.children}
   </Col>
 );
 
 export const Misuse: React.FC = props => (
   <Col sm>
-    <Title tag="div">When NOT to use</Title>
+    <Title tag="div">Not for this</Title>
     {props.children}
   </Col>
 );
