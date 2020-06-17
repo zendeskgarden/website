@@ -1,8 +1,8 @@
 ---
 title: Avatar
 description: >
-  Avatars display typography, icons, or images in different sizes. They help users quickly recognize
-  an entity.
+  An Avatar is a visual way to represent a person or brand in the product. They can display text,
+  icons, or images.
 package: '@zendeskgarden/react-avatars'
 components:
   - avatars/src/elements/Avatar.tsx
@@ -16,11 +16,11 @@ components:
   </Use>
 </Usage>
 
-## Examples
+## How to use it
 
 ### Shape
 
-An Avatar can be a circle or rounded square. View the shape usage [best practices](#best-practices).
+An Avatar can be a circle or rounded square. See [best practices](#how-to-use-it-well).
 
 import AvatarShape from '../../examples/avatar/AvatarShape.tsx';
 import AvatarShapeCode from '!!raw-loader!../../examples/avatar/AvatarShape.tsx';
@@ -31,7 +31,7 @@ import AvatarShapeCode from '!!raw-loader!../../examples/avatar/AvatarShape.tsx'
 
 ### Size
 
-Sizing can be adjusted to displayed sizes. The default size of an Avatar is `medium`.
+You have 5 sizes to choose from. The default size is `medium`.
 
 import AvatarSize from '../../examples/avatar/AvatarSize.tsx';
 import AvatarSizeCode from '!!raw-loader!../../examples/avatar/AvatarSize.tsx';
@@ -42,7 +42,7 @@ import AvatarSizeCode from '!!raw-loader!../../examples/avatar/AvatarSize.tsx';
 
 ### Type
 
-An Avatar can contain an icon, image, or text.
+An Avatar can contain an icon, an image, or text.
 
 import AvatarType from '../../examples/avatar/AvatarType.tsx';
 import AvatarTypeCode from '!!raw-loader!../../examples/avatar/AvatarType.tsx';
@@ -53,8 +53,7 @@ import AvatarTypeCode from '!!raw-loader!../../examples/avatar/AvatarType.tsx';
 
 ### Status
 
-A status ring can be applied to the outside of an Avatar to communicate a user is away, available,
-or active.
+A colored ring outside the Avatar indicates a user's status. The options are away, available, or active.
 
 import AvatarStatus from '../../examples/avatar/AvatarStatus.tsx';
 import AvatarStatusCode from '!!raw-loader!../../examples/avatar/AvatarStatus.tsx';
@@ -63,20 +62,19 @@ import AvatarStatusCode from '!!raw-loader!../../examples/avatar/AvatarStatus.ts
   <AvatarStatus />
 </CodeExample>
 
-## Best practices
+## How to use it well
 
-### Selecting the right Avatar shape
+### Select the right shape for the job
 
-Circular Avatars are used to represent a person because the shape is most often associated with a
-profile picture. Rounded squares are used for system applications like objects, brands, or products.
-This helps the user quickly distinguish between a person or a system when scanning.
+Use circles to represent people and rounded squares for objects, brands, or products. This helps a
+user distinguish between the two when scanning a page.
 
 <BestPractice>
   <Do imageSource={props.data.avatarShapeCircle.children[0].publicURL}>
-    <p>Use a circular shape to represent a person.</p>
+    <p>Use a circular Avatar for people.</p>
   </Do>
   <Do imageSource={props.data.avatarShapeSquare.children[0].publicURL}>
-    <p>Use the rounded square shape to represent objects, brands, or products.</p>
+    <p>Use a rounded square Avatar for objects, brands, or Zendesk products.</p>
   </Do>
 </BestPractice>
 
