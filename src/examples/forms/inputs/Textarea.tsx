@@ -6,13 +6,31 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
+import { Row, Col } from '@zendeskgarden/react-grid';
 import { Field, Label, Textarea } from '@zendeskgarden/react-forms';
 
+const StyledCol = styled(Col)`
+  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+    margin-top: ${p => p.theme.space.sm};
+  }
+`;
+
 const Example = () => (
-  <Field>
-    <Label>Plant</Label>
-    <Textarea />
-  </Field>
+  <Row justifyContent="center">
+    <Col sm={5}>
+      <Field>
+        <Label>Plant</Label>
+        <Textarea />
+      </Field>
+    </Col>
+    <StyledCol sm={5}>
+      <Field>
+        <Label>Plant</Label>
+        <Textarea isResizable />
+      </Field>
+    </StyledCol>
+  </Row>
 );
 
 export default Example;

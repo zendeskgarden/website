@@ -6,8 +6,15 @@
  */
 
 import React, { useState } from 'react';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import styled from 'styled-components';
+import { Row, Col } from '@zendeskgarden/react-grid';
 import { Dropdown, Field, Menu, Item, Select, Label } from '@zendeskgarden/react-dropdowns';
+
+const StyledCol = styled(Col)`
+  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+    margin-top: ${p => p.theme.space.sm};
+  }
+`;
 
 interface IItem {
   label: string;
@@ -25,48 +32,46 @@ const Example = () => {
   const [selectedCompactItem, setSelectedCompactItem] = useState(items[0]);
 
   return (
-    <Grid>
-      <Row>
-        <Col>
-          <Dropdown
-            selectedItem={selectedDefaultItem}
-            onSelect={setSelectedDefaultItem}
-            downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
-          >
-            <Field>
-              <Label>Plant</Label>
-              <Select>{selectedDefaultItem.label}</Select>
-            </Field>
-            <Menu>
-              {items.map(option => (
-                <Item key={option.value} value={option}>
-                  {option.label}
-                </Item>
-              ))}
-            </Menu>
-          </Dropdown>
-        </Col>
-        <Col>
-          <Dropdown
-            selectedItem={selectedCompactItem}
-            onSelect={setSelectedCompactItem}
-            downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
-          >
-            <Field>
-              <Label>Plant</Label>
-              <Select isCompact>{selectedCompactItem.label}</Select>
-            </Field>
-            <Menu isCompact>
-              {items.map(option => (
-                <Item key={option.value} value={option}>
-                  {option.label}
-                </Item>
-              ))}
-            </Menu>
-          </Dropdown>
-        </Col>
-      </Row>
-    </Grid>
+    <Row alignItems="center" justifyContent="center">
+      <Col sm={5}>
+        <Dropdown
+          selectedItem={selectedDefaultItem}
+          onSelect={setSelectedDefaultItem}
+          downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
+        >
+          <Field>
+            <Label>Plant</Label>
+            <Select>{selectedDefaultItem.label}</Select>
+          </Field>
+          <Menu>
+            {items.map(option => (
+              <Item key={option.value} value={option}>
+                {option.label}
+              </Item>
+            ))}
+          </Menu>
+        </Dropdown>
+      </Col>
+      <StyledCol sm={5}>
+        <Dropdown
+          selectedItem={selectedCompactItem}
+          onSelect={setSelectedCompactItem}
+          downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
+        >
+          <Field>
+            <Label>Plant</Label>
+            <Select isCompact>{selectedCompactItem.label}</Select>
+          </Field>
+          <Menu isCompact>
+            {items.map(option => (
+              <Item key={option.value} value={option}>
+                {option.label}
+              </Item>
+            ))}
+          </Menu>
+        </Dropdown>
+      </StyledCol>
+    </Row>
   );
 };
 

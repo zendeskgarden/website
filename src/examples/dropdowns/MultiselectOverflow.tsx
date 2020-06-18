@@ -7,9 +7,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Dropdown, Multiselect, Field, Menu, Item, Label } from '@zendeskgarden/react-dropdowns';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import debounce from 'lodash.debounce';
 import { Tag } from '@zendeskgarden/react-tags';
+import debounce from 'lodash.debounce';
 
 const options = [
   'Asparagus',
@@ -76,36 +75,30 @@ const Example = () => {
   };
 
   return (
-    <Grid>
-      <Row>
-        <Col>
-          <Dropdown
-            inputValue={inputValue}
-            selectedItems={selectedItems}
-            onSelect={items => setSelectedItems(items)}
-            downshiftProps={{ defaultHighlightedIndex: 0 }}
-            onStateChange={changes => {
-              if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-                setInputValue((changes as any).inputValue);
-              }
-            }}
-          >
-            <Field>
-              <Label>Vegetables</Label>
-              <Multiselect
-                renderItem={({ value, removeValue }: any) => (
-                  <Tag size="large">
-                    <span>{value}</span>
-                    <Tag.Close onClick={() => removeValue()} />
-                  </Tag>
-                )}
-              />
-            </Field>
-            <Menu>{renderOptions()}</Menu>
-          </Dropdown>
-        </Col>
-      </Row>
-    </Grid>
+    <Dropdown
+      inputValue={inputValue}
+      selectedItems={selectedItems}
+      onSelect={items => setSelectedItems(items)}
+      downshiftProps={{ defaultHighlightedIndex: 0 }}
+      onStateChange={changes => {
+        if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
+          setInputValue((changes as any).inputValue);
+        }
+      }}
+    >
+      <Field>
+        <Label>Vegetables</Label>
+        <Multiselect
+          renderItem={({ value, removeValue }: any) => (
+            <Tag size="large">
+              <span>{value}</span>
+              <Tag.Close onClick={() => removeValue()} />
+            </Tag>
+          )}
+        />
+      </Field>
+      <Menu>{renderOptions()}</Menu>
+    </Dropdown>
   );
 };
 

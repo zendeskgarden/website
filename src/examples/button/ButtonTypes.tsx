@@ -6,25 +6,21 @@
  */
 
 import React from 'react';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 
-const Example = () => {
-  return (
-    <Grid>
-      <Row>
-        <Col textAlign="center">
-          <Button>Default</Button>
-        </Col>
-        <Col textAlign="center">
-          <Button isPrimary>Primary</Button>
-        </Col>
-        <Col textAlign="center">
-          <Button isBasic>Basic</Button>
-        </Col>
-      </Row>
-    </Grid>
-  );
-};
+const Example = () => (
+  <Row>
+    <Col textAlign="center">
+      <Button>Default</Button>
+    </Col>
+    <Col textAlign="center">
+      <Button isPrimary>Primary</Button>
+    </Col>
+    <Col textAlign="center">
+      <Button isBasic>Basic</Button>
+    </Col>
+  </Row>
+);
 
 export default Example;

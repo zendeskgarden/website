@@ -7,13 +7,16 @@
 
 import React from 'react';
 import { Anchor } from '@zendeskgarden/react-buttons';
+import { Row, Col } from '@zendeskgarden/react-grid';
 
-const Example = () => {
-  return (
-    <Anchor isDanger href="#danger">
-      Leave the Garden
-    </Anchor>
-  );
-};
+const Example = () => (
+  <Row>
+    <Col textAlign="center">
+      <Anchor isDanger href="#danger">
+        Leave the Garden
+      </Anchor>
+    </Col>
+  </Row>
+);
 
 export default Example;

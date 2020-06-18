@@ -7,12 +7,17 @@
 
 import React from 'react';
 import { Field, Label, Input } from '@zendeskgarden/react-forms';
+import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Field>
-    <Label>Plant</Label>
-    <Input isBare placeholder="Type plant name" />
-  </Field>
+  <Row justifyContent="center">
+    <Col sm={5}>
+      <Field>
+        <Label>Plant</Label>
+        <Input isBare placeholder="Type plant name" />
+      </Field>
+    </Col>
+  </Row>
 );
 
 export default Example;

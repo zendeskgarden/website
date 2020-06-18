@@ -7,30 +7,28 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 
 const StyledRow = styled(Row)`
   margin-top: ${p => p.theme.space.md};
 `;
 
-const Example = () => {
-  return (
-    <Grid>
-      <Row>
-        <Col textAlign="center">
-          <Button isStretched>Stretched</Button>
-        </Col>
-      </Row>
-      <StyledRow>
-        <Col textAlign="center">
-          <Button isPrimary isStretched>
-            Stretched
-          </Button>
-        </Col>
-      </StyledRow>
-    </Grid>
-  );
-};
+const Example = () => (
+  <>
+    <Row>
+      <Col textAlign="center">
+        <Button isStretched>Stretched</Button>
+      </Col>
+    </Row>
+    <StyledRow>
+      <Col textAlign="center">
+        <Button isPrimary isStretched>
+          Stretched
+        </Button>
+      </Col>
+    </StyledRow>
+  </>
+);
 
 export default Example;

@@ -7,9 +7,14 @@
 
 import React from 'react';
 import { Anchor } from '@zendeskgarden/react-buttons';
+import { Row, Col } from '@zendeskgarden/react-grid';
 
-const Example = () => {
-  return <Anchor href="#default">Go to the Garden</Anchor>;
-};
+const Example = () => (
+  <Row>
+    <Col textAlign="center">
+      <Anchor href="#default">Go to the Garden</Anchor>
+    </Col>
+  </Row>
+);
 
 export default Example;
