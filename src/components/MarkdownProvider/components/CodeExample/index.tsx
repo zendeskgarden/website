@@ -17,7 +17,6 @@ import { ReactComponent as DirectionRtlStroke } from '@zendeskgarden/svg-icons/s
 import { SyntaxHighlighter } from './components/SyntaxHighlighter';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
 import { copyToClipboard } from './utils/copyToClipboard';
-import { Row, Col } from '@zendeskgarden/react-grid';
 
 export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const [isRtl, setIsRtl] = useState(false);
@@ -58,19 +57,13 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
       `}
     >
       <ThemeProvider theme={exampleTheme} focusVisibleRef={focusVisibleRef}>
-        <Row
+        <div
           css={css`
             padding: ${p => p.theme.space.md};
           `}
         >
-          <Col
-            css={css`
-              direction: ${p => p.theme.rtl && 'rtl'};
-            `}
-          >
-            {children}
-          </Col>
-        </Row>
+          {children}
+        </div>
       </ThemeProvider>
       <div
         css={css`
