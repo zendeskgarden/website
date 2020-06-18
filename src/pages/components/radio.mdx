@@ -3,7 +3,7 @@ title: Radio
 description: >
   Radio buttons let users choose a single option among two or more mutually exclusive options.
 package: '@zendeskgarden/react-forms'
-propSheets:
+components:
   - forms/src/elements/Radio.tsx
   - forms/src/elements/common/Field.tsx
   - forms/src/elements/common/Hint.tsx
@@ -96,11 +96,29 @@ import DisabledCode from '!!raw-loader!../../examples/forms/radio/Disabled.tsx';
 
 ## Configuration
 
-<Configuration reactPackage={props.data.mdx.package} propSheets={props.data.mdx.propsSheets} />
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
-<PropSheets propSheets={props.data.mdx.propsSheets} />
+### Radio
+
+<PropSheet components={props.data.mdx.components} componentName="radio" />
+
+### Field
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Hint
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Label
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+### Message
+
+<PropSheet components={props.data.mdx.components} componentName="message" />
 
 import { graphql } from 'gatsby';
 
