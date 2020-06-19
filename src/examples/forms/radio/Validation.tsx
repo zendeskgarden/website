@@ -30,7 +30,7 @@ const Example = () => {
 
   return (
     <Row justifyContent="center">
-      <Col size="3">
+      <Col size="auto">
         <MD isBold>Choose a growth type</MD>
         <div role="group" aria-label="Choose a growth type">
           <Field>
