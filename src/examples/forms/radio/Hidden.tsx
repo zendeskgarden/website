@@ -7,37 +7,38 @@
 
 import React, { useState } from 'react';
 import { Field, Label, Radio } from '@zendeskgarden/react-forms';
+import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [radioValue, setRadioValue] = useState('annual');
 
   return (
-    <div role="group" aria-label="Choose a plant lifecycle">
-      <Field>
-        <Radio
-          name="hidden-example"
-          value="annual"
-          checked={radioValue === 'annual'}
-          onChange={event => setRadioValue(event.target.value)}
-        >
-          <Label hidden style={{ display: 'inline-block' }}>
-            Annual
-          </Label>
-        </Radio>
-      </Field>
-      <Field>
-        <Radio
-          name="hidden-example"
-          value="perennial"
-          checked={radioValue === 'perennial'}
-          onChange={event => setRadioValue(event.target.value)}
-        >
-          <Label hidden style={{ display: 'inline-block' }}>
-            Perennial
-          </Label>
-        </Radio>
-      </Field>
-    </div>
+    <Row justifyContent="center">
+      <Col size="auto">
+        <div role="group" aria-label="Choose a plant lifecycle">
+          <Field>
+            <Radio
+              name="hidden-example"
+              value="annual"
+              checked={radioValue === 'annual'}
+              onChange={event => setRadioValue(event.target.value)}
+            >
+              <Label hidden>Annual</Label>
+            </Radio>
+          </Field>
+          <Field>
+            <Radio
+              name="hidden-example"
+              value="perennial"
+              checked={radioValue === 'perennial'}
+              onChange={event => setRadioValue(event.target.value)}
+            >
+              <Label hidden>Perennial</Label>
+            </Radio>
+          </Field>
+        </div>
+      </Col>
+    </Row>
   );
 };
 
