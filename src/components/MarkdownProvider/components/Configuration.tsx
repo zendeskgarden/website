@@ -7,7 +7,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { UnorderedList, Span, MD } from '@zendeskgarden/react-typography';
+import { UnorderedList, Span } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { getColor } from '@zendeskgarden/react-theming';
 import { IComponentData } from 'src/templates/types';
@@ -43,7 +43,7 @@ const StyledDot = styled(Span)`
   color: ${p => getColor('grey', 600, p.theme)};
 `;
 
-const StyledMono = styled(MD).attrs({ isMonospace: true, tag: 'span' })`
+const StyledMono = styled(Span).attrs({ isMonospace: true })`
   color: ${p => getColor('grey', 700, p.theme)};
 `;
 
