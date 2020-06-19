@@ -6,10 +6,11 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import styled from 'styled-components';
 import { Dropdown, Multiselect, Field, Menu, Item, Label } from '@zendeskgarden/react-dropdowns';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import debounce from 'lodash.debounce';
+import { Row, Col } from '@zendeskgarden/react-grid';
 import { Tag } from '@zendeskgarden/react-tags';
+import debounce from 'lodash.debounce';
 
 const options = [
   'Asparagus',
@@ -28,6 +29,12 @@ const options = [
   'Yam',
   'Zucchini'
 ];
+
+const StyledCol = styled(Col)`
+  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+    margin-top: ${p => p.theme.space.sm};
+  }
+`;
 
 const Example = () => {
   const [selectedItems, setSelectedItems] = useState([
@@ -73,63 +80,61 @@ const Example = () => {
   };
 
   return (
-    <Grid>
-      <Row justifyContent="center">
-        <Col>
-          <Dropdown
-            inputValue={inputValue}
-            selectedItems={selectedItems}
-            onSelect={items => setSelectedItems(items)}
-            downshiftProps={{ defaultHighlightedIndex: 0 }}
-            onStateChange={changes => {
-              if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-                setInputValue((changes as any).inputValue);
-              }
-            }}
-          >
-            <Field>
-              <Label>Vegetables</Label>
-              <Multiselect
-                isCompact
-                renderItem={({ value, removeValue }: any) => (
-                  <Tag>
-                    <span>{value}</span>
-                    <Tag.Close onClick={() => removeValue()} />
-                  </Tag>
-                )}
-              />
-            </Field>
-            <Menu isCompact>{renderOptions()}</Menu>
-          </Dropdown>
-        </Col>
-        <Col>
-          <Dropdown
-            inputValue={inputValue}
-            selectedItems={selectedItems}
-            onSelect={items => setSelectedItems(items)}
-            downshiftProps={{ defaultHighlightedIndex: 0 }}
-            onStateChange={changes => {
-              if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-                setInputValue((changes as any).inputValue);
-              }
-            }}
-          >
-            <Field>
-              <Label>Vegetables</Label>
-              <Multiselect
-                renderItem={({ value, removeValue }: any) => (
-                  <Tag size="large">
-                    <span>{value}</span>
-                    <Tag.Close onClick={() => removeValue()} />
-                  </Tag>
-                )}
-              />
-            </Field>
-            <Menu>{renderOptions()}</Menu>
-          </Dropdown>
-        </Col>
-      </Row>
-    </Grid>
+    <Row alignItems="center">
+      <Col>
+        <Dropdown
+          inputValue={inputValue}
+          selectedItems={selectedItems}
+          onSelect={items => setSelectedItems(items)}
+          downshiftProps={{ defaultHighlightedIndex: 0 }}
+          onStateChange={changes => {
+            if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
+              setInputValue((changes as any).inputValue);
+            }
+          }}
+        >
+          <Field>
+            <Label>Vegetables</Label>
+            <Multiselect
+              isCompact
+              renderItem={({ value, removeValue }: any) => (
+                <Tag>
+                  <span>{value}</span>
+                  <Tag.Close onClick={() => removeValue()} />
+                </Tag>
+              )}
+            />
+          </Field>
+          <Menu isCompact>{renderOptions()}</Menu>
+        </Dropdown>
+      </Col>
+      <StyledCol>
+        <Dropdown
+          inputValue={inputValue}
+          selectedItems={selectedItems}
+          onSelect={items => setSelectedItems(items)}
+          downshiftProps={{ defaultHighlightedIndex: 0 }}
+          onStateChange={changes => {
+            if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
+              setInputValue((changes as any).inputValue);
+            }
+          }}
+        >
+          <Field>
+            <Label>Vegetables</Label>
+            <Multiselect
+              renderItem={({ value, removeValue }: any) => (
+                <Tag size="large">
+                  <span>{value}</span>
+                  <Tag.Close onClick={() => removeValue()} />
+                </Tag>
+              )}
+            />
+          </Field>
+          <Menu>{renderOptions()}</Menu>
+        </Dropdown>
+      </StyledCol>
+    </Row>
   );
 };
 

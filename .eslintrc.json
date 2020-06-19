@@ -50,9 +50,10 @@
   },
   "overrides": [
     {
-      "files": ["src/examples/dropdowns/**/*.{ts,tsx}"],
+      "files": ["src/examples/**/*.{ts,tsx}"],
       "rules": {
-        "no-alert": "off"
+        "no-alert": "off",
+        "jsx-a11y/img-redundant-alt": "off"
       }
     }
   ]

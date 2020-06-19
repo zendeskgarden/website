@@ -7,13 +7,18 @@
 
 import React from 'react';
 import { Field, Label, Hint, Input } from '@zendeskgarden/react-forms';
+import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Field>
-    <Label>Plant</Label>
-    <Hint>Plants in the Garden</Hint>
-    <Input />
-  </Field>
+  <Row justifyContent="center">
+    <Col sm={5}>
+      <Field>
+        <Label>Plant</Label>
+        <Hint>Plants in the Garden</Hint>
+        <Input />
+      </Field>
+    </Col>
+  </Row>
 );
 
 export default Example;

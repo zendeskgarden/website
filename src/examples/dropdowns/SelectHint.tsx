@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { Dropdown, Field, Menu, Item, Hint, Select, Label } from '@zendeskgarden/react-dropdowns';
+import { Row, Col } from '@zendeskgarden/react-grid';
 
 interface IItem {
   label: string;
@@ -23,24 +24,28 @@ const Example = () => {
   const [selectedItem, setSelectedItem] = useState(items[0]);
 
   return (
-    <Dropdown
-      selectedItem={selectedItem}
-      onSelect={setSelectedItem}
-      downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
-    >
-      <Field>
-        <Label>Plant</Label>
-        <Hint>Choose your favorite plant</Hint>
-        <Select>{selectedItem.label}</Select>
-      </Field>
-      <Menu>
-        {items.map(option => (
-          <Item key={option.value} value={option}>
-            {option.label}
-          </Item>
-        ))}
-      </Menu>
-    </Dropdown>
+    <Row justifyContent="center">
+      <Col sm={5}>
+        <Dropdown
+          selectedItem={selectedItem}
+          onSelect={setSelectedItem}
+          downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
+        >
+          <Field>
+            <Label>Plant</Label>
+            <Hint>Choose your favorite plant</Hint>
+            <Select>{selectedItem.label}</Select>
+          </Field>
+          <Menu>
+            {items.map(option => (
+              <Item key={option.value} value={option}>
+                {option.label}
+              </Item>
+            ))}
+          </Menu>
+        </Dropdown>
+      </Col>
+    </Row>
   );
 };
 

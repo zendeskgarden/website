@@ -8,6 +8,7 @@
 import React from 'react';
 import { Field, Label, Input } from '@zendeskgarden/react-forms';
 import styled from 'styled-components';
+import { Row, Col } from '@zendeskgarden/react-grid';
 
 const StyledField = styled(Field)`
   display: flex;
@@ -19,10 +20,14 @@ const StyledLabel = styled(Label)`
 `;
 
 const Example = () => (
-  <StyledField>
-    <StyledLabel>Plant</StyledLabel>
-    <Input style={{ margin: 0, width: 'auto' }} />
-  </StyledField>
+  <Row justifyContent="center">
+    <Col size="auto">
+      <StyledField>
+        <StyledLabel>Plant</StyledLabel>
+        <Input style={{ margin: 0, width: 'auto' }} />
+      </StyledField>
+    </Col>
+  </Row>
 );
 
 export default Example;

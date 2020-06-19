@@ -8,41 +8,35 @@
 import React from 'react';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Row, Col } from '@zendeskgarden/react-grid';
 
-const Example = () => {
-  const iconColor = PALETTE.grey[600];
-
-  return (
-    <Grid>
-      <Row alignItems="center">
-        <Col textAlign="center">
-          <Avatar backgroundColor={iconColor} status="away">
-            <img
-              alt="away avatar"
-              src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
-            />
-          </Avatar>
-        </Col>
-        <Col textAlign="center">
-          <Avatar backgroundColor={iconColor} status="available">
-            <img
-              alt="available avatar"
-              src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
-            />
-          </Avatar>
-        </Col>
-        <Col textAlign="center">
-          <Avatar backgroundColor={iconColor} badge={8}>
-            <img
-              alt="active avatar"
-              src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
-            />
-          </Avatar>
-        </Col>
-      </Row>
-    </Grid>
-  );
-};
+const Example = () => (
+  <Row>
+    <Col textAlign="center">
+      <Avatar backgroundColor={PALETTE.grey[600]} status="away">
+        <img
+          alt="away avatar"
+          src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
+        />
+      </Avatar>
+    </Col>
+    <Col textAlign="center">
+      <Avatar backgroundColor={PALETTE.grey[600]} status="available">
+        <img
+          alt="available avatar"
+          src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
+        />
+      </Avatar>
+    </Col>
+    <Col textAlign="center">
+      <Avatar backgroundColor={PALETTE.grey[600]} badge={8}>
+        <img
+          alt="active avatar"
+          src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
+        />
+      </Avatar>
+    </Col>
+  </Row>
+);
 
 export default Example;
