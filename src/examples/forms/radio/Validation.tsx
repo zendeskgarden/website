@@ -8,19 +8,20 @@
 import React, { useState } from 'react';
 import { Field, Label, Radio, Message } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { MD } from '@zendeskgarden/react-typography';
 
 const cyclce: Record<string, any> = {
   annual: {
     validation: 'success',
-    message: 'Success'
+    message: 'Growing all the time'
   },
   perennial: {
     validation: 'warning',
-    message: 'Warning'
+    message: 'Growing reguarly'
   },
   biennial: {
     validation: 'error',
-    message: 'Error'
+    message: 'Growing slowly'
   }
 };
 
@@ -29,8 +30,9 @@ const Example = () => {
 
   return (
     <Row justifyContent="center">
-      <Col size="auto">
-        <div role="group" aria-label="Choose a plant lifecycle">
+      <Col size="3">
+        <MD isBold>Choose a growth type</MD>
+        <div role="group" aria-label="Choose a growth type">
           <Field>
             <Radio
               name="validation-example"
@@ -38,7 +40,7 @@ const Example = () => {
               checked={radioValue === 'annual'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label>Annual</Label>
+              <Label isRegular>Annual</Label>
             </Radio>
           </Field>
           <Field>
@@ -48,7 +50,7 @@ const Example = () => {
               checked={radioValue === 'perennial'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label>Perennial</Label>
+              <Label isRegular>Perennial</Label>
             </Radio>
           </Field>
           <Field>
@@ -58,7 +60,7 @@ const Example = () => {
               checked={radioValue === 'biennial'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label>Biennial</Label>
+              <Label isRegular>Biennial</Label>
             </Radio>
             <Message validation={cyclce[radioValue].validation}>
               {cyclce[radioValue].message}
