@@ -6,8 +6,13 @@
  */
 
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { Field, Label, Radio, Hint } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
+
+const StyledField = styled(Field)`
+  margin-top: ${p => p.theme.space.xs};
+`;
 
 const Example = () => {
   const [radioValue, setRadioValue] = useState('annual');
@@ -27,7 +32,7 @@ const Example = () => {
               <Hint>Completes its life cycle with growing season</Hint>
             </Radio>
           </Field>
-          <Field>
+          <StyledField>
             <Radio
               name="hint-example"
               value="perennial"
@@ -37,7 +42,7 @@ const Example = () => {
               <Label>Perennial</Label>
               <Hint>Lives more than two years</Hint>
             </Radio>
-          </Field>
+          </StyledField>
         </div>
       </Col>
     </Row>
