@@ -1,15 +1,104 @@
 ---
 title: Icon Button
 description: >
-  Description will be here
+  Icon Buttons (like Buttons) let users take action. They are used for repeated or persistent
+  actions on a page and lack labels to simplify the UI.
 ---
 
-Content here
+<Usage>
+  <Use>
+    <ul>
+      <li>To simplify the appearance of repeated or persistent actions on a page</li>
+      <li>To enable action in a toolbar</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>To enable primary and secondary actions on a page, use a Button instead</li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use
+
+### Type
+
+Icon Buttons have 3 types: basic, outline, and primary. The default type is basic.
+
+import IconButtonTypes from '../../examples/button/IconButtonTypes.tsx';
+import IconButtonTypesCode from '!!raw-loader!../../examples/button/IconButtonTypes.tsx';
+
+<CodeExample code={IconButtonTypesCode}>
+  <IconButtonTypes />
+</CodeExample>
+
+### Size
+
+Icon Buttons can be small, medium, or large. The default size is medium.
+
+import IconButtonSizes from '../../examples/button/IconButtonSizes.tsx';
+import IconButtonSizesCode from '!!raw-loader!../../examples/button/IconButtonSizes.tsx';
+
+<CodeExample code={IconButtonSizesCode}>
+  <IconButtonSizes />
+</CodeExample>
+
+### Shape
+
+Icon Buttons are circular by default, but they can be squares too.
+
+import IconButtonShapes from '../../examples/button/IconButtonShapes.tsx';
+import IconButtonShapesCode from '!!raw-loader!../../examples/button/IconButtonShapes.tsx';
+
+<CodeExample code={IconButtonShapesCode}>
+  <IconButtonShapes />
+</CodeExample>
+
+### Danger
+
+Danger Icon Buttons indicate destructive actions.
+
+import IconButtonDanger from '../../examples/button/IconButtonDanger.tsx';
+import IconButtonDangerCode from '!!raw-loader!../../examples/button/IconButtonDanger.tsx';
+
+<CodeExample code={IconButtonDangerCode}>
+  <IconButtonDanger />
+</CodeExample>
+
+### Disabled
+
+Disabled buttons prevent user interaction.
+
+import IconButtonDisabled from '../../examples/button/IconButtonDisabled.tsx';
+import IconButtonDisabledCode from '!!raw-loader!../../examples/button/IconButtonDisabled.tsx';
+
+<CodeExample code={IconButtonDisabledCode}>
+  <IconButtonDisabled />
+</CodeExample>
+
+## How to use it well
+
+### Don't leave users in the dark
+
+<BestPractice>
+  <Do imageSource={props.data.iconButtonTooltipDo.children[0].publicURL}>
+    <p>Include a Tooltip to help any users who may be unfamiliar with the icon.</p>
+  </Do>
+</BestPractice>
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    iconButtonTooltipDo: abstractAsset(
+      layerName: { eq: "components-buttons-iconbutton-tooltip-do" }
+    ) {
+      children {
+        ... on File {
+          publicURL
+        }
+      }
+    }
   }
 `;
