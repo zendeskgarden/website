@@ -41,9 +41,7 @@ const Footer: React.FC = () => (
         `}
       >
         <StyledFooterItem to="https://design.zendesk.com">Blog</StyledFooterItem>
-        <StyledFooterItem to="https://www.github.com/zendeskgarden/react-components">
-          GitHub
-        </StyledFooterItem>
+        <StyledFooterItem to="https://www.github.com/zendeskgarden">GitHub</StyledFooterItem>
         <StyledFooterItem to="/components/versions">Versions</StyledFooterItem>
       </div>
       <div
