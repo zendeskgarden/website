@@ -1,10 +1,89 @@
 ---
 title: Split Button
 description: >
-  Description will be here
+  A Split Button is a hybrid between a Dropdown Menu and a Button. It lets users choose from
+  parallel actions and take action on their choice.
+package: '@zendeskgarden/react-buttons'
+components:
+  - buttons/src/elements/SplitButton.tsx
+  - buttons/src/elements/ChevronButton.tsx
+  - buttons/src/elements/Button.tsx
 ---
 
-Content here
+<Usage>
+  <Use>
+    <ul>
+      <li>To let users select from multiple parallel actions</li>{' '}
+      <li>To reduce visual complexity when there are multiple actions a user can take</li>
+    </ul>
+  </Use>{' '}
+  <Misuse>
+    <ul>
+      <li>
+        To provide a way to navigate between pages, use <Link to="/components/anchor">Anchor</Link>{' '}
+        instead
+      </li>{' '}
+      <li>
+        To move between different pages of content, use <Link to="/components/tabs">Tabs</Link>{' '}
+        instead
+      </li>{' '}
+      <li>
+        To provide a way to choose between primary and secondary actions, use two different{' '}
+        <Link to="/components/button">Buttons</Link> instead
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Type
+
+Split Buttons are implemented in combination with a [Menu](/components/menu) component to show
+parallel actions. They can be default or primary.
+
+import SplitButtonTypes from '../../examples/button/SplitButtonTypes.tsx';
+import SplitButtonTypesCode from '!!raw-loader!../../examples/button/SplitButtonTypes.tsx';
+
+<CodeExample code={SplitButtonTypesCode}>
+  <SplitButtonTypes />
+</CodeExample>
+
+### Size
+
+Split Buttons can be small, default, or large.
+
+import SplitButtonSizes from '../../examples/button/SplitButtonSizes.tsx';
+import SplitButtonSizesCode from '!!raw-loader!../../examples/button/SplitButtonSizes.tsx';
+
+<CodeExample code={SplitButtonSizesCode}>
+  <SplitButtonSizes />
+</CodeExample>
+
+## How to use it well
+
+### Use Split Button for parallel actions
+
+Some workflows (like completing a form) offer users multiple paths forward. Split Button is useful
+when there isn't a dominant primary action.
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### SplitButton
+
+<PropSheet components={props.data.mdx.components} componentName="splitButton" />
+
+### ChevronButton
+
+<PropSheet components={props.data.mdx.components} componentName="chevronButton" />
+
+### Button
+
+<PropSheet components={props.data.mdx.components} componentName="button" />
 
 import { graphql } from 'gatsby';
 

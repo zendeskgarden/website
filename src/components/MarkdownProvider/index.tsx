@@ -18,6 +18,7 @@ import { COMPONENTS, Markdown } from './components/Markdown';
 import { StyledPre } from './components/Typography';
 import { MDSyntaxHighlighter } from './components/Code';
 import { OverviewLinks } from './components/OverviewLinks';
+import { Link } from 'gatsby';
 
 const GlobalStyle = createGlobalStyle`
   .anchor {
@@ -65,6 +66,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
         BestPractice,
         Markdown,
         OverviewLinks,
+        Link,
         /**
          * Markdown elements
          */
