@@ -21,9 +21,9 @@ const Example = () => {
               <ChevronButton size="small" />
             </Trigger>
             <Menu>
-              <Item value="one">Prune</Item>
-              <Item value="two">Water</Item>
-              <Item value="three">Fertilize</Item>
+              <Item value="prune">Prune</Item>
+              <Item value="water">Water</Item>
+              <Item value="fertilize">Fertilize</Item>
             </Menu>
           </Dropdown>
         </SplitButton>
@@ -36,9 +36,9 @@ const Example = () => {
               <ChevronButton />
             </Trigger>
             <Menu>
-              <Item value="one">Prune</Item>
-              <Item value="two">Water</Item>
-              <Item value="three">Fertilize</Item>
+              <Item value="prune">Prune</Item>
+              <Item value="water">Water</Item>
+              <Item value="fertilize">Fertilize</Item>
             </Menu>
           </Dropdown>
         </SplitButton>
@@ -51,9 +51,9 @@ const Example = () => {
               <ChevronButton size="large" />
             </Trigger>
             <Menu>
-              <Item value="one">Prune</Item>
-              <Item value="two">Water</Item>
-              <Item value="three">Fertilize</Item>
+              <Item value="prune">Prune</Item>
+              <Item value="water">Water</Item>
+              <Item value="fertilize">Fertilize</Item>
             </Menu>
           </Dropdown>
         </SplitButton>
