@@ -10,20 +10,18 @@ import { Row } from '@zendeskgarden/react-grid';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 
-const Example = () => {
-  return (
-    <Row justifyContent="around">
-      <IconButton>
-        <ZendeskIcon />
-      </IconButton>
-      <IconButton isBasic={false}>
-        <ZendeskIcon />
-      </IconButton>
-      <IconButton isPrimary>
-        <ZendeskIcon />
-      </IconButton>
-    </Row>
-  );
-};
+const Example = () => (
+  <Row justifyContent="around">
+    <IconButton>
+      <ZendeskIcon />
+    </IconButton>
+    <IconButton isBasic={false}>
+      <ZendeskIcon />
+    </IconButton>
+    <IconButton isPrimary>
+      <ZendeskIcon />
+    </IconButton>
+  </Row>
+);
 
 export default Example;
