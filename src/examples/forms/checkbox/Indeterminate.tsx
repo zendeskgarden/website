@@ -84,12 +84,12 @@ const Example = () => {
         <StyledGroup>
           <Field>
             <Checkbox checked={annual} onChange={() => dispatch({ type: 'annual' })}>
-              <Label>Annual</Label>
+              <Label isRegular>Annual</Label>
             </Checkbox>
           </Field>
           <Field>
             <Checkbox checked={perennial} onChange={() => dispatch({ type: 'perennial' })}>
-              <Label>Perennial</Label>
+              <Label isRegular>Perennial</Label>
             </Checkbox>
           </Field>
         </StyledGroup>
