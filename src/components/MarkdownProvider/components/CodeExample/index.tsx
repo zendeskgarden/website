@@ -60,6 +60,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
         <div
           css={css`
             padding: ${p => p.theme.space.md};
+            direction: ${p => p.theme.rtl && 'rtl'};
           `}
         >
           {children}
