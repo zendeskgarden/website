@@ -46,16 +46,14 @@ const LargeButtonGroup = () => {
   );
 };
 
-const Example = () => {
-  return (
-    <Grid>
-      <Row justifyContent="around">
-        <SmallButtonGroup />
-        <DefaultButtonGroup />
-        <LargeButtonGroup />
-      </Row>
-    </Grid>
-  );
-};
+const Example = () => (
+  <Grid>
+    <Row justifyContent="around">
+      <SmallButtonGroup />
+      <DefaultButtonGroup />
+      <LargeButtonGroup />
+    </Row>
+  </Grid>
+);
 
 export default Example;

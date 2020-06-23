@@ -39,15 +39,13 @@ const PrimaryButtonGroup = () => {
   );
 };
 
-const Example = () => {
-  return (
-    <Grid>
-      <Row justifyContent="around">
-        <DefaultButtonGroup />
-        <PrimaryButtonGroup />
-      </Row>
-    </Grid>
-  );
-};
+const Example = () => (
+  <Grid>
+    <Row justifyContent="around">
+      <DefaultButtonGroup />
+      <PrimaryButtonGroup />
+    </Row>
+  </Grid>
+);
 
 export default Example;
