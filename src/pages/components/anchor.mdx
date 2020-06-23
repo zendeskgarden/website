@@ -1,7 +1,7 @@
 ---
 title: Anchor
 description: >
-  The Anchor component is a link used to navigate from one location to another.
+  The Anchor is a link that helps users navigate from one location to another.
 package: '@zendeskgarden/react-buttons'
 components:
   - buttons/src/elements/Anchor.tsx
@@ -10,15 +10,15 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To navigate from page to page</li>
-      <li>To display links inline with text</li>
+      <li>To navigate from one page to another</li>
       <li>To navigate within a page</li>
+      <li>To display links alongside text</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
       <li>
-        To prompt an action or submit data, use a <a href="/components/button">Button</a>
+        To prompt an action or submit data, use a <a href="/components/button">Button</a> instead
       </li>
     </ul>
   </Misuse>
@@ -28,8 +28,8 @@ components:
 
 ### Default
 
-The Anchor component is a styled `<a>` tag. It accepts all standard anchor attributes and is used as
-a link to signal navigation.
+The Anchor component is a styled `<a>` tag. It accepts all standard anchor attributes signals a way
+to navigate.
 
 import AnchorDefault from '../../examples/anchor/AnchorDefault.tsx';
 import AnchorDefaultCode from '!!raw-loader!../../examples/anchor/AnchorDefault.tsx';
@@ -40,7 +40,7 @@ import AnchorDefaultCode from '!!raw-loader!../../examples/anchor/AnchorDefault.
 
 ### External Anchor
 
-Inserts an icon at the end of the link to signal when a link opens in a new window or tab.
+An icon appended to the end of an Anchor signals that the link will open in a new window or tab.
 
 import AnchorExternal from '../../examples/anchor/AnchorExternal.tsx';
 import AnchorExternalCode from '!!raw-loader!../../examples/anchor/AnchorExternal.tsx';
@@ -51,7 +51,7 @@ import AnchorExternalCode from '!!raw-loader!../../examples/anchor/AnchorExterna
 
 ### Danger
 
-Applies danger styling to communicate that navigating away from your location will have destructive
+Danger styling communicates that navigating away from your current location will have destructive
 results.
 
 import AnchorDanger from '../../examples/anchor/AnchorDanger.tsx';
