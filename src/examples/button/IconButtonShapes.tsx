@@ -11,7 +11,7 @@ import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 
 const Example = () => (
-  <Row alignItems="center">
+  <Row>
     <Col textAlign="center">
       <IconButton isBasic={false} isPill={false}>
         <ZendeskIcon />

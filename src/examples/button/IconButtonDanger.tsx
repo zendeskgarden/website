@@ -6,21 +6,27 @@
  */
 
 import React from 'react';
-import { Row } from '@zendeskgarden/react-grid';
+import { Row, Col } from '@zendeskgarden/react-grid';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 
 const Example = () => (
-  <Row justifyContent="around">
-    <IconButton isDanger>
-      <ZendeskIcon />
-    </IconButton>
-    <IconButton isDanger isBasic={false}>
-      <ZendeskIcon />
-    </IconButton>
-    <IconButton isDanger isPrimary>
-      <ZendeskIcon />
-    </IconButton>
+  <Row>
+    <Col textAlign="center">
+      <IconButton isDanger>
+        <ZendeskIcon />
+      </IconButton>
+    </Col>
+    <Col textAlign="center">
+      <IconButton isDanger isBasic={false}>
+        <ZendeskIcon />
+      </IconButton>
+    </Col>
+    <Col textAlign="center">
+      <IconButton isDanger isPrimary>
+        <ZendeskIcon />
+      </IconButton>
+    </Col>
   </Row>
 );
 
