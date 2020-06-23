@@ -6,13 +6,20 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
 import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
 
+const StyledCol = styled(Col)`
+  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+    margin-top: ${p => p.theme.space.sm};
+  }
+`;
+
 const Example = () => (
-  <Row>
-    <Col>
+  <Row alignItems="center">
+    <Col textAlign="center" sm={5}>
       <SplitButton>
         <Button>Harvest</Button>
         <Dropdown>
@@ -27,7 +34,7 @@ const Example = () => (
         </Dropdown>
       </SplitButton>
     </Col>
-    <Col>
+    <StyledCol textAlign="center" sm={5}>
       <SplitButton>
         <Button isPrimary>Harvest</Button>
         <Dropdown>
@@ -41,7 +48,7 @@ const Example = () => (
           </Menu>
         </Dropdown>
       </SplitButton>
-    </Col>
+    </StyledCol>
   </Row>
 );
 
