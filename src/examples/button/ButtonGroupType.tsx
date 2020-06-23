@@ -6,7 +6,8 @@
  */
 
 import React, { useState } from 'react';
-import { Grid, Row } from '@zendeskgarden/react-grid';
+import styled from 'styled-components';
+import { Row, Col } from '@zendeskgarden/react-grid';
 import { ButtonGroup, Button } from '@zendeskgarden/react-buttons';
 
 const DefaultButtonGroup = () => {
@@ -39,13 +40,21 @@ const PrimaryButtonGroup = () => {
   );
 };
 
+const StyledCol = styled(Col)`
+  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+    margin-top: ${p => p.theme.space.sm};
+  }
+`;
+
 const Example = () => (
-  <Grid>
-    <Row justifyContent="around">
+  <Row alignItems="center">
+    <Col textAlign="center" sm={5}>
       <DefaultButtonGroup />
+    </Col>
+    <StyledCol textAlign="center" sm={5}>
       <PrimaryButtonGroup />
-    </Row>
-  </Grid>
+    </StyledCol>
+  </Row>
 );
 
 export default Example;

@@ -6,7 +6,8 @@
  */
 
 import React, { useState } from 'react';
-import { Grid, Row } from '@zendeskgarden/react-grid';
+import styled from 'styled-components';
+import { Row, Col } from '@zendeskgarden/react-grid';
 import { ButtonGroup, Button } from '@zendeskgarden/react-buttons';
 
 const SmallButtonGroup = () => {
@@ -14,8 +15,12 @@ const SmallButtonGroup = () => {
 
   return (
     <ButtonGroup selectedItem={selectedItem} onSelect={newItem => setSelectedItem(newItem)}>
-      <Button value="daisy">Daisy</Button>
-      <Button value="orchid">Orchid</Button>
+      <Button size="small" value="daisy">
+        Daisy
+      </Button>
+      <Button size="small" value="orchid">
+        Orchid
+      </Button>
     </ButtonGroup>
   );
 };
@@ -25,8 +30,12 @@ const DefaultButtonGroup = () => {
 
   return (
     <ButtonGroup selectedItem={selectedItem} onSelect={newItem => setSelectedItem(newItem)}>
-      <Button value="azalea">Azalea</Button>
-      <Button value="violet">Violet</Button>
+      <Button size="medium" value="azalea">
+        Azalea
+      </Button>
+      <Button size="medium" value="violet">
+        Violet
+      </Button>
     </ButtonGroup>
   );
 };
@@ -46,14 +55,24 @@ const LargeButtonGroup = () => {
   );
 };
 
+const StyledCol = styled(Col)`
+  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+    margin-top: ${p => p.theme.space.sm};
+  }
+`;
+
 const Example = () => (
-  <Grid>
-    <Row justifyContent="around">
+  <Row alignItems="center">
+    <Col textAlign="center" sm={5}>
       <SmallButtonGroup />
+    </Col>
+    <StyledCol textAlign="center" sm={5}>
       <DefaultButtonGroup />
+    </StyledCol>
+    <StyledCol textAlign="center" sm={5}>
       <LargeButtonGroup />
-    </Row>
-  </Grid>
+    </StyledCol>
+  </Row>
 );
 
 export default Example;
