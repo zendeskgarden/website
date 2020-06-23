@@ -75,6 +75,15 @@ module.exports = {
     `gatsby-transformer-yaml`,
     `gatsby-transformer-garden-svg`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ['UA-970836-25'],
+        pluginConfig: {
+          head: true
+        }
+      }
+    },
     `gatsby-plugin-sharp`,
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-netlify`,
