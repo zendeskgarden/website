@@ -1,7 +1,7 @@
 ---
 title: Breadcrumbs
 description: >
-  Breadcrumbs mark and communicate the current location of where a user is within the product.
+  Breadcrumbs mark and communicate a user's location in the product.
 package: '@zendeskgarden/react-breadcrumbs'
 components:
   - breadcrumbs/src/elements/Breadcrumb.tsx
@@ -10,17 +10,18 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To inform the user of where they are in a nested navigation</li>
-      <li>To quickly navigate back to a parent page</li>
+      <li>To show the user where they are in a nested navigation</li>
+      <li>To provide a quick way to navigate to ancestor pages</li>
     </ul>
   </Use>
 </Usage>
 
-## Examples
+## How to use it
 
 ### Default
 
-Breadcrumbs work in combination with the [Anchor](/components/anchor) component for linking.
+Breadcrumbs and the [Anchor](/components/anchor) component work together. Each element (a "crumb" if
+you will) is separated from the others with an arrow.
 
 import BreadcrumbsDefault from '../../examples/breadcrumbs/BreadcrumbsDefault.tsx';
 import BreadcrumbsDefaultCode from '!!raw-loader!../../examples/breadcrumbs/BreadcrumbsDefault.tsx';
