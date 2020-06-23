@@ -6,15 +6,17 @@
  */
 
 import React from 'react';
-import { Row } from '@zendeskgarden/react-grid';
+import { Row, Col } from '@zendeskgarden/react-grid';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 
 const Example = () => (
-  <Row justifyContent="around">
-    <IconButton disabled>
-      <ZendeskIcon />
-    </IconButton>
+  <Row>
+    <Col textAlign="center">
+      <IconButton disabled>
+        <ZendeskIcon />
+      </IconButton>
+    </Col>
   </Row>
 );
 
