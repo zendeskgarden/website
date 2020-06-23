@@ -8,6 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import { getColor } from '@zendeskgarden/react-theming';
 
 interface ILink {
@@ -16,21 +17,21 @@ interface ILink {
   activeClassName?: string;
 }
 
-export const Link = ({ children, to, ...props }: ILink) => {
+export const Link = ({ children, to, activeClassName, ...props }: ILink) => {
   const internal = /^\/(?!\/)/u.test(to);
 
   if (internal) {
     return (
-      <GatsbyLink to={to} {...props}>
+      <GatsbyLink to={to} activeClassName={activeClassName} {...props}>
         {children}
       </GatsbyLink>
     );
   }
 
   return (
-    <a href={to} {...props}>
+    <OutboundLink href={to} {...props}>
       {children}
-    </a>
+    </OutboundLink>
   );
 };
 
