@@ -36,10 +36,10 @@ const Example = () => (
     </Col>
     <StyledCol textAlign="center" sm={5}>
       <SplitButton>
-        <Button>Harvest</Button>
+        <Button size="medium">Harvest</Button>
         <Dropdown>
           <Trigger>
-            <ChevronButton />
+            <ChevronButton size="medium" />
           </Trigger>
           <Menu>
             <Item value="prune">Prune</Item>
