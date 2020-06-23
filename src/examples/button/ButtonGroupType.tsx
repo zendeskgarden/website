@@ -47,11 +47,11 @@ const StyledCol = styled(Col)`
 `;
 
 const Example = () => (
-  <Row alignItems="center">
-    <Col textAlign="center" sm={5}>
+  <Row>
+    <Col textAlign="center" sm>
       <DefaultButtonGroup />
     </Col>
-    <StyledCol textAlign="center" sm={5}>
+    <StyledCol textAlign="center" sm>
       <PrimaryButtonGroup />
     </StyledCol>
   </Row>

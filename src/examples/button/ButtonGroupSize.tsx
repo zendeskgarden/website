@@ -63,13 +63,13 @@ const StyledCol = styled(Col)`
 
 const Example = () => (
   <Row alignItems="center">
-    <Col textAlign="center" sm={5}>
+    <Col textAlign="center" sm>
       <SmallButtonGroup />
     </Col>
-    <StyledCol textAlign="center" sm={5}>
+    <StyledCol textAlign="center" sm>
       <DefaultButtonGroup />
     </StyledCol>
-    <StyledCol textAlign="center" sm={5}>
+    <StyledCol textAlign="center" sm>
       <LargeButtonGroup />
     </StyledCol>
   </Row>
