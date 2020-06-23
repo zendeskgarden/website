@@ -19,7 +19,7 @@ const StyledCol = styled(Col)`
 
 const Example = () => (
   <Row alignItems="center">
-    <Col textAlign="center" sm={5}>
+    <Col textAlign="center" sm>
       <SplitButton>
         <Button size="small">Harvest</Button>
         <Dropdown>
@@ -34,7 +34,7 @@ const Example = () => (
         </Dropdown>
       </SplitButton>
     </Col>
-    <StyledCol textAlign="center" sm={5}>
+    <StyledCol textAlign="center" sm>
       <SplitButton>
         <Button size="medium">Harvest</Button>
         <Dropdown>
@@ -49,7 +49,7 @@ const Example = () => (
         </Dropdown>
       </SplitButton>
     </StyledCol>
-    <StyledCol textAlign="center" sm={5}>
+    <StyledCol textAlign="center" sm>
       <SplitButton>
         <Button size="large">Harvest</Button>
         <Dropdown>
