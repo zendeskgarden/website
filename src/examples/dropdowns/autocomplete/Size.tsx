@@ -59,7 +59,7 @@ const Example = () => {
   }, [inputValue]);
 
   return (
-    <Row justifyContent="center">
+    <Row justifyContent="center" alignItems="center">
       <Col>
         <Dropdown
           inputValue={inputValue}
