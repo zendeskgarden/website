@@ -46,7 +46,7 @@ const StyledImg = styled.img`
   border-top-left-radius: ${p => p.theme.borderRadii.md};
   border-top-right-radius: ${p => p.theme.borderRadii.md};
   padding: ${p => p.theme.space.md};
-  object-fit: cover;
+  object-fit: contain;
   max-height: 216px;
 `;
 
