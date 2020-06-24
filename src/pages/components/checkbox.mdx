@@ -1,8 +1,7 @@
 ---
 title: Checkbox
 description: >
-  A Checkbox lets a user select an option. It provides an easy way to make a choice, and helps
-  users compare options.
+  A Checkbox lets users select and unselect options from a list.
 package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/Checkbox.tsx
@@ -15,15 +14,19 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To select any number of options, including zero</li>
-      <li>As a standalone control to turn a single option on or off</li>
+      <li>To let users compare options from a list and select all, any, or none of those items.</li>
+      <li>To turn a single option on or off</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
       <li>
-        To limit the user to selecting exactly one option from a set, use{' '}
-        <a href="./radio">Radios</a>
+        To give the user a mutually exclusive choice use the <a href="./radio">Radio</a> component
+        instead
+      </li>
+      <li>
+        To let users activate an option that takes effect immediately use a{' '}
+        <a href="./toggle">Toggle</a> instead
       </li>
     </ul>
   </Misuse>
@@ -42,21 +45,10 @@ import DefaultCode from '!!raw-loader!../../examples/forms/checkbox/Default.tsx'
   <Default />
 </CodeExample>
 
-### Regular weight label
-
-Checkbox labels are emphasized by default but can be regular weight.
-
-import RegularWeightLabel from '../../examples/forms/checkbox/RegularWeightLabel.tsx';
-import RegularWeightLabelCode from '!!raw-loader!../../examples/forms/checkbox/RegularWeightLabel.tsx';
-
-<CodeExample code={RegularWeightLabelCode}>
-  <RegularWeightLabel />
-</CodeExample>
-
 ### Indeterminate
 
-If a checkbox has child checkboxes, it should show an indeterminate state (reflected by a dash) when
-the child checkboxes contains both some checked and unchecked checkboxes.
+If the children of a Checkbox have different states (some on, some off) the parent Checkbox will
+show an indeterminate state.
 
 import Indeterminate from '../../examples/forms/checkbox/Indeterminate.tsx';
 import IndeterminateCode from '!!raw-loader!../../examples/forms/checkbox/Indeterminate.tsx';
@@ -65,9 +57,20 @@ import IndeterminateCode from '!!raw-loader!../../examples/forms/checkbox/Indete
   <Indeterminate />
 </CodeExample>
 
+### Regular weight label
+
+Checkbox labels are bold by default, but they can be regular weight too.
+
+import RegularWeightLabel from '../../examples/forms/checkbox/RegularWeightLabel.tsx';
+import RegularWeightLabelCode from '!!raw-loader!../../examples/forms/checkbox/RegularWeightLabel.tsx';
+
+<CodeExample code={RegularWeightLabelCode}>
+  <RegularWeightLabel />
+</CodeExample>
+
 ### Hint text
 
-Hint adds additional context to the Checkbox label.
+Use Hint to add more context to the label.
 
 import Hint from '../../examples/forms/checkbox/Hint.tsx';
 import HintCode from '!!raw-loader!../../examples/forms/checkbox/Hint.tsx';
@@ -78,8 +81,7 @@ import HintCode from '!!raw-loader!../../examples/forms/checkbox/Hint.tsx';
 
 ### Validation
 
-Success, warning, or danger validation messages are shown using the Message component with the
-Checkbox.
+Show success, warning, and danger validation messages with the [Message](#message) component.
 
 import Validation from '../../examples/forms/checkbox/Validation.tsx';
 import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validation.tsx';
@@ -101,7 +103,7 @@ import HiddenCode from '!!raw-loader!../../examples/forms/checkbox/Hidden.tsx';
 
 ### Disabled
 
-Disabled Checkboxes are not interactive, and not perceived by a screen reader.
+A disabled Checkbox is not interactive, and not perceived by a screen reader.
 
 import Disabled from '../../examples/forms/checkbox/Disabled.tsx';
 import DisabledCode from '!!raw-loader!../../examples/forms/checkbox/Disabled.tsx';
@@ -116,7 +118,6 @@ import DisabledCode from '!!raw-loader!../../examples/forms/checkbox/Disabled.ts
 
 <BestPractice>
   <Do imageSource={props.data.checkboxSelectionDo.children[0].publicURL}>
-    <p>Use to select multiple options from a set of two or more.</p>
     <p>
       Use to turn a standalone setting on and off, as a favorable alternative to a{' '}
       <a href="./toggle">Toggle</a>.
@@ -162,7 +163,7 @@ export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
     checkboxSelectionDo: abstractAsset(
-      layerName: { eq: "components-forms-checkbox-selection-do" }
+      layerName: { eq: "components-forms-checkbox-standalone-do" }
     ) {
       children {
         ... on File {
