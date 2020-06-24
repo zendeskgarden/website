@@ -7,15 +7,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import debounce from 'lodash.debounce';
-import {
-  Item,
-  Hint,
-  Menu,
-  Label,
-  Field,
-  Dropdown,
-  Autocomplete
-} from '@zendeskgarden/react-dropdowns';
+import { Item, Menu, Label, Field, Dropdown, Autocomplete } from '@zendeskgarden/react-dropdowns';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const options = [
@@ -70,7 +62,6 @@ const Example = () => {
         >
           <Field>
             <Label>Choose a vegetable</Label>
-            <Hint>This example includes debounce logic</Hint>
             <Autocomplete>{selectedItem}</Autocomplete>
           </Field>
           <Menu>
