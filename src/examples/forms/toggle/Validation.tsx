@@ -17,7 +17,7 @@ const StyledField = styled(Field)`
 const Example = () => {
   return (
     <Row justifyContent="center">
-      <Col size="auto" textAlign="start">
+      <Col size="auto">
         <Field>
           <Toggle>
             <Label>Show tulips</Label>
