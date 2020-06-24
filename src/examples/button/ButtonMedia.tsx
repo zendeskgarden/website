@@ -11,7 +11,7 @@ import { Button } from '@zendeskgarden/react-buttons';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => (
-  <Row alignItems="center">
+  <Row>
     <Col textAlign="center">
       <Button>
         <Button.StartIcon>
