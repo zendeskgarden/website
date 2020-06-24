@@ -53,7 +53,7 @@ const Example = () => {
 
   return (
     <Row justifyContent="center">
-      <Col size="4">
+      <Col size="auto">
         <Dropdown
           inputValue={inputValue}
           selectedItem={selectedItem}
