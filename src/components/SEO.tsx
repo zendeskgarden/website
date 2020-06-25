@@ -70,6 +70,10 @@ const SEO: React.FC<{
         {
           property: 'twitter:card',
           content: 'summary_large_image'
+        },
+        {
+          property: 'twitter:site',
+          content: '@Zendesk'
         }
       ].concat(meta!)}
       link={[
