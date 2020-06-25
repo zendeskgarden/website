@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, useMemo, useEffect } from 'react';
+import React, { useRef, useState, useMemo } from 'react';
 import { css, DefaultTheme } from 'styled-components';
 import { ThemeProvider, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -22,8 +22,6 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const [isRtl, setIsRtl] = useState(false);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const focusVisibleRef = useRef(null);
-  const initialTooltipContent = 'Copy to clipboard';
-  const [tooltipContent, setTooltipContent] = useState(initialTooltipContent);
   const COPYRIGHT_REGEXP = /\/\*\*\n\s\*\sCopyright[\s\S]*\*\/\n\n/gmu;
 
   const exampleTheme = useMemo<DefaultTheme>(() => {
@@ -33,20 +31,6 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const parameters = useMemo(() => {
     return retrieveCodesandboxParameters(code);
   }, [code]);
-
-  useEffect(() => {
-    let timeout: NodeJS.Timeout;
-
-    if (tooltipContent !== initialTooltipContent) {
-      timeout = setTimeout(() => {
-        setTooltipContent(initialTooltipContent);
-      }, 3000);
-    }
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [tooltipContent]);
 
   return (
     <div
@@ -88,7 +72,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
         <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_blank">
           <input type="hidden" name="parameters" value={parameters} />
           <input type="hidden" name="query" value="module=src/Example.tsx" />
-          <Tooltip content="Fork in Codesandbox">
+          <Tooltip content="Open in Codesandbox">
             <IconButton
               isPill={false}
               focusInset
@@ -101,12 +85,9 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
             </IconButton>
           </Tooltip>
         </form>
-        <Tooltip content={tooltipContent}>
+        <Tooltip content="Copy code">
           <IconButton
-            onClick={() => {
-              copyToClipboard(code);
-              setTooltipContent('Code copied to clipboard...');
-            }}
+            onClick={() => copyToClipboard(code)}
             isPill={false}
             focusInset
             css={css`
@@ -116,7 +97,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
             <CopyStroke />
           </IconButton>
         </Tooltip>
-        <Tooltip content={isCodeVisible ? 'Hide code' : 'Show code'}>
+        <Tooltip content="View code">
           <ToggleIconButton
             onClick={() => setIsCodeVisible(!isCodeVisible)}
             isPressed={isCodeVisible}

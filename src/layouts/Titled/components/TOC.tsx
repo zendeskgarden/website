@@ -119,7 +119,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
     <div
       css={css`
         position: sticky;
-        top: 32px;
+        top: ${p => p.theme.space.lg};
         margin-left: ${p => p.theme.space.base * 15}px;
       `}
     >

@@ -40,14 +40,14 @@ const RootLayout: React.FC = ({ children }) => {
     >
       <GlobalStyling />
       <Header />
-      <div
+      <main
         css={`
           flex-grow: 1;
           flex-shrink: 1;
         `}
       >
         {children}
-      </div>
+      </main>
       <Footer />
     </div>
   );
