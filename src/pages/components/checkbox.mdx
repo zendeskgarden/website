@@ -1,15 +1,184 @@
 ---
 title: Checkbox
 description: >
-  Description will be here
+  A Checkbox lets users select and unselect options from a list.
+package: '@zendeskgarden/react-forms'
+components:
+  - forms/src/elements/Checkbox.tsx
+  - forms/src/elements/common/Field.tsx
+  - forms/src/elements/common/Hint.tsx
+  - forms/src/elements/common/Label.tsx
+  - forms/src/elements/common/Message.tsx
 ---
 
-Content here
+<Usage>
+  <Use>
+    <ul>
+      <li>To let users compare options from a list and select all, any, or none of those items</li>
+      <li>To turn a single option on or off</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        To give the user a mutually exclusive choice use the <a href="./radio">Radio</a> component
+        instead
+      </li>
+      <li>
+        To let users activate an option that takes effect immediately use a{' '}
+        <a href="./toggle">Toggle</a> instead
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+A Checkbox’s label is part of its touch target.
+
+import Default from '../../examples/forms/checkbox/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/forms/checkbox/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Indeterminate
+
+If the children of a Checkbox have different states (some on, some off) the parent Checkbox will
+show an indeterminate state.
+
+import Indeterminate from '../../examples/forms/checkbox/Indeterminate.tsx';
+import IndeterminateCode from '!!raw-loader!../../examples/forms/checkbox/Indeterminate.tsx';
+
+<CodeExample code={IndeterminateCode}>
+  <Indeterminate />
+</CodeExample>
+
+### Regular weight label
+
+Checkbox labels are bold by default, but they can be regular weight too.
+
+import RegularWeightLabel from '../../examples/forms/checkbox/RegularWeightLabel.tsx';
+import RegularWeightLabelCode from '!!raw-loader!../../examples/forms/checkbox/RegularWeightLabel.tsx';
+
+<CodeExample code={RegularWeightLabelCode}>
+  <RegularWeightLabel />
+</CodeExample>
+
+### Hint text
+
+Use Hint to add more context to the label.
+
+import Hint from '../../examples/forms/checkbox/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/forms/checkbox/Hint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
+</CodeExample>
+
+### Validation
+
+Show success, warning, and danger validation messages with the [Message](#message) component.
+
+import Validation from '../../examples/forms/checkbox/Validation.tsx';
+import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validation.tsx';
+
+<CodeExample code={ValidationCode}>
+  <Validation />
+</CodeExample>
+
+### Hidden
+
+Checkbox labels can be hidden.
+
+import Hidden from '../../examples/forms/checkbox/Hidden.tsx';
+import HiddenCode from '!!raw-loader!../../examples/forms/checkbox/Hidden.tsx';
+
+<CodeExample code={HiddenCode}>
+  <Hidden />
+</CodeExample>
+
+### Disabled
+
+A disabled Checkbox is not interactive, and not perceived by a screen reader.
+
+import Disabled from '../../examples/forms/checkbox/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/checkbox/Disabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+## How to use it well
+
+### Use to select any number of options
+
+<BestPractice>
+  <Do imageSource={props.data.checkboxSelectionDo.children[0].publicURL}>
+    <p>
+      Use to turn a standalone setting on and off, as a favorable alternative to a{' '}
+      <a href="./toggle">Toggle</a>.
+    </p>
+  </Do>
+  <Dont imageSource={props.data.checkboxStandaloneOptionDont.children[0].publicURL}>
+    <p>
+      Use to select exactly one option from a set of two or more. Use <a href="./radio">Radios</a>{' '}
+      instead.
+    </p>
+  </Dont>
+</BestPractice>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Checkbox
+
+<PropSheet components={props.data.mdx.components} componentName="checkbox" />
+
+## Field
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+## Hint
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+## Label
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+## Message
+
+<PropSheet components={props.data.mdx.components} componentName="message" />
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    checkboxSelectionDo: abstractAsset(
+      layerName: { eq: "components-forms-checkbox-standalone-do" }
+    ) {
+      children {
+        ... on File {
+          publicURL
+        }
+      }
+    }
+    checkboxStandaloneOptionDont: abstractAsset(
+      layerName: { eq: "components-forms-checkbox-standalone-option-dont" }
+    ) {
+      children {
+        ... on File {
+          publicURL
+        }
+      }
+    }
   }
 `;
