@@ -1,10 +1,66 @@
 ---
 title: Button Group
 description: >
-  Description will be here
+  A Button Group lets users make a selection from a set of options.
+package: '@zendeskgarden/react-buttons'
+components:
+  - buttons/src/elements/ButtonGroup.tsx
+  - buttons/src/elements/Button.tsx
 ---
 
-Content here
+<Usage>
+  <Use>
+    <ul>
+      <li>To make a selection from a set of options</li>
+      <li>
+        This is a legacy component and may be deprecated in the future. Garden does not presently
+        recommend the use of Button Groups.
+      </li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Type
+
+Button Groups can be default or primary.
+
+import ButtonGroupType from '../../examples/button/ButtonGroupType.tsx';
+import ButtonGroupTypeCode from '!!raw-loader!../../examples/button/ButtonGroupType.tsx';
+
+<CodeExample code={ButtonGroupTypeCode}>
+  <ButtonGroupType />
+</CodeExample>
+
+### Size
+
+Button Groups can be small, default, or large.
+
+import ButtonGroupSize from '../../examples/button/ButtonGroupSize.tsx';
+import ButtonGroupSizeCode from '!!raw-loader!../../examples/button/ButtonGroupSize.tsx';
+
+<CodeExample code={ButtonGroupSizeCode}>
+  <ButtonGroupSize />
+</CodeExample>
+
+## How to use it well
+
+This is a legacy component. Garden does not presently recommend the use of Button Groups.
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### ButtonGroup
+
+<PropSheet components={props.data.mdx.components} componentName="buttonGroup" />
+
+### Button
+
+<PropSheet components={props.data.mdx.components} componentName="button" />
 
 import { graphql } from 'gatsby';
 
