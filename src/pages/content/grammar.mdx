@@ -1,12 +1,145 @@
 ---
 title: Grammar
-description: >
-  Lorem ipsum dolor sit amet, consectetur adipiscing
-  elit, sed do eiusmod tempor incididunt ut labore et
-  dolore magna aliqua.
 ---
 
-Coming soon
+## Acronyms and abbreviations
+
+Acronyms are like inside jokes. If you aren’t in the know they don’t make sense. Use acronyms to
+save space, but not at the risk of confusing people. Spell out an acronym on first use and include
+it in parentheses. ​
+
+_A service level agreement (SLA) is a contract between you and your customers._
+
+### Bold and italics
+
+Use bold to refer to UI elements. Avoid italics or quotation marks. Using bold is a bold statement.
+A little bit goes a long way, so use bold sparingly. ​ Don't get too bold in notifications. Only use
+bold for headings, and not in the description.
+
+<BestPractice>
+  <Do>
+    <p>
+      Click on <b>Settings</b> in Admin Center
+    </p>
+  </Do>
+  <Dont>
+    <p>Click on “Settings” in Admin Center</p>
+  </Dont>
+</BestPractice>
+
+## Capitalization
+
+Follow [standard capitalization
+rules](https://owl.purdue.edu/owl/general_writing/mechanics/help_with_capitals.html) for English.
+Capitalize names of people, companies, and product features and use lowercase for just about
+everything else. ​ At Zendesk, we use [sentence
+case](https://en.wikipedia.org/wiki/Letter_case#Sentence_case) for headings, subheadings, and
+buttons.
+
+## Contractions
+
+Contractions are A-OK. They make sentences shorter and easier to read. Avoid them in flows that feel
+formal like billing, security settings, or account recovery.
+
+## Date and time
+
+Use unicode standards for date and time. Refer to your location-specific standards on
+[CLDR](https://zendesk.atlassian.net/wiki/spaces/globalization/pages/536936649/ICU+Intl+CLDR+at+Zendesk#ICU,Intl&CLDRatZendesk-WhyuseCLDR?).
+​ Zendesk uses relative time to show elapsed time. Avoid vague terms like “now,” “soon,” “later,” or
+“in a while.”
+
+| When the event happened                             | Example                   |
+| --------------------------------------------------- | ------------------------- |
+| Less than a minute ago today.                       | < 1 minute ago            |
+| More than a minute and less than an hour ago today. | 43 minutes ago 43 min ago |
+| More than an hour ago today.                        | Today at {time}           |
+| On the previous calendar date.                      | Yesterday at {time}       |
+| Before yesterday and in the current calendar year.  | {date} at {time}          |
+| Any time before the current year.                   | {date} at {time}          |
+
+## Emoji
+
+Save it for Slack. Emoji is rarely used in the UI. Some emojis have double meanings and don’t
+localize. 👎 😞
+
+## Numbers and currency
+
+Use unicode standards for numbers and currency. Refer to your location-specific standards on
+[CLDR](https://zendesk.atlassian.net/wiki/spaces/globalization/pages/536936649/ICU+Intl+CLDR+at+Zendesk#ICU,Intl&CLDRatZendesk-WhyuseCLDR?).
+​ Zendesk uses numerals (rather than words) in the UI. Recast descriptions to avoid starting a
+sentence with a number.
+
+## Pronouns
+
+Using Zendesk is a gender-neutral experience. Instead of gendered pronouns, rewrite using second
+person (“you”), or “they” and “their.”​ _If the end user isn’t online, they will get an email
+instead._
+
+### You
+
+Address a single person in a specific context, rather than all people. UX is a conversation, not a
+speech.
+
+<BestPractice>
+  <Do>
+    <p>You don’t have access</p>
+  </Do>
+  <Dont>
+    <p>Access denied</p>
+  </Dont>
+</BestPractice>
+
+### Me
+
+Don’t put words in our users' mouths. They can speak for themselves. Avoid using my, us, and mine.
+
+<BestPractice>
+  <Do>
+    <p>Skip</p>
+  </Do>
+  <Dont>
+    <p>Remind me later</p>
+  </Dont>
+</BestPractice>
+
+### We
+
+Frame experiences around the user. Only use “we” when a specific group of humans are the authors of
+a message, for example, "We're the UX Research team and we want your feedback."
+
+<BestPractice>
+  <Do>
+    <p>Check your inbox for an email confirmation</p>
+  </Do>
+  <Dont>
+    <p>We'll send you an email confirmation</p>
+  </Dont>
+</BestPractice>
+
+## Singular and plural
+
+Use singular to represent a quantity of one and plural for two or more things. Avoid parentheses to
+display both cases at once.
+
+<BestPractice>
+  <Do>
+    <p>Add user</p>
+  </Do>
+  <Dont>
+    <p>Add user(s)</p>
+  </Dont>
+</BestPractice>
+
+## Tense
+
+The present tense is what’s happening now. It’s friendlier and easier to read. Stick to one tense
+per component. Don’t move from past to present tense—we’re not time travelers.
+
+| Tense          | Do this       | Not this              |
+| -------------- | ------------- | --------------------- |
+| Present        | Message sent  | Message has been sent |
+| Simple past    | Chat ended    | Chat has ended        |
+| Simple present | Chat will end | Chat will have ended  |
 
 import { graphql } from 'gatsby';
 
