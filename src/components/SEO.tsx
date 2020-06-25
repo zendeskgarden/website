@@ -66,6 +66,10 @@ const SEO: React.FC<{
         {
           property: 'og:image:height',
           content: '640'
+        },
+        {
+          property: 'twitter:card',
+          content: 'summary_large_image'
         }
       ].concat(meta!)}
       link={[
