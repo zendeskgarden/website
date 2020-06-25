@@ -22,6 +22,7 @@ const SEO: React.FC<{
         site {
           siteMetadata {
             title
+            siteUrl
             description
           }
         }
@@ -56,8 +57,12 @@ const SEO: React.FC<{
           content: site.siteMetadata.title
         },
         {
+          property: 'og:description',
+          content: site.siteMetadata.description
+        },
+        {
           property: 'og:image',
-          content: 'og-image.png'
+          content: `${site.siteMetadata.siteUrl}/og-image.png`
         },
         {
           property: 'og:image:alt',
