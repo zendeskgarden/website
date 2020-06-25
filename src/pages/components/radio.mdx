@@ -1,10 +1,124 @@
 ---
 title: Radio
 description: >
-  Description will be here
+  Radio buttons let users choose a single option among two or more mutually exclusive options.
+package: '@zendeskgarden/react-forms'
+components:
+  - forms/src/elements/Radio.tsx
+  - forms/src/elements/common/Field.tsx
+  - forms/src/elements/common/Hint.tsx
+  - forms/src/elements/common/Label.tsx
+  - forms/src/elements/common/Message.tsx
 ---
 
-Content here
+<Usage>
+  <Use>
+    <ul>
+      <li>For choices or options that can't occur at the same time</li>
+      <li>To indicate that two or more options are mutually exclusive</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>If the user can choose more than one option at once, use a Checkbox instead</li>
+      <li>To select from a long list of options, use Select instead</li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+A Radio’s label is part of its touch target.
+
+import Default from '../../examples/forms/radio/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/forms/radio/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Regular weight label
+
+Radio labels are bold by default, but can be regular weight too.
+
+import RegularWeightLabel from '../../examples/forms/radio/RegularWeightLabel.tsx';
+import RegularWeightLabelCode from '!!raw-loader!../../examples/forms/radio/RegularWeightLabel.tsx';
+
+<CodeExample code={RegularWeightLabelCode}>
+  <RegularWeightLabel />
+</CodeExample>
+
+### Hint text
+
+Hint text adds additional context to a Radio label.
+
+import Hint from '../../examples/forms/radio/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/forms/radio/Hint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
+</CodeExample>
+
+### Validation
+
+Success, warning, and danger validation messages are shown using the Message component.
+
+import Validation from '../../examples/forms/radio/Validation.tsx';
+import ValidationCode from '!!raw-loader!../../examples/forms/radio/Validation.tsx';
+
+<CodeExample code={ValidationCode}>
+  <Validation />
+</CodeExample>
+
+### Hidden label
+
+Radio labels can be hidden.
+
+import Hidden from '../../examples/forms/radio/Hidden.tsx';
+import HiddenCode from '!!raw-loader!../../examples/forms/radio/Hidden.tsx';
+
+<CodeExample code={HiddenCode}>
+  <Hidden />
+</CodeExample>
+
+### Disabled
+
+Disabled Radios are not interactive, and not perceived by a screen reader.
+
+import Disabled from '../../examples/forms/radio/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/radio/Disabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Radio
+
+<PropSheet components={props.data.mdx.components} componentName="radio" />
+
+### Field
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Hint
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Label
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+### Message
+
+<PropSheet components={props.data.mdx.components} componentName="message" />
 
 import { graphql } from 'gatsby';
 
