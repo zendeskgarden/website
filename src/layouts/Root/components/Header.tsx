@@ -32,7 +32,7 @@ const StyledDesktopNavLink = styled(StyledNavigationLink).attrs({ partiallyActiv
 `;
 
 const StyledHeader = styled.header.attrs({ role: 'banner' })`
-  z-index: 999; /* Ensure header is always placed above menus and content */
+  z-index: 1;
   box-shadow: ${p =>
     p.theme.shadows.lg(
       `${p.theme.space.base * 4}px`,
