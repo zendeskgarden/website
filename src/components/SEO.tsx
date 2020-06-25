@@ -22,6 +22,7 @@ const SEO: React.FC<{
         site {
           siteMetadata {
             title
+            siteUrl
             description
           }
         }
@@ -50,6 +51,34 @@ const SEO: React.FC<{
         {
           name: 'msapplication-config',
           content: 'browserconfig.xml'
+        },
+        {
+          property: 'og:title',
+          content: site.siteMetadata.title
+        },
+        {
+          property: 'og:description',
+          content: site.siteMetadata.description
+        },
+        {
+          property: 'og:image',
+          content: `${site.siteMetadata.siteUrl}/og-image.png`
+        },
+        {
+          property: 'og:image:alt',
+          content: 'Zendesk Garden'
+        },
+        {
+          property: 'og:image:width',
+          content: '1280'
+        },
+        {
+          property: 'og:image:height',
+          content: '640'
+        },
+        {
+          property: 'twitter:card',
+          content: 'summary_large_image'
         }
       ].concat(meta!)}
       link={[
