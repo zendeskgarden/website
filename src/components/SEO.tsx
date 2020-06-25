@@ -52,6 +52,10 @@ const SEO: React.FC<{
           content: 'browserconfig.xml'
         },
         {
+          property: 'og:title',
+          content: site.siteMetadata.title
+        },
+        {
           property: 'og:image',
           content: 'og-image.png'
         },
