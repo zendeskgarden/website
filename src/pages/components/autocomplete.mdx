@@ -69,8 +69,14 @@ import MediaCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Media.
 
 ### Use Autocomplete to narrow down options
 
-Autocomplete is useful for lists that are too long to read in full (for example, company employees)
-or that accumulate items over time (for example, inventory).
+<BestPractice>
+  <Do imageSource={props.data.dropdownSelectionDo.children[0].publicURL}>
+    <p>
+      Autocomplete is useful for lists that are too long to read in full (for example, company
+      employees) or that accumulate items over time (for example, inventory).
+    </p>
+  </Do>
+</BestPractice>
 
 ## Configuration
 
@@ -111,5 +117,14 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    dropdownSelectionDo: abstractAsset(
+      layerName: { eq: "components-dropdowns-autocomplete-selection-do" }
+    ) {
+      children {
+        ... on File {
+          publicURL
+        }
+      }
+    }
   }
 `;
