@@ -48,24 +48,24 @@ const SEO: React.FC<{
           content: metaDescription
         },
         {
-          name: 'og:image',
+          name: 'msapplication-config',
+          content: 'browserconfig.xml'
+        },
+        {
+          property: 'og:image',
           content: 'og-image.png'
         },
         {
-          name: 'og:image:alt',
+          property: 'og:image:alt',
           content: 'Zendesk Garden'
         },
         {
-          name: 'og:image:width',
+          property: 'og:image:width',
           content: '1280'
         },
         {
-          name: 'og:image:height',
+          property: 'og:image:height',
           content: '640'
-        },
-        {
-          name: 'msapplication-config',
-          content: 'browserconfig.xml'
         }
       ].concat(meta!)}
       link={[
