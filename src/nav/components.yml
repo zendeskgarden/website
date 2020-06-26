@@ -10,6 +10,8 @@
       title: Containers
     - id: https://zendeskgarden.github.io/react-components/theming
       title: Theme
+    - id: https://zendeskgarden.github.io/css-components/bedrock/
+      title: Bedrock CSS
 - title: Components
   items:
     - title: Accordion
