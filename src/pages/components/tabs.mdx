@@ -1,8 +1,8 @@
 ---
 title: Tabs
 description: >
-  Tabs organize related content within a single page. This helps users alternate between
-  views without refreshing.
+  Use Tabs to organize related content in a single view. This helps users navigate related content
+  without having to switch contexts.
 package: '@zendeskgarden/react-tabs'
 components:
   - tabs/src/elements/Tabs.tsx
@@ -14,13 +14,23 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To provide pre-filtered views of a single dataset</li>
-      <li>To organize related content and controls within a page</li>
+      <li>To filter information into easily parsable views</li>
+      <li>To organize related content and controls within a single page</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
-      <li>As a secondary navigation bar that spans multiple pages</li>
+      <li>
+        To guide users through a task list, use a{' '}
+        <a href="https://zendeskgarden.github.io/react-components/accordions/#stepper">Stepper</a>{' '}
+        instead
+      </li>{' '}
+      <li>
+        {' '}
+        To help users navigate to markedly different kinds of content, use <a href="/components/anchor">
+          Anchors
+        </a> and link to a separate page{' '}
+      </li>
     </ul>
   </Misuse>
 </Usage>
@@ -29,7 +39,7 @@ components:
 
 ### Default
 
-This is the basic usage of a Tab component.
+The basic usage of a Tab component.
 
 import TabsDefault from '../../examples/tabs/TabsDefault.tsx';
 import TabsDefaultCode from '!!raw-loader!../../examples/tabs/TabsDefault.tsx';
@@ -38,9 +48,9 @@ import TabsDefaultCode from '!!raw-loader!../../examples/tabs/TabsDefault.tsx';
   <TabsDefault />
 </CodeExample>
 
-### Vertical
+### Orientation
 
-Tab layout is horizontal by default but can be set to stack vertically.
+Tab layout is horizontal by default and can also stack vertically.
 
 import TabsVertical from '../../examples/tabs/TabsVertical.tsx';
 import TabsVerticalCode from '!!raw-loader!../../examples/tabs/TabsVertical.tsx';
