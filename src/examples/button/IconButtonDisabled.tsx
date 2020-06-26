@@ -14,7 +14,7 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <IconButton disabled>
-        <ZendeskIcon />
+        <ZendeskIcon aria-label="Zendesk" />
       </IconButton>
     </Col>
   </Row>

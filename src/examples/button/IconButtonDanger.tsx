@@ -14,17 +14,17 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <IconButton isDanger>
-        <ZendeskIcon />
+        <ZendeskIcon aria-label="Zendesk" />
       </IconButton>
     </Col>
     <Col textAlign="center">
       <IconButton isDanger isBasic={false}>
-        <ZendeskIcon />
+        <ZendeskIcon aria-label="Zendesk" />
       </IconButton>
     </Col>
     <Col textAlign="center">
       <IconButton isDanger isPrimary>
-        <ZendeskIcon />
+        <ZendeskIcon aria-label="Zendesk" />
       </IconButton>
     </Col>
   </Row>
