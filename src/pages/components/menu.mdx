@@ -1,7 +1,7 @@
 ---
 title: Menu
 description: >
-  Menus display a list of available choices.
+  Menus help users select a single item from a list of available options.
 package: '@zendeskgarden/react-dropdowns'
 components:
   - dropdowns/src/elements/Menu/Menu.tsx
@@ -21,9 +21,16 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To display a list of choices, such as options or actions</li>
+      <li>To let users see and choose one thing from a list of items</li>
     </ul>
   </Use>
+  <Misuse>
+    <ul>
+      <li>To display a list of actions use Split Button instead</li>
+      <li>To help users navigate use Anchors instead</li>
+      <li>To move between views use Tabs instead</li>
+    </ul>
+  </Misuse>
 </Usage>
 
 ## How to use it
@@ -86,7 +93,7 @@ import MenuMetaCode from '!!raw-loader!../../examples/dropdowns/menu/Meta.tsx';
 
 ### Nested
 
-Can contain nested levels for additional categorization of menu items.
+Menus can contain nested levels for additional categorization of menu items.
 
 import MenuNested from '../../examples/dropdowns/menu/Nested.tsx';
 import MenuNestedCode from '!!raw-loader!../../examples/dropdowns/menu/Nested.tsx';
@@ -97,8 +104,7 @@ import MenuNestedCode from '!!raw-loader!../../examples/dropdowns/menu/Nested.ts
 
 ### Disabled
 
-Items within a Menu can be disabled to limit a user from interacting with it. See
-[best practices](#todo) for disabled usage.
+Items within a Menu can be disabled to limit a user from interacting with it.
 
 import MenuDisabled from '../../examples/dropdowns/menu/Disabled.tsx';
 import MenuDisabledCode from '!!raw-loader!../../examples/dropdowns/menu/Disabled.tsx';
