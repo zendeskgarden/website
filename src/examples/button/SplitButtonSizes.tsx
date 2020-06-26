@@ -34,7 +34,7 @@ const Example = () => {
             }
           >
             <Trigger>
-              <ChevronButton size="small" isRotated={smallRotated} />
+              <ChevronButton aria-label="other actions" size="small" isRotated={smallRotated} />
             </Trigger>
             <Menu placement="bottom-end">
               <Item value="prune">Prune</Item>
@@ -54,7 +54,7 @@ const Example = () => {
             }
           >
             <Trigger>
-              <ChevronButton size="medium" isRotated={mediumRotated} />
+              <ChevronButton aria-label="other actions" size="medium" isRotated={mediumRotated} />
             </Trigger>
             <Menu placement="bottom-end">
               <Item value="prune">Prune</Item>
@@ -74,7 +74,7 @@ const Example = () => {
             }
           >
             <Trigger>
-              <ChevronButton size="large" isRotated={largeRotated} />
+              <ChevronButton aria-label="other actions" size="large" isRotated={largeRotated} />
             </Trigger>
             <Menu placement="bottom-end">
               <Item value="prune">Prune</Item>

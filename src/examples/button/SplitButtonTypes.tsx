@@ -26,7 +26,7 @@ const Example = () => {
             }
           >
             <Trigger>
-              <ChevronButton isRotated={defaultRotated} />
+              <ChevronButton aria-label="other actions" isRotated={defaultRotated} />
             </Trigger>
             <Menu placement="bottom-end">
               <Item value="prune">Prune</Item>
@@ -46,7 +46,7 @@ const Example = () => {
             }
           >
             <Trigger>
-              <ChevronButton isPrimary isRotated={primaryRotated} />
+              <ChevronButton aria-label="other actions" isPrimary isRotated={primaryRotated} />
             </Trigger>
             <Menu placement="bottom-end">
               <Item value="prune">Prune</Item>
