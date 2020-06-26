@@ -21,7 +21,7 @@ const NotFoundPage: React.FC = () => {
   const { notFoundImage } = useStaticQuery(
     graphql`
       query {
-        notFoundImage: abstractAsset(layerName: { eq: "content-voice-tone-map" }) {
+        notFoundImage: abstractAsset(layerName: { eq: "general-error-404" }) {
           childFile {
             childImageSharp {
               fixed(width: 270, height: 270) {
