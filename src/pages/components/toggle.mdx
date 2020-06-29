@@ -1,10 +1,144 @@
 ---
 title: Toggle
 description: >
-  Description will be here
+  A Toggle lets users turn something on and off like a light switch. Unlike a Checkbox, which is
+  used for selection, a Toggle is used for activation.
+package: '@zendeskgarden/react-forms'
+components:
+  - forms/src/elements/Toggle.tsx
+  - forms/src/elements/common/Field.tsx
+  - forms/src/elements/common/Hint.tsx
+  - forms/src/elements/common/Label.tsx
+  - forms/src/elements/common/Message.tsx
 ---
 
-Content here
+<Usage>
+  <Use>
+    <ul>
+      <li>To see or compare the results of a settings change</li>
+      <li>To activate a mode (such as "dark mode") which takes immediate effect</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        To let users select from a list of settings, use <a href="../checkbox">Checkboxes</a>{' '}
+        instead
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+A Toggle’s label is part of its touch target.
+
+import Default from '../../examples/forms/toggle/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/forms/toggle/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Regular weight label
+
+The label is bold by default. It can be made regular weight too.
+
+import RegularWeightLabel from '../../examples/forms/toggle/RegularWeightLabel.tsx';
+import RegularWeightLabelCode from '!!raw-loader!../../examples/forms/toggle/RegularWeightLabel.tsx';
+
+<CodeExample code={RegularWeightLabelCode}>
+  <RegularWeightLabel />
+</CodeExample>
+
+### Hint text
+
+Use hint text for additional context.
+
+import Hint from '../../examples/forms/toggle/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/forms/toggle/Hint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
+</CodeExample>
+
+### Validation
+
+Show success, warning, or danger validation messages with the Message component.
+
+import Validation from '../../examples/forms/toggle/Validation.tsx';
+import ValidationCode from '!!raw-loader!../../examples/forms/toggle/Validation.tsx';
+
+<CodeExample code={ValidationCode}>
+  <Validation />
+</CodeExample>
+
+### Hidden label
+
+Toggle labels can be hidden.
+
+import Hidden from '../../examples/forms/toggle/Hidden.tsx';
+import HiddenCode from '!!raw-loader!../../examples/forms/toggle/Hidden.tsx';
+
+<CodeExample code={HiddenCode}>
+  <Hidden />
+</CodeExample>
+
+### Disabled
+
+Disabled Toggles are not interactive and not seen by screen readers. See guidelines on disabled
+usage.
+
+import Disabled from '../../examples/forms/toggle/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/toggle/Disabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+## How to use it well
+
+### Toggles are immediate, like a light switch
+
+Think of Toggles like a light switch. They're used to activate settings which take immediate
+effect.
+
+<BestPractice>
+  <Do>
+    <p>Use a Toggle for settings that provide immediate feedback.</p>
+  </Do>
+  <Dont>
+    <p>Don't use Toggles as a way to select options.</p>
+  </Dont>
+</BestPractice>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Toggle
+
+<PropSheet components={props.data.mdx.components} componentName="toggle" />
+
+### Field
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Hint
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Label
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+### Message
+
+<PropSheet components={props.data.mdx.components} componentName="message" />
 
 import { graphql } from 'gatsby';
 

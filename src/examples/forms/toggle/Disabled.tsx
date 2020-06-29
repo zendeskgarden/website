@@ -7,15 +7,16 @@
 
 import React from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
-import { IconButton } from '@zendeskgarden/react-buttons';
-import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import { Field, Label, Toggle } from '@zendeskgarden/react-forms';
 
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <IconButton disabled>
-        <LeafIcon aria-label="disabled leaf" />
-      </IconButton>
+      <Field>
+        <Toggle disabled>
+          <Label>Show flowers</Label>
+        </Toggle>
+      </Field>
     </Col>
   </Row>
 );
