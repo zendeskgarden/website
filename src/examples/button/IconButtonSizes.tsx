@@ -8,23 +8,23 @@
 import React from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { IconButton } from '@zendeskgarden/react-buttons';
-import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
+import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => (
   <Row alignItems="center">
     <Col textAlign="center">
       <IconButton size="small">
-        <ZendeskIcon />
+        <LeafIcon />
       </IconButton>
     </Col>
     <Col textAlign="center">
       <IconButton size="medium">
-        <ZendeskIcon />
+        <LeafIcon />
       </IconButton>
     </Col>
     <Col textAlign="center">
       <IconButton size="large">
-        <ZendeskIcon />
+        <LeafIcon />
       </IconButton>
     </Col>
   </Row>
