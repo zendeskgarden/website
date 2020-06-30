@@ -12,7 +12,7 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <Anchor href="#default">Go to the Garden</Anchor>
+      <Anchor href="#default">Enter the Garden</Anchor>
     </Col>
   </Row>
 );

@@ -15,7 +15,7 @@ const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
       <Field>
-        <Label>Plant</Label>
+        <Label>Prune</Label>
         <MediaInput start={<StartIcon />} end={<EndIcon />} />
       </Field>
     </Col>

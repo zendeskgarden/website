@@ -15,9 +15,9 @@ const Example = () => (
   <Row justifyContent="center">
     <Col size="auto">
       <Breadcrumb>
-        <Anchor>Garden</Anchor>
         <Anchor>Flowers</Anchor>
-        <Span>Roses</Span>
+        <Anchor>Roses</Anchor>
+        <Span>Floribunda</Span>
       </Breadcrumb>
     </Col>
   </Row>
