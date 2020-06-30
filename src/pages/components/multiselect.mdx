@@ -1,8 +1,8 @@
 ---
 title: Multiselect
 description: >
-  Multiselect is a form component that allows multiple selections to be made from a list of
-  options. The options can be dynamically filtered based on what is typed.
+  Multiselect lets users select multiple items from a list. Options are dynamically filtered as a
+  user types in the input field and their selections appear as tags in the input field.
 package: '@zendeskgarden/react-dropdowns'
 components:
   - dropdowns/src/elements/Multiselect/Multiselect.tsx
@@ -16,17 +16,17 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To make multiple selections from a list of options</li>
-      <li>To filter a data set by keywords</li>
+      <li>To choose multiple items from a list of options</li>
+      <li>To filter through a set of data by typing</li>
     </ul>
   </Use>
 </Usage>
 
 ## How to use it
 
-### Default Usage
+### Default
 
-The default usage of a Multiselect component.
+The basic usage of a Multiselect component.
 
 import MultiselectDefault from '../../examples/dropdowns/multiselect/Default.tsx';
 import MultiselectDefaultCode from '!!raw-loader!../../examples/dropdowns/multiselect/Default.tsx';
@@ -37,7 +37,7 @@ import MultiselectDefaultCode from '!!raw-loader!../../examples/dropdowns/multis
 
 ### Size
 
-Multiselect can be compact or default in size.
+Multiselect can be compact or default.
 
 import MultiselectSize from '../../examples/dropdowns/multiselect/Size.tsx';
 import MultiselectSizeCode from '!!raw-loader!../../examples/dropdowns/multiselect/Size.tsx';
@@ -48,7 +48,7 @@ import MultiselectSizeCode from '!!raw-loader!../../examples/dropdowns/multisele
 
 ### Overflow
 
-Tags overflow when space is limited.
+A Button indicating the number of "overflowing" Tags lets users see any Tags that don't fit.
 
 import MultiselectOverflow from '../../examples/dropdowns/multiselect/Overflow.tsx';
 import MultiselectOverflowCode from '!!raw-loader!../../examples/dropdowns/multiselect/Overflow.tsx';
