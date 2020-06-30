@@ -1,19 +1,38 @@
 ---
 title: Button
 description: >
-  Buttons provide a quick, direct way for users to make a
-  decision or initiate an action. Use buttons to indicate
-  important actions and move users through their flow.
+  Buttons let users take action quickly. Use a Button to enable actions or decisions that are
+  important to a user's workflow.
 package: '@zendeskgarden/react-buttons'
 components:
   - buttons/src/elements/Button.tsx
 ---
 
+<Usage>
+  <Use>
+    <ul>
+      <li>To enable user action</li>
+      <li>To draw attention to relevant actions in a user's workflow</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        To navigate to another page, use <a href="/components/anchor">Anchor</a> instead
+      </li>
+      <li>
+        To help users choose from parallel actions, use{' '}
+        <a href="/components/split-button">Split Button</a> instead
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
 ## How to use it
 
-### Types
+### Type
 
-Buttons can be default, primary, or basic in type.
+There are 3 types of Buttons: default, primary, and basic.
 
 import ButtonTypes from '../../examples/button/ButtonTypes.tsx';
 import ButtonTypesCode from '!!raw-loader!../../examples/button/ButtonTypes.tsx';
@@ -22,9 +41,9 @@ import ButtonTypesCode from '!!raw-loader!../../examples/button/ButtonTypes.tsx'
   <ButtonTypes />
 </CodeExample>
 
-### Sizes
+### Size
 
-Buttons can be small, default, or large sizes.
+Buttons come in small, default, and large.
 
 import ButtonSizes from '../../examples/button/ButtonSizes.tsx';
 import ButtonSizesCode from '!!raw-loader!../../examples/button/ButtonSizes.tsx';
@@ -33,9 +52,20 @@ import ButtonSizesCode from '!!raw-loader!../../examples/button/ButtonSizes.tsx'
   <ButtonSizes />
 </CodeExample>
 
+### Media
+
+Media elements add even more context to a button.
+
+import ButtonMedia from '../../examples/button/ButtonMedia.tsx';
+import ButtonMediaCode from '!!raw-loader!../../examples/button/ButtonMedia.tsx';
+
+<CodeExample code={ButtonMediaCode}>
+  <ButtonMedia />
+</CodeExample>
+
 ### Stretched
 
-The stretched property will make the button expand to fill its parents width.
+For Buttons that expand to fill their parent width, use the `stretched` prop.
 
 import ButtonStretched from '../../examples/button/ButtonStretched.tsx';
 import ButtonStretchedCode from '!!raw-loader!../../examples/button/ButtonStretched.tsx';
@@ -46,8 +76,10 @@ import ButtonStretchedCode from '!!raw-loader!../../examples/button/ButtonStretc
 
 ### Danger
 
-Danger styling is for buttons that have a destructive intent.
-See the [Destructive actions pattern](#todo) section for guidelines.
+Use danger styling for buttons that enable destructive action.
+
+import ButtonDanger from '../../examples/button/ButtonDanger.tsx';
+import ButtonDangerCode from '!!raw-loader!../../examples/button/ButtonDanger.tsx';
 
 <CodeExample code={ButtonDangerCode}>
   <ButtonDanger />
@@ -55,11 +87,14 @@ See the [Destructive actions pattern](#todo) section for guidelines.
 
 ### Disabled
 
-import ButtonDanger from '../../examples/button/ButtonDanger.tsx';
-import ButtonDangerCode from '!!raw-loader!../../examples/button/ButtonDanger.tsx';
+A disabled button prevents user interaction and is not perceived by a screen reader.
 
-Mark a button disabled with the disabled property.
-[Read more about disabled state usage](#todo)
+import ButtonDisabled from '../../examples/button/ButtonDisabled.tsx';
+import ButtonDisabledCode from '!!raw-loader!../../examples/button/ButtonDisabled.tsx';
+
+<CodeExample code={ButtonDisabledCode}>
+  <ButtonDisabled />
+</CodeExample>
 
 ## Configuration
 
