@@ -56,8 +56,8 @@
           title: Radio
         - id: /components/range
           title: Range
-        - id: /components/inputs
-          title: Inputs
+        - id: /components/input
+          title: Input
         - id: /components/toggle
           title: Toggle
     - title: Loaders

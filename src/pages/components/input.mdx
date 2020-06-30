@@ -1,7 +1,7 @@
 ---
-title: Inputs
+title: Input
 description: >
-  An input is a form field where the user can enter data.
+  An Input lets users enter text into a field.
 package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/FauxInput.tsx
@@ -17,7 +17,7 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To let the user enter data</li>
+      <li>To let the user enter data into a field</li>
       <li>To enter multiline text, use a Textarea</li>
     </ul>
   </Use>
@@ -27,7 +27,7 @@ components:
 
 ### Default
 
-An Input is accompanied with a label indicating its purpose.
+An Input comes with a label indicating what goes into the field.
 
 import Input from '../../examples/forms/inputs/Input.tsx';
 import InputCode from '!!raw-loader!../../examples/forms/inputs/Input.tsx';
@@ -38,7 +38,7 @@ import InputCode from '!!raw-loader!../../examples/forms/inputs/Input.tsx';
 
 ### Size
 
-A text Input can be default or compact in size.
+An Input can be default or compact.
 
 import Size from '../../examples/forms/inputs/Size.tsx';
 import SizeCode from '!!raw-loader!../../examples/forms/inputs/Size.tsx';
@@ -49,7 +49,7 @@ import SizeCode from '!!raw-loader!../../examples/forms/inputs/Size.tsx';
 
 ### Hint text
 
-Hint text adds additional context to the text Input’s label.
+To provide additional context, use hint text with the label.
 
 import Hint from '../../examples/forms/inputs/Hint.tsx';
 import HintCode from '!!raw-loader!../../examples/forms/inputs/Hint.tsx';
@@ -58,10 +58,21 @@ import HintCode from '!!raw-loader!../../examples/forms/inputs/Hint.tsx';
   <Hint />
 </CodeExample>
 
+### Placeholder
+
+Placeholder text provides the user with example content or additional context.
+
+import Placeholder from '../../examples/forms/inputs/Placeholder.tsx';
+import PlaceholderCode from '!!raw-loader!../../examples/forms/inputs/Placeholder.tsx';
+
+<CodeExample code={PlaceholderCode}>
+  <Placeholder />
+</CodeExample>
+
 ### Textarea input
 
-A Textarea accommodates multiline text. Its height is fixed by default, and can be resizable using
-the `isResizable` property.
+A Textarea is for multiline text. By default, its height is fixed and becomes resizable with the
+`isResizable` prop.
 
 import Textarea from '../../examples/forms/inputs/Textarea.tsx';
 import TextareaCode from '!!raw-loader!../../examples/forms/inputs/Textarea.tsx';
@@ -72,7 +83,7 @@ import TextareaCode from '!!raw-loader!../../examples/forms/inputs/Textarea.tsx'
 
 ### Media input
 
-An input can contain media elements to further clarify its purpose.
+Media elements add even more context to an input.
 
 import Icons from '../../examples/forms/inputs/MediaInput.tsx';
 import IconsCode from '!!raw-loader!../../examples/forms/inputs/MediaInput.tsx';
@@ -83,7 +94,7 @@ import IconsCode from '!!raw-loader!../../examples/forms/inputs/MediaInput.tsx';
 
 ### Faux input
 
-Provides input styling without native input backing.
+Provide input styling without native input backing.
 
 import FauxInput from '../../examples/forms/inputs/FauxInput.tsx';
 import FauxInputCode from '!!raw-loader!../../examples/forms/inputs/FauxInput.tsx';
@@ -94,7 +105,7 @@ import FauxInputCode from '!!raw-loader!../../examples/forms/inputs/FauxInput.ts
 
 ### Bare
 
-Input borders and padding can be removed using the `isBare` property.
+Remove borders and padding using the `isBare` prop.
 
 import Bare from '../../examples/forms/inputs/Bare.tsx';
 import BareCode from '!!raw-loader!../../examples/forms/inputs/Bare.tsx';
@@ -105,8 +116,8 @@ import BareCode from '!!raw-loader!../../examples/forms/inputs/Bare.tsx';
 
 ### Focus inset
 
-Input focus styling can be inset using the `focusInset` property. This keeps the focus contained
-within the input area when it is flush with another component.
+Set focus styling inside the element using the `focusInset` prop. (Useful when an Input is flush
+with another component.)
 
 import FocusInset from '../../examples/forms/inputs/FocusInset.tsx';
 import FocusInsetCode from '!!raw-loader!../../examples/forms/inputs/FocusInset.tsx';
@@ -115,20 +126,9 @@ import FocusInsetCode from '!!raw-loader!../../examples/forms/inputs/FocusInset.
   <FocusInset />
 </CodeExample>
 
-### Placeholder
-
-Placeholder text gives an example of content format.
-
-import Placeholder from '../../examples/forms/inputs/Placeholder.tsx';
-import PlaceholderCode from '!!raw-loader!../../examples/forms/inputs/Placeholder.tsx';
-
-<CodeExample code={PlaceholderCode}>
-  <Placeholder />
-</CodeExample>
-
 ### Validation
 
-Success, warning, or danger validation messages are shown using the Message component.
+Show success, warning, and danger validation messages with the Message component.
 
 import Validation from '../../examples/forms/inputs/Validation.tsx';
 import ValidationCode from '!!raw-loader!../../examples/forms/inputs/Validation.tsx';
