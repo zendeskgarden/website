@@ -9,21 +9,18 @@ import React from 'react';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { Row, Col } from '@zendeskgarden/react-grid';
-import { ReactComponent as UserStrokeIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
+import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const Example = () => (
   <Row>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]}>
-        <UserStrokeIcon role="img" aria-label="icon avatar" />
+        <UserIcon role="img" aria-label="icon avatar" />
       </Avatar>
     </Col>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]}>
-        <img
-          alt="image avatar"
-          src="https://garden.zendesk.com/react-components/avatars/images/avatar-3.png"
-        />
+        <img alt="image avatar" src="./user.png" />
       </Avatar>
     </Col>
     <Col textAlign="center">
