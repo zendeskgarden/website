@@ -5,9 +5,9 @@ description: >
   parallel actions and take action on their choice.
 package: '@zendeskgarden/react-buttons'
 components:
-  - buttons/src/elements/SplitButton.tsx
-  - buttons/src/elements/ChevronButton.tsx
   - buttons/src/elements/Button.tsx
+  - buttons/src/elements/ChevronButton.tsx
+  - buttons/src/elements/SplitButton.tsx
 ---
 
 <Usage>
@@ -39,6 +39,17 @@ components:
 
 ## How to use it
 
+### Size
+
+Split Buttons can be small, default, or large.
+
+import SplitButtonSizes from '../../examples/button/SplitButtonSizes.tsx';
+import SplitButtonSizesCode from '!!raw-loader!../../examples/button/SplitButtonSizes.tsx';
+
+<CodeExample code={SplitButtonSizesCode}>
+  <SplitButtonSizes />
+</CodeExample>
+
 ### Type
 
 Split Buttons are implemented in combination with a [Menu](/components/menu) component to show
@@ -51,34 +62,23 @@ import SplitButtonTypesCode from '!!raw-loader!../../examples/button/SplitButton
   <SplitButtonTypes />
 </CodeExample>
 
-### Size
-
-Split Buttons can be small, default, or large.
-
-import SplitButtonSizes from '../../examples/button/SplitButtonSizes.tsx';
-import SplitButtonSizesCode from '!!raw-loader!../../examples/button/SplitButtonSizes.tsx';
-
-<CodeExample code={SplitButtonSizesCode}>
-  <SplitButtonSizes />
-</CodeExample>
-
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
-### SplitButton
+### Button
 
-<PropSheet components={props.data.mdx.components} componentName="splitButton" />
+<PropSheet components={props.data.mdx.components} componentName="button" />
 
 ### ChevronButton
 
 <PropSheet components={props.data.mdx.components} componentName="chevronButton" />
 
-### Button
+### SplitButton
 
-<PropSheet components={props.data.mdx.components} componentName="button" />
+<PropSheet components={props.data.mdx.components} componentName="splitButton" />
 
 import { graphql } from 'gatsby';
 
