@@ -10,11 +10,6 @@ Avoid ampersands in place of “and.” Don’t use “+” unless you’re open
 
 Use apostrophes to denote possession. Avoid apostrophes to denote plurals even for initialisms.
 
-## Comma
-
-Always use the Oxford comma, also known as the serial comma, to precede the final item in a list.
-Don’t use commas in buttons.
-
 ## Colon
 
 In general, avoid using colons in product, especially when describing some attribute and its value.
@@ -34,6 +29,11 @@ sentence at the colon. This causes challenges for translation.
   </Dont>
 </BestPractice>
 
+## Comma
+
+Always use the Oxford comma, also known as the serial comma, to precede the final item in a list.
+Don’t use commas in buttons.
+
 ## Ellipse
 
 Garden creates ellipses automatically when words are truncated. Don’t add them manually to the UI.
@@ -47,7 +47,11 @@ These are too loud for most of our brand tones. We tend not to use them at all.
 Err on the side of fewer hyphens and dashes. Use en dashes with no spaces to communicate a range.
 Avoid using en or em dashes to communicate a break in your thoughts.
 
-_This plan affects any customers with 100–150 active agents._
+<BestPractice>
+  <Do>
+    <p>This plan affects any customers with 100–150 active agents.</p>
+  </Do>
+</BestPractice>
 
 ## Parentheses
 
@@ -61,8 +65,8 @@ periods.
 
 | Component                | Does it need a period?                                                                                                                                                                          |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Breadcrumbs              | No. Bullets should be sentence fragments. If a bullet has more than one sentence, use closing punctuation on each. If a bullet has more than two sentences, it should be a description instead. |
-| Bullets (in a list)      | No                                                                                                                                                                                              |
+| Breadcrumbs              | No                                                                                                                                                                                              |
+| Bullets (in a list)      | No. Bullets should be sentence fragments. If a bullet has more than one sentence, use closing punctuation on each. If a bullet has more than two sentences, it should be a description instead. |
 | Button                   | No                                                                                                                                                                                              |
 | Description              | Yes, at the end of every full sentence.                                                                                                                                                         |
 | Headings and subheadings | No                                                                                                                                                                                              |
@@ -92,8 +96,9 @@ No semi-colons in product; that's the way it has to be.
 
 ## Slash
 
+<!-- prettier-ignore -->
 Used when indicating URLs and as a date separator. You can also use slashes to mean “per,” but limit
-use to one slash in a phrase, for example: “\$9/agent per month.”
+use to one slash in a phrase, for example: “$9/agent per month.”
 
 import { graphql } from 'gatsby';
 
