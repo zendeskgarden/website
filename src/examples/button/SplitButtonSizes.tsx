@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
@@ -17,54 +17,75 @@ const StyledCol = styled(Col)`
   }
 `;
 
-const Example = () => (
-  <Row alignItems="center">
-    <Col textAlign="center" sm>
-      <SplitButton>
-        <Button size="small">Harvest</Button>
-        <Dropdown>
-          <Trigger>
-            <ChevronButton size="small" />
-          </Trigger>
-          <Menu>
-            <Item value="prune">Prune</Item>
-            <Item value="water">Water</Item>
-            <Item value="fertilize">Fertilize</Item>
-          </Menu>
-        </Dropdown>
-      </SplitButton>
-    </Col>
-    <StyledCol textAlign="center" sm>
-      <SplitButton>
-        <Button size="medium">Harvest</Button>
-        <Dropdown>
-          <Trigger>
-            <ChevronButton size="medium" />
-          </Trigger>
-          <Menu>
-            <Item value="prune">Prune</Item>
-            <Item value="water">Water</Item>
-            <Item value="fertilize">Fertilize</Item>
-          </Menu>
-        </Dropdown>
-      </SplitButton>
-    </StyledCol>
-    <StyledCol textAlign="center" sm>
-      <SplitButton>
-        <Button size="large">Harvest</Button>
-        <Dropdown>
-          <Trigger>
-            <ChevronButton size="large" />
-          </Trigger>
-          <Menu>
-            <Item value="prune">Prune</Item>
-            <Item value="water">Water</Item>
-            <Item value="fertilize">Fertilize</Item>
-          </Menu>
-        </Dropdown>
-      </SplitButton>
-    </StyledCol>
-  </Row>
-);
+const Example = () => {
+  const [smallRotated, setSmallRotated] = useState<boolean | undefined>();
+  const [mediumRotated, setMediumRotated] = useState<boolean | undefined>();
+  const [largeRotated, setLargeRotated] = useState<boolean | undefined>();
+
+  return (
+    <Row alignItems="center">
+      <Col textAlign="center" sm>
+        <SplitButton>
+          <Button size="small">Harvest</Button>
+          <Dropdown
+            onStateChange={options =>
+              Object.prototype.hasOwnProperty.call(options, 'isOpen') &&
+              setSmallRotated(options.isOpen)
+            }
+          >
+            <Trigger>
+              <ChevronButton aria-label="other actions" size="small" isRotated={smallRotated} />
+            </Trigger>
+            <Menu placement="bottom-end">
+              <Item value="prune">Prune</Item>
+              <Item value="water">Water</Item>
+              <Item value="fertilize">Fertilize</Item>
+            </Menu>
+          </Dropdown>
+        </SplitButton>
+      </Col>
+      <StyledCol textAlign="center" sm>
+        <SplitButton>
+          <Button size="medium">Harvest</Button>
+          <Dropdown
+            onStateChange={options =>
+              Object.prototype.hasOwnProperty.call(options, 'isOpen') &&
+              setMediumRotated(options.isOpen)
+            }
+          >
+            <Trigger>
+              <ChevronButton aria-label="other actions" size="medium" isRotated={mediumRotated} />
+            </Trigger>
+            <Menu placement="bottom-end">
+              <Item value="prune">Prune</Item>
+              <Item value="water">Water</Item>
+              <Item value="fertilize">Fertilize</Item>
+            </Menu>
+          </Dropdown>
+        </SplitButton>
+      </StyledCol>
+      <StyledCol textAlign="center" sm>
+        <SplitButton>
+          <Button size="large">Harvest</Button>
+          <Dropdown
+            onStateChange={options =>
+              Object.prototype.hasOwnProperty.call(options, 'isOpen') &&
+              setLargeRotated(options.isOpen)
+            }
+          >
+            <Trigger>
+              <ChevronButton aria-label="other actions" size="large" isRotated={largeRotated} />
+            </Trigger>
+            <Menu placement="bottom-end">
+              <Item value="prune">Prune</Item>
+              <Item value="water">Water</Item>
+              <Item value="fertilize">Fertilize</Item>
+            </Menu>
+          </Dropdown>
+        </SplitButton>
+      </StyledCol>
+    </Row>
+  );
+};
 
 export default Example;

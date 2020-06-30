@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Dropdown, Menu, Item, Trigger, GARDEN_PLACEMENT } from '@zendeskgarden/react-dropdowns';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { ReactComponent as ChevronIcon } from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 const PLACEMENTS: Record<string, GARDEN_PLACEMENT> = {
   auto: 'auto',
@@ -26,21 +27,35 @@ const PLACEMENTS: Record<string, GARDEN_PLACEMENT> = {
   startBottom: 'start-bottom'
 };
 
-const Example = () => (
-  <Row style={{ margin: 140 }}>
-    <Col textAlign="center">
-      <Dropdown onSelect={item => alert(`You planted a ${item}`)}>
-        <Trigger>
-          <Button>Menu</Button>
-        </Trigger>
-        <Menu placement={PLACEMENTS.topStart}>
-          <Item value="cactus">Cactus</Item>
-          <Item value="flower">Flower</Item>
-          <Item value="succulent">Succulent</Item>
-        </Menu>
-      </Dropdown>
-    </Col>
-  </Row>
-);
+const Example = () => {
+  const [rotated, setRotated] = useState<boolean | undefined>();
+
+  return (
+    <Row style={{ margin: 140 }}>
+      <Col textAlign="center">
+        <Dropdown
+          onSelect={item => alert(`You planted a ${item}`)}
+          onStateChange={options =>
+            Object.prototype.hasOwnProperty.call(options, 'isOpen') && setRotated(options.isOpen)
+          }
+        >
+          <Trigger>
+            <Button>
+              Menu
+              <Button.EndIcon isRotated={rotated}>
+                <ChevronIcon />
+              </Button.EndIcon>
+            </Button>
+          </Trigger>
+          <Menu placement={PLACEMENTS.topStart}>
+            <Item value="cactus">Cactus</Item>
+            <Item value="flower">Flower</Item>
+            <Item value="succulent">Succulent</Item>
+          </Menu>
+        </Dropdown>
+      </Col>
+    </Row>
+  );
+};
 
 export default Example;

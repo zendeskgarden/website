@@ -7,15 +7,18 @@
 
 import React from 'react';
 import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns';
-import { Button } from '@zendeskgarden/react-buttons';
+import { IconButton } from '@zendeskgarden/react-buttons';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => (
   <Row>
     <Col textAlign="center">
       <Dropdown onSelect={item => alert(`You planted a ${item}`)}>
         <Trigger>
-          <Button>Menu</Button>
+          <IconButton aria-label="plant">
+            <LeafIcon />
+          </IconButton>
         </Trigger>
         <Menu hasArrow>
           <Item value="cactus">Cactus</Item>

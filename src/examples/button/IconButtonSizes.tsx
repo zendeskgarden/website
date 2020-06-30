@@ -14,17 +14,17 @@ const Example = () => (
   <Row alignItems="center">
     <Col textAlign="center">
       <IconButton size="small">
-        <LeafIcon />
+        <LeafIcon aria-label="small leaf" />
       </IconButton>
     </Col>
     <Col textAlign="center">
       <IconButton size="medium">
-        <LeafIcon />
+        <LeafIcon aria-label="medium leaf" />
       </IconButton>
     </Col>
     <Col textAlign="center">
       <IconButton size="large">
-        <LeafIcon />
+        <LeafIcon aria-label="large leaf" />
       </IconButton>
     </Col>
   </Row>

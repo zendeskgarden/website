@@ -17,6 +17,7 @@ import {
 } from '@zendeskgarden/react-dropdowns';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { ReactComponent as ChevronIcon } from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 const Example = () => {
   const [state, setState] = useState({
@@ -60,7 +61,12 @@ const Example = () => {
           }}
         >
           <Trigger>
-            <Button>Menu</Button>
+            <Button>
+              Menu
+              <Button.EndIcon isRotated={state.isOpen}>
+                <ChevronIcon />
+              </Button.EndIcon>
+            </Button>
           </Trigger>
           <Menu placement="end">
             {state.tempSelectedItem === 'flowers' ? (
