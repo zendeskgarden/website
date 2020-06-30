@@ -6,6 +6,7 @@
  */
 
 import React, { createContext, useContext } from 'react';
+import styled from 'styled-components';
 import {
   Table as GardenTable,
   Head,
@@ -18,7 +19,9 @@ import {
 
 const TableHeadContext = createContext(false);
 
-export const Table = GardenTable;
+export const Table = styled(GardenTable)`
+  margin: 0 0 ${p => p.theme.space.lg};
+`;
 export const TBody = Body;
 export const TH = HeaderCell;
 export const TD = Cell;
