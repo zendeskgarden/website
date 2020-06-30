@@ -1,15 +1,130 @@
 ---
 title: Autocomplete
 description: >
-  Description will be here
+  Autocomplete is an input field that filters results as users type. This helps users find
+  something quickly in a large list of options.
+package: '@zendeskgarden/react-dropdowns'
+components:
+  - dropdowns/src/elements/Autocomplete/Autocomplete.tsx
+  - dropdowns/src/elements/Dropdown/Dropdown.tsx
+  - dropdowns/src/elements/Menu/Menu.tsx
+  - dropdowns/src/elements/Menu/Items/Item.tsx
+  - dropdowns/src/elements/Fields/Field.tsx
+  - dropdowns/src/elements/Fields/Hint.tsx
+  - dropdowns/src/elements/Fields/Label.tsx
 ---
 
-Content here
+<Usage>
+  <Use>
+    <ul>
+      <li>To filter down a large list of options</li>
+      <li>To quickly find a known option</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        To make more than one selection use <a href="./multiselect">Multiselect</a> instead
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The basic usage of an Autocomplete component.
+
+import Default from '../../examples/dropdowns/autocomplete/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Size
+
+Autocomplete comes in two sizes: default and compact.
+
+import Size from '../../examples/dropdowns/autocomplete/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+### Media
+
+Media elements add even more context to an Autocomplete.
+
+import Media from '../../examples/dropdowns/autocomplete/Media.tsx';
+import MediaCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Media.tsx';
+
+<CodeExample code={MediaCode}>
+  <Media />
+</CodeExample>
+
+## How to use it well
+
+### Use Autocomplete to narrow down options
+
+<BestPractice>
+  <Do imageSource={props.data.dropdownSelectionDo.children[0].publicURL}>
+    <p>
+      Autocomplete is useful for lists that are too long to read in full (for example, company
+      employees) or that accumulate items over time (for example, an inventory).
+    </p>
+  </Do>
+</BestPractice>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Autocomplete
+
+<PropSheet components={props.data.mdx.components} componentName="autocomplete" />
+
+### Dropdown
+
+<PropSheet components={props.data.mdx.components} componentName="dropdown" />
+
+### Menu
+
+<PropSheet components={props.data.mdx.components} componentName="menu" />
+
+### Item
+
+<PropSheet components={props.data.mdx.components} componentName="item" />
+
+### Field
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Hint
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Label
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    dropdownSelectionDo: abstractAsset(
+      layerName: { eq: "components-dropdowns-autocomplete-selection-do" }
+    ) {
+      children {
+        ... on File {
+          publicURL
+        }
+      }
+    }
   }
 `;
