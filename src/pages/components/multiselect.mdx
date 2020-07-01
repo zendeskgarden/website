@@ -5,12 +5,12 @@ description: >
   user types in the input field and their selections appear as tags in the input field.
 package: '@zendeskgarden/react-dropdowns'
 components:
-  - dropdowns/src/elements/Multiselect/Multiselect.tsx
   - dropdowns/src/elements/Dropdown/Dropdown.tsx
   - dropdowns/src/elements/Fields/Field.tsx
   - dropdowns/src/elements/Fields/Hint.tsx
-  - dropdowns/src/elements/Fields/Label.tsx
   - dropdowns/src/elements/Menu/Items/Item.tsx
+  - dropdowns/src/elements/Fields/Label.tsx
+  - dropdowns/src/elements/Multiselect/Multiselect.tsx
 ---
 
 <Usage>
@@ -35,17 +35,6 @@ import MultiselectDefaultCode from '!!raw-loader!../../examples/dropdowns/multis
   <MultiselectDefault />
 </CodeExample>
 
-### Size
-
-Multiselect can be compact or default.
-
-import MultiselectSize from '../../examples/dropdowns/multiselect/Size.tsx';
-import MultiselectSizeCode from '!!raw-loader!../../examples/dropdowns/multiselect/Size.tsx';
-
-<CodeExample code={MultiselectSizeCode}>
-  <MultiselectSize />
-</CodeExample>
-
 ### Overflow
 
 A Button indicating the number of "overflowing" Tags lets users see any Tags that don't fit.
@@ -57,15 +46,22 @@ import MultiselectOverflowCode from '!!raw-loader!../../examples/dropdowns/multi
   <MultiselectOverflow />
 </CodeExample>
 
+### Size
+
+Multiselect comes in two sizes: default or compact.
+
+import MultiselectSize from '../../examples/dropdowns/multiselect/Size.tsx';
+import MultiselectSizeCode from '!!raw-loader!../../examples/dropdowns/multiselect/Size.tsx';
+
+<CodeExample code={MultiselectSizeCode}>
+  <MultiselectSize />
+</CodeExample>
+
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
-
-### Multiselect
-
-<PropSheet components={props.data.mdx.components} componentName="multiselect" />
 
 ### Dropdown
 
@@ -79,13 +75,17 @@ import MultiselectOverflowCode from '!!raw-loader!../../examples/dropdowns/multi
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
+### Item
+
+<PropSheet components={props.data.mdx.components} componentName="item" />
+
 ### Label
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
-### Item
+### Multiselect
 
-<PropSheet components={props.data.mdx.components} componentName="item" />
+<PropSheet components={props.data.mdx.components} componentName="multiselect" />
 
 import { graphql } from 'gatsby';
 

@@ -5,12 +5,12 @@ description: >
   This helps simplify the UI when space is limited.
 package: '@zendeskgarden/react-dropdowns'
 components:
-  - dropdowns/src/elements/Select/Select.tsx
   - dropdowns/src/elements/Dropdown/Dropdown.tsx
   - dropdowns/src/elements/Fields/Field.tsx
   - dropdowns/src/elements/Fields/Hint.tsx
   - dropdowns/src/elements/Fields/Label.tsx
   - dropdowns/src/elements/Fields/Message.tsx
+  - dropdowns/src/elements/Select/Select.tsx
 ---
 
 <Usage>
@@ -49,6 +49,17 @@ import SelectDefaultCode from '!!raw-loader!../../examples/dropdowns/select/Defa
   <SelectDefault />
 </CodeExample>
 
+### Disabled
+
+Use disabled to restrict user interaction.
+
+import SelectDisabled from '../../examples/dropdowns/select/Disabled.tsx';
+import SelectDisabledCode from '!!raw-loader!../../examples/dropdowns/select/Disabled.tsx';
+
+<CodeExample code={SelectDisabledCode}>
+  <SelectDisabled />
+</CodeExample>
+
 ### Hint copy
 
 Hint copy gives further clarification.
@@ -58,17 +69,6 @@ import SelectHintCode from '!!raw-loader!../../examples/dropdowns/select/Hint.ts
 
 <CodeExample code={SelectHintCode}>
   <SelectHint />
-</CodeExample>
-
-### Validation
-
-Show success, warning, and danger validation messages with the Message component.
-
-import SelectValidation from '../../examples/dropdowns/select/Validation.tsx';
-import SelectValidationCode from '!!raw-loader!../../examples/dropdowns/select/Validation.tsx';
-
-<CodeExample code={SelectValidationCode}>
-  <SelectValidation />
 </CodeExample>
 
 ### Size
@@ -82,15 +82,15 @@ import SelectSizeCode from '!!raw-loader!../../examples/dropdowns/select/Size.ts
   <SelectSize />
 </CodeExample>
 
-### Disabled
+### Validation
 
-Use disabled to restrict user interaction.
+Show success, warning, and danger validation messages with the Message component.
 
-import SelectDisabled from '../../examples/dropdowns/select/Disabled.tsx';
-import SelectDisabledCode from '!!raw-loader!../../examples/dropdowns/select/Disabled.tsx';
+import SelectValidation from '../../examples/dropdowns/select/Validation.tsx';
+import SelectValidationCode from '!!raw-loader!../../examples/dropdowns/select/Validation.tsx';
 
-<CodeExample code={SelectDisabledCode}>
-  <SelectDisabled />
+<CodeExample code={SelectValidationCode}>
+  <SelectValidation />
 </CodeExample>
 
 ## Configuration
@@ -98,10 +98,6 @@ import SelectDisabledCode from '!!raw-loader!../../examples/dropdowns/select/Dis
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
-
-### Select
-
-<PropSheet components={props.data.mdx.components} componentName="select" />
 
 ### Dropdown
 
@@ -122,6 +118,10 @@ import SelectDisabledCode from '!!raw-loader!../../examples/dropdowns/select/Dis
 ### Message
 
 <PropSheet components={props.data.mdx.components} componentName="message" />
+
+### Select
+
+<PropSheet components={props.data.mdx.components} componentName="select" />
 
 import { graphql } from 'gatsby';
 

@@ -96,16 +96,15 @@ const Example = () => {
           <Field>
             <Label>Vegetables</Label>
             <Multiselect
-              isCompact
               renderItem={({ value, removeValue }: any) => (
-                <Tag>
+                <Tag size="large">
                   <span>{value}</span>
                   <Tag.Close onClick={() => removeValue()} />
                 </Tag>
               )}
             />
           </Field>
-          <Menu isCompact>{renderOptions()}</Menu>
+          <Menu>{renderOptions()}</Menu>
         </Dropdown>
       </Col>
       <StyledCol>
@@ -123,15 +122,16 @@ const Example = () => {
           <Field>
             <Label>Vegetables</Label>
             <Multiselect
+              isCompact
               renderItem={({ value, removeValue }: any) => (
-                <Tag size="large">
+                <Tag>
                   <span>{value}</span>
                   <Tag.Close onClick={() => removeValue()} />
                 </Tag>
               )}
             />
           </Field>
-          <Menu>{renderOptions()}</Menu>
+          <Menu isCompact>{renderOptions()}</Menu>
         </Dropdown>
       </StyledCol>
     </Row>

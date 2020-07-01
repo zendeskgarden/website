@@ -4,10 +4,8 @@ description: >
   Menus help users select a single item from a list of available options.
 package: '@zendeskgarden/react-dropdowns'
 components:
-  - dropdowns/src/elements/Dropdown/Dropdown.tsx
-  - dropdowns/src/elements/Menu/Menu.tsx
-  - dropdowns/src/elements/Menu/Separator.tsx
   - dropdowns/src/elements/Menu/Items/AddItem.tsx
+  - dropdowns/src/elements/Dropdown/Dropdown.tsx
   - dropdowns/src/elements/Menu/Items/HeaderIcon.tsx
   - dropdowns/src/elements/Menu/Items/HeaderItem.tsx
   - dropdowns/src/elements/Menu/Items/Item.tsx
@@ -15,8 +13,11 @@ components:
   - dropdowns/src/elements/Menu/Items/MediaBody.tsx
   - dropdowns/src/elements/Menu/Items/MediaFigure.tsx
   - dropdowns/src/elements/Menu/Items/MediaItem.tsx
+  - dropdowns/src/elements/Menu/Menu.tsx
   - dropdowns/src/elements/Menu/Items/NextItem.tsx
   - dropdowns/src/elements/Menu/Items/PreviousItem.tsx
+  - dropdowns/src/elements/Menu/Separator.tsx
+  - dropdowns/src/elements/Trigger/Trigger.tsx
 ---
 
 <Usage>
@@ -44,15 +45,15 @@ components:
 
 ## How to use it
 
-### Select Menu
+### Arrow
 
-Works in combination with a [Select](/components/select) to display a list of options.
+An arrow can be added to the Menu to give the user a sense of what element is triggering it.
 
-import MenuSelect from '../../examples/dropdowns/menu/Select.tsx';
-import MenuSelectCode from '!!raw-loader!../../examples/dropdowns/menu/Select.tsx';
+import MenuArrow from '../../examples/dropdowns/menu/Arrow.tsx';
+import MenuArrowCode from '!!raw-loader!../../examples/dropdowns/menu/Arrow.tsx';
 
-<CodeExample code={MenuSelectCode}>
-  <MenuSelect />
+<CodeExample code={MenuArrowCode}>
+  <MenuArrow />
 </CodeExample>
 
 ### Button Menu
@@ -66,27 +67,26 @@ import MenuButtonCode from '!!raw-loader!../../examples/dropdowns/menu/Button.ts
   <MenuButton />
 </CodeExample>
 
-### Placement
+### Disabled
 
-Menu placement can be oriented around a trigger element in different positions. The default
-placement is `bottom-start`. This example demonstrates the `top-start` placement.
+Items within a Menu can be disabled to limit a user from interacting with them.
 
-import MenuPlacement from '../../examples/dropdowns/menu/Placement.tsx';
-import MenuPlacementCode from '!!raw-loader!../../examples/dropdowns/menu/Placement.tsx';
+import MenuDisabled from '../../examples/dropdowns/menu/Disabled.tsx';
+import MenuDisabledCode from '!!raw-loader!../../examples/dropdowns/menu/Disabled.tsx';
 
-<CodeExample code={MenuPlacementCode}>
-  <MenuPlacement />
+<CodeExample code={MenuDisabledCode}>
+  <MenuDisabled />
 </CodeExample>
 
-### Arrow
+### Media Items
 
-An arrow can be added to the Menu to give the user a sense of what element is triggering it.
+Meta text can be paired with Menu items for additional clarity.
 
-import MenuArrow from '../../examples/dropdowns/menu/Arrow.tsx';
-import MenuArrowCode from '!!raw-loader!../../examples/dropdowns/menu/Arrow.tsx';
+import MenuMedia from '../../examples/dropdowns/menu/Media.tsx';
+import MenuMediaCode from '!!raw-loader!../../examples/dropdowns/menu/Media.tsx';
 
-<CodeExample code={MenuArrowCode}>
-  <MenuArrow />
+<CodeExample code={MenuMediaCode}>
+  <MenuMedia />
 </CodeExample>
 
 ### Meta
@@ -111,15 +111,27 @@ import MenuNestedCode from '!!raw-loader!../../examples/dropdowns/menu/Nested.ts
   <MenuNested />
 </CodeExample>
 
-### Disabled
+### Placement
 
-Items within a Menu can be disabled to limit a user from interacting with them.
+Menu placement can be oriented around a trigger element in different positions. The default
+placement is `bottom-start`. This example demonstrates the `top-start` placement.
 
-import MenuDisabled from '../../examples/dropdowns/menu/Disabled.tsx';
-import MenuDisabledCode from '!!raw-loader!../../examples/dropdowns/menu/Disabled.tsx';
+import MenuPlacement from '../../examples/dropdowns/menu/Placement.tsx';
+import MenuPlacementCode from '!!raw-loader!../../examples/dropdowns/menu/Placement.tsx';
 
-<CodeExample code={MenuDisabledCode}>
-  <MenuDisabled />
+<CodeExample code={MenuPlacementCode}>
+  <MenuPlacement />
+</CodeExample>
+
+### Select Menu
+
+Works in combination with a [Select](/components/select) to display a list of options.
+
+import MenuSelect from '../../examples/dropdowns/menu/Select.tsx';
+import MenuSelectCode from '!!raw-loader!../../examples/dropdowns/menu/Select.tsx';
+
+<CodeExample code={MenuSelectCode}>
+  <MenuSelect />
 </CodeExample>
 
 ### Size
@@ -133,38 +145,19 @@ import MenuSizeCode from '!!raw-loader!../../examples/dropdowns/menu/Size.tsx';
   <MenuSize />
 </CodeExample>
 
-### Media Items
-
-Meta text can be paired with Menu items for additional clarity.
-
-import MenuMedia from '../../examples/dropdowns/menu/Media.tsx';
-import MenuMediaCode from '!!raw-loader!../../examples/dropdowns/menu/Media.tsx';
-
-<CodeExample code={MenuMediaCode}>
-  <MenuMedia />
-</CodeExample>
-
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
-### Dropdown
-
-<PropSheet components={props.data.mdx.components} componentName="dropdown" />
-
-### Menu
-
-<PropSheet components={props.data.mdx.components} componentName="menu" />
-
-### Separator
-
-<PropSheet components={props.data.mdx.components} componentName="separator" />
-
 ### AddItem
 
 <PropSheet components={props.data.mdx.components} componentName="addItem" />
+
+### Dropdown
+
+<PropSheet components={props.data.mdx.components} componentName="dropdown" />
 
 ### HeaderIcon
 
@@ -194,6 +187,10 @@ import MenuMediaCode from '!!raw-loader!../../examples/dropdowns/menu/Media.tsx'
 
 <PropSheet components={props.data.mdx.components} componentName="mediaItem" />
 
+### Menu
+
+<PropSheet components={props.data.mdx.components} componentName="menu" />
+
 ### NextItem
 
 <PropSheet components={props.data.mdx.components} componentName="nextItem" />
@@ -201,6 +198,14 @@ import MenuMediaCode from '!!raw-loader!../../examples/dropdowns/menu/Media.tsx'
 ### PreviousItem
 
 <PropSheet components={props.data.mdx.components} componentName="previousItem" />
+
+### Separator
+
+<PropSheet components={props.data.mdx.components} componentName="separator" />
+
+### Trigger
+
+<PropSheet components={props.data.mdx.components} componentName="trigger" />
 
 import { graphql } from 'gatsby';
 
