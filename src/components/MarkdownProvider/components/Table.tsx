@@ -20,7 +20,7 @@ import {
 const TableHeadContext = createContext(false);
 
 export const Table = styled(GardenTable)`
-  margin: 0 0 ${p => p.theme.space.lg};
+  margin: 0 0 ${p => p.theme.space.xl};
 `;
 export const TBody = Body;
 export const TH = HeaderCell;
