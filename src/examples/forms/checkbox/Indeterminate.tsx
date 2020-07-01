@@ -10,12 +10,12 @@ import styled from 'styled-components';
 import { Field, Label, Checkbox } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
-interface ISelectPerennial {
-  type: 'perennial';
+interface ISelectLight {
+  type: 'light';
 }
 
-interface ISelectAnnual {
-  type: 'annual';
+interface ISelectPest {
+  type: 'pest';
 }
 
 interface ISelectAll {
@@ -26,22 +26,22 @@ interface ISelectNone {
   type: 'none';
 }
 
-const initialState = { annual: true, perennial: false };
+const initialState = { pest: true, light: false };
 
-type ActionTypes = ISelectPerennial | ISelectAnnual | ISelectAll | ISelectNone;
+type ActionTypes = ISelectLight | ISelectPest | ISelectAll | ISelectNone;
 
 type ReducerType = (state: typeof initialState, action: ActionTypes) => typeof initialState;
 
 const reducer: ReducerType = (state, action) => {
   switch (action.type) {
     case 'all':
-      return { annual: true, perennial: true };
+      return { pest: true, light: true };
     case 'none':
-      return { annual: false, perennial: false };
-    case 'annual':
-      return { ...state, annual: !state.annual };
-    case 'perennial':
-      return { ...state, perennial: !state.perennial };
+      return { pest: false, light: false };
+    case 'pest':
+      return { ...state, pest: !state.pest };
+    case 'light':
+      return { ...state, light: !state.light };
     default:
       return state;
   }
@@ -53,18 +53,18 @@ const StyledGroup = styled(Field)`
 
 const Example = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { annual, perennial } = state;
+  const { pest, light } = state;
 
   const onParentChange = () => {
-    if (perennial || annual) {
+    if (light || pest) {
       dispatch({ type: 'all' });
     }
 
-    if (!perennial || !annual) {
+    if (!light || !pest) {
       dispatch({ type: 'all' });
     }
 
-    if (perennial && annual) {
+    if (light && pest) {
       dispatch({ type: 'none' });
     }
   };
@@ -75,21 +75,21 @@ const Example = () => {
         <Field>
           <Checkbox
             onChange={onParentChange}
-            checked={perennial && annual}
-            indeterminate={!perennial && !annual ? false : !perennial || !annual}
+            checked={light && pest}
+            indeterminate={!light && !pest ? false : !light || !pest}
           >
-            <Label>Growth types</Label>
+            <Label>Outdoor readiness</Label>
           </Checkbox>
         </Field>
         <StyledGroup>
           <Field>
-            <Checkbox checked={annual} onChange={() => dispatch({ type: 'annual' })}>
-              <Label isRegular>Annual</Label>
+            <Checkbox checked={pest} onChange={() => dispatch({ type: 'pest' })}>
+              <Label isRegular>Pest resistant</Label>
             </Checkbox>
           </Field>
           <Field>
-            <Checkbox checked={perennial} onChange={() => dispatch({ type: 'perennial' })}>
-              <Label isRegular>Perennial</Label>
+            <Checkbox checked={light} onChange={() => dispatch({ type: 'light' })}>
+              <Label isRegular>Needs direct light</Label>
             </Checkbox>
           </Field>
         </StyledGroup>
