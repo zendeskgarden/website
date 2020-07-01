@@ -9,6 +9,7 @@ import React from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import { ReactComponent as ChevronIcon } from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 const Example = () => (
   <Row>
@@ -24,7 +25,7 @@ const Example = () => (
       <Button isPrimary>
         Media
         <Button.EndIcon>
-          <LeafIcon />
+          <ChevronIcon />
         </Button.EndIcon>
       </Button>
     </Col>
