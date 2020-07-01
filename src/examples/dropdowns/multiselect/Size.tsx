@@ -80,7 +80,7 @@ const Example = () => {
   };
 
   return (
-    <Row alignItems="center">
+    <Row>
       <Col>
         <Dropdown
           inputValue={inputValue}

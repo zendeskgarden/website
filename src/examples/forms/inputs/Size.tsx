@@ -17,7 +17,7 @@ const StyledCol = styled(Col)`
 `;
 
 const Example = () => (
-  <Row alignItems="center" justifyContent="center">
+  <Row justifyContent="center">
     <Col sm={5}>
       <Field>
         <Label>Plant</Label>

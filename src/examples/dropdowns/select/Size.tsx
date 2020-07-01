@@ -32,7 +32,7 @@ const Example = () => {
   const [selectedCompactItem, setSelectedCompactItem] = useState(items[0]);
 
   return (
-    <Row alignItems="center" justifyContent="center">
+    <Row justifyContent="center">
       <Col sm={5}>
         <Dropdown
           selectedItem={selectedDefaultItem}
