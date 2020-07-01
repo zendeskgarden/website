@@ -4,14 +4,14 @@
       title: Overview
 - title: Foundations
   items:
-    - id: /components/versions
-      title: Versions
+    - id: https://zendeskgarden.github.io/css-components/bedrock/
+      title: Bedrock CSS
     - id: https://zendeskgarden.github.io/react-containers
       title: Containers
     - id: https://zendeskgarden.github.io/react-components/theming
       title: Theme
-    - id: https://zendeskgarden.github.io/css-components/bedrock/
-      title: Bedrock CSS
+    - id: /components/versions
+      title: Versions
 - title: Components
   items:
     - title: Accordion
