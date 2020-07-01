@@ -47,7 +47,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
             direction: ${p => p.theme.rtl && 'rtl'};
           `}
         >
-          {children}
+          {typeof window === 'undefined' /* isSSR */ ? undefined : children}
         </div>
       </ThemeProvider>
       <div
