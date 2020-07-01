@@ -19,21 +19,21 @@ const Example = () => (
     <Col size="auto">
       <Field>
         <Checkbox defaultChecked>
-          <Label>Annual</Label>
+          <Label>Pest resistant</Label>
         </Checkbox>
-        <Message validation="success">Grows all the time</Message>
+        <Message validation="success">Safe for outdoor beds</Message>
       </Field>
       <StyledField>
         <Checkbox>
-          <Label>Perennial</Label>
+          <Label>Needs direct light</Label>
         </Checkbox>
-        <Message validation="warning">Two years and growing</Message>
+        <Message validation="warning">Requires 4 hours of sun per day</Message>
       </StyledField>
       <StyledField>
         <Checkbox>
-          <Label>Biennial</Label>
+          <Label>Drought-tolerant</Label>
         </Checkbox>
-        <Message validation="error">Incomplete growth</Message>
+        <Message validation="error">Not appropriate for greenhouse</Message>
       </StyledField>
     </Col>
   </Row>
