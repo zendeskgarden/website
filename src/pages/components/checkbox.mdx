@@ -21,12 +21,16 @@ components:
   <Misuse>
     <ul>
       <li>
-        To give the user a mutually exclusive choice use the <a href="./radio">Radio</a> component
-        instead
+        <Markdown>
+          To give the user a mutually exclusive choice use the [Radio](/components/radio) component
+          instead
+        </Markdown>
       </li>
       <li>
-        To let users activate an option that takes effect immediately use a{' '}
-        <a href="./toggle">Toggle</a> instead
+        <Markdown>
+          To let users activate an option that takes effect immediately use a
+          [Toggle](/components/toggle) instead
+        </Markdown>
       </li>
     </ul>
   </Misuse>
@@ -43,6 +47,39 @@ import DefaultCode from '!!raw-loader!../../examples/forms/checkbox/Default.tsx'
 
 <CodeExample code={DefaultCode}>
   <Default />
+</CodeExample>
+
+### Disabled
+
+A disabled Checkbox is not interactive, and not perceived by a screen reader.
+
+import Disabled from '../../examples/forms/checkbox/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/checkbox/Disabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+### Hidden
+
+Checkbox labels can be hidden.
+
+import Hidden from '../../examples/forms/checkbox/Hidden.tsx';
+import HiddenCode from '!!raw-loader!../../examples/forms/checkbox/Hidden.tsx';
+
+<CodeExample code={HiddenCode}>
+  <Hidden />
+</CodeExample>
+
+### Hint text
+
+Use Hint to add more context to the label.
+
+import Hint from '../../examples/forms/checkbox/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/forms/checkbox/Hint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
 </CodeExample>
 
 ### Indeterminate
@@ -68,17 +105,6 @@ import RegularWeightLabelCode from '!!raw-loader!../../examples/forms/checkbox/R
   <RegularWeightLabel />
 </CodeExample>
 
-### Hint text
-
-Use Hint to add more context to the label.
-
-import Hint from '../../examples/forms/checkbox/Hint.tsx';
-import HintCode from '!!raw-loader!../../examples/forms/checkbox/Hint.tsx';
-
-<CodeExample code={HintCode}>
-  <Hint />
-</CodeExample>
-
 ### Validation
 
 Show success, warning, and danger validation messages with the [Message](#message) component.
@@ -90,28 +116,6 @@ import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validatio
   <Validation />
 </CodeExample>
 
-### Hidden
-
-Checkbox labels can be hidden.
-
-import Hidden from '../../examples/forms/checkbox/Hidden.tsx';
-import HiddenCode from '!!raw-loader!../../examples/forms/checkbox/Hidden.tsx';
-
-<CodeExample code={HiddenCode}>
-  <Hidden />
-</CodeExample>
-
-### Disabled
-
-A disabled Checkbox is not interactive, and not perceived by a screen reader.
-
-import Disabled from '../../examples/forms/checkbox/Disabled.tsx';
-import DisabledCode from '!!raw-loader!../../examples/forms/checkbox/Disabled.tsx';
-
-<CodeExample code={DisabledCode}>
-  <Disabled />
-</CodeExample>
-
 ## How to use it well
 
 ### Use to select any number of options
@@ -119,14 +123,18 @@ import DisabledCode from '!!raw-loader!../../examples/forms/checkbox/Disabled.ts
 <BestPractice>
   <Do imageSource={props.data.checkboxSelectionDo.children[0].publicURL}>
     <p>
-      Use to turn a standalone setting on and off, as a favorable alternative to a{' '}
-      <a href="./toggle">Toggle</a>.
+      <Markdown>
+        Use to turn a standalone setting on and off, as a favorable alternative to a
+        [Toggle](/components/toggle).
+      </Markdown>
     </p>
   </Do>
   <Dont imageSource={props.data.checkboxStandaloneOptionDont.children[0].publicURL}>
     <p>
-      Use to select exactly one option from a set of two or more. Use <a href="./radio">Radios</a>{' '}
-      instead.
+      <Markdown>
+        Use to select exactly one option from a set of two or more. Use [Radios](/components/radio)
+        instead.
+      </Markdown>
     </p>
   </Dont>
 </BestPractice>
@@ -141,19 +149,19 @@ import DisabledCode from '!!raw-loader!../../examples/forms/checkbox/Disabled.ts
 
 <PropSheet components={props.data.mdx.components} componentName="checkbox" />
 
-## Field
+### Field
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
-## Hint
+### Hint
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
-## Label
+### Label
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
-## Message
+### Message
 
 <PropSheet components={props.data.mdx.components} componentName="message" />
 

@@ -5,11 +5,11 @@ description: >
   used for selection, a Toggle is used for activation.
 package: '@zendeskgarden/react-forms'
 components:
-  - forms/src/elements/Toggle.tsx
   - forms/src/elements/common/Field.tsx
   - forms/src/elements/common/Hint.tsx
   - forms/src/elements/common/Label.tsx
   - forms/src/elements/common/Message.tsx
+  - forms/src/elements/Toggle.tsx
 ---
 
 <Usage>
@@ -22,8 +22,10 @@ components:
   <Misuse>
     <ul>
       <li>
-        To let users select from a list of settings, use <a href="../checkbox">Checkboxes</a>{' '}
-        instead
+        <Markdown>
+          To let users select from a list of settings, use [Checkboxes](/components/checkbox)
+          instead
+        </Markdown>
       </li>
     </ul>
   </Misuse>
@@ -42,37 +44,16 @@ import DefaultCode from '!!raw-loader!../../examples/forms/toggle/Default.tsx';
   <Default />
 </CodeExample>
 
-### Regular weight label
+### Disabled
 
-The label is bold by default. It can be made regular weight too.
+Disabled Toggles are not interactive and not seen by screen readers. See guidelines on disabled
+usage.
 
-import RegularWeightLabel from '../../examples/forms/toggle/RegularWeightLabel.tsx';
-import RegularWeightLabelCode from '!!raw-loader!../../examples/forms/toggle/RegularWeightLabel.tsx';
+import Disabled from '../../examples/forms/toggle/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/toggle/Disabled.tsx';
 
-<CodeExample code={RegularWeightLabelCode}>
-  <RegularWeightLabel />
-</CodeExample>
-
-### Hint text
-
-Use hint text for additional context.
-
-import Hint from '../../examples/forms/toggle/Hint.tsx';
-import HintCode from '!!raw-loader!../../examples/forms/toggle/Hint.tsx';
-
-<CodeExample code={HintCode}>
-  <Hint />
-</CodeExample>
-
-### Validation
-
-Show success, warning, or danger validation messages with the Message component.
-
-import Validation from '../../examples/forms/toggle/Validation.tsx';
-import ValidationCode from '!!raw-loader!../../examples/forms/toggle/Validation.tsx';
-
-<CodeExample code={ValidationCode}>
-  <Validation />
+<CodeExample code={DisabledCode}>
+  <Disabled />
 </CodeExample>
 
 ### Hidden label
@@ -86,16 +67,37 @@ import HiddenCode from '!!raw-loader!../../examples/forms/toggle/Hidden.tsx';
   <Hidden />
 </CodeExample>
 
-### Disabled
+### Hint text
 
-Disabled Toggles are not interactive and not seen by screen readers. See guidelines on disabled
-usage.
+Use hint text for additional context.
 
-import Disabled from '../../examples/forms/toggle/Disabled.tsx';
-import DisabledCode from '!!raw-loader!../../examples/forms/toggle/Disabled.tsx';
+import Hint from '../../examples/forms/toggle/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/forms/toggle/Hint.tsx';
 
-<CodeExample code={DisabledCode}>
-  <Disabled />
+<CodeExample code={HintCode}>
+  <Hint />
+</CodeExample>
+
+### Regular weight label
+
+The label is bold by default. It can be made regular weight too.
+
+import RegularWeightLabel from '../../examples/forms/toggle/RegularWeightLabel.tsx';
+import RegularWeightLabelCode from '!!raw-loader!../../examples/forms/toggle/RegularWeightLabel.tsx';
+
+<CodeExample code={RegularWeightLabelCode}>
+  <RegularWeightLabel />
+</CodeExample>
+
+### Validation
+
+Show success, warning, or danger validation messages with the Message component.
+
+import Validation from '../../examples/forms/toggle/Validation.tsx';
+import ValidationCode from '!!raw-loader!../../examples/forms/toggle/Validation.tsx';
+
+<CodeExample code={ValidationCode}>
+  <Validation />
 </CodeExample>
 
 ## How to use it well
@@ -120,10 +122,6 @@ effect.
 
 ## API
 
-### Toggle
-
-<PropSheet components={props.data.mdx.components} componentName="toggle" />
-
 ### Field
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
@@ -139,6 +137,10 @@ effect.
 ### Message
 
 <PropSheet components={props.data.mdx.components} componentName="message" />
+
+### Toggle
+
+<PropSheet components={props.data.mdx.components} componentName="toggle" />
 
 import { graphql } from 'gatsby';
 
