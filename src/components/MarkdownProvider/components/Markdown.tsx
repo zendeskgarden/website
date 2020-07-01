@@ -12,7 +12,7 @@ import VFile from 'vfile';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { Code } from '@zendeskgarden/react-typography';
 import { UL, OL, LI } from './Lists';
-import { Table, TR, TH, TD, TBody, THead } from './Table';
+import { StyledTable as Table, TR, TH, TD, TBody, THead } from './Table';
 import {
   StyledH2,
   StyledH3,

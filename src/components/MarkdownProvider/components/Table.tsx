@@ -7,20 +7,12 @@
 
 import React, { createContext, useContext } from 'react';
 import styled from 'styled-components';
-import {
-  Table as GardenTable,
-  Head,
-  Body,
-  Row,
-  HeaderRow,
-  HeaderCell,
-  Cell
-} from '@zendeskgarden/react-tables';
+import { Table, Head, Body, Row, HeaderRow, HeaderCell, Cell } from '@zendeskgarden/react-tables';
 
 const TableHeadContext = createContext(false);
 
-export const Table = styled(GardenTable)`
-  margin: 0 0 ${p => p.theme.space.xl};
+export const StyledTable = styled(Table)`
+  margin-bottom: ${p => p.theme.space.xl};
 `;
 export const TBody = Body;
 export const TH = HeaderCell;
