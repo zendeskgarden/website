@@ -4,14 +4,14 @@
       title: Overview
 - title: Foundations
   items:
-    - id: /components/versions
-      title: Versions
+    - id: https://zendeskgarden.github.io/css-components/bedrock/
+      title: Bedrock CSS
     - id: https://zendeskgarden.github.io/react-containers
       title: Containers
     - id: https://zendeskgarden.github.io/react-components/theming
       title: Theme
-    - id: https://zendeskgarden.github.io/css-components/bedrock/
-      title: Bedrock CSS
+    - id: /components/versions
+      title: Versions
 - title: Components
   items:
     - title: Accordion
@@ -28,10 +28,10 @@
           title: Button
         - id: /components/button-group
           title: Button Group
-        - id: /components/split-button
-          title: Split Button
         - id: /components/icon-button
           title: Icon Button
+        - id: /components/split-button
+          title: Split Button
     - title: Chrome
       id: https://zendeskgarden.github.io/react-components/chrome
     - title: Datepicker
@@ -46,32 +46,32 @@
           title: Multiselect
         - id: /components/select
           title: Select
-    - title: Grid
-      id: https://zendeskgarden.github.io/react-components/grid
     - title: Forms
       items:
         - id: /components/checkbox
           title: Checkbox
+        - id: /components/input
+          title: Input
         - id: /components/radio
           title: Radio
         - id: /components/range
           title: Range
-        - id: /components/input
-          title: Input
         - id: /components/toggle
           title: Toggle
+    - title: Grid
+      id: https://zendeskgarden.github.io/react-components/grid
     - title: Loaders
       items:
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Dots
+        - id: https://zendeskgarden.github.io/react-components/loaders
+          title: Inline
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Progress
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Skeleton
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Spinner
-        - id: https://zendeskgarden.github.io/react-components/loaders
-          title: Inline
     - title: Modal
       id: https://zendeskgarden.github.io/react-components/modals
     - title: Notification

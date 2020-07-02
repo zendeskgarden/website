@@ -4,8 +4,8 @@ description: >
   A Button Group lets users make a selection from a set of options.
 package: '@zendeskgarden/react-buttons'
 components:
-  - buttons/src/elements/ButtonGroup.tsx
   - buttons/src/elements/Button.tsx
+  - buttons/src/elements/ButtonGroup.tsx
 ---
 
 <Usage>
@@ -22,17 +22,6 @@ components:
 
 ## How to use it
 
-### Type
-
-Button Groups can be default or primary.
-
-import ButtonGroupType from '../../examples/button/ButtonGroupType.tsx';
-import ButtonGroupTypeCode from '!!raw-loader!../../examples/button/ButtonGroupType.tsx';
-
-<CodeExample code={ButtonGroupTypeCode}>
-  <ButtonGroupType />
-</CodeExample>
-
 ### Size
 
 Button Groups can be small, default, or large.
@@ -42,6 +31,17 @@ import ButtonGroupSizeCode from '!!raw-loader!../../examples/button/ButtonGroupS
 
 <CodeExample code={ButtonGroupSizeCode}>
   <ButtonGroupSize />
+</CodeExample>
+
+### Type
+
+Button Groups can be default or primary.
+
+import ButtonGroupType from '../../examples/button/ButtonGroupType.tsx';
+import ButtonGroupTypeCode from '!!raw-loader!../../examples/button/ButtonGroupType.tsx';
+
+<CodeExample code={ButtonGroupTypeCode}>
+  <ButtonGroupType />
 </CodeExample>
 
 ## How to use it well
@@ -54,13 +54,13 @@ This is a legacy component. Garden does not presently recommend the use of Butto
 
 ## API
 
-### ButtonGroup
-
-<PropSheet components={props.data.mdx.components} componentName="buttonGroup" />
-
 ### Button
 
 <PropSheet components={props.data.mdx.components} componentName="button" />
+
+### ButtonGroup
+
+<PropSheet components={props.data.mdx.components} componentName="buttonGroup" />
 
 import { graphql } from 'gatsby';
 

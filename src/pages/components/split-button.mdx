@@ -5,9 +5,9 @@ description: >
   parallel actions and take action on their choice.
 package: '@zendeskgarden/react-buttons'
 components:
-  - buttons/src/elements/SplitButton.tsx
-  - buttons/src/elements/ChevronButton.tsx
   - buttons/src/elements/Button.tsx
+  - buttons/src/elements/ChevronButton.tsx
+  - buttons/src/elements/SplitButton.tsx
 ---
 
 <Usage>
@@ -23,21 +23,32 @@ components:
   <Misuse>
     <ul>
       <li>
-        To provide a way to navigate between pages, use <a href="/components/anchor">Anchor</a>{' '}
-        instead
+        <Markdown>
+          To provide a way to navigate between pages, use [Anchor](/components/anchor) instead
+        </Markdown>
       </li>
       <li>
-        To move between different pages of content, use <a href="/components/tabs">Tabs</a> instead
-      </li>
-      <li>
-        To provide a way to choose between primary and secondary actions, use two different{' '}
-        <a href="/components/button">Buttons</a> instead
+        <Markdown>
+          To provide a way to choose between primary and secondary actions, use two different
+          [Buttons](/components/button) instead
+        </Markdown>
       </li>
     </ul>
   </Misuse>
 </Usage>
 
 ## How to use it
+
+### Size
+
+Split Buttons can be small, default, or large.
+
+import SplitButtonSizes from '../../examples/button/SplitButtonSizes.tsx';
+import SplitButtonSizesCode from '!!raw-loader!../../examples/button/SplitButtonSizes.tsx';
+
+<CodeExample code={SplitButtonSizesCode}>
+  <SplitButtonSizes />
+</CodeExample>
 
 ### Type
 
@@ -51,34 +62,23 @@ import SplitButtonTypesCode from '!!raw-loader!../../examples/button/SplitButton
   <SplitButtonTypes />
 </CodeExample>
 
-### Size
-
-Split Buttons can be small, default, or large.
-
-import SplitButtonSizes from '../../examples/button/SplitButtonSizes.tsx';
-import SplitButtonSizesCode from '!!raw-loader!../../examples/button/SplitButtonSizes.tsx';
-
-<CodeExample code={SplitButtonSizesCode}>
-  <SplitButtonSizes />
-</CodeExample>
-
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
-### SplitButton
+### Button
 
-<PropSheet components={props.data.mdx.components} componentName="splitButton" />
+<PropSheet components={props.data.mdx.components} componentName="button" />
 
 ### ChevronButton
 
 <PropSheet components={props.data.mdx.components} componentName="chevronButton" />
 
-### Button
+### SplitButton
 
-<PropSheet components={props.data.mdx.components} componentName="button" />
+<PropSheet components={props.data.mdx.components} componentName="splitButton" />
 
 import { graphql } from 'gatsby';
 

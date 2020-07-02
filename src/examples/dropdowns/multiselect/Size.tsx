@@ -80,8 +80,34 @@ const Example = () => {
   };
 
   return (
-    <Row alignItems="center">
+    <Row>
       <Col>
+        <Dropdown
+          inputValue={inputValue}
+          selectedItems={selectedItems}
+          onSelect={items => setSelectedItems(items)}
+          downshiftProps={{ defaultHighlightedIndex: 0 }}
+          onStateChange={changes => {
+            if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
+              setInputValue((changes as any).inputValue);
+            }
+          }}
+        >
+          <Field>
+            <Label>Vegetables</Label>
+            <Multiselect
+              renderItem={({ value, removeValue }: any) => (
+                <Tag size="large">
+                  <span>{value}</span>
+                  <Tag.Close onClick={() => removeValue()} />
+                </Tag>
+              )}
+            />
+          </Field>
+          <Menu>{renderOptions()}</Menu>
+        </Dropdown>
+      </Col>
+      <StyledCol>
         <Dropdown
           inputValue={inputValue}
           selectedItems={selectedItems}
@@ -106,32 +132,6 @@ const Example = () => {
             />
           </Field>
           <Menu isCompact>{renderOptions()}</Menu>
-        </Dropdown>
-      </Col>
-      <StyledCol>
-        <Dropdown
-          inputValue={inputValue}
-          selectedItems={selectedItems}
-          onSelect={items => setSelectedItems(items)}
-          downshiftProps={{ defaultHighlightedIndex: 0 }}
-          onStateChange={changes => {
-            if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-              setInputValue((changes as any).inputValue);
-            }
-          }}
-        >
-          <Field>
-            <Label>Vegetables</Label>
-            <Multiselect
-              renderItem={({ value, removeValue }: any) => (
-                <Tag size="large">
-                  <span>{value}</span>
-                  <Tag.Close onClick={() => removeValue()} />
-                </Tag>
-              )}
-            />
-          </Field>
-          <Menu>{renderOptions()}</Menu>
         </Dropdown>
       </StyledCol>
     </Row>

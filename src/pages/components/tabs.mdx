@@ -5,10 +5,10 @@ description: >
   without having to switch contexts.
 package: '@zendeskgarden/react-tabs'
 components:
-  - tabs/src/elements/Tabs.tsx
   - tabs/src/elements/Tab.tsx
   - tabs/src/elements/TabList.tsx
   - tabs/src/elements/TabPanel.tsx
+  - tabs/src/elements/Tabs.tsx
 ---
 
 <Usage>
@@ -49,17 +49,6 @@ import TabsDefaultCode from '!!raw-loader!../../examples/tabs/TabsDefault.tsx';
   <TabsDefault />
 </CodeExample>
 
-### Orientation
-
-Tab layout is horizontal by default and can also stack vertically.
-
-import TabsVertical from '../../examples/tabs/TabsVertical.tsx';
-import TabsVerticalCode from '!!raw-loader!../../examples/tabs/TabsVertical.tsx';
-
-<CodeExample code={TabsVerticalCode}>
-  <TabsVertical />
-</CodeExample>
-
 ### Disabled
 
 Individual tabs can be disabled to prevent users from interacting with them.
@@ -71,15 +60,22 @@ import TabsDisabledCode from '!!raw-loader!../../examples/tabs/TabsDisabled.tsx'
   <TabsDisabled />
 </CodeExample>
 
+### Orientation
+
+Tab layout is horizontal by default and can also stack vertically.
+
+import TabsVertical from '../../examples/tabs/TabsVertical.tsx';
+import TabsVerticalCode from '!!raw-loader!../../examples/tabs/TabsVertical.tsx';
+
+<CodeExample code={TabsVerticalCode}>
+  <TabsVertical />
+</CodeExample>
+
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
-
-### Tabs
-
-<PropSheet components={props.data.mdx.components} componentName="tabs" />
 
 ### Tab
 
@@ -92,6 +88,10 @@ import TabsDisabledCode from '!!raw-loader!../../examples/tabs/TabsDisabled.tsx'
 ### TabPanel
 
 <PropSheet components={props.data.mdx.components} componentName="tabPanel" />
+
+### Tabs
+
+<PropSheet components={props.data.mdx.components} componentName="tabs" />
 
 import { graphql } from 'gatsby';
 

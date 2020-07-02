@@ -16,7 +16,7 @@ const Example = () => {
   const [compactRotated, setCompactRotated] = useState<boolean | undefined>();
 
   return (
-    <Row alignItems="center">
+    <Row>
       <Col textAlign="center">
         <Dropdown
           onSelect={item => alert(`You planted a ${item}`)}

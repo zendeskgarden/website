@@ -7,11 +7,11 @@ package: '@zendeskgarden/react-dropdowns'
 components:
   - dropdowns/src/elements/Autocomplete/Autocomplete.tsx
   - dropdowns/src/elements/Dropdown/Dropdown.tsx
-  - dropdowns/src/elements/Menu/Menu.tsx
-  - dropdowns/src/elements/Menu/Items/Item.tsx
   - dropdowns/src/elements/Fields/Field.tsx
   - dropdowns/src/elements/Fields/Hint.tsx
+  - dropdowns/src/elements/Menu/Items/Item.tsx
   - dropdowns/src/elements/Fields/Label.tsx
+  - dropdowns/src/elements/Menu/Menu.tsx
 ---
 
 <Usage>
@@ -24,7 +24,9 @@ components:
   <Misuse>
     <ul>
       <li>
-        To make more than one selection use <a href="./multiselect">Multiselect</a> instead
+        <Markdown>
+          To make more than one selection use [Multiselect](/components/multiselect) instead
+        </Markdown>
       </li>
     </ul>
   </Misuse>
@@ -43,17 +45,6 @@ import DefaultCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Defa
   <Default />
 </CodeExample>
 
-### Size
-
-Autocomplete comes in two sizes: default and compact.
-
-import Size from '../../examples/dropdowns/autocomplete/Size.tsx';
-import SizeCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Size.tsx';
-
-<CodeExample code={SizeCode}>
-  <Size />
-</CodeExample>
-
 ### Media
 
 Media elements add even more context to an Autocomplete.
@@ -63,6 +54,17 @@ import MediaCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Media.
 
 <CodeExample code={MediaCode}>
   <Media />
+</CodeExample>
+
+### Size
+
+Autocomplete comes in two sizes: default and compact.
+
+import Size from '../../examples/dropdowns/autocomplete/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
 </CodeExample>
 
 ## How to use it well
@@ -92,14 +94,6 @@ import MediaCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Media.
 
 <PropSheet components={props.data.mdx.components} componentName="dropdown" />
 
-### Menu
-
-<PropSheet components={props.data.mdx.components} componentName="menu" />
-
-### Item
-
-<PropSheet components={props.data.mdx.components} componentName="item" />
-
 ### Field
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
@@ -108,9 +102,17 @@ import MediaCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Media.
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
+### Item
+
+<PropSheet components={props.data.mdx.components} componentName="item" />
+
 ### Label
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
+
+### Menu
+
+<PropSheet components={props.data.mdx.components} componentName="menu" />
 
 import { graphql } from 'gatsby';
 

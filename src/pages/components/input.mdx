@@ -36,60 +36,26 @@ import InputCode from '!!raw-loader!../../examples/forms/inputs/Input.tsx';
   <Input />
 </CodeExample>
 
-### Size
+### Bare
 
-An Input can be default or compact.
+Remove borders and padding using the `isBare` prop.
 
-import Size from '../../examples/forms/inputs/Size.tsx';
-import SizeCode from '!!raw-loader!../../examples/forms/inputs/Size.tsx';
+import Bare from '../../examples/forms/inputs/Bare.tsx';
+import BareCode from '!!raw-loader!../../examples/forms/inputs/Bare.tsx';
 
-<CodeExample code={SizeCode}>
-  <Size />
+<CodeExample code={BareCode}>
+  <Bare />
 </CodeExample>
 
-### Hint text
+### Disabled
 
-To provide additional context, use hint text with the label.
+A disabled Input is not interactive and not perceived by a screen reader.
 
-import Hint from '../../examples/forms/inputs/Hint.tsx';
-import HintCode from '!!raw-loader!../../examples/forms/inputs/Hint.tsx';
+import Disabled from '../../examples/forms/inputs/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/inputs/Disabled.tsx';
 
-<CodeExample code={HintCode}>
-  <Hint />
-</CodeExample>
-
-### Placeholder
-
-Placeholder text provides the user with example content or additional context.
-
-import Placeholder from '../../examples/forms/inputs/Placeholder.tsx';
-import PlaceholderCode from '!!raw-loader!../../examples/forms/inputs/Placeholder.tsx';
-
-<CodeExample code={PlaceholderCode}>
-  <Placeholder />
-</CodeExample>
-
-### Textarea input
-
-A Textarea is for multiline text. By default, its height is fixed and becomes resizable with the
-`isResizable` prop.
-
-import Textarea from '../../examples/forms/inputs/Textarea.tsx';
-import TextareaCode from '!!raw-loader!../../examples/forms/inputs/Textarea.tsx';
-
-<CodeExample code={TextareaCode}>
-  <Textarea />
-</CodeExample>
-
-### Media input
-
-Media elements add even more context to an input.
-
-import Icons from '../../examples/forms/inputs/MediaInput.tsx';
-import IconsCode from '!!raw-loader!../../examples/forms/inputs/MediaInput.tsx';
-
-<CodeExample code={IconsCode}>
-  <Icons />
+<CodeExample code={DisabledCode}>
+  <Disabled />
 </CodeExample>
 
 ### Faux input
@@ -101,17 +67,6 @@ import FauxInputCode from '!!raw-loader!../../examples/forms/inputs/FauxInput.ts
 
 <CodeExample code={FauxInputCode}>
   <FauxInput />
-</CodeExample>
-
-### Bare
-
-Remove borders and padding using the `isBare` prop.
-
-import Bare from '../../examples/forms/inputs/Bare.tsx';
-import BareCode from '!!raw-loader!../../examples/forms/inputs/Bare.tsx';
-
-<CodeExample code={BareCode}>
-  <Bare />
 </CodeExample>
 
 ### Focus inset
@@ -126,6 +81,62 @@ import FocusInsetCode from '!!raw-loader!../../examples/forms/inputs/FocusInset.
   <FocusInset />
 </CodeExample>
 
+### Hint text
+
+To provide additional context, use hint text with the label.
+
+import Hint from '../../examples/forms/inputs/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/forms/inputs/Hint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
+</CodeExample>
+
+### Media input
+
+Media elements add even more context to an input.
+
+import Icons from '../../examples/forms/inputs/MediaInput.tsx';
+import IconsCode from '!!raw-loader!../../examples/forms/inputs/MediaInput.tsx';
+
+<CodeExample code={IconsCode}>
+  <Icons />
+</CodeExample>
+
+### Placeholder
+
+Placeholder text provides the user with example content or additional context.
+
+import Placeholder from '../../examples/forms/inputs/Placeholder.tsx';
+import PlaceholderCode from '!!raw-loader!../../examples/forms/inputs/Placeholder.tsx';
+
+<CodeExample code={PlaceholderCode}>
+  <Placeholder />
+</CodeExample>
+
+### Size
+
+An Input can be default or compact.
+
+import Size from '../../examples/forms/inputs/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/forms/inputs/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+### Textarea input
+
+A Textarea is for multiline text. By default, its height is fixed and becomes resizable with the
+`isResizable` prop.
+
+import Textarea from '../../examples/forms/inputs/Textarea.tsx';
+import TextareaCode from '!!raw-loader!../../examples/forms/inputs/Textarea.tsx';
+
+<CodeExample code={TextareaCode}>
+  <Textarea />
+</CodeExample>
+
 ### Validation
 
 Show success, warning, and danger validation messages with the Message component.
@@ -135,17 +146,6 @@ import ValidationCode from '!!raw-loader!../../examples/forms/inputs/Validation.
 
 <CodeExample code={ValidationCode}>
   <Validation />
-</CodeExample>
-
-### Disabled
-
-A disabled Input is not interactive and not perceived by a screen reader.
-
-import Disabled from '../../examples/forms/inputs/Disabled.tsx';
-import DisabledCode from '!!raw-loader!../../examples/forms/inputs/Disabled.tsx';
-
-<CodeExample code={DisabledCode}>
-  <Disabled />
 </CodeExample>
 
 ## Configuration

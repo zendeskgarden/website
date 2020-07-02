@@ -18,8 +18,10 @@ components:
   <Misuse>
     <ul>
       <li>
-        To enable primary and secondary actions on a page, use a{' '}
-        <a href="/components/button">Button</a> instead
+        <Markdown>
+          To enable primary and secondary actions on a page, use a [Button](/components/button)
+          instead
+        </Markdown>
       </li>
     </ul>
   </Misuse>
@@ -27,37 +29,15 @@ components:
 
 ## How to use
 
-### Type
+### Default
 
-Icon Buttons have 3 types: basic, outline, and primary. The default type is basic.
+The basic usage of an Icon Button component.
 
-import IconButtonTypes from '../../examples/button/IconButtonTypes.tsx';
-import IconButtonTypesCode from '!!raw-loader!../../examples/button/IconButtonTypes.tsx';
+import IconButtonDefault from '../../examples/button/IconButtonDefault.tsx';
+import IconButtonDefaultCode from '!!raw-loader!../../examples/button/IconButtonDefault.tsx';
 
-<CodeExample code={IconButtonTypesCode}>
-  <IconButtonTypes />
-</CodeExample>
-
-### Size
-
-Icon Buttons can be small, medium, or large. The default size is medium.
-
-import IconButtonSizes from '../../examples/button/IconButtonSizes.tsx';
-import IconButtonSizesCode from '!!raw-loader!../../examples/button/IconButtonSizes.tsx';
-
-<CodeExample code={IconButtonSizesCode}>
-  <IconButtonSizes />
-</CodeExample>
-
-### Shape
-
-Icon Buttons are circular by default, but they can be squares too.
-
-import IconButtonShapes from '../../examples/button/IconButtonShapes.tsx';
-import IconButtonShapesCode from '!!raw-loader!../../examples/button/IconButtonShapes.tsx';
-
-<CodeExample code={IconButtonShapesCode}>
-  <IconButtonShapes />
+<CodeExample code={IconButtonDefaultCode}>
+  <IconButtonDefault />
 </CodeExample>
 
 ### Danger
@@ -80,6 +60,39 @@ import IconButtonDisabledCode from '!!raw-loader!../../examples/button/IconButto
 
 <CodeExample code={IconButtonDisabledCode}>
   <IconButtonDisabled />
+</CodeExample>
+
+### Shape
+
+Icon Buttons are circular by default, but they can be squares too.
+
+import IconButtonShapes from '../../examples/button/IconButtonShapes.tsx';
+import IconButtonShapesCode from '!!raw-loader!../../examples/button/IconButtonShapes.tsx';
+
+<CodeExample code={IconButtonShapesCode}>
+  <IconButtonShapes />
+</CodeExample>
+
+### Size
+
+Icon Buttons can be small, medium, or large. The default size is medium.
+
+import IconButtonSizes from '../../examples/button/IconButtonSizes.tsx';
+import IconButtonSizesCode from '!!raw-loader!../../examples/button/IconButtonSizes.tsx';
+
+<CodeExample code={IconButtonSizesCode}>
+  <IconButtonSizes />
+</CodeExample>
+
+### Type
+
+Icon Buttons have 3 types: basic, outline, and primary. The default type is basic.
+
+import IconButtonTypes from '../../examples/button/IconButtonTypes.tsx';
+import IconButtonTypesCode from '!!raw-loader!../../examples/button/IconButtonTypes.tsx';
+
+<CodeExample code={IconButtonTypesCode}>
+  <IconButtonTypes />
 </CodeExample>
 
 ## How to use it well

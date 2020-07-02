@@ -10,13 +10,13 @@ import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
-import { ReactComponent as UserStrokeIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
+import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const Example = () => (
   <Row>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]} size="medium">
-        <UserStrokeIcon role="img" aria-label="User" />
+        <UserIcon role="img" aria-label="User" />
       </Avatar>
     </Col>
     <Col textAlign="center">

@@ -40,17 +40,6 @@ import AvatarSizeCode from '!!raw-loader!../../examples/avatar/AvatarSize.tsx';
   <AvatarSize />
 </CodeExample>
 
-### Type
-
-An Avatar can contain an icon, an image, or text.
-
-import AvatarType from '../../examples/avatar/AvatarType.tsx';
-import AvatarTypeCode from '!!raw-loader!../../examples/avatar/AvatarType.tsx';
-
-<CodeExample code={AvatarTypeCode}>
-  <AvatarType />
-</CodeExample>
-
 ### Status
 
 A colored ring outside the Avatar indicates a user's status. The options are away, available, or active.
@@ -60,6 +49,17 @@ import AvatarStatusCode from '!!raw-loader!../../examples/avatar/AvatarStatus.ts
 
 <CodeExample code={AvatarStatusCode}>
   <AvatarStatus />
+</CodeExample>
+
+### Type
+
+An Avatar can contain an icon, an image, or text.
+
+import AvatarType from '../../examples/avatar/AvatarType.tsx';
+import AvatarTypeCode from '!!raw-loader!../../examples/avatar/AvatarType.tsx';
+
+<CodeExample code={AvatarTypeCode}>
+  <AvatarType />
 </CodeExample>
 
 ## How to use it well
@@ -87,6 +87,8 @@ user distinguish between the two when scanning a page.
 ### Avatar
 
 <PropSheet components={props.data.mdx.components} componentName="avatar" />
+
+#### Avatar.Text
 
 import { graphql } from 'gatsby';
 

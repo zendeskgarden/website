@@ -4,6 +4,8 @@
       title: Overview
 - title: Foundations
   items:
+    - title: Color
+      id: https://zendeskgarden.github.io/react-components/theming/#!/PALETTE
     - title: Icons
       items:
         - id: /design/icons/installation
@@ -16,5 +18,3 @@
           title: 26px
         - id: /design/icons/wordmarks
           title: Wordmarks
-    - title: Color
-      id: https://zendeskgarden.github.io/react-components/theming/#!/PALETTE

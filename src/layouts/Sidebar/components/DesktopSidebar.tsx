@@ -120,14 +120,7 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
           }
         `}
       />
-      <ul
-        css={`
-          position: sticky;
-          top: 32px;
-        `}
-      >
-        {sidebarContent}
-      </ul>
+      <ul>{sidebarContent}</ul>
     </nav>
   );
 };
