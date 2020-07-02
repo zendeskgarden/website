@@ -38,7 +38,7 @@ export const News: React.FC = () => {
 
   return (
     <div
-      css={`
+      css={css`
         position: relative;
         background-color: ${p => getColor('grey', 200, p.theme)};
       `}
