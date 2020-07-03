@@ -7,13 +7,14 @@
 
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
-import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
-import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
+import { math } from 'polished';
+import Img, { FluidObject } from 'gatsby-image';
 import { Well, Title } from '@zendeskgarden/react-notifications';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Row, Col } from '@zendeskgarden/react-grid';
-import { math } from 'polished';
+import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
+import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
 
 const StyledRow = styled(Row)`
   margin-top: ${p => p.theme.space.lg};
@@ -40,14 +41,13 @@ const StyledFigure = styled.figure`
   flex-grow: 1;
 `;
 
-const StyledImg = styled.img`
+const StyledImgContainer = styled.div`
   border: ${p => `${p.theme.borders.sm} ${getColor('neutralHue', 300, p.theme)}`};
   border-bottom: none;
   border-top-left-radius: ${p => p.theme.borderRadii.md};
   border-top-right-radius: ${p => p.theme.borderRadii.md};
   padding: ${p => p.theme.space.md};
-  object-fit: contain;
-  max-height: 216px;
+  text-align: center;
 `;
 
 interface IStyledCaptionProps {
@@ -100,7 +100,7 @@ interface ICaptionProps {
   hue: string;
   title: string;
   icon: ReactNode;
-  imageSource?: string;
+  imageSource?: string | FluidObject;
 }
 
 const Caption: React.FC<ICaptionProps> = props => (
@@ -115,13 +115,43 @@ const Caption: React.FC<ICaptionProps> = props => (
 
 interface ISectionProps extends ICaptionProps {
   imageAlt?: string;
+  imageHeight?: number;
+  imageWidth?: number;
+  imageIsSquare?: boolean;
 }
 
 export const Section: React.FC<ISectionProps> = props => {
   if (props.imageSource) {
+    const imageStyles = {
+      width: props.imageWidth,
+      height: props.imageHeight,
+      maxWidth: props.imageIsSquare ? 160 : undefined,
+      maxHeight: 160
+    };
+
     return (
       <StyledFigure>
-        <StyledImg alt={props.imageAlt} src={props.imageSource} />
+        <StyledImgContainer>
+          {typeof props.imageSource === 'string' ? (
+            <div
+              css={`
+                display: flex;
+                justify-content: center;
+              `}
+            >
+              <img alt={props.imageAlt} src={props.imageSource} style={imageStyles} />
+            </div>
+          ) : (
+            <Img
+              alt={props.imageAlt}
+              fluid={props.imageSource}
+              style={{
+                margin: '0 auto',
+                ...imageStyles
+              }}
+            />
+          )}
+        </StyledImgContainer>
         <Caption {...props} />
       </StyledFigure>
     );
