@@ -38,44 +38,16 @@ export const News: React.FC = () => {
 
   return (
     <div
-      css={`
+      css={css`
         position: relative;
+        background-color: ${p => getColor('grey', 200, p.theme)};
       `}
     >
-      <div
-        css={css`
-          position: absolute;
-          top: 0;
-          right: 50%;
-          bottom: 0;
-          left: 0;
-          background-color: ${p => getColor('grey', 200, p.theme)};
-
-          @media (max-width: ${p => p.theme.breakpoints.lg}) {
-            display: none;
-          }
-        `}
-      />
-      <div
-        css={css`
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 50%;
-          background-color: ${p => getColor('grey', 200, p.theme)};
-
-          @media (max-width: ${p => p.theme.breakpoints.lg}) {
-            display: none;
-          }
-        `}
-      />
       <MaxWidthLayout>
         <Grid gutters="lg">
           <Row>
             <Col
               css={css`
-                background-color: ${p => getColor('grey', 200, p.theme)};
                 padding: ${p => p.theme.space.xxl};
               `}
             >
