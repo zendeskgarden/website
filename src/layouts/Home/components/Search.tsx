@@ -72,7 +72,7 @@ export const Search: React.FC = () => {
             >
               <Img
                 fluid={bannerImage.childFile.childImageSharp.fluid}
-                alt="Garden search banner image"
+                alt=""
                 css={css`
                   margin-top: ${p => p.theme.space.xxl};
                   margin-right: auto;

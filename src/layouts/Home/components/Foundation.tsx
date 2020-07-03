@@ -30,8 +30,8 @@ const FoundationLink: React.FC<{
   >
     <Img
       fluid={image.childFile.childImageSharp.fluid}
-      alt={`${group} overview image`}
-      imgStyle={{ width: 288, minWidth: '100%', height: 220, minHeight: '100%', maxHeight: '100%' }}
+      alt=""
+      imgStyle={{ width: 350, minWidth: '100%', height: 266, minHeight: '100%', maxHeight: '100%' }}
     />
     <div
       css={css`
@@ -77,7 +77,7 @@ export const Foundation: React.FC = () => {
         contentImage: abstractAsset(layerName: { eq: "home-pillars-content" }) {
           childFile {
             childImageSharp {
-              fluid(maxWidth: 288, traceSVG: { background: "#03363D", color: "white" }) {
+              fluid(maxWidth: 350, traceSVG: { background: "#F6F4F4", color: "#228F67" }) {
                 ...GatsbyImageSharpFluid_tracedSVG
               }
             }
@@ -86,7 +86,7 @@ export const Foundation: React.FC = () => {
         designImage: abstractAsset(layerName: { eq: "home-pillars-design" }) {
           childFile {
             childImageSharp {
-              fluid(maxWidth: 288, traceSVG: { background: "#03363D", color: "white" }) {
+              fluid(maxWidth: 350, traceSVG: { background: "#EDE0CF", color: "#00363D" }) {
                 ...GatsbyImageSharpFluid_tracedSVG
               }
             }
@@ -95,7 +95,7 @@ export const Foundation: React.FC = () => {
         componentsImage: abstractAsset(layerName: { eq: "home-pillars-components" }) {
           childFile {
             childImageSharp {
-              fluid(maxWidth: 288, traceSVG: { background: "#03363D", color: "white" }) {
+              fluid(maxWidth: 350, traceSVG: { background: "#F6F4F4", color: "#00363D" }) {
                 ...GatsbyImageSharpFluid_tracedSVG
               }
             }
