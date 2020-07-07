@@ -6,20 +6,24 @@
  */
 
 import React from 'react';
-import { Paragraph } from '@zendeskgarden/react-typography';
+import { Paragraph, MD } from '@zendeskgarden/react-typography';
 
 const Example = () => (
   <>
     <Paragraph>
-      Turnip greens yarrow ricebean rutabaga endive cauliflower sear lettuce kohlrabi amaranth water
-      spinach avacado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion
-      desert raisin horseradish spinach carrot soko.
+      <MD tag="span">
+        Turnip greens yarrow ricebean rutabaga endive cauliflower sear lettuce kohlrabi amaranth
+        water spinach avacado daikon napa cabbage asparagus winter purslane kale. Celery potato
+        scallion desert raisin horseradish spinach carrot soko.
+      </MD>
     </Paragraph>
     <Paragraph>
-      Lotus root spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin
-      onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard
-      wakame kohlrabi beetroot carrot watercress. Cordn amaranth salsify bunya nuts nori azuki bean
-      chickweed potato bell pepper artichoke.
+      <MD tag="span">
+        Lotus root spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin
+        onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard
+        wakame kohlrabi beetroot carrot watercress. Cordn amaranth salsify bunya nuts nori azuki
+        bean chickweed potato bell pepper artichoke.
+      </MD>
     </Paragraph>
   </>
 );
