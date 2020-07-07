@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import { Ellipsis } from '@zendeskgarden/react-typography';
+import { Ellipsis, MD } from '@zendeskgarden/react-typography';
 
 const Example = () => (
-  <>
+  <MD>
     <Ellipsis>Veggies es bonus vobis, proinde vos postulo.</Ellipsis>
     <Ellipsis style={{ width: 220 }}>Veggies es bonus vobis, proinde vos postulo.</Ellipsis>
     <Ellipsis style={{ width: 165 }}>Veggies es bonus vobis, proinde vos postulo.</Ellipsis>
-  </>
+  </MD>
 );
 
 export default Example;
