@@ -82,7 +82,12 @@ module.exports = {
         trackingIds: ['UA-970836-25']
       }
     },
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaultQuality: 90
+      }
+    },
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-netlify`,
     {

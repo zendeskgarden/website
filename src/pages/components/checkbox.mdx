@@ -121,7 +121,7 @@ import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validatio
 ### Use to select any number of options
 
 <BestPractice>
-  <Do imageSource={props.data.checkboxSelectionDo.children[0].publicURL}>
+  <Do imageSource={props.data.checkboxSelectionDo.childFile.childImageSharp.fluid}>
     <p>
       <Markdown>
         Use to turn a standalone setting on and off, as a favorable alternative to a
@@ -129,7 +129,7 @@ import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validatio
       </Markdown>
     </p>
   </Do>
-  <Dont imageSource={props.data.checkboxStandaloneOptionDont.children[0].publicURL}>
+  <Dont imageSource={props.data.checkboxStandaloneOptionDont.childFile.childImageSharp.fluid}>
     <p>
       <Markdown>
         Use to select exactly one option from a set of two or more. Use [Radios](/components/radio)
@@ -173,18 +173,22 @@ export const pageQuery = graphql`
     checkboxSelectionDo: abstractAsset(
       layerName: { eq: "components-forms-checkbox-standalone-do" }
     ) {
-      children {
-        ... on File {
-          publicURL
+      childFile {
+        childImageSharp {
+          fluid(maxHeight: 200) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
     }
     checkboxStandaloneOptionDont: abstractAsset(
       layerName: { eq: "components-forms-checkbox-standalone-option-dont" }
     ) {
-      children {
-        ... on File {
-          publicURL
+      childFile {
+        childImageSharp {
+          fluid(maxHeight: 200) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
     }

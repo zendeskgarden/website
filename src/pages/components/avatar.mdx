@@ -70,10 +70,10 @@ Use circles to represent people and rounded squares for objects, brands, or prod
 user distinguish between the two when scanning a page.
 
 <BestPractice>
-  <Do imageSource={props.data.avatarShapeCircle.children[0].publicURL}>
+  <Do imageSource={props.data.avatarShapeCircle.childFile.childImageSharp.fluid}>
     <p>Use a circular Avatar for people.</p>
   </Do>
-  <Do imageSource={props.data.avatarShapeSquare.children[0].publicURL}>
+  <Do imageSource={props.data.avatarShapeSquare.childFile.childImageSharp.fluid}>
     <p>Use a rounded square Avatar for objects, brands, or Zendesk products.</p>
   </Do>
 </BestPractice>
@@ -96,16 +96,20 @@ export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
     avatarShapeCircle: abstractAsset(layerName: { eq: "components-avatar-shape-circle" }) {
-      children {
-        ... on File {
-          publicURL
+      childFile {
+        childImageSharp {
+          fluid(maxHeight: 200) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
     }
     avatarShapeSquare: abstractAsset(layerName: { eq: "components-avatar-shape-square" }) {
-      children {
-        ... on File {
-          publicURL
+      childFile {
+        childImageSharp {
+          fluid(maxHeight: 200) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
     }
