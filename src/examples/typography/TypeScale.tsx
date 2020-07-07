@@ -6,17 +6,30 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { SM, MD, LG, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
 
-const marginBottom = `margin-bottom: 12px;`;
+const StyledDiv = styled.div`
+  margin-bottom: 12px;
+`;
 
 const Example = () => (
   <>
-    <SM css={marginBottom}>&lt;SM&gt; Veggies es bonus vobis proinde vos postulo</SM>
-    <MD css={marginBottom}>&lt;MD&gt;Veggies es bonus vobis proinde vos postulo</MD>
-    <LG css={marginBottom}>&lt;LG&gt;Veggies es bonus vobis proinde vos postulo</LG>
-    <XL css={marginBottom}>&lt;XL&gt;Veggies es bonus vobis proinde vos postulo</XL>
-    <XXL css={marginBottom}>&lt;XXL&gt;Veggies es bonus vobis proinde vos postulo</XXL>
+    <StyledDiv>
+      <SM>&lt;SM&gt; Veggies es bonus vobis proinde vos postulo</SM>
+    </StyledDiv>
+    <StyledDiv>
+      <MD>&lt;MD&gt;Veggies es bonus vobis proinde vos postulo</MD>
+    </StyledDiv>
+    <StyledDiv>
+      <LG>&lt;LG&gt;Veggies es bonus vobis proinde vos postulo</LG>
+    </StyledDiv>
+    <StyledDiv>
+      <XL>&lt;XL&gt;Veggies es bonus vobis proinde vos postulo</XL>
+    </StyledDiv>
+    <StyledDiv>
+      <XXL>&lt;XXL&gt;Veggies es bonus vobis proinde vos postulo</XXL>
+    </StyledDiv>
     <XXXL>&lt;XXXL&gt;Veggies es bonus vobis proinde</XXXL>
   </>
 );

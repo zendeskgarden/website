@@ -6,18 +6,25 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { SM, MD, LG, Code } from '@zendeskgarden/react-typography';
 
-const marginBottom = `margin-bottom: 14px;`;
+const StyledDiv = styled.div`
+  margin-bottom: 12px;
+`;
 
 const Example = () => (
   <>
-    <SM css={marginBottom}>
-      <Code>Veggies es bonus vobis</Code>
-    </SM>
-    <MD css={marginBottom}>
-      <Code hue="green">Veggies es bonus vobis</Code>
-    </MD>
+    <StyledDiv>
+      <SM>
+        <Code>Veggies es bonus vobis</Code>
+      </SM>
+    </StyledDiv>
+    <StyledDiv>
+      <MD>
+        <Code hue="green">Veggies es bonus vobis</Code>
+      </MD>
+    </StyledDiv>
     <LG>
       <Code hue="yellow">Veggies es bonus vobis</Code>
     </LG>
