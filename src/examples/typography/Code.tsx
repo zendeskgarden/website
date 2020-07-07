@@ -7,7 +7,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { SM, MD, LG, Code } from '@zendeskgarden/react-typography';
+import { Code } from '@zendeskgarden/react-typography';
 
 const StyledDiv = styled.div`
   margin-bottom: 12px;
@@ -16,18 +16,16 @@ const StyledDiv = styled.div`
 const Example = () => (
   <>
     <StyledDiv>
-      <SM>
-        <Code>Veggies es bonus vobis</Code>
-      </SM>
+      <Code size="small">Veggies es bonus vobis</Code>
     </StyledDiv>
     <StyledDiv>
-      <MD>
-        <Code hue="green">Veggies es bonus vobis</Code>
-      </MD>
+      <Code size="medium" hue="green">
+        Veggies es bonus vobis
+      </Code>
     </StyledDiv>
-    <LG>
-      <Code hue="yellow">Veggies es bonus vobis</Code>
-    </LG>
+    <Code size="large" hue="yellow">
+      Veggies es bonus vobis
+    </Code>
   </>
 );
 
