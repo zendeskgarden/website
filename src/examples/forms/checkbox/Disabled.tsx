@@ -14,12 +14,12 @@ const Example = () => (
     <Col size="auto">
       <Field>
         <Checkbox defaultChecked disabled>
-          <Label>Annual</Label>
+          <Label>Needs indirect light</Label>
         </Checkbox>
       </Field>
       <Field>
         <Checkbox disabled>
-          <Label>Perennial</Label>
+          <Label>Prefers moist soil</Label>
         </Checkbox>
       </Field>
     </Col>

@@ -19,14 +19,14 @@ const Example = () => (
     <Col size="auto">
       <Field>
         <Checkbox defaultChecked>
-          <Label>Annual</Label>
-          <Hint>Completes its life cycle with growing season</Hint>
+          <Label>Pest resistant</Label>
+          <Hint>Has natural resistance to bugs and animals</Hint>
         </Checkbox>
       </Field>
       <StyledField>
         <Checkbox>
-          <Label>Perennial</Label>
-          <Hint>Lives more than two years</Hint>
+          <Label>Needs direct light</Label>
+          <Hint>Thrives in warm temperatures with lots of sun</Hint>
         </Checkbox>
       </StyledField>
     </Col>

@@ -10,20 +10,26 @@ import { Field, Label, Checkbox } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
-  const [annual, setAnnual] = useState(true);
-  const [perennial, setPerennial] = useState(false);
+  const [pest, setPest] = useState(true);
+  const [light, setLight] = useState(false);
+  const [drought, setDrought] = useState(false);
 
   return (
     <Row justifyContent="center">
       <Col size="auto">
         <Field>
-          <Checkbox checked={annual} onChange={() => setAnnual(!annual)}>
-            <Label>Annual</Label>
+          <Checkbox checked={pest} onChange={() => setPest(!pest)}>
+            <Label>Pest resistant</Label>
           </Checkbox>
         </Field>
         <Field>
-          <Checkbox checked={perennial} onChange={() => setPerennial(!perennial)}>
-            <Label>Perennial</Label>
+          <Checkbox checked={light} onChange={() => setLight(!light)}>
+            <Label>Needs direct light</Label>
+          </Checkbox>
+        </Field>
+        <Field>
+          <Checkbox checked={drought} onChange={() => setDrought(!drought)}>
+            <Label>Drought-tolerant</Label>
           </Checkbox>
         </Field>
       </Col>
