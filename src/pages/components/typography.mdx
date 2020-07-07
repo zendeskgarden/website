@@ -8,15 +8,15 @@ components:
   - typography/src/elements/Code.tsx
   - typography/src/elements/Ellipsis.tsx
   - typography/src/elements/LG.tsx
+  - typography/src/elements/lists/OrderedList.tsx
   - typography/src/elements/MD.tsx
   - typography/src/elements/Paragraph.tsx
   - typography/src/elements/SM.tsx
   - typography/src/elements/Span.tsx
+  - typography/src/elements/lists/UnorderedList.tsx
   - typography/src/elements/XL.tsx
   - typography/src/elements/XXL.tsx
   - typography/src/elements/XXXL.tsx
-  - typography/src/elements/lists/OrderedList.tsx
-  - typography/src/elements/lists/UnorderedList.tsx
 ---
 
 ## How to use it
@@ -108,17 +108,41 @@ import TypeScaleCode from '!!raw-loader!../../examples/typography/TypeScale.tsx'
 
 ## API
 
-### SM
+### Code
 
-<PropSheet components={props.data.mdx.components} componentName="sm" />
+<PropSheet components={props.data.mdx.components} componentName="code" />
+
+### Ellipsis
+
+<PropSheet components={props.data.mdx.components} componentName="ellipsis" />
+
+### LG
+
+<PropSheet components={props.data.mdx.components} componentName="lg" />
+
+### OrderedList
+
+<PropSheet components={props.data.mdx.components} componentName="orderedlist" />
 
 ### MD
 
 <PropSheet components={props.data.mdx.components} componentName="md" />
 
-### LG
+### Paragraph
 
-<PropSheet components={props.data.mdx.components} componentName="lg" />
+<PropSheet components={props.data.mdx.components} componentName="paragraph" />
+
+### SM
+
+<PropSheet components={props.data.mdx.components} componentName="sm" />
+
+### Span
+
+<PropSheet components={props.data.mdx.components} componentName="span" />
+
+### UnorderedList
+
+<PropSheet components={props.data.mdx.components} componentName="unorderedlist" />
 
 ### XL
 
@@ -131,30 +155,6 @@ import TypeScaleCode from '!!raw-loader!../../examples/typography/TypeScale.tsx'
 ### XXXL
 
 <PropSheet components={props.data.mdx.components} componentName="xxxl" />
-
-### Paragraph
-
-<PropSheet components={props.data.mdx.components} componentName="paragraph" />
-
-### Span
-
-<PropSheet components={props.data.mdx.components} componentName="span" />
-
-### Code
-
-<PropSheet components={props.data.mdx.components} componentName="code" />
-
-### OrderedList
-
-<PropSheet components={props.data.mdx.components} componentName="orderedlist" />
-
-### UnorderedList
-
-<PropSheet components={props.data.mdx.components} componentName="unorderedlist" />
-
-### Ellipsis
-
-<PropSheet components={props.data.mdx.components} componentName="ellipsis" />
 
 import { graphql } from 'gatsby';
 
