@@ -25,9 +25,9 @@ const Example = () => (
         onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard
         wakame kohlrabi beetroot carrot watercress.{' '}
         <Span isMonospace>
-          <Span isBold>Cordn amaranth salsify bunya</Span> nuts nori azuki bean
+          <Span isBold>Cordn amaranth salsify bunya</Span> nuts nori azuki bean{' '}
         </Span>
-        chickweed potato bell pepper artichoke.{' '}
+        chickweed potato bell pepper artichoke.
       </MD>
     </Paragraph>
   </>
