@@ -6,11 +6,11 @@
  */
 
 import React from 'react';
-import ReactSyntaxHighlighter from 'react-syntax-highlighter';
-import style from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark';
+import { Prism as ReactSyntaxHighlighter } from 'react-syntax-highlighter';
+import style from './theme';
 
 export const SyntaxHighlighter: React.FC = ({ children }) => (
-  <ReactSyntaxHighlighter language="typescript" style={style}>
+  <ReactSyntaxHighlighter language="tsx" style={style}>
     {children}
   </ReactSyntaxHighlighter>
 );
