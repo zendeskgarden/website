@@ -41,16 +41,16 @@ const Example = () => {
         >
           <Trigger>
             <Button>
-              Menu
+              Flowers
               <Button.EndIcon isRotated={rotated}>
                 <ChevronIcon />
               </Button.EndIcon>
             </Button>
           </Trigger>
           <Menu placement={PLACEMENTS.topStart}>
-            <Item value="cactus">Cactus</Item>
-            <Item value="flower">Flower</Item>
-            <Item value="succulent">Succulent</Item>
+            <Item value="acacia">Acacia</Item>
+            <Item value="daisy">Daisy</Item>
+            <Item value="honeysuckle">Honeysuckle</Item>
           </Menu>
         </Dropdown>
       </Col>

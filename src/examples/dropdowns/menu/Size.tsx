@@ -34,9 +34,9 @@ const Example = () => {
             </Button>
           </Trigger>
           <Menu>
-            <Item value="cactus">Cactus</Item>
-            <Item value="flower">Flower</Item>
-            <Item value="succulent">Succulent</Item>
+            <Item value="tomato">Tomato</Item>
+            <Item value="corn">Corn</Item>
+            <Item value="onion">Onion</Item>
           </Menu>
         </Dropdown>
       </Col>
@@ -57,9 +57,9 @@ const Example = () => {
             </Button>
           </Trigger>
           <Menu isCompact>
-            <Item value="cactus">Cactus</Item>
-            <Item value="flower">Flower</Item>
-            <Item value="succulent">Succulent</Item>
+            <Item value="cactus">Grape tomato</Item>
+            <Item value="flower">Baby corn</Item>
+            <Item value="succulent">Pearl onion</Item>
           </Menu>
         </Dropdown>
       </Col>

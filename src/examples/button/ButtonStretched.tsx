@@ -24,7 +24,7 @@ const Example = () => (
     <StyledRow>
       <Col textAlign="center">
         <Button isPrimary isStretched>
-          Stretched
+          Also stretched
         </Button>
       </Col>
     </StyledRow>

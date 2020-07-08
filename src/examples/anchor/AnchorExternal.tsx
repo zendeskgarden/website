@@ -13,7 +13,7 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <Anchor isExternal href="https://garden.zendesk.com/" target="_blank">
-        Open a new Garden
+        Learn about weed identification
       </Anchor>
     </Col>
   </Row>

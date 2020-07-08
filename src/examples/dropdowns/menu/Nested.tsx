@@ -31,8 +31,8 @@ const Example = () => {
         <Dropdown
           isOpen={state.isOpen}
           onSelect={item => {
-            if (item !== 'plants' && item !== 'flowers') {
-              alert(`You planted a ${item}`);
+            if (item !== 'fruits' && item !== 'berry') {
+              alert(`You picked a ${item}`);
             }
           }}
           onStateChange={(changes, stateAndHelpers) => {
@@ -40,8 +40,8 @@ const Example = () => {
 
             if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
               updatedState.isOpen =
-                changes.selectedItem === 'flowers' ||
-                changes.selectedItem === 'plants' ||
+                changes.selectedItem === 'berry' ||
+                changes.selectedItem === 'fruits' ||
                 changes.isOpen;
             }
 
@@ -50,7 +50,7 @@ const Example = () => {
 
               if (updatedState.tempSelectedItem === 'flowers') {
                 stateAndHelpers.setHighlightedIndex(1);
-              } else if (updatedState.tempSelectedItem === 'plants') {
+              } else if (updatedState.tempSelectedItem === 'fruits') {
                 stateAndHelpers.setHighlightedIndex(3);
               }
             }
@@ -62,26 +62,26 @@ const Example = () => {
         >
           <Trigger>
             <Button>
-              Menu
+              Fruit
               <Button.EndIcon isRotated={state.isOpen}>
                 <ChevronIcon />
               </Button.EndIcon>
             </Button>
           </Trigger>
           <Menu placement="end">
-            {state.tempSelectedItem === 'flowers' ? (
+            {state.tempSelectedItem === 'berry' ? (
               <>
-                <PreviousItem value="plants">Plants</PreviousItem>
+                <PreviousItem value="fruits">Fruit</PreviousItem>
                 <Separator />
-                <Item value="daisy">Daisy</Item>
-                <Item value="tulip">Tulip</Item>
-                <Item value="rose">Rose</Item>
+                <Item value="strawberry">Strawberry</Item>
+                <Item value="loganberry">Loganberry</Item>
+                <Item value="boysenberry">Boysenberry</Item>
               </>
             ) : (
               <>
-                <Item value="cactus">Cactus</Item>
-                <NextItem value="flowers">Flowers</NextItem>
-                <Item value="shrub">Shrub</Item>
+                <Item value="orange">Orange</Item>
+                <NextItem value="berry">Berry</NextItem>
+                <Item value="apple">Apple</Item>
               </>
             )}
           </Menu>

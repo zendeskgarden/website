@@ -13,8 +13,8 @@ const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
       <Field>
-        <Label>Plant</Label>
-        <Input isBare placeholder="Type plant name" />
+        <Label>Light</Label>
+        <Input isBare placeholder="Sun-loving" />
       </Field>
     </Col>
   </Row>

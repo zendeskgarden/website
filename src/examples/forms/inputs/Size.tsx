@@ -20,13 +20,13 @@ const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
       <Field>
-        <Label>Plant</Label>
+        <Label>Bush</Label>
         <Input />
       </Field>
     </Col>
     <StyledCol sm={5}>
       <Field>
-        <Label>Plant</Label>
+        <Label>Shrub</Label>
         <Input isCompact />
       </Field>
     </StyledCol>
