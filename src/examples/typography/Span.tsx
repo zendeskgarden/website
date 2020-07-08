@@ -27,7 +27,7 @@ const Example = () => (
         <Span isMonospace>
           <Span isBold>Cordn amaranth salsify bunya</Span> nuts nori azuki bean
         </Span>
-        chickweed potato bell pepper artichoke.
+        chickweed potato bell pepper artichoke.{' '}
       </MD>
     </Paragraph>
   </>
