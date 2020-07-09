@@ -123,6 +123,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
         margin-left: ${p => p.theme.space.base * 15}px;
         max-height: ${OFFSET}px;
         overflow-y: scroll;
+        -ms-overflow-style: scrollbar;
       `}
     >
       <StyledSectionHeader
