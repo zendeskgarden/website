@@ -121,6 +121,8 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
         position: sticky;
         top: ${p => p.theme.space.lg};
         margin-left: ${p => p.theme.space.base * 15}px;
+        max-height: ${OFFSET}px;
+        overflow-y: scroll;
       `}
     >
       <StyledSectionHeader
@@ -133,7 +135,6 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
       </StyledSectionHeader>
       <ul
         css={css`
-          margin-left: -${p => p.theme.borderWidths.sm};
           border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
         `}
       >
