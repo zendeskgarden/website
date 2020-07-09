@@ -21,7 +21,7 @@ const StyledListItem = styled(UnorderedList.Item)`
 
 export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => {
   const content = nav.map(section => (
-    <StyledUnorderedList key={section.title}>
+    <>
       <LG isBold>{section.title}</LG>
       {section.items && (
         <StyledUnorderedList>
@@ -31,13 +31,11 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
                 <StyledListItem key={group.title}>
                   {group.title}
                   <UnorderedList type="disc">
-                    {group.items.map(child => {
-                      return (
-                        <UnorderedList.Item key={child.title}>
-                          <Link to={`${child.id}`}>{child.title}</Link>
-                        </UnorderedList.Item>
-                      );
-                    })}
+                    {group.items.map(child => (
+                      <UnorderedList.Item key={child.id}>
+                        <Link to={`${child.id}`}>{child.title}</Link>
+                      </UnorderedList.Item>
+                    ))}
                   </UnorderedList>
                 </StyledListItem>
               );
@@ -51,7 +49,7 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
           })}
         </StyledUnorderedList>
       )}
-    </StyledUnorderedList>
+    </>
   ));
 
   return <nav>{content}</nav>;
