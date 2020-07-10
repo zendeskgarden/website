@@ -2,10 +2,163 @@
 title: Typography
 
 description: >
-  Description will be here
+  Use Typography components to present content clearly and consistently on the page.
+package: '@zendeskgarden/react-typography'
+components:
+  - typography/src/elements/Code.tsx
+  - typography/src/elements/Ellipsis.tsx
+  - typography/src/elements/LG.tsx
+  - typography/src/elements/MD.tsx
+  - typography/src/elements/lists/OrderedList.tsx
+  - typography/src/elements/Paragraph.tsx
+  - typography/src/elements/SM.tsx
+  - typography/src/elements/Span.tsx
+  - typography/src/elements/lists/UnorderedList.tsx
+  - typography/src/elements/XL.tsx
+  - typography/src/elements/XXL.tsx
+  - typography/src/elements/XXXL.tsx
 ---
 
-Content here
+## How to use it
+
+### Code highlight
+
+Use Code to style and format `<code>` elements. You can change text size and background color. Code
+components come in small, medium, and large.
+
+import Code from '../../examples/typography/Code.tsx';
+import CodeCode from '!!raw-loader!../../examples/typography/Code.tsx';
+
+<CodeExample code={CodeCode}>
+  <Code />
+</CodeExample>
+
+### Ellipsis text
+
+Use Ellipsis to automatically provide text content with a native title attribute and text-overflow
+styling.
+
+import Ellipsis from '../../examples/typography/Ellipsis.tsx';
+import EllipsisCode from '!!raw-loader!../../examples/typography/Ellipsis.tsx';
+
+<CodeExample code={EllipsisCode}>
+  <Ellipsis />
+</CodeExample>
+
+### Lists
+
+Use Lists to style and format ordered (`<ol>`) and unordered (`<ul>`) lists. List components come
+in small, medium, and large.
+
+import Lists from '../../examples/typography/Lists.tsx';
+import ListsCode from '!!raw-loader!../../examples/typography/Lists.tsx';
+
+<CodeExample code={ListsCode}>
+  <Lists />
+</CodeExample>
+
+### Paragraph text
+
+Use Paragraph to render `<p>` elements with the appropriate Garden styling.
+
+import Paragraph from '../../examples/typography/Paragraph.tsx';
+import ParagraphCode from '!!raw-loader!../../examples/typography/Paragraph.tsx';
+
+<CodeExample code={ParagraphCode}>
+  <Paragraph />
+</CodeExample>
+
+### Span text
+
+Use Span to style and format `<span>` elements. You can apply bold and monospace to Span.
+
+import Span from '../../examples/typography/Span.tsx';
+import SpanCode from '!!raw-loader!../../examples/typography/Span.tsx';
+
+<CodeExample code={SpanCode}>
+  <Span />
+</CodeExample>
+
+### Type modifiers
+
+You can apply two modifiers to type: bold and monospace.
+
+import Modifiers from '../../examples/typography/Modifiers.tsx';
+import ModifiersCode from '!!raw-loader!../../examples/typography/Modifiers.tsx';
+
+<CodeExample code={ModifiersCode}>
+  <Modifiers />
+</CodeExample>
+
+### Type scale
+
+Type components come in small, medium, large, extra-large, extra-extra-large and
+extra-extra-extra-large.
+
+import TypeScale from '../../examples/typography/TypeScale.tsx';
+import TypeScaleCode from '!!raw-loader!../../examples/typography/TypeScale.tsx';
+
+<CodeExample code={TypeScaleCode}>
+  <TypeScale />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Code
+
+<PropSheet components={props.data.mdx.components} componentName="code" />
+
+### Ellipsis
+
+<PropSheet components={props.data.mdx.components} componentName="ellipsis" />
+
+### LG
+
+<PropSheet components={props.data.mdx.components} componentName="lg" />
+
+### MD
+
+<PropSheet components={props.data.mdx.components} componentName="md" />
+
+### OrderedList
+
+<PropSheet components={props.data.mdx.components} componentName="orderedlist" />
+
+#### OrderedList.Item
+
+### Paragraph
+
+<PropSheet components={props.data.mdx.components} componentName="paragraph" />
+
+### SM
+
+<PropSheet components={props.data.mdx.components} componentName="sm" />
+
+### Span
+
+<PropSheet components={props.data.mdx.components} componentName="span" />
+
+### UnorderedList
+
+<PropSheet components={props.data.mdx.components} componentName="unorderedlist" />
+
+#### UnorderedList.Item
+
+### XL
+
+<PropSheet components={props.data.mdx.components} componentName="xl" />
+
+### XXL
+
+<PropSheet components={props.data.mdx.components} componentName="xxl" />
+
+### XXXL
+
+<PropSheet components={props.data.mdx.components} componentName="xxxl" />
 
 import { graphql } from 'gatsby';
 
