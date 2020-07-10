@@ -20,12 +20,12 @@ const Example = () => (
     <Paragraph>
       <MD tag="span">
         <Span isBold>
-          Lotus root spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin
+          Lotus root spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin{' '}
         </Span>
         onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard
         wakame kohlrabi beetroot carrot watercress.{' '}
         <Span isMonospace>
-          <Span isBold>Cordn amaranth salsify bunya</Span> nuts nori azuki bean{' '}
+          <Span isBold>Cordn amaranth salsify bunya</Span> nuts nori azuki bean
         </Span>
         chickweed potato bell pepper artichoke.
       </MD>
