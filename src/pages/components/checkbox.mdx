@@ -22,13 +22,13 @@ components:
     <ul>
       <li>
         <Markdown>
-          To give the user a mutually exclusive choice use the [Radio](/components/radio) component
+          To give the user a mutually exclusive choice, use the [Radio](/components/radio) component
           instead
         </Markdown>
       </li>
       <li>
         <Markdown>
-          To let users activate an option that takes effect immediately use a
+          To let users activate an option that takes effect immediately, use a
           [Toggle](/components/toggle) instead
         </Markdown>
       </li>
@@ -51,7 +51,8 @@ import DefaultCode from '!!raw-loader!../../examples/forms/checkbox/Default.tsx'
 
 ### Disabled
 
-A disabled Checkbox is not interactive, and not perceived by a screen reader.
+A disabled Checkbox prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may not
+read aloud by a screenreader.
 
 import Disabled from '../../examples/forms/checkbox/Disabled.tsx';
 import DisabledCode from '!!raw-loader!../../examples/forms/checkbox/Disabled.tsx';
@@ -107,7 +108,7 @@ import RegularWeightLabelCode from '!!raw-loader!../../examples/forms/checkbox/R
 
 ### Validation
 
-Show success, warning, and danger validation messages with the [Message](#message) component.
+Show success, warning, and danger validation messages with the Message component.
 
 import Validation from '../../examples/forms/checkbox/Validation.tsx';
 import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validation.tsx';
@@ -132,8 +133,8 @@ import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validatio
   <Dont imageSource={props.data.checkboxStandaloneOptionDont.childFile.childImageSharp.fluid}>
     <p>
       <Markdown>
-        Use to select exactly one option from a set of two or more. Use [Radios](/components/radio)
-        instead.
+        Don't use to select exactly one option from a set of two or more. Use
+        [Radios](/components/radio) instead.
       </Markdown>
     </p>
   </Dont>
