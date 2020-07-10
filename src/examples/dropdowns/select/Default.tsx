@@ -15,9 +15,9 @@ interface IItem {
 }
 
 const items = [
-  { label: 'Cactus', value: 'item-1' },
-  { label: 'Orchid', value: 'item-2' },
-  { label: 'Succulent', value: 'item-3' }
+  { label: 'Fern', value: 'item-1' },
+  { label: 'Snake plant', value: 'item-2' },
+  { label: 'Rubber tree', value: 'item-3' }
 ];
 
 const Example = () => {
@@ -32,7 +32,7 @@ const Example = () => {
           downshiftProps={{ itemToString: (item: IItem) => item && item.label }}
         >
           <Field>
-            <Label>Plant</Label>
+            <Label>Houseplant</Label>
             <Select>{selectedItem.label}</Select>
           </Field>
           <Menu>

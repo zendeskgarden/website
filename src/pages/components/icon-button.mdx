@@ -100,7 +100,7 @@ import IconButtonTypesCode from '!!raw-loader!../../examples/button/IconButtonTy
 ### Don't leave users in the dark
 
 <BestPractice>
-  <Do imageSource={props.data.iconButtonTooltipDo.children[0].publicURL}>
+  <Do imageSource={props.data.iconButtonTooltipDo.childFile.childImageSharp.fluid} imageIsSquare>
     <p>Include a Tooltip to help any users who may be unfamiliar with the icon.</p>
   </Do>
 </BestPractice>
@@ -123,9 +123,11 @@ export const pageQuery = graphql`
     iconButtonTooltipDo: abstractAsset(
       layerName: { eq: "components-buttons-iconbutton-tooltip-do" }
     ) {
-      children {
-        ... on File {
-          publicURL
+      childFile {
+        childImageSharp {
+          fluid(maxHeight: 200) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
     }

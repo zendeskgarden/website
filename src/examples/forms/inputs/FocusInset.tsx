@@ -13,7 +13,7 @@ const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
       <Field>
-        <Label>Plant</Label>
+        <Label>Mulch</Label>
         <Input focusInset />
       </Field>
     </Col>

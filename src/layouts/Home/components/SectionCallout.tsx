@@ -14,7 +14,7 @@ export const StyledSectionHeader = styled.div`
   text-transform: uppercase;
   line-height: ${p => p.theme.lineHeights.sm};
   letter-spacing: 0.5px;
-  color: ${p => getColor('neutralHue', 500, p.theme)};
+  color: ${p => getColor('neutralHue', 600, p.theme)};
   font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.semibold};
 `;

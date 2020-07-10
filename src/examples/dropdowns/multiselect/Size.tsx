@@ -36,14 +36,13 @@ const StyledCol = styled(Col)`
   }
 `;
 
+const initialSelectedItems = [options[0], options[1], options[2], options[3]];
+
 const Example = () => {
-  const [selectedItems, setSelectedItems] = useState([
-    options[0],
-    options[1],
-    options[2],
-    options[3]
-  ]);
+  const [selectedItems, setSelectedItems] = useState(initialSelectedItems);
+  const [compactSelectedItems, setCompactSelectedItems] = useState(initialSelectedItems);
   const [inputValue, setInputValue] = useState('');
+  const [compactInputValue, setCompactInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [matchingOptions, setMatchingOptions] = useState(options);
 
@@ -62,6 +61,11 @@ const Example = () => {
     setIsLoading(true);
     filterMatchingOptionsRef.current(inputValue);
   }, [inputValue]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    filterMatchingOptionsRef.current(compactInputValue);
+  }, [compactInputValue]);
 
   const renderOptions = () => {
     if (isLoading) {
@@ -109,13 +113,13 @@ const Example = () => {
       </Col>
       <StyledCol>
         <Dropdown
-          inputValue={inputValue}
-          selectedItems={selectedItems}
-          onSelect={items => setSelectedItems(items)}
+          inputValue={compactInputValue}
+          selectedItems={compactSelectedItems}
+          onSelect={items => setCompactSelectedItems(items)}
           downshiftProps={{ defaultHighlightedIndex: 0 }}
           onStateChange={changes => {
             if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-              setInputValue((changes as any).inputValue);
+              setCompactInputValue((changes as any).inputValue);
             }
           }}
         >

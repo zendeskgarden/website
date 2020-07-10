@@ -25,24 +25,24 @@ const Example = () => {
         >
           <Trigger>
             <Button>
-              Menu
+              Harvest
               <Button.EndIcon isRotated={rotated}>
                 <ChevronIcon />
               </Button.EndIcon>
             </Button>
           </Trigger>
           <Menu>
-            <Item value="cactus">
-              Cactus
-              <ItemMeta>10 available</ItemMeta>
+            <Item value="avocado">
+              Avocado
+              <ItemMeta>27 available</ItemMeta>
             </Item>
-            <Item value="flower">
-              Flower
-              <ItemMeta>20 available</ItemMeta>
+            <Item value="potato">
+              Potato
+              <ItemMeta>5 available</ItemMeta>
             </Item>
-            <Item value="succulent">
-              Succulent
-              <ItemMeta>30 available</ItemMeta>
+            <Item value="beet">
+              Beet
+              <ItemMeta>11 available</ItemMeta>
             </Item>
           </Menu>
         </Dropdown>

@@ -13,7 +13,7 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <Anchor isDanger href="#danger">
-        Leave the Garden
+        Leave without watering
       </Anchor>
     </Col>
   </Row>

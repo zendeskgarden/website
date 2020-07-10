@@ -20,7 +20,10 @@ const Example = () => (
     </Col>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]}>
-        <img alt="image avatar" src="/components/avatar/user.png" />
+        <img
+          alt="image avatar"
+          src="https://zendeskgarden.netlify.app/components/avatar/user.png"
+        />
       </Avatar>
     </Col>
     <Col textAlign="center">

@@ -21,9 +21,9 @@ const Example = () => (
           </IconButton>
         </Trigger>
         <Menu hasArrow>
-          <Item value="cactus">Cactus</Item>
-          <Item value="flower">Flower</Item>
-          <Item value="succulent">Succulent</Item>
+          <Item value="acacia">Acacia</Item>
+          <Item value="daisy">Daisy</Item>
+          <Item value="honeysuckle">Honeysuckle</Item>
         </Menu>
       </Dropdown>
     </Col>

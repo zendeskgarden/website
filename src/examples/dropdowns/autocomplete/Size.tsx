@@ -39,6 +39,8 @@ const options = [
 const Example = () => {
   const [selectedItem, setSelectedItem] = useState(options[0]);
   const [inputValue, setInputValue] = useState('');
+  const [compactSelectedItem, setCompactSelectedItem] = useState(options[0]);
+  const [compactInputValue, setCompactInputValue] = useState('');
   const [matchingOptions, setMatchingOptions] = useState(options);
 
   /**
@@ -88,16 +90,16 @@ const Example = () => {
       </Col>
       <Col sm={5}>
         <Dropdown
-          inputValue={inputValue}
-          selectedItem={selectedItem}
-          onSelect={item => setSelectedItem(item)}
-          onInputValueChange={value => setInputValue(value)}
+          inputValue={compactInputValue}
+          selectedItem={compactSelectedItem}
+          onSelect={item => setCompactSelectedItem(item)}
+          onInputValueChange={value => setCompactInputValue(value)}
           downshiftProps={{ defaultHighlightedIndex: 0 }}
         >
           <Field>
             <Label>Compact</Label>
             <Hint>Choose a vegetable</Hint>
-            <Autocomplete isCompact>{selectedItem}</Autocomplete>
+            <Autocomplete isCompact>{compactSelectedItem}</Autocomplete>
           </Field>
           <Menu isCompact>
             {matchingOptions.length ? (
