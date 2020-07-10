@@ -27,6 +27,10 @@ const GlobalStyling = createGlobalStyle`
   #gatsby-focus-wrapper {
     height: 100%;
   }
+
+  * {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
 `;
 
 const RootLayout: React.FC = ({ children }) => {
