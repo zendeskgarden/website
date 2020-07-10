@@ -121,7 +121,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
         position: sticky;
         top: ${p => p.theme.space.lg};
         margin-left: ${p => p.theme.space.base * 15}px;
-        max-height: ${OFFSET}px;
+        max-height: calc(100vh - 64px);
         overflow-y: scroll;
         -ms-overflow-style: scrollbar;
       `}
