@@ -57,7 +57,9 @@ export const StyledBlockquote = styled(LG).attrs({ tag: 'blockquote' })`
   font-size: ${p => p.theme.space.base * 4}px;
 `;
 
-export const StyledHr = styled.hr`
+export const StyledHr = styled.hr.attrs({
+  role: 'presentation'
+})`
   margin: ${p => p.theme.space.md} 0;
   border-top: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
 `;
