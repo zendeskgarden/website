@@ -58,7 +58,7 @@ export const Configuration: React.FC<{ reactPackage: IPackage; components: IComp
         {reactPackage.version}
         <StyledDot>•</StyledDot>
         <Anchor
-          href={`https://github.com/zendeskgarden/react-components/tree/master/packages/${reactPackage.packageName}`}
+          href={`https://github.com/zendeskgarden/react-components/tree/main/packages/${reactPackage.packageName}`}
         >
           View source
         </Anchor>
