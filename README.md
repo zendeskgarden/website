@@ -2,8 +2,8 @@
 
 <!-- markdownlint-enable -->
 
-[build status badge]: https://flat.badgen.net/circleci/github/zendeskgarden/website/master?label=build
-[build status link]: https://circleci.com/gh/zendeskgarden/website/tree/master
+[build status badge]: https://flat.badgen.net/circleci/github/zendeskgarden/website/main?label=build
+[build status link]: https://circleci.com/gh/zendeskgarden/website/tree/main
 [dependency status badge]: https://flat.badgen.net/david/dev/zendeskgarden/website?label=dependencies
 [dependency status link]: https://david-dm.org/zendeskgarden/website?type=dev
 

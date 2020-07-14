@@ -21,7 +21,7 @@ envalid.cleanEnv(process.env, {
   try {
     const dir = path.resolve(__dirname, '..', 'public');
     const branch = await garden.githubBranch();
-    const production = branch === 'master';
+    const production = branch === 'main';
     const repository = await garden.githubRepository();
     const commit = await garden.githubCommit();
     const message = `https://github.com/${repository.owner}/${repository.repo}/commit/${commit}`;
