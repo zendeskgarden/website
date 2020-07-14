@@ -16,9 +16,6 @@ const StyledDiv = styled.div`
 const Example = () => (
   <>
     <StyledDiv>
-      <Code>Veggies es bonus vobis</Code>
-    </StyledDiv>
-    <StyledDiv>
       <Code hue="red">Veggies es bonus vobis</Code>
     </StyledDiv>
     <StyledDiv>
