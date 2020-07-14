@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { SM, MD, LG, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
 
 const StyledDiv = styled.div`
-  margin-bottom: 12px;
+  margin-bottom: ${p => p.theme.space.sm};
 `;
 
 const Example = () => (

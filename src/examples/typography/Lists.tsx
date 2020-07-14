@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { OrderedList, UnorderedList } from '@zendeskgarden/react-typography';
 
 const StyledDiv = styled.div`
-  margin-bottom: 18px;
+  margin-bottom: ${p => p.theme.space.md};
 `;
 
 const Example = () => (
