@@ -125,7 +125,6 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
         padding-right: ${p => p.theme.space.md};
         max-height: calc(100vh - ${p => math(`${p.theme.space.lg} * 2`)});
         overflow-y: scroll;
-        -ms-overflow-style: scrollbar;
       `}
     >
       <StyledSectionHeader
