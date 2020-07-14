@@ -16,18 +16,12 @@ const StyledDiv = styled.div`
 const Example = () => (
   <>
     <StyledDiv>
-      <Code hue="grey" size="small">
-        Veggies es bonus vobis
-      </Code>
+      <Code size="small">Veggies es bonus vobis</Code>
     </StyledDiv>
     <StyledDiv>
-      <Code hue="grey" size="medium">
-        Veggies es bonus vobis
-      </Code>
+      <Code size="medium">Veggies es bonus vobis</Code>
     </StyledDiv>
-    <Code hue="grey" size="large">
-      Veggies es bonus vobis
-    </Code>
+    <Code size="large">Veggies es bonus vobis</Code>
   </>
 );
 
