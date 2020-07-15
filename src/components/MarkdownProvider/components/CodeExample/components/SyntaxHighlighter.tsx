@@ -24,7 +24,7 @@ const colors = {
   string: '#ce9178'
 };
 
-const style = {
+export const style = {
   'pre[class*="language-"]': { backgroundColor: colors.background },
   'code[class*="language-"]': { color: colors.foreground },
 
@@ -50,7 +50,7 @@ const style = {
 
 const StyledSyntaxHighlighter = styled(ReactSyntaxHighlighter)`
   padding: ${p => p.theme.space.sm};
-  overflow-x: auto;
+  overflow: auto;
   line-height: ${p => p.theme.lineHeights.md};
   font-family: ${p => p.theme.fonts.mono};
   font-size: ${p => math(`${p.theme.fontSizes.md} - 1`)};

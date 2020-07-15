@@ -7,8 +7,8 @@
 
 import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import ReactSyntaxHighlighter from 'react-syntax-highlighter';
-import dracula from 'react-syntax-highlighter/dist/esm/styles/hljs/dracula';
+import { Prism as ReactSyntaxHighlighter } from 'react-syntax-highlighter';
+import { style } from '../components/CodeExample/components/SyntaxHighlighter';
 
 const StyledPre = styled.pre`
   margin: ${p => p.theme.space.md} 0;
@@ -18,19 +18,8 @@ const StyledPre = styled.pre`
   overflow: auto;
 `;
 
-export const MDSyntaxHighlighter: React.FC<HTMLAttributes<HTMLPreElement>> = ({
-  children,
-  className
-}) => {
-  let language = undefined;
-
-  if (className) {
-    language = className.replace('language-', '');
-  }
-
-  return (
-    <ReactSyntaxHighlighter PreTag={StyledPre} language={language} style={dracula}>
-      {children}
-    </ReactSyntaxHighlighter>
-  );
-};
+export const MDSyntaxHighlighter: React.FC<HTMLAttributes<HTMLPreElement>> = ({ children }) => (
+  <ReactSyntaxHighlighter PreTag={StyledPre} language="tsx" style={style}>
+    {children}
+  </ReactSyntaxHighlighter>
+);
