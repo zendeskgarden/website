@@ -15,7 +15,6 @@ import { PropSheet } from './components/PropSheet';
 import { Usage, Use, Misuse } from './components/Usage';
 import { BestPractice, Do, Dont, Caution } from './components/BestPractice';
 import { COMPONENTS, Markdown } from './components/Markdown';
-import { StyledPre } from './components/Typography';
 import { MDSyntaxHighlighter } from './components/Code';
 import { OverviewLinks } from './components/OverviewLinks';
 
@@ -45,6 +44,14 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+/**
+ * The SyntaxHighlighter component provides it's own `<pre>` tag.
+ * This ensures valid DOM nesting.
+ */
+export const Pre: React.FC = ({ children }) => {
+  return <>{children}</>;
+};
+
 export const MarkdownProvider: React.FC = ({ children }) => (
   <>
     <GlobalStyle />
@@ -70,7 +77,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
          */
         ...COMPONENTS,
         inlineCode: Code,
-        pre: StyledPre,
+        pre: Pre,
         code: MDSyntaxHighlighter
       }}
     >
