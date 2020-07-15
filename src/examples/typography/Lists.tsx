@@ -10,13 +10,13 @@ import styled from 'styled-components';
 import { OrderedList, UnorderedList } from '@zendeskgarden/react-typography';
 
 const StyledDiv = styled.div`
-  margin-bottom: 18px;
+  margin-bottom: ${p => p.theme.space.md};
 `;
 
 const Example = () => (
   <>
     <StyledDiv>
-      <OrderedList size="small">
+      <OrderedList>
         <OrderedList.Item>
           The world&apos;s tallest-growing tree is the coast redwood
         </OrderedList.Item>
@@ -24,16 +24,7 @@ const Example = () => (
         <OrderedList.Item>During the 1600s, tulips were worth more than gold</OrderedList.Item>
       </OrderedList>
     </StyledDiv>
-    <StyledDiv>
-      <OrderedList size="medium">
-        <OrderedList.Item>
-          The world&apos;s tallest-growing tree is the coast redwood
-        </OrderedList.Item>
-        <OrderedList.Item>Bamboo can grow 35 inches in a single day</OrderedList.Item>
-        <OrderedList.Item>During the 1600s, tulips were worth more than gold</OrderedList.Item>
-      </OrderedList>
-    </StyledDiv>
-    <UnorderedList type="disc" size="large">
+    <UnorderedList type="disc">
       <UnorderedList.Item>
         The world&apos;s tallest-growing tree is the coast redwood
       </UnorderedList.Item>

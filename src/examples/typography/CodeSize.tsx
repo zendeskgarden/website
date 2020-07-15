@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { Code } from '@zendeskgarden/react-typography';
 
 const StyledDiv = styled.div`
-  margin-bottom: 12px;
+  margin-bottom: ${p => p.theme.space.sm};
 `;
 
 const Example = () => (
@@ -19,13 +19,9 @@ const Example = () => (
       <Code size="small">Veggies es bonus vobis</Code>
     </StyledDiv>
     <StyledDiv>
-      <Code size="medium" hue="green">
-        Veggies es bonus vobis
-      </Code>
+      <Code size="medium">Veggies es bonus vobis</Code>
     </StyledDiv>
-    <Code size="large" hue="yellow">
-      Veggies es bonus vobis
-    </Code>
+    <Code size="large">Veggies es bonus vobis</Code>
   </>
 );
 
