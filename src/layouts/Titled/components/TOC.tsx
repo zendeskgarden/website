@@ -8,6 +8,7 @@
 import React, { useState, useCallback, useEffect, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import throttle from 'lodash/throttle';
+import { math } from 'polished';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
@@ -121,6 +122,9 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
         position: sticky;
         top: ${p => p.theme.space.lg};
         margin-left: ${p => p.theme.space.base * 15}px;
+        padding-right: ${p => p.theme.space.md};
+        max-height: calc(100vh - ${p => math(`${p.theme.space.lg} * 2`)});
+        overflow-y: scroll;
       `}
     >
       <StyledSectionHeader
@@ -133,7 +137,6 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
       </StyledSectionHeader>
       <ul
         css={css`
-          margin-left: -${p => p.theme.borderWidths.sm};
           border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
         `}
       >
