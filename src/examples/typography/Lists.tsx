@@ -24,7 +24,7 @@ const Example = () => (
         <OrderedList.Item>During the 1600s, tulips were worth more than gold</OrderedList.Item>
       </OrderedList>
     </StyledDiv>
-    <UnorderedList type="disc">
+    <UnorderedList>
       <UnorderedList.Item>
         The world&apos;s tallest-growing tree is the coast redwood
       </UnorderedList.Item>

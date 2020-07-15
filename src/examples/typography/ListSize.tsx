@@ -16,7 +16,7 @@ const StyledDiv = styled.div`
 const Example = () => (
   <>
     <StyledDiv>
-      <UnorderedList type="disc" size="small">
+      <UnorderedList size="small">
         <UnorderedList.Item>
           The world&apos;s tallest-growing tree is the coast redwood
         </UnorderedList.Item>
@@ -25,7 +25,7 @@ const Example = () => (
       </UnorderedList>
     </StyledDiv>
     <StyledDiv>
-      <UnorderedList type="disc" size="medium">
+      <UnorderedList size="medium">
         <UnorderedList.Item>
           The world&apos;s tallest-growing tree is the coast redwood
         </UnorderedList.Item>
@@ -33,7 +33,7 @@ const Example = () => (
         <UnorderedList.Item>During the 1600s, tulips were worth more than gold</UnorderedList.Item>
       </UnorderedList>
     </StyledDiv>
-    <UnorderedList type="disc" size="large">
+    <UnorderedList size="large">
       <UnorderedList.Item>
         The world&apos;s tallest-growing tree is the coast redwood
       </UnorderedList.Item>
