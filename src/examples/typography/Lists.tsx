@@ -6,16 +6,11 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
-import { OrderedList, UnorderedList } from '@zendeskgarden/react-typography';
-
-const StyledDiv = styled.div`
-  margin-bottom: ${p => p.theme.space.md};
-`;
+import { Paragraph, OrderedList, UnorderedList } from '@zendeskgarden/react-typography';
 
 const Example = () => (
   <>
-    <StyledDiv>
+    <Paragraph>
       <OrderedList>
         <OrderedList.Item>
           The world&apos;s tallest-growing tree is the coast redwood
@@ -23,14 +18,16 @@ const Example = () => (
         <OrderedList.Item>Bamboo can grow 35 inches in a single day</OrderedList.Item>
         <OrderedList.Item>During the 1600s, tulips were worth more than gold</OrderedList.Item>
       </OrderedList>
-    </StyledDiv>
-    <UnorderedList>
-      <UnorderedList.Item>
-        The world&apos;s tallest-growing tree is the coast redwood
-      </UnorderedList.Item>
-      <UnorderedList.Item>Bamboo can grow 35 inches in a single day</UnorderedList.Item>
-      <UnorderedList.Item>During the 1600s, tulips were worth more than gold</UnorderedList.Item>
-    </UnorderedList>
+    </Paragraph>
+    <Paragraph>
+      <UnorderedList>
+        <UnorderedList.Item>
+          The world&apos;s tallest-growing tree is the coast redwood
+        </UnorderedList.Item>
+        <UnorderedList.Item>Bamboo can grow 35 inches in a single day</UnorderedList.Item>
+        <UnorderedList.Item>During the 1600s, tulips were worth more than gold</UnorderedList.Item>
+      </UnorderedList>
+    </Paragraph>
   </>
 );
 

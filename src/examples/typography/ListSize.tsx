@@ -6,16 +6,11 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
-import { UnorderedList } from '@zendeskgarden/react-typography';
-
-const StyledDiv = styled.div`
-  margin-bottom: ${p => p.theme.space.md};
-`;
+import { Paragraph, UnorderedList } from '@zendeskgarden/react-typography';
 
 const Example = () => (
   <>
-    <StyledDiv>
+    <Paragraph>
       <UnorderedList size="small">
         <UnorderedList.Item>
           The world&apos;s tallest-growing tree is the coast redwood
@@ -23,8 +18,8 @@ const Example = () => (
         <UnorderedList.Item>Bamboo can grow 35 inches in a single day</UnorderedList.Item>
         <UnorderedList.Item>During the 1600s, tulips were worth more than gold</UnorderedList.Item>
       </UnorderedList>
-    </StyledDiv>
-    <StyledDiv>
+    </Paragraph>
+    <Paragraph>
       <UnorderedList size="medium">
         <UnorderedList.Item>
           The world&apos;s tallest-growing tree is the coast redwood
@@ -32,14 +27,16 @@ const Example = () => (
         <UnorderedList.Item>Bamboo can grow 35 inches in a single day</UnorderedList.Item>
         <UnorderedList.Item>During the 1600s, tulips were worth more than gold</UnorderedList.Item>
       </UnorderedList>
-    </StyledDiv>
-    <UnorderedList size="large">
-      <UnorderedList.Item>
-        The world&apos;s tallest-growing tree is the coast redwood
-      </UnorderedList.Item>
-      <UnorderedList.Item>Bamboo can grow 35 inches in a single day</UnorderedList.Item>
-      <UnorderedList.Item>During the 1600s, tulips were worth more than gold</UnorderedList.Item>
-    </UnorderedList>
+    </Paragraph>
+    <Paragraph>
+      <UnorderedList size="large">
+        <UnorderedList.Item>
+          The world&apos;s tallest-growing tree is the coast redwood
+        </UnorderedList.Item>
+        <UnorderedList.Item>Bamboo can grow 35 inches in a single day</UnorderedList.Item>
+        <UnorderedList.Item>During the 1600s, tulips were worth more than gold</UnorderedList.Item>
+      </UnorderedList>
+    </Paragraph>
   </>
 );
 
