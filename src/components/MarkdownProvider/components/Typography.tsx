@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
 import { XXXL, XXL, XL, LG, MD, Span, Paragraph } from '@zendeskgarden/react-typography';
@@ -65,14 +64,6 @@ export const StyledHr = styled.hr`
 export const StyledParagraph = styled(Paragraph)`
   margin-bottom: ${p => p.theme.space.md};
 `;
-
-/**
- * The SyntaxHighlighter component provides it's own `<pre>` tag.
- * This ensures valid DOM nesting.
- */
-export const StyledPre: React.FC = ({ children }) => {
-  return <>{children}</>;
-};
 
 export const StyledStrong = styled(Span).attrs({ tag: 'strong', isBold: true })``;
 

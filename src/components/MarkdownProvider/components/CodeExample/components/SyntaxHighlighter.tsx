@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { math } from 'polished';
 import { Prism as ReactSyntaxHighlighter } from 'react-syntax-highlighter';
@@ -48,7 +48,7 @@ export const style = {
   tag: { color: colors.foreground }
 };
 
-const StyledSyntaxHighlighter = styled(ReactSyntaxHighlighter)`
+const StyledPre = styled.pre`
   padding: ${p => p.theme.space.sm};
   overflow: auto;
   line-height: ${p => p.theme.lineHeights.md};
@@ -56,8 +56,8 @@ const StyledSyntaxHighlighter = styled(ReactSyntaxHighlighter)`
   font-size: ${p => math(`${p.theme.fontSizes.md} - 1`)};
 `;
 
-export const SyntaxHighlighter: React.FC = ({ children }) => (
-  <StyledSyntaxHighlighter language="tsx" style={style}>
+export const SyntaxHighlighter: React.FC<HTMLAttributes<HTMLPreElement>> = ({ children }) => (
+  <ReactSyntaxHighlighter PreTag={StyledPre} language="tsx" style={style}>
     {children}
-  </StyledSyntaxHighlighter>
+  </ReactSyntaxHighlighter>
 );
