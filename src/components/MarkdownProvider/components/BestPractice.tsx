@@ -15,19 +15,20 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
+import mediaQuery from '../../../temp/mediaQuery';
 
 const StyledRow = styled(Row)`
   margin-top: ${p => p.theme.space.lg};
   margin-bottom: ${p => p.theme.space.xxl};
 
-  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+  ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => `${p.theme.space.base * 6}px`};
     margin-bottom: ${p => p.theme.space.lg};
   }
 `;
 
 const StyledCol = styled(Col)`
-  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+  ${p => mediaQuery('down', 'xs', p.theme)} {
     &:not(:first-child) {
       margin-top: ${p => `${p.theme.space.base * 6}px`};
     }

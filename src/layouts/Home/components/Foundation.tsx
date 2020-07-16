@@ -14,6 +14,7 @@ import { LG } from '@zendeskgarden/react-typography';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SectionCallout, StyledSectionHeader } from './SectionCallout';
 import { HomeLink } from './HomeLink';
+import mediaQuery from '../../../temp/mediaQuery';
 
 const FoundationLink: React.FC<{
   group: string;
@@ -128,7 +129,7 @@ export const Foundation: React.FC = () => {
               css={css`
                 max-width: 380px;
 
-                @media (max-width: ${p => p.theme.breakpoints.lg}) {
+                ${p => mediaQuery('down', 'md', p.theme)} {
                   max-width: 420px;
                 }
               `}

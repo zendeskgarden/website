@@ -6,16 +6,16 @@
  */
 
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { css, ThemeProps, DefaultTheme } from 'styled-components';
+import { getLineHeight } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 // import { MediaInput } from '@zendeskgarden/react-forms';
 import { LG } from '@zendeskgarden/react-typography';
 // import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
-
 import MaxWidthLayout from 'layouts/MaxWidth';
-import { useStaticQuery, graphql } from 'gatsby';
-import { getLineHeight } from '@zendeskgarden/react-theming';
+import mediaQuery from '../../../temp/mediaQuery';
 
 const headerStyling = (p: ThemeProps<DefaultTheme>) => {
   const fontSize = `${p.theme.space.base * 12}px`;
@@ -26,7 +26,7 @@ const headerStyling = (p: ThemeProps<DefaultTheme>) => {
     font-size: ${fontSize};
     font-weight: ${p.theme.fontWeights.bold};
 
-    @media (max-width: ${p.theme.breakpoints.lg}) {
+    ${mediaQuery('down', 'md', p.theme)} {
       line-height: ${p.theme.lineHeights.xxxl};
       font-size: ${p.theme.fontSizes.xxxl};
     }
@@ -65,7 +65,7 @@ export const Search: React.FC = () => {
               order={1}
               orderMd={0}
               css={css`
-                @media (max-width: ${p => p.theme.breakpoints.lg}) {
+                ${p => mediaQuery('down', 'md', p.theme)} {
                   padding: 0 ${p => p.theme.space.lg};
                 }
               `}
@@ -88,7 +88,7 @@ export const Search: React.FC = () => {
               css={css`
                 padding: ${p => p.theme.space.xxl};
 
-                @media (max-width: ${p => p.theme.breakpoints.lg}) {
+                ${p => mediaQuery('down', 'md', p.theme)} {
                   padding: ${p => p.theme.space.lg};
                   padding-bottom: 0;
                 }
@@ -116,7 +116,7 @@ export const Search: React.FC = () => {
                   css={css`
                     width: 340px;
 
-                    @media (max-width: ${p => p.theme.breakpoints.sm}) {
+                    ${p => mediaQuery('down', 'xs', p.theme)} {
                       width: 100%;
                     }
                   `}

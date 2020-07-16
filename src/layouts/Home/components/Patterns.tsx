@@ -10,10 +10,10 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { css } from 'styled-components';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-
 import { SectionCallout } from './SectionCallout';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { HomeLink } from './HomeLink';
+import mediaQuery from '../../../temp/mediaQuery';
 
 export const Patterns: React.FC = () => {
   const { patternsImage } = useStaticQuery(
@@ -48,7 +48,7 @@ export const Patterns: React.FC = () => {
             order={1}
             orderMd={0}
             css={css`
-              @media (max-width: ${p => p.theme.breakpoints.md}) {
+              ${p => mediaQuery('down', 'sm', p.theme)} {
                 margin-bottom: ${p => p.theme.space.lg};
               }
             `}
@@ -78,7 +78,7 @@ export const Patterns: React.FC = () => {
                 margin-left: auto;
                 max-width: 380px;
 
-                @media (max-width: ${p => p.theme.breakpoints.md}) {
+                ${p => mediaQuery('down', 'sm', p.theme)} {
                   margin-right: 0;
                   margin-left: 0;
                   max-width: 420px;

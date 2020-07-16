@@ -16,6 +16,7 @@ import { getColor } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { XL, LG } from '@zendeskgarden/react-typography';
 import { StyledH1 } from 'components/MarkdownProvider/components/Typography';
+import mediaQuery from '../temp/mediaQuery';
 
 const NotFoundPage: React.FC = () => {
   const { notFoundImage } = useStaticQuery(
@@ -43,7 +44,7 @@ const NotFoundPage: React.FC = () => {
             margin-top: 180px;
             margin-bottom: 368px;
 
-            @media (max-width: ${p => p.theme.breakpoints.sm}) {
+            ${p => mediaQuery('down', 'xs', p.theme)} {
               margin-top: 60px;
               margin-bottom: 200px;
             }
@@ -55,7 +56,7 @@ const NotFoundPage: React.FC = () => {
                 fixed={notFoundImage.childFile.childImageSharp.fixed}
                 alt=""
                 css={css`
-                  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+                  ${p => mediaQuery('down', 'xs', p.theme)} {
                     /* stylelint-disable declaration-no-important */
                     width: 112px !important;
                     height: 112px !important;
@@ -69,7 +70,7 @@ const NotFoundPage: React.FC = () => {
                 css={css`
                   margin-left: ${p => p.theme.space.base * 12}px;
 
-                  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+                  ${p => mediaQuery('down', 'xs', p.theme)} {
                     margin-left: 0;
                   }
                 `}
@@ -82,7 +83,7 @@ const NotFoundPage: React.FC = () => {
                     color: ${p => getColor('neutralHue', 600, p.theme)};
                     font-size: ${p => p.theme.space.base * 4}px;
 
-                    @media (max-width: ${p => p.theme.breakpoints.sm}) {
+                    ${p => mediaQuery('down', 'xs', p.theme)} {
                       font-size: ${p => p.theme.fontSizes.sm};
                     }
                   `}
@@ -91,7 +92,7 @@ const NotFoundPage: React.FC = () => {
                 </LG>
                 <StyledH1
                   css={css`
-                    @media (max-width: ${p => p.theme.breakpoints.sm}) {
+                    ${p => mediaQuery('down', 'xs', p.theme)} {
                       margin-bottom: ${p => p.theme.space.xs};
                       line-height: ${p => p.theme.lineHeights.xxl};
                       font-size: ${p => p.theme.fontSizes.xxl};
@@ -105,7 +106,7 @@ const NotFoundPage: React.FC = () => {
                   css={css`
                     color: ${p => getColor('neutralHue', 600, p.theme)};
 
-                    @media (max-width: ${p => p.theme.breakpoints.sm}) {
+                    ${p => mediaQuery('down', 'xs', p.theme)} {
                       line-height: ${p => p.theme.lineHeights.md};
                       font-size: ${p => p.theme.fontSizes.md};
                     }

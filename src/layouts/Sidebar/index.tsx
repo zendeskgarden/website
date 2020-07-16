@@ -14,6 +14,7 @@ import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { MobileSidebar } from './components/MobileSidebar';
 import { DesktopSidebar } from './components/DesktopSidebar';
+import mediaQuery from '../../temp/mediaQuery';
 
 export interface ISidebarSection {
   title: string;
@@ -44,7 +45,7 @@ const StyledMobileNavButton = styled.button`
     height: ${p => p.theme.iconSizes.lg};
   }
 
-  @media (max-width: ${p => p.theme.breakpoints.lg}) {
+  ${p => mediaQuery('down', 'md', p.theme)} {
     display: flex;
   }
 `;
@@ -74,7 +75,7 @@ export const SidebarLayout: React.FC<{ sidebar: ISidebarSection[] }> = ({ childr
               padding: ${p => p.theme.space.lg} ${p => p.theme.space.md};
               max-width: 100vw;
 
-              @media (max-width: ${p => p.theme.breakpoints.lg}) {
+              ${p => mediaQuery('down', 'md', p.theme)} {
                 padding: ${p => p.theme.space.lg} ${p => p.theme.space.sm};
               }
             `}
