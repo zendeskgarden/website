@@ -78,7 +78,6 @@ export const PropSheet: React.FC<{ components: IComponentData[]; componentName: 
                   <Row key={`${component.name}-${name}`}>
                     <Cell>
                       <MD
-                        tag="span"
                         isMonospace
                         css={css`
                           color: ${p => getColor('neutralHue', 700, p.theme)};
