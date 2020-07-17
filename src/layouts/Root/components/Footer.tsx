@@ -12,6 +12,7 @@ import { getColor } from '@zendeskgarden/react-theming';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { Link } from './StyledNavigationLink';
 import MaxWidthLayout from 'layouts/MaxWidth';
+import mediaQuery from '../../../temp/mediaQuery';
 
 const StyledFooterItem = styled(Link)`
   margin-right: ${p => p.theme.space.lg};
@@ -33,7 +34,8 @@ const Footer: React.FC = () => (
         css={css`
           display: flex;
           padding-bottom: ${p => p.theme.space.md};
-          @media (max-width: ${p => p.theme.breakpoints.md}) {
+
+          ${p => mediaQuery('down', 'sm', p.theme)} {
             flex-direction: column;
             padding-left: ${p => math(`${p.theme.iconSizes.md} + ${p.theme.space.md}`)};
             text-align: center;
@@ -51,7 +53,8 @@ const Footer: React.FC = () => (
           align-items: center;
           border-top: ${p => p.theme.borders.sm} ${p => getColor('kale', 500, p.theme)};
           padding-top: ${p => p.theme.space.md};
-          @media (max-width: ${p => p.theme.breakpoints.md}) {
+
+          ${p => mediaQuery('down', 'sm', p.theme)} {
             flex-direction: column;
             align-items: center;
             text-align: center;
@@ -62,7 +65,8 @@ const Footer: React.FC = () => (
           css={css`
             display: flex;
             align-items: center;
-            @media (max-width: ${p => p.theme.breakpoints.md}) {
+
+            ${p => mediaQuery('down', 'sm', p.theme)} {
               margin-bottom: ${p => p.theme.space.md};
             }
           `}
@@ -87,7 +91,7 @@ const Footer: React.FC = () => (
         </div>
         <div
           css={css`
-            @media (max-width: ${p => p.theme.breakpoints.lg}) {
+            ${p => mediaQuery('down', 'md', p.theme)} {
               margin-top: ${p => p.theme.space.md};
               width: 100%;
               text-align: center;

@@ -18,6 +18,7 @@ import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/ga
 import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/26/wordmark-garden.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { StyledNavigationLink } from './StyledNavigationLink';
+import mediaQuery from '../../../temp/mediaQuery';
 
 const StyledDesktopNavItem = styled.div`
   display: flex;
@@ -46,7 +47,7 @@ const StyledHeader = styled.header.attrs({ role: 'banner' })`
     border-bottom-color: ${p => p.theme.palette.white};
   }
 
-  @media (max-width: ${p => p.theme.breakpoints.md}) {
+  ${p => mediaQuery('down', 'sm', p.theme)} {
     padding: 0;
     height: ${p => p.theme.space.base * 15}px;
   }
@@ -59,7 +60,7 @@ const Logo: React.FC = () => (
       align-items: center;
       justify-content: center;
 
-      @media (max-width: ${p => p.theme.breakpoints.md}) {
+      ${p => mediaQuery('down', 'sm', p.theme)} {
         flex-grow: 1;
       }
     `}
@@ -85,7 +86,7 @@ const Logo: React.FC = () => (
             height: ${p => p.theme.iconSizes.lg};
             color: ${PALETTE.kale[700]};
 
-            @media (max-width: ${p => p.theme.breakpoints.md}) {
+            ${p => mediaQuery('down', 'sm', p.theme)} {
               display: none;
             }
           `}
@@ -133,7 +134,7 @@ const MobileNavButton: React.FC<
       css={css`
         padding: ${p => p.theme.space.base * 1.5}px; /* (header - button) x .5 */
 
-        @media (min-width: ${p => p.theme.breakpoints.md}) {
+        ${p => mediaQuery('up', 'md', p.theme)} {
           display: none;
         }
       `}
@@ -156,7 +157,7 @@ const TemporaryBox = styled.div`
   width: 60px;
   height: 60px;
 
-  @media (min-width: ${p => p.theme.breakpoints.md}) {
+  ${p => mediaQuery('up', 'md', p.theme)} {
     display: none;
   }
 `;
@@ -205,7 +206,7 @@ const DesktopNav: React.FC = () => (
       flex-grow: 1;
       justify-content: flex-end;
 
-      @media (max-width: ${p => p.theme.breakpoints.md}) {
+      ${p => mediaQuery('down', 'sm', p.theme)} {
         display: none;
       }
     `}

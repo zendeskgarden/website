@@ -11,6 +11,7 @@ import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { Subtitle } from './components/Subtitle';
 import { TOCBlock, TOC, IHeading } from './components/TOC';
 import { StyledH1, StyledHr } from 'components/MarkdownProvider/components/Typography';
+import mediaQuery from '../../temp/mediaQuery';
 
 const TitledLayout: React.FC<{
   title: React.ReactNode;
@@ -27,7 +28,7 @@ const TitledLayout: React.FC<{
           <TOCBlock
             data={toc}
             css={css`
-              @media (min-width: ${p => p.theme.breakpoints.xl}) {
+              ${p => mediaQuery('up', 'xl', p.theme)} {
                 display: none;
               }
             `}
@@ -39,7 +40,7 @@ const TitledLayout: React.FC<{
         lg={12}
         xl={3}
         css={css`
-          @media (max-width: ${p => p.theme.breakpoints.xl}) {
+          ${p => mediaQuery('down', 'lg', p.theme)} {
             display: none;
           }
         `}

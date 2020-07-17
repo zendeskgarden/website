@@ -12,6 +12,7 @@ import { getColor } from '@zendeskgarden/react-theming';
 import { ISidebarSection } from '..';
 import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
+import mediaQuery from '../../../temp/mediaQuery';
 
 const StyledSidebarLink = styled(StyledNavigationLink)`
   display: block;
@@ -100,7 +101,7 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
           padding: ${p => p.theme.space.lg} ${p => p.theme.space.md};
         }
 
-        @media (max-width: ${p => p.theme.breakpoints.lg}) {
+        ${p => mediaQuery('down', 'md', p.theme)} {
           display: none;
         }
       `}
@@ -115,7 +116,7 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
           z-index: -1;
           background-color: ${p => p.theme.palette.tofu};
 
-          @media (max-width: ${p => p.theme.breakpoints.lg}) {
+          ${p => mediaQuery('down', 'md', p.theme)} {
             display: none;
           }
         `}

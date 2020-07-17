@@ -12,6 +12,7 @@ import { getColor } from '@zendeskgarden/react-theming';
 import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 import { ISidebarSection } from '..';
+import mediaQuery from '../../../temp/mediaQuery';
 
 const StyledSidebarLink = styled(StyledNavigationLink)`
   display: block;
@@ -102,11 +103,11 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.xxl};
         overflow: scroll;
 
-        @media (max-width: ${p => p.theme.breakpoints.md}) {
+        ${p => mediaQuery('down', 'sm', p.theme)} {
           top: ${p => p.theme.space.base * 15}px;
         }
 
-        @media (min-width: ${p => p.theme.breakpoints.lg}) {
+        ${p => mediaQuery('up', 'lg', p.theme)} {
           display: none;
         }
       `}
