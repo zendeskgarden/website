@@ -55,6 +55,8 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
           display: flex;
           justify-content: flex-end;
           border-top: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+          border-bottom-left-radius: ${p => p.theme.borderRadii.md};
+          border-bottom-right-radius: ${p => p.theme.borderRadii.md};
           background-color: ${p => getColor('grey', 100, p.theme)};
           padding: ${p => p.theme.space.xxs} ${p => p.theme.space.sm};
         `}
