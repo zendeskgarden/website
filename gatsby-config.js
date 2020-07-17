@@ -14,7 +14,7 @@ envalid.cleanEnv(process.env, { ABSTRACT_TOKEN: envalid.str() });
 module.exports = {
   siteMetadata: {
     title: 'Zendesk Garden',
-    siteUrl: 'https://zendeskgarden.netlify.app',
+    siteUrl: 'https://garden.zendesk.com',
     description: `Garden is a design system for Zendesk where we grow beautifully simple and accessible UI components.`
   },
   plugins: [
