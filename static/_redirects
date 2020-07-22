@@ -1,5 +1,6 @@
 # redirect default Netlify subdomain to primary domain
 https://zendeskgarden.netlify.app/* https://garden.zendesk.com/:splat 301!
 
-# redirect domain alias to primary domain
+# redirect domain aliases to primary domain
 https://zendesk.garden/* https://garden.zendesk.com/:splat 301!
+https://www.zendesk.garden/* https://garden.zendesk.com/:splat 301!
