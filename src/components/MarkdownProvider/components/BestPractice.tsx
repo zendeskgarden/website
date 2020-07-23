@@ -10,12 +10,11 @@ import styled from 'styled-components';
 import { math } from 'polished';
 import Img, { FluidObject } from 'gatsby-image';
 import { Well, Title } from '@zendeskgarden/react-notifications';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
-import mediaQuery from '../../../temp/mediaQuery';
 
 const StyledRow = styled(Row)`
   margin-top: ${p => p.theme.space.lg};

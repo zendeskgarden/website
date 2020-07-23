@@ -8,7 +8,7 @@
 import React, { useState, HTMLAttributes, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
-import { getColor, PALETTE } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { MediaInput } from '@zendeskgarden/react-forms';
 import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
@@ -18,7 +18,6 @@ import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/ga
 import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/26/wordmark-garden.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { StyledNavigationLink } from './StyledNavigationLink';
-import mediaQuery from '../../../temp/mediaQuery';
 
 const StyledDesktopNavItem = styled.div`
   display: flex;

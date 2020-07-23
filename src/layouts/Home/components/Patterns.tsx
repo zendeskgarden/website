@@ -9,11 +9,11 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { css } from 'styled-components';
+import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { SectionCallout } from './SectionCallout';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { HomeLink } from './HomeLink';
-import mediaQuery from '../../../temp/mediaQuery';
 
 export const Patterns: React.FC = () => {
   const { patternsImage } = useStaticQuery(

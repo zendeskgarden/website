@@ -9,13 +9,12 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getLineHeight } from '@zendeskgarden/react-theming';
+import { getLineHeight, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 // import { MediaInput } from '@zendeskgarden/react-forms';
 import { LG } from '@zendeskgarden/react-typography';
 // import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
-import mediaQuery from '../../../temp/mediaQuery';
 
 const headerStyling = (p: ThemeProps<DefaultTheme>) => {
   const fontSize = `${p.theme.space.base * 12}px`;

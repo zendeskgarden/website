@@ -8,11 +8,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { mediaQuery } from '@zendeskgarden/react-theming';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
 import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
 
 const StyledCol = styled(Col)`
-  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+  ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;

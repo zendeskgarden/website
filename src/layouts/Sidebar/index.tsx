@@ -8,13 +8,12 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { ReactComponent as OverflowStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { MobileSidebar } from './components/MobileSidebar';
 import { DesktopSidebar } from './components/DesktopSidebar';
-import mediaQuery from '../../temp/mediaQuery';
 
 export interface ISidebarSection {
   title: string;

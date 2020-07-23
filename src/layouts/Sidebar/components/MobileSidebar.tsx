@@ -8,11 +8,10 @@
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useLocation } from '@reach/router';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 import { ISidebarSection } from '..';
-import mediaQuery from '../../../temp/mediaQuery';
 
 const StyledSidebarLink = styled(StyledNavigationLink)`
   display: block;
