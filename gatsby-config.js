@@ -125,6 +125,7 @@ module.exports = {
         allExtensions: true
       }
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
     {
       resolve: 'gatsby-plugin-root-import',
