@@ -7,11 +7,11 @@
 
 import React from 'react';
 import { css } from 'styled-components';
+import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { Subtitle } from './components/Subtitle';
 import { TOCBlock, TOC, IHeading } from './components/TOC';
 import { StyledH1, StyledHr } from 'components/MarkdownProvider/components/Typography';
-import mediaQuery from '../../temp/mediaQuery';
 
 const TitledLayout: React.FC<{
   title: React.ReactNode;

@@ -8,10 +8,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Field, Label, Textarea } from '@zendeskgarden/react-forms';
 
 const StyledCol = styled(Col)`
-  @media (max-width: ${p => p.theme.breakpoints.sm}) {
+  ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;

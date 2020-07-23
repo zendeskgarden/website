@@ -9,12 +9,12 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import { css } from 'styled-components';
+import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { LG } from '@zendeskgarden/react-typography';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SectionCallout, StyledSectionHeader } from './SectionCallout';
 import { HomeLink } from './HomeLink';
-import mediaQuery from '../../../temp/mediaQuery';
 
 const FoundationLink: React.FC<{
   group: string;

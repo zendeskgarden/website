@@ -8,11 +8,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { math } from 'polished';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { Link } from './StyledNavigationLink';
 import MaxWidthLayout from 'layouts/MaxWidth';
-import mediaQuery from '../../../temp/mediaQuery';
 
 const StyledFooterItem = styled(Link)`
   margin-right: ${p => p.theme.space.lg};

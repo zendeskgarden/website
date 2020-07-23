@@ -12,11 +12,10 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import RootLayout from 'layouts/Root';
 import MaxWidthLayout from 'layouts/MaxWidth';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { XL, LG } from '@zendeskgarden/react-typography';
 import { StyledH1 } from 'components/MarkdownProvider/components/Typography';
-import mediaQuery from '../temp/mediaQuery';
 
 const NotFoundPage: React.FC = () => {
   const { notFoundImage } = useStaticQuery(
