@@ -4,3 +4,6 @@ https://zendeskgarden.netlify.app/* https://garden.zendesk.com/:splat 301!
 # redirect domain aliases to primary domain
 https://zendesk.garden/* https://garden.zendesk.com/:splat 301!
 https://www.zendesk.garden/* https://garden.zendesk.com/:splat 301!
+
+# redirect css-components to gh-pages
+https://garden.zendesk.com/css-components/* https://zendeskgarden.github.io/css-components/:splat 301!
