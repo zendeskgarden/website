@@ -47,7 +47,7 @@
     "@zendeskgarden/react-typography": "8.17.0",
     "@zendeskgarden/scripts": "0.1.10",
     "@zendeskgarden/stylelint-config": "13.0.0",
-    "@zendeskgarden/svg-icons": "6.17.0",
+    "@zendeskgarden/svg-icons": "6.20.0",
     "abstract-sdk": "7.0.1",
     "babel-eslint": "10.1.0",
     "babel-plugin-styled-components": "1.10.7",
