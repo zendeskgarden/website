@@ -2518,10 +2518,10 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-13.0.0.tgz#9cad63a317337b1b3efde45a03b34076c711fc38"
   integrity sha512-FuLFv3pmTUVVbSMOu1TD8a5ceGuIRdfb0LrY2+Njcpvqf4ZMgNC8g9t3WZ3Dfb1YM5E/2XIuIrgjpKucMAJCHw==
 
-"@zendeskgarden/svg-icons@6.17.0":
-  version "6.17.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.17.0.tgz#400fc11b2ebd3f54b9d2226b370d457d87beb34c"
-  integrity sha512-hLBV2sCA1Z7fSQuFLXT39b/BawtL07UAIzQq1rs/l+m42qAkomW0TqUB+si2AAUzJ9rxUD++fJCd7yaz/F9rlA==
+"@zendeskgarden/svg-icons@6.20.0":
+  version "6.20.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.20.0.tgz#ac2d56e6979d7fe24c4ba6fe36c4209cb873c4c8"
+  integrity sha512-piupmvKBwlas4pRLB7LuZoGWA5sYI1X88b4vHwvLbnh63+UbShAJtkgyrO6ZSfdQxZcaIic+oIUCi67Ma93mww==
 
 abstract-sdk@7.0.1:
   version "7.0.1"
