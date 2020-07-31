@@ -20,37 +20,44 @@ const StyledListItem = styled(UnorderedList.Item)`
 `;
 
 export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => {
-  const content = nav.map(section => (
-    <>
-      <LG isBold>{section.title}</LG>
-      {section.items && (
-        <StyledUnorderedList>
-          {section.items?.map(group => {
-            if (group.items) {
-              return (
-                <StyledListItem key={group.title}>
-                  {group.title}
-                  <UnorderedList>
-                    {group.items.map(child => (
-                      <UnorderedList.Item key={child.id}>
-                        <Link to={`${child.id}`}>{child.title}</Link>
-                      </UnorderedList.Item>
-                    ))}
-                  </UnorderedList>
-                </StyledListItem>
-              );
-            }
+  const content = nav.map((section, index) => {
+    /* skip past Overview link-to-self */
+    if (index > 0) {
+      return (
+        <>
+          <LG isBold>{section.title}</LG>
+          {section.items && (
+            <StyledUnorderedList>
+              {section.items?.map(group => {
+                if (group.items) {
+                  return (
+                    <StyledListItem key={group.title}>
+                      {group.title}
+                      <UnorderedList>
+                        {group.items.map(child => (
+                          <UnorderedList.Item key={child.id}>
+                            <Link to={`${child.id}`}>{child.title}</Link>
+                          </UnorderedList.Item>
+                        ))}
+                      </UnorderedList>
+                    </StyledListItem>
+                  );
+                }
 
-            return (
-              <StyledListItem key={group.title}>
-                <Link to={`${group.id}`}>{group.title}</Link>
-              </StyledListItem>
-            );
-          })}
-        </StyledUnorderedList>
-      )}
-    </>
-  ));
+                return (
+                  <StyledListItem key={group.title}>
+                    <Link to={`${group.id}`}>{group.title}</Link>
+                  </StyledListItem>
+                );
+              })}
+            </StyledUnorderedList>
+          )}
+        </>
+      );
+    }
+
+    return <></>;
+  });
 
   return <nav>{content}</nav>;
 };
