@@ -8,12 +8,17 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
 import { XXXL, XXL, XL, LG, MD, Span, Paragraph } from '@zendeskgarden/react-typography';
+import { StyledAnchor } from './Anchor';
 
 const headerStyles = (p: ThemeProps<DefaultTheme>) => {
   return css`
     margin-bottom: ${p.theme.space.sm};
     color: ${getColor('chromeHue', 700, p.theme)};
     font-weight: ${p.theme.fontWeights.semibold};
+
+    &:hover ${StyledAnchor} {
+      color: inherit;
+    }
   `;
 };
 
