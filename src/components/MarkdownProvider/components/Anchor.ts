@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { math } from 'polished';
 
@@ -15,7 +16,12 @@ export const StyledAnchor = styled(Anchor)`
     padding: 0 ${p => p.theme.space.xs};
     color: transparent;
 
-    /* stylelint-disable-next-line selector-max-specificity */
+    /* stylelint-disable selector-max-specificity */
+    ${p => mediaQuery('down', 'md', p.theme)} {
+      margin-left: -${p => math(`${p.theme.space.xxs} * 2 + ${p.theme.iconSizes.md}`)};
+      padding: 0 ${p => p.theme.space.xxs};
+    }
+
     &[data-garden-focus-visible] {
       color: inherit;
     }
