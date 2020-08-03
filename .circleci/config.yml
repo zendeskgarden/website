@@ -1,12 +1,12 @@
 version: 2.1
 orbs:
-  node: circleci/node@2.1.1
+  node: circleci/node@3.0.1
 
 references:
   executor: &executor
     executor:
       name: node/default
-      tag: '12.16'
+      tag: lts
 
   workspace_root: &workspace_root ~/project
 
@@ -31,7 +31,6 @@ jobs:
           name: Restoring Gatsby Cache
           key: *gatsby_cache_key
       - node/install-packages:
-          cache-key: yarn.lock
           pkg-manager: yarn
       - save_cache:
           name: Saving Gatsby Cache
