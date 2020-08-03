@@ -9,8 +9,8 @@ import React, { ReactElement, ReactNode } from 'react';
 import remark from 'remark';
 import remark2react from 'remark-react';
 import VFile from 'vfile';
-import { Anchor } from '@zendeskgarden/react-buttons';
 import { Code } from '@zendeskgarden/react-typography';
+import { StyledAnchor as Anchor } from './Anchor';
 import { UL, OL, LI } from './Lists';
 import { StyledTable as Table, TR, TH, TD, TBody, THead } from './Table';
 import {
