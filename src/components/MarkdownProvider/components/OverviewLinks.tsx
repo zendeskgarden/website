@@ -25,7 +25,7 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
     if (index > 0) {
       return (
         <>
-          <LG isBold as="h2">
+          <LG isBold tag="h2">
             {section.title}
           </LG>
           {section.items && (
