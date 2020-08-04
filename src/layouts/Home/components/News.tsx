@@ -47,8 +47,10 @@ export const News: React.FC = () => {
         <Grid gutters="lg">
           <Row>
             <Col
+              size={12}
               css={css`
-                padding: ${p => p.theme.space.xxl};
+                padding-top: ${p => p.theme.space.xxl};
+                padding-bottom: ${p => p.theme.space.xxl};
               `}
             >
               <StyledSectionHeader>News and Articles</StyledSectionHeader>
