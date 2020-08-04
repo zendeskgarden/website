@@ -5,12 +5,25 @@ description: >
   This helps simplify the UI when space is limited.
 package: '@zendeskgarden/react-dropdowns'
 components:
+  - dropdowns/src/elements/Menu/Items/AddItem.tsx
   - dropdowns/src/elements/Dropdown/Dropdown.tsx
   - dropdowns/src/elements/Fields/Field.tsx
+  - dropdowns/src/elements/Menu/Items/HeaderIcon.tsx
+  - dropdowns/src/elements/Menu/Items/HeaderItem.tsx
   - dropdowns/src/elements/Fields/Hint.tsx
+  - dropdowns/src/elements/Menu/Items/Item.tsx
+  - dropdowns/src/elements/Menu/Items/ItemMeta.tsx
   - dropdowns/src/elements/Fields/Label.tsx
+  - dropdowns/src/elements/Menu/Items/MediaBody.tsx
+  - dropdowns/src/elements/Menu/Items/MediaFigure.tsx
+  - dropdowns/src/elements/Menu/Items/MediaItem.tsx
+  - dropdowns/src/elements/Menu/Menu.tsx
   - dropdowns/src/elements/Fields/Message.tsx
+  - dropdowns/src/elements/Menu/Items/NextItem.tsx
+  - dropdowns/src/elements/Menu/Items/PreviousItem.tsx
   - dropdowns/src/elements/Select/Select.tsx
+  - dropdowns/src/elements/Menu/Separator.tsx
+  - dropdowns/src/elements/Trigger/Trigger.tsx
 ---
 
 <Usage>
@@ -100,6 +113,10 @@ import SelectValidationCode from '!!raw-loader!../../examples/dropdowns/select/V
 
 ## API
 
+### AddItem
+
+<PropSheet components={props.data.mdx.components} componentName="addItem" />
+
 ### Dropdown
 
 <PropSheet components={props.data.mdx.components} componentName="dropdown" />
@@ -108,21 +125,69 @@ import SelectValidationCode from '!!raw-loader!../../examples/dropdowns/select/V
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
+### HeaderIcon
+
+<PropSheet components={props.data.mdx.components} componentName="headerIcon" />
+
+### HeaderItem
+
+<PropSheet components={props.data.mdx.components} componentName="headerItem" />
+
 ### Hint
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Item
+
+<PropSheet components={props.data.mdx.components} componentName="item" />
+
+### ItemMeta
+
+<PropSheet components={props.data.mdx.components} componentName="itemMeta" />
 
 ### Label
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
+### MediaBody
+
+<PropSheet components={props.data.mdx.components} componentName="mediaBody" />
+
+### MediaFigure
+
+<PropSheet components={props.data.mdx.components} componentName="mediaFigure" />
+
+### MediaItem
+
+<PropSheet components={props.data.mdx.components} componentName="mediaItem" />
+
 ### Message
 
 <PropSheet components={props.data.mdx.components} componentName="message" />
 
+### Menu
+
+<PropSheet components={props.data.mdx.components} componentName="menu" />
+
+### NextItem
+
+<PropSheet components={props.data.mdx.components} componentName="nextItem" />
+
+### PreviousItem
+
+<PropSheet components={props.data.mdx.components} componentName="previousItem" />
+
 ### Select
 
 <PropSheet components={props.data.mdx.components} componentName="select" />
+
+### Separator
+
+<PropSheet components={props.data.mdx.components} componentName="separator" />
+
+### Trigger
+
+<PropSheet components={props.data.mdx.components} componentName="trigger" />
 
 import { graphql } from 'gatsby';
 

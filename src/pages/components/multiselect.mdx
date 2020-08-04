@@ -5,12 +5,24 @@ description: >
   user types in the input field and their selections appear as tags in the input field.
 package: '@zendeskgarden/react-dropdowns'
 components:
+  - dropdowns/src/elements/Menu/Items/AddItem.tsx
   - dropdowns/src/elements/Dropdown/Dropdown.tsx
   - dropdowns/src/elements/Fields/Field.tsx
+  - dropdowns/src/elements/Menu/Items/HeaderIcon.tsx
+  - dropdowns/src/elements/Menu/Items/HeaderItem.tsx
   - dropdowns/src/elements/Fields/Hint.tsx
   - dropdowns/src/elements/Menu/Items/Item.tsx
+  - dropdowns/src/elements/Menu/Items/ItemMeta.tsx
   - dropdowns/src/elements/Fields/Label.tsx
+  - dropdowns/src/elements/Menu/Items/MediaBody.tsx
+  - dropdowns/src/elements/Menu/Items/MediaFigure.tsx
+  - dropdowns/src/elements/Menu/Items/MediaItem.tsx
+  - dropdowns/src/elements/Menu/Menu.tsx
   - dropdowns/src/elements/Multiselect/Multiselect.tsx
+  - dropdowns/src/elements/Menu/Items/NextItem.tsx
+  - dropdowns/src/elements/Menu/Items/PreviousItem.tsx
+  - dropdowns/src/elements/Menu/Separator.tsx
+  - dropdowns/src/elements/Trigger/Trigger.tsx
 ---
 
 <Usage>
@@ -63,9 +75,21 @@ import MultiselectSizeCode from '!!raw-loader!../../examples/dropdowns/multisele
 
 ## API
 
+### AddItem
+
+<PropSheet components={props.data.mdx.components} componentName="addItem" />
+
 ### Dropdown
 
 <PropSheet components={props.data.mdx.components} componentName="dropdown" />
+
+### HeaderIcon
+
+<PropSheet components={props.data.mdx.components} componentName="headerIcon" />
+
+### HeaderItem
+
+<PropSheet components={props.data.mdx.components} componentName="headerItem" />
 
 ### Field
 
@@ -79,13 +103,49 @@ import MultiselectSizeCode from '!!raw-loader!../../examples/dropdowns/multisele
 
 <PropSheet components={props.data.mdx.components} componentName="item" />
 
+### ItemMeta
+
+<PropSheet components={props.data.mdx.components} componentName="itemMeta" />
+
 ### Label
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
+### MediaBody
+
+<PropSheet components={props.data.mdx.components} componentName="mediaBody" />
+
+### MediaFigure
+
+<PropSheet components={props.data.mdx.components} componentName="mediaFigure" />
+
+### MediaItem
+
+<PropSheet components={props.data.mdx.components} componentName="mediaItem" />
+
+### Menu
+
+<PropSheet components={props.data.mdx.components} componentName="menu" />
+
 ### Multiselect
 
 <PropSheet components={props.data.mdx.components} componentName="multiselect" />
+
+### NextItem
+
+<PropSheet components={props.data.mdx.components} componentName="nextItem" />
+
+### PreviousItem
+
+<PropSheet components={props.data.mdx.components} componentName="previousItem" />
+
+### Separator
+
+<PropSheet components={props.data.mdx.components} componentName="separator" />
+
+### Trigger
+
+<PropSheet components={props.data.mdx.components} componentName="trigger" />
 
 import { graphql } from 'gatsby';
 
