@@ -63,6 +63,17 @@ import AnchorExternalCode from '!!raw-loader!../../examples/anchor/AnchorExterna
   <AnchorExternal />
 </CodeExample>
 
+#### Security
+
+When linking to third-party content you may be [exposing your site to performance and security issues](https://web.dev/external-anchors-use-rel-noopener/).
+Garden provides two attributes by default for external anchors:
+
+- `target="_blank"`
+- `rel="noopener noreferrer"`
+
+These attributes ensure the third-party content is ran in a unique process
+and unable to access the current pages `window` object.
+
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
