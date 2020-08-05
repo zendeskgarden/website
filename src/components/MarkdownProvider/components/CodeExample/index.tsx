@@ -13,7 +13,7 @@ import { IconButton, ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as MarkupStroke } from '@zendeskgarden/svg-icons/src/16/markup-stroke.svg';
 import { ReactComponent as CopyStroke } from '@zendeskgarden/svg-icons/src/16/copy-stroke.svg';
 import { ReactComponent as DirectionRtlStroke } from '@zendeskgarden/svg-icons/src/16/direction-rtl-stroke.svg';
-import CodeSandbox from './assets/CodeSandbox';
+import { ReactComponent as CodeSandboxIcon } from './assets/codesandbox-icon.svg';
 import { SyntaxHighlighter } from './components/SyntaxHighlighter';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
 import { copyToClipboard } from './utils/copyToClipboard';
@@ -74,7 +74,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
         <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_blank">
           <input type="hidden" name="parameters" value={parameters} />
           <input type="hidden" name="query" value="module=src/Example.tsx" />
-          <Tooltip content="Open in Codesandbox">
+          <Tooltip content="Open in CodeSandbox">
             <IconButton
               isPill={false}
               focusInset
@@ -83,7 +83,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
                 margin-left: ${p => p.theme.space.sm};
               `}
             >
-              <CodeSandbox />
+              <CodeSandboxIcon />
             </IconButton>
           </Tooltip>
         </form>
