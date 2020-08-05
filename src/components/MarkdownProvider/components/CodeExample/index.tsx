@@ -12,8 +12,8 @@ import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { IconButton, ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as MarkupStroke } from '@zendeskgarden/svg-icons/src/16/markup-stroke.svg';
 import { ReactComponent as CopyStroke } from '@zendeskgarden/svg-icons/src/16/copy-stroke.svg';
-import { ReactComponent as LightningBoltStroke } from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
 import { ReactComponent as DirectionRtlStroke } from '@zendeskgarden/svg-icons/src/16/direction-rtl-stroke.svg';
+import CodeSandbox from './assets/CodeSandbox';
 import { SyntaxHighlighter } from './components/SyntaxHighlighter';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
 import { copyToClipboard } from './utils/copyToClipboard';
@@ -83,7 +83,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
                 margin-left: ${p => p.theme.space.sm};
               `}
             >
-              <LightningBoltStroke />
+              <CodeSandbox />
             </IconButton>
           </Tooltip>
         </form>
