@@ -16,7 +16,7 @@ module.exports = {
   siteMetadata: {
     title: 'Zendesk Garden',
     siteUrl: 'https://garden.zendesk.com',
-    description: `Garden is a design system for Zendesk where we grow beautifully simple and accessible UI components.`
+    description: `The source of truth for tools, standards, and best practices when building products at Zendesk`
   },
   plugins: [
     {
