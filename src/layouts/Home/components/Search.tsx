@@ -57,7 +57,7 @@ export const Search: React.FC = () => {
       `}
     >
       <MaxWidthLayout>
-        <Grid>
+        <Grid gutters="lg">
           <Row alignItems="center">
             <Col
               md={6}
@@ -85,10 +85,8 @@ export const Search: React.FC = () => {
             <Col
               md={6}
               css={css`
-                padding: ${p => p.theme.space.xxl};
-
                 ${p => mediaQuery('down', 'md', p.theme)} {
-                  padding: ${p => p.theme.space.lg};
+                  padding-top: ${p => p.theme.space.lg};
                   padding-bottom: 0;
                 }
               `}
