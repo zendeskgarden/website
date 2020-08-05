@@ -39,7 +39,7 @@ const StyledHeader = styled.header.attrs({ role: 'banner' })`
       `${p.theme.space.base * 6}px`,
       getColor('grey', 800, p.theme, 0.05)!
     )};
-  padding: 0 ${p => p.theme.space.md};
+  padding: 0 ${p => p.theme.space.base * 4}px;
   height: ${p => p.theme.space.base * 20}px;
 
   &[data-show-navigation='true'] {
