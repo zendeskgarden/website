@@ -70,7 +70,7 @@ const Example = () => {
 
   const renderOptions = () => {
     if (isLoading) {
-      return <Item disabled>Loading items...</Item>;
+      return <Item disabled>Loading</Item>;
     }
 
     if (matchingOptions.length === 0) {
