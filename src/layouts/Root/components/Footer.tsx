@@ -16,6 +16,11 @@ import MaxWidthLayout from 'layouts/MaxWidth';
 const StyledFooterItem = styled(Link)`
   margin-right: ${p => p.theme.space.lg};
   color: ${p => p.theme.palette.white};
+
+  &:hover,
+  &:focus {
+    color: inherit;
+  }
 `;
 
 const Footer: React.FC = () => (
