@@ -11,8 +11,8 @@ import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons
 import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
 
 const Example = () => {
-  const [defaultRotated, setDefaultRotated] = useState<boolean | undefined>();
-  const [primaryRotated, setPrimaryRotated] = useState<boolean | undefined>();
+  const [defaultRotated, setDefaultRotated] = useState<boolean>();
+  const [primaryRotated, setPrimaryRotated] = useState<boolean>();
 
   return (
     <Row>

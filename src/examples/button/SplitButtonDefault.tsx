@@ -11,7 +11,7 @@ import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons
 import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
 
 const Example = () => {
-  const [rotated, setRotated] = useState<boolean | undefined>();
+  const [rotated, setRotated] = useState<boolean>();
 
   return (
     <Row>
