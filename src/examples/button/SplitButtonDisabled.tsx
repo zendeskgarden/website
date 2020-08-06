@@ -17,21 +17,14 @@ const Example = () => {
     <Row>
       <Col textAlign="center">
         <SplitButton>
-          <Button disabled aria-disabled="true">
-            Harvest
-          </Button>
+          <Button disabled>Harvest</Button>
           <Dropdown
             onStateChange={options =>
               Object.prototype.hasOwnProperty.call(options, 'isOpen') && setRotated(options.isOpen)
             }
           >
             <Trigger>
-              <ChevronButton
-                aria-label="other actions"
-                isRotated={rotated}
-                disabled
-                aria-disabled="true"
-              />
+              <ChevronButton aria-label="other actions" isRotated={rotated} disabled />
             </Trigger>
             <Menu placement="bottom-end">
               <Item value="prune">Prune</Item>
