@@ -19,9 +19,9 @@ const StyledCol = styled(Col)`
 `;
 
 const Example = () => {
-  const [smallRotated, setSmallRotated] = useState<boolean | undefined>();
-  const [mediumRotated, setMediumRotated] = useState<boolean | undefined>();
-  const [largeRotated, setLargeRotated] = useState<boolean | undefined>();
+  const [smallRotated, setSmallRotated] = useState<boolean>();
+  const [mediumRotated, setMediumRotated] = useState<boolean>();
+  const [largeRotated, setLargeRotated] = useState<boolean>();
 
   return (
     <Row alignItems="center">
