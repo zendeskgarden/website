@@ -38,6 +38,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
         margin-bottom: ${p => p.theme.space.xl};
         border: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
         border-radius: ${p => p.theme.borderRadii.md};
+        overflow: hidden;
       `}
     >
       <ThemeProvider theme={exampleTheme} focusVisibleRef={focusVisibleRef}>
