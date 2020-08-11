@@ -29,16 +29,34 @@ components:
 
 The typical usage of a Tag component.
 
-import TabsDefault from '../../examples/tabs/TabsDefault.tsx';
-import TabsDefaultCode from '!!raw-loader!../../examples/tabs/TabsDefault.tsx';
+import TagsDefault from '../../examples/tags/TagsDefault.tsx';
+import TagsDefaultCode from '!!raw-loader!../../examples/tags/TagsDefault.tsx';
 
-<CodeExample code={TabsDefaultCode}>
-  <TabsDefault />
+<CodeExample code={TagsDefaultCode}>
+  <TagsDefault />
 </CodeExample>
 
 ### Avatar
 
 Medium and large Tags can contain an Avatar.
+
+import TagsAvatar from '../../examples/tags/TagsAvatar.tsx';
+import TagsAvatarCode from '!!raw-loader!../../examples/tags/TagsAvatar.tsx';
+
+<CodeExample code={TagsAvatarCode}>
+  <TagsAvatar />
+</CodeExample>
+
+### Close
+
+Tags can be dismissed.
+
+import TagsClose from '../../examples/tags/TagsClose.tsx';
+import TagsCloseCode from '!!raw-loader!../../examples/tags/TagsClose.tsx';
+
+<CodeExample code={TagsCloseCode}>
+  <TagsClose />
+</CodeExample>
 
 ### Color
 
@@ -46,18 +64,46 @@ Tags can be colored using a [theme
 palette](https://zendeskgarden.github.io/react-components/theming/#palette) hue
 or hex value.
 
+import TagsColor from '../../examples/tags/TagsColor.tsx';
+import TagsColorCode from '!!raw-loader!../../examples/tags/TagsColor.tsx';
+
+<CodeExample code={TagsColorCode}>
+  <TagsColor />
+</CodeExample>
+
 ### Shape
 
 Tags are rectangular by default, but they can be pill or round too. Round tags
 are reserved for cases of 2 digits or less.
 
+import TagsShape from '../../examples/tags/TagsShape.tsx';
+import TagsShapeCode from '!!raw-loader!../../examples/tags/TagsShape.tsx';
+
+<CodeExample code={TagsShapeCode}>
+  <TagsShape />
+</CodeExample>
+
 ### Size
 
 Tags come in small, medium, and large. The default size is medium.
 
-### Mixed weight
+import TagsSize from '../../examples/tags/TagsSize.tsx';
+import TagsSizeCode from '!!raw-loader!../../examples/tags/TagsSize.tsx';
 
-Tag content is regular weight by default, but can be bold too.
+<CodeExample code={TagsSizeCode}>
+  <TagsSize />
+</CodeExample>
+
+### Regular weight
+
+Tag content is bold by default, but can be regular weight too.
+
+import TagsWeight from '../../examples/tags/TagsWeight.tsx';
+import TagsWeightCode from '!!raw-loader!../../examples/tags/TagsWeight.tsx';
+
+<CodeExample code={TagsWeightCode}>
+  <TagsWeight />
+</CodeExample>
 
 ## Configuration
 
