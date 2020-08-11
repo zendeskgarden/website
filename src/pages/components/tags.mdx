@@ -1,0 +1,82 @@
+---
+title: Tags
+description: >
+  A Tag is an interactive label used to categorize content based on keywords.
+package: '@zendeskgarden/react-tags'
+components:
+  - tags/src/elements/Tag.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To categorize by dimension, attribute, or property</li>
+      <li>To represent filter parameters</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>To prompt an action, use a [Button](/components/button) instead</Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of a Tag component.
+
+import TabsDefault from '../../examples/tabs/TabsDefault.tsx';
+import TabsDefaultCode from '!!raw-loader!../../examples/tabs/TabsDefault.tsx';
+
+<CodeExample code={TabsDefaultCode}>
+  <TabsDefault />
+</CodeExample>
+
+### Avatar
+
+Medium and large Tags can contain an Avatar.
+
+### Color
+
+Tags can be colored using a [theme
+palette](https://zendeskgarden.github.io/react-components/theming/#palette) hue
+or hex value.
+
+### Shape
+
+Tags are rectangular by default, but they can be pill or round too. Round tags
+are reserved for cases of 2 digits or less.
+
+### Size
+
+Tags come in small, medium, and large. The default size is medium.
+
+### Mixed weight
+
+Tag content is regular weight by default, but can be bold too.
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Tag
+
+<PropSheet components={props.data.mdx.components} componentName="tag" />
+
+### Tag.Avatar
+
+### Tag.Close
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
