@@ -52,9 +52,11 @@
           title: Checkbox
         - id: /components/input
           title: Input
+        - id: /components/multithumbrange
+          title: Multi-Thumb Range
         - id: /components/radio
           title: Radio
-        - id: https://zendeskgarden.github.io/react-components/forms/#range
+        - id: /components/range
           title: Range
         - id: /components/toggle
           title: Toggle
