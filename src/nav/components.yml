@@ -54,7 +54,7 @@
           title: Input
         - id: /components/radio
           title: Radio
-        - id: https://zendeskgarden.github.io/react-components/forms/#range
+        - id: /components/range
           title: Range
         - id: /components/toggle
           title: Toggle

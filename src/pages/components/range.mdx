@@ -1,10 +1,105 @@
 ---
 title: Range
 description: >
-  Description will be here
+  A Range is an input that lets users select a value from within a given range.
+package: '@zendeskgarden/react-forms'
+components:
+  - forms/src/elements/common/Field.tsx
+  - forms/src/elements/common/Hint.tsx
+  - forms/src/elements/common/Label.tsx
+  - forms/src/elements/common/Message.tsx
+  - forms/src/elements/Range.tsx
 ---
 
-Content here
+<Usage>
+  <Use>
+    <ul>
+      <li>To choose a value in a given range of minimum and maximum values</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To choose a range of numbers between two values, use a [MultiThumbRange](#) instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of a Range component.
+
+import Default from '../../examples/forms/range/RangeDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/forms/range/RangeDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Disabled
+
+A disabled Range prevents user interaction. It doesn’t appear in the tab order,
+can’t receive focus, and may not read aloud by a screenreader.
+
+import Disabled from '../../examples/forms/range/RangeDisabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/range/RangeDisabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+### Hint text
+
+To provide additional context, use hint text with the label.
+
+import Hint from '../../examples/forms/range/RangeHint.tsx';
+import HintCode from '!!raw-loader!../../examples/forms/range/RangeHint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
+</CodeExample>
+
+### Validation
+
+Show success, warning, and danger validation messages with the Message component.
+
+import Validation from '../../examples/forms/range/RangeValidation.tsx';
+import ValidationCode from '!!raw-loader!../../examples/forms/range/RangeValidation.tsx';
+
+<CodeExample code={ValidationCode}>
+  <Validation />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Field
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Hint
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Label
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+### Message
+
+<PropSheet components={props.data.mdx.components} componentName="message" />
+
+### Range
+
+<PropSheet components={props.data.mdx.components} componentName="range" />
 
 import { graphql } from 'gatsby';
 
