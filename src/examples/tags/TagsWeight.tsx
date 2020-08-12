@@ -11,22 +11,20 @@ import { Tag } from '@zendeskgarden/react-tags';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row>
+  <Row alignItems="center">
     <Col textAlign="center">
       <Tag isRegular>
-        <Span>
-          <Span isBold>Category </Span>
-          Algae
-        </Span>
+        <span>
+          <Span isBold>Category</Span> Algae
+        </span>
         <Tag.Close />
       </Tag>
     </Col>
     <Col textAlign="center">
       <Tag isRegular hue="royalblue">
-        <Span>
-          <b>Category </b>
-          Moss
-        </Span>
+        <span>
+          <b>Category</b> Moss
+        </span>
         <Tag.Close />
       </Tag>
     </Col>

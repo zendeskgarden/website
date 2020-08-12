@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { Span } from '@zendeskgarden/react-typography';
 import { Tag } from '@zendeskgarden/react-tags';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
@@ -14,7 +13,7 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <Tag>
-        <Span>Algae</Span>
+        <span>Algae</span>
       </Tag>
     </Col>
   </Row>

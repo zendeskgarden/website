@@ -6,19 +6,18 @@
  */
 
 import React from 'react';
-import { Span } from '@zendeskgarden/react-typography';
 import { Tag } from '@zendeskgarden/react-tags';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/12/leaf-stroke.svg';
 
 const Example = () => (
-  <Row>
+  <Row alignItems="center">
     <Col textAlign="center">
       <Tag>
         <Tag.Avatar>
           <LeafIcon />
         </Tag.Avatar>
-        <Span>Conifer</Span>
+        <span>Conifer</span>
       </Tag>
     </Col>
     <Col textAlign="center">
@@ -26,7 +25,7 @@ const Example = () => (
         <Tag.Avatar>
           <LeafIcon />
         </Tag.Avatar>
-        <Span>Conifer</Span>
+        <span>Conifer</span>
       </Tag>
     </Col>
   </Row>

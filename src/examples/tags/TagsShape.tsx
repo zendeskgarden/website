@@ -6,25 +6,24 @@
  */
 
 import React from 'react';
-import { Span } from '@zendeskgarden/react-typography';
 import { Tag } from '@zendeskgarden/react-tags';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row>
+  <Row alignItems="center">
     <Col textAlign="center">
       <Tag>
-        <Span>Algae</Span>
+        <span>Algae</span>
       </Tag>
     </Col>
     <Col textAlign="center">
       <Tag isPill>
-        <Span>Moss</Span>
+        <span>Moss</span>
       </Tag>
     </Col>
     <Col textAlign="center">
       <Tag isRound>
-        <Span>12</Span>
+        <span>12</span>
       </Tag>
     </Col>
   </Row>
