@@ -62,6 +62,7 @@ const packageJson = `
     "@zendeskgarden/react-breadcrumbs": "^8.x",
     "@zendeskgarden/react-buttons": "^8.x",
     "@zendeskgarden/react-chrome": "^8.x",
+    "@zendeskgarden/container-utilities": "^0.5.4",
     "@zendeskgarden/react-dropdowns": "^8.x",
     "@zendeskgarden/react-grid": "^8.x",
     "@zendeskgarden/react-loaders": "^8.x",

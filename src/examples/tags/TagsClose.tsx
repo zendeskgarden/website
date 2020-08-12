@@ -7,14 +7,22 @@
 
 import React from 'react';
 import { Tag } from '@zendeskgarden/react-tags';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { Row, Col } from '@zendeskgarden/react-grid';
+
+const handleKeyDown = (e: React.KeyboardEvent<any>) => {
+  if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+    e.preventDefault();
+    alert('Tag dismissed via keyboard');
+  }
+};
 
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <Tag tabIndex={0}>
+      <Tag tabIndex={0} onClick={() => alert('Tag dismissed via mouse')} onKeyDown={handleKeyDown}>
         <span>Algae</span>
-        <Tag.Close onClick={() => alert('Delete tag')} />
+        <Tag.Close />
       </Tag>
     </Col>
   </Row>

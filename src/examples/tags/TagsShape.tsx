@@ -23,7 +23,7 @@ const Example = () => (
     </Col>
     <Col textAlign="center">
       <Tag isRound>
-        <span>12</span>
+        <span>8</span>
       </Tag>
     </Col>
   </Row>
