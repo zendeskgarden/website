@@ -9,42 +9,36 @@ import React, { useState } from 'react';
 import { Field, Label, Range, Message } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
-const valType: Record<number, any> = {
-  0: {
-    validation: 'success',
-    message: 'Growing all the time'
-  },
-  1: {
-    validation: 'warning',
-    message: 'Growing reguarly'
-  },
-  2: {
-    validation: 'error',
-    message: 'Growing slowly'
-  }
+type validationTypes = 'success' | 'warning' | 'error';
+
+const valType: Record<validationTypes, string> = {
+  success: 'Growing all the time',
+  warning: 'Growing regularly',
+  error: 'Growing slowly'
 };
 
 const Example = () => {
-  const [rangeValue, setRangeValue] = useState(1);
+  const [validation, setValidation] = useState<validationTypes>('warning');
+
+  const readValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value);
+
+    if (value < 33) {
+      setValidation('success');
+    } else if (value >= 33 && value <= 66) {
+      setValidation('warning');
+    } else {
+      setValidation('error');
+    }
+  };
 
   return (
     <Row>
       <Col>
         <Field>
           <Label>Flowers</Label>
-          <Range
-            min={0}
-            aria-valuemin={0}
-            max={2}
-            aria-valuemax={2}
-            value={rangeValue}
-            aria-valuenow={rangeValue}
-            step={1}
-            onChange={event => setRangeValue(parseInt(event.target.value, 10))}
-          />
-          <Message validation={valType[rangeValue].validation}>
-            {valType[rangeValue].message}
-          </Message>
+          <Range step={1} onChange={readValue} />
+          <Message validation={validation}>{valType[validation]}</Message>
         </Field>
       </Col>
     </Row>

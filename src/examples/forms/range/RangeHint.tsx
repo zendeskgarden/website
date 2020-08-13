@@ -10,7 +10,7 @@ import { Field, Label, Range, Hint } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
-  const [rangeValue, setRangeValue] = useState(150);
+  const [rangeValue, setRangeValue] = useState('50');
 
   return (
     <Row>
@@ -18,16 +18,7 @@ const Example = () => {
         <Field>
           <Label>Flowers</Label>
           <Hint>Plant {rangeValue} flowers</Hint>
-          <Range
-            min={0}
-            aria-valuemin={0}
-            max={300}
-            aria-valuemax={300}
-            value={rangeValue}
-            aria-valuenow={rangeValue}
-            step={10}
-            onChange={event => setRangeValue(parseInt(event.target.value, 10))}
-          />
+          <Range step={10} onChange={e => setRangeValue(e.target.value)} />
         </Field>
       </Col>
     </Row>
