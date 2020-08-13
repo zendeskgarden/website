@@ -20,6 +20,6 @@ const StyledPre = styled.pre`
 
 export const MDSyntaxHighlighter: React.FC<HTMLAttributes<HTMLPreElement>> = ({ children }) => (
   <ReactSyntaxHighlighter PreTag={StyledPre} language="tsx" style={style}>
-    {children}
+    {children!.toString().trim()}
   </ReactSyntaxHighlighter>
 );

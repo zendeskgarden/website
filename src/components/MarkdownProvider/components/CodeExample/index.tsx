@@ -114,7 +114,9 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
           </ToggleIconButton>
         </Tooltip>
       </div>
-      {isCodeVisible && <SyntaxHighlighter>{code.replace(COPYRIGHT_REGEXP, '')}</SyntaxHighlighter>}
+      {isCodeVisible && (
+        <SyntaxHighlighter>{code.replace(COPYRIGHT_REGEXP, '').trim()}</SyntaxHighlighter>
+      )}
     </div>
   );
 };
