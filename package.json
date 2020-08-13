@@ -101,7 +101,7 @@
     "react-docgen-typescript": "1.20.1",
     "react-dom": "16.13.1",
     "react-helmet": "6.1.0",
-    "react-syntax-highlighter": "13.2.1",
+    "react-syntax-highlighter": "13.3.1",
     "remark": "12.0.1",
     "remark-react": "7.0.1",
     "slugs": "0.1.3",
