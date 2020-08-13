@@ -23,7 +23,7 @@ const Example = () => (
     <Col textAlign="center">
       <Tag isRegular hue="royalblue">
         <span>
-          <b>Category</b> Moss
+          <Span isBold>Category</Span> Moss
         </span>
         <Tag.Close />
       </Tag>
