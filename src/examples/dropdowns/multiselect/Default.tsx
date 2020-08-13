@@ -87,7 +87,7 @@ const Example = () => {
         <Label>Vegetables</Label>
         <Multiselect
           renderItem={({ value, removeValue }: any) => (
-            <Tag size="large">
+            <Tag>
               <span>{value}</span>
               <Tag.Close onClick={() => removeValue()} />
             </Tag>
