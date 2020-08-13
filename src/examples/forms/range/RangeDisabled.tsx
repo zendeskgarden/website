@@ -9,17 +9,15 @@ import React from 'react';
 import { Field, Label, Range } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
-const Example = () => {
-  return (
-    <Row>
-      <Col>
-        <Field>
-          <Label>Flowers</Label>
-          <Range step={10} disabled />
-        </Field>
-      </Col>
-    </Row>
-  );
-};
+const Example = () => (
+  <Row>
+    <Col>
+      <Field>
+        <Label>Flowers</Label>
+        <Range step={10} disabled />
+      </Field>
+    </Col>
+  </Row>
+);
 
 export default Example;

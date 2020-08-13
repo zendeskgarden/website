@@ -7,19 +7,12 @@
 
 import React from 'react';
 import { Field, Label, Range } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
 
-const Example = () => {
-  return (
-    <Row>
-      <Col>
-        <Field>
-          <Label>Flowers</Label>
-          <Range step={10} />
-        </Field>
-      </Col>
-    </Row>
-  );
-};
+const Example = () => (
+  <Field>
+    <Label>Flowers</Label>
+    <Range step={10} />
+  </Field>
+);
 
 export default Example;

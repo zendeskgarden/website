@@ -7,11 +7,10 @@
 
 import React, { useState } from 'react';
 import { Field, Label, Range, Message } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
 
 type validationTypes = 'success' | 'warning' | 'error';
 
-const valType: Record<validationTypes, string> = {
+const messages: Record<validationTypes, string> = {
   success: 'Growing all the time',
   warning: 'Growing regularly',
   error: 'Growing slowly'
@@ -20,7 +19,7 @@ const valType: Record<validationTypes, string> = {
 const Example = () => {
   const [validation, setValidation] = useState<validationTypes>('warning');
 
-  const readValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
 
     if (value < 33) {
@@ -33,15 +32,11 @@ const Example = () => {
   };
 
   return (
-    <Row>
-      <Col>
-        <Field>
-          <Label>Flowers</Label>
-          <Range step={1} onChange={readValue} />
-          <Message validation={validation}>{valType[validation]}</Message>
-        </Field>
-      </Col>
-    </Row>
+    <Field>
+      <Label>Flowers</Label>
+      <Range step={1} onChange={onChange} />
+      <Message validation={validation}>{messages[validation]}</Message>
+    </Field>
   );
 };
 
