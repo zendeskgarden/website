@@ -11,7 +11,7 @@ import { Tag } from '@zendeskgarden/react-tags';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row alignItems="center">
+  <Row>
     <Col textAlign="center">
       <Tag isRegular>
         <span>
