@@ -6,6 +6,7 @@
  */
 
 import React, { useState } from 'react';
+import { Row, Col } from '@zendeskgarden/react-grid';
 import { Field, Label, MultiThumbRange } from '@zendeskgarden/react-forms';
 
 const Example = () => {
@@ -13,17 +14,22 @@ const Example = () => {
   const [maxVal, setMaxVal] = useState<number | undefined>();
 
   return (
-    <Field>
-      <Label>Flowers</Label>
-      <MultiThumbRange
-        minValue={minVal}
-        maxValue={maxVal}
-        onChange={({ minValue, maxValue }) => {
-          setMinVal(minValue);
-          setMaxVal(maxValue);
-        }}
-      />
-    </Field>
+    <Row justifyContent="center">
+      <Col sm={5}>
+        <Label>Flowers</Label>
+        <Field>
+          <Label>Flowers</Label>
+          <MultiThumbRange
+            minValue={minVal}
+            maxValue={maxVal}
+            onChange={({ minValue, maxValue }) => {
+              setMinVal(minValue);
+              setMaxVal(maxValue);
+            }}
+          />
+        </Field>
+      </Col>
+    </Row>
   );
 };
 
