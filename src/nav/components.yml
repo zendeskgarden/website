@@ -56,7 +56,7 @@
           title: Multi-Thumb Range
         - id: /components/radio
           title: Radio
-        - id: /components/range
+        - id: https://zendeskgarden.github.io/react-components/forms/#range
           title: Range
         - id: /components/toggle
           title: Toggle
