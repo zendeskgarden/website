@@ -52,7 +52,7 @@
           title: Checkbox
         - id: /components/input
           title: Input
-        - id: /components/multithumbrange
+        - id: /components/multi-thumb-range
           title: Multi-Thumb Range
         - id: /components/radio
           title: Radio
