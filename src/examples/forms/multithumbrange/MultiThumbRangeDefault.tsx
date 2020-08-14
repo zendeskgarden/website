@@ -16,7 +16,6 @@ const Example = () => {
   return (
     <Row justifyContent="center">
       <Col sm={5}>
-        <Label>Flowers</Label>
         <Field>
           <Label>Flowers</Label>
           <MultiThumbRange
