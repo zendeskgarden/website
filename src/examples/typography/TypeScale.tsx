@@ -16,7 +16,7 @@ const StyledDiv = styled.div`
 const Example = () => (
   <>
     <StyledDiv>
-      <SM>&lt;SM&gt; Veggies es bonus vobis proinde vos postulo</SM>
+      <SM>&lt;SM&gt;Veggies es bonus vobis proinde vos postulo</SM>
     </StyledDiv>
     <StyledDiv>
       <MD>&lt;MD&gt;Veggies es bonus vobis proinde vos postulo</MD>

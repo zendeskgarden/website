@@ -98,6 +98,8 @@
       items:
         - title: Code
           id: /components/code
+        - title: Lists
+          id: /components/lists
         - title: Span
           id: /components/span
         - title: Type
