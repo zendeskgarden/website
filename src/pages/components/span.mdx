@@ -1,0 +1,111 @@
+---
+title: Span
+
+description: Use Span to style and format inline text elements.
+package: '@zendeskgarden/react-typography'
+components:
+  - typography/src/elements/MD.tsx
+  - typography/src/elements/Paragraph.tsx
+  - typography/src/elements/Span.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To apply inline styles</li>
+      <li>To include icons inline with text</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>As a replacement for a semantic paragraph</li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Bold
+
+`isBold` applies a bold typography style without conveying any extra emphasis or importance.
+
+import Bold from '../../examples/typography/span/Bold.tsx';
+import BoldCode from '!!raw-loader!../../examples/typography/span/Bold.tsx';
+
+<CodeExample code={BoldCode}>
+  <Bold />
+</CodeExample>
+
+### Hue
+
+You can change the color of the span by specifying a different `hue`.
+
+import Hue from '../../examples/typography/span/Hue.tsx';
+import HueCode from '!!raw-loader!../../examples/typography/span/Hue.tsx';
+
+<CodeExample code={HueCode}>
+  <Hue />
+</CodeExample>
+
+### Icons
+
+You can add icons to Spans.
+
+To include an icon at the beginning of a span, use `<Span.StartIcon>`.
+
+import StartIcon from '../../examples/typography/span/StartIcon.tsx';
+import StartIconCode from '!!raw-loader!../../examples/typography/span/StartIcon.tsx';
+
+<CodeExample code={StartIconCode}>
+  <StartIcon />
+</CodeExample>
+
+Use `<Span.Icon>` to add icons in the middle or at the end of a Span.
+
+import Icon from '../../examples/typography/span/Icon.tsx';
+import IconCode from '!!raw-loader!../../examples/typography/span/Icon.tsx';
+
+<CodeExample code={IconCode}>
+  <Icon />
+</CodeExample>
+
+### Monospace
+
+Use `isMonospace` to apply a monospaced type treatment.
+
+import Monospace from '../../examples/typography/span/Monospace.tsx';
+import MonospaceCode from '!!raw-loader!../../examples/typography/span/Monospace.tsx';
+
+<CodeExample code={MonospaceCode}>
+  <Monospace />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### MD
+
+<PropSheet components={props.data.mdx.components} componentName="md" />
+
+### Paragraph
+
+<PropSheet components={props.data.mdx.components} componentName="paragraph" />
+
+### Span
+
+<PropSheet components={props.data.mdx.components} componentName="span" />
+
+#### Span.Icon
+
+#### Span.StartIcon
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
