@@ -10,8 +10,8 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { Field, Label, MultiThumbRange } from '@zendeskgarden/react-forms';
 
 const Example = () => {
-  const [minVal, setMinVal] = useState<number | undefined>();
-  const [maxVal, setMaxVal] = useState<number | undefined>();
+  const [minVal, setMinVal] = useState<number>();
+  const [maxVal, setMaxVal] = useState<number>();
 
   return (
     <Row justifyContent="center">

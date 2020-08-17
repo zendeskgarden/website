@@ -22,6 +22,8 @@ const Example = () => {
             There are between {minVal} and {maxVal} flowers available
           </Hint>
           <MultiThumbRange
+            min={10}
+            max={150}
             minValue={minVal}
             maxValue={maxVal}
             onChange={({ minValue, maxValue }) => {
