@@ -5,41 +5,17 @@ description: >
   Use Typography components to present content clearly and consistently on the page.
 package: '@zendeskgarden/react-typography'
 components:
-  - typography/src/elements/Code.tsx
   - typography/src/elements/Ellipsis.tsx
   - typography/src/elements/LG.tsx
   - typography/src/elements/MD.tsx
-  - typography/src/elements/lists/OrderedList.tsx
   - typography/src/elements/Paragraph.tsx
   - typography/src/elements/SM.tsx
-  - typography/src/elements/Span.tsx
-  - typography/src/elements/lists/UnorderedList.tsx
   - typography/src/elements/XL.tsx
   - typography/src/elements/XXL.tsx
   - typography/src/elements/XXXL.tsx
 ---
 
 ## How to use it
-
-### Code highlight
-
-Use Code to style and format `<code>` elements. Code components come in small, medium, and large.
-
-import CodeSize from '../../examples/typography/CodeSize.tsx';
-import CodeSizeCode from '!!raw-loader!../../examples/typography/CodeSize.tsx';
-
-<CodeExample code={CodeSizeCode}>
-  <CodeSize />
-</CodeExample>
-
-You can also change background and text color.
-
-import CodeColor from '../../examples/typography/CodeColor.tsx';
-import CodeColorCode from '!!raw-loader!../../examples/typography/CodeColor.tsx';
-
-<CodeExample code={CodeColorCode}>
-  <CodeColor />
-</CodeExample>
 
 ### Ellipsis text
 
@@ -51,26 +27,6 @@ import EllipsisCode from '!!raw-loader!../../examples/typography/Ellipsis.tsx';
 
 <CodeExample code={EllipsisCode}>
   <Ellipsis />
-</CodeExample>
-
-### Lists
-
-Use Lists to style and format ordered (`<ol>`) and unordered (`<ul>`) lists.
-
-import Lists from '../../examples/typography/Lists.tsx';
-import ListsCode from '!!raw-loader!../../examples/typography/Lists.tsx';
-
-<CodeExample code={ListsCode}>
-  <Lists />
-</CodeExample>
-
-List components come in small, medium, and large.
-
-import ListSize from '../../examples/typography/ListSize.tsx';
-import ListSizeCode from '!!raw-loader!../../examples/typography/ListSize.tsx';
-
-<CodeExample code={ListSizeCode}>
-  <ListSize />
 </CodeExample>
 
 ### Paragraph text
@@ -124,10 +80,6 @@ import TypeScaleCode from '!!raw-loader!../../examples/typography/TypeScale.tsx'
 
 ## API
 
-### Code
-
-<PropSheet components={props.data.mdx.components} componentName="code" />
-
 ### Ellipsis
 
 <PropSheet components={props.data.mdx.components} componentName="ellipsis" />
@@ -140,12 +92,6 @@ import TypeScaleCode from '!!raw-loader!../../examples/typography/TypeScale.tsx'
 
 <PropSheet components={props.data.mdx.components} componentName="md" />
 
-### OrderedList
-
-<PropSheet components={props.data.mdx.components} componentName="orderedlist" />
-
-#### OrderedList.Item
-
 ### Paragraph
 
 <PropSheet components={props.data.mdx.components} componentName="paragraph" />
@@ -153,20 +99,6 @@ import TypeScaleCode from '!!raw-loader!../../examples/typography/TypeScale.tsx'
 ### SM
 
 <PropSheet components={props.data.mdx.components} componentName="sm" />
-
-### Span
-
-<PropSheet components={props.data.mdx.components} componentName="span" />
-
-#### Span.Icon
-
-#### Span.StartIcon
-
-### UnorderedList
-
-<PropSheet components={props.data.mdx.components} componentName="unorderedlist" />
-
-#### UnorderedList.Item
 
 ### XL
 

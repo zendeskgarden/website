@@ -95,8 +95,12 @@
     - title: Tooltip
       id: https://zendeskgarden.github.io/react-components/tooltips
     - title: Typography
-      id: /components/typography
-    - title: Span
-      id: /components/span
+      items:
+        - title: Code
+          id: /components/code
+        - title: Span
+          id: /components/span
+        - title: Type
+          id: /components/typography
     - title: Well
       id: https://zendeskgarden.github.io/react-components/notifications

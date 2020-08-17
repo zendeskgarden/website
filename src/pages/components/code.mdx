@@ -1,0 +1,61 @@
+---
+title: Code
+
+description: Use Code to style and format inline fragments of computer code.
+package: '@zendeskgarden/react-typography'
+components:
+  - typography/src/elements/Code.tsx
+---
+
+## How to use it
+
+### Default
+
+Use Code to style and format `<code>` elements.
+
+import Default from '../../examples/typography/code/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/typography/code/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Color
+
+You can also change background and text color.
+
+import Color from '../../examples/typography/code/Color.tsx';
+import ColorCode from '!!raw-loader!../../examples/typography/code/Color.tsx';
+
+<CodeExample code={ColorCode}>
+  <Color />
+</CodeExample>
+
+### Size
+
+Code comes in small, medium, and large. The default size is medium.
+
+import Size from '../../examples/typography/code/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/typography/code/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Code
+
+<PropSheet components={props.data.mdx.components} componentName="code" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
