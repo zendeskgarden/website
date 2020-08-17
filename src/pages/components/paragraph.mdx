@@ -1,0 +1,69 @@
+---
+title: Paragraph
+
+description: Use Paragraph to render text blocks with the appropriate Garden styling.
+package: '@zendeskgarden/react-typography'
+components:
+  - typography/src/elements/LG.tsx
+  - typography/src/elements/MD.tsx
+  - typography/src/elements/Paragraph.tsx
+  - typography/src/elements/SM.tsx
+---
+
+## How to use it
+
+### Default
+
+Use Paragraph to style and format `<p>` elements.
+
+import Default from '../../examples/typography/paragraph/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/typography/paragraph/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Size
+
+Paragraphs come in small, medium, and large. The default size is medium. Size
+only controls space between paragraphs. Select a
+[typography](/components/typography) scale which is sized to match.
+
+import Size from '../../examples/typography/paragraph/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/typography/paragraph/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### LG
+
+<PropSheet components={props.data.mdx.components} componentName="lg" />
+
+### MD
+
+<PropSheet components={props.data.mdx.components} componentName="md" />
+
+### Paragraph
+
+<PropSheet components={props.data.mdx.components} componentName="paragraph" />
+
+### SM
+
+<PropSheet components={props.data.mdx.components} componentName="sm" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
+
+;

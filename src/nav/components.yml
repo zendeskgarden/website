@@ -100,9 +100,11 @@
           id: /components/code
         - title: Lists
           id: /components/lists
+        - title: Paragraph
+          id: /components/paragraph
         - title: Span
           id: /components/span
-        - title: Type
+        - title: Typography
           id: /components/typography
     - title: Well
       id: https://zendeskgarden.github.io/react-components/notifications
