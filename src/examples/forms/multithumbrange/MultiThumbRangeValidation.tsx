@@ -30,9 +30,11 @@ const Example = () => {
     setMinVal(minValue);
     setMaxVal(maxValue);
 
-    if (minValue === 0) {
+    const result = maxValue - minValue;
+
+    if (result >= 70) {
       setValidation('success');
-    } else if (minValue !== 0 && maxValue === 100) {
+    } else if (result >= 30) {
       setValidation('warning');
     } else {
       setValidation('error');
