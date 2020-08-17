@@ -6,6 +6,7 @@
  */
 
 import React, { useRef, useState, useEffect } from 'react';
+import styled from 'styled-components';
 import debounce from 'lodash.debounce';
 import {
   Item,
@@ -17,6 +18,13 @@ import {
   Autocomplete
 } from '@zendeskgarden/react-dropdowns';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { mediaQuery } from '@zendeskgarden/react-theming';
+
+const StyledCol = styled(Col)`
+  ${p => mediaQuery('down', 'xs', p.theme)} {
+    margin-top: ${p => p.theme.space.sm};
+  }
+`;
 
 const options = [
   'Asparagus',
@@ -88,7 +96,7 @@ const Example = () => {
           </Menu>
         </Dropdown>
       </Col>
-      <Col sm={5}>
+      <StyledCol sm={5}>
         <Dropdown
           inputValue={compactInputValue}
           selectedItem={compactSelectedItem}
@@ -113,7 +121,7 @@ const Example = () => {
             )}
           </Menu>
         </Dropdown>
-      </Col>
+      </StyledCol>
     </Row>
   );
 };
