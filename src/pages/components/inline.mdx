@@ -1,0 +1,58 @@
+---
+title: Inline
+description: >
+  The Inline loader is used as a typing indicator. This signals the other party
+  is present and preparing a reply.
+package: '@zendeskgarden/react-loaders'
+components:
+  - loaders/src/elements/Inline.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>As a typing indicator</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To communicate an action is being processed, use the
+          [Dots](https://zendeskgarden.github.io/react-components/loaders/#dots-1) loader instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of an Inline component.
+
+import Default from '../../examples/loaders/inline/InlineDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/loaders/inline/InlineDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Inline
+
+<PropSheet components={props.data.mdx.components} componentName="inline" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
