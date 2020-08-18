@@ -7,7 +7,7 @@
     - id: https://zendeskgarden.github.io/css-components/bedrock/
       title: Bedrock CSS
     - id: https://github.com/zendeskgarden/tailwindcss
-      title: Tailwind CSS Plugin
+      title: Tailwind CSS plugin
     - id: https://zendeskgarden.github.io/react-containers
       title: Containers
     - id: https://zendeskgarden.github.io/react-components/theming
