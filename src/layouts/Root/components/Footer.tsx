@@ -90,8 +90,7 @@ const Footer: React.FC = () => (
             padding: 0 ${p => p.theme.space.sm};
           `}
         >
-          The source of truth for tools, standards, and best practices when building products at
-          Zendesk
+          Garden is a design system by Zendesk
         </div>
         <div
           css={css`
