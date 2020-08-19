@@ -18,7 +18,7 @@ components:
     <ul>
       <li>
         <Markdown>
-          To communicate an action is being processed, use the
+          To show a loading state, use the
           [Dots](https://zendeskgarden.github.io/react-components/loaders/#dots-1) loader instead
         </Markdown>
       </li>
@@ -30,13 +30,37 @@ components:
 
 ### Default
 
-The typical usage of an Inline component.
+The Inline loader is used to represent someone typing.
 
 import Default from '../../examples/loaders/inline/InlineDefault.tsx';
 import DefaultCode from '!!raw-loader!../../examples/loaders/inline/InlineDefault.tsx';
 
 <CodeExample code={DefaultCode}>
   <Default />
+</CodeExample>
+
+### Color
+
+By default the color will be inherited from the parent element’s color. Can be
+explicitly set.
+
+import Color from '../../examples/loaders/inline/InlineColor.tsx';
+import ColorCode from '!!raw-loader!../../examples/loaders/inline/InlineColor.tsx';
+
+<CodeExample code={ColorCode}>
+  <Color />
+</CodeExample>
+
+### Size
+
+Can be explicitly set. By default, the size will be inherited from the font-size
+of the parent element.
+
+import Size from '../../examples/loaders/inline/InlineSize.tsx';
+import SizeCode from '!!raw-loader!../../examples/loaders/inline/InlineSize.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
 </CodeExample>
 
 ## Configuration

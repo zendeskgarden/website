@@ -7,12 +7,19 @@
 
 import React from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Inline } from '@zendeskgarden/react-loaders';
 
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <Inline />
+      <Inline size={32} color={PALETTE.grey[600]} />
+    </Col>
+    <Col textAlign="center">
+      <Inline size={32} color={PALETTE.blue[600]} />
+    </Col>
+    <Col textAlign="center">
+      <Inline size={32} color={PALETTE.green[600]} />
     </Col>
   </Row>
 );

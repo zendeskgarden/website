@@ -10,9 +10,15 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { Inline } from '@zendeskgarden/react-loaders';
 
 const Example = () => (
-  <Row>
+  <Row alignItems="center">
     <Col textAlign="center">
-      <Inline />
+      <Inline size={32} />
+    </Col>
+    <Col textAlign="center">
+      <Inline size={48} />
+    </Col>
+    <Col textAlign="center">
+      <Inline size={64} />
     </Col>
   </Row>
 );
