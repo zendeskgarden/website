@@ -1,7 +1,7 @@
 ---
 title: Range
 description: >
-  A Range is an input that lets users select a value from within a given range.
+  A Range lets users choose a single number between two values by using a slider.
 package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/common/Field.tsx
@@ -14,15 +14,25 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To choose a value in a given range of minimum and maximum values</li>
+      <li>To choose a number within a range with minimum and maximum values</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
       <li>
         <Markdown>
-          To choose a range of numbers between two values, use a
-          [MultiThumbRange](/components/multithumbrange) instead
+          If the choices aren’t in a continuous range, use a [Menu](/components/menu) instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To compare between several options, use a [Radio](/components/radio) instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To define a range of values, use a [Multi-thumb range](/components/multi-thumb-range)
+          instead
         </Markdown>
       </li>
     </ul>
