@@ -1,10 +1,115 @@
 ---
 title: Range
 description: >
-  Description will be here
+  A Range lets users choose a single number between two values by using a slider.
+package: '@zendeskgarden/react-forms'
+components:
+  - forms/src/elements/common/Field.tsx
+  - forms/src/elements/common/Hint.tsx
+  - forms/src/elements/common/Label.tsx
+  - forms/src/elements/common/Message.tsx
+  - forms/src/elements/Range.tsx
 ---
 
-Content here
+<Usage>
+  <Use>
+    <ul>
+      <li>To choose a number within a range with minimum and maximum values</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          If the choices aren’t in a continuous range, use a [Menu](/components/menu) instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To compare between several options, use a [Radio](/components/radio) instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To define a range of values, use a [Multi-thumb range](/components/multi-thumb-range)
+          instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+A Range has one thumb. Its label is part of its touch target.
+
+import Default from '../../examples/forms/range/RangeDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/forms/range/RangeDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Disabled
+
+A disabled Range is not interactive, and not perceived by a screen reader.
+
+import Disabled from '../../examples/forms/range/RangeDisabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/range/RangeDisabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+### Hint text
+
+Hint adds additional context to the Range label.
+
+import Hint from '../../examples/forms/range/RangeHint.tsx';
+import HintCode from '!!raw-loader!../../examples/forms/range/RangeHint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
+</CodeExample>
+
+### Validation
+
+Success, warning, or danger validation messages are shown using the Message component.
+
+import Validation from '../../examples/forms/range/RangeValidation.tsx';
+import ValidationCode from '!!raw-loader!../../examples/forms/range/RangeValidation.tsx';
+
+<CodeExample code={ValidationCode}>
+  <Validation />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Field
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Hint
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Label
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+### Message
+
+<PropSheet components={props.data.mdx.components} componentName="message" />
+
+### Range
+
+<PropSheet components={props.data.mdx.components} componentName="range" />
 
 import { graphql } from 'gatsby';
 
