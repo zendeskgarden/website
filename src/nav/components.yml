@@ -27,11 +27,11 @@
         - id: /components/button
           title: Button
         - id: /components/button-group
-          title: Button Group
+          title: Button group
         - id: /components/icon-button
-          title: Icon Button
+          title: Icon button
         - id: /components/split-button
-          title: Split Button
+          title: Split button
     - title: Chrome
       id: https://zendeskgarden.github.io/react-components/chrome
     - title: Datepicker
@@ -53,7 +53,7 @@
         - id: /components/input
           title: Input
         - id: /components/multi-thumb-range
-          title: Multi-Thumb Range
+          title: Multi-thumb range
         - id: /components/radio
           title: Radio
         - id: https://zendeskgarden.github.io/react-components/forms/#range
