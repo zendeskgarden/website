@@ -12,14 +12,16 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To apply inline styles</li>
+      <li>To apply styles to short strings of text</li>
       <li>To include icons inline with text</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
       <li>
-        <Markdown>As a replacement for a semantic [paragraph](/components/paragraph)</Markdown>
+        <Markdown>
+          To style an entire block of text, use [Paragraph](/components/paragraph) instead
+        </Markdown>
       </li>
     </ul>
   </Misuse>
@@ -29,7 +31,7 @@ components:
 
 ### Bold
 
-`isBold` applies a bold typography style without conveying any extra emphasis or importance.
+To apply bold styling without indicating semantic importance use `isBold`.
 
 import Bold from '../../examples/typography/span/Bold.tsx';
 import BoldCode from '!!raw-loader!../../examples/typography/span/Bold.tsx';
@@ -40,7 +42,7 @@ import BoldCode from '!!raw-loader!../../examples/typography/span/Bold.tsx';
 
 ### Hue
 
-You can change the color of the span by specifying a different `hue`.
+The color of a span is specified with `hue`.
 
 import Hue from '../../examples/typography/span/Hue.tsx';
 import HueCode from '!!raw-loader!../../examples/typography/span/Hue.tsx';
@@ -51,8 +53,6 @@ import HueCode from '!!raw-loader!../../examples/typography/span/Hue.tsx';
 
 ### Icons
 
-You can add icons to Spans.
-
 To include an icon at the beginning of a span, use `<Span.StartIcon>`.
 
 import StartIcon from '../../examples/typography/span/StartIcon.tsx';
@@ -62,7 +62,7 @@ import StartIconCode from '!!raw-loader!../../examples/typography/span/StartIcon
   <StartIcon />
 </CodeExample>
 
-Use `<Span.Icon>` to add icons in the middle or at the end of a Span.
+To include an icon anywhere else in the Span use `<Span.Icon>`.
 
 import Icon from '../../examples/typography/span/Icon.tsx';
 import IconCode from '!!raw-loader!../../examples/typography/span/Icon.tsx';
@@ -73,7 +73,7 @@ import IconCode from '!!raw-loader!../../examples/typography/span/Icon.tsx';
 
 ### Monospace
 
-Use `isMonospace` to apply a monospaced type treatment.
+Apply a fixed-width type treatment using `isMonospace`.
 
 import Monospace from '../../examples/typography/span/Monospace.tsx';
 import MonospaceCode from '!!raw-loader!../../examples/typography/span/Monospace.tsx';
