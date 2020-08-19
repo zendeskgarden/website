@@ -122,7 +122,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
         position: sticky;
         top: ${p => p.theme.space.lg};
         margin-left: ${p => p.theme.space.base * 15}px;
-        padding-right: ${p => p.theme.space.md};
+        padding-right: ${p => p.theme.space.sm};
         max-height: calc(100vh - ${p => math(`${p.theme.space.lg} * 2`)});
         overflow-y: auto;
       `}
