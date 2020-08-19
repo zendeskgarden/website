@@ -1,8 +1,7 @@
 ---
 title: Multi-thumb range
 description: >
-  A Multi-thumb range is a slider with two or more thumbs that each set a value in
-  a group of related values.
+  A Multi-thumb range lets users define a range between two values by using a slider.
 package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/common/Field.tsx
@@ -15,15 +14,14 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To choose a range of numbers between minimum and maximum values</li>
+      <li>To define a range of numbers between a minimum and maximum</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
       <li>
         <Markdown>
-          To choose a single number between a range of values, use a [Range](/components/range)
-          instead
+          To choose a single number between two values, use a [Range](/components/range) instead
         </Markdown>
       </li>
     </ul>
@@ -34,7 +32,7 @@ components:
 
 ### Default
 
-The typical usage of a Multi-thumb range component.
+A Multi-thumb range has two thumbs.
 
 import Default from '../../examples/forms/multithumbrange/MultiThumbRangeDefault.tsx';
 import DefaultCode from '!!raw-loader!../../examples/forms/multithumbrange/MultiThumbRangeDefault.tsx';
@@ -57,7 +55,7 @@ import DisabledCode from '!!raw-loader!../../examples/forms/multithumbrange/Mult
 
 ### Hint text
 
-To provide additional context, use hint text with the label.
+Add context to the Multi-thumb range label using Hint.
 
 import Hint from '../../examples/forms/multithumbrange/MultiThumbRangeHint.tsx';
 import HintCode from '!!raw-loader!../../examples/forms/multithumbrange/MultiThumbRangeHint.tsx';
