@@ -1,7 +1,7 @@
 ---
 title: Tags
 description: >
-  A Tag is an interactive label used to categorize content.
+  Tags let users categorize content using a keyword.
 package: '@zendeskgarden/react-tags'
 components:
   - tags/src/elements/Tag.tsx
@@ -10,14 +10,17 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To categorize by dimension, attribute, or property</li>
-      <li>To represent filter parameters</li>
+      <li>To add metadata to an element such as category, attribute, or property</li>
+      <li>To communicate status</li>
+      <li>To represent parameters of a filter</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
       <li>
-        <Markdown>To prompt an action, use a [Button](/components/button) instead</Markdown>
+        <Markdown>
+          To prompt an action by the user, use a [Button](/components/button) instead
+        </Markdown>
       </li>
     </ul>
   </Misuse>
@@ -27,7 +30,7 @@ components:
 
 ### Default
 
-The typical usage of a Tag component.
+The default usage of a Tag component.
 
 import TagsDefault from '../../examples/tags/TagsDefault.tsx';
 import TagsDefaultCode from '!!raw-loader!../../examples/tags/TagsDefault.tsx';
@@ -73,8 +76,8 @@ import TagsColorCode from '!!raw-loader!../../examples/tags/TagsColor.tsx';
 
 ### Shape
 
-Tags are rectangular by default, but they can be pill or round too. Round tags
-are reserved for cases of 2 digits or less.
+Tags are rectangular by default. Other options are pill and round. Round tags
+are reserved for very short content like two digit numbers.
 
 import TagsShape from '../../examples/tags/TagsShape.tsx';
 import TagsShapeCode from '!!raw-loader!../../examples/tags/TagsShape.tsx';
@@ -85,7 +88,7 @@ import TagsShapeCode from '!!raw-loader!../../examples/tags/TagsShape.tsx';
 
 ### Size
 
-Tags come in small, medium, and large. The default size is medium.
+Tags can be small, medium, or large. They are medium by default.
 
 import TagsSize from '../../examples/tags/TagsSize.tsx';
 import TagsSizeCode from '!!raw-loader!../../examples/tags/TagsSize.tsx';
