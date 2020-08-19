@@ -1,0 +1,131 @@
+---
+title: Tags
+description: >
+  Tags let users categorize content using a keyword.
+package: '@zendeskgarden/react-tags'
+components:
+  - tags/src/elements/Tag.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To add metadata to an element such as category, attribute, or property</li>
+      <li>To communicate status</li>
+      <li>To represent parameters of a filter</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To prompt an action by the user, use a [Button](/components/button) instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The default usage of a Tag component.
+
+import TagsDefault from '../../examples/tags/TagsDefault.tsx';
+import TagsDefaultCode from '!!raw-loader!../../examples/tags/TagsDefault.tsx';
+
+<CodeExample code={TagsDefaultCode}>
+  <TagsDefault />
+</CodeExample>
+
+### Avatar
+
+Medium and large Tags can contain an Avatar.
+
+import TagsAvatar from '../../examples/tags/TagsAvatar.tsx';
+import TagsAvatarCode from '!!raw-loader!../../examples/tags/TagsAvatar.tsx';
+
+<CodeExample code={TagsAvatarCode}>
+  <TagsAvatar />
+</CodeExample>
+
+### Close
+
+Tags can be dismissed.
+
+import TagsClose from '../../examples/tags/TagsClose.tsx';
+import TagsCloseCode from '!!raw-loader!../../examples/tags/TagsClose.tsx';
+
+<CodeExample code={TagsCloseCode}>
+  <TagsClose />
+</CodeExample>
+
+### Color
+
+Tags can be colored using a [theme
+palette](https://zendeskgarden.github.io/react-components/theming/#palette) hue
+or hex value.
+
+import TagsColor from '../../examples/tags/TagsColor.tsx';
+import TagsColorCode from '!!raw-loader!../../examples/tags/TagsColor.tsx';
+
+<CodeExample code={TagsColorCode}>
+  <TagsColor />
+</CodeExample>
+
+### Shape
+
+Tags are rectangular by default. Other options are pill and round. Round tags
+are reserved for very short content like two digit numbers.
+
+import TagsShape from '../../examples/tags/TagsShape.tsx';
+import TagsShapeCode from '!!raw-loader!../../examples/tags/TagsShape.tsx';
+
+<CodeExample code={TagsShapeCode}>
+  <TagsShape />
+</CodeExample>
+
+### Size
+
+Tags can be small, medium, or large. They are medium by default.
+
+import TagsSize from '../../examples/tags/TagsSize.tsx';
+import TagsSizeCode from '!!raw-loader!../../examples/tags/TagsSize.tsx';
+
+<CodeExample code={TagsSizeCode}>
+  <TagsSize />
+</CodeExample>
+
+### Regular weight
+
+Tag content is bold by default, but can be regular weight too.
+
+import TagsWeight from '../../examples/tags/TagsWeight.tsx';
+import TagsWeightCode from '!!raw-loader!../../examples/tags/TagsWeight.tsx';
+
+<CodeExample code={TagsWeightCode}>
+  <TagsWeight />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Tag
+
+<PropSheet components={props.data.mdx.components} componentName="tag" />
+
+#### Tag.Avatar
+
+#### Tag.Close
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

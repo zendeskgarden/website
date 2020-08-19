@@ -89,7 +89,7 @@
     - title: Tabs
       id: /components/tabs
     - title: Tags
-      id: https://zendeskgarden.github.io/react-components/tags
+      id: /components/tags
     - title: Tiles
       id: https://zendeskgarden.github.io/react-components/forms/#tiles
     - title: Tooltip
