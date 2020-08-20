@@ -64,7 +64,7 @@
       id: https://zendeskgarden.github.io/react-components/grid
     - title: Loaders
       items:
-        - id: https://zendeskgarden.github.io/react-components/loaders
+        - id: /components/dots
           title: Dots
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Inline

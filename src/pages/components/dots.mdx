@@ -1,0 +1,91 @@
+---
+title: Dots
+description: >
+  The Dots loader communicates ongoing activity after a user takes an action. It
+  tells them that something is taking place.
+package: '@zendeskgarden/react-loaders'
+components:
+  - loaders/src/elements/Dots.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To communicate a loading status after a user takes an action</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To communicate a page is loading, use a [Skeleton](/components/skeleton) loader or
+          [Spinner](/components/spinner) instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To communicate typing status, use an [Inline](/components/inline) loader instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To communication progress, use a [Progress](/components/progress) loader instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The default application of a Dots loader. Includes accessibility attributes that
+identify it as an indeterminate progress bar.
+
+import Default from '../../examples/loaders/dots/DotsDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/loaders/dots/DotsDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Color
+
+By default, color is inherited from the parent element unless specified.
+
+import Color from '../../examples/loaders/dots/DotsColor.tsx';
+import ColorCode from '!!raw-loader!../../examples/loaders/dots/DotsColor.tsx';
+
+<CodeExample code={ColorCode}>
+  <Color />
+</CodeExample>
+
+### Size
+
+By default, size is inherited from the `font-size` unless specified.
+
+import Size from '../../examples/loaders/dots/DotsSize.tsx';
+import SizeCode from '!!raw-loader!../../examples/loaders/dots/DotsSize.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Dots
+
+<PropSheet components={props.data.mdx.components} componentName="dots" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
