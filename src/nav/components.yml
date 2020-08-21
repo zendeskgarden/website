@@ -68,7 +68,7 @@
       items:
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Dots
-        - id: https://zendeskgarden.github.io/react-components/loaders
+        - id: /components/inline
           title: Inline
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Progress
