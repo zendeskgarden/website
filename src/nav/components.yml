@@ -70,7 +70,7 @@
           title: Dots
         - id: /components/inline
           title: Inline
-        - id: https://zendeskgarden.github.io/react-components/loaders
+        - id: /components/progress
           title: Progress
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Skeleton

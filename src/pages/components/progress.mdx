@@ -1,0 +1,84 @@
+---
+title: Progress
+description: >
+  A Progress loader communicates progress when downloading or uploading content.
+package: '@zendeskgarden/react-loaders'
+components:
+  - loaders/src/elements/Progress.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To communicate the amount of time left when downloading or uploading content</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          When the loading time is unknown, use a [Spinner](/components/spinner) instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          When loading page content, use a [Skeleton](/components/skeleton) loader instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+A Progress loader represents the percent complete from 0 to 100.
+
+import Default from '../../examples/loaders/progress/ProgressDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/loaders/progress/ProgressDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Color
+
+The default foreground color of the Progress loader bar is the success color. It
+can be changed.
+
+import Color from '../../examples/loaders/progress/ProgressColor.tsx';
+import ColorCode from '!!raw-loader!../../examples/loaders/progress/ProgressColor.tsx';
+
+<CodeExample code={ColorCode}>
+  <Color />
+</CodeExample>
+
+### Size
+
+A Progress loader is medium by default. It can also be small or large.
+
+import Size from '../../examples/loaders/progress/ProgressSize.tsx';
+import SizeCode from '!!raw-loader!../../examples/loaders/progress/ProgressSize.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Progress
+
+<PropSheet components={props.data.mdx.components} componentName="progress" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
