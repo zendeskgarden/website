@@ -11,29 +11,30 @@ components:
 <Usage>
   <Use>
     <ul>
+      <li>To progressively load different parts of a page</li>
       <li>
-        To load page content, whenever the system can predict the format of content that is loading
+        Skeleton is the default loader, used whenever the system can predict the format of the
+        loading content
       </li>
-      <li>To progressively load parts of the page</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
       <li>
         <Markdown>
-          When the system doesn’t have control over the content that is loading. Use a
-          [Spinner](/components/spinner) instead.
+          When the system doesn’t have control over the content that is loading, use a
+          [Spinner](/components/spinner) instead
         </Markdown>
       </li>
       <li>
         <Markdown>
-          To show a busy status inside another component like a button or search input. Use
-          [Dots](/components/dots) instead.
+          To indicate that a component (like a button or search input) is busy, use
+          [Dots](/components/dots) instead
         </Markdown>
       </li>
       <li>
         <Markdown>
-          To communicate a typing status. Use [Inline](/components/inline) dots instead.
+          To communicate a typing status, use [Inline](/components/inline) instead
         </Markdown>
       </li>
     </ul>
@@ -44,7 +45,7 @@ components:
 
 ### Default
 
-Skeleton loaders inherit an opacity of the text color by default.
+Skeleton loaders are the same color as the text color at 10% opacity.
 
 import Default from '../../examples/loaders/skeleton/SkeletonDefault.tsx';
 import DefaultCode from '!!raw-loader!../../examples/loaders/skeleton/SkeletonDefault.tsx';
@@ -66,7 +67,7 @@ import LightCode from '!!raw-loader!../../examples/loaders/skeleton/SkeletonLigh
 
 ### Size
 
-By default, Skeleton loader height is determined by the text line height. To
+By default, a Skeleton loader's height is 60% of the font size. To
 make placeholders for other components, such as buttons, height and width can be
 explicitly set.
 
