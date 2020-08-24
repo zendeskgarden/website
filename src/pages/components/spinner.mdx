@@ -1,8 +1,8 @@
 ---
 title: Spinner
 description: >
-  A Spinner is a loading animation that appears before the page is fully loaded.
-  This reassures the user content will appear soon.
+  A Spinner appears before a page is loaded to assure a user that the content is
+  on its way.
 package: '@zendeskgarden/react-loaders'
 components:
   - loaders/src/elements/Spinner.tsx
@@ -11,21 +11,20 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To load page content that is unknown or unpredictable</li>
+      <li>When the content to be loaded is unknown or unpredictable</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
       <li>
         <Markdown>
-          To load page content that can be estimated, [Skeleton](/components/skeleton) loaders
-          should be used instead
+          When page content is easily estimated, use a [Skeleton](/components/skeleton) instead
         </Markdown>
       </li>
       <li>
         <Markdown>
-          To show a loading state within other components including menus, inputs, or buttons,
-          [Dots](/components/dots) should be used instead
+          To indicate a loading state within a component (like menus, inputs, or buttons) use
+          [Dots](/components/dots) instead
         </Markdown>
       </li>
     </ul>
@@ -47,7 +46,7 @@ import DefaultCode from '!!raw-loader!../../examples/loaders/spinner/SpinnerDefa
 
 ### Color
 
-Can be explicitly set. By default the color will be inherited from the parent element’s color.
+By default, color is inherited from the parent element. Color can be explicitly set.
 
 import Color from '../../examples/loaders/spinner/SpinnerColor.tsx';
 import ColorCode from '!!raw-loader!../../examples/loaders/spinner/SpinnerColor.tsx';
@@ -58,7 +57,7 @@ import ColorCode from '!!raw-loader!../../examples/loaders/spinner/SpinnerColor.
 
 ### Size
 
-Can be explicitly set. By default the size will be inherited from the font-size of the parent element.
+By default, the size is inherited from the font-size of the parent element. Size can be explicitly set.
 
 import Size from '../../examples/loaders/spinner/SpinnerSize.tsx';
 import SizeCode from '!!raw-loader!../../examples/loaders/spinner/SpinnerSize.tsx';
