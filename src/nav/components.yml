@@ -74,7 +74,7 @@
           title: Progress
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Skeleton
-        - id: https://zendeskgarden.github.io/react-components/loaders
+        - id: /components/spinner
           title: Spinner
     - title: Modal
       id: https://zendeskgarden.github.io/react-components/modals

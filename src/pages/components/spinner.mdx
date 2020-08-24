@@ -1,0 +1,85 @@
+---
+title: Spinner
+description: >
+  A Spinner appears before a page is loaded to assure a user that the content is
+  on its way.
+package: '@zendeskgarden/react-loaders'
+components:
+  - loaders/src/elements/Spinner.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>When the content to be loaded is unknown or unpredictable</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          When page content is easily estimated, use a [Skeleton](/components/skeleton) instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To indicate a loading state within a component (like menus, inputs, or buttons) use
+          [Dots](/components/dots) instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+Spinners communicate a loading state for an unspecified amount of time.
+
+import Default from '../../examples/loaders/spinner/SpinnerDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/loaders/spinner/SpinnerDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Color
+
+By default, color is inherited from the parent element. Color can be explicitly set.
+
+import Color from '../../examples/loaders/spinner/SpinnerColor.tsx';
+import ColorCode from '!!raw-loader!../../examples/loaders/spinner/SpinnerColor.tsx';
+
+<CodeExample code={ColorCode}>
+  <Color />
+</CodeExample>
+
+### Size
+
+By default, the size is inherited from the font size of the parent element. Size can be explicitly set.
+
+import Size from '../../examples/loaders/spinner/SpinnerSize.tsx';
+import SizeCode from '!!raw-loader!../../examples/loaders/spinner/SpinnerSize.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Spinner
+
+<PropSheet components={props.data.mdx.components} componentName="spinner" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
