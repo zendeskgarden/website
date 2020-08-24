@@ -5,41 +5,16 @@ description: >
   Use Typography components to present content clearly and consistently on the page.
 package: '@zendeskgarden/react-typography'
 components:
-  - typography/src/elements/Code.tsx
   - typography/src/elements/Ellipsis.tsx
   - typography/src/elements/LG.tsx
   - typography/src/elements/MD.tsx
-  - typography/src/elements/lists/OrderedList.tsx
-  - typography/src/elements/Paragraph.tsx
   - typography/src/elements/SM.tsx
-  - typography/src/elements/Span.tsx
-  - typography/src/elements/lists/UnorderedList.tsx
   - typography/src/elements/XL.tsx
   - typography/src/elements/XXL.tsx
   - typography/src/elements/XXXL.tsx
 ---
 
 ## How to use it
-
-### Code highlight
-
-Use Code to style and format `<code>` elements. Code components come in small, medium, and large.
-
-import CodeSize from '../../examples/typography/CodeSize.tsx';
-import CodeSizeCode from '!!raw-loader!../../examples/typography/CodeSize.tsx';
-
-<CodeExample code={CodeSizeCode}>
-  <CodeSize />
-</CodeExample>
-
-You can also change background and text color.
-
-import CodeColor from '../../examples/typography/CodeColor.tsx';
-import CodeColorCode from '!!raw-loader!../../examples/typography/CodeColor.tsx';
-
-<CodeExample code={CodeColorCode}>
-  <CodeColor />
-</CodeExample>
 
 ### Ellipsis text
 
@@ -53,49 +28,7 @@ import EllipsisCode from '!!raw-loader!../../examples/typography/Ellipsis.tsx';
   <Ellipsis />
 </CodeExample>
 
-### Lists
-
-Use Lists to style and format ordered (`<ol>`) and unordered (`<ul>`) lists.
-
-import Lists from '../../examples/typography/Lists.tsx';
-import ListsCode from '!!raw-loader!../../examples/typography/Lists.tsx';
-
-<CodeExample code={ListsCode}>
-  <Lists />
-</CodeExample>
-
-List components come in small, medium, and large.
-
-import ListSize from '../../examples/typography/ListSize.tsx';
-import ListSizeCode from '!!raw-loader!../../examples/typography/ListSize.tsx';
-
-<CodeExample code={ListSizeCode}>
-  <ListSize />
-</CodeExample>
-
-### Paragraph text
-
-Use Paragraph to render `<p>` elements with the appropriate Garden styling.
-
-import Paragraph from '../../examples/typography/Paragraph.tsx';
-import ParagraphCode from '!!raw-loader!../../examples/typography/Paragraph.tsx';
-
-<CodeExample code={ParagraphCode}>
-  <Paragraph />
-</CodeExample>
-
-### Span text
-
-Use Span to style and format `<span>` elements. You can apply bold and monospace to Span.
-
-import Span from '../../examples/typography/Span.tsx';
-import SpanCode from '!!raw-loader!../../examples/typography/Span.tsx';
-
-<CodeExample code={SpanCode}>
-  <Span />
-</CodeExample>
-
-### Type modifiers
+### Font modifiers
 
 You can apply two modifiers to type: bold and monospace.
 
@@ -108,7 +41,7 @@ import ModifiersCode from '!!raw-loader!../../examples/typography/Modifiers.tsx'
 
 ### Type scale
 
-Type components come in small, medium, large, extra-large, extra-extra-large and
+Type components come in small, medium, large, extra-large, extra-extra-large, and
 extra-extra-extra-large.
 
 import TypeScale from '../../examples/typography/TypeScale.tsx';
@@ -124,10 +57,6 @@ import TypeScaleCode from '!!raw-loader!../../examples/typography/TypeScale.tsx'
 
 ## API
 
-### Code
-
-<PropSheet components={props.data.mdx.components} componentName="code" />
-
 ### Ellipsis
 
 <PropSheet components={props.data.mdx.components} componentName="ellipsis" />
@@ -140,33 +69,9 @@ import TypeScaleCode from '!!raw-loader!../../examples/typography/TypeScale.tsx'
 
 <PropSheet components={props.data.mdx.components} componentName="md" />
 
-### OrderedList
-
-<PropSheet components={props.data.mdx.components} componentName="orderedlist" />
-
-#### OrderedList.Item
-
-### Paragraph
-
-<PropSheet components={props.data.mdx.components} componentName="paragraph" />
-
 ### SM
 
 <PropSheet components={props.data.mdx.components} componentName="sm" />
-
-### Span
-
-<PropSheet components={props.data.mdx.components} componentName="span" />
-
-#### Span.Icon
-
-#### Span.StartIcon
-
-### UnorderedList
-
-<PropSheet components={props.data.mdx.components} componentName="unorderedlist" />
-
-#### UnorderedList.Item
 
 ### XL
 

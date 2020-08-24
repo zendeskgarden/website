@@ -6,16 +6,13 @@
  */
 
 import React from 'react';
-import { MD, Span } from '@zendeskgarden/react-typography';
+import { MD } from '@zendeskgarden/react-typography';
 
 const Example = () => (
   <>
-    <MD>
-      Veggies es bonus vobis, <Span isBold>pronide vos postulo.</Span>
-    </MD>
-    <MD>
-      Veggies es bonus vobis, <Span isMonospace>pronide vos postulo.</Span>
-    </MD>
+    <MD>Veggies es bonus vobis, pronide vos postulo.</MD>
+    <MD isBold>Veggies es bonus vobis, pronide vos postulo.</MD>
+    <MD isMonospace>Veggies es bonus vobis, pronide vos postulo.</MD>
   </>
 );
 

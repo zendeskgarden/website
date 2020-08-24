@@ -1,0 +1,70 @@
+---
+title: Lists
+
+description: Use Lists to style and format ordered and unordered lists.
+package: '@zendeskgarden/react-typography'
+components:
+  - typography/src/elements/lists/OrderedList.tsx
+  - typography/src/elements/lists/UnorderedList.tsx
+---
+
+## How to use it
+
+### Default
+
+Use Lists to style and format ordered (`<ol>`) and unordered (`<ul>`) lists.
+
+import Default from '../../examples/typography/lists/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/typography/lists/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Nesting
+
+You can nest lists, setting the marker `type` for an outline style treatment.
+
+import Nesting from '../../examples/typography/lists/Nesting.tsx';
+import NestingCode from '!!raw-loader!../../examples/typography/lists/Nesting.tsx';
+
+<CodeExample code={NestingCode}>
+  <Nesting />
+</CodeExample>
+
+### Size
+
+Lists come in small, medium, and large. The default size is medium.
+
+import Size from '../../examples/typography/lists/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/typography/lists/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### OrderedList
+
+<PropSheet components={props.data.mdx.components} componentName="orderedlist" />
+
+#### OrderedList.Item
+
+### UnorderedList
+
+<PropSheet components={props.data.mdx.components} componentName="unorderedlist" />
+
+#### UnorderedList.Item
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

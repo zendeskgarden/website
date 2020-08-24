@@ -10,14 +10,12 @@ import styled from 'styled-components';
 import { SM, MD, LG, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
 
 const StyledDiv = styled.div`
-  margin-bottom: ${p => p.theme.space.sm};
+  margin-top: ${p => p.theme.space.sm};
 `;
 
 const Example = () => (
   <>
-    <StyledDiv>
-      <SM>&lt;SM&gt; Veggies es bonus vobis proinde vos postulo</SM>
-    </StyledDiv>
+    <SM>&lt;SM&gt;Veggies es bonus vobis proinde vos postulo</SM>
     <StyledDiv>
       <MD>&lt;MD&gt;Veggies es bonus vobis proinde vos postulo</MD>
     </StyledDiv>
@@ -30,7 +28,9 @@ const Example = () => (
     <StyledDiv>
       <XXL>&lt;XXL&gt;Veggies es bonus vobis proinde vos postulo</XXL>
     </StyledDiv>
-    <XXXL>&lt;XXXL&gt;Veggies es bonus vobis proinde</XXXL>
+    <StyledDiv>
+      <XXXL>&lt;XXXL&gt;Veggies es bonus vobis proinde</XXXL>
+    </StyledDiv>
   </>
 );
 
