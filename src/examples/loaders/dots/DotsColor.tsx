@@ -11,7 +11,7 @@ import { PALETTE } from '@zendeskgarden/react-theming';
 import { Dots } from '@zendeskgarden/react-loaders';
 
 const Example = () => (
-  <Row alignItems="center">
+  <Row>
     <Col textAlign="center">
       <Dots size={32} color={PALETTE.grey[600]} />
     </Col>
