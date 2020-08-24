@@ -72,7 +72,7 @@
           title: Inline
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Progress
-        - id: https://zendeskgarden.github.io/react-components/loaders
+        - id: /components/skeleton
           title: Skeleton
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Spinner

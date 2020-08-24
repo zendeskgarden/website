@@ -1,0 +1,96 @@
+---
+title: Skeleton
+description: >
+  A Skeleton loader estimates the amount of space needed by acting as a
+  placeholder for loading content.
+package: '@zendeskgarden/react-loaders'
+components:
+  - loaders/src/elements/Skeleton.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>
+        To load page content, whenever the system can predict the format of content that is loading
+      </li>
+      <li>To progressively load parts of the page</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          When the system doesn’t have control over the content that is loading. Use a
+          [Spinner](/components/spinner) instead.
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To show a busy status inside another component like a button or search input. Use
+          [Dots](/components/dots) instead.
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To communicate a typing status. Use [Inline](/components/inline) dots instead.
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+Skeleton loaders inherit an opacity of the text color by default.
+
+import Default from '../../examples/loaders/skeleton/SkeletonDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/loaders/skeleton/SkeletonDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Light
+
+Skeleton loaders can be inverted for use on dark backgrounds.
+
+import Light from '../../examples/loaders/skeleton/SkeletonLight.tsx';
+import LightCode from '!!raw-loader!../../examples/loaders/skeleton/SkeletonLight.tsx';
+
+<CodeExample code={LightCode}>
+  <Light />
+</CodeExample>
+
+### Size
+
+By default, Skeleton loader height is determined by the text line height. To
+make placeholders for other components, such as buttons, height and width can be
+explicitly set.
+
+import Size from '../../examples/loaders/skeleton/SkeletonSize.tsx';
+import SizeCode from '!!raw-loader!../../examples/loaders/skeleton/SkeletonSize.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Skeleton
+
+<PropSheet components={props.data.mdx.components} componentName="skeleton" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
