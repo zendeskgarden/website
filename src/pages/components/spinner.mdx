@@ -1,0 +1,86 @@
+---
+title: Spinner
+description: >
+  A Spinner is a loading animation that appears before the page is fully loaded.
+  This reassures the user content will appear soon.
+package: '@zendeskgarden/react-loaders'
+components:
+  - loaders/src/elements/Spinner.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To load page content that is unknown or unpredictable</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To load page content that can be estimated, [Skeleton](/components/skeleton) loaders
+          should be used instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To show a loading state within other components including menus, inputs, or buttons,
+          [Dots](/components/dots) should be used instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+Spinners communicate a loading state for an unspecified amount of time.
+
+import Default from '../../examples/loaders/spinner/SpinnerDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/loaders/spinner/SpinnerDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Color
+
+Can be explicitly set. By default the color will be inherited from the parent element’s color.
+
+import Color from '../../examples/loaders/spinner/SpinnerColor.tsx';
+import ColorCode from '!!raw-loader!../../examples/loaders/spinner/SpinnerColor.tsx';
+
+<CodeExample code={ColorCode}>
+  <Color />
+</CodeExample>
+
+### Size
+
+Can be explicitly set. By default the size will be inherited from the font-size of the parent element.
+
+import Size from '../../examples/loaders/spinner/SpinnerSize.tsx';
+import SizeCode from '!!raw-loader!../../examples/loaders/spinner/SpinnerSize.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Spinner
+
+<PropSheet components={props.data.mdx.components} componentName="spinner" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
