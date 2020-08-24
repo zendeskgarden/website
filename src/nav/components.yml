@@ -6,6 +6,8 @@
   items:
     - id: https://zendeskgarden.github.io/css-components/bedrock/
       title: Bedrock CSS
+    - id: https://github.com/zendeskgarden/tailwindcss
+      title: Design tokens
     - id: https://zendeskgarden.github.io/react-containers
       title: Containers
     - id: https://zendeskgarden.github.io/react-components/theming
@@ -27,11 +29,11 @@
         - id: /components/button
           title: Button
         - id: /components/button-group
-          title: Button Group
+          title: Button group
         - id: /components/icon-button
-          title: Icon Button
+          title: Icon button
         - id: /components/split-button
-          title: Split Button
+          title: Split button
     - title: Chrome
       id: https://zendeskgarden.github.io/react-components/chrome
     - title: Datepicker
@@ -52,9 +54,11 @@
           title: Checkbox
         - id: /components/input
           title: Input
+        - id: /components/multi-thumb-range
+          title: Multi-thumb range
         - id: /components/radio
           title: Radio
-        - id: https://zendeskgarden.github.io/react-components/forms/#range
+        - id: /components/range
           title: Range
         - id: /components/toggle
           title: Toggle
@@ -64,7 +68,7 @@
       items:
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Dots
-        - id: https://zendeskgarden.github.io/react-components/loaders
+        - id: /components/inline
           title: Inline
         - id: https://zendeskgarden.github.io/react-components/loaders
           title: Progress
@@ -89,7 +93,7 @@
     - title: Tabs
       id: /components/tabs
     - title: Tags
-      id: https://zendeskgarden.github.io/react-components/tags
+      id: /components/tags
     - title: Tiles
       id: https://zendeskgarden.github.io/react-components/forms/#tiles
     - title: Tooltip
