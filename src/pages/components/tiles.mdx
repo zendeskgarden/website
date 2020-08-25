@@ -1,0 +1,94 @@
+---
+title: Tiles
+description: >
+  Tiles are Radio buttons styled with icons or images.
+package: '@zendeskgarden/react-forms'
+components:
+  - forms/src/elements/tiles/components/Tile.tsx
+  - forms/src/elements/tiles/Tiles.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>
+        <Markdown>
+          Like [Radios](/components/radio), Tiles are for choices that can't occur at the same time
+        </Markdown>
+      </li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To choose more than one option at once, use a [Checkbox](/components/checkbox) instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To select from a long list of options, use a [Select](/components/select)
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>To define an action, use a [Button](/components/button) instead</Markdown>
+      </li>
+      <li>
+        <Markdown>For navigation, use an [Anchor](/components/anchor) instead</Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+Tile content is centered by default.
+
+import Default from '../../examples/forms/tiles/TilesDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/forms/tiles/TilesDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Description
+
+A description adds additional context to the Tile label.
+
+### Disabled
+
+Disabled Tiles are not interactive and not perceived by a screen reader.
+
+### Layout
+
+Tile content can appear in a side-by-side layout.
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Tiles
+
+<PropSheet components={props.data.mdx.components} componentName="tiles" />
+
+#### Tiles.Description
+
+#### Tiles.Icon
+
+#### Tiles.Label
+
+#### Tiles.Tile
+
+<PropSheet components={props.data.mdx.components} componentName="tile" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
