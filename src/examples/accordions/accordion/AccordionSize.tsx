@@ -5,15 +5,28 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Accordion } from '@zendeskgarden/react-accordions';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
+  const [expandedSections, setExpandedSections] = useState<number[]>([]);
+
   return (
     <Row justifyContent="center">
       <Col sm={10}>
-        <Accordion level={3} isExpandable>
+        <Accordion
+          isCompact
+          level={3}
+          expandedSections={expandedSections}
+          onChange={index => {
+            if (expandedSections.includes(index)) {
+              setExpandedSections(expandedSections.filter(n => n !== index));
+            } else {
+              setExpandedSections([...expandedSections, index]);
+            }
+          }}
+        >
           <Accordion.Section>
             <Accordion.Header>
               <Accordion.Label>How do you start gardening?</Accordion.Label>
