@@ -24,7 +24,7 @@ const Example = () => (
   <Tiles name="example" aria-label="Tiles component example">
     <Row>
       <StyledCol sm={4}>
-        <Tiles.Tile value="leaf">
+        <Tiles.Tile value="leaf" disabled>
           <Tiles.Icon>
             <LeafIcon />
           </Tiles.Icon>
@@ -32,7 +32,7 @@ const Example = () => (
         </Tiles.Tile>
       </StyledCol>
       <StyledCol sm={4}>
-        <Tiles.Tile value="image">
+        <Tiles.Tile value="image" disabled>
           <Tiles.Icon>
             <ImageIcon />
           </Tiles.Icon>
@@ -40,7 +40,7 @@ const Example = () => (
         </Tiles.Tile>
       </StyledCol>
       <StyledCol sm={4}>
-        <Tiles.Tile value="presentation">
+        <Tiles.Tile value="presentation" disabled>
           <Tiles.Icon>
             <PresentationIcon />
           </Tiles.Icon>

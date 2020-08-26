@@ -29,6 +29,9 @@ const Example = () => (
             <LeafIcon />
           </Tiles.Icon>
           <Tiles.Label>Leaf</Tiles.Label>
+          <Tiles.Description>
+            Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
+          </Tiles.Description>
         </Tiles.Tile>
       </StyledCol>
       <StyledCol sm={4}>
@@ -37,6 +40,9 @@ const Example = () => (
             <ImageIcon />
           </Tiles.Icon>
           <Tiles.Label>Image</Tiles.Label>
+          <Tiles.Description>
+            Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip.
+          </Tiles.Description>
         </Tiles.Tile>
       </StyledCol>
       <StyledCol sm={4}>
@@ -45,6 +51,9 @@ const Example = () => (
             <PresentationIcon />
           </Tiles.Icon>
           <Tiles.Label>Presentation</Tiles.Label>
+          <Tiles.Description>
+            Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean.
+          </Tiles.Description>
         </Tiles.Tile>
       </StyledCol>
     </Row>
