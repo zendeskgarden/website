@@ -23,7 +23,7 @@ const StyledCol = styled(Col)`
 const Example = () => (
   <Tiles name="example" aria-label="Tiles component example">
     <Row>
-      <StyledCol sm={4}>
+      <Col sm={4}>
         <Tiles.Tile value="leaf">
           <Tiles.Icon>
             <LeafIcon />
@@ -33,7 +33,7 @@ const Example = () => (
             Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
           </Tiles.Description>
         </Tiles.Tile>
-      </StyledCol>
+      </Col>
       <StyledCol sm={4}>
         <Tiles.Tile value="image">
           <Tiles.Icon>

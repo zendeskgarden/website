@@ -44,7 +44,7 @@ components:
 
 ### Default
 
-Tile content is centered by default.
+The typical usage of a Tiles component.
 
 import Default from '../../examples/forms/tiles/TilesDefault.tsx';
 import DefaultCode from '!!raw-loader!../../examples/forms/tiles/TilesDefault.tsx';
@@ -66,7 +66,7 @@ import DescriptionCode from '!!raw-loader!../../examples/forms/tiles/TilesDescri
 
 ### Disabled
 
-Disabled Tiles are not interactive and not perceived by a screen reader.
+Disabled Tiles are not interactive and may not be perceived by a screen reader.
 
 import Disabled from '../../examples/forms/tiles/TilesDisabled.tsx';
 import DisabledCode from '!!raw-loader!../../examples/forms/tiles/TilesDisabled.tsx';
@@ -77,7 +77,8 @@ import DisabledCode from '!!raw-loader!../../examples/forms/tiles/TilesDisabled.
 
 ### Layout
 
-Tile content can appear in a side-by-side layout.
+Content within a single Tile is vertically centered by default. The layout can
+be adjusted to a row by setting the property `isCentered` to false.
 
 import Layout from '../../examples/forms/tiles/TilesLayout.tsx';
 import LayoutCode from '!!raw-loader!../../examples/forms/tiles/TilesLayout.tsx';
