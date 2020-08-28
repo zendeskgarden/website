@@ -13,7 +13,7 @@ const Example = () => {
   return (
     <Row justifyContent="center">
       <Col sm={10}>
-        <Accordion level={3} isExpandable>
+        <Accordion level={4} isExpandable>
           <Accordion.Section>
             <Accordion.Header>
               <Accordion.Label>How do you start gardening?</Accordion.Label>

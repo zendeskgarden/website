@@ -12,7 +12,7 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 const Example = () => (
   <Row justifyContent="center">
     <Col sm={10}>
-      <Accordion level={3}>
+      <Accordion level={4}>
         <Accordion.Section>
           <Accordion.Header>
             <Accordion.Label>How do you start gardening?</Accordion.Label>

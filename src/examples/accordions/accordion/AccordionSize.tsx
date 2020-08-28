@@ -17,7 +17,7 @@ const Example = () => {
       <Col sm={10}>
         <Accordion
           isCompact
-          level={3}
+          level={4}
           expandedSections={expandedSections}
           onChange={index => {
             if (expandedSections.includes(index)) {
