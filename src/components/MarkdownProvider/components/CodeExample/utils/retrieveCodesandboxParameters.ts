@@ -59,6 +59,7 @@ const packageJson = `
     "lodash.debounce": "latest",
     "@zendeskgarden/container-utilities": "^0.5.4",
     "@zendeskgarden/css-bedrock": "^8.x",
+    "@zendeskgarden/react-accordions": "^8.x",
     "@zendeskgarden/react-avatars": "^8.x",
     "@zendeskgarden/react-breadcrumbs": "^8.x",
     "@zendeskgarden/react-buttons": "^8.x",
