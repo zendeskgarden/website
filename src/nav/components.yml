@@ -17,7 +17,7 @@
 - title: Components
   items:
     - title: Accordion
-      id: https://zendeskgarden.github.io/react-components/accordions
+      id: /components/accordion
     - title: Avatar
       id: /components/avatar
     - title: Breadcrumbs

@@ -33,6 +33,7 @@
     "@zendeskgarden/container-utilities": "0.5.4",
     "@zendeskgarden/css-bedrock": "8.0.1",
     "@zendeskgarden/eslint-config": "15.0.0",
+    "@zendeskgarden/react-accordions": "8.19.0",
     "@zendeskgarden/react-avatars": "8.19.0",
     "@zendeskgarden/react-breadcrumbs": "8.19.0",
     "@zendeskgarden/react-buttons": "8.19.0",

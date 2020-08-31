@@ -1,0 +1,96 @@
+---
+title: Accordion
+description: >
+  Accordions are headers that can be expanded to reveal content or collapsed to hide it.
+package: '@zendeskgarden/react-accordions'
+components:
+  - accordions/src/elements/accordion/Accordion.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To organize related information into sections</li>
+      <li>To surface information through progressive disclosure</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>To guide users through a process use a Stepper instead</Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+By default, the accordion can open or collapse one section at a time.
+
+import AccordionDefault from '../../examples/accordions/accordion/AccordionDefault.tsx';
+import AccordionDefaultCode from '!!raw-loader!../../examples/accordions/accordion/AccordionDefault.tsx';
+
+<CodeExample code={AccordionDefaultCode}>
+  <AccordionDefault />
+</CodeExample>
+
+### Bare
+
+Section borders are removed using `isBare`.
+
+import AccordionBare from '../../examples/accordions/accordion/AccordionBare.tsx';
+import AccordionBareCode from '!!raw-loader!../../examples/accordions/accordion/AccordionBare.tsx';
+
+<CodeExample code={AccordionBareCode}>
+  <AccordionBare />
+</CodeExample>
+
+### Expandable
+
+Multiple sections can be open or closed at the same time using `isExpandable`.
+
+import AccordionExpandable from '../../examples/accordions/accordion/AccordionExpandable.tsx';
+import AccordionExpandableCode from '!!raw-loader!../../examples/accordions/accordion/AccordionExpandable.tsx';
+
+<CodeExample code={AccordionExpandableCode}>
+  <AccordionExpandable />
+</CodeExample>
+
+### Size
+
+An accordion can be default or compact.
+
+import AccordionSize from '../../examples/accordions/accordion/AccordionSize.tsx';
+import AccordionSizeCode from '!!raw-loader!../../examples/accordions/accordion/AccordionSize.tsx';
+
+<CodeExample code={AccordionSizeCode}>
+  <AccordionSize />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Accordion
+
+<PropSheet components={props.data.mdx.components} componentName="accordion" />
+
+#### Accordion.Header
+
+#### Accordion.Label
+
+#### Accordion.Panel
+
+#### Accordion.Section
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

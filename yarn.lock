@@ -3484,6 +3484,15 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+"@zendeskgarden/container-accordion@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-accordion/-/container-accordion-1.0.1.tgz#bb81cc3326812987ca8122e2c86ccfb7fb855f45"
+  integrity sha512-3YJdEhiY8zxzTR9Y16YUZYOB5kH/4epgLf+PQ95AZutaVTT4rLBw42N0WHHksDjCXppk7pCqivQEw3YbGc0iZQ==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    "@zendeskgarden/container-utilities" "^0.5.4"
+    react-uid "^2.2.0"
+
 "@zendeskgarden/container-breadcrumb@^0.4.1":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-breadcrumb/-/container-breadcrumb-0.4.3.tgz#78556f2f61621e6d3e661c2c708e736cc457a18b"
@@ -3594,6 +3603,15 @@
   version "15.0.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-15.0.0.tgz#b05982801029e1b1d5ec5a435d7e95dc8733dda3"
   integrity sha512-NfHIJgd/7G4UtR0SSFThp8rOtr85DZDWnFbhSDPeUF3c8qVAhcAy46+Unl5LJteBgQwTNOgM/puw3VCUdl9EMQ==
+
+"@zendeskgarden/react-accordions@8.19.0":
+  version "8.19.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-accordions/-/react-accordions-8.19.0.tgz#2fd708f3d82f42792c75eca1b953c7ffc30341a2"
+  integrity sha512-10uf0f+eNJhbg3o4jZCt+RSqf1vmiEW0gYj5ebNeAtRlUYy+UdgafSbJRJ5tf7Dc1dCQPVSWEKosGkhcm6AODg==
+  dependencies:
+    "@zendeskgarden/container-accordion" "^1.0.0"
+    "@zendeskgarden/container-utilities" "^0.5.3"
+    polished "^3.5.1"
 
 "@zendeskgarden/react-avatars@8.19.0":
   version "8.19.0"
