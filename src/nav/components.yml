@@ -63,7 +63,7 @@
         - id: /components/toggle
           title: Toggle
     - title: Grid
-      id: https://zendeskgarden.github.io/react-components/grid
+      id: /components/grid
     - title: Loaders
       items:
         - id: /components/dots

@@ -1,0 +1,173 @@
+---
+title: Grid
+description: >
+  The Grid component is a framework for building modular layouts.
+package: '@zendeskgarden/react-grid'
+components:
+  - grid/src/elements/Col.tsx
+  - grid/src/elements/Grid.tsx
+  - grid/src/elements/Row.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To structure the layout of a page</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+The Grid component is modeled on Bootstrap's Grid system. The following examples
+link to corresponding Bootstrap documentation and demonstrate how advanced layouts
+can be achieved using Grid.
+
+### Auto layout
+
+#### [Equal column widths](https://getbootstrap.com/docs/4.3/layout/grid/#equal-width)
+
+import Equal from '../../examples/grid/GridEqual.tsx';
+import EqualCode from '!!raw-loader!../../examples/grid/GridEqual.tsx';
+
+<CodeExample code={EqualCode}>
+  <Equal />
+</CodeExample>
+
+#### [Equal-width multi-row](https://getbootstrap.com/docs/4.3/layout/grid/#equal-width-multi-row)
+
+import EqualMulti from '../../examples/grid/GridEqualMulti.tsx';
+import EqualMultiCode from '!!raw-loader!../../examples/grid/GridEqualMulti.tsx';
+
+<CodeExample code={EqualMultiCode}>
+  <EqualMulti />
+</CodeExample>
+
+#### [Setting one column width](https://getbootstrap.com/docs/4.3/layout/grid/#setting-one-column-width)
+
+import OneCol from '../../examples/grid/GridOneCol.tsx';
+import OneColCode from '!!raw-loader!../../examples/grid/GridOneCol.tsx';
+
+<CodeExample code={OneColCode}>
+  <OneCol />
+</CodeExample>
+
+#### [Variable width content](https://getbootstrap.com/docs/4.3/layout/grid/#variable-width-content)
+
+import Variable from '../../examples/grid/GridVariable.tsx';
+import VariableCode from '!!raw-loader!../../examples/grid/GridVariable.tsx';
+
+<CodeExample code={VariableCode}>
+  <Variable />
+</CodeExample>
+
+### Responsive layouts
+
+#### [All breakpoints](https://getbootstrap.com/docs/4.3/layout/grid/#all-breakpoints)
+
+import AllBreak from '../../examples/grid/GridAllBreak.tsx';
+import AllBreakCode from '!!raw-loader!../../examples/grid/GridAllBreak.tsx';
+
+<CodeExample code={AllBreakCode}>
+  <AllBreak />
+</CodeExample>
+
+#### [Stacked to horizontal](https://getbootstrap.com/docs/4.3/layout/grid/#stacked-to-horizontal)
+
+import Stacked from '../../examples/grid/GridStacked.tsx';
+import StackedCode from '!!raw-loader!../../examples/grid/GridStacked.tsx';
+
+<CodeExample code={StackedCode}>
+  <Stacked />
+</CodeExample>
+
+### Alignment
+
+#### [Vertical alignment](https://getbootstrap.com/docs/4.3/layout/grid/#vertical-alignment)
+
+import Vertical from '../../examples/grid/GridVertical.tsx';
+import VerticalCode from '!!raw-loader!../../examples/grid/GridVertical.tsx';
+
+<CodeExample code={VerticalCode}>
+  <Vertical />
+</CodeExample>
+
+#### [Horizontal alignment](https://getbootstrap.com/docs/4.3/layout/grid/#horizontal-alignment)
+
+import Horizontal from '../../examples/grid/GridHorizontal.tsx';
+import HorizontalCode from '!!raw-loader!../../examples/grid/GridHorizontal.tsx';
+
+<CodeExample code={HorizontalCode}>
+  <Horizontal />
+</CodeExample>
+
+#### [No gutters](https://getbootstrap.com/docs/4.3/layout/grid/#no-gutters)
+
+import NoGutters from '../../examples/grid/GridNoGutters.tsx';
+import NoGuttersCode from '!!raw-loader!../../examples/grid/GridNoGutters.tsx';
+
+<CodeExample code={NoGuttersCode}>
+  <NoGutters />
+</CodeExample>
+
+#### [Column wrapping](https://getbootstrap.com/docs/4.3/layout/grid/#column-wrapping)
+
+import ColumnWrapping from '../../examples/grid/GridColumnWrapping.tsx';
+import ColumnWrappingCode from '!!raw-loader!../../examples/grid/GridColumnWrapping.tsx';
+
+<CodeExample code={ColumnWrappingCode}>
+  <ColumnWrapping />
+</CodeExample>
+
+#### [Column breaks](https://getbootstrap.com/docs/4.3/layout/grid/#column-breaks)
+
+import ColumnBreaks from '../../examples/grid/GridColumnBreaks.tsx';
+import ColumnBreaksCode from '!!raw-loader!../../examples/grid/GridColumnBreaks.tsx';
+
+<CodeExample code={ColumnBreaksCode}>
+  <ColumnBreaks />
+</CodeExample>
+
+### [Offsetting columns](https://getbootstrap.com/docs/4.3/layout/grid/#offsetting-columns)
+
+import Offset from '../../examples/grid/GridOffset.tsx';
+import OffsetCode from '!!raw-loader!../../examples/grid/GridOffset.tsx';
+
+<CodeExample code={OffsetCode}>
+  <Offset />
+</CodeExample>
+
+### [Nesting](https://getbootstrap.com/docs/4.3/layout/grid/#nesting)
+
+import Nesting from '../../examples/grid/GridNesting.tsx';
+import NestingCode from '!!raw-loader!../../examples/grid/GridNesting.tsx';
+
+<CodeExample code={NestingCode}>
+  <Nesting />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Col
+
+<PropSheet components={props.data.mdx.components} componentName="col" />
+
+### Grid
+
+<PropSheet components={props.data.mdx.components} componentName="grid" />
+
+### Row
+
+<PropSheet components={props.data.mdx.components} componentName="row" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
