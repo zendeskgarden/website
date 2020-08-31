@@ -95,7 +95,7 @@
     - title: Tags
       id: /components/tags
     - title: Tiles
-      id: https://zendeskgarden.github.io/react-components/forms/#tiles
+      id: /components/tiles
     - title: Tooltip
       id: https://zendeskgarden.github.io/react-components/tooltips
     - title: Typography

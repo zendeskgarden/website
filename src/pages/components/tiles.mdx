@@ -1,0 +1,113 @@
+---
+title: Tiles
+description: >
+  Tiles are Radio buttons styled with icons or images.
+package: '@zendeskgarden/react-forms'
+components:
+  - forms/src/elements/tiles/Tiles.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>
+        <Markdown>
+          Like [Radios](/components/radio), Tiles are for choices that can't occur at the same time
+        </Markdown>
+      </li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To choose more than one option at once, use a [Checkbox](/components/checkbox) instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To select from a long list of options, use a [Select](/components/select)
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>To define an action, use a [Button](/components/button) instead</Markdown>
+      </li>
+      <li>
+        <Markdown>For navigation, use an [Anchor](/components/anchor) instead</Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of a Tiles component.
+
+import Default from '../../examples/forms/tiles/TilesDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/forms/tiles/TilesDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Description
+
+A description adds additional context to the Tile label.
+
+import Description from '../../examples/forms/tiles/TilesDescription.tsx';
+import DescriptionCode from '!!raw-loader!../../examples/forms/tiles/TilesDescription.tsx';
+
+<CodeExample code={DescriptionCode}>
+  <Description />
+</CodeExample>
+
+### Disabled
+
+Disabled Tiles are not interactive and may not be perceived by a screen reader.
+
+import Disabled from '../../examples/forms/tiles/TilesDisabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/tiles/TilesDisabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+### Layout
+
+Content within a single Tile is vertically centered by default. The layout can
+be adjusted by setting `isCentered` to false.
+
+import Layout from '../../examples/forms/tiles/TilesLayout.tsx';
+import LayoutCode from '!!raw-loader!../../examples/forms/tiles/TilesLayout.tsx';
+
+<CodeExample code={LayoutCode}>
+  <Layout />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Tiles
+
+<PropSheet components={props.data.mdx.components} componentName="tiles" />
+
+#### Tiles.Description
+
+#### Tiles.Icon
+
+#### Tiles.Label
+
+#### Tiles.Tile
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
