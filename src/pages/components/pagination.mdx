@@ -1,0 +1,93 @@
+---
+title: Pagination
+description: >
+  Pagination separates content into pages and allows users to navigate between those pages.
+package: '@zendeskgarden/react-pagination'
+components:
+  - pagination/src/elements/Pagination/Pagination.tsx
+  - pagination/src/elements/CursorPagination/CursorPagination.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To divide large amounts of data into manageable chunks</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Offset pagination
+
+The basic usage of an offset pagination component.
+
+import OffsetDefault from '../../examples/pagination/OffsetDefault.tsx';
+import OffsetDefaultCode from '!!raw-loader!../../examples/pagination/OffsetDefault.tsx';
+
+<CodeExample code={OffsetDefaultCode}>
+  <OffsetDefault />
+</CodeExample>
+
+### Gap indicator
+
+The position of a gap indicator (...) can be set in the sequence to represent overflowing pages.
+
+import OffsetGap from '../../examples/pagination/OffsetGap.tsx';
+import OffsetGapCode from '!!raw-loader!../../examples/pagination/OffsetGap.tsx';
+
+<CodeExample code={OffsetGapCode}>
+  <OffsetGap />
+</CodeExample>
+
+### Page padding
+
+The amount of page numbers to display (not including page gap indicators or
+arrows) is modified with `pagePadding`. Each increment adds 2 page numbers.
+
+import OffsetPadding from '../../examples/pagination/OffsetPadding.tsx';
+import OffsetPaddingCode from '!!raw-loader!../../examples/pagination/OffsetPadding.tsx';
+
+<CodeExample code={OffsetPaddingCode}>
+  <OffsetPadding />
+</CodeExample>
+
+### Cursor pagination
+
+Cursor based pagination is for when the total number of pages is progressively
+loaded or can't be immediately determined.
+
+import CursorDefault from '../../examples/pagination/CursorDefault.tsx';
+import CursorDefaultCode from '!!raw-loader!../../examples/pagination/CursorDefault.tsx';
+
+<CodeExample code={CursorDefaultCode}>
+  <CursorDefault />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Pagination
+
+<PropSheet components={props.data.mdx.components} componentName="pagination" />
+
+### CursorPagination
+
+#### CursorPagination.First
+
+#### CursorPagination.Last
+
+#### CursorPagination.Next
+
+#### CursorPagination.Previous
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

@@ -85,7 +85,7 @@
         - id: https://zendeskgarden.github.io/react-components/notifications
           title: Notification
     - title: Pagination
-      id: https://zendeskgarden.github.io/react-components/pagination
+      id: /components/pagination
     - title: Stepper
       id: https://zendeskgarden.github.io/react-components/accordions/#stepper
     - title: Table
