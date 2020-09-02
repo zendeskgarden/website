@@ -20,20 +20,10 @@ const Example = () => {
   return (
     <Row alignItems="center">
       <Col alignSelf="center">
-        <Pagination
-          totalPages={20}
-          pagePadding={1}
-          currentPage={page}
-          onChange={newPage => setPage(newPage)}
-        />
+        <Pagination totalPages={20} pagePadding={1} currentPage={page} onChange={setPage} />
       </Col>
       <StyledCol alignSelf="center">
-        <Pagination
-          totalPages={20}
-          pagePadding={3}
-          currentPage={page}
-          onChange={newPage => setPage(newPage)}
-        />
+        <Pagination totalPages={20} pagePadding={3} currentPage={page} onChange={setPage} />
       </StyledCol>
     </Row>
   );

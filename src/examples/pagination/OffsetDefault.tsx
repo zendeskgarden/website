@@ -15,7 +15,7 @@ const Example = () => {
   return (
     <Row alignItems="center">
       <Col alignSelf="center">
-        <Pagination totalPages={6} currentPage={page} onChange={newPage => setPage(newPage)} />
+        <Pagination totalPages={6} currentPage={page} onChange={setPage} />
       </Col>
     </Row>
   );

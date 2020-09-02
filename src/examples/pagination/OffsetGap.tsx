@@ -15,12 +15,7 @@ const Example = () => {
   return (
     <Row alignItems="center">
       <Col alignSelf="center">
-        <Pagination
-          totalPages={20}
-          pageGap={4}
-          currentPage={page}
-          onChange={newPage => setPage(newPage)}
-        />
+        <Pagination totalPages={20} pageGap={4} currentPage={page} onChange={setPage} />
       </Col>
     </Row>
   );
