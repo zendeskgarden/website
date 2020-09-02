@@ -20,49 +20,37 @@ const StyledContainer = styled.div`
 `;
 
 const Example = () => {
-  const [step, setStep] = useState(0);
+  const [currentStep, setStep] = useState(0);
 
-  const onNext = () => setStep(step + 1);
-  const onBack = () => setStep(step - 1);
+  const onNext = () => setStep(currentStep + 1);
+  const onBack = () => setStep(currentStep - 1);
 
-  const horizontalContent = (index: number) => {
-    if (index === 0) {
-      return (
-        <StyledContainer>
-          <StyledParagraph>The success of your garden depends greatly on location.</StyledParagraph>
-          <Button onClick={onNext}>Next</Button>
-        </StyledContainer>
-      );
-    } else if (index === 1) {
-      return (
-        <StyledContainer>
-          <StyledParagraph>
-            After choosing a site for your garden, the next step is to imagine how the arrangement
-            of crops will look in the garden.
-          </StyledParagraph>
+  const allSteps = [
+    {
+      content: `The success of your garden depends greatly on location.`,
+      buttons: <Button onClick={onNext}>Next</Button>
+    },
+    {
+      content: `After choosing a site for your garden, the next step is to imagine how the arrangement of crops will look in the garden.`,
+      buttons: (
+        <>
           <Button onClick={onBack} style={{ marginRight: '12px' }}>
             Back
           </Button>
           <Button onClick={onNext}>Next</Button>
-        </StyledContainer>
-      );
+        </>
+      )
+    },
+    {
+      content: `Buy clean, hearty, disease-free seeds. Most seed from reliable seed companies will meet these specifications.`,
+      buttons: <Button onClick={onBack}>Back</Button>
     }
-
-    return (
-      <StyledContainer>
-        <StyledParagraph>
-          Buy clean, hearty, disease-free seeds. Most seed from reliable seed companies will meet
-          these specifications.
-        </StyledParagraph>
-        <Button onClick={onBack}>Back</Button>
-      </StyledContainer>
-    );
-  };
+  ];
 
   return (
     <Row justifyContent="center">
       <Col sm={10} textAlign="center">
-        <Stepper activeIndex={step} isHorizontal>
+        <Stepper activeIndex={currentStep} isHorizontal>
           <Stepper.Step key="step-1">
             <Stepper.Label>Make good use of your location</Stepper.Label>
           </Stepper.Step>
@@ -73,7 +61,15 @@ const Example = () => {
             <Stepper.Label>Buy great seeds</Stepper.Label>
           </Stepper.Step>
         </Stepper>
-        {horizontalContent(step)}
+        {allSteps.map(
+          (step, index) =>
+            index === currentStep && (
+              <StyledContainer>
+                <StyledParagraph>{step.content}</StyledParagraph>
+                {step.buttons}
+              </StyledContainer>
+            )
+        )}
       </Col>
     </Row>
   );
