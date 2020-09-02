@@ -12,7 +12,7 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <Tooltip content={'Eat, drink and be rosemary'}>
+      <Tooltip content="Eat, drink, and be rosemary">
         <span>Hover for a tooltip</span>
       </Tooltip>
     </Col>

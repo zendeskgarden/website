@@ -29,7 +29,7 @@ const PLACEMENTS: Record<string, GARDEN_PLACEMENT> = {
 const Example = () => (
   <Row style={{ margin: 80 }}>
     <Col textAlign="center">
-      <Tooltip placement={PLACEMENTS.topStart} content={'Eat, drink and be rosemary'}>
+      <Tooltip placement={PLACEMENTS.topStart} content="Eat, drink, and be rosemary">
         <span>Hover for a tooltip</span>
       </Tooltip>
     </Col>

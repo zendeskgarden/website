@@ -1,10 +1,12 @@
 ---
 title: Tooltip
 description: >
-  Tooltips appear when a user hovers over an element. They provide contextual
+  Tooltips appear when a user hovers or focuses an element. They provide contextual
   information about the element they are paired with.
 package: '@zendeskgarden/react-tooltips'
 components:
+  - tooltips/src/elements/Paragraph.tsx
+  - tooltips/src/elements/Title.tsx
   - tooltips/src/elements/Tooltip.tsx
 ---
 
@@ -78,13 +80,13 @@ import TypeCode from '!!raw-loader!../../examples/tooltip/TooltipType.tsx';
 
 ## API
 
+### Paragraph
+
+### Title
+
 ### Tooltip
 
 <PropSheet components={props.data.mdx.components} componentName="tooltip" />
-
-#### Paragraph
-
-#### Title
 
 import { graphql } from 'gatsby';
 

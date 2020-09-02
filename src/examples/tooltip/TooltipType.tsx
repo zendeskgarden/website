@@ -12,7 +12,7 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <Tooltip type="dark" size="small" content={'Eat, drink and be rosemary'}>
+      <Tooltip type="dark" size="small" content="Eat, drink, and be rosemary">
         <span>Dark tooltip</span>
       </Tooltip>
     </Col>
@@ -20,11 +20,12 @@ const Example = () => (
       <Tooltip
         type="light"
         size="large"
+        placement="top-end"
         content={
           <>
             <Title>Words of wisdom</Title>
             <Paragraph>
-              I asked the staff at my local garden centre what to grow in my garden. They gave me
+              I asked the staff at my local garden center what to grow in my garden. They gave me
               some sage advice.
             </Paragraph>
           </>
