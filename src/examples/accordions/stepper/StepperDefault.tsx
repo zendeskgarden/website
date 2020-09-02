@@ -11,16 +11,15 @@ import { Stepper } from '@zendeskgarden/react-accordions';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
-const StyledBtnRow = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: ${p => p.theme.space.sm};
-  justify-content: start;
-  margin: ${p => p.theme.space.sm} 0 0 0;
+const StyledContent = styled.div`
+  margin: 0 0 ${p => p.theme.space.sm} 0;
 `;
 
 const Example = () => {
   const [step, setStep] = useState(0);
+
+  const onNext = () => setStep(step + 1);
+  const onBack = () => setStep(step - 1);
 
   return (
     <Row>
@@ -29,31 +28,31 @@ const Example = () => {
           <Stepper.Step key="step-1">
             <Stepper.Label>Make good use of your location</Stepper.Label>
             <Stepper.Content>
-              The success of your garden depends greatly on location.
-              <StyledBtnRow>
-                <Button onClick={() => setStep(1)}>Next</Button>
-              </StyledBtnRow>
+              <StyledContent>The success of your garden depends greatly on location.</StyledContent>
+              <Button onClick={onNext}>Next</Button>
             </Stepper.Content>
           </Stepper.Step>
           <Stepper.Step key="step-2">
             <Stepper.Label>Plan your Garden layout</Stepper.Label>
             <Stepper.Content>
-              After choosing a site for you garden, the next step is to imagine how the arrangement
-              of crops will look in the garden.
-              <StyledBtnRow>
-                <Button onClick={() => setStep(0)}>Back</Button>
-                <Button onClick={() => setStep(2)}>Next</Button>
-              </StyledBtnRow>
+              <StyledContent>
+                After choosing a site for your garden, the next step is to imagine how the
+                arrangement of crops will look in the garden.
+              </StyledContent>
+              <Button onClick={onBack} style={{ marginRight: '12px' }}>
+                Back
+              </Button>
+              <Button onClick={onNext}>Next</Button>
             </Stepper.Content>
           </Stepper.Step>
           <Stepper.Step key="step-3">
             <Stepper.Label>Buy great seeds</Stepper.Label>
             <Stepper.Content>
-              Buy clean, hearty, disease-free seeds. Most seed from reliable seed companies will
-              meet these specifications.
-              <StyledBtnRow>
-                <Button onClick={() => setStep(1)}>Back</Button>
-              </StyledBtnRow>
+              <StyledContent>
+                Buy clean, hearty, disease-free seeds. Most seed from reliable seed companies will
+                meet these specifications.
+              </StyledContent>
+              <Button onClick={onBack}>Back</Button>
             </Stepper.Content>
           </Stepper.Step>
         </Stepper>
