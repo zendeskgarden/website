@@ -35,7 +35,7 @@
         - id: /components/split-button
           title: Split button
     - title: Chrome
-      id: https://zendeskgarden.github.io/react-components/chrome
+      id: /components/chrome
     - title: Datepicker
       id: https://zendeskgarden.github.io/react-components/datepickers
     - title: Dropdowns
