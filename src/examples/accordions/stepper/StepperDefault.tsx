@@ -26,7 +26,7 @@ const Example = () => {
     <Row>
       <Col>
         <Stepper activeIndex={step}>
-          <Stepper.Step key={'step-1'}>
+          <Stepper.Step key="step-1">
             <Stepper.Label>Make good use of your location</Stepper.Label>
             <Stepper.Content>
               The success of your garden depends greatly on location.
@@ -35,7 +35,7 @@ const Example = () => {
               </StyledBtnRow>
             </Stepper.Content>
           </Stepper.Step>
-          <Stepper.Step key={'step-2'}>
+          <Stepper.Step key="step-2">
             <Stepper.Label>Plan your Garden layout</Stepper.Label>
             <Stepper.Content>
               After choosing a site for you garden, the next step is to imagine how the arrangement
@@ -46,7 +46,7 @@ const Example = () => {
               </StyledBtnRow>
             </Stepper.Content>
           </Stepper.Step>
-          <Stepper.Step key={'step-3'}>
+          <Stepper.Step key="step-3">
             <Stepper.Label>Buy great seeds</Stepper.Label>
             <Stepper.Content>
               Buy clean, hearty, disease-free seeds. Most seed from reliable seed companies will

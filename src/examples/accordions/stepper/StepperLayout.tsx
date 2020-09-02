@@ -65,13 +65,13 @@ const Example = () => {
     <Row justifyContent="center">
       <Col sm={10} textAlign="center">
         <Stepper activeIndex={step} isHorizontal>
-          <Stepper.Step key={'step-1'}>
+          <Stepper.Step key="step-1">
             <Stepper.Label>Make good use of your location</Stepper.Label>
           </Stepper.Step>
           <Stepper.Step key="step-2">
             <Stepper.Label>Plan your Garden layout</Stepper.Label>
           </Stepper.Step>
-          <Stepper.Step key={'step-3'}>
+          <Stepper.Step key="step-3">
             <Stepper.Label>Buy great seeds</Stepper.Label>
           </Stepper.Step>
         </Stepper>
