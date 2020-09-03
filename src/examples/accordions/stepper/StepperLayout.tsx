@@ -27,11 +27,14 @@ const Example = () => {
 
   const allSteps = [
     {
-      content: `The success of your garden depends greatly on location.`,
+      content: `Your garden's success depends on its location, so choose a spot that has
+      healthy soil, gets good light, and is easily watered.`,
       buttons: <Button onClick={onNext}>Next</Button>
     },
     {
-      content: `After choosing a site for your garden, the next step is to imagine how the arrangement of crops will look in the garden.`,
+      content: `The layout of your garden depends on its purpose. If you're planting flowers,
+      consider aesthetics like color and layout. If you're growing food, think about
+      harvest times and the kinds of pests that might be attracted to your crops.`,
       buttons: (
         <>
           <Button onClick={onBack} style={{ marginRight: '12px' }}>
@@ -52,10 +55,10 @@ const Example = () => {
       <Col sm={10} textAlign="center">
         <Stepper activeIndex={currentStep} isHorizontal>
           <Stepper.Step key="step-1">
-            <Stepper.Label>Make good use of your location</Stepper.Label>
+            <Stepper.Label>Choose a good location</Stepper.Label>
           </Stepper.Step>
           <Stepper.Step key="step-2">
-            <Stepper.Label>Plan your Garden layout</Stepper.Label>
+            <Stepper.Label>Plan your garden&apos;s layout</Stepper.Label>
           </Stepper.Step>
           <Stepper.Step key="step-3">
             <Stepper.Label>Buy great seeds</Stepper.Label>

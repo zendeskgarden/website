@@ -18,7 +18,7 @@ const Example = () => (
           <Stepper.Label icon={<LeafIcon />}>Make good use of your location</Stepper.Label>
         </Stepper.Step>
         <Stepper.Step key="step-2">
-          <Stepper.Label icon={<LeafIcon />}>Plan your Garden layout</Stepper.Label>
+          <Stepper.Label icon={<LeafIcon />}>Plan your garden&apos;s layout</Stepper.Label>
         </Stepper.Step>
         <Stepper.Step key="step-3">
           <Stepper.Label icon={<LeafIcon />}>Buy great seeds</Stepper.Label>

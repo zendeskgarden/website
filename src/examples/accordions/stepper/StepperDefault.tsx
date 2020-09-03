@@ -26,18 +26,22 @@ const Example = () => {
       <Col>
         <Stepper activeIndex={step}>
           <Stepper.Step key="step-1">
-            <Stepper.Label>Make good use of your location</Stepper.Label>
+            <Stepper.Label>Choose a good location</Stepper.Label>
             <Stepper.Content>
-              <StyledContent>The success of your garden depends greatly on location.</StyledContent>
+              <StyledContent>
+                Your garden&apos;s success depends on its location, so choose a spot that has
+                healthy soil, gets good light, and is easily watered.
+              </StyledContent>
               <Button onClick={onNext}>Next</Button>
             </Stepper.Content>
           </Stepper.Step>
           <Stepper.Step key="step-2">
-            <Stepper.Label>Plan your Garden layout</Stepper.Label>
+            <Stepper.Label>Plan your garden&apos;s layout</Stepper.Label>
             <Stepper.Content>
               <StyledContent>
-                After choosing a site for your garden, the next step is to imagine how the
-                arrangement of crops will look in the garden.
+                The layout of your garden depends on its purpose. If you&apos;re planting flowers,
+                consider aesthetics like color and layout. If you&apos;re growing food, think about
+                harvest times and the kinds of pests that might be attracted to your crops.
               </StyledContent>
               <Button onClick={onBack} style={{ marginRight: '12px' }}>
                 Back
