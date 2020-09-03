@@ -1,0 +1,101 @@
+---
+title: Tooltip
+description: >
+  Tooltips appear when a user hovers or focuses an element. They provide contextual
+  information about the element they are paired with.
+package: '@zendeskgarden/react-tooltips'
+components:
+  - tooltips/src/elements/Paragraph.tsx
+  - tooltips/src/elements/Title.tsx
+  - tooltips/src/elements/Tooltip.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To describe the function of an element when it might be ambiguous</li>
+      <li>To describe the function of unlabeled icons</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>To provide information a user needs to know or remember</li>
+      <li>To display truncated text, use a title attribute instead</li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The default usage of a Tooltip component.
+
+import Default from '../../examples/tooltip/TooltipDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/tooltip/TooltipDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Placement
+
+There are 13 placement options. By default, the Tooltip occupies the top
+position. `auto` uses the placement with the most available space.
+
+import Placement from '../../examples/tooltip/TooltipPlacement.tsx';
+import PlacementCode from '!!raw-loader!../../examples/tooltip/TooltipPlacement.tsx';
+
+<CodeExample code={PlacementCode}>
+  <Placement />
+</CodeExample>
+
+### Size
+
+Tooltips can be small, medium, large, or extra-large. Only large and extra-large
+sizes can contain a Title.
+
+import Size from '../../examples/tooltip/TooltipSize.tsx';
+import SizeCode from '!!raw-loader!../../examples/tooltip/TooltipSize.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+### Type
+
+Tooltips can be light or dark. Small and medium tooltips should default to dark.
+Large and extra-large tooltips should default to light.
+
+import Type from '../../examples/tooltip/TooltipType.tsx';
+import TypeCode from '!!raw-loader!../../examples/tooltip/TooltipType.tsx';
+
+<CodeExample code={TypeCode}>
+  <Type />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Paragraph
+
+<PropSheet components={props.data.mdx.components} componentName="paragraph" />
+
+### Title
+
+<PropSheet components={props.data.mdx.components} componentName="title" />
+
+### Tooltip
+
+<PropSheet components={props.data.mdx.components} componentName="tooltip" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
