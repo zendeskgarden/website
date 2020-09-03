@@ -18,15 +18,16 @@ components:
 
 ## How to use it
 
-### Offset pagination
+### Cursor pagination
 
-The basic usage of an offset pagination component.
+Cursor-based pagination works by returning a pointer to a specific item in a
+dataset. There is no concept of the total number of pages or results in the set.
 
-import OffsetDefault from '../../examples/pagination/OffsetDefault.tsx';
-import OffsetDefaultCode from '!!raw-loader!../../examples/pagination/OffsetDefault.tsx';
+import CursorDefault from '../../examples/pagination/CursorDefault.tsx';
+import CursorDefaultCode from '!!raw-loader!../../examples/pagination/CursorDefault.tsx';
 
-<CodeExample code={OffsetDefaultCode}>
-  <OffsetDefault />
+<CodeExample code={CursorDefaultCode}>
+  <CursorDefault />
 </CodeExample>
 
 ### Gap indicator
@@ -52,16 +53,16 @@ import OffsetPaddingCode from '!!raw-loader!../../examples/pagination/OffsetPadd
   <OffsetPadding />
 </CodeExample>
 
-### Cursor pagination
+### Offset pagination
 
-Cursor based pagination is for when the total number of pages is progressively
-loaded or can't be immediately determined.
+Offset-based pagination allows users to see the total number of pages and jump
+to a specific position within set.
 
-import CursorDefault from '../../examples/pagination/CursorDefault.tsx';
-import CursorDefaultCode from '!!raw-loader!../../examples/pagination/CursorDefault.tsx';
+import OffsetDefault from '../../examples/pagination/OffsetDefault.tsx';
+import OffsetDefaultCode from '!!raw-loader!../../examples/pagination/OffsetDefault.tsx';
 
-<CodeExample code={CursorDefaultCode}>
-  <CursorDefault />
+<CodeExample code={OffsetDefaultCode}>
+  <OffsetDefault />
 </CodeExample>
 
 ## Configuration
