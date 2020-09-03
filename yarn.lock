@@ -3696,10 +3696,10 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/react-notifications/-/react-notifications-8.19.0.tgz#95a2834b83fd1cf126a276b4978cc85dfd1d0463"
   integrity sha512-wM06zjNZphnjO4WCs9GfY1vw4D1uEA1DDUIVN3sIPP39JtjHjHHIfBqshRfDwWoQig3+FWBW31kwzAYM8uU2lg==
 
-"@zendeskgarden/react-pagination@8.19.0":
-  version "8.19.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-pagination/-/react-pagination-8.19.0.tgz#9b47159af5f632ea2b7a2f487cce05868dcb8667"
-  integrity sha512-T2IG56qWAaJqQoPeOB1b76bMpl5aPTxjVvHSHFmI3zNkNjn6PKlCiaE6XdHKEbuz0AtGAzIODSMQXe6lDcCkyg==
+"@zendeskgarden/react-pagination@8.20.0":
+  version "8.20.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-pagination/-/react-pagination-8.20.0.tgz#a5551db4423da8a79d778cc9d2af87ff2a222284"
+  integrity sha512-DTPsJcb9DQauxIhVhvdRAZvPlXb/M+O/gVm6/voVWIIIL47C9Cvi43X31KowZHra2Ec/zqLtWEN0nzbxd6iv3A==
   dependencies:
     "@zendeskgarden/container-pagination" "^0.3.1"
     "@zendeskgarden/container-utilities" "^0.5.1"
