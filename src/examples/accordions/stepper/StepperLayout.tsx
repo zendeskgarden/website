@@ -11,8 +11,17 @@ import { Stepper } from '@zendeskgarden/react-accordions';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
-const StyledParagraph = styled.div`
-  margin: 0 0 ${p => p.theme.space.sm} 0;
+const StyledButtons = styled.div`
+  margin-top: ${p => p.theme.space.sm};
+  padding: 3px;
+
+  & > button {
+    margin-${p => (p.theme.rtl ? 'right' : 'left')}: ${p => p.theme.space.base * 3}px;
+
+    &:first-child {
+      margin-${p => (p.theme.rtl ? 'right' : 'left')}: 0;
+    }
+  }
 `;
 
 const StyledContainer = styled.div`
@@ -37,9 +46,7 @@ const Example = () => {
       harvest times and the kinds of pests that might be attracted to your crops.`,
       buttons: (
         <>
-          <Button onClick={onBack} style={{ marginRight: '12px' }}>
-            Back
-          </Button>
+          <Button onClick={onBack}>Back</Button>
           <Button onClick={onNext}>Next</Button>
         </>
       )
@@ -67,9 +74,9 @@ const Example = () => {
         {allSteps.map(
           (step, index) =>
             index === currentStep && (
-              <StyledContainer>
-                <StyledParagraph>{step.content}</StyledParagraph>
-                {step.buttons}
+              <StyledContainer key={index}>
+                {step.content}
+                <StyledButtons>{step.buttons}</StyledButtons>
               </StyledContainer>
             )
         )}

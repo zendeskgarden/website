@@ -12,7 +12,7 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => (
   <Row justifyContent="center">
-    <Col sm={10} textAlign="center">
+    <Col sm={10}>
       <Stepper isHorizontal>
         <Stepper.Step key="step-1">
           <Stepper.Label icon={<LeafIcon />}>Make good use of your location</Stepper.Label>
