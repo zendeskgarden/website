@@ -13,7 +13,7 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 
 const StyledButtons = styled.div`
   margin-top: ${p => p.theme.space.sm};
-  padding: 3px;
+  padding: ${p => p.theme.shadowWidths.md};
 
   & > button {
     margin-${p => (p.theme.rtl ? 'right' : 'left')}: ${p => p.theme.space.base * 3}px;

@@ -12,6 +12,7 @@ import { Button } from '@zendeskgarden/react-buttons';
 
 const StyledButtons = styled.div`
   margin-top: ${p => p.theme.space.sm};
+  padding: ${p => p.theme.shadowWidths.md};
 
   & > button {
     margin-${p => (p.theme.rtl ? 'right' : 'left')}: ${p => p.theme.space.base * 3}px;
