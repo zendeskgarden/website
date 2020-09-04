@@ -7,18 +7,11 @@
 
 import React, { useState } from 'react';
 import { Pagination } from '@zendeskgarden/react-pagination';
-import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
-  return (
-    <Row alignItems="center">
-      <Col alignSelf="center">
-        <Pagination totalPages={6} currentPage={page} onChange={setPage} />
-      </Col>
-    </Row>
-  );
+  return <Pagination totalPages={6} currentPage={page} onChange={setPage} />;
 };
 
 export default Example;

@@ -7,7 +7,6 @@
 
 import React, { useState } from 'react';
 import { CursorPagination } from '@zendeskgarden/react-pagination';
-import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [cursor, setCursor] = useState(0);
@@ -31,24 +30,20 @@ const Example = () => {
   };
 
   return (
-    <Row alignItems="center">
-      <Col alignSelf="center">
-        <CursorPagination aria-label="Cursor pagination">
-          <CursorPagination.First onClick={onFirst} disabled={cursor === 0}>
-            First
-          </CursorPagination.First>
-          <CursorPagination.Previous onClick={onPrevious} disabled={cursor === 0}>
-            Previous
-          </CursorPagination.Previous>
-          <CursorPagination.Next onClick={onNext} disabled={cursor === pages.length - 1}>
-            Next
-          </CursorPagination.Next>
-          <CursorPagination.Last onClick={onLast} disabled={cursor === pages.length - 1}>
-            Last
-          </CursorPagination.Last>
-        </CursorPagination>
-      </Col>
-    </Row>
+    <CursorPagination aria-label="Cursor pagination">
+      <CursorPagination.First onClick={onFirst} disabled={cursor === 0}>
+        First
+      </CursorPagination.First>
+      <CursorPagination.Previous onClick={onPrevious} disabled={cursor === 0}>
+        Previous
+      </CursorPagination.Previous>
+      <CursorPagination.Next onClick={onNext} disabled={cursor === pages.length - 1}>
+        Next
+      </CursorPagination.Next>
+      <CursorPagination.Last onClick={onLast} disabled={cursor === pages.length - 1}>
+        Last
+      </CursorPagination.Last>
+    </CursorPagination>
   );
 };
 

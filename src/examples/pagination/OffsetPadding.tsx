@@ -6,26 +6,22 @@
  */
 
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { Pagination } from '@zendeskgarden/react-pagination';
-import { Row, Col } from '@zendeskgarden/react-grid';
-
-const StyledCol = styled(Col)`
-  margin-top: ${p => p.theme.space.sm};
-`;
 
 const Example = () => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(10);
 
   return (
-    <Row alignItems="center">
-      <Col alignSelf="center">
-        <Pagination totalPages={20} pagePadding={1} currentPage={page} onChange={setPage} />
-      </Col>
-      <StyledCol alignSelf="center">
-        <Pagination totalPages={20} pagePadding={3} currentPage={page} onChange={setPage} />
-      </StyledCol>
-    </Row>
+    <>
+      <Pagination totalPages={20} pagePadding={0} currentPage={page} onChange={setPage} />
+      <Pagination
+        totalPages={20}
+        pagePadding={2}
+        currentPage={page}
+        onChange={setPage}
+        style={{ marginTop: '16px' }}
+      />
+    </>
   );
 };
 
