@@ -3637,10 +3637,10 @@
     "@zendeskgarden/container-keyboardfocus" "^0.4.1"
     polished "^3.5.1"
 
-"@zendeskgarden/react-chrome@8.19.0":
-  version "8.19.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-chrome/-/react-chrome-8.19.0.tgz#edd4f6a74ae278d0107f15635fe61e645eb73f5a"
-  integrity sha512-tyjKgl5HKEnMo7KA0k04dNh9g5ISWnc8cvog+Q9hP0kQYCKuyqGxJYtSk/z+FFi11XYz5YIerCUZq/5eFXCISA==
+"@zendeskgarden/react-chrome@8.21.1":
+  version "8.21.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-chrome/-/react-chrome-8.21.1.tgz#08e9f8ffe3f85f0350377f5b15eeb4c3b5e7a3e3"
+  integrity sha512-a0qyFA3ouUbGqi6OWnL6IezEtKa0av55jH2lhbxwlNsw7eqo1hq0Bbmc6yQv8CKr0XwFSMRbx/+FiGo7SZwzNA==
   dependencies:
     "@zendeskgarden/container-accordion" "^1.0.0"
     "@zendeskgarden/container-keyboardfocus" "^0.4.1"
