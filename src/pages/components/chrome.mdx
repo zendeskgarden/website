@@ -1,0 +1,167 @@
+---
+title: Chrome
+description: >
+  The Chrome component provides a high-level layout structure and sets a
+  framework for navigating around Zendesk products.
+package: '@zendeskgarden/react-chrome'
+components:
+  - chrome/src/elements/body/Body.tsx
+  - chrome/src/elements/Chrome.tsx
+  - chrome/src/elements/subnav/CollapsibleSubNavItem.tsx
+  - chrome/src/elements/body/Content.tsx
+  - chrome/src/elements/footer/Footer.tsx
+  - chrome/src/elements/footer/FooterItem.tsx
+  - chrome/src/elements/header/Header.tsx
+  - chrome/src/elements/header/HeaderItem.tsx
+  - chrome/src/elements/header/HeaderItemIcon.tsx
+  - chrome/src/elements/header/HeaderItemText.tsx
+  - chrome/src/elements/header/HeaderItemWrapper.tsx
+  - chrome/src/elements/body/Main.tsx
+  - chrome/src/elements/body/Sidebar.tsx
+  - chrome/src/elements/nav/Nav.tsx
+  - chrome/src/elements/nav/NavItem.tsx
+  - chrome/src/elements/nav/NavItemIcon.tsx
+  - chrome/src/elements/nav/NavItemText.tsx
+  - chrome/src/elements/subnav/SubNav.tsx
+  - chrome/src/elements/subnav/SubNavItem.tsx
+  - chrome/src/elements/subnav/SubNavItemText.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To give Zendesk products a consistent dashboard and navigation experience</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Default
+
+A typical usage of a Chrome component framework.
+
+import Default from '../../examples/chrome/ChromeDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/chrome/ChromeDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Standalone header
+
+A Header component can be used in isolation while still displaying Zendesk product logos.
+
+import StandaloneHeader from '../../examples/chrome/ChromeStandaloneHeader.tsx';
+import StandaloneHeaderCode from '!!raw-loader!../../examples/chrome/ChromeStandaloneHeader.tsx';
+
+<CodeExample code={StandaloneHeaderCode}>
+  <StandaloneHeader />
+</CodeExample>
+
+### Navigation panel
+
+The panel can be expanded to display labels alongside nav icons. A subnav can be
+shown for additional items. The `hue` can be modified to change the color while
+still maintaining accessible contrast levels.
+
+import Navigation from '../../examples/chrome/ChromeNavigation.tsx';
+import NavigationCode from '!!raw-loader!../../examples/chrome/ChromeNavigation.tsx';
+
+<CodeExample code={NavigationCode}>
+  <Navigation />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Body
+
+<PropSheet components={props.data.mdx.components} componentName="body" />
+
+### Chrome
+
+<PropSheet components={props.data.mdx.components} componentName="chrome" />
+
+### CollapsibleSubNavItem
+
+<PropSheet components={props.data.mdx.components} componentName="collapsiblesubnavitem" />
+
+### Content
+
+<PropSheet components={props.data.mdx.components} componentName="content" />
+
+### Footer
+
+<PropSheet components={props.data.mdx.components} componentName="footer" />
+
+### FooterItem
+
+<PropSheet components={props.data.mdx.components} componentName="footeritem" />
+
+### Header
+
+<PropSheet components={props.data.mdx.components} componentName="header" />
+
+### HeaderItem
+
+<PropSheet components={props.data.mdx.components} componentName="headeritem" />
+
+### HeaderItemIcon
+
+<PropSheet components={props.data.mdx.components} componentName="headeritemicon" />
+
+### HeaderItemText
+
+<PropSheet components={props.data.mdx.components} componentName="headeritemtext" />
+
+### HeaderItemWrapper
+
+<PropSheet components={props.data.mdx.components} componentName="headeritemwrapper" />
+
+### Main
+
+<PropSheet components={props.data.mdx.components} componentName="main" />
+
+### Nav
+
+<PropSheet components={props.data.mdx.components} componentName="nav" />
+
+### NavItem
+
+<PropSheet components={props.data.mdx.components} componentName="navitem" />
+
+### NavItemIcon
+
+<PropSheet components={props.data.mdx.components} componentName="navitemicon" />
+
+### NavItemText
+
+<PropSheet components={props.data.mdx.components} componentName="navitemtext" />
+
+### Sidebar
+
+<PropSheet components={props.data.mdx.components} componentName="sidebar" />
+
+### SubNav
+
+<PropSheet components={props.data.mdx.components} componentName="subnav" />
+
+### SubNavItem
+
+<PropSheet components={props.data.mdx.components} componentName="subnavitem" />
+
+### SubNavItemText
+
+<PropSheet components={props.data.mdx.components} componentName="subnavitemtext" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
