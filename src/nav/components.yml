@@ -87,7 +87,7 @@
     - title: Pagination
       id: /components/pagination
     - title: Stepper
-      id: https://zendeskgarden.github.io/react-components/accordions/#stepper
+      id: /components/stepper
     - title: Table
       id: https://zendeskgarden.github.io/react-components/tables
     - title: Tabs

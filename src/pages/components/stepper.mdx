@@ -1,0 +1,75 @@
+---
+title: Stepper
+description: >
+  A Stepper guides users through steps of a task in sequential order.
+package: '@zendeskgarden/react-accordions'
+components:
+  - accordions/src/elements/stepper/Stepper.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>For multi-step flows that must be completed in order</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Default
+
+The default usage of a Stepper component.
+
+import Default from '../../examples/accordions/stepper/StepperDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/accordions/stepper/StepperDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Layout
+
+A Stepper is vertical by default but can be horizontal using `isHorizontal`.
+
+import Layout from '../../examples/accordions/stepper/StepperLayout.tsx';
+import LayoutCode from '!!raw-loader!../../examples/accordions/stepper/StepperLayout.tsx';
+
+<CodeExample code={LayoutCode}>
+  <Layout />
+</CodeExample>
+
+### Icons
+
+Label numbers can be replaced with icons.
+
+import Icons from '../../examples/accordions/stepper/StepperIcons.tsx';
+import IconsCode from '!!raw-loader!../../examples/accordions/stepper/StepperIcons.tsx';
+
+<CodeExample code={IconsCode}>
+  <Icons />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Stepper
+
+<PropSheet components={props.data.mdx.components} componentName="stepper" />
+
+#### Stepper.Content
+
+#### Stepper.Label
+
+#### Stepper.Step
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
