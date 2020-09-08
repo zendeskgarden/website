@@ -1,0 +1,97 @@
+---
+title: Pagination
+description: >
+  Pagination separates content into pages and allows users to navigate between those pages.
+package: '@zendeskgarden/react-pagination'
+components:
+  - pagination/src/elements/Pagination/Pagination.tsx
+  - pagination/src/elements/CursorPagination/CursorPagination.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To divide large amounts of data into manageable chunks</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Cursor pagination
+
+Cursor-based pagination works by returning a pointer to a specific item in a
+dataset. There is no concept of the total number of pages or results in the set.
+
+import CursorDefault from '../../examples/pagination/CursorDefault.tsx';
+import CursorDefaultCode from '!!raw-loader!../../examples/pagination/CursorDefault.tsx';
+
+<CodeExample code={CursorDefaultCode}>
+  <CursorDefault />
+</CodeExample>
+
+### Gap indicator
+
+The position of a gap indicator (...) can be set in the sequence to represent
+overflowing pages.
+
+import OffsetGap from '../../examples/pagination/OffsetGap.tsx';
+import OffsetGapCode from '!!raw-loader!../../examples/pagination/OffsetGap.tsx';
+
+<CodeExample code={OffsetGapCode}>
+  <OffsetGap />
+</CodeExample>
+
+### Page padding
+
+Sets the number of pages that appear between the current page and a gap
+indicator.
+
+import OffsetPadding from '../../examples/pagination/OffsetPadding.tsx';
+import OffsetPaddingCode from '!!raw-loader!../../examples/pagination/OffsetPadding.tsx';
+
+<CodeExample code={OffsetPaddingCode}>
+  <OffsetPadding />
+</CodeExample>
+
+### Offset pagination
+
+Offset-based pagination allows users to see the total number of pages and jump
+to a specific position within the set.
+
+import OffsetDefault from '../../examples/pagination/OffsetDefault.tsx';
+import OffsetDefaultCode from '!!raw-loader!../../examples/pagination/OffsetDefault.tsx';
+
+<CodeExample code={OffsetDefaultCode}>
+  <OffsetDefault />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Pagination
+
+<PropSheet components={props.data.mdx.components} componentName="pagination" />
+
+### CursorPagination
+
+<PropSheet components={props.data.mdx.components} componentName="cursorpagination" />
+
+#### CursorPagination.First
+
+#### CursorPagination.Last
+
+#### CursorPagination.Next
+
+#### CursorPagination.Previous
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
