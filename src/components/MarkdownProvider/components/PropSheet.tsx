@@ -12,10 +12,10 @@ import { MD, Ellipsis } from '@zendeskgarden/react-typography';
 import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
 import { IComponentData } from 'src/templates/types';
 import { Tag } from '@zendeskgarden/react-tags';
-import { MDSyntaxHighlighter } from './Code';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Markdown } from './Markdown';
+import { StyledCodeBlock as CodeBlock } from './CodeBlock';
 
 export const PropSheet: React.FC<{ components: IComponentData[]; componentName: string }> = ({
   components,
@@ -68,7 +68,7 @@ export const PropSheet: React.FC<{ components: IComponentData[]; componentName: 
                       size="small"
                       placement="top-start"
                       zIndex={100}
-                      content={<MDSyntaxHighlighter>{prop.type}</MDSyntaxHighlighter>}
+                      content={<CodeBlock size="small">{prop.type}</CodeBlock>}
                     >
                       <Button isLink>func</Button>
                     </Tooltip>
