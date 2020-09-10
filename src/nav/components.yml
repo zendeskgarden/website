@@ -96,8 +96,12 @@
       id: /components/tags
     - title: Tiles
       id: /components/tiles
-    - title: Tooltip
-      id: /components/tooltip
+    - title: Tooltips
+      items:
+        - title: Tooltip
+          id: /components/tooltip
+        - title: Tooltip Modal
+          id: /components/tooltip-modal
     - title: Typography
       items:
         - title: Code

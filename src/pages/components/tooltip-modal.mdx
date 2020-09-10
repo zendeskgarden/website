@@ -1,0 +1,69 @@
+---
+title: Tooltip Modal
+description: >
+  A Tooltip modal is a small overlay that opens automatically or through user-action, and displays contextual information for its paired element.
+package: '@zendeskgarden/react-modals'
+components:
+  - modals/src/elements/TooltipModal/TooltipModal.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To provide actions within a tooltip</li>
+      <li>To provide a focus jail when actions need to be inside a tooltip</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To reveal read-only helpful information about an element on hover, use a
+          [Tooltip](/components/tooltip)
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+A Tooltip Modal must contain a header and a way to exit the experience.
+
+import Default from '../../examples/tooltip-modal/TooltipModalDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/tooltip-modal/TooltipModalDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Placement
+
+There are 13 placement options available. The tooltip modal will default to a position with the most available space.
+
+import Placement from '../../examples/tooltip-modal/TooltipModalPlacement.tsx';
+import PlacementCode from '!!raw-loader!../../examples/tooltip-modal/TooltipModalPlacement.tsx';
+
+<CodeExample code={PlacementCode}>
+  <Placement />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### TooltipModal
+
+<PropSheet components={props.data.mdx.components} componentName="TooltipModal" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
