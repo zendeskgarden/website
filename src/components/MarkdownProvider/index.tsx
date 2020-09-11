@@ -9,21 +9,19 @@ import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { Code } from '@zendeskgarden/react-typography';
 import { CodeExample } from './components/CodeExample';
+import { StyledCodeBlock as CodeBlock } from './components/CodeBlock';
 import { Configuration } from './components/Configuration';
 import { PropSheet } from './components/PropSheet';
 import { Usage, Use, Misuse } from './components/Usage';
 import { BestPractice, Do, Dont, Caution } from './components/BestPractice';
 import { COMPONENTS, Markdown } from './components/Markdown';
-import { MDSyntaxHighlighter } from './components/Code';
 import { OverviewLinks } from './components/OverviewLinks';
 
 /**
- * The SyntaxHighlighter component provides it's own `<pre>` tag.
+ * The CodeBlock component provides it's own `<pre>` tag.
  * This ensures valid DOM nesting.
  */
-export const Pre: React.FC = ({ children }) => {
-  return <>{children}</>;
-};
+const Pre: React.FC = ({ children }) => <>{children}</>;
 
 export const MarkdownProvider: React.FC = ({ children }) => (
   <>
@@ -50,7 +48,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
         ...COMPONENTS,
         inlineCode: Code,
         pre: Pre,
-        code: MDSyntaxHighlighter
+        code: CodeBlock
       }}
     >
       {children}

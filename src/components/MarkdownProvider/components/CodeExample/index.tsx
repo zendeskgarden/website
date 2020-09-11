@@ -9,12 +9,12 @@ import React, { useRef, useState, useMemo } from 'react';
 import { css, DefaultTheme } from 'styled-components';
 import { ThemeProvider, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
+import { CodeBlock } from '@zendeskgarden/react-typography';
 import { IconButton, ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as MarkupStroke } from '@zendeskgarden/svg-icons/src/16/markup-stroke.svg';
 import { ReactComponent as CopyStroke } from '@zendeskgarden/svg-icons/src/16/copy-stroke.svg';
 import { ReactComponent as DirectionRtlStroke } from '@zendeskgarden/svg-icons/src/16/direction-rtl-stroke.svg';
 import { ReactComponent as CodeSandboxIcon } from './assets/codesandbox-icon.svg';
-import { SyntaxHighlighter } from './components/SyntaxHighlighter';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
 import { copyToClipboard } from './utils/copyToClipboard';
 
@@ -114,9 +114,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
           </ToggleIconButton>
         </Tooltip>
       </div>
-      {isCodeVisible && (
-        <SyntaxHighlighter>{code.replace(COPYRIGHT_REGEXP, '').trim()}</SyntaxHighlighter>
-      )}
+      {isCodeVisible && <CodeBlock>{code.replace(COPYRIGHT_REGEXP, '')}</CodeBlock>}
     </div>
   );
 };
