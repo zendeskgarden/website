@@ -1,0 +1,106 @@
+---
+title: Datepicker
+description: >
+  A Datepicker lets users select a date by showing them a calendar. It works in combination with a text input.
+package: '@zendeskgarden/react-datepickers'
+components:
+  - datepickers/src/elements/Datepicker/Datepicker.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To select a single date</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>To select a range of dates, use DatepickerRange instead</Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of a Datepicker component.
+
+import Default from '../../examples/datepicker/datepicker/DatepickerDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/datepicker/datepicker/DatepickerDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Custom date format
+
+Dates are formatted using the
+[Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat)
+utility. For other formats, consider libraries like
+[momentjs](https://momentjs.com/) or [date-fns](https://date-fns.org/).
+
+import Custom from '../../examples/datepicker/datepicker/DatepickerCustom.tsx';
+import CustomCode from '!!raw-loader!../../examples/datepicker/datepicker/DatepickerCustom.tsx';
+
+<CodeExample code={CustomCode}>
+  <Custom />
+</CodeExample>
+
+### Localization
+
+Dates are localized using the
+[Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat)
+utility. For other formats, use `customParseDate` prop, and formatting libraries
+like [momentjs](https://momentjs.com/) or [date-fns](https://date-fns.org/).
+Customize language, region, and calendar type with a [BCP 47 language
+tag](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat#Parameters).
+
+import Localization from '../../examples/datepicker/datepicker/DatepickerLocalization.tsx';
+import LocalizationCode from '!!raw-loader!../../examples/datepicker/datepicker/DatepickerLocalization.tsx';
+
+<CodeExample code={LocalizationCode}>
+  <Localization />
+</CodeExample>
+
+### Size
+
+Datepicker can be default or compact.
+
+import Size from '../../examples/datepicker/datepicker/DatepickerSize.tsx';
+import SizeCode from '!!raw-loader!../../examples/datepicker/datepicker/DatepickerSize.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+### Time window
+
+Options before and after a certain date can be disabled, limiting users to a specific time window.
+
+import TimeWindow from '../../examples/datepicker/datepicker/DatepickerTimeWindow.tsx';
+import TimeWindowCode from '!!raw-loader!../../examples/datepicker/datepicker/DatepickerTimeWindow.tsx';
+
+<CodeExample code={TimeWindowCode}>
+  <TimeWindow />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Datepicker
+
+<PropSheet components={props.data.mdx.components} componentName="datepicker" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
