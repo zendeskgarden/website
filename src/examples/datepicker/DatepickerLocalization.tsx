@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Datepicker } from '@zendeskgarden/react-datepickers';
-import { Field, Label, Input } from '@zendeskgarden/react-forms';
+import { Field, Label, Input, Hint } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
@@ -17,17 +17,10 @@ const Example = () => {
     <Row justifyContent="center">
       <Col sm={5}>
         <Field>
-          <Label>Default</Label>
-          <Datepicker value={state} onChange={setState}>
+          <Label>Select a date</Label>
+          <Hint>Arabic localization</Hint>
+          <Datepicker value={state} onChange={setState} locale="ar-SA">
             <Input />
-          </Datepicker>
-        </Field>
-      </Col>
-      <Col sm={5}>
-        <Field>
-          <Label>Compact</Label>
-          <Datepicker value={state} onChange={setState} isCompact>
-            <Input isCompact />
           </Datepicker>
         </Field>
       </Col>

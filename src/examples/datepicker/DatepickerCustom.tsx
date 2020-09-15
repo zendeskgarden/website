@@ -21,7 +21,7 @@ const Example = () => {
 
   return (
     <Row justifyContent="center">
-      <Col sm={6}>
+      <Col sm={5}>
         <Field>
           <Label>Select a date</Label>
           <Datepicker
