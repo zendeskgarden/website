@@ -1,0 +1,221 @@
+---
+title: Table
+description: >
+  Tables organize and display related content from a data set. This helps users
+  manage, compare, and analyze large amounts of tabular data.
+package: '@zendeskgarden/react-tables'
+components:
+  - tables/src/elements/Body.tsx
+  - tables/src/elements/Caption.tsx
+  - tables/src/elements/Cell.tsx
+  - tables/src/elements/GroupRow.tsx
+  - tables/src/elements/Head.tsx
+  - tables/src/elements/HeaderCell.tsx
+  - tables/src/elements/HeaderRow.tsx
+  - tables/src/elements/OverflowButton.tsx
+  - tables/src/elements/Row.tsx
+  - tables/src/elements/SortableCell.tsx
+  - tables/src/elements/Table.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To organize and display data that has shared relationships</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To layout content on a page, use the [Grid](/components/grid) component instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of a Table component.
+
+import Default from '../../examples/table/TableDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/table/TableDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Drag and drop
+
+Drag and drop functionality is implemented in combination with [react-beautiful-dnd](https://react-dnd.github.io/react-dnd/about).
+
+import Drag from '../../examples/table/TableDrag.tsx';
+import DragCode from '!!raw-loader!../../examples/table/TableDrag.tsx';
+
+<CodeExample code={DragCode}>
+  <Drag />
+</CodeExample>
+
+### Grouped rows
+
+Grouped rows are for additional categorization.
+
+import GroupedRows from '../../examples/table/TableGroupedRows.tsx';
+import GroupedRowsCode from '!!raw-loader!../../examples/table/TableGroupedRows.tsx';
+
+<CodeExample code={GroupedRowsCode}>
+  <GroupedRows />
+</CodeExample>
+
+### Pagination
+
+Table pagination works in combination with the [Pagination](/components/pagination) component.
+
+import Pagination from '../../examples/table/TablePagination.tsx';
+import PaginationCode from '!!raw-loader!../../examples/table/TablePagination.tsx';
+
+<CodeExample code={PaginationCode}>
+  <Pagination />
+</CodeExample>
+
+### Scroll
+
+To ensure that your table is read correctly by assistive technologies follow the
+[W3C Grid accessibility
+pattern](https://www.w3.org/TR/wai-aria-practices-1.1/examples/grid/dataGrids.html).
+
+import Scroll from '../../examples/table/TableScroll.tsx';
+import ScrollCode from '!!raw-loader!../../examples/table/TableScroll.tsx';
+
+<CodeExample code={ScrollCode}>
+  <Scroll />
+</CodeExample>
+
+### Selection
+
+Individual rows within a table can be selectable for bulk actions.
+
+import SelectRows from '../../examples/table/TableSelectRows.tsx';
+import SelectRowsCode from '!!raw-loader!../../examples/table/TableSelectRows.tsx';
+
+<CodeExample code={SelectRowsCode}>
+  <SelectRows />
+</CodeExample>
+
+### Size
+
+Table row sizes comes in small, medium, and large. The default size is medium.
+
+import Size from '../../examples/table/TableSize.tsx';
+import SizeCode from '!!raw-loader!../../examples/table/TableSize.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+### Sort
+
+Columns can be sortable by table headers.
+
+import Sort from '../../examples/table/TableSort.tsx';
+import SortCode from '!!raw-loader!../../examples/table/TableSort.tsx';
+
+<CodeExample code={SortCode}>
+  <Sort />
+</CodeExample>
+
+### Striped rows
+
+The background color of rows can alternate to help delineate content when
+scanning long rows. Striped and grouped rows shouldn’t be active at the same
+time.
+
+import StripedRows from '../../examples/table/TableStripedRows.tsx';
+import StripedRowsCode from '!!raw-loader!../../examples/table/TableStripedRows.tsx';
+
+<CodeExample code={StripedRowsCode}>
+  <StripedRows />
+</CodeExample>
+
+### Overflow
+
+Overflow menus leverage the Dropdown and Menu component.
+
+import Overflow from '../../examples/table/TableOverflow.tsx';
+import OverflowCode from '!!raw-loader!../../examples/table/TableOverflow.tsx';
+
+<CodeExample code={OverflowCode}>
+  <Overflow />
+</CodeExample>
+
+### Truncate
+
+Data within a cell will wrap by default. Truncate the content with an ellipsis by using `isTruncated`.
+
+import Truncate from '../../examples/table/TableTruncate.tsx';
+import TruncateCode from '!!raw-loader!../../examples/table/TableTruncate.tsx';
+
+<CodeExample code={TruncateCode}>
+  <Truncate />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Body
+
+<PropSheet components={props.data.mdx.components} componentName="body" />
+
+### Caption
+
+<PropSheet components={props.data.mdx.components} componentName="caption" />
+
+### Cell
+
+<PropSheet components={props.data.mdx.components} componentName="cell" />
+
+### GroupRow
+
+<PropSheet components={props.data.mdx.components} componentName="grouprow" />
+
+### Head
+
+<PropSheet components={props.data.mdx.components} componentName="head" />
+
+### HeaderCell
+
+<PropSheet components={props.data.mdx.components} componentName="headercell" />
+
+### HeaderRow
+
+<PropSheet components={props.data.mdx.components} componentName="headerrow" />
+
+### OverflowButton
+
+<PropSheet components={props.data.mdx.components} componentName="overflowbutton" />
+
+### Row
+
+<PropSheet components={props.data.mdx.components} componentName="row" />
+
+### SortableCell
+
+<PropSheet components={props.data.mdx.components} componentName="sortablecell" />
+
+### Table
+
+<PropSheet components={props.data.mdx.components} componentName="table" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

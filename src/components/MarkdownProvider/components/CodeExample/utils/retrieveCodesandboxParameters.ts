@@ -53,6 +53,7 @@ const packageJson = `
 {
   "dependencies": {
     "date-fns": "latest",
+    "react-beautiful-dnd": "latest",
     "react-scripts": "latest",
     "react": "latest",
     "react-dom": "latest",
