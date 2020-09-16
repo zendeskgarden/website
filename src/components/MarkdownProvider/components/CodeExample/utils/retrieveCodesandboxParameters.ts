@@ -52,6 +52,7 @@ render(
 const packageJson = `
 {
   "dependencies": {
+    "date-fns": "latest",
     "react-scripts": "latest",
     "react": "latest",
     "react-dom": "latest",
