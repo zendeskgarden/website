@@ -138,6 +138,12 @@ const Example = () => {
               options: {
                 boundary: 'viewport'
               }
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                boundary: 'viewport'
+              }
             }
           ]}
         >
