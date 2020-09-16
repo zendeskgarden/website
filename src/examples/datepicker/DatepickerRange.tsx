@@ -10,16 +10,18 @@ import styled from 'styled-components';
 import { DatepickerRange } from '@zendeskgarden/react-datepickers';
 import { Field, Label, Input, Message } from '@zendeskgarden/react-forms';
 import { compareAsc, addDays } from 'date-fns';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Row, Col } from '@zendeskgarden/react-grid';
 
-const StyledCol = styled(Col)`
-  margin-bottom: ${p => p.theme.space.md};
-  max-width: 300px;
+const isCompact = false;
+
+const StyledRow = styled(Row)`
+  margin-top: ${p => p.theme.space[isCompact ? 'sm' : 'md']};
 `;
 
 const Example = () => {
   const [startValue, setStartValue] = useState(new Date());
   const [endValue, setEndValue] = useState(addDays(new Date(), 16));
+  const calendarRangeWidth = isCompact ? 488 : 600;
 
   const isInvalid = () => compareAsc(startValue, endValue) === 1;
 
@@ -31,33 +33,38 @@ const Example = () => {
         changes.startValue && setStartValue(changes.startValue);
         changes.endValue && setEndValue(changes.endValue);
       }}
+      isCompact={isCompact}
     >
-      <Grid>
-        <Row justifyContent="center">
-          <StyledCol>
-            <Field>
-              <Label>Start</Label>
-              <DatepickerRange.Start>
-                <Input />
-              </DatepickerRange.Start>
-            </Field>
-          </StyledCol>
-          <StyledCol>
-            <Field>
-              <Label>End</Label>
-              <DatepickerRange.End>
-                <Input validation={isInvalid() ? 'error' : undefined} />
-              </DatepickerRange.End>
-              {isInvalid() && (
-                <Message validation="error">End date must occur after the start date</Message>
-              )}
-            </Field>
-          </StyledCol>
-        </Row>
-        <Row justifyContent="center">
-          <DatepickerRange.Calendar />
-        </Row>
-      </Grid>
+      <Row justifyContent="center" style={{ minWidth: calendarRangeWidth }}>
+        <Col style={{ maxWidth: calendarRangeWidth }}>
+          <Row>
+            <Col>
+              <Field>
+                <Label>Start</Label>
+                <DatepickerRange.Start>
+                  <Input isCompact={isCompact} />
+                </DatepickerRange.Start>
+              </Field>
+            </Col>
+            <Col>
+              <Field>
+                <Label>End</Label>
+                <DatepickerRange.End>
+                  <Input isCompact={isCompact} validation={isInvalid() ? 'error' : undefined} />
+                </DatepickerRange.End>
+                {isInvalid() && (
+                  <Message validation="error">End date must occur after the start date</Message>
+                )}
+              </Field>
+            </Col>
+          </Row>
+          <StyledRow>
+            <Col>
+              <DatepickerRange.Calendar />
+            </Col>
+          </StyledRow>
+        </Col>
+      </Row>
     </DatepickerRange>
   );
 };

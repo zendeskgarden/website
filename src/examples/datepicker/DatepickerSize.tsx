@@ -6,9 +6,17 @@
  */
 
 import React, { useState } from 'react';
+import styled from 'styled-components';
+import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Datepicker } from '@zendeskgarden/react-datepickers';
 import { Field, Label, Input } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
+
+const StyledCol = styled(Col)`
+  ${p => mediaQuery('down', 'xs', p.theme)} {
+    margin-top: ${p => p.theme.space.sm};
+  }
+`;
 
 const Example = () => {
   const [state, setState] = useState(new Date());
@@ -23,14 +31,14 @@ const Example = () => {
           </Datepicker>
         </Field>
       </Col>
-      <Col sm={5}>
+      <StyledCol sm={5}>
         <Field>
           <Label>Compact</Label>
           <Datepicker value={state} onChange={setState} isCompact>
-            <Input />
+            <Input isCompact />
           </Datepicker>
         </Field>
-      </Col>
+      </StyledCol>
     </Row>
   );
 };

@@ -35,7 +35,7 @@ import DefaultCode from '!!raw-loader!../../examples/datepicker/DatepickerDefaul
 Dates are formatted using the
 [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat)
 utility. For other formats, consider libraries like
-[momentjs](https://momentjs.com/) or [date-fns](https://date-fns.org/).
+[date-fns](https://date-fns.org/) or [momentjs](https://momentjs.com/).
 
 import Custom from '../../examples/datepicker/DatepickerCustom.tsx';
 import CustomCode from '!!raw-loader!../../examples/datepicker/DatepickerCustom.tsx';
@@ -61,9 +61,7 @@ import RangeCode from '!!raw-loader!../../examples/datepicker/DatepickerRange.ts
 Dates are localized using the
 [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat)
 utility. For other formats, use `customParseDate` prop, and formatting libraries
-like [momentjs](https://momentjs.com/) or [date-fns](https://date-fns.org/).
-Customize language, region, and calendar type with a [BCP 47 language
-tag](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat#Parameters).
+like [date-fns](https://date-fns.org/) or [momentjs](https://momentjs.com/).
 
 import Localization from '../../examples/datepicker/DatepickerLocalization.tsx';
 import LocalizationCode from '!!raw-loader!../../examples/datepicker/DatepickerLocalization.tsx';
@@ -107,6 +105,12 @@ import TimeWindowCode from '!!raw-loader!../../examples/datepicker/DatepickerTim
 ### DatepickerRange
 
 <PropSheet components={props.data.mdx.components} componentName="datepickerrange" />
+
+#### DatepickerRange.Calendar
+
+#### DatepickerRange.End
+
+#### DatepickerRange.Start
 
 import { graphql } from 'gatsby';
 
