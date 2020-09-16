@@ -52,6 +52,7 @@ render(
 const packageJson = `
 {
   "dependencies": {
+    "date-fns": "latest",
     "react-scripts": "latest",
     "react": "latest",
     "react-dom": "latest",
@@ -64,6 +65,7 @@ const packageJson = `
     "@zendeskgarden/react-breadcrumbs": "^8.x",
     "@zendeskgarden/react-buttons": "^8.x",
     "@zendeskgarden/react-chrome": "^8.x",
+    "@zendeskgarden/react-datepickers": "^8.x",
     "@zendeskgarden/react-dropdowns": "^8.x",
     "@zendeskgarden/react-grid": "^8.x",
     "@zendeskgarden/react-loaders": "^8.x",

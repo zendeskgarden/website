@@ -37,7 +37,7 @@
     - title: Chrome
       id: /components/chrome
     - title: Datepicker
-      id: https://zendeskgarden.github.io/react-components/datepickers
+      id: /components/datepicker
     - title: Dropdowns
       items:
         - id: /components/autocomplete

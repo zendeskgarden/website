@@ -3664,6 +3664,15 @@
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.5.1"
 
+"@zendeskgarden/react-datepickers@8.22.0":
+  version "8.22.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-datepickers/-/react-datepickers-8.22.0.tgz#b305ec9e2f18bdc89bd1188ecdf80180dc24b3ba"
+  integrity sha512-vxU/C9M3aP5pbvO1KmJCz6KfYPmXkCCLx1xQ1cXBpwER73sSSIl3Z1ifrAbUPSUim/Z4pOXdRRcqiYi7UUeJxA==
+  dependencies:
+    "@zendeskgarden/container-utilities" "^0.5.1"
+    date-fns "^2.0.0-beta.2"
+    react-popper "^1.3.4"
+
 "@zendeskgarden/react-dropdowns@8.22.0":
   version "8.22.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/react-dropdowns/-/react-dropdowns-8.22.0.tgz#45eb8eaeb318de007804eb6f53d8257034628ff6"
@@ -6695,6 +6704,11 @@ datauri@^1.1.0:
     image-size "^0.6.2"
     mimer "^0.3.2"
     semver "^5.5.0"
+
+date-fns@2.16.1, date-fns@^2.0.0-beta.2:
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.16.1.tgz#05775792c3f3331da812af253e1a935851d3834b"
+  integrity sha512-sAJVKx/FqrLYHAQeN7VpJrPhagZc9R4ImZIWYRFZaaohR3KzmuK88touwsSwSVT8Qcbd4zoDsnGfX4GFB4imyQ==
 
 date-fns@^2.0.1, date-fns@^2.8.1:
   version "2.15.0"
