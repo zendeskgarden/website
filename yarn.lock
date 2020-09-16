@@ -3852,6 +3852,19 @@
     "@zendeskgarden/container-schedule" "^1.3.1"
     polished "^3.5.1"
 
+"@zendeskgarden/react-modals@8.23.1":
+  version "8.23.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-modals/-/react-modals-8.23.1.tgz#558632fc3436e4af417984c206fc60cfe40fdc87"
+  integrity sha512-wnwapCxL8nUyoRmHb3VssHXHrjEBlxFIfdVERQZYdedanAVbFLcO2x+L1B3Si9NZE77PZKacXMqZGR47S+KJIg==
+  dependencies:
+    "@popperjs/core" "^2.4.4"
+    "@zendeskgarden/container-focusvisible" "^0.4.3"
+    "@zendeskgarden/container-modal" "^0.8.0"
+    "@zendeskgarden/container-utilities" "^0.5.1"
+    dom-helpers "^5.1.0"
+    react-merge-refs "^1.1.0"
+    react-popper "^2.2.3"
+
 "@zendeskgarden/react-notifications@8.23.1":
   version "8.23.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/react-notifications/-/react-notifications-8.23.1.tgz#34bfdaeb35e60fefe484646894c8409901120623"
@@ -16274,6 +16287,11 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-merge-refs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
+  integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
 
 react-popper@^1.3.4:
   version "1.3.7"

@@ -45,6 +45,4 @@ const Example = () => {
   );
 };
 
-const Module = typeof document === 'undefined' ? null : <Example />;
-
-export default Module;
+export default Example;
