@@ -1,11 +1,11 @@
 ---
-title: Alert
+title: Notifications
 description: >
-  An Alert provides urgent contextual feedback in response to user action or system activity.
+  A Notification is a passive status update that keeps users informed of system progress.
 package: '@zendeskgarden/react-notifications'
 components:
-  - notifications/src/elements/Alert.tsx
   - notifications/src/elements/content/Close.tsx
+  - notifications/src/elements/Notification.tsx
   - notifications/src/elements/content/Paragraph.tsx
   - notifications/src/elements/content/Title.tsx
 ---
@@ -13,15 +13,15 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>For urgent feedback</li>
-      <li>For contextual communication inline with page content</li>
+      <li>For a passive status update about user or system activity</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
       <li>
         <Markdown>
-          For a passive system update, use a [Notification](/components/notification) instead
+          For contextual feedback that may require action or decision, use an
+          [Alert](/components/alert) instead.
         </Markdown>
       </li>
     </ul>
@@ -32,11 +32,10 @@ components:
 
 ### Default
 
-By default, an Alert will be read first by a screen reader and is persistent
-until the user dismisses it.
+The typical usage of a Notification component.
 
-import Default from '../../examples/notifications/alert/AlertDefault.tsx';
-import DefaultCode from '!!raw-loader!../../examples/notifications/alert/AlertDefault.tsx';
+import Default from '../../examples/notifications/notifications/NotificationDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/notifications/notifications/NotificationDefault.tsx';
 
 <CodeExample code={DefaultCode}>
   <Default />
@@ -44,11 +43,11 @@ import DefaultCode from '!!raw-loader!../../examples/notifications/alert/AlertDe
 
 ### Type
 
-Alert types help communicate the tone of the message. They can be Success,
-Warning, Danger, or Info.
+Types indicate what kind of message is in the notification and help the user understand
+how to respond. They can be Success, Warning, Danger, or Info.
 
-import Type from '../../examples/notifications/alert/AlertType.tsx';
-import TypeCode from '!!raw-loader!../../examples/notifications/alert/AlertType.tsx';
+import Type from '../../examples/notifications/notifications/NotificationType.tsx';
+import TypeCode from '!!raw-loader!../../examples/notifications/notifications/NotificationType.tsx';
 
 <CodeExample code={TypeCode}>
   <Type />
@@ -60,13 +59,13 @@ import TypeCode from '!!raw-loader!../../examples/notifications/alert/AlertType.
 
 ## API
 
-### Alert
-
-<PropSheet components={props.data.mdx.components} componentName="alert" />
-
 ### Close
 
 <PropSheet components={props.data.mdx.components} componentName="close" />
+
+### Notification
+
+<PropSheet components={props.data.mdx.components} componentName="notification" />
 
 ### Paragraph
 

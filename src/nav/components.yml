@@ -80,10 +80,10 @@
       id: https://zendeskgarden.github.io/react-components/modals
     - title: Notifications
       items:
-        - id: /components/alert
-          title: Alert
-        - id: /components/notification
-          title: Notification
+        - id: /components/alerts
+          title: Alerts
+        - id: /components/notifications
+          title: Notifications
     - title: Pagination
       id: /components/pagination
     - title: Stepper

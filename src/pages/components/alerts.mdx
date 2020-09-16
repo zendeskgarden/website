@@ -1,0 +1,85 @@
+---
+title: Alerts
+description: >
+  An Alert provides urgent contextual feedback in response to user action or system activity.
+package: '@zendeskgarden/react-notifications'
+components:
+  - notifications/src/elements/Alert.tsx
+  - notifications/src/elements/content/Close.tsx
+  - notifications/src/elements/content/Paragraph.tsx
+  - notifications/src/elements/content/Title.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>For urgent feedback</li>
+      <li>For contextual communication inline with page content</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          For a passive system update, use a [Notification](/components/notifications) instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+By default, an Alert will be read first by a screen reader and is persistent
+until the user dismisses it.
+
+import Default from '../../examples/notifications/alerts/AlertDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/notifications/alerts/AlertDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Type
+
+Types indicate what kind of message is in the alert and help the user understand
+how to respond. They can be Success, Warning, Danger, or Info.
+
+import Type from '../../examples/notifications/alerts/AlertType.tsx';
+import TypeCode from '!!raw-loader!../../examples/notifications/alerts/AlertType.tsx';
+
+<CodeExample code={TypeCode}>
+  <Type />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Alert
+
+<PropSheet components={props.data.mdx.components} componentName="alert" />
+
+### Close
+
+<PropSheet components={props.data.mdx.components} componentName="close" />
+
+### Paragraph
+
+<PropSheet components={props.data.mdx.components} componentName="paragraph" />
+
+### Title
+
+<PropSheet components={props.data.mdx.components} componentName="title" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
