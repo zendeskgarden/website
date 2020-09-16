@@ -7,18 +7,13 @@
 
 import React from 'react';
 import { Notification, Title, Close } from '@zendeskgarden/react-notifications';
-import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row>
-    <Col>
-      <Notification type="warning">
-        <Title>Warning</Title>
-        The garden plants are getting too much sun and not enough water.
-        <Close aria-label="Close Alert" />
-      </Notification>
-    </Col>
-  </Row>
+  <Notification type="warning">
+    <Title>Warning</Title>
+    The garden plants are getting too much sun and not enough water.
+    <Close aria-label="Close Alert" />
+  </Notification>
 );
 
 export default Example;

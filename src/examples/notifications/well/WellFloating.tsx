@@ -7,18 +7,12 @@
 
 import React from 'react';
 import { Well, Title } from '@zendeskgarden/react-notifications';
-import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row>
-    <Col>
-      <Well isFloating>
-        <Title>What is a Garden?</Title>
-        Gardens are a planned space, usually outdoors, set aside for the display, cultivation, or
-        enjoyment of plants and other forms of nature.
-      </Well>
-    </Col>
-  </Row>
+  <Well isFloating>
+    <Title>What is a Garden?</Title>
+    Gardens are for the enjoyment of plants and other forms of nature.
+  </Well>
 );
 
 export default Example;

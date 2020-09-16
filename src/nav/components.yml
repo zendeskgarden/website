@@ -78,7 +78,7 @@
           title: Spinner
     - title: Modal
       id: https://zendeskgarden.github.io/react-components/modals
-    - title: Notification
+    - title: Notifications
       items:
         - id: /components/alert
           title: Alert
