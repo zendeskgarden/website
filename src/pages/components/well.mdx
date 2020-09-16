@@ -1,0 +1,113 @@
+---
+title: Well
+description: >
+  A Well is a generic container that groups related content.
+package: '@zendeskgarden/react-notifications'
+components:
+  - notifications/src/elements/content/Close.tsx
+  - notifications/src/elements/content/Paragraph.tsx
+  - notifications/src/elements/content/Title.tsx
+  - notifications/src/elements/Well.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To group related content</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To expand and collapse content, use an [Accordion](/components/accordion)
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>For validation messages, use an [Alert](/components/alert)</Markdown>
+      </li>
+      <li>
+        <Markdown>
+          For growl-style notifications that float above the page content, use a
+          [Notification](/components/notification)
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of a Well component.
+
+import Default from '../../examples/notifications/well/WellDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/notifications/well/WellDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Floating
+
+A floating Well is formatted with a dropshadow to push the content off the page.
+
+import Floating from '../../examples/notifications/well/WellFloating.tsx';
+import FloatingCode from '!!raw-loader!../../examples/notifications/well/WellFloating.tsx';
+
+<CodeExample code={FloatingCode}>
+  <Floating />
+</CodeExample>
+
+### Multi-line
+
+A multi-line Well is formatted for a title and long-form content.
+
+import Multiline from '../../examples/notifications/well/WellMultiline.tsx';
+import MultilineCode from '!!raw-loader!../../examples/notifications/well/WellMultiline.tsx';
+
+<CodeExample code={MultilineCode}>
+  <Multiline />
+</CodeExample>
+
+### Recessed
+
+A recessed Well has a background to differentiate it from the rest of the page.
+
+import Recessed from '../../examples/notifications/well/WellRecessed.tsx';
+import RecessedCode from '!!raw-loader!../../examples/notifications/well/WellRecessed.tsx';
+
+<CodeExample code={RecessedCode}>
+  <Recessed />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Close
+
+<PropSheet components={props.data.mdx.components} componentName="close" />
+
+### Paragraph
+
+<PropSheet components={props.data.mdx.components} componentName="paragraph" />
+
+### Title
+
+<PropSheet components={props.data.mdx.components} componentName="title" />
+
+### Well
+
+<PropSheet components={props.data.mdx.components} componentName="well" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

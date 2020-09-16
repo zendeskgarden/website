@@ -80,9 +80,9 @@
       id: https://zendeskgarden.github.io/react-components/modals
     - title: Notification
       items:
-        - id: https://zendeskgarden.github.io/react-components/notifications
+        - id: /components/alert
           title: Alert
-        - id: https://zendeskgarden.github.io/react-components/notifications
+        - id: /components/notification
           title: Notification
     - title: Pagination
       id: /components/pagination
@@ -111,4 +111,4 @@
         - title: Typography
           id: /components/typography
     - title: Well
-      id: https://zendeskgarden.github.io/react-components/notifications
+      id: /components/well
