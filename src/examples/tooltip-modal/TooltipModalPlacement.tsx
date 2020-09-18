@@ -45,7 +45,21 @@ const StyledProgress = styled(TooltipModal.FooterItem)`
 `;
 
 const Example = () => {
-  const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({
+    'top-start': null,
+    top: null,
+    'top-end': null,
+    'end-top': null,
+    end: null,
+    'end-bottom': null,
+    'bottom-end': null,
+    bottom: null,
+    'bottom-start': null,
+    'start-bottom': null,
+    start: null,
+    'start-top': null,
+    auto: null
+  });
   const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
   const [placement, setPlacement] = useState<string>();
 
@@ -161,6 +175,7 @@ const Example = () => {
               {currentStep > 1 && (
                 <Button
                   size="small"
+                  isBasic
                   onClick={() => {
                     const placements = Object.keys(buttonRefs.current);
                     const currentPlacementIndex = placements.indexOf(placement!);
