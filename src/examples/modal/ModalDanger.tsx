@@ -16,7 +16,9 @@ const Example = () => {
   return (
     <Row>
       <Col textAlign="center">
-        <Button onClick={() => setVisible(true)}>Open modal</Button>
+        <Button onClick={() => setVisible(true)} isDanger>
+          Open danger modal
+        </Button>
         {visible && (
           <Modal onClose={() => setVisible(false)}>
             <Header isDanger>Remove plant food from your garden</Header>
