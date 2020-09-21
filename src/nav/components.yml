@@ -76,8 +76,12 @@
           title: Skeleton
         - id: /components/spinner
           title: Spinner
-    - title: Modal
-      id: https://zendeskgarden.github.io/react-components/modals
+    - title: Modals
+      items:
+        - id: /components/tooltip-modal
+          title: Tooltip Modal
+        - id: https://zendeskgarden.github.io/react-components/modals
+          title: Modal
     - title: Notification
       items:
         - id: https://zendeskgarden.github.io/react-components/notifications
@@ -96,12 +100,8 @@
       id: /components/tags
     - title: Tiles
       id: /components/tiles
-    - title: Tooltips
-      items:
-        - title: Tooltip
-          id: /components/tooltip
-        - title: Tooltip Modal
-          id: /components/tooltip-modal
+    - title: Tooltip
+      id: /components/tooltip
     - title: Typography
       items:
         - title: Code
