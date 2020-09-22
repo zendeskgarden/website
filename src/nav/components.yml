@@ -98,7 +98,7 @@
       id: /components/tiles
     - title: Tooltip
       id: /components/tooltip
-    - title: Tooltip Modal
+    - title: Tooltip modal
       id: /components/tooltip-modal
     - title: Typography
       items:
