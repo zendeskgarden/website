@@ -19,16 +19,22 @@ const StyledCol = styled(Col)`
 
 const Example = () => (
   <Row justifyContent="center">
-    <Col sm={5}>
+    <Col sm={4}>
       <Field>
-        <Label>Ivy</Label>
+        <Label>Textarea</Label>
         <Textarea />
       </Field>
     </Col>
-    <StyledCol sm={5}>
+    <StyledCol sm={4}>
       <Field>
-        <Label>Creeping ivy</Label>
+        <Label>Resizable</Label>
         <Textarea isResizable />
+      </Field>
+    </StyledCol>
+    <StyledCol sm={4}>
+      <Field>
+        <Label>Auto-expanding</Label>
+        <Textarea minRows={2} maxRows={12} />
       </Field>
     </StyledCol>
   </Row>
