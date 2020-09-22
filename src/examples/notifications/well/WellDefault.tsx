@@ -11,7 +11,7 @@ import { Well, Title } from '@zendeskgarden/react-notifications';
 const Example = () => (
   <Well>
     <Title>What is a Garden?</Title>
-    Gardens are for the enjoyment of plants and other forms of nature.
+    Turnip greens yarrow endive cauliflower sea lettuce kohlrabi amaranth water
   </Well>
 );
 

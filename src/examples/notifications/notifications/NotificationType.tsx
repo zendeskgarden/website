@@ -17,25 +17,25 @@ const Example = () => (
   <>
     <Notification type="info">
       <Title>Info</Title>
-      Watering plants in a garden will cause them to grow.
+      Turnip greens yarrow ricebean cauliflower sea lettuce kohlrabi amaranth water
       <Close aria-label="Close Alert" />
     </Notification>
     <StyledSpacer />
     <Notification type="warning">
       <Title>Warning</Title>
-      The garden plants are getting too much sun and not enough water.
+      Corn amaranth salsify bunya nuts nori azuki bean potato bell pepper artichoke
       <Close aria-label="Close Alert" />
     </Notification>
     <StyledSpacer />
     <Notification type="error">
       <Title>Error</Title>
-      There isn&apos;t any water left to water the plants.
+      Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic
       <Close aria-label="Close Alert" />
     </Notification>
     <StyledSpacer />
     <Notification type="success">
       <Title>Success</Title>
-      It started to rain and the garden is getting plenty of water.
+      Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke
       <Close aria-label="Close Alert" />
     </Notification>
   </>

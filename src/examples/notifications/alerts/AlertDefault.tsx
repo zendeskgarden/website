@@ -11,7 +11,7 @@ import { Alert, Title, Close } from '@zendeskgarden/react-notifications';
 const Example = () => (
   <Alert type="warning">
     <Title>Warning</Title>
-    The garden plants are getting too much sun and not enough water.
+    Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water
     <Close aria-label="Close Alert" />
   </Alert>
 );

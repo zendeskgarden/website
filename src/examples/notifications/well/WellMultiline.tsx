@@ -12,13 +12,13 @@ const Example = () => (
   <Well>
     <Title>What is a Garden?</Title>
     <Paragraph>
-      Gardens are a planned space, usually outdoors, set aside for the display, cultivation, or
-      enjoyment of plants and other forms of nature.
+      Turnip greens yarrow endive cauliflower sea lettuce kohlrabi amaranth water. Corn amaranth
+      salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
     </Paragraph>
     <Paragraph>
-      The single feature identifying even the wildest wild garden is control. The garden can
-      incorporate both natural and man-made materials. The most common form today is a residential
-      or public garden, but the term garden has traditionally been a more general one.
+      Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic. Corn
+      amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke. Turnip
+      greens yarrow endive cauliflower sea lettuce kohlrabi amaranth water.
     </Paragraph>
   </Well>
 );
