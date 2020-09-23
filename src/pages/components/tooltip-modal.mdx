@@ -1,7 +1,8 @@
 ---
 title: Tooltip Modal
 description: >
-  A Tooltip modal is a small overlay that opens automatically or through user-action, and displays contextual information for its paired element.
+  A Tooltip Modal provides contextual information about a paired element.
+  It either opens automatically or through user action.
 package: '@zendeskgarden/react-modals'
 components:
   - modals/src/elements/TooltipModal/TooltipModal.tsx
@@ -10,7 +11,7 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To provide actions within a tooltip</li>
+      <li>To enable user action within a tooltip</li>
       <li>To provide a focus jail when actions need to be inside a tooltip</li>
     </ul>
   </Use>
@@ -30,7 +31,7 @@ components:
 
 ### Default
 
-A Tooltip Modal must contain a header and a way to exit the experience.
+A Tooltip Modal contains a header and a way to exit the experience.
 
 import Default from '../../examples/tooltip-modal/TooltipModalDefault.tsx';
 import DefaultCode from '!!raw-loader!../../examples/tooltip-modal/TooltipModalDefault.tsx';
@@ -44,9 +45,9 @@ import DefaultCode from '!!raw-loader!../../examples/tooltip-modal/TooltipModalD
 A Tooltip modal component can contain a call-to-action, an icon, and
 a progress indicator.
 
-There are 13 placement options available. The tooltip modal will occupy
-the top position by default. The `auto` option will default it to a
-position with the most available space.
+There are 13 placement options available. The Tooltip Modal occupies the
+`top` position by default. The `auto` placement chooses the position
+with the most available space.
 
 import Placement from '../../examples/tooltip-modal/TooltipModalPlacement.tsx';
 import PlacementCode from '!!raw-loader!../../examples/tooltip-modal/TooltipModalPlacement.tsx';
