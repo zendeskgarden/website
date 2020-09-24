@@ -13,8 +13,8 @@ const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
       <Field>
-        <Label>Shrub</Label>
-        <Textarea />
+        <Label>Ivy</Label>
+        <Textarea isResizable />
       </Field>
     </Col>
   </Row>
