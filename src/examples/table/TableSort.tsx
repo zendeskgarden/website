@@ -17,7 +17,16 @@ import {
   Table
 } from '@zendeskgarden/react-tables';
 
-const data: any = [];
+interface IRowData {
+  id: string;
+  subject: string;
+  requester: string;
+  type: string;
+}
+
+type Direction = 'asc' | 'desc';
+
+const data: IRowData[] = [];
 
 for (let x = 0; x < 10; x++) {
   data.push({
@@ -28,7 +37,7 @@ for (let x = 0; x < 10; x++) {
   });
 }
 
-const sortData = (tableData: any, requesterSort: any, typeSort: any) => {
+const sortData = (tableData: IRowData[], requesterSort?: Direction, typeSort?: any) => {
   if (!requesterSort && !typeSort) {
     return tableData;
   }
@@ -59,7 +68,11 @@ const sortData = (tableData: any, requesterSort: any, typeSort: any) => {
 };
 
 const Example = () => {
-  const [state, setState] = useState({ data, requesterSort: 'asc', typeSort: undefined });
+  const [state, setState] = useState<{
+    data: IRowData[];
+    requesterSort?: Direction;
+    typeSort?: any;
+  }>({ data, requesterSort: 'asc', typeSort: undefined });
 
   return (
     <div style={{ minWidth: 500 }}>

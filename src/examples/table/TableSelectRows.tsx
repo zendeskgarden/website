@@ -10,18 +10,27 @@ import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgar
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { Field, Checkbox, Label } from '@zendeskgarden/react-forms';
 
-const rowData: any = [];
+interface IRowData {
+  index: string;
+  fruit: string;
+  sun: string;
+  soil: string;
+  selected: boolean;
+}
+
+const rowData: IRowData[] = [];
 
 for (let x = 0; x < 10; x++) {
   rowData.push({
     index: `row-${x}`,
     fruit: `Fruit #${x}`,
     sun: 'Full sun',
-    soil: 'Well draining'
+    soil: 'Well draining',
+    selected: false
   });
 }
 
-const isSelectAllIndeterminate = (rows: any) => {
+const isSelectAllIndeterminate = (rows: IRowData[]) => {
   const numSelectedRows = rows.reduce((accumulator, row) => {
     if (row.selected) {
       return accumulator + 1;
@@ -40,7 +49,7 @@ const isSelectAllChecked = (rows: any) => {
 const Example = () => {
   const [data, setData] = useState(rowData);
   const [shiftEnabled, setShiftEnabled] = useState(false);
-  const [focusedRowIndex, setFocusedRowIndex] = useState(undefined);
+  const [focusedRowIndex, setFocusedRowIndex] = useState<number | undefined>(undefined);
 
   return (
     <div style={{ minWidth: 500 }}>
@@ -97,7 +106,7 @@ const Example = () => {
 
                         const isAllChecked = updatedRows
                           .slice(startIndex, endIndex + 1)
-                          .every(row => row.selected);
+                          .every(slicedRow => slicedRow.selected);
 
                         for (let x = startIndex; x <= endIndex; x++) {
                           if (x === index && isAllChecked) {
