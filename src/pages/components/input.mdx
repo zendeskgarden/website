@@ -19,10 +19,11 @@ components:
     <ul>
       <li>To let the user enter data into a field</li>
       <li>
-        <Markdown>To enter multiline text, use a [Textarea](/components/input/#textarea-input)</Markdown>
+        <Markdown>
+          To enter multiline text, use a [Textarea](/components/input/#textarea-input)
+        </Markdown>
       </li>
     </ul>
-
   </Use>
 </Usage>
 
@@ -116,6 +117,17 @@ import PlaceholderCode from '!!raw-loader!../../examples/forms/inputs/Placeholde
 
 <CodeExample code={PlaceholderCode}>
   <Placeholder />
+</CodeExample>
+
+### Read-only
+
+A read-only Input prevents user modification but allows selection.
+
+import ReadOnly from '../../examples/forms/inputs/ReadOnly.tsx';
+import ReadOnlyCode from '!!raw-loader!../../examples/forms/inputs/ReadOnly.tsx';
+
+<CodeExample code={ReadOnlyCode}>
+  <ReadOnly />
 </CodeExample>
 
 ### Size

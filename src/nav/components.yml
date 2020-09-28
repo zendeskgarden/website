@@ -78,12 +78,12 @@
           title: Spinner
     - title: Modal
       id: https://zendeskgarden.github.io/react-components/modals
-    - title: Notification
+    - title: Notifications
       items:
-        - id: https://zendeskgarden.github.io/react-components/notifications
-          title: Alert
-        - id: https://zendeskgarden.github.io/react-components/notifications
-          title: Notification
+        - id: /components/alerts
+          title: Alerts
+        - id: /components/notifications
+          title: Notifications
     - title: Pagination
       id: /components/pagination
     - title: Stepper
@@ -111,4 +111,4 @@
         - title: Typography
           id: /components/typography
     - title: Well
-      id: https://zendeskgarden.github.io/react-components/notifications
+      id: /components/well
