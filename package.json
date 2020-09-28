@@ -98,7 +98,7 @@
     "js-yaml": "3.14.0",
     "lint-staged": "10.4.0",
     "lodash": "4.17.20",
-    "lodash.debounce": "^4.0.8",
+    "lodash.debounce": "4.0.8",
     "markdownlint-cli": "0.23.2",
     "mdast-util-to-string": "1.1.0",
     "polished": "3.6.7",
