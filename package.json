@@ -60,6 +60,7 @@
     "bottleneck": "2.19.5",
     "cheerio": "1.0.0-rc.3",
     "codesandbox": "2.2.1",
+    "comment-parser": "0.7.6",
     "core-js": "2.6.11",
     "date-fns": "2.16.1",
     "dotenv": "8.2.0",

@@ -8,6 +8,7 @@
 const fs = require('fs');
 const util = require('util');
 const path = require('path');
+const parse = require('comment-parser');
 const reactDocgenTypescript = require('react-docgen-typescript');
 const createNodeHelpers = require('gatsby-node-helpers').default;
 
@@ -35,6 +36,8 @@ const parseComponents = filePaths => {
   const components = PARSER.parse(filePaths);
 
   return components.map(component => {
+    const data = parse(`/** ${component.description} */`)[0];
+    const extendsTag = data ? data.tags.find(tag => tag.tag === 'extends') : null;
     const props = {};
 
     Object.keys(component.props)
@@ -63,7 +66,8 @@ const parseComponents = filePaths => {
 
     return {
       name: component.displayName,
-      description: component.description,
+      description: data ? data.description : '',
+      extends: extendsTag ? extendsTag.name : '',
       props
     };
   });
@@ -75,7 +79,8 @@ exports.createSchemaCustomization = ({ actions }) => {
   const typeDefs = `
     type ${generateTypeName(GARDEN_REACT_COMPONENT_ID)} @dontInfer {
       name: String
-      description: String
+      description: String,
+      extends: String,
       props: JSON
     }
   `;

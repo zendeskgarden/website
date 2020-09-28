@@ -17,6 +17,7 @@ interface IPropData {
 export interface IComponentData {
   name: string;
   description: string;
+  extends: string;
   props: Record<string, IPropData>;
 }
 
