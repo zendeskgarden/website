@@ -13,9 +13,9 @@ const Example = () => (
     <Table>
       <Head>
         <HeaderRow>
-          <HeaderCell>Fruit type</HeaderCell>
+          <HeaderCell>Fruit</HeaderCell>
           <HeaderCell>Sun exposure</HeaderCell>
-          <HeaderCell>Soil type</HeaderCell>
+          <HeaderCell>Soil</HeaderCell>
         </HeaderRow>
       </Head>
       <Body>
@@ -33,6 +33,16 @@ const Example = () => (
           <Cell>Grapes</Cell>
           <Cell>Full sun</Cell>
           <Cell>Rich and well draining</Cell>
+        </Row>
+        <Row>
+          <Cell>Cherries</Cell>
+          <Cell>Partial sun</Cell>
+          <Cell>Rich and well draining</Cell>
+        </Row>
+        <Row>
+          <Cell>Tomatoes</Cell>
+          <Cell>Partial shade</Cell>
+          <Cell>Well draining</Cell>
         </Row>
       </Body>
     </Table>

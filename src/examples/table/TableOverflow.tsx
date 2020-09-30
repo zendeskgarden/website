@@ -19,7 +19,7 @@ import {
 } from '@zendeskgarden/react-tables';
 
 const OverflowMenu = () => (
-  <Dropdown onSelect={alert}>
+  <Dropdown>
     <Trigger>
       <OverflowButton aria-label="Row actions" />
     </Trigger>
@@ -44,8 +44,8 @@ const OverflowMenu = () => (
         }
       }}
     >
-      <Item value="item-1">Item 1</Item>
-      <Item value="item-2">Item 2</Item>
+      <Item value="item-1">Edit</Item>
+      <Item value="item-2">Delete</Item>
     </Menu>
   </Dropdown>
 );

@@ -8,7 +8,14 @@
 import React from 'react';
 import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
 
-const rowData: { index: number; fruit: string; sun: string; soil: string }[] = [];
+interface IRowData {
+  index: number;
+  fruit: string;
+  sun: string;
+  soil: string;
+}
+
+const rowData: IRowData[] = [];
 
 for (let x = 0; x < 10; x++) {
   rowData.push({

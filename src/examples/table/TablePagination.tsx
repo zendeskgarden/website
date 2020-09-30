@@ -9,7 +9,14 @@ import React, { useState } from 'react';
 import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
 import { Pagination } from '@zendeskgarden/react-pagination';
 
-const rowData: { [key: string]: string }[] = [];
+interface IRowData {
+  index: string;
+  fruit: string;
+  sun: string;
+  soil: string;
+}
+
+const rowData: IRowData[] = [];
 
 for (let x = 0; x < 100; x++) {
   rowData.push({

@@ -1,8 +1,8 @@
 ---
 title: Table
 description: >
-  Tables organize and display related content from a data set. This helps users
-  manage, compare, and analyze large amounts of tabular data.
+  A Table organizes data into columns and rows. Tables make it easier for users
+  to compare and analyze information.
 package: '@zendeskgarden/react-tables'
 components:
   - tables/src/elements/Body.tsx
@@ -21,14 +21,14 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To organize and display data that has shared relationships</li>
+      <li>To organize and display data with logical relationships</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
       <li>
         <Markdown>
-          To layout content on a page, use the [Grid](/components/grid) component instead
+          To structure content on a page, use the [Grid](/components/grid) component instead
         </Markdown>
       </li>
     </ul>
@@ -48,17 +48,6 @@ import DefaultCode from '!!raw-loader!../../examples/table/TableDefault.tsx';
   <Default />
 </CodeExample>
 
-### Drag and drop
-
-Drag and drop functionality is implemented in combination with [react-beautiful-dnd](https://react-dnd.github.io/react-dnd/about).
-
-import Drag from '../../examples/table/TableDrag.tsx';
-import DragCode from '!!raw-loader!../../examples/table/TableDrag.tsx';
-
-<CodeExample code={DragCode}>
-  <Drag />
-</CodeExample>
-
 ### Grouped rows
 
 Grouped rows are for additional categorization.
@@ -68,6 +57,17 @@ import GroupedRowsCode from '!!raw-loader!../../examples/table/TableGroupedRows.
 
 <CodeExample code={GroupedRowsCode}>
   <GroupedRows />
+</CodeExample>
+
+### Overflow
+
+Overflow menus leverage the Dropdown and Menu component.
+
+import Overflow from '../../examples/table/TableOverflow.tsx';
+import OverflowCode from '!!raw-loader!../../examples/table/TableOverflow.tsx';
+
+<CodeExample code={OverflowCode}>
+  <Overflow />
 </CodeExample>
 
 ### Pagination
@@ -138,17 +138,6 @@ import StripedRowsCode from '!!raw-loader!../../examples/table/TableStripedRows.
 
 <CodeExample code={StripedRowsCode}>
   <StripedRows />
-</CodeExample>
-
-### Overflow
-
-Overflow menus leverage the Dropdown and Menu component.
-
-import Overflow from '../../examples/table/TableOverflow.tsx';
-import OverflowCode from '!!raw-loader!../../examples/table/TableOverflow.tsx';
-
-<CodeExample code={OverflowCode}>
-  <Overflow />
 </CodeExample>
 
 ### Truncate

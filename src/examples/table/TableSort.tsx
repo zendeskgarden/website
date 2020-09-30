@@ -24,12 +24,12 @@ interface IRowData {
   type: string;
 }
 
-type Direction = 'asc' | 'desc';
+type Direction = 'asc' | 'desc' | undefined;
 
-const data: IRowData[] = [];
+const rowData: IRowData[] = [];
 
 for (let x = 0; x < 10; x++) {
-  data.push({
+  rowData.push({
     id: `row-${x}`,
     subject: `Custom ticket view ${x + 1}`,
     requester: x % 2 === 0 ? 'John Smith' : 'Jane Doe',
@@ -37,13 +37,13 @@ for (let x = 0; x < 10; x++) {
   });
 }
 
-const sortData = (tableData: IRowData[], requesterSort?: Direction, typeSort?: any) => {
+const sortData = (tableData: IRowData[], requesterSort: Direction, typeSort: Direction) => {
   if (!requesterSort && !typeSort) {
     return tableData;
   }
 
   let field: string;
-  let sortValue: string;
+  let sortValue: Direction;
 
   if (requesterSort) {
     field = 'requester';
@@ -68,11 +68,9 @@ const sortData = (tableData: IRowData[], requesterSort?: Direction, typeSort?: a
 };
 
 const Example = () => {
-  const [state, setState] = useState<{
-    data: IRowData[];
-    requesterSort?: Direction;
-    typeSort?: any;
-  }>({ data, requesterSort: 'asc', typeSort: undefined });
+  const [data, setData] = useState(rowData);
+  const [requesterSort, setRequesterSort] = useState<Direction>();
+  const [typeSort, setTypeSort] = useState<Direction>();
 
   return (
     <div style={{ minWidth: 500 }}>
@@ -82,40 +80,48 @@ const Example = () => {
             <HeaderCell>Subject</HeaderCell>
             <SortableCell
               onClick={() => {
-                const { requesterSort } = state;
-
                 if (requesterSort === 'asc') {
-                  setState({ data, requesterSort: 'desc', typeSort: undefined });
+                  setData(data);
+                  setRequesterSort('desc');
+                  setTypeSort(undefined);
                 } else if (requesterSort === 'desc') {
-                  setState({ data, requesterSort: undefined, typeSort: undefined });
+                  setData(data);
+                  setRequesterSort(undefined);
+                  setTypeSort(undefined);
                 } else {
-                  setState({ data, requesterSort: 'asc', typeSort: undefined });
+                  setData(data);
+                  setRequesterSort('asc');
+                  setTypeSort(undefined);
                 }
               }}
-              sort={state.requesterSort}
+              sort={requesterSort}
             >
               Requester
             </SortableCell>
             <SortableCell
               onClick={() => {
-                const { typeSort } = state;
-
                 if (typeSort === 'asc') {
-                  setState({ data, typeSort: 'desc', requesterSort: undefined });
+                  setData(data);
+                  setRequesterSort(undefined);
+                  setTypeSort('desc');
                 } else if (typeSort === 'desc') {
-                  setState({ data, typeSort: undefined, requesterSort: undefined });
+                  setData(data);
+                  setRequesterSort(undefined);
+                  setTypeSort(undefined);
                 } else {
-                  setState({ data, typeSort: 'asc', requesterSort: undefined });
+                  setData(data);
+                  setRequesterSort(undefined);
+                  setTypeSort('desc');
                 }
               }}
-              sort={state.typeSort}
+              sort={typeSort}
             >
               Type
             </SortableCell>
           </HeaderRow>
         </Head>
         <Body>
-          {sortData(state.data.slice(), state.requesterSort, state.typeSort).map(row => (
+          {sortData(data.slice(), requesterSort, typeSort).map(row => (
             <Row key={row.id}>
               <Cell>{row.subject}</Cell>
               <Cell>{row.requester}</Cell>
