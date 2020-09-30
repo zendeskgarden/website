@@ -11,7 +11,6 @@ components:
   - forms/src/elements/common/Label.tsx
   - forms/src/elements/MediaInput.tsx
   - forms/src/elements/common/Message.tsx
-  - forms/src/elements/Textarea.tsx
 ---
 
 <Usage>
@@ -19,9 +18,7 @@ components:
     <ul>
       <li>To let the user enter data into a field</li>
       <li>
-        <Markdown>
-          To enter multiline text, use a [Textarea](/components/input/#textarea-input)
-        </Markdown>
+        <Markdown>To enter multiline text, use a [Textarea](/components/textarea)</Markdown>
       </li>
     </ul>
   </Use>
@@ -141,18 +138,6 @@ import SizeCode from '!!raw-loader!../../examples/forms/inputs/Size.tsx';
   <Size />
 </CodeExample>
 
-### Textarea input
-
-A Textarea is for multiline text. By default, its height is fixed and becomes resizable with the
-`isResizable` prop.
-
-import Textarea from '../../examples/forms/inputs/Textarea.tsx';
-import TextareaCode from '!!raw-loader!../../examples/forms/inputs/Textarea.tsx';
-
-<CodeExample code={TextareaCode}>
-  <Textarea />
-</CodeExample>
-
 ### Validation
 
 Show success, warning, and danger validation messages with the Message component.
@@ -197,10 +182,6 @@ import ValidationCode from '!!raw-loader!../../examples/forms/inputs/Validation.
 ### Message
 
 <PropSheet components={props.data.mdx.components} componentName="message" />
-
-### Textarea
-
-<PropSheet components={props.data.mdx.components} componentName="textarea" />
 
 import { graphql } from 'gatsby';
 

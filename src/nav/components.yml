@@ -60,6 +60,8 @@
           title: Radio
         - id: /components/range
           title: Range
+        - id: /components/textarea
+          title: Textarea
         - id: /components/toggle
           title: Toggle
     - title: Grid
@@ -77,8 +79,8 @@
         - id: /components/spinner
           title: Spinner
     - title: Modal
-      id: https://zendeskgarden.github.io/react-components/modals
-    - title: Notifications
+      id: /components/modal
+    - title: Notification
       items:
         - id: /components/alerts
           title: Alerts
