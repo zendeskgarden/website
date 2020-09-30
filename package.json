@@ -43,6 +43,7 @@
     "@zendeskgarden/react-forms": "8.23.1",
     "@zendeskgarden/react-grid": "8.23.1",
     "@zendeskgarden/react-loaders": "8.23.1",
+    "@zendeskgarden/react-modals": "8.23.1",
     "@zendeskgarden/react-notifications": "8.23.1",
     "@zendeskgarden/react-pagination": "8.23.1",
     "@zendeskgarden/react-tables": "8.23.1",

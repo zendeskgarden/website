@@ -1,0 +1,105 @@
+---
+title: Modal
+description: >
+  A Modal is a dialog box that sits on the top of the current page. Modals block
+  access to the rest of the page and force user interaction.
+package: '@zendeskgarden/react-modals'
+components:
+  - modals/src/elements/Body.tsx
+  - modals/src/elements/Close.tsx
+  - modals/src/elements/Footer.tsx
+  - modals/src/elements/FooterItem.tsx
+  - modals/src/elements/Header.tsx
+  - modals/src/elements/Modal.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To interrupt users with a dialog that requests information or an action</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To provide users with information that doesn't require interruption, use a Notification
+          instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of a Modal component.
+
+import Default from '../../examples/modal/ModalDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/modal/ModalDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Danger
+
+Use Danger styling for modals that enable a destructive action.
+
+import Danger from '../../examples/modal/ModalDanger.tsx';
+import DangerCode from '!!raw-loader!../../examples/modal/ModalDanger.tsx';
+
+<CodeExample code={DangerCode}>
+  <Danger />
+</CodeExample>
+
+### Size
+
+A modal can be default or large.
+
+import Size from '../../examples/modal/ModalSize.tsx';
+import SizeCode from '!!raw-loader!../../examples/modal/ModalSize.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Body
+
+<PropSheet components={props.data.mdx.components} componentName="body" />
+
+### Close
+
+<PropSheet components={props.data.mdx.components} componentName="close" />
+
+### Footer
+
+<PropSheet components={props.data.mdx.components} componentName="footer" />
+
+### FooterItem
+
+<PropSheet components={props.data.mdx.components} componentName="footeritem" />
+
+### Header
+
+<PropSheet components={props.data.mdx.components} componentName="header" />
+
+### Modal
+
+<PropSheet components={props.data.mdx.components} componentName="modal" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
