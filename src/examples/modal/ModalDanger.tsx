@@ -23,7 +23,8 @@ const Example = () => {
           <Modal onClose={() => setVisible(false)}>
             <Header isDanger>Remove plant food from your garden</Header>
             <Body>
-              Plant food is great for the health of a garden. Are you sure you want to remove it?
+              Plant food helps gardens grow. Removing plant food negatively affects the plant
+              health.
             </Body>
             <Footer>
               <FooterItem>
