@@ -38,6 +38,8 @@
       id: /components/chrome
     - title: Datepicker
       id: /components/datepicker
+    - title: Drawer
+      id: /components/drawer
     - title: Dropdowns
       items:
         - id: /components/autocomplete
