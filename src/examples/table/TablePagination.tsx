@@ -9,33 +9,25 @@ import React, { useState } from 'react';
 import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
 import { Pagination } from '@zendeskgarden/react-pagination';
 
-interface IRowData {
-  index: string;
+interface IRow {
   fruit: string;
   sun: string;
   soil: string;
 }
 
-const rowData: IRowData[] = [];
+const rowData: IRow[] = Array.from(Array(100)).map((row, index) => ({
+  fruit: `Fruit #${index}`,
+  sun: 'Full sun',
+  soil: 'Well draining'
+}));
 
-for (let x = 0; x < 100; x++) {
-  rowData.push({
-    index: `row-${x}`,
-    fruit: `Fruit #${x}`,
-    sun: 'Full sun',
-    soil: 'Well draining'
-  });
-}
-
-const getPagedData = (data: any, currentPage: number, pageSize: number) => {
-  const output = [];
-
-  for (let x = (currentPage - 1) * pageSize; x < data.length && x < currentPage * pageSize; x++) {
-    output.push(data[x]);
-  }
-
-  return output;
-};
+const createRow = (row: IRow, index: number) => (
+  <Row key={index}>
+    <Cell>{row.fruit}</Cell>
+    <Cell>{row.sun}</Cell>
+    <Cell>{row.soil}</Cell>
+  </Row>
+);
 
 const Example = () => {
   const pageSize = 10;
@@ -43,7 +35,7 @@ const Example = () => {
 
   return (
     <div style={{ minWidth: 500 }}>
-      <Table>
+      <Table style={{ marginBottom: '20px' }}>
         <Head>
           <HeaderRow>
             <HeaderCell>Fruit</HeaderCell>
@@ -52,18 +44,15 @@ const Example = () => {
           </HeaderRow>
         </Head>
         <Body>
-          {getPagedData(rowData, currentPage, pageSize).map(row => (
-            <Row key={row.index}>
-              <Cell>{row.fruit}</Cell>
-              <Cell>{row.sun}</Cell>
-              <Cell>{row.soil}</Cell>
-            </Row>
-          ))}
+          {currentPage === 1
+            ? rowData.slice(currentPage - 1, pageSize).map(createRow)
+            : rowData
+                .slice(currentPage * pageSize - pageSize, currentPage * pageSize)
+                .map(createRow)}
         </Body>
       </Table>
-      <div style={{ height: 20 }} />
       <Pagination
-        totalPages={Math.floor(rowData.length / pageSize)}
+        totalPages={rowData.length / pageSize}
         currentPage={currentPage}
         onChange={setCurrentPage}
       />

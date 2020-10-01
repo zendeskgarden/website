@@ -26,23 +26,19 @@ interface IRowData {
 
 type Direction = 'asc' | 'desc' | undefined;
 
-const rowData: IRowData[] = [];
-
-for (let x = 0; x < 10; x++) {
-  rowData.push({
-    id: `row-${x}`,
-    subject: `Custom ticket view ${x + 1}`,
-    requester: x % 2 === 0 ? 'John Smith' : 'Jane Doe',
-    type: x % 3 === 0 ? 'Ticket' : 'Incident'
-  });
-}
+const rowData: IRowData[] = Array.from(Array(10)).map((row, index) => ({
+  id: `row-${index}`,
+  subject: `Custom ticket view ${index + 1}`,
+  requester: index % 2 === 0 ? 'John Smith' : 'Jane Doe',
+  type: index % 3 === 0 ? 'Ticket' : 'Incident'
+}));
 
 const sortData = (tableData: IRowData[], requesterSort: Direction, typeSort: Direction) => {
   if (!requesterSort && !typeSort) {
     return tableData;
   }
 
-  let field: string;
+  let field: 'requester' | 'type';
   let sortValue: Direction;
 
   if (requesterSort) {
@@ -53,7 +49,7 @@ const sortData = (tableData: IRowData[], requesterSort: Direction, typeSort: Dir
     sortValue = typeSort;
   }
 
-  return tableData.sort((a: any, b: any) => {
+  return tableData.sort((a, b) => {
     const aValue = a[field];
     const bValue = b[field];
 

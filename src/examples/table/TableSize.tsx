@@ -32,7 +32,7 @@ const Example = () => (
         </Caption>
         <Head>
           <HeaderRow>
-            <HeaderCell>Fruit type</HeaderCell>
+            <HeaderCell>Fruit</HeaderCell>
             <HeaderCell>Sun exposure</HeaderCell>
             <HeaderCell>Soil type</HeaderCell>
           </HeaderRow>
@@ -73,7 +73,7 @@ const Example = () => (
         </Caption>
         <Head>
           <HeaderRow>
-            <HeaderCell>Fruit type</HeaderCell>
+            <HeaderCell>Fruit</HeaderCell>
             <HeaderCell>Sun exposure</HeaderCell>
             <HeaderCell>Soil type</HeaderCell>
           </HeaderRow>
@@ -114,7 +114,7 @@ const Example = () => (
         </Caption>
         <Head>
           <HeaderRow>
-            <HeaderCell>Fruit type</HeaderCell>
+            <HeaderCell>Fruit</HeaderCell>
             <HeaderCell>Sun exposure</HeaderCell>
             <HeaderCell>Soil type</HeaderCell>
           </HeaderRow>

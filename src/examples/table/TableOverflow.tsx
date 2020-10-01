@@ -55,7 +55,7 @@ const Example = () => (
     <Table>
       <Head>
         <HeaderRow>
-          <HeaderCell>Fruit type</HeaderCell>
+          <HeaderCell>Fruit</HeaderCell>
           <HeaderCell>Sun exposure</HeaderCell>
           <HeaderCell>Soil type</HeaderCell>
           <HeaderCell hasOverflow>
