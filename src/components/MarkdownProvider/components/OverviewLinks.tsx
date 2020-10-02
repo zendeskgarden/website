@@ -24,7 +24,7 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
     /* skip past Overview link-to-self */
     if (index > 0) {
       return (
-        <>
+        <React.Fragment key={index}>
           <LG isBold tag="h2">
             {section.title}
           </LG>
@@ -54,11 +54,11 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
               })}
             </StyledUnorderedList>
           )}
-        </>
+        </React.Fragment>
       );
     }
 
-    return <></>;
+    return null;
   });
 
   return <nav>{content}</nav>;

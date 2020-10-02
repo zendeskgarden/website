@@ -1,0 +1,79 @@
+---
+title: Textarea
+description: >
+  A Textarea is a form control for multi-line text.
+package: '@zendeskgarden/react-forms'
+components:
+  - forms/src/elements/common/Field.tsx
+  - forms/src/elements/common/Label.tsx
+  - forms/src/elements/Textarea.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To enter multi-line text</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Default
+
+By default, textarea height is fixed.
+
+import Default from '../../examples/forms/textarea/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/forms/textarea/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Auto-expand
+
+Textarea height can be configured to resize automatically based on user input.
+
+import AutoExpand from '../../examples/forms/textarea/AutoExpand.tsx';
+import AutoExpandCode from '!!raw-loader!../../examples/forms/textarea/AutoExpand.tsx';
+
+<CodeExample code={AutoExpandCode}>
+  <AutoExpand />
+</CodeExample>
+
+### Manual resizing
+
+Drag handles can be applied to a textarea for manual resizing.
+
+import DragHandles from '../../examples/forms/textarea/DragHandles.tsx';
+import DragHandlesCode from '!!raw-loader!../../examples/forms/textarea/DragHandles.tsx';
+
+<CodeExample code={DragHandlesCode}>
+  <DragHandles />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Field
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Label
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+### Textarea
+
+<PropSheet components={props.data.mdx.components} componentName="textarea" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

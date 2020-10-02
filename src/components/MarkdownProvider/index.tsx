@@ -10,6 +10,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { Code } from '@zendeskgarden/react-typography';
 import { CodeExample } from './components/CodeExample';
 import { StyledCodeBlock as CodeBlock } from './components/CodeBlock';
+import { Component } from './components/Component';
 import { Configuration } from './components/Configuration';
 import { PropSheet } from './components/PropSheet';
 import { Usage, Use, Misuse } from './components/Usage';
@@ -31,6 +32,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
          * Helper components
          */
         CodeExample,
+        Component,
         Configuration,
         PropSheet,
         Usage,

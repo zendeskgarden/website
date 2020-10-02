@@ -54,7 +54,7 @@ interface IStyledCaptionProps {
   hue: string;
 }
 
-const StyledCaption = styled(p => <Well isRecessed {...p} />).attrs(p => ({
+const StyledCaption = styled(p => <Well isRecessed {...p} />).attrs<IStyledCaptionProps>(p => ({
   forwardedAs: p.tag
 }))<IStyledCaptionProps>`
   border: none;
