@@ -12,30 +12,10 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Span, SM } from '@zendeskgarden/react-typography';
 
-const StyledWrapperRow = styled(Row)`
-  padding: ${p => p.theme.space.sm};
-  direction: ${p => (p.theme.rtl ? 'rtl' : 'ltr')};
-  overflow: auto;
-`;
-
-const StyledWrapperCol = styled(Col)`
-  min-width: 400px;
-`;
-
-const StyledSpacedRow = styled.div`
-  & > * {
-    margin: 0 ${p => p.theme.space.xs};
+const StyledRow = styled(Row)`
+  & + & {
+    margin-top: ${p => p.theme.space.xs};
   }
-`;
-
-const StyledCenterRow = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: ${p => p.theme.space.xs} 0;
-`;
-
-const StyledCenterColumn = styled.div`
-  min-width: 150px;
 `;
 
 const Example = () => {
@@ -153,63 +133,85 @@ const Example = () => {
         </TooltipModal.Footer>
         <TooltipModal.Close aria-label="Close" />
       </TooltipModal>
-      <StyledWrapperRow>
-        <StyledWrapperCol textAlign="center">
-          <StyledSpacedRow>
-            <Button size="small" ref={storeRef} onClick={onClick}>
-              top-start
-            </Button>
-            <Button size="small" ref={storeRef} onClick={onClick}>
-              top
-            </Button>
-            <Button size="small" ref={storeRef} onClick={onClick}>
-              top-end
-            </Button>
-          </StyledSpacedRow>
-          <StyledCenterRow>
-            <Button size="small" ref={storeRef} onClick={onClick}>
-              start-top
-            </Button>
-            <StyledCenterColumn></StyledCenterColumn>
-            <Button size="small" ref={storeRef} onClick={onClick}>
-              end-top
-            </Button>
-          </StyledCenterRow>
-          <StyledCenterRow>
-            <Button size="small" ref={storeRef} onClick={onClick}>
-              start
-            </Button>
-            <StyledCenterColumn>
+      <Row justifyContent="center" style={{ minWidth: 400 }}>
+        <Col md={7}>
+          <StyledRow>
+            <Col textAlign="end">
+              <Button size="small" ref={storeRef} onClick={onClick}>
+                top-start
+              </Button>
+            </Col>
+            <Col textAlign="center">
+              <Button size="small" ref={storeRef} onClick={onClick}>
+                top
+              </Button>
+            </Col>
+            <Col textAlign="start">
+              <Button size="small" ref={storeRef} onClick={onClick}>
+                top-end
+              </Button>
+            </Col>
+          </StyledRow>
+          <StyledRow>
+            <Col textAlign="start">
+              <Button size="small" ref={storeRef} onClick={onClick}>
+                start-top
+              </Button>
+            </Col>
+            <Col textAlign="end">
+              <Button size="small" ref={storeRef} onClick={onClick}>
+                end-top
+              </Button>
+            </Col>
+          </StyledRow>
+          <StyledRow>
+            <Col textAlign="start">
+              <Button size="small" ref={storeRef} onClick={onClick}>
+                start
+              </Button>
+            </Col>
+            <Col textAlign="center">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 auto
               </Button>
-            </StyledCenterColumn>
-            <Button size="small" ref={storeRef} onClick={onClick}>
-              end
-            </Button>
-          </StyledCenterRow>
-          <StyledCenterRow>
-            <Button size="small" ref={storeRef} onClick={onClick}>
-              start-bottom
-            </Button>
-            <StyledCenterColumn></StyledCenterColumn>
-            <Button size="small" ref={storeRef} onClick={onClick}>
-              end-bottom
-            </Button>
-          </StyledCenterRow>
-          <StyledSpacedRow>
-            <Button size="small" ref={storeRef} onClick={onClick}>
-              bottom-start
-            </Button>
-            <Button size="small" ref={storeRef} onClick={onClick}>
-              bottom
-            </Button>
-            <Button size="small" ref={storeRef} onClick={onClick}>
-              bottom-end
-            </Button>
-          </StyledSpacedRow>
-        </StyledWrapperCol>
-      </StyledWrapperRow>
+            </Col>
+            <Col textAlign="end">
+              <Button size="small" ref={storeRef} onClick={onClick}>
+                end
+              </Button>
+            </Col>
+          </StyledRow>
+          <StyledRow>
+            <Col textAlign="start">
+              <Button size="small" ref={storeRef} onClick={onClick}>
+                start-bottom
+              </Button>
+            </Col>
+            <Col textAlign="end">
+              <Button size="small" ref={storeRef} onClick={onClick}>
+                end-bottom
+              </Button>
+            </Col>
+          </StyledRow>
+          <StyledRow>
+            <Col textAlign="end">
+              <Button size="small" ref={storeRef} onClick={onClick}>
+                bottom-start
+              </Button>
+            </Col>
+            <Col textAlign="center">
+              <Button size="small" ref={storeRef} onClick={onClick}>
+                bottom
+              </Button>
+            </Col>
+            <Col textAlign="start">
+              <Button size="small" ref={storeRef} onClick={onClick}>
+                bottom-end
+              </Button>
+            </Col>
+          </StyledRow>
+        </Col>
+      </Row>
     </>
   );
 };
