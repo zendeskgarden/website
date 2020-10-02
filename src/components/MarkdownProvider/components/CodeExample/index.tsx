@@ -46,7 +46,13 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
           css={css`
             padding: ${p => p.theme.space.md};
             direction: ${p => p.theme.rtl && 'rtl'};
-            /* overflow-x: auto; */
+            overflow: auto;
+
+            &::after {
+              display: inline-block;
+              width: ${props => props.theme.space.base * 3}px;
+              content: '';
+            }
           `}
         >
           {typeof window === 'undefined' /* isSSR */ ? undefined : children}

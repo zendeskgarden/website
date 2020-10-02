@@ -6,8 +6,13 @@
  */
 
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
 import { Pagination } from '@zendeskgarden/react-pagination';
+
+const StyledTable = styled(Table)`
+  margin-bottom: ${p => p.theme.space.md};
+`;
 
 interface IRow {
   fruit: string;
@@ -35,7 +40,7 @@ const Example = () => {
 
   return (
     <div style={{ minWidth: 500 }}>
-      <Table style={{ marginBottom: '20px' }}>
+      <StyledTable>
         <Head>
           <HeaderRow>
             <HeaderCell>Fruit</HeaderCell>
@@ -50,7 +55,7 @@ const Example = () => {
                 .slice(currentPage * pageSize - pageSize, currentPage * pageSize)
                 .map(createRow)}
         </Body>
-      </Table>
+      </StyledTable>
       <Pagination
         totalPages={rowData.length / pageSize}
         currentPage={currentPage}

@@ -8,23 +8,19 @@
 import React from 'react';
 import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
 
-interface IRowData {
-  index: string;
+interface IRow {
+  index: number;
   fruit: string;
   sun: string;
   soil: string;
 }
 
-const rowData: IRowData[] = [];
-
-for (let x = 0; x < 100; x++) {
-  rowData.push({
-    index: `row-${x}`,
-    fruit: `Fruit #${x}`,
-    sun: 'Full sun',
-    soil: 'Well draining'
-  });
-}
+const rowData: IRow[] = Array.from(Array(100)).map((row, index) => ({
+  index,
+  fruit: `Fruit #${index}`,
+  sun: 'Full sun',
+  soil: 'Well draining'
+}));
 
 const Example = () => (
   <div style={{ minWidth: 500 }}>

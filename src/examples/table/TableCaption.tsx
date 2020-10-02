@@ -6,10 +6,11 @@
  */
 
 import React from 'react';
+import { XL } from '@zendeskgarden/react-typography';
 import {
   Body,
+  Caption,
   Cell,
-  GroupRow,
   Head,
   HeaderCell,
   HeaderRow,
@@ -20,19 +21,17 @@ import {
 const Example = () => (
   <div style={{ minWidth: 500 }}>
     <Table>
+      <Caption>
+        <XL>Garden details</XL>
+      </Caption>
       <Head>
         <HeaderRow>
-          <HeaderCell>Type</HeaderCell>
+          <HeaderCell>Fruit</HeaderCell>
           <HeaderCell>Sun exposure</HeaderCell>
           <HeaderCell>Soil</HeaderCell>
         </HeaderRow>
       </Head>
       <Body>
-        <GroupRow>
-          <Cell colSpan={3}>
-            <b>Fruits</b>
-          </Cell>
-        </GroupRow>
         <Row>
           <Cell>Raspberries</Cell>
           <Cell>Partial shade</Cell>
@@ -57,36 +56,6 @@ const Example = () => (
           <Cell>Tomatoes</Cell>
           <Cell>Partial shade</Cell>
           <Cell>Well draining</Cell>
-        </Row>
-        <GroupRow>
-          <Cell colSpan={3}>
-            <b>Vegetables</b>
-          </Cell>
-        </GroupRow>
-        <Row>
-          <Cell>Zucchini</Cell>
-          <Cell>Partial shade</Cell>
-          <Cell>Moist and slightly acidic</Cell>
-        </Row>
-        <Row>
-          <Cell>Carrot</Cell>
-          <Cell>Full sun</Cell>
-          <Cell>Medium moisture</Cell>
-        </Row>
-        <Row>
-          <Cell>Squash</Cell>
-          <Cell>Full sun</Cell>
-          <Cell>Rich and well draining</Cell>
-        </Row>
-        <Row>
-          <Cell>Garlic</Cell>
-          <Cell>Full sun</Cell>
-          <Cell>Medium moisture</Cell>
-        </Row>
-        <Row>
-          <Cell>Celery</Cell>
-          <Cell>Full sun</Cell>
-          <Cell>Rich and well draining</Cell>
         </Row>
       </Body>
     </Table>

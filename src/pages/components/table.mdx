@@ -21,7 +21,7 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To organize and display data with logical relationships</li>
+      <li>To organize and display read-only data with logical relationships</li>
     </ul>
   </Use>
   <Misuse>
@@ -83,7 +83,7 @@ import PaginationCode from '!!raw-loader!../../examples/table/TablePagination.ts
 
 ### Scroll
 
-To ensure that your table is read correctly by assistive technologies follow the
+To ensure that your table is read correctly by assistive technologies, follow the
 [W3C Grid accessibility
 pattern](https://www.w3.org/TR/wai-aria-practices-1.1/examples/grid/dataGrids.html).
 
@@ -96,7 +96,11 @@ import ScrollCode from '!!raw-loader!../../examples/table/TableScroll.tsx';
 
 ### Selection
 
-Individual rows within a table can be selected for bulk actions.
+Table rows are implemented in combination with a
+[Checkbox](/components/checkbox) component to become selectable. A checkbox in
+the header row is for selecting all rows on a page. This example includes
+keyboard logic for selecting or deselecting multiple sequential rows at a time
+by holding down the shift key.
 
 import SelectRows from '../../examples/table/TableSelectRows.tsx';
 import SelectRowsCode from '!!raw-loader!../../examples/table/TableSelectRows.tsx';
@@ -129,15 +133,25 @@ import SortCode from '!!raw-loader!../../examples/table/TableSort.tsx';
 
 ### Striped rows
 
-The background color of rows can alternate to help delineate content when
-scanning long rows. Striped and grouped rows shouldn’t be active at the same
-time.
+You can alternate row background color to help make long rows easier to scan.
+Don't use striped and group rows at the same time.
 
 import StripedRows from '../../examples/table/TableStripedRows.tsx';
 import StripedRowsCode from '!!raw-loader!../../examples/table/TableStripedRows.tsx';
 
 <CodeExample code={StripedRowsCode}>
   <StripedRows />
+</CodeExample>
+
+### Table caption
+
+The Caption component specifies the title of a table.
+
+import Caption from '../../examples/table/TableCaption.tsx';
+import CaptionCode from '!!raw-loader!../../examples/table/TableCaption.tsx';
+
+<CodeExample code={CaptionCode}>
+  <Caption />
 </CodeExample>
 
 ### Truncate

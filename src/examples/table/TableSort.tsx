@@ -107,7 +107,7 @@ const Example = () => {
                 } else {
                   setData(data);
                   setRequesterSort(undefined);
-                  setTypeSort('desc');
+                  setTypeSort('asc');
                 }
               }}
               sort={typeSort}

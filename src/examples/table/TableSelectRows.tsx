@@ -11,24 +11,20 @@ import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { Field, Checkbox, Label } from '@zendeskgarden/react-forms';
 
 interface IRowData {
-  index: string;
+  id: string;
   fruit: string;
   sun: string;
   soil: string;
   selected: boolean;
 }
 
-const rowData: IRowData[] = [];
-
-for (let x = 0; x < 10; x++) {
-  rowData.push({
-    index: `row-${x}`,
-    fruit: `Fruit #${x}`,
-    sun: 'Full sun',
-    soil: 'Well draining',
-    selected: false
-  });
-}
+const rowData: IRowData[] = Array.from(Array(10)).map((row, index) => ({
+  id: `row-${index}`,
+  fruit: `Fruit #${index}`,
+  sun: 'Full sun',
+  soil: 'Well draining',
+  selected: false
+}));
 
 const isSelectAllIndeterminate = (rows: IRowData[]) => {
   const numSelectedRows = rows.reduce((accumulator, row) => {
@@ -42,9 +38,7 @@ const isSelectAllIndeterminate = (rows: IRowData[]) => {
   return numSelectedRows > 0 && numSelectedRows < rows.length;
 };
 
-const isSelectAllChecked = (rows: any) => {
-  return rows.every((row: any) => row.selected);
-};
+const isSelectAllChecked = (rows: IRowData[]) => rows.every(row => row.selected);
 
 const Example = () => {
   const [data, setData] = useState(rowData);
@@ -63,11 +57,11 @@ const Example = () => {
                   checked={isSelectAllChecked(data)}
                   onChange={e => {
                     if (e.target.checked) {
-                      const updatedRows = data.map((row: any) => ({ ...row, selected: true }));
+                      const updatedRows = data.map(row => ({ ...row, selected: true }));
 
                       setData(updatedRows);
                     } else {
-                      const updatedRows = data.map((row: any) => ({ ...row, selected: false }));
+                      const updatedRows = data.map(row => ({ ...row, selected: false }));
 
                       setData(updatedRows);
                     }
@@ -84,7 +78,7 @@ const Example = () => {
         </Head>
         <Body>
           {data.map((row, index) => (
-            <Row key={row.index} isSelected={row.selected}>
+            <Row key={row.id} isSelected={row.selected}>
               <Cell isMinimum>
                 <Field>
                   <Checkbox

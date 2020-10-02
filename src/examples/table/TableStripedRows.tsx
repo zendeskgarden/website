@@ -15,7 +15,7 @@ interface IRow {
   soil: string;
 }
 
-const rowData: IRow[] = Array.from(Array(100)).map((row, index) => ({
+const rowData: IRow[] = Array.from(Array(10)).map((row, index) => ({
   index,
   fruit: `Fruit #${index}`,
   sun: 'Full sun',
