@@ -91,7 +91,7 @@
     - title: Stepper
       id: /components/stepper
     - title: Table
-      id: https://zendeskgarden.github.io/react-components/tables
+      id: /components/table
     - title: Tabs
       id: /components/tabs
     - title: Tags
