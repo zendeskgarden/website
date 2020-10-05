@@ -77,18 +77,14 @@ const Example = () => {
             <SortableCell
               onClick={() => {
                 if (requesterSort === 'asc') {
-                  setData(data);
                   setRequesterSort('desc');
-                  setTypeSort(undefined);
                 } else if (requesterSort === 'desc') {
-                  setData(data);
                   setRequesterSort(undefined);
-                  setTypeSort(undefined);
                 } else {
-                  setData(data);
                   setRequesterSort('asc');
-                  setTypeSort(undefined);
                 }
+                setTypeSort(undefined);
+                setData(data);
               }}
               sort={requesterSort}
             >
@@ -97,18 +93,14 @@ const Example = () => {
             <SortableCell
               onClick={() => {
                 if (typeSort === 'asc') {
-                  setData(data);
-                  setRequesterSort(undefined);
                   setTypeSort('desc');
                 } else if (typeSort === 'desc') {
-                  setData(data);
-                  setRequesterSort(undefined);
                   setTypeSort(undefined);
                 } else {
-                  setData(data);
-                  setRequesterSort(undefined);
                   setTypeSort('asc');
                 }
+                setRequesterSort(undefined);
+                setData(data);
               }}
               sort={typeSort}
             >
