@@ -3764,98 +3764,98 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-15.0.0.tgz#b05982801029e1b1d5ec5a435d7e95dc8733dda3"
   integrity sha512-NfHIJgd/7G4UtR0SSFThp8rOtr85DZDWnFbhSDPeUF3c8qVAhcAy46+Unl5LJteBgQwTNOgM/puw3VCUdl9EMQ==
 
-"@zendeskgarden/react-accordions@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-accordions/-/react-accordions-8.24.0.tgz#babac5e992a3a93e70cbda5eaf9f8dced0d72e1e"
-  integrity sha512-H5sMj8pkQJsJYe5McopJE38LBDOTOEDnWFg4A1LmNSWKlUV/69ZlRtQcnIwtek4GnBtayfpHXjL3Vhms6pH5uQ==
+"@zendeskgarden/react-accordions@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-accordions/-/react-accordions-8.24.1.tgz#91f8a07d3d9329f2eba7791ea72482de14e8313b"
+  integrity sha512-mdi/J6b5SPISRlt6K5lMs1ObaZl3hnAXXd6UZgKhes7CstT+BDYH/wY2YS3Tk1/odhqNgKcKFTSzwurp1rfKEA==
   dependencies:
     "@zendeskgarden/container-accordion" "^1.0.0"
     "@zendeskgarden/container-utilities" "^0.5.3"
     polished "^3.5.1"
 
-"@zendeskgarden/react-avatars@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-avatars/-/react-avatars-8.24.0.tgz#c8ab648c95a98f035e29c72e3d023d79875f0d6d"
-  integrity sha512-Ls46W+BGqCgeRwZZlcTZSeLjNaIeztg+9O2ZZajWS4wFXhJfTFrsl0dxjrNao8ID6DAUI05c1qpeL6u3kfLOjQ==
+"@zendeskgarden/react-avatars@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-avatars/-/react-avatars-8.24.1.tgz#2578763a6de311c954b9df5d768c9e7a06c3ed60"
+  integrity sha512-lm2889gSnzpeh6EcY+u3w9Z6CZFcPDwlD1S7+CKh3NSmnkUBFpeZO373S6QOggLfGJTgQ5DcjJwfLfT90j1cLQ==
   dependencies:
     polished "^3.5.1"
 
-"@zendeskgarden/react-breadcrumbs@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-breadcrumbs/-/react-breadcrumbs-8.24.0.tgz#fd7da55a8c6c632b3248d1a1b4c3f42011df2c07"
-  integrity sha512-b4Wh+aOFONRkQftVP88RX35urp7vX7i+1/u8lBvxcmAqH3cMD2Ms0Z+QtopiE+8NhBhIbU1xibCzFtVqH6SpnQ==
+"@zendeskgarden/react-breadcrumbs@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-breadcrumbs/-/react-breadcrumbs-8.24.1.tgz#5a1f70155d894410e501277200ac93b9ebef86c0"
+  integrity sha512-pLEvcWh3nVfFrBkgDNNTMzbbULIdZ6X2byqi0iEgMXn1/cJheprxzJWrovKlz6ZsR2UADukXDAQJLZmGwsA/9A==
   dependencies:
     "@zendeskgarden/container-breadcrumb" "^0.4.1"
     polished "^3.5.1"
 
-"@zendeskgarden/react-buttons@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.24.0.tgz#8fca6c46a3289b3ab084725365b8fcfb628d8071"
-  integrity sha512-7xSNjN2idUzQNmlUdL79W4tsbMFw747qUS/VX1GEL+v+Y5Lky7lBcsLDInrryHgtaU+nob/qcsCXRSyyrPW1Tw==
+"@zendeskgarden/react-buttons@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-buttons/-/react-buttons-8.24.1.tgz#66fb94d43d6d1d7bccbb975ffd7224a77cd33fcd"
+  integrity sha512-rm+H/kKmjPsAw2Wjd/dPvED8tJ3TnHo0f87h5TnpxKu/wemp7eNaQgKHg4b83MblPeiAWDx15ROkD+dsTOiZiA==
   dependencies:
     "@zendeskgarden/container-buttongroup" "^0.3.1"
     "@zendeskgarden/container-keyboardfocus" "^0.4.1"
     polished "^3.5.1"
 
-"@zendeskgarden/react-chrome@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-chrome/-/react-chrome-8.24.0.tgz#b9720d0554d1448cffc1266680bb01486bcad39a"
-  integrity sha512-3ndCgExPWi2nQXX5C8b6fgOokAeVjDvvk9mzCdDbbWhDjHWlovfvewvuXt7T1zt2zRf/mwxR9hH380gkxdlP2g==
+"@zendeskgarden/react-chrome@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-chrome/-/react-chrome-8.24.1.tgz#8ec3a97f7ed7ef60b833dccc7aab093367649b28"
+  integrity sha512-jYPeh3dSPf+wDcbhC8ZqM2MeFr6kJj2oDSt4RUJ9/byb0HxQNrcz+0C0QREX9NoXBnrXvlqFn9lTnD8cCJeyww==
   dependencies:
     "@zendeskgarden/container-accordion" "^1.0.0"
     "@zendeskgarden/container-keyboardfocus" "^0.4.1"
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.5.1"
 
-"@zendeskgarden/react-datepickers@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-datepickers/-/react-datepickers-8.24.0.tgz#824c9ce5d23c44b97a26e9fea7679104eb7b5b34"
-  integrity sha512-E4RbYFGHYZ1HIW1Z9HgERmdHVi8srP8AtiQtbUV+LMb/PCbfv0Xm6k4Hq53oPJWTUnPxpJ4DiFB0LH4YwAkIXg==
+"@zendeskgarden/react-datepickers@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-datepickers/-/react-datepickers-8.24.1.tgz#5271b4a79f28a8c4a46c7474e43abeeb09d976c4"
+  integrity sha512-TLUxw9XLnDocqOkiG+qPYCNdkVMTBfXtdasgrnIv1hmtf6dHzboWPeNhHO1GJ6vg7h2d5z5yOXovxVkwbDjH2Q==
   dependencies:
     "@zendeskgarden/container-utilities" "^0.5.1"
     date-fns "^2.0.0-beta.2"
     react-popper "^1.3.4"
 
-"@zendeskgarden/react-dropdowns@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-dropdowns/-/react-dropdowns-8.24.0.tgz#4f7ef3e73e5c64f2622b7f132f5337aaef150189"
-  integrity sha512-pcC8n7ddOkkWQtSr1UfaK0aqRGQoAvcnhyCa/ZjnOGuG7aIwvhvAWZGgjZrqyX9XLm+RP8OjY6WPDYdPUlqDpQ==
+"@zendeskgarden/react-dropdowns@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-dropdowns/-/react-dropdowns-8.24.1.tgz#ae0eec65f34357bd4a21c0bb2ced55ea061dd81a"
+  integrity sha512-TX//oya5hrsUQ1BC51MvWIk7gGLK+WJGodg6liqkk7xxNgrvyHnsVHMiTZBymPERLum0WC9z1Jwd+YhydZ8QTQ==
   dependencies:
     "@zendeskgarden/container-selection" "^1.3.1"
     "@zendeskgarden/container-utilities" "^0.5.1"
-    "@zendeskgarden/react-forms" "^8.24.0"
+    "@zendeskgarden/react-forms" "^8.24.1"
     downshift "^6.0.0"
     polished "^3.5.1"
     react-popper "^1.3.4"
 
-"@zendeskgarden/react-forms@8.24.0", "@zendeskgarden/react-forms@^8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.24.0.tgz#b63cd1ffa611c3cb31e3cd6f7b93943ddf4802b3"
-  integrity sha512-mCtDN0uOnfspi4VuqQUSHjV6TA4JbN1Jhfnd9pp3mPd4qgRZ9N28fEfDvFJ4uZGwpkr9IQeFoT9Z/GQ2y8Nggw==
+"@zendeskgarden/react-forms@8.24.1", "@zendeskgarden/react-forms@^8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.24.1.tgz#2acdc0b84b2af4e9802df1acf9f9b98862c2a26e"
+  integrity sha512-XnTxhHSUC+EjXoGwmz6/skpIQ99EFcBCchbXeWCny0NYL+I4gFsr3dVgXMYYU7imyT1mh0Pn+pjOChBnbNyFAQ==
   dependencies:
     "@zendeskgarden/container-field" "^1.3.1"
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.5.1"
 
-"@zendeskgarden/react-grid@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-grid/-/react-grid-8.24.0.tgz#c6da1ffb1be97c18f0d1ba641eaef41f4fead240"
-  integrity sha512-J51p8JLIoP6XmJboA1hzXAW2UM6zTo3iIvgGpfOimV0syrN5RIiJcJ9c67u4sK+ZwvbXUadUoxU0JiOQXneAHg==
+"@zendeskgarden/react-grid@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-grid/-/react-grid-8.24.1.tgz#376c29d159d55b381dc029a9b0359549ddd45876"
+  integrity sha512-T4LqD5KrC0oyzefSM3nCO0N2eImSUMykQprL8IC9jmSnubnN075jtQQ2I9JW0OTG0soqwH1iHpJ4F58EXB4RQA==
   dependencies:
     polished "^3.5.1"
 
-"@zendeskgarden/react-loaders@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-loaders/-/react-loaders-8.24.0.tgz#affc54bcfcd211a02bfb81dcf90d5f2abb7b8e04"
-  integrity sha512-39Qdcl9uWI8PrEuLUBLd06eNiFJqWy0eonTvlbt1bP4xUWs++iGah6kms5EgBFkN8xa2/rHdYS5RHVPFJOKHXA==
+"@zendeskgarden/react-loaders@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-loaders/-/react-loaders-8.24.1.tgz#e3d9629402c52707d9b033241980251419360999"
+  integrity sha512-wasjm8gFKqNX7fOpVmMarN/1lwJ0bGCvBqQWFAXcRAtfwleWZtR/CBMJQny45oyQ0TKoW/p+3X2TfToFqUGHTA==
   dependencies:
     "@zendeskgarden/container-schedule" "^1.3.1"
     polished "^3.5.1"
 
-"@zendeskgarden/react-modals@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-modals/-/react-modals-8.24.0.tgz#90dd2740b719de2f1aa56a9e9cf66ee14bc46ae9"
-  integrity sha512-mqhhyHDJr+WYJae3Q7sQPQbTcvUrW2Zd292KJJayB517oO32v1B0PCC7HgVeydqzCpaMpOHkkQKVq7hm1hq/XA==
+"@zendeskgarden/react-modals@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-modals/-/react-modals-8.24.1.tgz#78dce51335e066a7d312f40446f07d68df3854d2"
+  integrity sha512-wRTF/TzQOFY0ylfYyPMyD2TEFbMbWSn7LNI+MhtNuE7eL36IEAZ8oMJQpAM5hpi6BLr6WlZFlzkTY+CprKaQ3Q==
   dependencies:
     "@popperjs/core" "^2.4.4"
     "@zendeskgarden/container-focusvisible" "^0.4.3"
@@ -3866,69 +3866,69 @@
     react-popper "^2.2.3"
     react-transition-group "^4.4.1"
 
-"@zendeskgarden/react-notifications@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-notifications/-/react-notifications-8.24.0.tgz#fdfc80442815f657fa2054933bbf13b82af69b5c"
-  integrity sha512-/VU+tqXTCjqA9vUpGWm7c6mjAMm0Ink0D6lthPt3az0+G6fJRf8JM+vAU4S8LiYmtwDf/pTWN8sAXbsTrnj/bg==
+"@zendeskgarden/react-notifications@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-notifications/-/react-notifications-8.24.1.tgz#db2f37d3f3db3118083de181dc7bdc70540803e8"
+  integrity sha512-p7SSQ2Ku7A8JmkasvX87iinz0zSmXZS+K1X2/bDH+gSMo7l+CxN6H3Epyv45FZTN/7jQMGih325b9mOAeDFtlQ==
 
-"@zendeskgarden/react-pagination@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-pagination/-/react-pagination-8.24.0.tgz#4f9edcd44f1898db2909302ded6b46863fa09fe5"
-  integrity sha512-5Y73FDX9PHOqxPDg7OWJzvsfA07BJ3w8q1kuH+IAWM9UubYWzo0Mob0PLNGFasbE1X/FpPwbtzyvRy7qhNTCVg==
+"@zendeskgarden/react-pagination@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-pagination/-/react-pagination-8.24.1.tgz#00b971316cfd9bd43e394b5b0c6e4c619738cdbd"
+  integrity sha512-TvBeFrDRDkl+ymlGXw+ffg4n/XIiKNPR50u5/pQ1jOcBVp9RIgapFYIAg302Ll0UaNIsADbcfJ7ulSfy8V6e0A==
   dependencies:
     "@zendeskgarden/container-pagination" "^0.3.1"
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.5.1"
 
-"@zendeskgarden/react-tables@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tables/-/react-tables-8.24.0.tgz#e236260add322fb6b517b541530008c4d5d686a9"
-  integrity sha512-Xf7mn/F4uiGI0dRwiOjK1CGECFGkBYutuBdWSQoNolP3lH6nzVc/A3u+0IG8JGJIbhvN5Y9Kobn5JggiLpQYrQ==
+"@zendeskgarden/react-tables@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tables/-/react-tables-8.24.1.tgz#d59d5b645e041f7f8cd392cc64af153624a35587"
+  integrity sha512-+eOIJ/j+M03OYpjB473MC6oODNfXi4CkLHm/+C4qlTHi8bUNggGyTmWQW7lU4MdarTKzmLCqzx+7FZvcuZNE6A==
   dependencies:
     "@zendeskgarden/container-utilities" "^0.5.1"
     dom-helpers "^5.1.0"
     polished "^3.5.1"
 
-"@zendeskgarden/react-tabs@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tabs/-/react-tabs-8.24.0.tgz#1365edadc884a74684fd6d19312aaedeaccf7268"
-  integrity sha512-ko0IlShYEJEO8XluTX5WvD+Ytt0uJFeEd+KlFNrWwoXdT6C7mRyM1Zts2P/lT/k+EmIXhZqbyF3e3o/PhFPgpA==
+"@zendeskgarden/react-tabs@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tabs/-/react-tabs-8.24.1.tgz#42eb0d30eceb6bc1170609fe03f84d8777ee706a"
+  integrity sha512-F2mwiybxvv1uR/L01ZBSEGANZtdC/1K5WGwaIgMYyLx2BDkfa5h2syv6KFPfow+DCHD6DcVis1GyhFClo4BJAQ==
   dependencies:
     "@zendeskgarden/container-tabs" "^0.5.6"
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.5.1"
 
-"@zendeskgarden/react-tags@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tags/-/react-tags-8.24.0.tgz#1da3d8c03bcf12e476e7bdf91a5b434f94641ec8"
-  integrity sha512-B2CddFVnCFvRQn+GcblwC644iG1ZY3QB3Mr/iz4pJbR5ge41Y9k1ALz7ks+09425VWJxMxq5Tlx+Jvp6MNDSHg==
+"@zendeskgarden/react-tags@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tags/-/react-tags-8.24.1.tgz#68fa76b8dae5a23b1f1b9b546d35bd1f5d14f6ae"
+  integrity sha512-r3Id1KMjACHHCbYh/IM7NgEweoja3FnehTqnDnx91SZHuPHBkmoCK/SbySiR61Tl2pO6jhmW1ZcxERQSEv8MwA==
   dependencies:
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.5.1"
 
-"@zendeskgarden/react-theming@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.24.0.tgz#f3d0657715779d5216239ee41722301b39098ce4"
-  integrity sha512-UVDMCdycN5ewiglqD9MfE5HehlafGydQAcng4zBDC8zqqvpCxtVFDWNE249M9BtRdgq9QaIQphsnI9xjN88o8A==
+"@zendeskgarden/react-theming@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.24.1.tgz#25433aee83c74800536e9a2c96ed4c57757c1ed0"
+  integrity sha512-jA8q1qFUrJK+ffcSnC6F7vnevzsVheSnXKdLNGfIhfoi8SkWKK9bMz1tO9/WYG4Q60ZeZAq49MmLPGg3iqnJzA==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.3"
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.5.1"
 
-"@zendeskgarden/react-tooltips@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tooltips/-/react-tooltips-8.24.0.tgz#3ce9f5d59e916352d1d2e16665a3d645ab9e145b"
-  integrity sha512-L8f8pMbxKnWBJdop4wNPyPX2iGy7Ywq5AA/O9AotquJx3xBYgnqSNy1ikQv2l54YzP1VU6aIDfltVlO7cbGBVw==
+"@zendeskgarden/react-tooltips@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-tooltips/-/react-tooltips-8.24.1.tgz#5309bbc194bd34582dbe20359f708227adc52ec3"
+  integrity sha512-VPXq0tHEHLzJZSWaWTPAiuhmn1+xeQqyIUN4hkms0WxWEd4QhhiE0CUhF/vRxg3lBHbV4S3bv7f7c4bURFeSig==
   dependencies:
     "@zendeskgarden/container-tooltip" "^0.5.1"
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.5.1"
     react-popper "^1.3.4"
 
-"@zendeskgarden/react-typography@8.24.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-typography/-/react-typography-8.24.0.tgz#1342f9552066faf5ef4c4d65eaec134753fd4a2d"
-  integrity sha512-50ZF2gP5iQJs08QGmLfko8iyf+Hcr9ZGfX1buZ1G6svxSsUjgzYHm3af8S12oHxDBk796/dxw2AtfGM4El6amg==
+"@zendeskgarden/react-typography@8.24.1":
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-typography/-/react-typography-8.24.1.tgz#ff5034bec803648eb5f3040ac22a99580f69e6a6"
+  integrity sha512-Zb3myBjVFqsly8MmOLGEC2Pb+yLFCRisKhBr8a/sZcm1+sZ+qgHe5kLq5ARSKUd9QwIpTgxTaQ+Bgmhyd9w4cQ==
   dependencies:
     polished "^3.5.1"
     prism-react-renderer "^1.1.1"
