@@ -40,7 +40,7 @@ const Example = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   return (
-    <div style={{ overflow: 'auto' }}>
+    <div style={{ overflowX: 'auto' }}>
       <StyledTable>
         <Head>
           <HeaderRow>

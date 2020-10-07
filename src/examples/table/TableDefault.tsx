@@ -9,7 +9,7 @@ import React from 'react';
 import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
 
 const Example = () => (
-  <div style={{ overflow: 'auto' }}>
+  <div style={{ overflowX: 'auto' }}>
     <Table style={{ minWidth: 500 }}>
       <Head>
         <HeaderRow>

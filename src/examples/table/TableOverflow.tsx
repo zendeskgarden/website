@@ -51,7 +51,7 @@ const OverflowMenu = () => (
 );
 
 const Example = () => (
-  <div style={{ overflow: 'auto' }}>
+  <div style={{ overflowX: 'auto' }}>
     <Table style={{ minWidth: 500 }}>
       <Head>
         <HeaderRow>

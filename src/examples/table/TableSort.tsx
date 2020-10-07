@@ -69,7 +69,7 @@ const Example = () => {
   const [typeSort, setTypeSort] = useState<Direction>();
 
   return (
-    <div style={{ overflow: 'auto' }}>
+    <div style={{ overflowX: 'auto' }}>
       <Table style={{ minWidth: 500 }}>
         <Head>
           <HeaderRow>

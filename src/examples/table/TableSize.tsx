@@ -25,7 +25,7 @@ const StyledContainer = styled.div`
 `;
 
 const Example = () => (
-  <div style={{ overflow: 'auto' }}>
+  <div style={{ overflowX: 'auto' }}>
     <StyledContainer>
       <Table size="small">
         <Caption>
