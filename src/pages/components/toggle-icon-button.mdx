@@ -59,6 +59,17 @@ import ToggleIconButtonDisabledCode from '!!raw-loader!../../examples/button/Tog
   <ToggleIconButtonDisabled />
 </CodeExample>
 
+### Icon
+
+A Toggle Icon Button may be structured to switch icons when pressed.
+
+import ToggleIconButtonIcons from '../../examples/button/ToggleIconButtonIcons.tsx';
+import ToggleIconButtonIconsCode from '!!raw-loader!../../examples/button/ToggleIconButtonIcons.tsx';
+
+<CodeExample code={ToggleIconButtonIconsCode}>
+  <ToggleIconButtonIcons />
+</CodeExample>
+
 ### Shape
 
 Toggle Icon Buttons are circular by default, but they can be squares too.
@@ -126,7 +137,7 @@ export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
     toggleIconButtonTooltipDo: abstractAsset(
-      layerName: { eq: "components-buttons-iconbutton-tooltip-do" }
+      layerName: { eq: "components-buttons-toggleiconbutton-tooltip-do" }
     ) {
       childFile {
         childImageSharp {
