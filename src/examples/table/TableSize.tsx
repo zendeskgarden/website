@@ -21,10 +21,11 @@ import { LG } from '@zendeskgarden/react-typography';
 
 const StyledContainer = styled.div`
   margin-bottom: ${p => p.theme.space.xl};
+  min-width: 500px;
 `;
 
 const Example = () => (
-  <div style={{ minWidth: 500 }}>
+  <div style={{ overflow: 'auto' }}>
     <StyledContainer>
       <Table size="small">
         <Caption>
