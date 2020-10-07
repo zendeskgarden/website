@@ -46,7 +46,6 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
           css={css`
             padding: ${p => p.theme.space.md};
             direction: ${p => p.theme.rtl && 'rtl'};
-            overflow: auto;
           `}
         >
           {typeof window === 'undefined' /* isSSR */ ? undefined : children}
