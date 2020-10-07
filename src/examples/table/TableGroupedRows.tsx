@@ -18,8 +18,8 @@ import {
 } from '@zendeskgarden/react-tables';
 
 const Example = () => (
-  <div style={{ minWidth: 500 }}>
-    <Table>
+  <div style={{ overflowX: 'auto' }}>
+    <Table style={{ minWidth: 500 }}>
       <Head>
         <HeaderRow>
           <HeaderCell>Type</HeaderCell>

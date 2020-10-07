@@ -46,8 +46,8 @@ const Example = () => {
   const [focusedRowIndex, setFocusedRowIndex] = useState<number | undefined>(undefined);
 
   return (
-    <div style={{ minWidth: 500 }}>
-      <Table>
+    <div style={{ overflowX: 'auto' }}>
+      <Table style={{ minWidth: 500 }}>
         <Head>
           <HeaderRow>
             <HeaderCell isMinimum>

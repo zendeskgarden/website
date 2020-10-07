@@ -12,8 +12,8 @@ const content = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`;
 
 const Example = () => (
-  <div style={{ minWidth: 500 }}>
-    <Table>
+  <div style={{ overflowX: 'auto' }}>
+    <Table style={{ minWidth: 500 }}>
       <Head>
         <HeaderRow>
           <HeaderCell>Wrapping content</HeaderCell>

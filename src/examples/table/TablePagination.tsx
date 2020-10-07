@@ -12,6 +12,7 @@ import { Pagination } from '@zendeskgarden/react-pagination';
 
 const StyledTable = styled(Table)`
   margin-bottom: ${p => p.theme.space.md};
+  min-width: 500px;
 `;
 
 interface IRow {
@@ -39,7 +40,7 @@ const Example = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   return (
-    <div style={{ minWidth: 500 }}>
+    <div style={{ overflowX: 'auto' }}>
       <StyledTable>
         <Head>
           <HeaderRow>
