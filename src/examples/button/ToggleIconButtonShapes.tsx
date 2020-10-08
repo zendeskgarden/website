@@ -19,11 +19,12 @@ const Example = () => {
     <Row>
       <Col textAlign="center">
         <ToggleIconButton
+          aria-label="round star"
           isBasic={false}
           isPressed={roundPressed}
           onClick={() => setRoundPressed(!roundPressed)}
         >
-          <StarIcon aria-label="round star" />
+          <StarIcon />
         </ToggleIconButton>
       </Col>
       <Col textAlign="center">

@@ -19,28 +19,31 @@ const Example = () => {
     <Row alignItems="center">
       <Col textAlign="center">
         <ToggleIconButton
+          aria-label="default star"
           isPressed={defaultPressed}
           onClick={() => setDefaultPressed(!defaultPressed)}
         >
-          <StarIcon aria-label="default star" />
+          <StarIcon />
         </ToggleIconButton>
       </Col>
       <Col textAlign="center">
         <ToggleIconButton
+          aria-label="primary star"
           isPressed={primaryPressed}
           onClick={() => setPrimaryPressed(!primaryPressed)}
           isPrimary
         >
-          <StarIcon aria-label="primary star" />
+          <StarIcon />
         </ToggleIconButton>
       </Col>
       <Col textAlign="center">
         <ToggleIconButton
+          aria-label="basic star"
           isPressed={basicPressed}
           onClick={() => setBasicPressed(!basicPressed)}
           isBasic={false}
         >
-          <StarIcon aria-label="basic star" />
+          <StarIcon />
         </ToggleIconButton>
       </Col>
     </Row>

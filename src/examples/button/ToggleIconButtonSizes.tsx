@@ -19,29 +19,32 @@ const Example = () => {
     <Row alignItems="center">
       <Col textAlign="center">
         <ToggleIconButton
+          aria-label="small star"
           isPressed={smallPressed}
           onClick={() => setSmallPressed(!smallPressed)}
           size="small"
         >
-          <StarIcon aria-label="small star" />
+          <StarIcon />
         </ToggleIconButton>
       </Col>
       <Col textAlign="center">
         <ToggleIconButton
+          aria-label="medium star"
           isPressed={mediumPressed}
           onClick={() => setMediumPressed(!mediumPressed)}
           size="medium"
         >
-          <StarIcon aria-label="medium star" />
+          <StarIcon />
         </ToggleIconButton>
       </Col>
       <Col textAlign="center">
         <ToggleIconButton
+          aria-label="large star"
           isPressed={largePressed}
           onClick={() => setLargePressed(!largePressed)}
           size="large"
         >
-          <StarIcon aria-label="large star" />
+          <StarIcon />
         </ToggleIconButton>
       </Col>
     </Row>

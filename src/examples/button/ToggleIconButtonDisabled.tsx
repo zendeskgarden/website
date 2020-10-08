@@ -16,8 +16,13 @@ const Example = () => {
   return (
     <Row>
       <Col textAlign="center">
-        <ToggleIconButton disabled isPressed={pressed} onClick={() => setPressed(!pressed)}>
-          <StarIcon aria-label="disabled star" />
+        <ToggleIconButton
+          aria-label="disabled star"
+          disabled
+          isPressed={pressed}
+          onClick={() => setPressed(!pressed)}
+        >
+          <StarIcon />
         </ToggleIconButton>
       </Col>
     </Row>

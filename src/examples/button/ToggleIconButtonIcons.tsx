@@ -17,8 +17,12 @@ const Example = () => {
   return (
     <Row>
       <Col textAlign="center">
-        <ToggleIconButton isPressed={pressed} onClick={() => setPressed(!pressed)}>
-          <svg aria-label="leaf" focusable="false">
+        <ToggleIconButton
+          aria-label="leaf"
+          isPressed={pressed}
+          onClick={() => setPressed(!pressed)}
+        >
+          <svg focusable="false">
             <FillIcon style={{ opacity: pressed ? 1 : 0 }} />
             <StrokeIcon style={{ opacity: pressed ? 0 : 1 }} />
           </svg>
