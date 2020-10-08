@@ -25,6 +25,8 @@ references:
 jobs:
   build:
     <<: *executor
+    environment:
+      GATSBY_CPU_COUNT: 2
     steps:
       - checkout
       - restore_cache:
