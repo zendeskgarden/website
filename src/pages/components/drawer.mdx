@@ -1,0 +1,62 @@
+---
+title: Drawer
+description: >
+  A Drawer is a container for supplementary content that is anchored to the edge of a page.
+package: '@zendeskgarden/react-modals'
+components:
+  - modals/src/elements/DrawerModal/DrawerModal.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>
+        To display information or actions that are supplementary to the screen’s primary content
+      </li>
+      <li>To display a list of actions that affect the screen’s content, such as filtering data</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Default
+
+When the Drawer opens, focus moves to it so users who rely on a keyboard and/or
+screen reader can access the content within. Focus is kept in the Drawer until
+it is dismissed.
+
+import Default from '../../examples/drawer/DrawerDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/drawer/DrawerDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### DrawerModal
+
+<PropSheet components={props.data.mdx.components} componentName="drawermodal" />
+
+#### DrawerModal.Body
+
+#### DrawerModal.Close
+
+#### DrawerModal.Footer
+
+#### DrawerModal.FooterItem
+
+#### DrawerModal.Header
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
