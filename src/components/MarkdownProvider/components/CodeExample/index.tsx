@@ -6,6 +6,7 @@
  */
 
 import React, { useRef, useState, useMemo } from 'react';
+import { math } from 'polished';
 import styled, { css, DefaultTheme } from 'styled-components';
 import { ThemeProvider, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -19,8 +20,8 @@ import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParame
 import { copyToClipboard } from './utils/copyToClipboard';
 
 const StyledCodeBlock = styled(CodeBlock)`
-  border-bottom-left-radius: ${props => props.theme.space.base}px;
-  border-bottom-right-radius: ${props => props.theme.space.base}px;
+  border-bottom-left-radius: ${props => math(`${props.theme.borderRadii.md} - 1px`)};
+  border-bottom-right-radius: ${props => math(`${props.theme.borderRadii.md} - 1px`)};
 `;
 
 export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
