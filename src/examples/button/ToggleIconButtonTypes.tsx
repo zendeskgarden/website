@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
-import { ReactComponent as StarIcon } from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
+import { ReactComponent as Icon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => {
   const [defaultPressed, setDefaultPressed] = useState(false);
@@ -19,31 +19,31 @@ const Example = () => {
     <Row alignItems="center">
       <Col textAlign="center">
         <ToggleIconButton
-          aria-label="default star"
+          aria-label="default leaf"
           isPressed={defaultPressed}
           onClick={() => setDefaultPressed(!defaultPressed)}
         >
-          <StarIcon />
+          <Icon />
         </ToggleIconButton>
       </Col>
       <Col textAlign="center">
         <ToggleIconButton
-          aria-label="primary star"
+          aria-label="primary leaf"
           isPressed={primaryPressed}
           onClick={() => setPrimaryPressed(!primaryPressed)}
           isPrimary
         >
-          <StarIcon />
+          <Icon />
         </ToggleIconButton>
       </Col>
       <Col textAlign="center">
         <ToggleIconButton
-          aria-label="basic star"
+          aria-label="basic leaf"
           isPressed={basicPressed}
           onClick={() => setBasicPressed(!basicPressed)}
           isBasic={false}
         >
-          <StarIcon />
+          <Icon />
         </ToggleIconButton>
       </Col>
     </Row>

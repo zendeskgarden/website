@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
-import { ReactComponent as StarIcon } from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
+import { ReactComponent as Icon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => {
   const [pressed, setPressed] = useState(false);
@@ -17,11 +17,11 @@ const Example = () => {
     <Row>
       <Col textAlign="center">
         <ToggleIconButton
-          aria-label="star"
+          aria-label="leaf"
           isPressed={pressed}
           onClick={() => setPressed(!pressed)}
         >
-          <StarIcon />
+          <Icon />
         </ToggleIconButton>
       </Col>
     </Row>

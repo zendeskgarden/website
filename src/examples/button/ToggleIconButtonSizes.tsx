@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
-import { ReactComponent as StarIcon } from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
+import { ReactComponent as Icon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => {
   const [smallPressed, setSmallPressed] = useState(true);
@@ -19,32 +19,32 @@ const Example = () => {
     <Row alignItems="center">
       <Col textAlign="center">
         <ToggleIconButton
-          aria-label="small star"
+          aria-label="small leaf"
           isPressed={smallPressed}
           onClick={() => setSmallPressed(!smallPressed)}
           size="small"
         >
-          <StarIcon />
+          <Icon />
         </ToggleIconButton>
       </Col>
       <Col textAlign="center">
         <ToggleIconButton
-          aria-label="medium star"
+          aria-label="medium leaf"
           isPressed={mediumPressed}
           onClick={() => setMediumPressed(!mediumPressed)}
           size="medium"
         >
-          <StarIcon />
+          <Icon />
         </ToggleIconButton>
       </Col>
       <Col textAlign="center">
         <ToggleIconButton
-          aria-label="large star"
+          aria-label="large leaf"
           isPressed={largePressed}
           onClick={() => setLargePressed(!largePressed)}
           size="large"
         >
-          <StarIcon />
+          <Icon />
         </ToggleIconButton>
       </Col>
     </Row>

@@ -8,8 +8,8 @@
 import React, { useState } from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
-import { ReactComponent as StarIcon } from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
-import { ReactComponent as BoldIcon } from '@zendeskgarden/svg-icons/src/16/bold-stroke.svg';
+import { ReactComponent as RoundIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import { ReactComponent as SquareIcon } from '@zendeskgarden/svg-icons/src/16/bold-stroke.svg';
 
 const Example = () => {
   const [roundPressed, setRoundPressed] = useState(false);
@@ -19,12 +19,12 @@ const Example = () => {
     <Row>
       <Col textAlign="center">
         <ToggleIconButton
-          aria-label="round star"
+          aria-label="round leaf"
           isBasic={false}
           isPressed={roundPressed}
           onClick={() => setRoundPressed(!roundPressed)}
         >
-          <StarIcon />
+          <RoundIcon />
         </ToggleIconButton>
       </Col>
       <Col textAlign="center">
@@ -34,7 +34,7 @@ const Example = () => {
           isPressed={squarePressed}
           onClick={() => setSquarePressed(!squarePressed)}
         >
-          <BoldIcon aria-label="square bold" />
+          <SquareIcon aria-label="square bold" />
         </ToggleIconButton>
       </Col>
     </Row>
