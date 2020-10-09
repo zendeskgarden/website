@@ -13,7 +13,7 @@ components:
   <Use>
     <ul>
       <li>To see or compare the results of a settings change</li>
-      <li>To activate a mode (such as "dark mode") which takes immediate effect</li>
+      <li>To cause an immediate effect, such as making text bold</li>
       <li>To simplify the appearance of repeated or persistent actions on a page</li>
       <li>To enable action in a toolbar</li>
     </ul>
@@ -27,7 +27,10 @@ components:
         </Markdown>
       </li>
       <li>
-        <Markdown>To include an icon and a label, use a [Tile](/components/tiles)</Markdown>
+        <Markdown>
+          To include an icon and a label, use a [Button](/components/button#media) with a start or
+          end icon.
+        </Markdown>
       </li>
     </ul>
   </Misuse>
@@ -59,9 +62,9 @@ import ToggleIconButtonDisabledCode from '!!raw-loader!../../examples/button/Tog
   <ToggleIconButtonDisabled />
 </CodeExample>
 
-### Icon
+### Icon transition
 
-A Toggle Icon Button may be structured to switch icons when pressed.
+The icon can transition from stroke style to fill style when the button is pressed.
 
 import ToggleIconButtonIcons from '../../examples/button/ToggleIconButtonIcons.tsx';
 import ToggleIconButtonIconsCode from '!!raw-loader!../../examples/button/ToggleIconButtonIcons.tsx';
