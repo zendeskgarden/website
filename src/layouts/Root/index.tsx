@@ -19,15 +19,6 @@ import '@zendeskgarden/css-bedrock/dist/index.css';
  * Ensure Gatsby wrapping nodes are full height
  */
 const GlobalStyling = createGlobalStyle`
-  /* stylelint-disable-next-line selector-max-id, selector-max-specificity */
-  html,
-  body,
-  #___gatsby,
-  #___gatsby > div,
-  #gatsby-focus-wrapper {
-    height: 100%;
-  }
-
   * {
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }

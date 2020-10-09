@@ -42,6 +42,8 @@
       id: /components/chrome
     - title: Datepicker
       id: /components/datepicker
+    - title: Drawer
+      id: /components/drawer
     - title: Dropdowns
       items:
         - id: /components/autocomplete
@@ -95,7 +97,7 @@
     - title: Stepper
       id: /components/stepper
     - title: Table
-      id: https://zendeskgarden.github.io/react-components/tables
+      id: /components/table
     - title: Tabs
       id: /components/tabs
     - title: Tags
@@ -104,6 +106,8 @@
       id: /components/tiles
     - title: Tooltip
       id: /components/tooltip
+    - title: Tooltip modal
+      id: /components/tooltip-modal
     - title: Typography
       items:
         - title: Code
