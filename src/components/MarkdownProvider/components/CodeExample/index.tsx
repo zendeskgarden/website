@@ -6,7 +6,7 @@
  */
 
 import React, { useRef, useState, useMemo } from 'react';
-import { css, DefaultTheme } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 import { ThemeProvider, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { CodeBlock } from '@zendeskgarden/react-typography';
@@ -17,6 +17,11 @@ import { ReactComponent as DirectionRtlStroke } from '@zendeskgarden/svg-icons/s
 import { ReactComponent as CodeSandboxIcon } from './assets/codesandbox-icon.svg';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
 import { copyToClipboard } from './utils/copyToClipboard';
+
+const StyledCodeBlock = styled(CodeBlock)`
+  border-bottom-left-radius: ${props => props.theme.space.base}px;
+  border-bottom-right-radius: ${props => props.theme.space.base}px;
+`;
 
 export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const [isRtl, setIsRtl] = useState(false);
@@ -38,7 +43,6 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
         margin-bottom: ${p => p.theme.space.xl};
         border: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
         border-radius: ${p => p.theme.borderRadii.md};
-        overflow: hidden;
       `}
     >
       <ThemeProvider theme={exampleTheme} focusVisibleRef={focusVisibleRef}>
@@ -114,7 +118,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
           </ToggleIconButton>
         </Tooltip>
       </div>
-      {isCodeVisible && <CodeBlock>{code.replace(COPYRIGHT_REGEXP, '')}</CodeBlock>}
+      {isCodeVisible && <StyledCodeBlock>{code.replace(COPYRIGHT_REGEXP, '')}</StyledCodeBlock>}
     </div>
   );
 };
