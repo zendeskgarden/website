@@ -34,6 +34,10 @@
           title: Icon button
         - id: /components/split-button
           title: Split button
+        - id: /components/toggle-button
+          title: Toggle button
+        - id: /components/toggle-icon-button
+          title: Toggle icon button
     - title: Chrome
       id: /components/chrome
     - title: Datepicker

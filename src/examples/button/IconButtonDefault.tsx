@@ -13,8 +13,8 @@ import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <IconButton>
-        <LeafIcon aria-label="leaf" />
+      <IconButton aria-label="leaf">
+        <LeafIcon />
       </IconButton>
     </Col>
   </Row>

@@ -1,0 +1,154 @@
+---
+title: Toggle icon button
+description: >
+  A Toggle Icon Button (like a Toggle Button) lets users turn something on
+  and off like a light switch. It is used for repeated or persistent actions
+  on a page and lacks a visible label to simplify the UI.
+package: '@zendeskgarden/react-buttons'
+components:
+  - buttons/src/elements/ToggleIconButton.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To see or compare the results of a settings change</li>
+      <li>To cause an immediate effect, such as making text bold</li>
+      <li>To simplify the appearance of repeated or persistent actions on a page</li>
+      <li>To enable action in a toolbar</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To let users select from a list of settings, use [Checkboxes](/components/checkbox)
+          instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To include an icon and a label, use a [Button](/components/button#media) with a start or
+          end icon
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of a Toggle Icon Button component.
+
+import ToggleIconButtonDefault from '../../examples/button/ToggleIconButtonDefault.tsx';
+import ToggleIconButtonDefaultCode from '!!raw-loader!../../examples/button/ToggleIconButtonDefault.tsx';
+
+<CodeExample code={ToggleIconButtonDefaultCode}>
+  <ToggleIconButtonDefault />
+</CodeExample>
+
+### Disabled
+
+A disabled Toggle Icon Button prevents user interaction. It doesn’t appear in
+the tab order, can’t receive focus, and may not be read aloud by a
+screenreader.
+
+import ToggleIconButtonDisabled from '../../examples/button/ToggleIconButtonDisabled.tsx';
+import ToggleIconButtonDisabledCode from '!!raw-loader!../../examples/button/ToggleIconButtonDisabled.tsx';
+
+<CodeExample code={ToggleIconButtonDisabledCode}>
+  <ToggleIconButtonDisabled />
+</CodeExample>
+
+### Icon transition
+
+The icon can transition from stroke style to fill style when the button is pressed.
+
+import ToggleIconButtonIcons from '../../examples/button/ToggleIconButtonIcons.tsx';
+import ToggleIconButtonIconsCode from '!!raw-loader!../../examples/button/ToggleIconButtonIcons.tsx';
+
+<CodeExample code={ToggleIconButtonIconsCode}>
+  <ToggleIconButtonIcons />
+</CodeExample>
+
+### Shape
+
+Toggle Icon Buttons are circular by default, but they can be squares too.
+
+import ToggleIconButtonShapes from '../../examples/button/ToggleIconButtonShapes.tsx';
+import ToggleIconButtonShapesCode from '!!raw-loader!../../examples/button/ToggleIconButtonShapes.tsx';
+
+<CodeExample code={ToggleIconButtonShapesCode}>
+  <ToggleIconButtonShapes />
+</CodeExample>
+
+### Size
+
+Toggle Icon Buttons can be small, medium, or large. The default size is medium.
+
+import ToggleIconButtonSizes from '../../examples/button/ToggleIconButtonSizes.tsx';
+import ToggleIconButtonSizesCode from '!!raw-loader!../../examples/button/ToggleIconButtonSizes.tsx';
+
+<CodeExample code={ToggleIconButtonSizesCode}>
+  <ToggleIconButtonSizes />
+</CodeExample>
+
+### Type
+
+Toggle Icon Buttons have three types: basic, outline, and primary. The default type is basic.
+
+import ToggleIconButtonTypes from '../../examples/button/ToggleIconButtonTypes.tsx';
+import ToggleIconButtonTypesCode from '!!raw-loader!../../examples/button/ToggleIconButtonTypes.tsx';
+
+<CodeExample code={ToggleIconButtonTypesCode}>
+  <ToggleIconButtonTypes />
+</CodeExample>
+
+## How to use it well
+
+### Don’t leave users in the dark
+
+<BestPractice>
+  <Do
+    imageSource={props.data.toggleIconButtonTooltipDo.childFile.childImageSharp.fluid}
+    imageIsSquare
+  >
+    <p>
+      <Markdown>
+        Include a [Tooltip](/components/tooltip) to help any users who may be unfamiliar with the
+        icon.
+      </Markdown>
+    </p>
+  </Do>
+</BestPractice>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### ToggleIconButton
+
+<PropSheet components={props.data.mdx.components} componentName="toggleIconButton" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    toggleIconButtonTooltipDo: abstractAsset(
+      layerName: { eq: "components-buttons-toggleiconbutton-tooltip-do" }
+    ) {
+      childFile {
+        childImageSharp {
+          fluid(maxHeight: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`;
