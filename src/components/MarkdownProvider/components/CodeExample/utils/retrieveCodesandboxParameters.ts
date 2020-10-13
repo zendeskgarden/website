@@ -29,18 +29,18 @@ const html = `
 `;
 
 const index = `
-import * as React from "react";
-import { render } from "react-dom";
-import { ThemeProvider } from "@zendeskgarden/react-theming";
+import * as React from 'react';
+import { render } from 'react-dom';
+import { DEFAULT_THEME, ThemeProvider } from '@zendeskgarden/react-theming';
+import Example from './Example';
 
-/** Some opinionated style resets for Zendesk products. Optional. */
+/* Optional CSS normalization with selected element resets */
 import '@zendeskgarden/css-bedrock';
 
-import Example from "./Example";
+const rootElement = document.getElementById('root');
 
-const rootElement = document.getElementById("root");
 render(
-  <div style={{ padding: 16 }}>
+  <div style={{ padding: DEFAULT_THEME.space.md }}>
     <ThemeProvider>
       <Example />
     </ThemeProvider>
