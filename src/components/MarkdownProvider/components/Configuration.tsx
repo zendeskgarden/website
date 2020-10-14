@@ -47,10 +47,11 @@ const StyledMono = styled(Span).attrs({ isMonospace: true })`
   color: ${p => getColor('grey', 700, p.theme)};
 `;
 
-export const Configuration: React.FC<{ reactPackage: IPackage; components: IComponentData[] }> = ({
-  reactPackage,
-  components
-}) => {
+export const Configuration: React.FC<{
+  reactPackage: IPackage;
+  components: IComponentData[];
+  isTheming: boolean;
+}> = ({ reactPackage, components, isTheming }) => {
   return (
     <StyledUnorderedList>
       <StyledListItem>
@@ -76,7 +77,8 @@ export const Configuration: React.FC<{ reactPackage: IPackage; components: IComp
       <StyledListItem>
         <StyledListItemLabel isBold>Deps</StyledListItemLabel>
         <StyledMono>
-          npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
+          npm install react react-dom prop-types styled-components
+          {!isTheming && ' @zendeskgarden/react-theming'}
         </StyledMono>
       </StyledListItem>
       {components && (
