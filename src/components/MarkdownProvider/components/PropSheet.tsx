@@ -100,7 +100,11 @@ export const PropSheet: React.FC<{ components: IComponentData[]; componentName: 
                     </Cell>
                     <Cell>
                       <MD tag="span" isMonospace={defaultMonospace}>
-                        {defaultValue}
+                        {component.name === 'ThemeProvider' && name === 'theme' ? (
+                          <Markdown>[DEFAULT_THEME](/components/theme-object)</Markdown>
+                        ) : (
+                          defaultValue
+                        )}
                       </MD>
                     </Cell>
                     <Cell>
