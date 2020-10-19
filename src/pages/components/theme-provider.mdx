@@ -1,0 +1,31 @@
+---
+title: Theme provider
+description: >
+  The Theme provider is a wrapper that provides theming values to all of the
+  components it contains.
+package: '@zendeskgarden/react-theming'
+components:
+  - theming/src/elements/ThemeProvider.tsx
+---
+
+## Configuration
+
+<Configuration
+  reactPackage={props.data.mdx.package}
+  components={props.data.mdx.components}
+  isTheming
+/>
+
+## API
+
+### ThemeProvider
+
+<PropSheet components={props.data.mdx.components} componentName="themeProvider" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

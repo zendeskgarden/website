@@ -10,8 +10,10 @@
       title: Design tokens
     - id: https://zendeskgarden.github.io/react-containers
       title: Containers
-    - id: https://zendeskgarden.github.io/react-components/theming
-      title: Theme
+    - title: Theming
+      items:
+        - id: /components/theme-provider
+          title: Theme provider
     - id: /components/versions
       title: Versions
 - title: Components
