@@ -1,0 +1,32 @@
+---
+title: Utilities
+description: >
+package: '@zendeskgarden/react-theming'
+components:
+  - theming/src/utils/arrowStyles.ts
+  - theming/src/utils/getColor.ts
+---
+
+## Configuration
+
+<Configuration
+  reactPackage={props.data.mdx.package}
+  components={props.data.mdx.components}
+  isTheming
+/>
+
+## API
+
+### arrowStyles
+
+<PropSheet components={props.data.mdx.components} componentName="arrowStyles" />
+
+### getColor
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
