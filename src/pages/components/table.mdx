@@ -165,6 +165,28 @@ import TruncateCode from '!!raw-loader!../../examples/table/TableTruncate.tsx';
   <Truncate />
 </CodeExample>
 
+### Draggable
+
+This functionality is implemented using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd).
+
+import TableDraggable from '../../examples/table/TableDraggable.tsx';
+import TableDraggableCode from '!!raw-loader!../../examples/table/TableDraggable.tsx';
+
+<CodeExample code={TableDraggableCode}>
+  <TableDraggable />
+</CodeExample>
+
+### Virtual scrolling
+
+Virtualized tables help efficiently render large amounts of data. This functionality is implemented using [react-window](https://react-window.now.sh/#/examples/list/fixed-size).
+
+import TableVirtualized from '../../examples/table/TableVirtualized.tsx';
+import TableVirtualizedCode from '!!raw-loader!../../examples/table/TableVirtualized.tsx';
+
+<CodeExample code={TableVirtualizedCode}>
+  <TableVirtualized />
+</CodeExample>
+
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
