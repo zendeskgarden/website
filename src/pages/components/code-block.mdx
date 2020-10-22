@@ -1,0 +1,104 @@
+---
+title: Code block
+description: >
+  Code block is used to display text with code formatting. It uses syntax
+  highlighting to make code more legible.
+package: '@zendeskgarden/react-typography'
+components:
+  - typography/src/elements/CodeBlock.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To display read-only text with code formatting</li>
+      <li>To display code snippets for users to copy</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>For editing code</li>
+      <li>
+        <Markdown>
+          For simple, single-line usage, use the [Code](/components/code) component
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+Code block renders code with syntax highlighting.
+
+import Default from '../../examples/typography/code-block/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/typography/code-block/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Light mode
+
+By default, Code block is dark. Shed some light on it using `isLight`.
+
+import Light from '../../examples/typography/code-block/Light.tsx';
+import LightCode from '!!raw-loader!../../examples/typography/code-block/Light.tsx';
+
+<CodeExample code={LightCode}>
+  <Light />
+</CodeExample>
+
+### Language
+
+Use the `language` prop to specify the syntax highlighting language. Default is `tsx`.
+
+import Language from '../../examples/typography/code-block/Language.tsx';
+import LanguageCode from '!!raw-loader!../../examples/typography/code-block/Language.tsx';
+
+<CodeExample code={LanguageCode}>
+  <Language />
+</CodeExample>
+
+### Line numbers
+
+Line numbers make it easier to reference specific lines of code. You can turn
+this on with the `isNumbered` prop.
+
+import Numbered from '../../examples/typography/code-block/Numbered.tsx';
+import NumberedCode from '!!raw-loader!../../examples/typography/code-block/Numbered.tsx';
+
+<CodeExample code={NumberedCode}>
+  <Numbered />
+</CodeExample>
+
+### Size
+
+By default, Code block text is medium-sized, but it can also be small or large.
+
+import Size from '../../examples/typography/code-block/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/typography/code-block/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### CodeBlock
+
+<PropSheet components={props.data.mdx.components} componentName="codeBlock" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
