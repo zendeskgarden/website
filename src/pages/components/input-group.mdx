@@ -1,0 +1,103 @@
+---
+title: Input Group
+description: >
+  An Input Group is a field with buttons on either side. This allows users to
+  better understand or take action on entered information.
+package: '@zendeskgarden/react-forms'
+components:
+  - forms/src/elements/input-group/InputGroup.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To take action on specific data in a field (for example, country code selection)</li>
+      <li>To copy data inside a field</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          For form submission, use separate [Inputs](/components/input) and
+          [Buttons](/components/button) instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The basic usage of an Input Group component.
+
+import InputGroup from '../../examples/forms/input-group/InputGroup.tsx';
+import InputGroupCode from '!!raw-loader!../../examples/forms/input-group/InputGroup.tsx';
+
+<CodeExample code={InputGroupCode}>
+  <InputGroup />
+</CodeExample>
+
+### Read-only
+
+Field content can be read-only.
+
+import Readonly from '../../examples/forms/input-group/Readonly.tsx';
+import ReadonlyCode from '!!raw-loader!../../examples/forms/input-group/Readonly.tsx';
+
+<CodeExample code={ReadonlyCode}>
+  <Readonly />
+</CodeExample>
+
+### Disabled
+
+A disabled Input Group prevents user interaction.
+
+import Disabled from '../../examples/forms/input-group/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/input-group/Disabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+### Size
+
+Input Group comes in two sizes: regular (default) and compact.
+
+import Size from '../../examples/forms/input-group/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/forms/input-group/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+### Button placement
+
+Buttons can be placed before or after the input.
+
+import ButtonPlacement from '../../examples/forms/input-group/ButtonPlacement.tsx';
+import ButtonPlacementCode from '!!raw-loader!../../examples/forms/input-group/ButtonPlacement.tsx';
+
+<CodeExample code={ButtonPlacementCode}>
+  <ButtonPlacement />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### InputGroup
+
+<PropSheet components={props.data.mdx.components} componentName="InputGroup" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

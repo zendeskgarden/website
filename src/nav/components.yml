@@ -60,6 +60,8 @@
           title: Checkbox
         - id: /components/input
           title: Input
+        - id: /components/input-group
+          title: Input group
         - id: /components/multi-thumb-range
           title: Multi-thumb range
         - id: /components/radio
