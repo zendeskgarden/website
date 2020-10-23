@@ -28,8 +28,8 @@ for (let x = 1; x <= 100000; x++) {
   });
 }
 
-/* stylelint-disable declaration-no-important */
 const ScrollableTable = styled(Table).attrs({ role: 'presentation' })`
+  /* stylelint-disable-next-line */
   display: block !important;
 `;
 
@@ -38,6 +38,7 @@ const ScrollableHead = styled(Head)`
 `;
 
 const ScrollableHeaderRow = styled(HeaderRow).attrs({ role: 'row' })`
+  /* stylelint-disable-next-line */
   display: table !important;
   width: 100%;
   table-layout: fixed;
@@ -46,16 +47,17 @@ const ScrollableHeaderRow = styled(HeaderRow).attrs({ role: 'row' })`
 const ScrollableHeaderCell = styled(HeaderCell).attrs({ role: 'columnheader' })``;
 
 const ScrollableBody = styled(Body)`
+  /* stylelint-disable-next-line */
   display: block !important;
 `;
 
 const ScrollableRow = styled(Row).attrs({ role: 'row' })`
+  /* stylelint-disable-next-line */
   display: table !important;
   table-layout: fixed;
 `;
 
 const ScrollableCell = styled(Cell).attrs({ role: 'cell' })``;
-/* stylelint-enable declaration-no-important */
 
 const Example = () => (
   <div role="grid" aria-rowcount={rowData.length} aria-colcount={4}>

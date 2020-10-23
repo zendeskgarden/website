@@ -8,16 +8,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
-import {
-  Table,
-  Caption,
-  Row,
-  Cell,
-  Head,
-  HeaderCell,
-  HeaderRow,
-  Body
-} from '@zendeskgarden/react-tables';
+import { Table, Row, Cell, Head, HeaderCell, HeaderRow, Body } from '@zendeskgarden/react-tables';
 import { ReactComponent as GripIcon } from '@zendeskgarden/svg-icons/src/12/grip.svg';
 
 const DraggableRow = styled(Row)<{ isDraggingOver: boolean }>`
@@ -29,12 +20,6 @@ const DraggableRow = styled(Row)<{ isDraggingOver: boolean }>`
   }
 `
       : ''}
-`;
-
-const StyledCaption = styled(Caption)`
-  margin-bottom: ${props => props.theme.space.sm};
-  line-height: ${props => props.theme.lineHeights.xl};
-  font-size: ${props => props.theme.fontSizes.xl};
 `;
 
 const DraggableContainer = styled.div`
@@ -165,7 +150,6 @@ const Example = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Table>
-        <StyledCaption>Your Unsolved Tickets</StyledCaption>
         <Head>
           <HeaderRow>
             <HeaderCell isMinimum />
