@@ -103,14 +103,43 @@ class DraggableCell extends React.Component<IDraggableCellProps> {
 
 interface IItem {
   id: string;
-  content: string;
+  name: string;
+  exposure: string;
+  soil: string;
 }
 
-const generateItems = (count: number) =>
-  Array.from({ length: count }, (v, k) => k).map<IItem>(k => ({
-    id: `item-${k}`,
-    content: `item ${k}`
-  }));
+const defaultItems: IItem[] = [
+  {
+    id: 'raspberries',
+    name: 'Raspberries',
+    exposure: 'Partial shade',
+    soil: 'Moist and slightly acidic'
+  },
+  {
+    id: 'strawberries',
+    name: 'Strawberries',
+    exposure: 'Full sun',
+    soil: 'Medium moisture'
+  },
+  {
+    id: 'grapes',
+    name: 'Grapes',
+    exposure: 'Full sun',
+    soil: 'Rich and well draining'
+  },
+  {
+    id: 'cherries',
+    name: 'Cherries',
+    exposure: 'Partial sun',
+    soil: 'Rich and well draining'
+  },
+  {
+    id: 'tomatoes',
+    name: 'Tomatoes',
+    exposure: 'Partial shade',
+    soil: 'Well draining'
+  }
+];
 
 const reorderItems = (list: IItem[], startIndex: number, endIndex: number) => {
   const result = Array.from(list);
@@ -122,7 +151,7 @@ const reorderItems = (list: IItem[], startIndex: number, endIndex: number) => {
 };
 
 const Example = () => {
-  const [items, setItems] = useState(generateItems(10));
+  const [items, setItems] = useState(defaultItems);
   const [recentDragId, setRecentDragId] = useState<string>();
 
   useEffect(() => {
@@ -153,10 +182,9 @@ const Example = () => {
         <Head>
           <HeaderRow>
             <HeaderCell isMinimum />
-            <HeaderCell>Subject</HeaderCell>
-            <HeaderCell>Requester</HeaderCell>
-            <HeaderCell>Requested</HeaderCell>
-            <HeaderCell>Type</HeaderCell>
+            <HeaderCell>Fruit</HeaderCell>
+            <HeaderCell>Sun exposure</HeaderCell>
+            <HeaderCell>Soil</HeaderCell>
           </HeaderRow>
         </Head>
         <Droppable droppableId="droppable">
@@ -182,15 +210,14 @@ const Example = () => {
                           </DraggableContainer>
                         </DraggableCell>
                         <DraggableCell isDragOccurring={snapshot.isDragging}>
-                          {item.content}
+                          {item.name}
                         </DraggableCell>
                         <DraggableCell isDragOccurring={snapshot.isDragging}>
-                          John Smith
+                          {item.exposure}
                         </DraggableCell>
                         <DraggableCell isDragOccurring={snapshot.isDragging}>
-                          15 minutes ago
+                          {item.soil}
                         </DraggableCell>
-                        <DraggableCell isDragOccurring={snapshot.isDragging}>Ticket</DraggableCell>
                       </DraggableRow>
                     )}
                   </Draggable>
