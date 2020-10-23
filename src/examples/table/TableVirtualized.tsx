@@ -10,23 +10,19 @@ import styled from 'styled-components';
 import { FixedSizeList } from 'react-window';
 import { Table, Head, HeaderRow, HeaderCell, Body, Row, Cell } from '@zendeskgarden/react-tables';
 
-const rowData: {
+interface IRow {
   id: number;
-  subject: string;
-  requester: string;
-  requested: string;
-  type: string;
-}[] = [];
-
-for (let x = 1; x <= 100000; x++) {
-  rowData.push({
-    id: x,
-    subject: 'Example subject',
-    requester: 'John Doe',
-    requested: '15 minutes ago',
-    type: 'Ticket'
-  });
+  fruit: string;
+  sun: string;
+  soil: string;
 }
+
+const rowData: IRow[] = Array.from(Array(100000)).map((row, index) => ({
+  id: index,
+  fruit: `Fruit #${index + 1}`,
+  sun: 'Full sun',
+  soil: 'Well draining'
+}));
 
 const ScrollableTable = styled(Table).attrs({ role: 'presentation' })`
   /* stylelint-disable-next-line */
@@ -64,10 +60,9 @@ const Example = () => (
     <ScrollableTable>
       <ScrollableHead>
         <ScrollableHeaderRow>
-          <ScrollableHeaderCell>Subject</ScrollableHeaderCell>
-          <ScrollableHeaderCell>Requester</ScrollableHeaderCell>
-          <ScrollableHeaderCell>Requested</ScrollableHeaderCell>
-          <ScrollableHeaderCell>Type</ScrollableHeaderCell>
+          <ScrollableHeaderCell>Fruit</ScrollableHeaderCell>
+          <ScrollableHeaderCell>Sun exposure</ScrollableHeaderCell>
+          <ScrollableHeaderCell>Soil type</ScrollableHeaderCell>
         </ScrollableHeaderRow>
       </ScrollableHead>
     </ScrollableTable>
@@ -81,12 +76,9 @@ const Example = () => (
     >
       {({ index, style }) => (
         <ScrollableRow key={rowData[index].id} style={style} aria-rowindex={index + 1}>
-          <ScrollableCell isTruncated>
-            [{rowData[index].id}] {rowData[index].subject}
-          </ScrollableCell>
-          <ScrollableCell isTruncated>{rowData[index].requester}</ScrollableCell>
-          <ScrollableCell isTruncated>{rowData[index].requested}</ScrollableCell>
-          <ScrollableCell isTruncated>{rowData[index].type}</ScrollableCell>
+          <ScrollableCell isTruncated>{rowData[index].fruit}</ScrollableCell>
+          <ScrollableCell isTruncated>{rowData[index].sun}</ScrollableCell>
+          <ScrollableCell isTruncated>{rowData[index].soil}</ScrollableCell>
         </ScrollableRow>
       )}
     </FixedSizeList>
