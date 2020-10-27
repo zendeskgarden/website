@@ -11,7 +11,6 @@ import { Field, Label, InputGroup, Input } from '@zendeskgarden/react-forms';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
-import { Span } from '@zendeskgarden/react-typography';
 import { ReactComponent as ChevronDownStroke } from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 /**
@@ -25,12 +24,9 @@ const StyledInputGroup = styled(InputGroup)`
   }
 `;
 
-const StyledSpanIcon = styled(Span.Icon)`
-  margin-left: ${p => p.theme.space.xs};
-`;
-
 const Example = () => {
   const [selectedItem, setSelectedItem] = useState('Herb');
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Row justifyContent="center">
@@ -38,15 +34,22 @@ const Example = () => {
         <Field>
           <Label>Plant name generator</Label>
           <StyledInputGroup>
-            <Dropdown selectedItem={selectedItem} onSelect={item => setSelectedItem(item)}>
+            <Dropdown
+              isOpen={isOpen}
+              selectedItem={selectedItem}
+              onSelect={item => setSelectedItem(item)}
+              onStateChange={state => {
+                if (state.isOpen !== undefined) {
+                  setIsOpen(state.isOpen);
+                }
+              }}
+            >
               <Trigger>
                 <Button focusInset>
-                  <Span>
-                    {selectedItem}
-                    <StyledSpanIcon>
-                      <ChevronDownStroke />
-                    </StyledSpanIcon>
-                  </Span>
+                  {selectedItem}
+                  <Button.EndIcon isRotated={isOpen}>
+                    <ChevronDownStroke />
+                  </Button.EndIcon>
                 </Button>
               </Trigger>
               <Menu>
