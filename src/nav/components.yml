@@ -116,6 +116,8 @@
       items:
         - title: Code
           id: /components/code
+        - title: Code block
+          id: /components/code-block
         - title: Lists
           id: /components/lists
         - title: Paragraph

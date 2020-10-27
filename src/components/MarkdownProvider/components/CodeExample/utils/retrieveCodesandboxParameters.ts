@@ -79,7 +79,7 @@ const packageJson = `
     "@zendeskgarden/react-theming": "^8.x",
     "@zendeskgarden/react-tooltips": "^8.x",
     "@zendeskgarden/react-typography": "^8.x",
-    "@zendeskgarden/svg-icons": "^6.17.0"
+    "@zendeskgarden/svg-icons": "^6.x"
   }
 }
 `;

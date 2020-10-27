@@ -138,11 +138,22 @@ display both cases at once.
 The present tense is what’s happening now. It’s friendlier and easier to read. Stick to one tense
 per component. Don’t move from past to present tense—we’re not time travelers.
 
-| Tense          | Do this       | Not this              |
-| -------------- | ------------- | --------------------- |
-| Present        | Message sent  | Message has been sent |
-| Simple past    | Chat ended    | Chat has ended        |
-| Simple present | Chat will end | Chat will have ended  |
+<BestPractice>
+  <Do>
+    <ul>
+      <li>Message sent</li>
+      <li>Chat ended</li>
+      <li>Chat will end</li>
+    </ul>
+  </Do>
+  <Dont>
+    <ul>
+      <li>Message has been sent</li>
+      <li>Chat has ended</li>
+      <li>Chat will have ended</li>
+    </ul>
+  </Dont>
+</BestPractice>
 
 import { graphql } from 'gatsby';
 
