@@ -22,20 +22,20 @@ const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
       <Field>
-        <Label>Default</Label>
+        <Label>Plant name generator</Label>
         <InputGroup>
-          <Input />
-          <Button focusInset>Copy</Button>
+          <Input defaultValue="Sheepberry" />
+          <Button focusInset>Germinate</Button>
         </InputGroup>
       </Field>
     </Col>
     <StyledCol sm={5}>
       <Field>
-        <Label>Compact</Label>
+        <Label>Plant name generator</Label>
         <InputGroup isCompact>
-          <Input isCompact />
+          <Input isCompact defaultValue="Sheepberry" />
           <Button size="small" focusInset>
-            Copy
+            Germinate
           </Button>
         </InputGroup>
       </Field>

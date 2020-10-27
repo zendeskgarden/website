@@ -14,10 +14,10 @@ const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
       <Field>
-        <Label>Plant</Label>
+        <Label>Plant name generator</Label>
         <InputGroup>
-          <Input value="Soil" disabled />
-          <Button disabled>Copy</Button>
+          <Input value="Sheepberry" disabled />
+          <Button disabled>Germinate</Button>
         </InputGroup>
       </Field>
     </Col>

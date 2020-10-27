@@ -1,8 +1,8 @@
 ---
 title: Input group
 description: >
-  An Input group is a field with buttons on either side. This allows users to
-  better understand or take action on entered information.
+  An Input group combines two components, a Button and an Input,
+  to let users take quick action on entered information.
 package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/input-group/InputGroup.tsx
@@ -11,16 +11,16 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To take action on specific data in a field (for example, country code selection)</li>
-      <li>To copy data inside a field</li>
+      <li>To let users select data in a field</li>
+      <li>To let users copy data in a field</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
       <li>
         <Markdown>
-          For form submission, use separate [Inputs](/components/input) and
-          [Buttons](/components/button) instead
+          To submit a form, separate your [Buttons](/components/button) from your
+          [Inputs](/components/input).
         </Markdown>
       </li>
     </ul>
@@ -42,7 +42,7 @@ import InputGroupCode from '!!raw-loader!../../examples/forms/input-group/InputG
 
 ### Read-only
 
-Field content can be read-only.
+Field content can be made read-only.
 
 import Readonly from '../../examples/forms/input-group/Readonly.tsx';
 import ReadonlyCode from '!!raw-loader!../../examples/forms/input-group/Readonly.tsx';
@@ -64,7 +64,7 @@ import DisabledCode from '!!raw-loader!../../examples/forms/input-group/Disabled
 
 ### Size
 
-Input group comes in two sizes: regular (default) and compact.
+Input group comes in two sizes: default and compact.
 
 import Size from '../../examples/forms/input-group/Size.tsx';
 import SizeCode from '!!raw-loader!../../examples/forms/input-group/Size.tsx';

@@ -14,9 +14,9 @@ const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
       <Field>
-        <Label>Plant</Label>
+        <Label>Invoice number</Label>
         <InputGroup>
-          <Input value="Soil" readOnly />
+          <Input value="GDN10136H74NK-0011" readOnly />
           <Button focusInset>Copy</Button>
         </InputGroup>
       </Field>
