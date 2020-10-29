@@ -47,12 +47,7 @@ const Example = () => {
 
             if (Object.prototype.hasOwnProperty.call(changes, 'selectedItem')) {
               updatedState.tempSelectedItem = changes.selectedItem;
-
-              if (updatedState.tempSelectedItem === 'flowers') {
-                stateAndHelpers.setHighlightedIndex(1);
-              } else if (updatedState.tempSelectedItem === 'fruits') {
-                stateAndHelpers.setHighlightedIndex(3);
-              }
+              stateAndHelpers.setHighlightedIndex(1);
             }
 
             if (Object.keys(updatedState).length > 0) {
