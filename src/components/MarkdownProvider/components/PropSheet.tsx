@@ -17,10 +17,11 @@ import { Button } from '@zendeskgarden/react-buttons';
 import { Markdown } from './Markdown';
 import { StyledCodeBlock as CodeBlock } from './CodeBlock';
 
-export const PropSheet: React.FC<{ components: IComponentData[]; componentName: string }> = ({
-  components,
-  componentName
-}) => {
+export const PropSheet: React.FC<{
+  components: IComponentData[];
+  componentName: string;
+  headerName?: string;
+}> = ({ components, componentName, headerName }) => {
   const component = components.find(c => c.name.toLowerCase() === componentName.toLowerCase())!;
 
   return (
@@ -39,7 +40,7 @@ export const PropSheet: React.FC<{ components: IComponentData[]; componentName: 
           >
             <Head>
               <HeaderRow>
-                <HeaderCell>Prop name</HeaderCell>
+                <HeaderCell>{headerName}</HeaderCell>
                 <HeaderCell>Type</HeaderCell>
                 <HeaderCell>Default</HeaderCell>
                 <HeaderCell>Description</HeaderCell>
@@ -126,4 +127,8 @@ export const PropSheet: React.FC<{ components: IComponentData[]; componentName: 
       )}
     </>
   );
+};
+
+PropSheet.defaultProps = {
+  headerName: 'Prop name'
 };

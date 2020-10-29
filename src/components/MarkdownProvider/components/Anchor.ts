@@ -10,7 +10,9 @@ import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { math } from 'polished';
 
-export const StyledAnchor = styled(Anchor)`
+export const StyledAnchor = styled(Anchor).attrs(props => ({
+  isExternal: props.href && !/^(#|\/(?!\/))/u.test(props.href)
+}))`
   &.anchor.before {
     margin-left: -${p => math(`${p.theme.space.xs} * 2 + ${p.theme.iconSizes.md}`)};
     padding: 0 ${p => p.theme.space.xs};

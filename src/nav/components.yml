@@ -12,6 +12,8 @@
       title: Containers
     - title: Theming
       items:
+        - id: /components/theme-object
+          title: Theme object
         - id: /components/theme-provider
           title: Theme provider
         - id: /components/utilities
