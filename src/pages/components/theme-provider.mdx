@@ -8,6 +8,49 @@ components:
   - theming/src/elements/ThemeProvider.tsx
 ---
 
+<Usage>
+  <Use>
+    <ul>
+      <li>
+        <Markdown>
+          As the root component of the Garden DOM, where it provides global context for
+          [RTL](/components/theme-object#rtl) layout
+        </Markdown>
+      </li>
+      <li>As a nested wrapper for a subset of components that require themed styling</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of a theme provided to a styled component.
+
+import Default from '../../examples/theme-provider/ThemeProviderDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/theme-provider/ThemeProviderDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Branding
+
+You can override the default Theme provider for a branded component
+experience. In this example, Garden’s `primaryHue` is replaced and the
+default border radii are set to zero.
+
+### Extension
+
+The default theme can be extended with custom values. In this example, the
+palette receives a `darkOrange` hue which replaces Garden’s default
+`dangerHue`.
+
+### Nesting
+
+TBD
+
 ## Configuration
 
 <Configuration
