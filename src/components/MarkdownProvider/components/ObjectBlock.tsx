@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import React from 'react';
 import { StyledCodeBlock as CodeBlock } from './CodeBlock';
 
@@ -23,10 +22,17 @@ const replacer = (key: string, value: unknown) => {
   return retVal;
 };
 
-const code = JSON.stringify(DEFAULT_THEME, replacer, '  ');
+interface IObjectBlockProps {
+  replacementPattern?: string;
+  replacementValue?: string;
+}
 
-export const DefaultTheme: React.FC = () => (
-  <CodeBlock language="json">
-    {code.replace(/"palette": \{.*?^\s\s\},/msu, '"palette": { /* see API for details */ },')}
-  </CodeBlock>
-);
+export const ObjectBlock: React.FC<IObjectBlockProps> = props => {
+  let code = JSON.stringify(props.children, replacer, '  ');
+
+  if (props.replacementPattern && props.replacementValue) {
+    code = code.replace(props.replacementPattern, props.replacementValue);
+  }
+
+  return <CodeBlock language="json">{code}</CodeBlock>;
+};

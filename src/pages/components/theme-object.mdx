@@ -37,7 +37,14 @@ components:
 
 The following JSON displays the theme object in its entirety.
 
-<DefaultTheme />
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+
+<ObjectBlock
+  replacementPattern={/"palette": \{.*?^\s\s\},/msu}
+  replacementValue='"palette": { /* see API for details */ },'
+>
+  {DEFAULT_THEME}
+</ObjectBlock>
 
 ## Configuration
 
