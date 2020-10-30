@@ -6,9 +6,10 @@
  */
 
 import React, { useContext } from 'react';
-import styled, { css, DefaultTheme, ThemeContext, ThemeProps } from 'styled-components';
+import styled, { css, ThemeContext, ThemeProps } from 'styled-components';
 import { math } from 'polished';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { DefaultTheme, PALETTE, ThemeProvider, mediaQuery } from '@zendeskgarden/react-theming';
 
 const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<DefaultTheme>) => {
   let retVal;
@@ -179,13 +180,60 @@ const FlowerPot = () => {
   );
 };
 
+const StyledCol = styled(Col)`
+  ${p => mediaQuery('down', 'xs', p.theme)} {
+    margin-top: ${p => p.theme.space.sm};
+  }
+`;
+
 /* Each Garden example is wrapped by a <ThemeProvider> */
 const Example = () => {
+  const sizeTheme = (parentTheme: DefaultTheme) => ({
+    ...parentTheme,
+    borderRadii: {
+      ...parentTheme.borderRadii,
+      md: '5px'
+    },
+    space: {
+      ...parentTheme.space,
+      base: 5
+    }
+  });
+
+  const shapeTheme = (parentTheme: DefaultTheme) => ({
+    ...parentTheme,
+    borderRadii: {
+      ...parentTheme.borderRadii,
+      md: '0'
+    }
+  });
+
+  const colorTheme = (parentTheme: DefaultTheme) => ({
+    ...parentTheme,
+    palette: {
+      ...parentTheme.palette,
+      lemon: PALETTE.fuschia,
+      pink: PALETTE.azure
+    }
+  });
+
   return (
     <Row>
-      <Col>
-        <FlowerPot />
-      </Col>
+      <ThemeProvider focusVisibleRef={null} theme={sizeTheme as any}>
+        <Col>
+          <FlowerPot />
+        </Col>
+        <ThemeProvider focusVisibleRef={null} theme={colorTheme as any}>
+          <StyledCol>
+            <FlowerPot />
+          </StyledCol>
+          <ThemeProvider focusVisibleRef={null} theme={shapeTheme as any}>
+            <StyledCol>
+              <FlowerPot />
+            </StyledCol>
+          </ThemeProvider>
+        </ThemeProvider>
+      </ThemeProvider>
     </Row>
   );
 };
