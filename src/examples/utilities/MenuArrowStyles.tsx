@@ -82,7 +82,7 @@ const ButtonMenu = ({
   > = {
     top: {
       iconStyle: { transform: 'rotate(90deg)' },
-      menuStyle: { bottom: '100%', right: -34 },
+      menuStyle: { bottom: '100%', left: -34 },
       arrowPosition: 'bottom'
     },
     'top-left': {

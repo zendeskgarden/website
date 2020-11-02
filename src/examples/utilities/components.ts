@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const COMPONENTS = [
+const components = [
   {
     name: 'arrowStyles',
     props: {
@@ -169,4 +169,4 @@ const COMPONENTS = [
   }
 ];
 
-export default COMPONENTS;
+export default components;
