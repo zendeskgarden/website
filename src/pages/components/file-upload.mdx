@@ -51,6 +51,18 @@ import SizeCode from '!!raw-loader!../../examples/forms/file-upload/Size.tsx';
   <Size />
 </CodeExample>
 
+## How to use it well
+
+### Put file requirements in hints
+
+<BestPractice>
+  <Do imageSource={props.data.fileUploadRequirements.childFile.childImageSharp.fluid} imageIsSquare>
+    <p>
+      <Markdown>Use `Hint` to describe image requirements and restrictions</Markdown>
+    </p>
+  </Do>
+</BestPractice>
+
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
@@ -69,5 +81,16 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    fileUploadRequirements: abstractAsset(
+      layerName: { eq: "components-forms-fileupload-file-requirements" }
+    ) {
+      childFile {
+        childImageSharp {
+          fluid(maxHeight: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
   }
 `;
