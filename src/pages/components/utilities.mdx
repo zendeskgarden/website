@@ -47,9 +47,8 @@ are applied must be wrapped in a positioned box (`relative`, `absolute`, or
 
 ### getColor
 
-Get a color for the given hue, shade, and theme. The color is resolved with a
-fallback algorithm that succeeds whether or not the particular shade exists
-within the theme.
+Get a color for the given hue, shade, and theme. The algorithm returns a
+valid color even if the particular shade doesn't exist in the current theme.
 
 <PropSheet components={COMPONENTS} componentName="getColor" headerName="Parameter" />
 
