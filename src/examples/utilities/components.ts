@@ -162,8 +162,7 @@ const components = [
       Component: {
         required: true,
         type: 'Object',
-        description:
-          'Takes a component to be wrapped by a higher-order component with an added `theme` prop'
+        description: 'Gets wrapped by a higher-order component with an added `theme` prop'
       }
     }
   }
