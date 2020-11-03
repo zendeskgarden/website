@@ -58,12 +58,12 @@
       items:
         - id: /components/checkbox
           title: Checkbox
+        - id: /components/file-upload
+          title: File upload
         - id: /components/input
           title: Input
         - id: /components/input-group
           title: Input group
-        - id: /components/file-upload
-          title: File upload
         - id: /components/multi-thumb-range
           title: Multi-thumb range
         - id: /components/radio
