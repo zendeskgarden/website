@@ -168,7 +168,7 @@ const FlowerPot = () => {
   const theme = useContext(ThemeContext);
 
   return (
-    <div css={{ textAlign: 'center', minWidth: theme.space.base * 50 }}>
+    <div style={{ textAlign: 'center', minWidth: theme.space.base * 50 }}>
       <StyledPlant>
         <StyledLeaf />
         <StyledFlower />
