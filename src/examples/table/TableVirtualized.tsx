@@ -7,8 +7,16 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import getScrollbarSize from 'dom-helpers/scrollbarSize';
 import { FixedSizeList } from 'react-window';
 import { Table, Head, HeaderRow, HeaderCell, Body, Row, Cell } from '@zendeskgarden/react-tables';
+
+const SCROLLBAR_SIZE = getScrollbarSize();
+
+const StyledSpacerCell = styled(HeaderCell)`
+  padding: 0;
+  width: ${SCROLLBAR_SIZE}px;
+`;
 
 interface IRow {
   id: number;
@@ -63,6 +71,7 @@ const Example = () => (
           <ScrollableHeaderCell>Fruit</ScrollableHeaderCell>
           <ScrollableHeaderCell>Sun exposure</ScrollableHeaderCell>
           <ScrollableHeaderCell>Soil type</ScrollableHeaderCell>
+          <StyledSpacerCell aria-hidden={true} />
         </ScrollableHeaderRow>
       </ScrollableHead>
     </ScrollableTable>

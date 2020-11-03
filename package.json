@@ -66,6 +66,7 @@
     "comment-parser": "0.7.6",
     "core-js": "2.6.11",
     "date-fns": "2.16.1",
+    "dom-helpers": "5.2.0",
     "dotenv": "8.2.0",
     "envalid": "6.0.2",
     "eslint": "7.10.0",
