@@ -50,47 +50,44 @@ const StyledMono = styled(Span).attrs({ isMonospace: true })`
 export const Configuration: React.FC<{
   reactPackage: IPackage;
   components: IComponentData[];
-  isTheming: boolean;
-}> = ({ reactPackage, components, isTheming }) => {
-  return (
-    <StyledUnorderedList>
+}> = ({ reactPackage, components }) => (
+  <StyledUnorderedList>
+    <StyledListItem>
+      <StyledListItemLabel isBold>Name</StyledListItemLabel>
+      {reactPackage.version}
+      <StyledDot>•</StyledDot>
+      <Anchor
+        href={`https://github.com/zendeskgarden/react-components/tree/main/packages/${reactPackage.packageName}`}
+      >
+        View source
+      </Anchor>
+      <StyledDot>•</StyledDot>
+      <Anchor
+        href={`https://www.npmjs.com/package/@zendeskgarden/react-${reactPackage.packageName}`}
+      >
+        View on npm
+      </Anchor>
+    </StyledListItem>
+    <StyledListItem>
+      <StyledListItemLabel isBold>Install</StyledListItemLabel>
+      <StyledMono>npm install {reactPackage.name}</StyledMono>
+    </StyledListItem>
+    <StyledListItem>
+      <StyledListItemLabel isBold>Deps</StyledListItemLabel>
+      <StyledMono>
+        npm install react react-dom prop-types styled-components
+        {reactPackage.name !== '@zendeskgarden/react-theming' && ' @zendeskgarden/react-theming'}
+      </StyledMono>
+    </StyledListItem>
+    {components && (
       <StyledListItem>
-        <StyledListItemLabel isBold>Name</StyledListItemLabel>
-        {reactPackage.version}
-        <StyledDot>•</StyledDot>
-        <Anchor
-          href={`https://github.com/zendeskgarden/react-components/tree/main/packages/${reactPackage.packageName}`}
-        >
-          View source
-        </Anchor>
-        <StyledDot>•</StyledDot>
-        <Anchor
-          href={`https://www.npmjs.com/package/@zendeskgarden/react-${reactPackage.packageName}`}
-        >
-          View on npm
-        </Anchor>
-      </StyledListItem>
-      <StyledListItem>
-        <StyledListItemLabel isBold>Install</StyledListItemLabel>
-        <StyledMono>npm install {reactPackage.name}</StyledMono>
-      </StyledListItem>
-      <StyledListItem>
-        <StyledListItemLabel isBold>Deps</StyledListItemLabel>
+        <StyledListItemLabel isBold>Import</StyledListItemLabel>
         <StyledMono>
-          npm install react react-dom prop-types styled-components
-          {!isTheming && ' @zendeskgarden/react-theming'}
+          import {`{ ${components.map(component => component.name).join(', ')} }`} from &apos;
+          {reactPackage.name}
+          &apos;
         </StyledMono>
       </StyledListItem>
-      {components && (
-        <StyledListItem>
-          <StyledListItemLabel isBold>Import</StyledListItemLabel>
-          <StyledMono>
-            import {`{ ${components.map(component => component.name).join(', ')} }`} from &apos;
-            {reactPackage.name}
-            &apos;
-          </StyledMono>
-        </StyledListItem>
-      )}
-    </StyledUnorderedList>
-  );
-};
+    )}
+  </StyledUnorderedList>
+);

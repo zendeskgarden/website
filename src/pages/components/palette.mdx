@@ -21,8 +21,7 @@ components:
       <li>
         <Markdown>
           To style custom components with Garden, access the palette through the
-          [`theme.palette`](/components/theme-object#palette) API or
-          [`withTheme`](/components/utilities#withTheme) utility instead
+          [`theme.palette`](/components/theme-object#palette) API instead
         </Markdown>
       </li>
       <li>
@@ -48,7 +47,7 @@ import { PALETTE } from '@zendeskgarden/react-theming';
 
 ## Configuration
 
-<Configuration reactPackage={props.data.mdx.package} components={[{ name: 'PALETTE' }]} isTheming />
+<Configuration reactPackage={props.data.mdx.package} components={[{ name: 'PALETTE' }]} />
 
 import { graphql } from 'gatsby';
 
