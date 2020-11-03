@@ -58,6 +58,8 @@
       items:
         - id: /components/checkbox
           title: Checkbox
+        - id: /components/file-upload
+          title: File upload
         - id: /components/input
           title: Input
         - id: /components/input-group

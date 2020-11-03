@@ -1,0 +1,73 @@
+---
+title: File upload
+description: >
+  File upload lets users select and upload files.
+package: '@zendeskgarden/react-forms'
+components:
+  - forms/src/elements/FileUpload.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To let users attach a file or image to something else</li>
+      <li>To let users add images to their avatars</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Default
+
+Users drag and drop files on to the target or click to select which files to upload.
+
+import Default from '../../examples/forms/file-upload/FileUpload.tsx';
+import DefaultCode from '!!raw-loader!../../examples/forms/file-upload/FileUpload.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Disabled
+
+A disabled File upload prevents user interaction. It doesn’t appear in the tab order and can’t receive focus.
+
+import Disabled from '../../examples/forms/file-upload/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/file-upload/Disabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+### Size
+
+File upload can be default or compact. Size affects spacing between the label/description and the touch target.
+
+import Size from '../../examples/forms/file-upload/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/forms/file-upload/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### FileUpload
+
+The `FileUpload` component is a styled `div` which can be used with 3rd-party file upload libraries
+like [react-dropzone](https://github.com/react-dropzone/react-dropzone/).
+
+<PropSheet components={props.data.mdx.components} componentName="fileUpload" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
