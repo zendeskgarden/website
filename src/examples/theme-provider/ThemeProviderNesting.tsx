@@ -192,11 +192,11 @@ const Example = () => {
     ...parentTheme,
     borderRadii: {
       ...parentTheme.borderRadii,
-      md: '5px'
+      md: '3px'
     },
     space: {
       ...parentTheme.space,
-      base: 5
+      base: 3
     }
   });
 
