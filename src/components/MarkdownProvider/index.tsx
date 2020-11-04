@@ -12,6 +12,7 @@ import { CodeExample } from './components/CodeExample';
 import { StyledCodeBlock as CodeBlock } from './components/CodeBlock';
 import { Component } from './components/Component';
 import { Configuration } from './components/Configuration';
+import { ObjectBlock } from './components/ObjectBlock';
 import { PropSheet } from './components/PropSheet';
 import { Usage, Use, Misuse } from './components/Usage';
 import { BestPractice, Do, Dont, Caution } from './components/BestPractice';
@@ -34,6 +35,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
         CodeExample,
         Component,
         Configuration,
+        ObjectBlock,
         PropSheet,
         Usage,
         Use,

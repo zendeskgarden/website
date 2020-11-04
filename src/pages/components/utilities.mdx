@@ -1,0 +1,119 @@
+---
+title: Utilities
+description: >
+  Utility functions enable advanced theme usage. They let you customize
+  components in a granular way.
+package: '@zendeskgarden/react-theming'
+components:
+  - theming/src/utils/arrowStyles.ts
+  - theming/src/utils/getColor.ts
+  - theming/src/utils/getLineHeight.ts
+  - theming/src/utils/mediaQuery.ts
+  - theming/src/utils/menuStyles.ts
+  - theming/src/utils/retrieveComponentStyles.ts
+  - theming/src/utils/withTheme.ts
+---
+
+## How to use them
+
+### Menu and arrow styles
+
+Use menu and arrow styling utilities to build Garden-styled menu components.
+
+import MenuArrowStyles from '../../examples/utilities/MenuArrowStyles.tsx';
+import MenuArrowStylesCode from '!!raw-loader!../../examples/utilities/MenuArrowStyles.tsx';
+
+<CodeExample code={MenuArrowStylesCode}>
+  <MenuArrowStyles />
+</CodeExample>
+
+## Configuration
+
+import COMPONENTS from '../../examples/utilities/components.ts';
+
+<Configuration reactPackage={props.data.mdx.package} components={COMPONENTS} />
+
+## API
+
+### arrowStyles
+
+CSS for an arrow at the given position and with the given size. The arrow
+inherits the base element's `border`, `background`, and `box-shadow`. For
+proper `border` and `box-shadow` styling, the element to which arrow styles
+are applied must be wrapped in a positioned box (`relative`, `absolute`, or
+`fixed`) that has a `z-index` greater than or equal to zero.
+
+<PropSheet components={COMPONENTS} componentName="arrowStyles" headerName="Parameter" />
+
+### getColor
+
+Get a color for the given hue, shade, and theme. The algorithm returns a
+valid color even if the particular shade doesn't exist in the current theme.
+
+<PropSheet components={COMPONENTS} componentName="getColor" headerName="Parameter" />
+
+### getLineHeight
+
+Derive a unitless line height based on the given pixel-valued height and font size.
+
+<PropSheet components={COMPONENTS} componentName="getLineHeight" headerName="Parameter" />
+
+### mediaQuery
+
+Get a CSS media query string for the given query specifier, breakpoint name,
+and theme. Use this function to build responsive UI that works well with
+Garden's themed [Grid](/components/grid).
+
+<PropSheet components={COMPONENTS} componentName="mediaQuery" headerName="Parameter" />
+
+### menuStyles
+
+CSS for a menu at the given position. Apply these styles to an absolutely
+positioned wrapper (e.g. via [Popper](https://popper.js.org/)) which contains
+a child menu component.
+
+<PropSheet components={COMPONENTS} componentName="menuStyles" headerName="Parameter" />
+
+### retrieveComponentStyles
+
+Retrieve customized CSS for themable component styling overrides. This
+example demonstrates how to construct a custom styled component that permits
+customizations via the theme's
+[components](/components/theme-object#components) object.
+
+```jsx
+import styled from 'styled-components';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+
+const COMPONENT_ID = 'custom.component';
+
+export const StyledCustomComponent = styled.div.attrs({
+  /* Render component ID attribute for reference */
+  'data-custom-id': COMPONENT_ID
+})`
+  display: flex;
+  align-items: center;
+
+  /* CSS provided on the theme will be rendered inline */
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+`;
+```
+
+<PropSheet components={COMPONENTS} componentName="retrieveComponentStyles" headerName="Parameter" />
+
+### withTheme
+
+Use this component factory to pass the context theme object to any React
+component. The React `useContext`
+[hook](https://styled-components.com/docs/advanced#via-usecontext-react-hook)
+may be used as a favorable alternative.
+
+<PropSheet components={COMPONENTS} componentName="withTheme" headerName="Parameter" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

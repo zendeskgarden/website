@@ -1,0 +1,235 @@
+---
+title: Theme object
+description: >
+  The theme object provides global values for component styling.
+package: '@zendeskgarden/react-theming'
+components:
+  - theming/src/elements/theme/index.ts
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>
+        <Markdown>
+          To extend as the theming baseline for a customized [Theme
+          provider](/components/theme-provider)
+        </Markdown>
+      </li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To reference component styling values, use the context `theme`
+          [API](/components/theme-provider#themeprovider) or `withTheme`
+          [utility](/components/utilities#withtheme) instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## What it is
+
+### DEFAULT_THEME
+
+The following JSON displays the theme object in its entirety.
+
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+
+<ObjectBlock
+  replacementPattern={/"palette": \{.*?^\s\s\},/msu}
+  replacementValue='"palette": { /* see API for details */ },'
+>
+  {DEFAULT_THEME}
+</ObjectBlock>
+
+## Configuration
+
+<Configuration
+  reactPackage={props.data.mdx.package}
+  components={[{ name: 'DEFAULT_THEME' }]}
+  isTheming
+/>
+
+## API
+
+The top-level keys of `DEFAULT_THEME`.
+
+### borders
+
+Borders can be small or medium and represent the combination of
+[`borderWidths`](#borderWidths) and [`borderStyles`](#borderStyles).
+
+### borderRadii
+
+Border radii can be small or medium and determine the corner radius for
+various components.
+
+### borderStyles
+
+The theme object provides one `solid` border style. Remember to update
+[`borders`](#borders) in conjunction with any border style override.
+
+### borderWidths
+
+Border widths can be small or medium. Remember to update
+[`borders`](#borders) in conjunction with any border width override.
+
+### breakpoints
+
+Themed breakpoints define minimum dimensions at which layout will change
+based on media queries, adapting to various screen sizes. Breakpoint values
+are used by the responsive [Grid](/components/grid) and the
+[`mediaQuery`](/components/utilities#mediaQuery) utility.
+
+### colors
+
+The colors object provides key values for background, foreground, and palette
+hues applied throughout the component system. The `background` and
+`foreground` values determine basic text-on-surface colors. This table
+provides a reference for hue values.
+
+<PropSheet
+  components={[
+    {
+      name: 'colors',
+      props: {
+        primaryHue: {
+          type: 'string | object',
+          defaultValue: "'blue'",
+          description: 'Provides primary accent colors'
+        },
+        dangerHue: {
+          type: 'string | object',
+          defaultValue: "'red'",
+          description: 'Represents danger or error states'
+        },
+        warningHue: {
+          type: 'string | object',
+          defaultValue: "'yellow'",
+          description: 'Represents caution or warning states'
+        },
+        successHue: {
+          type: 'string | object',
+          defaultValue: "'green'",
+          description: 'Represents success states'
+        },
+        neutralHue: {
+          type: 'string | object',
+          defaultValue: "'grey'",
+          description: 'Provides neutral or disabled colors'
+        },
+        chromeHue: {
+          type: 'string | object',
+          defaultValue: "'kale'",
+          description: 'Provides color for drop shadows and Chrome navigation elements'
+        }
+      }
+    }
+  ]}
+  componentName="colors"
+  headerName="Name"
+/>
+
+### components
+
+The components object is an empty container for adding targeted component
+styling. Its keys are `COMPONENT_ID` values. (Use the [Garden Inspect
+](https://chrome.google.com/webstore/detail/zendesk-garden-inspect/gegnmdnjkodmkohdbljgjpaifiphnjig)
+Chrome extension to view component IDs.) Its values are CSS template strings.
+
+### document
+
+A document object is used to support components that require HTML `document`
+context (such as menus or modals). This example illustrates how components
+could be rendered against an inline frame.
+
+```jsx
+const theme = {
+  ...DEFAULT_THEME,
+  document: document.getElementsByTagName('iframe')[0].contentDocument
+};
+
+<ThemeProvider theme={theme}>...</ThemeProvider>;
+```
+
+### fonts
+
+Fonts can be `mono` or `system`. The monospace font stack is used to display
+[Code](/components/code) fragments and [Code block](/components/code-block)
+snippets. The system font stack is the default used throughout Zendesk
+products.
+
+### fontSizes
+
+Font sizes are used with [`lineHeights`](#lineHeights) to define the basis
+for Garden’s [type scale](/components/typography#type-scale). The scale
+reduces [monospace](/components/typography#font-modifiers) equivalents by one
+pixel so that x-height is proportional with the surrounding system font.
+
+### fontWeights
+
+Font weight names are
+[mapped](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Common_weight_name_mapping)
+to a complete set of corresponding values. The `regular` and `semibold`
+values are weights used by Garden components.
+
+### iconSizes
+
+The icon sizes object corresponds with the small, medium, and large icons
+provided by Garden's [SVG Icon](/design/icons/installation) library.
+
+### lineHeights
+
+Line heights are used with [`fontSizes`](#fontSizes) to define the basis for
+Garden’s [type scale](/components/typography#type-scale). See the
+[`getLineHeight`](/components/utilities#getLineHeight) utility for obtaining
+unitless line height values.
+
+### palette
+
+This object lets you reference, modify, and extend Garden’s entire
+[Palette](/components/palette) (with the exception of `palette.product`
+values, which cannot be customized).
+
+### rtl
+
+The RTL theme object value determines whether components will lay out
+left-to-right or right-to-left.
+
+### shadows
+
+The shadows portion of the theme object contains three functions.
+
+- **sm** and **md** each take an RGBA `color` string parameter and are typically used
+  to apply component focus rings. These functions correspond to the values
+  provided by [`shadowWidths`](#shadowWidths).
+- **lg** takes `offsetY`, `blurRadius`, and `color` string parameters used to
+  apply a drop shadow under components that float above the surface (modals,
+  notifications, etc.). By default, the color variable used is
+  [`chromeHue`](#colors).
+
+### shadowWidths
+
+Shadow widths can be small or medium. Remember to update
+[`shadows`](#shadows) in conjunction with any shadow width override.
+
+### space
+
+Provides a series of values, from `xxs` through `xxl`, that express Garden’s
+standard spacing units. These values are used to manage
+[Grid](/components/grid) gutter sizing and can be leveraged for page layouts.
+The `base` unit is the fundamental factor used to compute Garden’s base-4
+component system. Modifying a theme’s `space.base` will cascade changes to
+component size, padding, and margins.
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
