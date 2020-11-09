@@ -15,7 +15,7 @@ const DefaultButtonGroup = () => {
   const [selectedItem, setSelectedItem] = useState('daisy');
 
   return (
-    <ButtonGroup selectedItem={selectedItem} onSelect={newItem => setSelectedItem(newItem)}>
+    <ButtonGroup selectedItem={selectedItem} onSelect={setSelectedItem}>
       <Button value="daisy">Daisy</Button>
       <Button value="orchid">Orchid</Button>
       <Button value="lily">Lily</Button>
@@ -27,7 +27,7 @@ const PrimaryButtonGroup = () => {
   const [selectedItem, setSelectedItem] = useState('jasmine');
 
   return (
-    <ButtonGroup selectedItem={selectedItem} onSelect={newItem => setSelectedItem(newItem)}>
+    <ButtonGroup selectedItem={selectedItem} onSelect={setSelectedItem}>
       <Button isPrimary value="jasmine">
         Jasmine
       </Button>

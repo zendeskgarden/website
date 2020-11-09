@@ -15,7 +15,7 @@ const SmallButtonGroup = () => {
   const [selectedItem, setSelectedItem] = useState('daisy');
 
   return (
-    <ButtonGroup selectedItem={selectedItem} onSelect={newItem => setSelectedItem(newItem)}>
+    <ButtonGroup selectedItem={selectedItem} onSelect={setSelectedItem}>
       <Button size="small" value="daisy">
         Daisy
       </Button>
@@ -30,7 +30,7 @@ const DefaultButtonGroup = () => {
   const [selectedItem, setSelectedItem] = useState('azalea');
 
   return (
-    <ButtonGroup selectedItem={selectedItem} onSelect={newItem => setSelectedItem(newItem)}>
+    <ButtonGroup selectedItem={selectedItem} onSelect={setSelectedItem}>
       <Button size="medium" value="azalea">
         Azalea
       </Button>
@@ -45,7 +45,7 @@ const LargeButtonGroup = () => {
   const [selectedItem, setSelectedItem] = useState('jasmine');
 
   return (
-    <ButtonGroup selectedItem={selectedItem} onSelect={newItem => setSelectedItem(newItem)}>
+    <ButtonGroup selectedItem={selectedItem} onSelect={setSelectedItem}>
       <Button size="large" value="jasmine">
         Jasmine
       </Button>
