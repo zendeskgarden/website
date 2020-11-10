@@ -4,8 +4,8 @@
       title: Overview
 - title: Foundations
   items:
-    - title: Color
-      id: https://zendeskgarden.github.io/react-components/theming/#!/PALETTE
+    - id: /design/color
+      title: Color
     - title: Icons
       items:
         - id: /design/icons/installation
