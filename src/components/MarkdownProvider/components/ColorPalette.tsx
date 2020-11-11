@@ -16,6 +16,11 @@ const StyledColorHex = styled.figcaption`
   font-size: ${p => p.theme.fontSizes.sm};
 `;
 
+const StyledColorPalette = styled.div`
+  margin-top: ${p => p.theme.space.md};
+  margin-bottom: ${p => p.theme.space.xl};
+`;
+
 const StyledColorSwatch = styled.figure<{ color: string }>`
   display: flex;
   align-items: center;
@@ -35,21 +40,32 @@ const StyledColorSwatch = styled.figure<{ color: string }>`
 `;
 
 const StyledColorTitle = styled.b`
+  white-space: nowrap;
   font-size: ${p => p.theme.fontSizes.md};
   font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
-const Color: React.FC<{ hue: string }> = ({ hue }) => {
+const StyledRow = styled(Row)`
+  & + & {
+    margin-top: ${p => p.theme.space.md};
+  }
+`;
+
+const Hue: React.FC<{ hue: string }> = ({ hue }) => {
   const colors = (PALETTE as any)[hue];
+
+  // Remove EOL product
+  delete colors.connect;
 
   return (
     <>
       {Object.keys(colors).map(shade => {
         const color = colors[shade];
+        const title = hue === 'product' ? shade : `${hue}-${shade.toLowerCase()}`;
 
         return (
           <StyledColorSwatch color={color} key={shade}>
-            <StyledColorTitle>{shade}</StyledColorTitle>
+            <StyledColorTitle>{title}</StyledColorTitle>
             <StyledColorHex>{color}</StyledColorHex>
           </StyledColorSwatch>
         );
@@ -58,31 +74,33 @@ const Color: React.FC<{ hue: string }> = ({ hue }) => {
   );
 };
 
-export const ColorPalette: React.FC = () => (
-  <>
-    <Row>
-      <Col>
-        <Color hue="grey" />
-      </Col>
-      <Col>
-        <Color hue="kale" />
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Color hue="blue" />
-      </Col>
-      <Col>
-        <Color hue="green" />
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Color hue="yellow" />
-      </Col>
-      <Col>
-        <Color hue="red" />
-      </Col>
-    </Row>
-  </>
-);
+export const ColorPalette: React.FC<{ hues: Array<string> }> = ({ hues }) => {
+  // Convert the given list of `hues` to column pairs
+  const rows = hues.reduce((retVal: Array<Array<string>>, currentValue, index, array) => {
+    if (index % 2 === 0) {
+      const pair: Array<string> = array.slice(index, index + 2);
+
+      retVal.push(pair);
+    }
+
+    return retVal;
+  }, []);
+
+  return (
+    <StyledColorPalette>
+      {rows.map((row, index) => {
+        const hue1 = row[0];
+        const hue2 = row[1];
+
+        return (
+          <StyledRow key={index}>
+            <Col sm>
+              <Hue hue={hue1} />
+            </Col>
+            {hue1 !== 'product' && <Col sm>{hue2 && <Hue hue={hue2} />}</Col>}
+          </StyledRow>
+        );
+      })}
+    </StyledColorPalette>
+  );
+};

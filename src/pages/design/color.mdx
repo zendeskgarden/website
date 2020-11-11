@@ -20,7 +20,7 @@ ratio above 4.5:1 against white or 100 backgrounds. The 800 color range
 (excluding yellow) has AAA contrast ratios above 7:1 against white and 100
 backgrounds.
 
-<ColorPalette />
+<ColorPalette hues={['grey', 'kale', 'blue', 'green', 'red', 'yellow']} />
 
 ### Secondary colors
 
@@ -35,11 +35,29 @@ larger floods of color like data visualization and infographics. Colors in
 the 400 range meet a minimum contrast of 3:1 on white backgrounds. Colors in
 the 600 range meet a 4.5:1 contrast ratio on white backgrounds.
 
+<ColorPalette
+  hues={[
+    'fuschia',
+    'pink',
+    'crimson',
+    'orange',
+    'lemon',
+    'lime',
+    'mint',
+    'teal',
+    'azure',
+    'royal',
+    'purple'
+  ]}
+/>
+
 ## Brand colors
 
 The brand color palette contains the primary brand colors of Zendesk’s
 product suite. These colors are reserved to denote elements in the UI related
 to Zendesk products.
+
+<ColorPalette hues={['product']} />
 
 import { graphql } from 'gatsby';
 
