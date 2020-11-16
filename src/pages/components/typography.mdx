@@ -5,6 +5,7 @@ description: >
   Use Typography components to present content clearly and consistently on the page.
 package: '@zendeskgarden/react-typography'
 components:
+  - typography/src/elements/Blockquote.tsx
   - typography/src/elements/Ellipsis.tsx
   - typography/src/elements/LG.tsx
   - typography/src/elements/MD.tsx
@@ -15,6 +16,17 @@ components:
 ---
 
 ## How to use it
+
+### Block quotation
+
+Use Blockquote to represent a body of text that is from another source.
+
+import Blockquote from '../../examples/typography/Blockquote.tsx';
+import BlockquoteCode from '!!raw-loader!../../examples/typography/Blockquote.tsx';
+
+<CodeExample code={BlockquoteCode}>
+  <Blockquote />
+</CodeExample>
 
 ### Ellipsis text
 
@@ -56,6 +68,10 @@ import TypeScaleCode from '!!raw-loader!../../examples/typography/TypeScale.tsx'
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
+
+### Blockquote
+
+<PropSheet components={props.data.mdx.components} componentName="blockquote" />
 
 ### Ellipsis
 
