@@ -7,7 +7,16 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
-import { XXXL, XXL, XL, LG, MD, Span, Paragraph } from '@zendeskgarden/react-typography';
+import {
+  XXXL,
+  XXL,
+  XL,
+  LG,
+  MD,
+  Blockquote,
+  Span,
+  Paragraph
+} from '@zendeskgarden/react-typography';
 import { StyledAnchor } from './Anchor';
 
 const headerStyles = (p: ThemeProps<DefaultTheme>) => {
@@ -53,10 +62,8 @@ export const StyledH6 = styled(MD).attrs({ tag: 'h6' })`
   ${headerStyles}
 `;
 
-export const StyledBlockquote = styled(LG).attrs({ tag: 'blockquote' })`
+export const StyledBlockquote = styled(Blockquote)`
   margin-left: ${p => p.theme.space.base * 4}px;
-  border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
-  padding-left: ${p => p.theme.space.base * 4}px;
   color: ${p => getColor('grey', 600, p.theme)};
   font-size: ${p => p.theme.space.base * 4}px;
 `;
