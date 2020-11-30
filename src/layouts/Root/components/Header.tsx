@@ -95,6 +95,18 @@ const Logo: React.FC = () => (
   </div>
 );
 
+const SearchInput = React.forwardRef<HTMLInputElement, HTMLAttributes<HTMLInputElement>>(
+  (props, ref) => (
+    <MediaInput
+      start={<SearchStroke />}
+      placeholder="Search..."
+      aria-label="Search"
+      ref={ref}
+      {...props}
+    />
+  )
+);
+
 const MobileSearch = React.forwardRef<HTMLInputElement>((props, ref) => (
   <div
     css={css`
@@ -108,18 +120,6 @@ const MobileSearch = React.forwardRef<HTMLInputElement>((props, ref) => (
     <SearchInput ref={ref} />
   </div>
 ));
-
-const SearchInput = React.forwardRef<HTMLInputElement, HTMLAttributes<HTMLInputElement>>(
-  (props, ref) => (
-    <MediaInput
-      start={<SearchStroke />}
-      placeholder="Search..."
-      aria-label="Search"
-      ref={ref}
-      {...props}
-    />
-  )
-);
 
 const MobileNavButton: React.FC<
   {
