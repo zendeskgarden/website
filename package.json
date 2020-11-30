@@ -132,8 +132,7 @@
     "vfile": "4.2.0"
   },
   "resolutions": {
-    "@types/react": "16.14.2",
     "@types/vfile-message": "1.0.1",
-    "gatsby-react-router-scroll": "3.2.0"
+    "gatsby-react-router-scroll": "3.0.3"
   }
 }
