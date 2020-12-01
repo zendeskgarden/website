@@ -85,6 +85,8 @@ export const SidebarLayout: React.FC<{ sidebar: ISidebarSection[] }> = ({ childr
                 margin-left: auto;
                 max-width: ${p => p.theme.breakpoints.lg};
               `}
+              // DocSearch main content ID
+              id="main-content"
             >
               {children}
             </div>

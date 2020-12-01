@@ -28,6 +28,7 @@
     "sort-imports": "off",
     "valid-jsdoc": "off",
     "require-jsdoc": "off",
+    "no-use-before-define": "off",
     "no-unused-expressions": ["error", { "allowShortCircuit": true }],
     "no-irregular-whitespace": ["error", { "skipTemplates": true }],
     "prefer-named-capture-group": "off",
@@ -37,6 +38,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-use-before-define": "error",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/naming-convention": [
       "error",
