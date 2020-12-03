@@ -77,19 +77,11 @@ module.exports = {
     `gatsby-transformer-yaml`,
     `gatsby-transformer-garden-svg`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-algolia-docsearch`,
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: ['UA-970836-25']
-      }
-    },
-    {
-      resolve: `gatsby-plugin-algolia-docsearch`,
-      options: {
-        apiKey: 'c1ab842b2bfd6f3f7104a8e903c615bf',
-        indexName: 'garden_zendesk',
-        inputSelector: '#algolia-docsearch',
-        debug: process.env.NODE_ENV === 'development'
       }
     },
     {
