@@ -399,6 +399,7 @@ const Header: React.FC = () => {
             isExpanded={isSearchVisible}
             onClick={() => {
               setIsSearchVisible(!isSearchVisible);
+
               if (!isSearchVisible) {
                 setIsNavigationVisible(false);
               }
