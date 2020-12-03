@@ -12,7 +12,7 @@
     "lint:js": "eslint ./ --ext js,ts,tsx --max-warnings 0",
     "lint:md": "markdownlint ./*.md {content,src}/**/*.{md,mdx}",
     "prepare": "git submodule update --depth 1 --init && yarn build",
-    "start": "GATSBY_EXPERIMENTAL_LAZY_DEVJS=true GATSBY_EXPERIMENTAL_QUERY_ON_DEMAND=true gatsby develop --open",
+    "start": "gatsby develop --open",
     "test": "prettier-package-json --list-different && yarn format:all --check && yarn lint && yarn tsc"
   },
   "devDependencies": {
