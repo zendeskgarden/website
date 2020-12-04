@@ -77,6 +77,7 @@ module.exports = {
     `gatsby-transformer-yaml`,
     `gatsby-transformer-garden-svg`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-algolia-docsearch`,
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {

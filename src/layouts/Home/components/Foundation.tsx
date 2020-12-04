@@ -32,7 +32,14 @@ const FoundationLink: React.FC<{
     <Img
       fluid={image.childFile.childImageSharp.fluid}
       alt=""
-      imgStyle={{ width: 350, minWidth: '100%', height: 266, minHeight: '100%', maxHeight: '100%' }}
+      imgStyle={{
+        width: 350,
+        minWidth: '100%',
+        height: 266,
+        minHeight: '100%',
+        maxHeight: '100%',
+        zIndex: -1
+      }}
     />
     <div
       css={css`

@@ -10,13 +10,13 @@ import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 import { getColor, mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
-import { MediaInput } from '@zendeskgarden/react-forms';
-import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
+import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/26/wordmark-garden.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
+import { SearchInput } from './SearchInput';
 import { StyledNavigationLink } from './StyledNavigationLink';
 
 const StyledDesktopNavItem = styled.div`
@@ -95,31 +95,26 @@ const Logo: React.FC = () => (
   </div>
 );
 
-const SearchInput = React.forwardRef<HTMLInputElement, HTMLAttributes<HTMLInputElement>>(
+const MobileSearch = React.forwardRef<HTMLInputElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => (
-    <MediaInput
-      start={<SearchStroke />}
-      placeholder="Search..."
-      aria-label="Search"
-      ref={ref}
+    <div
+      css={css`
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        padding: ${p => p.theme.space.xxs};
+
+        ${p => mediaQuery('up', 'md', p.theme)} {
+          display: none;
+        }
+      `}
       {...props}
-    />
+    >
+      <SearchInput id="algolia-docsearch-mobile" placeholder="Search…" ref={ref} />
+    </div>
   )
 );
-
-const MobileSearch = React.forwardRef<HTMLInputElement>((props, ref) => (
-  <div
-    css={css`
-      display: flex;
-      flex-grow: 1;
-      align-items: center;
-      justify-content: center;
-      padding: ${p => p.theme.space.xxs};
-    `}
-  >
-    <SearchInput ref={ref} />
-  </div>
-));
 
 const MobileNavButton: React.FC<
   {
@@ -150,16 +145,6 @@ const MobileNavButton: React.FC<
     </div>
   );
 };
-
-/* Temporary empty placeholder div with explicit button dimensions for search functionality on mobile */
-const TemporaryBox = styled.div`
-  width: 60px;
-  height: 60px;
-
-  ${p => mediaQuery('up', 'md', p.theme)} {
-    display: none;
-  }
-`;
 
 const StyledMobileNavLink = styled(StyledNavigationLink).attrs({ partiallyActive: true })`
   display: block;
@@ -221,10 +206,10 @@ const DesktopNav: React.FC = () => (
     </StyledDesktopNavItem>
     {/* <StyledDesktopNavItem>
       <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
-    </StyledDesktopNavItem> 
-    <StyledDesktopNavItem>
-      <SearchInput />
     </StyledDesktopNavItem> */}
+    <StyledDesktopNavItem>
+      <SearchInput id="algolia-docsearch" placeholder="Search…" />
+    </StyledDesktopNavItem>
   </nav>
 );
 
@@ -249,7 +234,7 @@ const Header: React.FC = () => {
             min-height: 100%;
           `}
         >
-          {/* <MobileNavButton
+          <MobileNavButton
             icon={<SearchStroke />}
             label="Search"
             isExpanded={isSearchVisible}
@@ -260,8 +245,7 @@ const Header: React.FC = () => {
                 setIsNavigationVisible(false);
               }
             }}
-          /> */}
-          <TemporaryBox />
+          />
           {!isSearchVisible && <Logo />}
           {isSearchVisible && <MobileSearch ref={inputRef} />}
           <MobileNavButton
