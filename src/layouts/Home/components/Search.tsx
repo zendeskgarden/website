@@ -117,7 +117,7 @@ export const Search: React.FC = () => {
                     }
                   `}
                 >
-                  <SearchInput id="algolia-docsearch-home" placeholder="kale-600 hex value" />
+                  <SearchInput id="algolia-docsearch-home" placeholder="how to use the stepper" />
                 </div>
               </div>
             </Col>
