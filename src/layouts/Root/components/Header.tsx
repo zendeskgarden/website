@@ -10,6 +10,7 @@ import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 import { getColor, mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
+import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
@@ -103,10 +104,14 @@ const MobileSearch = React.forwardRef<HTMLInputElement, HTMLAttributes<HTMLDivEl
         align-items: center;
         justify-content: center;
         padding: ${p => p.theme.space.xxs};
+
+        ${p => mediaQuery('up', 'md', p.theme)} {
+          display: none;
+        }
       `}
       {...props}
     >
-      <SearchInput ref={ref} />
+      <SearchInput id="algolia-docsearch-mobile" placeholder="Search…" ref={ref} />
     </div>
   )
 );
@@ -140,16 +145,6 @@ const MobileNavButton: React.FC<
     </div>
   );
 };
-
-/* Temporary empty placeholder div with explicit button dimensions for search functionality on mobile */
-const TemporaryBox = styled.div`
-  width: 60px;
-  height: 60px;
-
-  ${p => mediaQuery('up', 'md', p.theme)} {
-    display: none;
-  }
-`;
 
 const StyledMobileNavLink = styled(StyledNavigationLink).attrs({ partiallyActive: true })`
   display: block;
@@ -213,7 +208,7 @@ const DesktopNav: React.FC = () => (
       <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
     </StyledDesktopNavItem> */}
     <StyledDesktopNavItem>
-      <SearchInput id="algolia-docsearch" />
+      <SearchInput id="algolia-docsearch" placeholder="Search…" />
     </StyledDesktopNavItem>
   </nav>
 );
@@ -239,7 +234,7 @@ const Header: React.FC = () => {
             min-height: 100%;
           `}
         >
-          {/* <MobileNavButton
+          <MobileNavButton
             icon={<SearchStroke />}
             label="Search"
             isExpanded={isSearchVisible}
@@ -250,8 +245,7 @@ const Header: React.FC = () => {
                 setIsNavigationVisible(false);
               }
             }}
-          /> */}
-          <TemporaryBox />
+          />
           {!isSearchVisible && <Logo />}
           {isSearchVisible && <MobileSearch ref={inputRef} />}
           <MobileNavButton

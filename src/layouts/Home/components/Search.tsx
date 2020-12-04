@@ -11,10 +11,9 @@ import Img from 'gatsby-image';
 import { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getLineHeight, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-// import { MediaInput } from '@zendeskgarden/react-forms';
 import { LG } from '@zendeskgarden/react-typography';
-// import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
+import { SearchInput } from 'layouts/Root/components/SearchInput';
 
 const headerStyling = (p: ThemeProps<DefaultTheme>) => {
   const fontSize = `${p.theme.space.base * 12}px`;
@@ -109,7 +108,7 @@ export const Search: React.FC = () => {
                   The source of truth for tools, standards, and best practices when building
                   products at Zendesk.
                 </LG>
-                {/* <div
+                <div
                   css={css`
                     width: 340px;
 
@@ -118,12 +117,8 @@ export const Search: React.FC = () => {
                     }
                   `}
                 >
-                  <MediaInput
-                    placeholder="What is kale-600?"
-                    aria-label="Garden search"
-                    start={<SearchStroke />}
-                  />
-                </div> */}
+                  <SearchInput id="algolia-docsearch-home" placeholder="kale-600 hex value?" />
+                </div>
               </div>
             </Col>
           </Row>

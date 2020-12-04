@@ -8,13 +8,14 @@
 import React, { HTMLAttributes, useEffect } from 'react';
 import { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
-import { getColor, menuStyles } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery, menuStyles } from '@zendeskgarden/react-theming';
 import { MediaInput } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 
 const searchStyles = (props: ThemeProps<DefaultTheme>) => {
   const theme = props.theme;
   const positionTop = math(`${theme.space.base * 3.5} + ${theme.borderWidths.sm}`);
+  const positionLeft = math(`${theme.space.base * -9} - ${theme.borderWidths.sm}`);
   const positionRight = math(`${theme.space.base * -3} - ${theme.borderWidths.sm}`);
   const highlightBackgroundColor = getColor('primaryHue', 800, theme, 0.08);
   const hoverBackgroundColor = getColor('primaryHue', 600, theme, 0.08);
@@ -29,6 +30,8 @@ const searchStyles = (props: ThemeProps<DefaultTheme>) => {
         childSelector: ' .ds-dropdown-menu',
         theme: p.theme
       })}
+
+    width: 100%;
 
     /* stylelint-disable
         declaration-no-important,
@@ -82,6 +85,11 @@ const searchStyles = (props: ThemeProps<DefaultTheme>) => {
             padding-right: ${theme.space.sm};
             color: ${metaColor};
             font-size: inherit;
+            font-weight: ${theme.fontWeights.regular};
+
+            ${p => mediaQuery('down', 'sm', p.theme)} {
+              padding-right: 0;
+            }
 
             & .algolia-docsearch-suggestion--highlight {
               background-color: transparent;
@@ -91,6 +99,10 @@ const searchStyles = (props: ThemeProps<DefaultTheme>) => {
           & .algolia-docsearch-suggestion--content {
             padding: 0;
             padding-left: ${theme.space.sm};
+
+            ${p => mediaQuery('down', 'sm', p.theme)} {
+              padding-left: ${theme.space.xxs};
+            }
           }
 
           & .algolia-docsearch-suggestion--text {
@@ -139,6 +151,12 @@ const searchStyles = (props: ThemeProps<DefaultTheme>) => {
           width: 120px;
         }
       }
+
+      ${p => mediaQuery('down', 'sm', p.theme)} {
+        left: ${positionLeft} !important;
+        min-width: 260px;
+        max-width: 343px;
+      }
     }
   `;
 };
@@ -164,7 +182,7 @@ export const SearchInput = React.forwardRef<HTMLInputElement, HTMLAttributes<HTM
     }, [id]);
 
     return (
-      <span
+      <div
         css={css`
           & .algolia-autocomplete {
             ${p => searchStyles(p)}
@@ -173,14 +191,13 @@ export const SearchInput = React.forwardRef<HTMLInputElement, HTMLAttributes<HTM
       >
         <MediaInput
           start={<SearchStroke />}
-          placeholder="Search…"
           aria-label="Search"
           id={id}
           ref={ref}
           wrapperProps={{ style: { overflow: 'visible' } }}
           {...props}
         />
-      </span>
+      </div>
     );
   }
 );
