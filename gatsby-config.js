@@ -70,7 +70,8 @@ module.exports = {
       options: {
         apiToken: process.env.ABSTRACT_TOKEN,
         projectId: '27ff5784-e1c4-4f8c-a914-c03c380c8ea9',
-        branch: 'master'
+        branch: 'master',
+        sha: 'latest'
       }
     },
     `gatsby-transformer-sharp`,
