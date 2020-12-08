@@ -27,16 +27,6 @@ const StyledColorSwatch = styled.figure<{ color: string }>`
   background-color: ${p => p.color};
   padding: ${p => p.theme.space.sm};
   color: ${p => readableColor(p.color, p.theme.colors.foreground, p.theme.colors.background)};
-
-  &:first-child {
-    border-top-left-radius: ${p => p.theme.space.sm};
-    border-top-right-radius: ${p => p.theme.space.sm};
-  }
-
-  &:last-child {
-    border-bottom-left-radius: ${p => p.theme.space.sm};
-    border-bottom-right-radius: ${p => p.theme.space.sm};
-  }
 `;
 
 const StyledColorTitle = styled.b`
@@ -57,6 +47,18 @@ const StyledRow = styled(Row)`
   }
 `;
 
+const StyledList = styled.ul`
+  & > li:first-child ${StyledColorSwatch} {
+    border-top-left-radius: ${p => p.theme.space.sm};
+    border-top-right-radius: ${p => p.theme.space.sm};
+  }
+
+  & > li:last-child ${StyledColorSwatch} {
+    border-bottom-left-radius: ${p => p.theme.space.sm};
+    border-bottom-right-radius: ${p => p.theme.space.sm};
+  }
+`;
+
 const Hue: React.FC<{ hue: string }> = ({ hue }) => {
   const colors = (PALETTE as any)[hue];
 
@@ -64,19 +66,21 @@ const Hue: React.FC<{ hue: string }> = ({ hue }) => {
   delete colors.connect;
 
   return (
-    <>
+    <StyledList>
       {Object.keys(colors).map(shade => {
         const color = colors[shade];
         const title = hue === 'product' ? shade : `${hue}-${shade}`;
 
         return (
-          <StyledColorSwatch color={color} key={shade}>
-            <StyledColorTitle>{title}</StyledColorTitle>
-            <StyledColorHex>{color}</StyledColorHex>
-          </StyledColorSwatch>
+          <li key={shade}>
+            <StyledColorSwatch color={color}>
+              <StyledColorTitle>{title}</StyledColorTitle>
+              <StyledColorHex>{color}</StyledColorHex>
+            </StyledColorSwatch>
+          </li>
         );
       })}
-    </>
+    </StyledList>
   );
 };
 

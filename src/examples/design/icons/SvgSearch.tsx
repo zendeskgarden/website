@@ -52,6 +52,10 @@ export const SvgSearch: React.FC<{
     updatedDebouncedInputValue(inputValue);
   }, [inputValue, updatedDebouncedInputValue]);
 
+  const StyledCol = styled(Col).attrs({ forwardedAs: 'li' })``;
+
+  const StyledRow = styled(Row).attrs({ forwardedAs: 'ul' })``;
+
   const icons = useMemo(() => {
     return data.edges
       .filter(edge => {
@@ -64,7 +68,7 @@ export const SvgSearch: React.FC<{
         return edge.node.name.trim().toLowerCase().includes(formattedSearchValue);
       })
       .map(edge => (
-        <Col key={edge.node.name} lg={3} md={4} xs={6}>
+        <StyledCol key={edge.node.name} lg={3} md={4} xs={6}>
           <StyledIconWrapper>
             <StyledSvgWrapper
               isAnswerBot={edge.node.name === 'answer-bot'}
@@ -75,9 +79,9 @@ export const SvgSearch: React.FC<{
               {edge.node.name}
             </Code>
           </StyledIconWrapper>
-        </Col>
+        </StyledCol>
       ));
-  }, [data, debouncedInputValue]);
+  }, [data, debouncedInputValue, StyledCol]);
 
   return (
     <div>
@@ -96,18 +100,14 @@ export const SvgSearch: React.FC<{
         </Field>
       )}
       <Grid>
-        <Row>
+        <StyledRow>
           {icons}
           {icons.length === 0 && (
-            <Col
-              css={`
-                text-align: center;
-              `}
-            >
+            <StyledCol textAlign="center">
               <XL>No icons found</XL>
-            </Col>
+            </StyledCol>
           )}
-        </Row>
+        </StyledRow>
       </Grid>
     </div>
   );
