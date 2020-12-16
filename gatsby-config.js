@@ -123,8 +123,7 @@ module.exports = {
                 .toString('utf-8')
                 .trim()
             }
-          },
-          'gatsby-remark-check-links'
+          }
         ]
       }
     },
