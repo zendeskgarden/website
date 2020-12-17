@@ -50,7 +50,7 @@ const SEO: React.FC<{
         },
         {
           name: 'msapplication-config',
-          content: 'browserconfig.xml'
+          content: '/browserconfig.xml'
         },
         {
           property: 'og:title',
