@@ -80,11 +80,7 @@ const Example = () => {
       selectedItems={selectedItems}
       onSelect={items => setSelectedItems(items)}
       downshiftProps={{ defaultHighlightedIndex: 0 }}
-      onStateChange={changes => {
-        if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-          setInputValue((changes as any).inputValue);
-        }
-      }}
+      onInputValueChange={value => setInputValue(value)}
     >
       <Field>
         <Label>Vegetables</Label>
