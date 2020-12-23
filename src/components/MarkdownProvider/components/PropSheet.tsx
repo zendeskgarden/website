@@ -34,6 +34,7 @@ export const PropSheet: React.FC<{
           `}
         >
           <Table
+            isReadOnly
             css={`
               min-width: 700px;
             `}

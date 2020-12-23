@@ -11,9 +11,10 @@ import { Table, Head, Body, Row, HeaderRow, HeaderCell, Cell } from '@zendeskgar
 
 const TableHeadContext = createContext(false);
 
-export const StyledTable = styled(Table)`
+export const StyledTable = styled(Table).attrs({ isReadOnly: true })`
   margin-bottom: ${p => p.theme.space.xl};
 `;
+
 export const TBody = Body;
 export const TH = HeaderCell;
 export const TD = Cell;
