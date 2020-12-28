@@ -84,11 +84,11 @@ const Hue: React.FC<{ hue: string }> = ({ hue }) => {
   );
 };
 
-export const ColorPalette: React.FC<{ hues: Array<string> }> = ({ hues }) => {
+export const ColorPalette: React.FC<{ hues: string[] }> = ({ hues }) => {
   // Convert the given list of `hues` to column pairs
-  const rows = hues.reduce((retVal: Array<Array<string>>, currentValue, index, array) => {
+  const rows = hues.reduce((retVal: string[][], currentValue, index, array) => {
     if (index % 2 === 0) {
-      const pair: Array<string> = array.slice(index, index + 2);
+      const pair: string[] = array.slice(index, index + 2);
 
       retVal.push(pair);
     }

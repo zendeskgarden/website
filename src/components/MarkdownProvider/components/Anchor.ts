@@ -11,6 +11,7 @@ import { Anchor } from '@zendeskgarden/react-buttons';
 import { math } from 'polished';
 
 export const StyledAnchor = styled(Anchor).attrs(props => ({
+  /* eslint-disable-next-line prefer-named-capture-group */
   isExternal: props.href && !/^(#|\/(?!\/))/u.test(props.href)
 }))`
   &.anchor.before {

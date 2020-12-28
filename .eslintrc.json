@@ -1,13 +1,10 @@
 {
-  "parser": "@typescript-eslint/parser",
   "extends": [
     "@zendeskgarden",
-    "@zendeskgarden/eslint-config/plugins/notice.js",
+    "@zendeskgarden/eslint-config/plugins/notice",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    "prettier"
   ],
   "settings": {
     "react": {
@@ -18,41 +15,29 @@
     "__PATH_PREFIX__": true
   },
   "plugins": ["react-hooks"],
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
-  },
   "rules": {
-    "prettier/prettier": "error",
     "sort-imports": "off",
-    "valid-jsdoc": "off",
-    "require-jsdoc": "off",
-    "no-use-before-define": "off",
-    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
-    "no-irregular-whitespace": ["error", { "skipTemplates": true }],
-    "prefer-named-capture-group": "off",
-    "react/prop-types": "off",
     "react/display-name": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-use-before-define": "error",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/naming-convention": [
-      "error",
-      {
-        "selector": "default",
-        "format": ["camelCase", "PascalCase", "UPPER_CASE"]
-      }
-    ],
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/no-var-requires": "off"
+    "react-hooks/exhaustive-deps": "warn"
   },
   "overrides": [
     {
-      "files": ["src/examples/**/*.{ts,tsx}"],
+      "files": ["*.ts", "*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "extends": [
+        "@zendeskgarden/eslint-config/plugins/typescript",
+        "prettier/@typescript-eslint"
+      ],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "react/prop-types": "off"
+      }
+    },
+    {
+      "files": ["src/examples/**"],
       "rules": {
         "no-alert": "off",
         "jsx-a11y/img-redundant-alt": "off"
