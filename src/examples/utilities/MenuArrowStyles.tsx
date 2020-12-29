@@ -190,74 +190,64 @@ const Example = () => {
   };
 
   return (
-    <>
-      <Row justifyContent="center" style={{ minWidth: 400 }}>
-        <Col md={7}>
-          <StyledRow>
-            <Col textAlign="end">
-              <ButtonMenu isHidden={hidden['top-left']} onClick={onClick} position="top-left" />
-            </Col>
-            <Col textAlign="center">
-              <ButtonMenu isHidden={hidden.top} onClick={onClick} position="top" />
-            </Col>
-            <Col textAlign="start">
-              <ButtonMenu isHidden={hidden['top-right']} onClick={onClick} position="top-right" />
-            </Col>
-          </StyledRow>
-          <StyledRow>
-            <Col textAlign="start">
-              <ButtonMenu isHidden={hidden['left-top']} onClick={onClick} position="left-top" />
-            </Col>
-            <Col textAlign="end">
-              <ButtonMenu isHidden={hidden['right-top']} onClick={onClick} position="right-top" />
-            </Col>
-          </StyledRow>
-          <StyledRow>
-            <Col textAlign="start">
-              <ButtonMenu isHidden={hidden.left} onClick={onClick} position="left" />
-            </Col>
-            <Col textAlign="end">
-              <ButtonMenu isHidden={hidden.right} onClick={onClick} position="right" />
-            </Col>
-          </StyledRow>
-          <StyledRow>
-            <Col textAlign="start">
-              <ButtonMenu
-                isHidden={hidden['left-bottom']}
-                onClick={onClick}
-                position="left-bottom"
-              />
-            </Col>
-            <Col textAlign="end">
-              <ButtonMenu
-                isHidden={hidden['right-bottom']}
-                onClick={onClick}
-                position="right-bottom"
-              />
-            </Col>
-          </StyledRow>
-          <StyledRow>
-            <Col textAlign="end">
-              <ButtonMenu
-                isHidden={hidden['bottom-left']}
-                onClick={onClick}
-                position="bottom-left"
-              />
-            </Col>
-            <Col textAlign="center">
-              <ButtonMenu isHidden={hidden.bottom} onClick={onClick} position="bottom" />
-            </Col>
-            <Col textAlign="start">
-              <ButtonMenu
-                isHidden={hidden['bottom-right']}
-                onClick={onClick}
-                position="bottom-right"
-              />
-            </Col>
-          </StyledRow>
-        </Col>
-      </Row>
-    </>
+    <Row justifyContent="center" style={{ minWidth: 400 }}>
+      <Col md={7}>
+        <StyledRow>
+          <Col textAlign="end">
+            <ButtonMenu isHidden={hidden['top-left']} onClick={onClick} position="top-left" />
+          </Col>
+          <Col textAlign="center">
+            <ButtonMenu isHidden={hidden.top} onClick={onClick} position="top" />
+          </Col>
+          <Col textAlign="start">
+            <ButtonMenu isHidden={hidden['top-right']} onClick={onClick} position="top-right" />
+          </Col>
+        </StyledRow>
+        <StyledRow>
+          <Col textAlign="start">
+            <ButtonMenu isHidden={hidden['left-top']} onClick={onClick} position="left-top" />
+          </Col>
+          <Col textAlign="end">
+            <ButtonMenu isHidden={hidden['right-top']} onClick={onClick} position="right-top" />
+          </Col>
+        </StyledRow>
+        <StyledRow>
+          <Col textAlign="start">
+            <ButtonMenu isHidden={hidden.left} onClick={onClick} position="left" />
+          </Col>
+          <Col textAlign="end">
+            <ButtonMenu isHidden={hidden.right} onClick={onClick} position="right" />
+          </Col>
+        </StyledRow>
+        <StyledRow>
+          <Col textAlign="start">
+            <ButtonMenu isHidden={hidden['left-bottom']} onClick={onClick} position="left-bottom" />
+          </Col>
+          <Col textAlign="end">
+            <ButtonMenu
+              isHidden={hidden['right-bottom']}
+              onClick={onClick}
+              position="right-bottom"
+            />
+          </Col>
+        </StyledRow>
+        <StyledRow>
+          <Col textAlign="end">
+            <ButtonMenu isHidden={hidden['bottom-left']} onClick={onClick} position="bottom-left" />
+          </Col>
+          <Col textAlign="center">
+            <ButtonMenu isHidden={hidden.bottom} onClick={onClick} position="bottom" />
+          </Col>
+          <Col textAlign="start">
+            <ButtonMenu
+              isHidden={hidden['bottom-right']}
+              onClick={onClick}
+              position="bottom-right"
+            />
+          </Col>
+        </StyledRow>
+      </Col>
+    </Row>
   );
 };
 

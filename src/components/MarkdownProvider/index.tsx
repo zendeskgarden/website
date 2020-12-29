@@ -24,40 +24,38 @@ import { OverviewLinks } from './components/OverviewLinks';
  * The CodeBlock component provides it's own `<pre>` tag.
  * This ensures valid DOM nesting.
  */
-const Pre: React.FC = ({ children }) => <>{children}</>;
+const Pre: React.FC = ({ children }) => <>{children}</>; // eslint-disable-line react/jsx-no-useless-fragment
 
 export const MarkdownProvider: React.FC = ({ children }) => (
-  <>
-    <MDXProvider
-      components={{
-        /**
-         * Helper components
-         */
-        CodeExample,
-        ColorPalette,
-        Component,
-        Configuration,
-        ObjectBlock,
-        PropSheet,
-        Usage,
-        Use,
-        Misuse,
-        Do,
-        Dont,
-        Caution,
-        BestPractice,
-        Markdown,
-        OverviewLinks,
-        /**
-         * Markdown elements
-         */
-        ...COMPONENTS,
-        inlineCode: Code,
-        pre: Pre,
-        code: CodeBlock
-      }}
-    >
-      {children}
-    </MDXProvider>
-  </>
+  <MDXProvider
+    components={{
+      /**
+       * Helper components
+       */
+      CodeExample,
+      ColorPalette,
+      Component,
+      Configuration,
+      ObjectBlock,
+      PropSheet,
+      Usage,
+      Use,
+      Misuse,
+      Do,
+      Dont,
+      Caution,
+      BestPractice,
+      Markdown,
+      OverviewLinks,
+      /**
+       * Markdown elements
+       */
+      ...COMPONENTS,
+      inlineCode: Code,
+      pre: Pre,
+      code: CodeBlock
+    }}
+  >
+    {children}
+  </MDXProvider>
 );

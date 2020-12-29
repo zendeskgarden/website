@@ -29,13 +29,13 @@ const Example = () => {
           <Hint>
             Include the entire plant in your photo. Acceptable formats are JPG, PNG, and GIF.
           </Hint>
-          <FileUpload {...getRootProps()} isDragging={isDragActive} disabled={true}>
+          <FileUpload {...getRootProps()} isDragging={isDragActive} disabled>
             {isDragActive ? (
               <span>Drop files here</span>
             ) : (
               <span>Choose a file of drag and drop here</span>
             )}
-            <Input {...getInputProps()} disabled={true} />
+            <Input {...getInputProps()} disabled />
           </FileUpload>
         </Field>
       </Col>

@@ -2,24 +2,16 @@
   "extends": [
     "@zendeskgarden",
     "@zendeskgarden/eslint-config/plugins/notice",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
-    "prettier"
+    "@zendeskgarden/eslint-config/plugins/react",
+    "prettier",
+    "prettier/react"
   ],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
-  "globals": {
-    "__PATH_PREFIX__": true
-  },
-  "plugins": ["react-hooks"],
   "rules": {
     "sort-imports": "off",
     "react/display-name": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react/jsx-no-bind": "off",
+    "react/no-array-index-key": "off",
+    "react/destructuring-assignment": "off"
   },
   "overrides": [
     {

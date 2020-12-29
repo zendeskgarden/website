@@ -21,7 +21,7 @@ export const TD = Cell;
 
 export const THead: React.FC = props => {
   return (
-    <TableHeadContext.Provider value={true}>
+    <TableHeadContext.Provider value>
       <Head {...props} />
     </TableHeadContext.Provider>
   );

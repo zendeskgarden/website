@@ -39,7 +39,7 @@ const Example = () => (
           <HeaderCell>Fruit</HeaderCell>
           <HeaderCell>Sun exposure</HeaderCell>
           <HeaderCell>Soil type</HeaderCell>
-          <StyledSpacerCell aria-hidden={true} />
+          <StyledSpacerCell aria-hidden />
         </HeaderRow>
       </Head>
     </Table>
