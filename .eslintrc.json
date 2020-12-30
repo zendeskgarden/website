@@ -9,7 +9,6 @@
   "rules": {
     "sort-imports": "off",
     "react/display-name": "off",
-    "react/jsx-no-bind": "off",
     "react/no-array-index-key": "off",
     "react/destructuring-assignment": "off"
   },
