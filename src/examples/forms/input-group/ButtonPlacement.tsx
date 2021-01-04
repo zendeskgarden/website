@@ -13,10 +13,6 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as ChevronDownStroke } from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
-/**
- * The `react-dropdown` package includes a hidden input with the `Trigger` element.
- * This element must be positioned outside of the `InputGroup`.
- */
 const StyledInputGroup = styled(InputGroup)`
   /* stylelint-disable-next-line */
   & > input[aria-autocomplete='list'] {

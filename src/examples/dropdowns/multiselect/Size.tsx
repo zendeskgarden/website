@@ -92,11 +92,7 @@ const Example = () => {
           selectedItems={selectedItems}
           onSelect={items => setSelectedItems(items)}
           downshiftProps={{ defaultHighlightedIndex: 0 }}
-          onStateChange={changes => {
-            if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-              setInputValue((changes as any).inputValue);
-            }
-          }}
+          onInputValueChange={value => setInputValue(value)}
         >
           <Field>
             <Label>Vegetables</Label>
@@ -118,11 +114,7 @@ const Example = () => {
           selectedItems={compactSelectedItems}
           onSelect={items => setCompactSelectedItems(items)}
           downshiftProps={{ defaultHighlightedIndex: 0 }}
-          onStateChange={changes => {
-            if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-              setCompactInputValue((changes as any).inputValue);
-            }
-          }}
+          onInputValueChange={value => setCompactInputValue(value)}
         >
           <Field>
             <Label>Vegetables</Label>
