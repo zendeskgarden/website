@@ -33,7 +33,7 @@
     "@typescript-eslint/parser": "4.11.1",
     "@zendeskgarden/container-utilities": "0.5.4",
     "@zendeskgarden/css-bedrock": "8.0.1",
-    "@zendeskgarden/eslint-config": "17.0.0",
+    "@zendeskgarden/eslint-config": "17.1.0",
     "@zendeskgarden/react-accordions": "8.29.0",
     "@zendeskgarden/react-avatars": "8.29.0",
     "@zendeskgarden/react-breadcrumbs": "8.29.0",
