@@ -8,6 +8,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+
+/* eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires */
 const { PALETTE } = require('@zendeskgarden/react-theming');
 
 const SEO: React.FC<{

@@ -71,7 +71,7 @@ const Example = () => (
           <ScrollableHeaderCell>Fruit</ScrollableHeaderCell>
           <ScrollableHeaderCell>Sun exposure</ScrollableHeaderCell>
           <ScrollableHeaderCell>Soil type</ScrollableHeaderCell>
-          <StyledSpacerCell aria-hidden={true} />
+          <StyledSpacerCell aria-hidden />
         </ScrollableHeaderRow>
       </ScrollableHead>
     </ScrollableTable>

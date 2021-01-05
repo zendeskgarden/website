@@ -160,186 +160,184 @@ const StyledCol = styled(Col).attrs({ sm: 12, md: 6 })`
 
 const WordmarkLayout: React.FC = () => {
   return (
-    <>
-      <StyledGrid>
-        <Row>
-          <StyledCol>
-            <RelationshapeChat
-              className="relationshape"
-              css={css`
-                color: ${PALETTE.product.chat};
-              `}
-            />
-            <WordmarkChat className="wordmark wordmark-chat" />
-          </StyledCol>
-          <StyledCol>
-            <WordmarkZendesk className="wordmark wordmark-zendesk" />
-            <WordmarkChat className="wordmark wordmark-chat" />
-          </StyledCol>
-        </Row>
-        <Row>
-          <StyledCol>
-            <RelationshapeConnect
-              className="relationshape"
-              css={css`
-                color: ${PALETTE.product.connect};
-              `}
-            />
-            <WordmarkConnect className="wordmark wordmark-connect" />
-          </StyledCol>
-          <StyledCol>
-            <WordmarkZendesk className="wordmark wordmark-zendesk" />
-            <WordmarkConnect className="wordmark wordmark-connect" />
-          </StyledCol>
-        </Row>
-        <Row>
-          <StyledCol>
-            <RelationshapeExplore
-              className="relationshape"
-              css={css`
-                color: ${PALETTE.product.explore};
-              `}
-            />
-            <WordmarkExplore className="wordmark wordmark-explore" />
-          </StyledCol>
-          <StyledCol>
-            <WordmarkZendesk className="wordmark wordmark-zendesk" />
-            <WordmarkExplore className="wordmark wordmark-explore" />
-          </StyledCol>
-        </Row>
-        <Row>
-          <StyledCol>
-            <RelationshapeGather
-              className="relationshape"
-              css={css`
-                color: ${PALETTE.product.gather};
-              `}
-            />
-            <WordmarkGather className="wordmark wordmark-gather" />
-          </StyledCol>
-          <StyledCol>
-            <WordmarkZendesk className="wordmark wordmark-zendesk" />
-            <WordmarkGather className="wordmark wordmark-gather" />
-          </StyledCol>
-        </Row>
-        <Row>
-          <StyledCol>
-            <RelationshapeGuide
-              className="relationshape"
-              css={css`
-                color: ${PALETTE.product.guide};
-              `}
-            />
-            <WordmarkGuide className="wordmark wordmark-guide" />
-          </StyledCol>
-          <StyledCol>
-            <WordmarkZendesk className="wordmark wordmark-zendesk" />
-            <WordmarkGuide className="wordmark wordmark-guide" />
-          </StyledCol>
-        </Row>
-        <Row>
-          <StyledCol>
-            <RelationshapeMessage
-              className="relationshape"
-              css={css`
-                color: ${PALETTE.product.message};
-              `}
-            />
-            <WordmarkMessage className="wordmark wordmark-message" />
-          </StyledCol>
-          <StyledCol>
-            <WordmarkZendesk className="wordmark wordmark-zendesk" />
-            <WordmarkMessage className="wordmark wordmark-message" />
-          </StyledCol>
-        </Row>
-        <Row>
-          <StyledCol>
-            <RelationshapeSupport
-              className="relationshape"
-              css={css`
-                color: ${PALETTE.product.support};
-              `}
-            />
-            <WordmarkSupport className="wordmark wordmark-support" />
-          </StyledCol>
-          <StyledCol>
-            <WordmarkZendesk className="wordmark wordmark-zendesk" />
-            <WordmarkSupport className="wordmark wordmark-support" />
-          </StyledCol>
-        </Row>
-        <Row>
-          <StyledCol>
-            <RelationshapeSell
-              className="relationshape"
-              css={css`
-                color: ${PALETTE.product.sell};
-              `}
-            />
-            <WordmarkSell className="wordmark wordmark-sell" />
-          </StyledCol>
-          <StyledCol>
-            <WordmarkZendesk className="wordmark wordmark-zendesk" />
-            <WordmarkSell className="wordmark wordmark-sell" />
-          </StyledCol>
-        </Row>
-        <Row>
-          <StyledCol>
-            <RelationshapeTalk
-              className="relationshape"
-              css={css`
-                color: ${PALETTE.product.talk};
-              `}
-            />
-            <WordmarkTalk className="wordmark wordmark-talk" />
-          </StyledCol>
-          <StyledCol>
-            <WordmarkZendesk className="wordmark wordmark-zendesk" />
-            <WordmarkTalk className="wordmark wordmark-talk" />
-          </StyledCol>
-        </Row>
-        <Row>
-          <StyledCol>
-            <RelationshapeSunshine
-              className="relationshape"
-              css={css`
-                color: ${PALETTE.product.talk};
-              `}
-            />
-            <WordmarkSunshine className="wordmark wordmark-sunshine" />
-          </StyledCol>
-          <StyledCol>
-            <WordmarkZendesk className="wordmark wordmark-zendesk" />
-            <WordmarkSunshine className="wordmark wordmark-sunshine" />
-          </StyledCol>
-        </Row>
-        <Row>
-          <StyledCol>
-            <RelationshapeGarden
-              className="relationshape"
-              css={css`
-                color: ${p => getColor('green', 400, p.theme)};
-              `}
-            />
-            <WordmarkGarden className="wordmark wordmark-garden" />
-          </StyledCol>
-          <StyledCol>
-            <WordmarkZendesk className="wordmark wordmark-zendesk" />
-            <WordmarkGarden className="wordmark wordmark-garden" />
-          </StyledCol>
-        </Row>
-        <Row>
-          <StyledCol>
-            <RelationshapeZendesk className="relationshape" />
-            <WordmarkCapitalThe className="wordmark wordmark-capital-the" />
-            <WordmarkCapitalSuite className="wordmark wordmark-capital-suite" />
-          </StyledCol>
-          <StyledCol>
-            <WordmarkCapitalZendesk className="wordmark wordmark-capital-zendesk" />
-            <WordmarkCapitalSuite className="wordmark wordmark-capital-suite" />
-          </StyledCol>
-        </Row>
-      </StyledGrid>
-    </>
+    <StyledGrid>
+      <Row>
+        <StyledCol>
+          <RelationshapeChat
+            className="relationshape"
+            css={css`
+              color: ${PALETTE.product.chat};
+            `}
+          />
+          <WordmarkChat className="wordmark wordmark-chat" />
+        </StyledCol>
+        <StyledCol>
+          <WordmarkZendesk className="wordmark wordmark-zendesk" />
+          <WordmarkChat className="wordmark wordmark-chat" />
+        </StyledCol>
+      </Row>
+      <Row>
+        <StyledCol>
+          <RelationshapeConnect
+            className="relationshape"
+            css={css`
+              color: ${PALETTE.product.connect};
+            `}
+          />
+          <WordmarkConnect className="wordmark wordmark-connect" />
+        </StyledCol>
+        <StyledCol>
+          <WordmarkZendesk className="wordmark wordmark-zendesk" />
+          <WordmarkConnect className="wordmark wordmark-connect" />
+        </StyledCol>
+      </Row>
+      <Row>
+        <StyledCol>
+          <RelationshapeExplore
+            className="relationshape"
+            css={css`
+              color: ${PALETTE.product.explore};
+            `}
+          />
+          <WordmarkExplore className="wordmark wordmark-explore" />
+        </StyledCol>
+        <StyledCol>
+          <WordmarkZendesk className="wordmark wordmark-zendesk" />
+          <WordmarkExplore className="wordmark wordmark-explore" />
+        </StyledCol>
+      </Row>
+      <Row>
+        <StyledCol>
+          <RelationshapeGather
+            className="relationshape"
+            css={css`
+              color: ${PALETTE.product.gather};
+            `}
+          />
+          <WordmarkGather className="wordmark wordmark-gather" />
+        </StyledCol>
+        <StyledCol>
+          <WordmarkZendesk className="wordmark wordmark-zendesk" />
+          <WordmarkGather className="wordmark wordmark-gather" />
+        </StyledCol>
+      </Row>
+      <Row>
+        <StyledCol>
+          <RelationshapeGuide
+            className="relationshape"
+            css={css`
+              color: ${PALETTE.product.guide};
+            `}
+          />
+          <WordmarkGuide className="wordmark wordmark-guide" />
+        </StyledCol>
+        <StyledCol>
+          <WordmarkZendesk className="wordmark wordmark-zendesk" />
+          <WordmarkGuide className="wordmark wordmark-guide" />
+        </StyledCol>
+      </Row>
+      <Row>
+        <StyledCol>
+          <RelationshapeMessage
+            className="relationshape"
+            css={css`
+              color: ${PALETTE.product.message};
+            `}
+          />
+          <WordmarkMessage className="wordmark wordmark-message" />
+        </StyledCol>
+        <StyledCol>
+          <WordmarkZendesk className="wordmark wordmark-zendesk" />
+          <WordmarkMessage className="wordmark wordmark-message" />
+        </StyledCol>
+      </Row>
+      <Row>
+        <StyledCol>
+          <RelationshapeSupport
+            className="relationshape"
+            css={css`
+              color: ${PALETTE.product.support};
+            `}
+          />
+          <WordmarkSupport className="wordmark wordmark-support" />
+        </StyledCol>
+        <StyledCol>
+          <WordmarkZendesk className="wordmark wordmark-zendesk" />
+          <WordmarkSupport className="wordmark wordmark-support" />
+        </StyledCol>
+      </Row>
+      <Row>
+        <StyledCol>
+          <RelationshapeSell
+            className="relationshape"
+            css={css`
+              color: ${PALETTE.product.sell};
+            `}
+          />
+          <WordmarkSell className="wordmark wordmark-sell" />
+        </StyledCol>
+        <StyledCol>
+          <WordmarkZendesk className="wordmark wordmark-zendesk" />
+          <WordmarkSell className="wordmark wordmark-sell" />
+        </StyledCol>
+      </Row>
+      <Row>
+        <StyledCol>
+          <RelationshapeTalk
+            className="relationshape"
+            css={css`
+              color: ${PALETTE.product.talk};
+            `}
+          />
+          <WordmarkTalk className="wordmark wordmark-talk" />
+        </StyledCol>
+        <StyledCol>
+          <WordmarkZendesk className="wordmark wordmark-zendesk" />
+          <WordmarkTalk className="wordmark wordmark-talk" />
+        </StyledCol>
+      </Row>
+      <Row>
+        <StyledCol>
+          <RelationshapeSunshine
+            className="relationshape"
+            css={css`
+              color: ${PALETTE.product.talk};
+            `}
+          />
+          <WordmarkSunshine className="wordmark wordmark-sunshine" />
+        </StyledCol>
+        <StyledCol>
+          <WordmarkZendesk className="wordmark wordmark-zendesk" />
+          <WordmarkSunshine className="wordmark wordmark-sunshine" />
+        </StyledCol>
+      </Row>
+      <Row>
+        <StyledCol>
+          <RelationshapeGarden
+            className="relationshape"
+            css={css`
+              color: ${p => getColor('green', 400, p.theme)};
+            `}
+          />
+          <WordmarkGarden className="wordmark wordmark-garden" />
+        </StyledCol>
+        <StyledCol>
+          <WordmarkZendesk className="wordmark wordmark-zendesk" />
+          <WordmarkGarden className="wordmark wordmark-garden" />
+        </StyledCol>
+      </Row>
+      <Row>
+        <StyledCol>
+          <RelationshapeZendesk className="relationshape" />
+          <WordmarkCapitalThe className="wordmark wordmark-capital-the" />
+          <WordmarkCapitalSuite className="wordmark wordmark-capital-suite" />
+        </StyledCol>
+        <StyledCol>
+          <WordmarkCapitalZendesk className="wordmark wordmark-capital-zendesk" />
+          <WordmarkCapitalSuite className="wordmark wordmark-capital-suite" />
+        </StyledCol>
+      </Row>
+    </StyledGrid>
   );
 };
 

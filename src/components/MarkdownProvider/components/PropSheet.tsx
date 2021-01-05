@@ -25,6 +25,7 @@ export const PropSheet: React.FC<{
   const component = components.find(c => c.name.toLowerCase() === componentName.toLowerCase())!;
 
   return (
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {Object.keys(component.props).length > 0 && (
         <div
