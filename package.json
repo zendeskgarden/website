@@ -109,7 +109,7 @@
     "prop-types": "15.7.2",
     "react": "16.14.0",
     "react-beautiful-dnd": "13.0.0",
-    "react-docgen-typescript": "1.20.5",
+    "react-docgen-typescript": "1.20.1",
     "react-dom": "16.14.0",
     "react-dropzone": "11.2.4",
     "react-helmet": "6.1.0",
