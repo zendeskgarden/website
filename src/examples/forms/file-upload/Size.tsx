@@ -9,7 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Field, Label, Input, FileUpload } from '@zendeskgarden/react-forms';
+import { Field, Label, FileUpload } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const StyledCol = styled(Col)`
@@ -42,9 +42,9 @@ const Example = () => {
             {defaultDropzone.isDragActive ? (
               <span>Drop files here</span>
             ) : (
-              <span>Choose a file of drag and drop here</span>
+              <span>Choose a file or drag and drop here</span>
             )}
-            <Input {...defaultDropzone.getInputProps()} />
+            <input {...defaultDropzone.getInputProps()} />
           </FileUpload>
         </Field>
       </Col>
@@ -59,9 +59,9 @@ const Example = () => {
             {compactDropzone.isDragActive ? (
               <span>Drop files here</span>
             ) : (
-              <span>Choose a file of drag and drop here</span>
+              <span>Choose a file or drag and drop here</span>
             )}
-            <Input {...compactDropzone.getInputProps()} />
+            <input {...compactDropzone.getInputProps()} />
           </FileUpload>
         </Field>
       </StyledCol>
