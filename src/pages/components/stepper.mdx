@@ -56,15 +56,27 @@ import IconsCode from '!!raw-loader!../../examples/accordions/stepper/StepperIco
 
 ## API
 
+import COMPONENTS from '../../examples/accordions/components.ts';
+
 ### Stepper
+
+<Component components={props.data.mdx.components} componentName="stepper" />
 
 <PropSheet components={props.data.mdx.components} componentName="stepper" />
 
 #### Stepper.Content
 
+<Component components={COMPONENTS} componentName="stepper.content" />
+
 #### Stepper.Label
 
+<Component components={COMPONENTS} componentName="stepper.label" />
+
+<PropSheet components={COMPONENTS} componentName="stepper.label" />
+
 #### Stepper.Step
+
+<Component components={COMPONENTS} componentName="stepper.step" />
 
 import { graphql } from 'gatsby';
 

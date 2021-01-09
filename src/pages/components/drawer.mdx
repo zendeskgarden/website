@@ -39,19 +39,33 @@ import DefaultCode from '!!raw-loader!../../examples/drawer/DrawerDefault.tsx';
 
 ## API
 
+import COMPONENTS from '../../examples/drawer/components.ts';
+
 ### DrawerModal
 
-<PropSheet components={props.data.mdx.components} componentName="drawermodal" />
+<Component components={props.data.mdx.components} componentName="drawerModal" />
+
+<PropSheet components={props.data.mdx.components} componentName="drawerModal" />
 
 #### DrawerModal.Body
 
+<Component components={COMPONENTS} componentName="drawerModal.body" />
+
 #### DrawerModal.Close
+
+<Component components={COMPONENTS} componentName="drawerModal.close" />
 
 #### DrawerModal.Footer
 
+<Component components={COMPONENTS} componentName="drawerModal.footer" />
+
 #### DrawerModal.FooterItem
 
+<Component components={COMPONENTS} componentName="drawerModal.footerItem" />
+
 #### DrawerModal.Header
+
+<Component components={COMPONENTS} componentName="drawerModal.header" />
 
 import { graphql } from 'gatsby';
 

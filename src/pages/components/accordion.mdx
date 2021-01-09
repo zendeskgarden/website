@@ -75,17 +75,29 @@ import AccordionSizeCode from '!!raw-loader!../../examples/accordions/accordion/
 
 ## API
 
+import COMPONENTS from '../../examples/accordions/components.ts';
+
 ### Accordion
+
+<Component components={props.data.mdx.components} componentName="accordion" />
 
 <PropSheet components={props.data.mdx.components} componentName="accordion" />
 
 #### Accordion.Header
 
+<Component components={COMPONENTS} componentName="accordion.header" />
+
 #### Accordion.Label
+
+<Component components={COMPONENTS} componentName="accordion.label" />
 
 #### Accordion.Panel
 
+<Component components={COMPONENTS} componentName="accordion.panel" />
+
 #### Accordion.Section
+
+<Component components={COMPONENTS} componentName="accordion.section" />
 
 import { graphql } from 'gatsby';
 

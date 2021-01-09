@@ -88,21 +88,33 @@ import MonospaceCode from '!!raw-loader!../../examples/typography/span/Monospace
 
 ## API
 
+import COMPONENTS from '../../examples/typography/components.ts';
+
 ### MD
+
+<Component components={props.data.mdx.components} componentName="md" />
 
 <PropSheet components={props.data.mdx.components} componentName="md" />
 
 ### Paragraph
 
+<Component components={props.data.mdx.components} componentName="paragraph" />
+
 <PropSheet components={props.data.mdx.components} componentName="paragraph" />
 
 ### Span
+
+<Component components={props.data.mdx.components} componentName="span" />
 
 <PropSheet components={props.data.mdx.components} componentName="span" />
 
 #### Span.Icon
 
+<Component components={COMPONENTS} componentName="span.icon" />
+
 #### Span.StartIcon
+
+<Component components={COMPONENTS} componentName="span.startIcon" />
 
 import { graphql } from 'gatsby';
 

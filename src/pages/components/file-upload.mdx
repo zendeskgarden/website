@@ -4,7 +4,10 @@ description: >
   File upload lets users select and upload files.
 package: '@zendeskgarden/react-forms'
 components:
+  - forms/src/elements/common/Field.tsx
   - forms/src/elements/FileUpload.tsx
+  - forms/src/elements/common/Hint.tsx
+  - forms/src/elements/common/Label.tsx
 ---
 
 <Usage>
@@ -57,12 +60,32 @@ import SizeCode from '!!raw-loader!../../examples/forms/file-upload/Size.tsx';
 
 ## API
 
+### Field
+
+<Component components={props.data.mdx.components} componentName="field" />
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
 ### FileUpload
 
-The `FileUpload` component is a styled `div` which can be used with 3rd-party file upload libraries
-like [react-dropzone](https://github.com/react-dropzone/react-dropzone/).
+<Component components={props.data.mdx.components} componentName="fileUpload" />
+
+The File upload component works together with a library like
+[react-dropzone](https://react-dropzone.js.org/).
 
 <PropSheet components={props.data.mdx.components} componentName="fileUpload" />
+
+### Hint
+
+<Component components={props.data.mdx.components} componentName="hint" />
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Label
+
+<Component components={props.data.mdx.components} componentName="label" />
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
 
 import { graphql } from 'gatsby';
 

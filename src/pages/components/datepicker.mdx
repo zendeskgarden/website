@@ -100,13 +100,27 @@ import TimeWindowCode from '!!raw-loader!../../examples/datepicker/DatepickerTim
 
 ### Datepicker
 
+<Component components={props.data.mdx.components} componentName="datepicker" />
+
 <PropSheet components={props.data.mdx.components} componentName="datepicker" />
 
 ### DatepickerRange
 
-<PropSheet components={props.data.mdx.components} componentName="datepickerrange" />
+<Component components={props.data.mdx.components} componentName="datepickerRange" />
+
+<PropSheet components={props.data.mdx.components} componentName="datepickerRange" />
 
 #### DatepickerRange.Calendar
+
+<Component
+  components={[
+    {
+      name: 'DatepickerRange.Calendar',
+      extends: 'HTMLAttributes<HTMLDivElement>'
+    }
+  ]}
+  componentName="DatepickerRange.Calendar"
+/>
 
 #### DatepickerRange.End
 

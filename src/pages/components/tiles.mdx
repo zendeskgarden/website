@@ -92,17 +92,31 @@ import LayoutCode from '!!raw-loader!../../examples/forms/tiles/TilesLayout.tsx'
 
 ## API
 
+import COMPONENTS from '../../examples/forms/tiles/components.ts';
+
 ### Tiles
+
+<Component components={props.data.mdx.components} componentName="tiles" />
 
 <PropSheet components={props.data.mdx.components} componentName="tiles" />
 
 #### Tiles.Description
 
+<Component components={COMPONENTS} componentName="tiles.description" />
+
 #### Tiles.Icon
+
+<Component components={COMPONENTS} componentName="tiles.icon" />
 
 #### Tiles.Label
 
+<Component components={COMPONENTS} componentName="tiles.label" />
+
 #### Tiles.Tile
+
+<Component components={COMPONENTS} componentName="tiles.tile" />
+
+<PropSheet components={COMPONENTS} componentName="tiles.tile" />
 
 import { graphql } from 'gatsby';
 
