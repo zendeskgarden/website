@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Field, Label, Hint, FileUpload } from '@zendeskgarden/react-forms';
+import { Field, Label, Hint, Input, FileUpload } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
@@ -35,7 +35,7 @@ const Example = () => {
             ) : (
               <span>Choose a file or drag and drop here</span>
             )}
-            <input {...getInputProps()} disabled />
+            <Input {...getInputProps()} disabled />
           </FileUpload>
         </Field>
       </Col>
