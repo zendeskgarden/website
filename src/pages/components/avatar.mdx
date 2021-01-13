@@ -86,9 +86,21 @@ user distinguish between the two when scanning a page.
 
 ### Avatar
 
+<Component components={props.data.mdx.components} componentName="avatar" />
+
 <PropSheet components={props.data.mdx.components} componentName="avatar" />
 
 #### Avatar.Text
+
+<Component
+  components={[
+    {
+      name: 'Avatar.Text',
+      extends: 'HTMLAttributes<HTMLSpanElement>'
+    }
+  ]}
+  componentName="Avatar.Text"
+/>
 
 import { graphql } from 'gatsby';
 

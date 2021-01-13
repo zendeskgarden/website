@@ -32,7 +32,7 @@ const Example = () => {
             {isDragActive ? (
               <span>Drop files here</span>
             ) : (
-              <span>Choose a file of drag and drop here</span>
+              <span>Choose a file or drag and drop here</span>
             )}
             <Input {...getInputProps()} />
           </FileUpload>

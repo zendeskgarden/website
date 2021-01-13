@@ -72,21 +72,35 @@ import OffsetDefaultCode from '!!raw-loader!../../examples/pagination/OffsetDefa
 
 ## API
 
+import COMPONENTS from '../../examples/pagination/components.ts';
+
 ### Pagination
+
+<Component components={props.data.mdx.components} componentName="pagination" />
 
 <PropSheet components={props.data.mdx.components} componentName="pagination" />
 
 ### CursorPagination
 
-<PropSheet components={props.data.mdx.components} componentName="cursorpagination" />
+<Component components={props.data.mdx.components} componentName="cursorPagination" />
+
+<PropSheet components={props.data.mdx.components} componentName="cursorPagination" />
 
 #### CursorPagination.First
 
+<Component components={COMPONENTS} componentName="cursorPagination.first" />
+
 #### CursorPagination.Last
+
+<Component components={COMPONENTS} componentName="cursorPagination.last" />
 
 #### CursorPagination.Next
 
+<Component components={COMPONENTS} componentName="cursorPagination.next" />
+
 #### CursorPagination.Previous
+
+<Component components={COMPONENTS} componentName="cursorPagination.previous" />
 
 import { graphql } from 'gatsby';
 

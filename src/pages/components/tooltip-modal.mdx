@@ -62,19 +62,33 @@ import PlacementCode from '!!raw-loader!../../examples/tooltip-modal/TooltipModa
 
 ## API
 
+import COMPONENTS from '../../examples/tooltip-modal/components.ts';
+
 ### TooltipModal
 
-<PropSheet components={props.data.mdx.components} componentName="TooltipModal" />
+<Component components={props.data.mdx.components} componentName="tooltipModal" />
 
-#### TooltipModal.Title
+<PropSheet components={props.data.mdx.components} componentName="tooltipModal" />
 
 #### TooltipModal.Body
 
+<Component components={COMPONENTS} componentName="tooltipModal.body" />
+
 #### TooltipModal.Close
+
+<Component components={COMPONENTS} componentName="tooltipModal.close" />
 
 #### TooltipModal.Footer
 
+<Component components={COMPONENTS} componentName="tooltipModal.footer" />
+
 #### TooltipModal.FooterItem
+
+<Component components={COMPONENTS} componentName="tooltipModal.footerItem" />
+
+#### TooltipModal.Title
+
+<Component components={COMPONENTS} componentName="tooltipModal.title" />
 
 import { graphql } from 'gatsby';
 

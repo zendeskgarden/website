@@ -17,7 +17,6 @@ const Example = () => (
         <span>
           <Span isBold>Category</Span> Algae
         </span>
-        <Tag.Close />
       </Tag>
     </Col>
     <Col textAlign="center">
@@ -25,7 +24,6 @@ const Example = () => (
         <span>
           <Span isBold>Category</Span> Moss
         </span>
-        <Tag.Close />
       </Tag>
     </Col>
   </Row>

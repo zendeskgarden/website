@@ -114,13 +114,21 @@ import TagsWeightCode from '!!raw-loader!../../examples/tags/TagsWeight.tsx';
 
 ## API
 
+import COMPONENTS from '../../examples/tags/components.ts';
+
 ### Tag
+
+<Component components={props.data.mdx.components} componentName="tag" />
 
 <PropSheet components={props.data.mdx.components} componentName="tag" />
 
 #### Tag.Avatar
 
+<Component components={COMPONENTS} componentName="tag.avatar" />
+
 #### Tag.Close
+
+<Component components={COMPONENTS} componentName="tag.close" />
 
 import { graphql } from 'gatsby';
 

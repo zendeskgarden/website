@@ -49,17 +49,27 @@ import SizeCode from '!!raw-loader!../../examples/typography/lists/Size.tsx';
 
 ## API
 
+import COMPONENTS from '../../examples/typography/components.ts';
+
 ### OrderedList
 
-<PropSheet components={props.data.mdx.components} componentName="orderedlist" />
+<Component components={props.data.mdx.components} componentName="orderedList" />
+
+<PropSheet components={props.data.mdx.components} componentName="orderedList" />
 
 #### OrderedList.Item
 
+<Component components={COMPONENTS} componentName="orderedList.item" />
+
 ### UnorderedList
 
-<PropSheet components={props.data.mdx.components} componentName="unorderedlist" />
+<Component components={props.data.mdx.components} componentName="unorderedList" />
+
+<PropSheet components={props.data.mdx.components} componentName="unorderedList" />
 
 #### UnorderedList.Item
+
+<Component components={COMPONENTS} componentName="unorderedList.item" />
 
 import { graphql } from 'gatsby';
 

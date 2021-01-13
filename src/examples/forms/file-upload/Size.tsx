@@ -42,7 +42,7 @@ const Example = () => {
             {defaultDropzone.isDragActive ? (
               <span>Drop files here</span>
             ) : (
-              <span>Choose a file of drag and drop here</span>
+              <span>Choose a file or drag and drop here</span>
             )}
             <Input {...defaultDropzone.getInputProps()} />
           </FileUpload>
@@ -59,7 +59,7 @@ const Example = () => {
             {compactDropzone.isDragActive ? (
               <span>Drop files here</span>
             ) : (
-              <span>Choose a file of drag and drop here</span>
+              <span>Choose a file or drag and drop here</span>
             )}
             <Input {...compactDropzone.getInputProps()} />
           </FileUpload>

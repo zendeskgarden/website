@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { Code } from '@zendeskgarden/react-typography';
+import { MD, Span } from '@zendeskgarden/react-typography';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { IComponentData } from 'src/templates/types';
 import { StyledParagraph as Paragraph } from './Typography';
 import { Markdown } from './Markdown';
@@ -22,7 +23,10 @@ export const Component: React.FC<{
     <>
       {component.extends && (
         <Paragraph>
-          Extends <Code>{component.extends}</Code>
+          Extends{' '}
+          <MD isMonospace tag="span">
+            <Span hue={PALETTE.grey[700]}>{component.extends}</Span>
+          </MD>
         </Paragraph>
       )}
       {isDescribed && (
