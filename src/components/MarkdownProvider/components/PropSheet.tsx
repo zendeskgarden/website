@@ -8,7 +8,7 @@
 import React, { ReactElement } from 'react';
 import { css } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
-import { MD, Ellipsis } from '@zendeskgarden/react-typography';
+import { SM, MD, Ellipsis, Code } from '@zendeskgarden/react-typography';
 import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
 import { IComponentData } from 'src/templates/types';
 import { Tag } from '@zendeskgarden/react-tags';
@@ -119,6 +119,29 @@ export const PropSheet: React.FC<{
                       >
                         <Markdown>{prop.description}</Markdown>
                       </MD>
+                      {Object.keys(prop.params).length > 0 && (
+                        <>
+                          <SM
+                            isBold
+                            css={css`
+                              margin-top: ${p => p.theme.space.xs};
+                            `}
+                          >
+                            Parameters
+                          </SM>
+                          {Object.keys(prop.params).map(paramName => (
+                            <SM
+                              key={paramName}
+                              css={css`
+                                margin-top: ${p => p.theme.space.xxs};
+                              `}
+                            >
+                              <Code size="small">{paramName}</Code>{' '}
+                              <Markdown>{prop.params[paramName]}</Markdown>
+                            </SM>
+                          ))}
+                        </>
+                      )}
                     </Cell>
                   </Row>
                 );
