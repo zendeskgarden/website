@@ -1,0 +1,17 @@
+---
+title: Design overview
+description: >
+  Foundations for creating purposeful UI.
+---
+
+import links from '../../nav/patterns.yml';
+
+<OverviewLinks nav={links} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

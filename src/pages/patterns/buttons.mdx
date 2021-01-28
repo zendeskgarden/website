@@ -1,0 +1,48 @@
+---
+title: Buttons
+description: >
+  TODO BEED TO FIGURE OUT DESCRIPTION
+---
+
+## Overview
+
+Buttons are common and vital elements because they help make content interactive across the
+internet. They allow a user to take actions with a single click and are placed throughout a
+page or workflow. Buttons use visual signifiers such as shape, color, and size to show that
+a user can interact with them.
+
+## Interface
+
+**Primary buttons** are for the most important action in a given view. There is typically
+one call-to-action on a page or view. **Default** buttons are for secondary actions.
+**Basic buttons** are for repetitive or deemphasized actions in a given view.
+
+## Size
+
+The default button size is medium. In screens that have more information density, use small
+buttons. Large buttons are mostly used in onboarding. Buttons and text inputs within the same
+flow should be the same size.
+
+## Content
+
+Use clear, action-oriented language to help people choose the right action for them. A typical
+construction is `Verb noun`. It’s OK and expected for Button labels to mirror the content of a
+page or modal heading.
+
+Lead with verbs and omit articles, pronouns, and punctuation. Avoid terse labels that need context
+like "Yes," "No," or "Done." Buttons are sentence case, not title case or all caps. Use 1–4 words
+and a maximum of 20 characters in English including spaces to adhere to internationalization guidelines.
+
+## Interaction
+
+**Loading buttons** display a dot loader inside when communicating loading progress. The dot loader
+appears after the user has initiated an action, signifying the site is loading the next
+action to occur. Buttons shouldn’t change size while loading.
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

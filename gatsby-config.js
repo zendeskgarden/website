@@ -50,6 +50,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `patterns`,
+        path: path.join(__dirname, 'src/pages/patterns')
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `react-components`,
         path: path.join(__dirname, 'react-components/packages'),
         ignore: ['**/*.!(ts|tsx)']
@@ -99,7 +106,8 @@ module.exports = {
         defaultLayouts: {
           content: require.resolve('./src/templates/ContentTemplate.tsx'),
           design: require.resolve('./src/templates/DesignTemplate.tsx'),
-          components: require.resolve('./src/templates/ComponentTemplate.tsx')
+          components: require.resolve('./src/templates/ComponentTemplate.tsx'),
+          patterns: require.resolve('./src/templates/PatternTemplate.tsx')
         },
         gatsbyRemarkPlugins: [
           require.resolve('./plugins/gatsby-remark-abstract-assets'),
