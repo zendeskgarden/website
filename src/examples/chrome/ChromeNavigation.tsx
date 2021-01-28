@@ -27,7 +27,8 @@ import {
   NavItemText,
   SubNav,
   SubNavItem,
-  SubNavItemText
+  SubNavItemText,
+  SkipNav
 } from '@zendeskgarden/react-chrome';
 
 const Example = () => {
@@ -39,6 +40,7 @@ const Example = () => {
 
   return (
     <Chrome isFluid style={{ height: 500, minWidth: 600 }} hue={PALETTE.blue[800]}>
+      <SkipNav targetId="example-navigation-main-content">Skip to main content</SkipNav>
       <Nav isExpanded={expanded}>
         <NavItem hasLogo>
           <NavItemIcon>
@@ -110,7 +112,7 @@ const Example = () => {
       )}
       <Body>
         <Header />
-        <Content>
+        <Content id="example-navigation-main-content">
           <Main style={{ padding: 28 }}>
             <Row>
               <Col>

@@ -31,7 +31,8 @@ import {
   NavItem,
   NavItemIcon,
   NavItemText,
-  Sidebar
+  Sidebar,
+  SkipNav
 } from '@zendeskgarden/react-chrome';
 
 const Example = () => {
@@ -39,6 +40,7 @@ const Example = () => {
 
   return (
     <Chrome isFluid style={{ height: 500, minWidth: 600 }}>
+      <SkipNav targetId="example-main-content">Skip to main content</SkipNav>
       <Nav>
         <NavItem hasLogo>
           <NavItemIcon>
@@ -86,7 +88,7 @@ const Example = () => {
             <HeaderItemText isClipped>User</HeaderItemText>
           </HeaderItem>
         </Header>
-        <Content>
+        <Content id="example-main-content">
           <Main style={{ padding: 28 }}>
             <XXL>Main Content</XXL>
             <MD>Beetroot water spinach okra water chestnut ricebean pea catsear.</MD>
