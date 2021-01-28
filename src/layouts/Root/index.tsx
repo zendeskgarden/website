@@ -7,6 +7,8 @@
 
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { getColor } from '@zendeskgarden/react-theming';
+import { SkipNav } from '@zendeskgarden/react-chrome';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
@@ -24,7 +26,11 @@ const GlobalStyling = createGlobalStyle`
   }
 `;
 
-const RootLayout: React.FC = ({ children }) => {
+interface IRootLayoutProps {
+  hasSkipNav?: boolean;
+}
+
+const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav }) => {
   return (
     <div
       css={`
@@ -34,6 +40,23 @@ const RootLayout: React.FC = ({ children }) => {
       `}
     >
       <GlobalStyling />
+      {hasSkipNav && (
+        <SkipNav
+          targetId="main-content"
+          zIndex={2}
+          css={`
+            top: 40px;
+            box-shadow: ${p =>
+              p.theme.shadows.lg(
+                `${p.theme.space.base * 4}px`,
+                `${p.theme.space.base * 6}px`,
+                getColor('grey', 800, p.theme, 0.05)!
+              )};
+          `}
+        >
+          Skip to main content
+        </SkipNav>
+      )}
       <Header />
       <main
         css={`
@@ -46,6 +69,10 @@ const RootLayout: React.FC = ({ children }) => {
       <Footer />
     </div>
   );
+};
+
+RootLayout.defaultProps = {
+  hasSkipNav: true
 };
 
 export default RootLayout;
