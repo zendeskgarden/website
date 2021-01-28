@@ -6,9 +6,10 @@
  */
 
 import React from 'react';
+import { DefaultTheme } from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
-import { IGardenTheme, ThemeProvider } from '@zendeskgarden/react-theming';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
 
 const deepOrange = {
   100: '#ffccbc',
@@ -23,7 +24,7 @@ const deepOrange = {
 
 /* Each Garden example is wrapped by a <ThemeProvider> */
 const Example = () => {
-  const theme = (parentTheme: IGardenTheme) => ({
+  const theme = (parentTheme: DefaultTheme) => ({
     ...parentTheme,
     palette: {
       ...parentTheme.palette,
