@@ -6,9 +6,10 @@
  */
 
 import React from 'react';
+import { DefaultTheme } from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
-import { DefaultTheme, ThemeProvider } from '@zendeskgarden/react-theming';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
 
 /* Each Garden example is wrapped by a <ThemeProvider> */
 const Example = () => {

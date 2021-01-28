@@ -6,9 +6,10 @@
  */
 
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
+import { SkipNav } from '@zendeskgarden/react-chrome';
 import Footer from './components/Footer';
-import Header from './components/Header';
+import Header, { headerBoxShadow, headerHeight } from './components/Header';
 
 /**
  * Global styling
@@ -24,7 +25,11 @@ const GlobalStyling = createGlobalStyle`
   }
 `;
 
-const RootLayout: React.FC = ({ children }) => {
+interface IRootLayoutProps {
+  hasSkipNav?: boolean;
+}
+
+const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav }) => {
   return (
     <div
       css={`
@@ -34,6 +39,18 @@ const RootLayout: React.FC = ({ children }) => {
       `}
     >
       <GlobalStyling />
+      {hasSkipNav && (
+        <SkipNav
+          targetId="main-content"
+          zIndex={2}
+          css={css`
+            top: ${p => headerHeight(p.theme) / 2}px;
+            box-shadow: ${p => headerBoxShadow(p.theme)};
+          `}
+        >
+          Skip to main content
+        </SkipNav>
+      )}
       <Header />
       <main
         css={`
@@ -46,6 +63,10 @@ const RootLayout: React.FC = ({ children }) => {
       <Footer />
     </div>
   );
+};
+
+RootLayout.defaultProps = {
+  hasSkipNav: true
 };
 
 export default RootLayout;

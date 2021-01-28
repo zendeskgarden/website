@@ -6,9 +6,9 @@
  */
 
 import React, { useState } from 'react';
+import { css, DefaultTheme } from 'styled-components';
 import { Tabs, TabList, Tab, TabPanel } from '@zendeskgarden/react-tabs';
-import { getColor, DefaultTheme, ThemeProvider } from '@zendeskgarden/react-theming';
-import { css } from 'styled-components';
+import { getColor, ThemeProvider } from '@zendeskgarden/react-theming';
 
 /* Each Garden example is wrapped by a <ThemeProvider> */
 const Example = () => {
