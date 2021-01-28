@@ -6,7 +6,7 @@
  */
 
 import React, { useState, HTMLAttributes, useRef, useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 import { Link } from 'gatsby';
 import { getColor, mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
@@ -18,6 +18,15 @@ import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/2
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SearchInput } from './SearchInput';
 import { StyledNavigationLink } from './StyledNavigationLink';
+
+export const headerBoxShadow = (theme: DefaultTheme) =>
+  theme.shadows.lg(
+    `${theme.space.base * 4}px`,
+    `${theme.space.base * 6}px`,
+    getColor('neutralHue', 800, theme, 0.05)!
+  );
+
+export const headerHeight = (theme: DefaultTheme) => theme.space.base * 20;
 
 const StyledDesktopNavItem = styled.div`
   display: flex;
@@ -33,14 +42,9 @@ const StyledDesktopNavLink = styled(StyledNavigationLink).attrs({ partiallyActiv
 
 const StyledHeader = styled.header.attrs({ role: 'banner' })`
   z-index: 1;
-  box-shadow: ${p =>
-    p.theme.shadows.lg(
-      `${p.theme.space.base * 4}px`,
-      `${p.theme.space.base * 6}px`,
-      getColor('grey', 800, p.theme, 0.05)!
-    )};
+  box-shadow: ${p => headerBoxShadow(p.theme)};
   padding: 0 ${p => p.theme.space.base * 4}px;
-  height: ${p => p.theme.space.base * 20}px;
+  height: ${p => headerHeight(p.theme)}px;
 
   &[data-show-navigation='true'] {
     border-bottom-color: ${p => p.theme.palette.white};
