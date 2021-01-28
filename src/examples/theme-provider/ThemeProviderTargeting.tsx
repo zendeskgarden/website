@@ -7,13 +7,13 @@
 
 import React, { useState } from 'react';
 import { Tabs, TabList, Tab, TabPanel } from '@zendeskgarden/react-tabs';
-import { getColor, DefaultTheme, ThemeProvider } from '@zendeskgarden/react-theming';
+import { getColor, IGardenTheme, ThemeProvider } from '@zendeskgarden/react-theming';
 import { css } from 'styled-components';
 
 /* Each Garden example is wrapped by a <ThemeProvider> */
 const Example = () => {
   const [selectedTab, setSelectedTab] = useState('tab-1');
-  const theme = (parentTheme: DefaultTheme) => ({
+  const theme = (parentTheme: IGardenTheme) => ({
     ...parentTheme,
     components: {
       'tabs.tab': css`
