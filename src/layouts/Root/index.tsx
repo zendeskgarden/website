@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 import { SkipNav } from '@zendeskgarden/react-chrome';
 import Footer from './components/Footer';
 import Header, { headerBoxShadow, headerHeight } from './components/Header';
@@ -43,7 +43,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav }) => {
         <SkipNav
           targetId="main-content"
           zIndex={2}
-          css={`
+          css={css`
             top: ${p => headerHeight(p.theme) / 2}px;
             box-shadow: ${p => headerBoxShadow(p.theme)};
           `}
