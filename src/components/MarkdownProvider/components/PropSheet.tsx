@@ -119,7 +119,7 @@ export const PropSheet: React.FC<{
                       >
                         <Markdown>{prop.description}</Markdown>
                       </MD>
-                      {Object.keys(prop.params).length > 0 && (
+                      {prop.params && Object.keys(prop.params).length > 0 && (
                         <>
                           <SM
                             isBold
@@ -137,7 +137,7 @@ export const PropSheet: React.FC<{
                               `}
                             >
                               <Code size="small">{paramName}</Code>{' '}
-                              <Markdown>{prop.params[paramName]}</Markdown>
+                              <Markdown>{prop.params![paramName]}</Markdown>
                             </SM>
                           ))}
                         </>
