@@ -6,10 +6,10 @@
  */
 
 import React, { useContext } from 'react';
-import styled, { css, ThemeContext, ThemeProps } from 'styled-components';
+import styled, { css, DefaultTheme, ThemeContext, ThemeProps } from 'styled-components';
 import { math } from 'polished';
 import { Row, Col } from '@zendeskgarden/react-grid';
-import { DefaultTheme, PALETTE, ThemeProvider, mediaQuery } from '@zendeskgarden/react-theming';
+import { PALETTE, ThemeProvider, mediaQuery } from '@zendeskgarden/react-theming';
 
 const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<DefaultTheme>) => {
   let retVal;
