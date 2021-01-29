@@ -142,6 +142,15 @@ export const PropSheet: React.FC<{
                           ))}
                         </>
                       )}
+                      {prop.returns && (
+                        <SM
+                          css={css`
+                            margin-top: ${p => p.theme.space.xs};
+                          `}
+                        >
+                          <b>Returns</b> <Markdown>{prop.returns}</Markdown>
+                        </SM>
+                      )}
                     </Cell>
                   </Row>
                 );

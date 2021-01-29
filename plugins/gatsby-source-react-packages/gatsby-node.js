@@ -58,11 +58,13 @@ const parseComponents = filePaths => {
         }
 
         const params = {};
+        let returns;
 
         if (description) {
           description.tags
             .filter(tag => tag.tag === 'param')
             .forEach(param => (params[param.name] = param.description));
+          returns = description.tags.find(tag => tag.tag.startsWith('return'));
         }
 
         props[key] = {
@@ -70,7 +72,8 @@ const parseComponents = filePaths => {
           defaultValue,
           required: prop.required,
           type,
-          params
+          params,
+          returns: returns ? returns.description : undefined
         };
       });
 
