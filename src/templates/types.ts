@@ -12,6 +12,8 @@ interface IPropData {
   defaultValue: string;
   required: boolean;
   type: string;
+  params?: Record<string, string>;
+  returns?: string;
 }
 
 export interface IComponentData {

@@ -44,6 +44,7 @@ const parseComponents = filePaths => {
       .sort()
       .forEach(key => {
         const prop = component.props[key];
+        const description = parse(`/** ${prop.description} */`)[0];
         const type = prop.type.name.replace(/"/gu, "'");
         let defaultValue =
           prop.defaultValue && prop.defaultValue.value && prop.defaultValue.value.toString();
@@ -56,11 +57,23 @@ const parseComponents = filePaths => {
           defaultValue = `'${defaultValue}'`;
         }
 
+        const params = {};
+        let returns;
+
+        if (description) {
+          description.tags
+            .filter(tag => tag.tag === 'param')
+            .forEach(param => (params[param.name] = param.description));
+          returns = description.tags.find(tag => tag.tag.startsWith('return'));
+        }
+
         props[key] = {
-          description: prop.description,
+          description: description ? description.description : '',
           defaultValue,
           required: prop.required,
-          type
+          type,
+          params,
+          returns: returns ? returns.description : undefined
         };
       });
 
