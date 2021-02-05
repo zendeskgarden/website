@@ -1,7 +1,7 @@
 ---
 title: Buttons
 description: >
-  TODO NEED TO FIGURE OUT DESCRIPTION
+  Know why they're pushing your buttons.
 ---
 
 ## Overview
@@ -17,11 +17,18 @@ a user can interact with them.
 one call-to-action on a page or view. **Default** buttons are for secondary actions.
 **Basic buttons** are for repetitive or deemphasized actions in a given view.
 
+![Tone matrix map](abstract:patterns-buttons-type-usage.png)
+
 ## Size
 
 The default button size is medium. In screens that have more information density, use small
 buttons. Large buttons are mostly used in onboarding. Buttons and text inputs within the same
 flow should be the same size.
+
+<BestPractice>
+  <Do imageIsSquare imageSource={props.data.buttonsSizeDo.childFile.childImageSharp.fluid} />
+  <Dont imageIsSquare imageSource={props.data.buttonsSizeDont.childFile.childImageSharp.fluid} />
+</BestPractice>
 
 ## Content
 
@@ -33,16 +40,74 @@ Lead with verbs and omit articles, pronouns, and punctuation. Avoid terse labels
 like "Yes," "No," or "Done." Buttons are sentence case, not title case or all caps. Use 1–4 words
 and a maximum of 20 characters in English including spaces to adhere to internationalization guidelines.
 
+<BestPractice>
+  <Do imageSource={props.data.buttonsContentVerbDo.childFile.childImageSharp.fluid}>
+    <ul>
+      <li>Use labels specific to the action they perform</li>
+      <li>Communicate a single action per button</li>
+    </ul>
+  </Do>
+  <Dont imageSource={props.data.buttonsContentVerbDont.childFile.childImageSharp.fluid}>
+    <ul>
+      <li>Use general button labels that might cause confusion</li>
+      <li>Use labels that need more context</li>
+    </ul>
+  </Dont>
+</BestPractice>
+
 ## Interaction
 
 **Loading buttons** display a dot loader inside when communicating loading progress. The dot loader
 appears after the user has initiated an action, signifying the site is loading the next
 action to occur. Buttons shouldn’t change size while loading.
 
+import Interaction from './examples/button/Interaction.tsx';
+import InteractionCode from '!!raw-loader!./examples/button/Interaction.tsx';
+
+<CodeExample code={InteractionCode}>
+  <Interaction />
+</CodeExample>
+
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    buttonsSizeDo: abstractAsset(layerName: { eq: "patterns-buttons-size-do" }) {
+      childFile {
+        childImageSharp {
+          fluid(maxHeight: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+    buttonsSizeDont: abstractAsset(layerName: { eq: "patterns-buttons-size-dont" }) {
+      childFile {
+        childImageSharp {
+          fluid(maxHeight: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+    buttonsContentVerbDo: abstractAsset(layerName: { eq: "patterns-buttons-content-verb-do" }) {
+      childFile {
+        childImageSharp {
+          fluid(maxHeight: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+    buttonsContentVerbDont: abstractAsset(layerName: { eq: "patterns-buttons-content-verb-dont" }) {
+      childFile {
+        childImageSharp {
+          fluid(maxHeight: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
   }
 `;
