@@ -25,13 +25,12 @@ const StyledUnorderedList = styled(UnorderedList)`
 `;
 
 const StyledListItem = styled(UnorderedList.Item)`
-  & > div {
-    display: flex;
-    align-items: baseline;
-    margin: ${p => p.theme.space.base * 2.5}px 0;
-    border-top: ${p => `${p.theme.borders.sm} ${getColor('grey', 200, p.theme)}`};
-    padding: ${p => p.theme.space.base * 2.5}px 0 0;
-  }
+  display: flex;
+  align-items: baseline;
+  margin: ${p => p.theme.space.base * 2.5}px 0;
+  border-top: ${p => `${p.theme.borders.sm} ${getColor('grey', 200, p.theme)}`};
+  /* stylelint-disable-next-line declaration-no-important */
+  padding-top: ${p => p.theme.space.base * 2.5}px !important;
 `;
 
 const StyledListItemLabel = styled(Span)`
@@ -75,7 +74,7 @@ export const Configuration: React.FC<{
     <StyledListItem>
       <StyledListItemLabel isBold>Deps</StyledListItemLabel>
       <StyledMono>
-        npm install react react-dom prop-types styled-components
+        npm install react react-dom styled-components
         {reactPackage.name !== '@zendeskgarden/react-theming' && ' @zendeskgarden/react-theming'}
       </StyledMono>
     </StyledListItem>
