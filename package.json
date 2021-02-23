@@ -128,7 +128,6 @@
     "vfile": "4.2.1"
   },
   "resolutions": {
-    "@types/vfile-message": "1.0.1",
-    "gatsby-react-router-scroll": "3.7.0"
+    "@types/vfile-message": "1.0.1"
   }
 }
