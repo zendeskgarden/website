@@ -6,18 +6,22 @@
  */
 
 const createNodeHelpers = require('gatsby-node-helpers').default;
-const SVGO = require('svgo');
+const { optimize } = require('svgo');
 
-const svgo = new SVGO({
+const config = {
   plugins: [
     {
-      addAttributesToSVGElement: {
-        attributes: [{ focusable: false, role: 'presentation' }]
+      name: 'addAttributesToSVGElement',
+      params: {
+        attributes: [{ focusable: false }, { role: 'presentation' }]
       }
     },
-    { removeViewBox: false }
+    {
+      name: 'removeViewBox',
+      active: false
+    }
   ]
-});
+};
 
 const { createNodeFactory } = createNodeHelpers({
   typePrefix: `Garden`
@@ -27,8 +31,8 @@ const GARDEN_SVG_ID = 'Svg';
 
 const gardenSvgNode = createNodeFactory(GARDEN_SVG_ID);
 
-const parseSvg = async svgContent => {
-  const { data: content } = await svgo.optimize(svgContent);
+const parseSvg = svgContent => {
+  const { data: content } = optimize(svgContent, config);
 
   return {
     content,
@@ -46,7 +50,7 @@ exports.onCreateNode = async ({
   }
 
   const content = await loadNodeContent(node);
-  const parsedContent = await parseSvg(content);
+  const parsedContent = parseSvg(content);
 
   const svgNode = gardenSvgNode(parsedContent, {
     id: `${node.relativeDirectory}-${node.name}`,
