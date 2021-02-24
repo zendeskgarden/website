@@ -8,7 +8,7 @@
 const fs = require('fs');
 const util = require('util');
 const path = require('path');
-const parse = require('comment-parser');
+const { parse } = require('comment-parser');
 const reactDocgenTypescript = require('react-docgen-typescript');
 const createNodeHelpers = require('gatsby-node-helpers').default;
 
