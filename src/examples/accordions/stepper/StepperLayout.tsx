@@ -52,7 +52,8 @@ const Example = () => {
       )
     },
     {
-      content: `Buy clean, hearty, disease-free seeds. Most seed from reliable seed companies will meet these specifications.`,
+      content:
+        'Buy clean, hearty, disease-free seeds. Most seed from reliable seed companies will meet these specifications.',
       buttons: <Button onClick={onBack}>Back</Button>
     }
   ];
