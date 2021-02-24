@@ -24,7 +24,7 @@ const gardenNewsNode = createNodeFactory(GARDEN_NEWS_ID);
 exports.sourceNodes = ({ actions, reporter }) => {
   const { createNode } = actions;
 
-  const news = yaml.safeLoad(
+  const news = yaml.load(
     fs.readFileSync(path.resolve(__dirname, '../../content/news/news.yml'), 'utf-8')
   );
 
