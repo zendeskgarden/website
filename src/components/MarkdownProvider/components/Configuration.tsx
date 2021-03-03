@@ -8,9 +8,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { UnorderedList, Span } from '@zendeskgarden/react-typography';
-import { Anchor } from '@zendeskgarden/react-buttons';
 import { getColor } from '@zendeskgarden/react-theming';
 import { IComponentData } from 'src/templates/types';
+import { StyledAnchor } from './Anchor';
 
 interface IPackage {
   version: string;
@@ -55,17 +55,17 @@ export const Configuration: React.FC<{
       <StyledListItemLabel isBold>Name</StyledListItemLabel>
       {reactPackage.version}
       <StyledDot>•</StyledDot>
-      <Anchor
+      <StyledAnchor
         href={`https://github.com/zendeskgarden/react-components/tree/main/packages/${reactPackage.packageName}`}
       >
         View source
-      </Anchor>
+      </StyledAnchor>
       <StyledDot>•</StyledDot>
-      <Anchor
+      <StyledAnchor
         href={`https://www.npmjs.com/package/@zendeskgarden/react-${reactPackage.packageName}`}
       >
         View on npm
-      </Anchor>
+      </StyledAnchor>
     </StyledListItem>
     <StyledListItem>
       <StyledListItemLabel isBold>Install</StyledListItemLabel>

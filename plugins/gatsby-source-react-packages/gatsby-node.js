@@ -36,8 +36,6 @@ const parseComponents = filePaths => {
   const components = PARSER.parse(filePaths);
 
   return components.map(component => {
-    const data = parse(`/** ${component.description} */`)[0];
-    const extendsTag = data ? data.tags.find(tag => tag.tag === 'extends') : null;
     const props = {};
 
     Object.keys(component.props)
@@ -79,8 +77,8 @@ const parseComponents = filePaths => {
 
     return {
       name: component.displayName,
-      description: data ? data.description : '',
-      extends: extendsTag ? extendsTag.name : '',
+      description: component.description,
+      extends: component.tags ? component.tags.extends : '',
       props
     };
   });
