@@ -20,7 +20,19 @@ const TitledLayout: React.FC<{
 }> = ({ children, title, subtitle, toc }) => (
   <Grid>
     <Row>
-      <Col lg={12} xl={9}>
+      <Col
+        lg={12}
+        xl={3}
+        order={2}
+        css={css`
+          ${p => mediaQuery('down', 'lg', p.theme)} {
+            display: none;
+          }
+        `}
+      >
+        {toc && <TOC data={toc} />}
+      </Col>
+      <Col lg={12} xl={9} order={1}>
         <StyledH1>{title}</StyledH1>
         {subtitle && <Subtitle>{subtitle}</Subtitle>}
         <StyledHr />
@@ -35,17 +47,6 @@ const TitledLayout: React.FC<{
           />
         )}
         {children}
-      </Col>
-      <Col
-        lg={12}
-        xl={3}
-        css={css`
-          ${p => mediaQuery('down', 'lg', p.theme)} {
-            display: none;
-          }
-        `}
-      >
-        {toc && <TOC data={toc} />}
       </Col>
     </Row>
   </Grid>
