@@ -8,7 +8,7 @@
 import React, { useRef, useState, useMemo } from 'react';
 import { math, rgba } from 'polished';
 import styled, { css, DefaultTheme } from 'styled-components';
-import { ThemeProvider, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { ThemeProvider, DEFAULT_THEME, getColor, PALETTE } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { CodeBlock } from '@zendeskgarden/react-typography';
 import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
@@ -31,14 +31,19 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const [isRtl, setIsRtl] = useState(false);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const [primaryHue, setPrimaryHue] = useState<string | IColor>(DEFAULT_THEME.colors.primaryHue);
+  const [color, setColor] = useState<string>(PALETTE.blue[600]);
   const focusVisibleRef = useRef(null);
   const COPYRIGHT_REGEXP = /\/\*\*\n\s\*\sCopyright[\s\S]*\*\/\n\n/gmu;
 
   const exampleTheme = useMemo<DefaultTheme>(() => {
-    const hue =
-      typeof primaryHue === 'string'
-        ? primaryHue
-        : rgba(primaryHue.red, primaryHue.green, primaryHue.blue, primaryHue.alpha);
+    let hue;
+
+    if (typeof primaryHue === 'string') {
+      hue = primaryHue;
+    } else {
+      hue = rgba(primaryHue.red, primaryHue.green, primaryHue.blue, primaryHue.alpha);
+      setColor(hue);
+    }
 
     return {
       ...DEFAULT_THEME,
@@ -90,17 +95,9 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
             <DirectionRtlStroke />
           </ToggleIconButton>
         </Tooltip>
-        <ColorpickerDialog color={primaryHue} onChange={setPrimaryHue}>
+        <ColorpickerDialog color={color} onChange={setPrimaryHue}>
           <IconButton isPill={false} focusInset>
-            {typeof primaryHue === 'string' ? (
-              <PaletteStroke />
-            ) : (
-              <PaletteFill
-                style={{
-                  color: rgba(primaryHue.red, primaryHue.green, primaryHue.blue, primaryHue.alpha)
-                }}
-              />
-            )}
+            {typeof primaryHue === 'string' ? <PaletteStroke /> : <PaletteFill style={{ color }} />}
           </IconButton>
         </ColorpickerDialog>
         <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_blank">
