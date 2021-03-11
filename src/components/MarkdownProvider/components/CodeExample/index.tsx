@@ -6,14 +6,17 @@
  */
 
 import React, { useRef, useState, useMemo } from 'react';
-import { math } from 'polished';
+import { math, rgba } from 'polished';
 import styled, { css, DefaultTheme } from 'styled-components';
 import { ThemeProvider, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { CodeBlock } from '@zendeskgarden/react-typography';
+import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import { IconButton, ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as MarkupStroke } from '@zendeskgarden/svg-icons/src/16/markup-stroke.svg';
 import { ReactComponent as CopyStroke } from '@zendeskgarden/svg-icons/src/16/copy-stroke.svg';
+import { ReactComponent as PaletteStroke } from '@zendeskgarden/svg-icons/src/16/palette-stroke.svg';
+import { ReactComponent as PaletteFill } from '@zendeskgarden/svg-icons/src/16/palette-fill.svg';
 import { ReactComponent as DirectionRtlStroke } from '@zendeskgarden/svg-icons/src/16/direction-rtl-stroke.svg';
 import { ReactComponent as CodeSandboxIcon } from './assets/codesandbox-icon.svg';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
@@ -27,12 +30,22 @@ const StyledCodeBlock = styled(CodeBlock)`
 export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const [isRtl, setIsRtl] = useState(false);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
+  const [primaryHue, setPrimaryHue] = useState<string | IColor>(DEFAULT_THEME.colors.primaryHue);
   const focusVisibleRef = useRef(null);
   const COPYRIGHT_REGEXP = /\/\*\*\n\s\*\sCopyright[\s\S]*\*\/\n\n/gmu;
 
   const exampleTheme = useMemo<DefaultTheme>(() => {
-    return { ...DEFAULT_THEME, rtl: isRtl };
-  }, [isRtl]);
+    const hue =
+      typeof primaryHue === 'string'
+        ? primaryHue
+        : rgba(primaryHue.red, primaryHue.green, primaryHue.blue, primaryHue.alpha);
+
+    return {
+      ...DEFAULT_THEME,
+      colors: { ...DEFAULT_THEME.colors, primaryHue: hue },
+      rtl: isRtl
+    };
+  }, [isRtl, primaryHue]);
 
   const parameters = useMemo(() => {
     return retrieveCodesandboxParameters(code);
@@ -77,6 +90,19 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
             <DirectionRtlStroke />
           </ToggleIconButton>
         </Tooltip>
+        <ColorpickerDialog color={primaryHue} onChange={setPrimaryHue}>
+          <IconButton isPill={false} focusInset>
+            {typeof primaryHue === 'string' ? (
+              <PaletteStroke />
+            ) : (
+              <PaletteFill
+                style={{
+                  color: rgba(primaryHue.red, primaryHue.green, primaryHue.blue, primaryHue.alpha)
+                }}
+              />
+            )}
+          </IconButton>
+        </ColorpickerDialog>
         <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_blank">
           <input type="hidden" name="parameters" value={parameters} />
           <input type="hidden" name="query" value="module=src/Example.tsx" />
