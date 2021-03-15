@@ -27,6 +27,14 @@ const StyledCodeBlock = styled(CodeBlock)`
   border-bottom-right-radius: ${props => math(`${props.theme.borderRadii.md} - 1px`)};
 `;
 
+const PaletteIconButton = React.forwardRef(
+  (props: React.ComponentPropsWithoutRef<'button'>, ref: React.Ref<HTMLButtonElement>) => (
+    <Tooltip content="Set primary hue">
+      <IconButton isPill={false} focusInset ref={ref} {...props} />
+    </Tooltip>
+  )
+);
+
 export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const [isRtl, setIsRtl] = useState(false);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
@@ -96,9 +104,9 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
           </ToggleIconButton>
         </Tooltip>
         <ColorpickerDialog color={color} onChange={setPrimaryHue}>
-          <IconButton isPill={false} focusInset>
+          <PaletteIconButton>
             {typeof primaryHue === 'string' ? <PaletteStroke /> : <PaletteFill style={{ color }} />}
-          </IconButton>
+          </PaletteIconButton>
         </ColorpickerDialog>
         <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_blank">
           <input type="hidden" name="parameters" value={parameters} />
