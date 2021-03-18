@@ -45,7 +45,10 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const exampleTheme = useMemo<DefaultTheme>(() => {
     let primaryHue;
 
-    if (typeof color === 'string') {
+    if (
+      typeof color === 'string' ||
+      (color.hex.toLowerCase() === PALETTE.blue[600] && color.alpha === 100)
+    ) {
       primaryHue = DEFAULT_THEME.colors.primaryHue;
     } else {
       primaryHue = rgba(color.red, color.green, color.blue, color.alpha / 100);
@@ -103,7 +106,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
         </Tooltip>
         <ColorpickerDialog color={color} onChange={setColor}>
           <PaletteIconButton>
-            {typeof color === 'string' ? (
+            {exampleTheme.colors.primaryHue === DEFAULT_THEME.colors.primaryHue ? (
               <PaletteStroke />
             ) : (
               <PaletteFill style={{ color: exampleTheme.colors.primaryHue }} />
