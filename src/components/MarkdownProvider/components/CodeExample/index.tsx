@@ -38,27 +38,25 @@ const PaletteIconButton = React.forwardRef(
 export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const [isRtl, setIsRtl] = useState(false);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
-  const [primaryHue, setPrimaryHue] = useState<string | IColor>(DEFAULT_THEME.colors.primaryHue);
-  const [color, setColor] = useState<string>(PALETTE.blue[600]);
+  const [color, setColor] = useState<string | IColor>(PALETTE.blue[600]);
   const focusVisibleRef = useRef(null);
   const COPYRIGHT_REGEXP = /\/\*\*\n\s\*\sCopyright[\s\S]*\*\/\n\n/gmu;
 
   const exampleTheme = useMemo<DefaultTheme>(() => {
-    let hue;
+    let primaryHue;
 
-    if (typeof primaryHue === 'string') {
-      hue = primaryHue;
+    if (typeof color === 'string') {
+      primaryHue = DEFAULT_THEME.colors.primaryHue;
     } else {
-      hue = rgba(primaryHue.red, primaryHue.green, primaryHue.blue, primaryHue.alpha);
-      setColor(hue);
+      primaryHue = rgba(color.red, color.green, color.blue, color.alpha / 100);
     }
 
     return {
       ...DEFAULT_THEME,
-      colors: { ...DEFAULT_THEME.colors, primaryHue: hue },
+      colors: { ...DEFAULT_THEME.colors, primaryHue },
       rtl: isRtl
     };
-  }, [isRtl, primaryHue]);
+  }, [isRtl, color]);
 
   const parameters = useMemo(() => {
     return retrieveCodesandboxParameters(code);
@@ -103,9 +101,13 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
             <DirectionRtlStroke />
           </ToggleIconButton>
         </Tooltip>
-        <ColorpickerDialog color={color} onChange={setPrimaryHue}>
+        <ColorpickerDialog color={color} onChange={setColor}>
           <PaletteIconButton>
-            {typeof primaryHue === 'string' ? <PaletteStroke /> : <PaletteFill style={{ color }} />}
+            {typeof color === 'string' ? (
+              <PaletteStroke />
+            ) : (
+              <PaletteFill style={{ color: exampleTheme.colors.primaryHue }} />
+            )}
           </PaletteIconButton>
         </ColorpickerDialog>
         <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_blank">
