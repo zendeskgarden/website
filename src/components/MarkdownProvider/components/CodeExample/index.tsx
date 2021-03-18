@@ -6,14 +6,17 @@
  */
 
 import React, { useRef, useState, useMemo } from 'react';
-import { math } from 'polished';
+import { math, rgba } from 'polished';
 import styled, { css, DefaultTheme } from 'styled-components';
-import { ThemeProvider, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { ThemeProvider, DEFAULT_THEME, getColor, PALETTE } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { CodeBlock } from '@zendeskgarden/react-typography';
+import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import { IconButton, ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as MarkupStroke } from '@zendeskgarden/svg-icons/src/16/markup-stroke.svg';
 import { ReactComponent as CopyStroke } from '@zendeskgarden/svg-icons/src/16/copy-stroke.svg';
+import { ReactComponent as PaletteStroke } from '@zendeskgarden/svg-icons/src/16/palette-stroke.svg';
+import { ReactComponent as PaletteFill } from '@zendeskgarden/svg-icons/src/16/palette-fill.svg';
 import { ReactComponent as DirectionRtlStroke } from '@zendeskgarden/svg-icons/src/16/direction-rtl-stroke.svg';
 import { ReactComponent as CodeSandboxIcon } from './assets/codesandbox-icon.svg';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
@@ -24,15 +27,39 @@ const StyledCodeBlock = styled(CodeBlock)`
   border-bottom-right-radius: ${props => math(`${props.theme.borderRadii.md} - 1px`)};
 `;
 
+const PaletteIconButton = React.forwardRef(
+  (props: React.ComponentPropsWithoutRef<'button'>, ref: React.Ref<HTMLButtonElement>) => (
+    <Tooltip content="Set primary hue">
+      <IconButton isPill={false} focusInset ref={ref} {...props} />
+    </Tooltip>
+  )
+);
+
 export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const [isRtl, setIsRtl] = useState(false);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
+  const [color, setColor] = useState<string | IColor>(PALETTE.blue[600]);
   const focusVisibleRef = useRef(null);
   const COPYRIGHT_REGEXP = /\/\*\*\n\s\*\sCopyright[\s\S]*\*\/\n\n/gmu;
 
   const exampleTheme = useMemo<DefaultTheme>(() => {
-    return { ...DEFAULT_THEME, rtl: isRtl };
-  }, [isRtl]);
+    let primaryHue;
+
+    if (
+      typeof color === 'string' ||
+      (color.hex.toLowerCase() === PALETTE.blue[600] && color.alpha === 100)
+    ) {
+      primaryHue = DEFAULT_THEME.colors.primaryHue;
+    } else {
+      primaryHue = rgba(color.red, color.green, color.blue, color.alpha / 100);
+    }
+
+    return {
+      ...DEFAULT_THEME,
+      colors: { ...DEFAULT_THEME.colors, primaryHue },
+      rtl: isRtl
+    };
+  }, [isRtl, color]);
 
   const parameters = useMemo(() => {
     return retrieveCodesandboxParameters(code);
@@ -77,6 +104,15 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
             <DirectionRtlStroke />
           </ToggleIconButton>
         </Tooltip>
+        <ColorpickerDialog color={color} onChange={setColor}>
+          <PaletteIconButton>
+            {exampleTheme.colors.primaryHue === DEFAULT_THEME.colors.primaryHue ? (
+              <PaletteStroke />
+            ) : (
+              <PaletteFill style={{ color: exampleTheme.colors.primaryHue }} />
+            )}
+          </PaletteIconButton>
+        </ColorpickerDialog>
         <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_blank">
           <input type="hidden" name="parameters" value={parameters} />
           <input type="hidden" name="query" value="module=src/Example.tsx" />
