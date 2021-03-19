@@ -4,7 +4,7 @@
       title: Overview
 - title: Foundations
   items:
-    - id: https://zendeskgarden.github.io/css-components/bedrock/
+    - id: https://github.com/zendeskgarden/css-components/tree/main/packages/bedrock
       title: Bedrock CSS
     - id: https://github.com/zendeskgarden/tailwindcss
       title: Design tokens
