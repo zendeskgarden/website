@@ -10,7 +10,7 @@ const util = require('util');
 const path = require('path');
 const { parse } = require('comment-parser');
 const reactDocgenTypescript = require('react-docgen-typescript');
-const createNodeHelpers = require('gatsby-node-helpers').default;
+const { createNodeHelpers } = require('gatsby-node-helpers');
 
 const readdir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
@@ -18,7 +18,7 @@ const lstat = util.promisify(fs.lstat);
 
 const GARDEN_REACT_COMPONENT_ID = 'ReactComponent';
 const GARDEN_REACT_PACKAGE_ID = 'ReactPackage';
-const { createNodeFactory, generateTypeName } = createNodeHelpers({
+const { createNodeFactory, createTypeName } = createNodeHelpers({
   typePrefix: `Garden`
 });
 
@@ -88,7 +88,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = `
-    type ${generateTypeName(GARDEN_REACT_COMPONENT_ID)} @dontInfer {
+    type ${createTypeName(GARDEN_REACT_COMPONENT_ID)} @dontInfer {
       name: String
       description: String,
       extends: String,
@@ -140,7 +140,7 @@ exports.createResolvers = ({ createResolvers, cache }) => {
     File: {
       // Add a `component` resolver as the build time can be long if added as a transformer plugin.
       component: {
-        type: generateTypeName(GARDEN_REACT_COMPONENT_ID),
+        type: createTypeName(GARDEN_REACT_COMPONENT_ID),
         resolve: async source => {
           const key = `component-cache-${source.internal.contentDigest}`;
           let component = await cache.get(key);
@@ -157,7 +157,7 @@ exports.createResolvers = ({ createResolvers, cache }) => {
     },
     Mdx: {
       reactPackage: {
-        type: generateTypeName(GARDEN_REACT_PACKAGE_ID),
+        type: createTypeName(GARDEN_REACT_PACKAGE_ID),
         resolve: (source, args, context) => {
           if (source.frontmatter.package) {
             return context.nodeModel.runQuery({
@@ -166,7 +166,7 @@ exports.createResolvers = ({ createResolvers, cache }) => {
                   name: { eq: source.frontmatter.package }
                 }
               },
-              type: generateTypeName(GARDEN_REACT_PACKAGE_ID),
+              type: createTypeName(GARDEN_REACT_PACKAGE_ID),
               firstOnly: true
             });
           }
@@ -175,7 +175,7 @@ exports.createResolvers = ({ createResolvers, cache }) => {
         }
       },
       reactComponents: {
-        type: [generateTypeName(GARDEN_REACT_COMPONENT_ID)],
+        type: [createTypeName(GARDEN_REACT_COMPONENT_ID)],
         resolve: async (source, args, context) => {
           const components = source.frontmatter.components;
 

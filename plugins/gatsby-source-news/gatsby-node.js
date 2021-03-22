@@ -8,9 +8,9 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
-const createNodeHelpers = require('gatsby-node-helpers').default;
+const { createNodeHelpers } = require('gatsby-node-helpers');
 
-const { createNodeFactory, generateTypeName } = createNodeHelpers({
+const { createNodeFactory, createTypeName } = createNodeHelpers({
   typePrefix: `Garden`
 });
 
@@ -45,7 +45,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 
   const typeDefs = [
     schema.buildObjectType({
-      name: generateTypeName(GARDEN_NEWS_ID),
+      name: createTypeName(GARDEN_NEWS_ID),
       fields: {
         image: {
           type: 'File',

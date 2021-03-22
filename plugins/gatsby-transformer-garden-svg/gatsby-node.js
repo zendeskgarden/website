@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const createNodeHelpers = require('gatsby-node-helpers').default;
+const { createNodeHelpers } = require('gatsby-node-helpers');
 const { optimize } = require('svgo');
 
 const config = {
@@ -52,9 +52,10 @@ exports.onCreateNode = async ({
   const content = await loadNodeContent(node);
   const parsedContent = parseSvg(content);
 
-  const svgNode = gardenSvgNode(parsedContent, {
+  const svgNode = gardenSvgNode({
     id: `${node.relativeDirectory}-${node.name}`,
-    parent: node.id
+    parent: node.id,
+    ...parsedContent
   });
 
   createNode(svgNode);

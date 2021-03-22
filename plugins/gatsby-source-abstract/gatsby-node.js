@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const createNodeHelpers = require('gatsby-node-helpers').default;
+const { createNodeHelpers } = require('gatsby-node-helpers');
 const AbstractSdk = require('abstract-sdk');
 const Bottleneck = require('bottleneck');
 const { createRemoteFileNode } = require('gatsby-source-filesystem');
