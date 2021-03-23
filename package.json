@@ -75,7 +75,7 @@
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-notice": "0.9.10",
-    "eslint-plugin-react": "7.22.0",
+    "eslint-plugin-react": "7.23.0",
     "eslint-plugin-react-hooks": "4.2.0",
     "gatsby": "2.32.4",
     "gatsby-image": "2.11.0",
