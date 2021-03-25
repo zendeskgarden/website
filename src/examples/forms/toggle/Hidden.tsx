@@ -14,7 +14,7 @@ const Example = () => (
     <Col textAlign="center">
       <Field>
         <Toggle>
-          <Label hidden>Show flowers</Label>
+          <Label hidden>Accessibly hidden label</Label>
         </Toggle>
       </Field>
     </Col>

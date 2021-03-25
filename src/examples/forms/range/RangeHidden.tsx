@@ -6,15 +6,15 @@
  */
 
 import React from 'react';
-import { Field, Label, Input } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { Field, Label, Range } from '@zendeskgarden/react-forms';
 
 const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
       <Field>
         <Label hidden>Accessibly hidden label</Label>
-        <Input />
+        <Range />
       </Field>
     </Col>
   </Row>
