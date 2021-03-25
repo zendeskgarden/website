@@ -10,30 +10,30 @@ import { Field, Label, Radio } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
-  const [radioValue, setRadioValue] = useState('annual');
+  const [radioValue, setRadioValue] = useState('one');
 
   return (
     <Row justifyContent="center">
       <Col size="auto">
-        <div role="group" aria-label="Choose a plant lifecycle">
+        <div role="group" aria-label="Choose an option">
           <Field>
             <Radio
               name="hidden-example"
-              value="annual"
-              checked={radioValue === 'annual'}
+              value="one"
+              checked={radioValue === 'one'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label hidden>Annual</Label>
+              <Label hidden>Accessibly hidden label one</Label>
             </Radio>
           </Field>
           <Field>
             <Radio
               name="hidden-example"
-              value="perennial"
-              checked={radioValue === 'perennial'}
+              value="two"
+              checked={radioValue === 'two'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label hidden>Perennial</Label>
+              <Label hidden>Accessibly hidden label two</Label>
             </Radio>
           </Field>
         </div>
