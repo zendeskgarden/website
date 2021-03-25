@@ -8,6 +8,7 @@ components:
   - notifications/src/elements/Notification.tsx
   - notifications/src/elements/content/Paragraph.tsx
   - notifications/src/elements/content/Title.tsx
+  - notifications/src/elements/toaster/ToastProvider.tsx
 ---
 
 <Usage>
@@ -91,6 +92,12 @@ import ToastCode from '!!raw-loader!../../examples/notifications/toasts/Toast.ts
 <Component components={props.data.mdx.components} componentName="title" />
 
 <PropSheet components={props.data.mdx.components} componentName="title" />
+
+### ToastProvider
+
+<Component components={props.data.mdx.components} componentName="toastProvider" />
+
+<PropSheet components={props.data.mdx.components} componentName="toastProvider" />
 
 import { graphql } from 'gatsby';
 
