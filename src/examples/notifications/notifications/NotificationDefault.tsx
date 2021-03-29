@@ -9,10 +9,10 @@ import React from 'react';
 import { Notification, Title, Close } from '@zendeskgarden/react-notifications';
 
 const Example = () => (
-  <Notification type="warning">
-    <Title>Warning</Title>
+  <Notification type="info">
+    <Title>Info</Title>
     Turnip greens yarrow ricebean endive cauliflower sea kohlrabi amaranth water
-    <Close aria-label="Close Alert" />
+    <Close aria-label="Close Notification" />
   </Notification>
 );
 

@@ -42,25 +42,28 @@ import DefaultCode from '!!raw-loader!../../examples/notifications/notifications
   <Default />
 </CodeExample>
 
-### Type
+### Placement
 
-Types indicate what kind of message is in the notification and help the user understand
-how to respond. They can be Success, Warning, Danger, or Info.
-
-import Type from '../../examples/notifications/notifications/NotificationType.tsx';
-import TypeCode from '!!raw-loader!../../examples/notifications/notifications/NotificationType.tsx';
-
-<CodeExample code={TypeCode}>
-  <Type />
-</CodeExample>
-
-### Toasts
+There are 6 placement options available. The Notification occupies the
+`top-end` position by default.
 
 import Toast from '../../examples/notifications/toasts/Toast.tsx';
 import ToastCode from '!!raw-loader!../../examples/notifications/toasts/Toast.tsx';
 
 <CodeExample code={ToastCode}>
   <Toast />
+</CodeExample>
+
+### Type
+
+Types indicate what kind of message is in the notification and help the user understand
+how to respond. They can be info, warning, error, or success.
+
+import Type from '../../examples/notifications/notifications/NotificationType.tsx';
+import TypeCode from '!!raw-loader!../../examples/notifications/notifications/NotificationType.tsx';
+
+<CodeExample code={TypeCode}>
+  <Type />
 </CodeExample>
 
 ## Configuration

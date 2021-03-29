@@ -18,25 +18,25 @@ const Example = () => (
     <Notification type="info">
       <Title>Info</Title>
       Turnip greens yarrow ricebean cauliflower sea lettuce kohlrabi amaranth water
-      <Close aria-label="Close Alert" />
+      <Close aria-label="Close Notification" />
     </Notification>
     <StyledSpacer />
     <Notification type="warning">
       <Title>Warning</Title>
       Corn amaranth salsify bunya nuts nori azuki bean potato bell pepper artichoke
-      <Close aria-label="Close Alert" />
+      <Close aria-label="Close Notification" />
     </Notification>
     <StyledSpacer />
     <Notification type="error">
       <Title>Error</Title>
       Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic
-      <Close aria-label="Close Alert" />
+      <Close aria-label="Close Notification" />
     </Notification>
     <StyledSpacer />
     <Notification type="success">
       <Title>Success</Title>
       Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke
-      <Close aria-label="Close Alert" />
+      <Close aria-label="Close Notification" />
     </Notification>
   </>
 );
