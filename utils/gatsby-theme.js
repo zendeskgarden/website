@@ -7,6 +7,7 @@
 
 import React, { createRef } from 'react';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { ToastProvider } from '@zendeskgarden/react-notifications';
 
 export const wrapRootElement = ({ element }) => {
   const focusVisibleRef = createRef(null);
@@ -25,7 +26,9 @@ export const wrapRootElement = ({ element }) => {
           height: 100%;
         `}
       >
-        {element}
+        <ToastProvider placementProps={{ 'top-end': { style: { top: 100 } } }} zIndex={2}>
+          {element}
+        </ToastProvider>
       </div>
     </ThemeProvider>
   );
