@@ -54,8 +54,8 @@ const toHex = (selectedColor: IColor) => {
 };
 
 const Example = () => {
-  const [input, setInput] = useState('#17494d99');
-  const [color, setColor] = useState<string | IColor>('rgba(23, 73, 77, .6)');
+  const [input, setInput] = useState('#1f73b799');
+  const [color, setColor] = useState<string | IColor>('rgba(31, 115, 183, .6)');
 
   return (
     <Row justifyContent="center">

@@ -12,7 +12,7 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 const Example = () => (
   <Row justifyContent="center">
     <Col size="auto">
-      <ColorpickerDialog defaultColor="rgba(23, 73, 77, 1)" />
+      <ColorpickerDialog defaultColor="rgba(31, 115, 183, 1)" />
     </Col>
   </Row>
 );
