@@ -11,6 +11,7 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as PaletteIcon } from '@zendeskgarden/svg-icons/src/16/palette-fill.svg';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 interface IPaletteIconButton {
   iconColor: string;
@@ -35,8 +36,10 @@ const PaletteIconButton = React.forwardRef(
 );
 
 const Example = () => {
-  const [color, setColor] = useState<string | IColor>('rgba(31, 115, 183, 1)');
-  const [selectedColor, setSelectedColor] = useState<string | IColor>('rgba(31, 115, 183, 100)');
+  const [color, setColor] = useState<string | IColor>(DEFAULT_THEME.palette.blue[600]);
+  const [selectedColor, setSelectedColor] = useState<string | IColor>(
+    DEFAULT_THEME.palette.blue[600]
+  );
   const iconColor =
     typeof selectedColor === 'string'
       ? selectedColor

@@ -8,11 +8,12 @@
 import React from 'react';
 import { ColorpickerDialog } from '@zendeskgarden/react-colorpickers';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const Example = () => (
   <Row justifyContent="center">
     <Col size="auto">
-      <ColorpickerDialog defaultColor="rgba(31, 115, 183, 1)" />
+      <ColorpickerDialog defaultColor={DEFAULT_THEME.palette.blue[600]} />
     </Col>
   </Row>
 );

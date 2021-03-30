@@ -7,10 +7,11 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { parseToRgb, toColorString } from 'polished';
+import { rgba, parseToRgb, toColorString, RgbColor } from 'polished';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const validHex = /^#(?:(?:[0-9A-F]{6}(?:[0-9A-F]{2})?)|(?:[0-9A-F]{3})(?:[0-9A-F]?))$/iu;
 
@@ -54,8 +55,9 @@ const toHex = (selectedColor: IColor) => {
 };
 
 const Example = () => {
-  const [input, setInput] = useState('#1f73b799');
-  const [color, setColor] = useState<string | IColor>('rgba(31, 115, 183, .6)');
+  const defaultColor = `${DEFAULT_THEME.palette.blue[600]}99`;
+  const [input, setInput] = useState(defaultColor);
+  const [color, setColor] = useState<string | IColor>(rgba(parseToRgb(defaultColor) as RgbColor));
 
   return (
     <Row justifyContent="center">
