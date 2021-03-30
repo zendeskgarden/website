@@ -11,8 +11,8 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col size="auto">
+  <Row>
+    <Col textAlign="center">
       <ColorpickerDialog
         aria-label="Color picker dialog button"
         defaultColor={DEFAULT_THEME.palette.blue[600]}
