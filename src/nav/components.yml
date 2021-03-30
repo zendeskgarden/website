@@ -50,8 +50,8 @@
       id: /components/chrome
     - title: Date picker
       id: /components/date-picker
-    - title: Colorpickers
-      id: /components/colorpickers
+    - title: Color Picker
+      id: /components/color-picker
     - title: Drawer
       id: /components/drawer
     - title: Dropdowns
