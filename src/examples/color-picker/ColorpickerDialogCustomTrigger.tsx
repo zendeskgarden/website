@@ -23,12 +23,7 @@ const PaletteIconButton = React.forwardRef(
     ref: React.Ref<HTMLButtonElement>
   ) => (
     <Tooltip content="Palette">
-      <IconButton
-        aria-label="palette"
-        ref={ref}
-        style={{ color: props.disabled ? undefined : props.iconColor }}
-        {...props}
-      >
+      <IconButton aria-label="palette" ref={ref} {...props}>
         <PaletteIcon />
       </IconButton>
     </Tooltip>
@@ -37,18 +32,15 @@ const PaletteIconButton = React.forwardRef(
 
 const Example = () => {
   const [color, setColor] = useState<string | IColor>(DEFAULT_THEME.palette.blue[600]);
-  const [selectedColor, setSelectedColor] = useState<string | IColor>(
-    DEFAULT_THEME.palette.blue[600]
-  );
   const iconColor =
-    typeof selectedColor === 'string'
-      ? selectedColor
-      : `rgba(${selectedColor.red}, ${selectedColor.green}, ${selectedColor.blue}, ${selectedColor.alpha})`;
+    typeof color === 'string'
+      ? color
+      : `rgba(${color.red}, ${color.green}, ${color.blue}, ${color.alpha})`;
 
   return (
     <Row>
       <Col textAlign="center">
-        <ColorpickerDialog color={color} onChange={setColor} onClose={setSelectedColor}>
+        <ColorpickerDialog color={color} onChange={setColor}>
           <PaletteIconButton iconColor={iconColor} />
         </ColorpickerDialog>
       </Col>
