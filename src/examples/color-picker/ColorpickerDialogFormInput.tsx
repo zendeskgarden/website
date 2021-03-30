@@ -15,19 +15,13 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const validHex = /^#(?:(?:[0-9A-F]{6}(?:[0-9A-F]{2})?)|(?:[0-9A-F]{3})(?:[0-9A-F]?))$/iu;
 
-const StyledField = styled(Field)`
-  display: inline-block;
-  text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
+const StyledCol = styled(Col)`
+  flex-grow: 0;
 `;
 
 const StyledInput = styled(Input)`
-  max-width: ${props => props.theme.space.base * 26}px;
+  max-width: ${props => props.theme.space.base * 27}px;
 `;
-
-const StyledInputGroup = styled(InputGroup)`
-  display: flex;
-`;
-
 const toHex = (selectedColor: IColor) => {
   let colorHex = selectedColor.hex;
 
@@ -61,12 +55,11 @@ const Example = () => {
 
   return (
     <Row justifyContent="center">
-      <Col size="auto">
-        <StyledField>
+      <StyledCol>
+        <Field>
           <Label>Favorite color</Label>
-          <StyledInputGroup>
+          <InputGroup>
             <StyledInput
-              isCompact
               maxLength={9}
               value={input}
               onChange={e => {
@@ -85,9 +78,9 @@ const Example = () => {
                 setInput(toHex(selectedColor));
               }}
             />
-          </StyledInputGroup>
-        </StyledField>
-      </Col>
+          </InputGroup>
+        </Field>
+      </StyledCol>
     </Row>
   );
 };
