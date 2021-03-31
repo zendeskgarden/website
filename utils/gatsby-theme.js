@@ -17,6 +17,10 @@ export const wrapRootElement = ({ element }) => {
     palette: { ...DEFAULT_THEME.palette, tofu: '#F6F4F4', oatMilk: '#EDE0CF' }
   };
 
+  const toastPlacement = {
+    'top-end': { style: { top: DEFAULT_THEME.space.base * 3 } }
+  };
+
   return (
     <ThemeProvider focus={focusVisibleRef} theme={theme}>
       <div
@@ -26,7 +30,7 @@ export const wrapRootElement = ({ element }) => {
           height: 100%;
         `}
       >
-        <ToastProvider placementProps={{ 'top-end': { style: { top: 100 } } }} zIndex={2}>
+        <ToastProvider placementProps={toastPlacement} zIndex={2}>
           {element}
         </ToastProvider>
       </div>

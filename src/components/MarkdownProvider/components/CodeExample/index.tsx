@@ -9,7 +9,7 @@ import React, { useRef, useState, useMemo } from 'react';
 import { math, rgba } from 'polished';
 import styled, { css, DefaultTheme } from 'styled-components';
 import { ThemeProvider, DEFAULT_THEME, getColor, PALETTE } from '@zendeskgarden/react-theming';
-import { Close, Notification, useToast } from '@zendeskgarden/react-notifications';
+import { Close, Notification, Title, useToast } from '@zendeskgarden/react-notifications';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { CodeBlock } from '@zendeskgarden/react-typography';
 import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
@@ -71,7 +71,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
     copyToClipboard(code);
     addToast(({ close }) => (
       <Notification type="success">
-        Code copied
+        <Title>Code copied</Title>
         <Close aria-label="Close" onClick={close} />
       </Notification>
     ));
