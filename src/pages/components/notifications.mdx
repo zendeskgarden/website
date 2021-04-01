@@ -8,6 +8,7 @@ components:
   - notifications/src/elements/Notification.tsx
   - notifications/src/elements/content/Paragraph.tsx
   - notifications/src/elements/content/Title.tsx
+  - notifications/src/elements/toaster/ToastProvider.tsx
 ---
 
 <Usage>
@@ -41,10 +42,22 @@ import DefaultCode from '!!raw-loader!../../examples/notifications/notifications
   <Default />
 </CodeExample>
 
+### Placement
+
+There are 6 placement options available. The Notification occupies the
+`top-end` position by default.
+
+import Placement from '../../examples/notifications/notifications/NotificationPlacement.tsx';
+import PlacementCode from '!!raw-loader!../../examples/notifications/notifications/NotificationPlacement.tsx';
+
+<CodeExample code={PlacementCode}>
+  <Placement />
+</CodeExample>
+
 ### Type
 
 Types indicate what kind of message is in the notification and help the user understand
-how to respond. They can be Success, Warning, Danger, or Info.
+how to respond. They can be info, warning, error, or success.
 
 import Type from '../../examples/notifications/notifications/NotificationType.tsx';
 import TypeCode from '!!raw-loader!../../examples/notifications/notifications/NotificationType.tsx';
@@ -82,6 +95,12 @@ import TypeCode from '!!raw-loader!../../examples/notifications/notifications/No
 <Component components={props.data.mdx.components} componentName="title" />
 
 <PropSheet components={props.data.mdx.components} componentName="title" />
+
+### ToastProvider
+
+<Component components={props.data.mdx.components} componentName="toastProvider" />
+
+<PropSheet components={props.data.mdx.components} componentName="toastProvider" />
 
 import { graphql } from 'gatsby';
 

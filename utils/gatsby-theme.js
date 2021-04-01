@@ -7,6 +7,7 @@
 
 import React, { createRef } from 'react';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { ToastProvider } from '@zendeskgarden/react-notifications';
 
 export const wrapRootElement = ({ element }) => {
   const focusVisibleRef = createRef(null);
@@ -14,6 +15,10 @@ export const wrapRootElement = ({ element }) => {
   const theme = {
     ...DEFAULT_THEME,
     palette: { ...DEFAULT_THEME.palette, tofu: '#F6F4F4', oatMilk: '#EDE0CF' }
+  };
+
+  const toastPlacement = {
+    'top-end': { style: { top: DEFAULT_THEME.space.base * 3 } }
   };
 
   return (
@@ -25,7 +30,9 @@ export const wrapRootElement = ({ element }) => {
           height: 100%;
         `}
       >
-        {element}
+        <ToastProvider placementProps={toastPlacement} zIndex={2}>
+          {element}
+        </ToastProvider>
       </div>
     </ThemeProvider>
   );
