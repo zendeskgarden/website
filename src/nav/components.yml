@@ -48,8 +48,8 @@
           title: Toggle icon button
     - title: Chrome
       id: /components/chrome
-    - title: Datepicker
-      id: /components/datepicker
+    - title: Date picker
+      id: /components/date-picker
     - title: Drawer
       id: /components/drawer
     - title: Dropdowns

@@ -1,7 +1,7 @@
 ---
-title: Datepicker
+title: Date picker
 description: >
-  A Datepicker lets users select a date by showing them a calendar. It works in combination with a text input.
+  A Date picker lets users select a date by showing them a calendar. It works in combination with a text input.
 package: '@zendeskgarden/react-datepickers'
 components:
   - datepickers/src/elements/Datepicker/Datepicker.tsx
@@ -11,8 +11,8 @@ components:
 <Usage>
   <Use>
     <ul>
-      <li>To select a single date, use a Datepicker</li>
-      <li>To select a start and an end date, use a Datepicker range</li>
+      <li>To select a single date, use a Date picker</li>
+      <li>To select a start and an end date, use a Date picker range</li>
     </ul>
   </Use>
 </Usage>
@@ -21,10 +21,10 @@ components:
 
 ### Default
 
-The typical usage of a Datepicker component.
+The typical usage of a Date picker component.
 
-import Default from '../../examples/datepicker/DatepickerDefault.tsx';
-import DefaultCode from '!!raw-loader!../../examples/datepicker/DatepickerDefault.tsx';
+import Default from '../../examples/date-picker/DatepickerDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/date-picker/DatepickerDefault.tsx';
 
 <CodeExample code={DefaultCode}>
   <Default />
@@ -37,20 +37,20 @@ Dates are formatted using the
 utility. For other formats, consider libraries like
 [date-fns](https://date-fns.org/) or [momentjs](https://momentjs.com/).
 
-import Custom from '../../examples/datepicker/DatepickerCustom.tsx';
-import CustomCode from '!!raw-loader!../../examples/datepicker/DatepickerCustom.tsx';
+import Custom from '../../examples/date-picker/DatepickerCustom.tsx';
+import CustomCode from '!!raw-loader!../../examples/date-picker/DatepickerCustom.tsx';
 
 <CodeExample code={CustomCode}>
   <Custom />
 </CodeExample>
 
-### Datepicker range
+### Date range
 
-Datepicker range works in combination with two text inputs. It displays a
+Date range picker works in combination with two text inputs. It displays a
 calendar that lets users choose a start and end date.
 
-import Range from '../../examples/datepicker/DatepickerRange.tsx';
-import RangeCode from '!!raw-loader!../../examples/datepicker/DatepickerRange.tsx';
+import Range from '../../examples/date-picker/DatepickerRange.tsx';
+import RangeCode from '!!raw-loader!../../examples/date-picker/DatepickerRange.tsx';
 
 <CodeExample code={RangeCode}>
   <Range />
@@ -63,8 +63,8 @@ Dates are localized using the
 utility. For other formats, use `customParseDate` prop, and formatting libraries
 like [date-fns](https://date-fns.org/) or [momentjs](https://momentjs.com/).
 
-import Localization from '../../examples/datepicker/DatepickerLocalization.tsx';
-import LocalizationCode from '!!raw-loader!../../examples/datepicker/DatepickerLocalization.tsx';
+import Localization from '../../examples/date-picker/DatepickerLocalization.tsx';
+import LocalizationCode from '!!raw-loader!../../examples/date-picker/DatepickerLocalization.tsx';
 
 <CodeExample code={LocalizationCode}>
   <Localization />
@@ -72,10 +72,10 @@ import LocalizationCode from '!!raw-loader!../../examples/datepicker/DatepickerL
 
 ### Size
 
-Datepicker can be default or compact.
+Date picker can be default or compact.
 
-import Size from '../../examples/datepicker/DatepickerSize.tsx';
-import SizeCode from '!!raw-loader!../../examples/datepicker/DatepickerSize.tsx';
+import Size from '../../examples/date-picker/DatepickerSize.tsx';
+import SizeCode from '!!raw-loader!../../examples/date-picker/DatepickerSize.tsx';
 
 <CodeExample code={SizeCode}>
   <Size />
@@ -85,8 +85,8 @@ import SizeCode from '!!raw-loader!../../examples/datepicker/DatepickerSize.tsx'
 
 Options before and after a certain date can be disabled, limiting users to a specific time window.
 
-import TimeWindow from '../../examples/datepicker/DatepickerTimeWindow.tsx';
-import TimeWindowCode from '!!raw-loader!../../examples/datepicker/DatepickerTimeWindow.tsx';
+import TimeWindow from '../../examples/date-picker/DatepickerTimeWindow.tsx';
+import TimeWindowCode from '!!raw-loader!../../examples/date-picker/DatepickerTimeWindow.tsx';
 
 <CodeExample code={TimeWindowCode}>
   <TimeWindow />
