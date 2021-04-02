@@ -80,7 +80,6 @@ const Example = () => {
             <ColorpickerDialog
               focusInset
               color={color}
-              aria-label="select your favorite color"
               onChange={selectedColor => {
                 setColor(selectedColor);
                 setInput(toHex(selectedColor));
