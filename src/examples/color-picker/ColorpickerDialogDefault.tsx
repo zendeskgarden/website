@@ -14,7 +14,7 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <ColorpickerDialog
-        aria-label="Color picker dialog button"
+        aria-label="select your favorite color"
         defaultColor={DEFAULT_THEME.palette.blue[600]}
       />
     </Col>

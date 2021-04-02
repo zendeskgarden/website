@@ -29,6 +29,7 @@ const StyledCol = styled(Col)`
 const StyledInput = styled(Input)`
   max-width: ${props => props.theme.space.base * 27}px;
 `;
+
 const toHex = (selectedColor: IColor) => {
   let colorHex = selectedColor.hex;
 
@@ -79,7 +80,7 @@ const Example = () => {
             <ColorpickerDialog
               focusInset
               color={color}
-              aria-label="Color picker dialog button"
+              aria-label="select your favorite color"
               onChange={selectedColor => {
                 setColor(selectedColor);
                 setInput(toHex(selectedColor));
