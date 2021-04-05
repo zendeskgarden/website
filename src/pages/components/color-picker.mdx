@@ -1,0 +1,90 @@
+---
+title: Color picker
+description: >
+  The Color picker allows users to choose colors using sliders and input fields.
+package: '@zendeskgarden/react-colorpickers'
+components:
+  - colorpickers/src/elements/Colorpicker/index.tsx
+  - colorpickers/src/elements/ColorpickerDialog/index.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To let users change or update brand colors</li>
+      <li>To let users configure chart colors</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Default
+
+The Color picker allows users to choose colors using sliders and input fields.
+
+import ColorpickerDefault from '../../examples/color-picker/ColorpickerDefault.tsx';
+import ColorpickerDefaultCode from '!!raw-loader!../../examples/color-picker/ColorpickerDefault.tsx';
+
+<CodeExample code={ColorpickerDefaultCode}>
+  <ColorpickerDefault />
+</CodeExample>
+
+### Custom trigger
+
+The Color picker can be displayed using a trigger, e.g. an icon button.
+
+import ColorpickerDialogCustomTrigger from '../../examples/color-picker/ColorpickerDialogCustomTrigger.tsx';
+import ColorpickerDialogCustomTriggerCode from '!!raw-loader!../../examples/color-picker/ColorpickerDialogCustomTrigger.tsx';
+
+<CodeExample code={ColorpickerDialogCustomTriggerCode}>
+  <ColorpickerDialogCustomTrigger />
+</CodeExample>
+
+### Dialog
+
+The Color picker can be placed inside a dialog.
+
+import ColorpickerDialogDefault from '../../examples/color-picker/ColorpickerDialogDefault.tsx';
+import ColorpickerDialogDefaultCode from '!!raw-loader!../../examples/color-picker/ColorpickerDialogDefault.tsx';
+
+<CodeExample code={ColorpickerDialogDefaultCode}>
+  <ColorpickerDialogDefault />
+</CodeExample>
+
+### Form input
+
+The Color picker dialog can be used in an input group.
+
+import ColorpickerDialogFormInput from '../../examples/color-picker/ColorpickerDialogFormInput.tsx';
+import ColorpickerDialogFormInputCode from '!!raw-loader!../../examples/color-picker/ColorpickerDialogFormInput.tsx';
+
+<CodeExample code={ColorpickerDialogFormInputCode}>
+  <ColorpickerDialogFormInput />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Colorpicker
+
+<Component components={props.data.mdx.components} componentName="colorpicker" />
+
+<PropSheet components={props.data.mdx.components} componentName="colorpicker" />
+
+### ColorpickerDialog
+
+<Component components={props.data.mdx.components} componentName="colorpickerdialog" />
+
+<PropSheet components={props.data.mdx.components} componentName="colorpickerdialog" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
