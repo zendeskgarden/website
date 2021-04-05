@@ -208,9 +208,9 @@ const DesktopNav: React.FC = () => (
     <StyledDesktopNavItem>
       <StyledDesktopNavLink to="/components">Components</StyledDesktopNavLink>
     </StyledDesktopNavItem>
-    {/* <StyledDesktopNavItem>
+    <StyledDesktopNavItem>
       <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
-    </StyledDesktopNavItem> */}
+    </StyledDesktopNavItem>
     <StyledDesktopNavItem>
       <SearchInput id="algolia-docsearch" placeholder="Search…" />
     </StyledDesktopNavItem>
