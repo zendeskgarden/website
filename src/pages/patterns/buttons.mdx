@@ -41,13 +41,13 @@ like "Yes," "No," or "Done." Buttons are sentence case, not title case or all ca
 and a maximum of 20 characters in English including spaces to adhere to internationalization guidelines.
 
 <BestPractice>
-  <Do imageSource={props.data.buttonsContentVerbDo.childFile.childImageSharp.fluid}>
+  <Do imageSource={props.data.buttonsContentDo.childFile.childImageSharp.fluid}>
     <ul>
       <li>Use labels specific to the action they perform</li>
       <li>Communicate a single action per button</li>
     </ul>
   </Do>
-  <Dont imageSource={props.data.buttonsContentVerbDont.childFile.childImageSharp.fluid}>
+  <Dont imageSource={props.data.buttonsContentDont.childFile.childImageSharp.fluid}>
     <ul>
       <li>Use general button labels that might cause confusion</li>
       <li>Use labels that need more context</li>
@@ -73,7 +73,7 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    buttonsSizeDo: abstractAsset(layerName: { eq: "patterns-buttons-size-do" }) {
+    buttonsSizeDo: abstractAsset(layerName: { eq: "patterns-buttons-interface-button-size-do" }) {
       childFile {
         childImageSharp {
           fluid(maxHeight: 600) {
@@ -82,7 +82,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    buttonsSizeDont: abstractAsset(layerName: { eq: "patterns-buttons-size-dont" }) {
+    buttonsSizeDont: abstractAsset(
+      layerName: { eq: "patterns-buttons-interface-button-size-dont" }
+    ) {
       childFile {
         childImageSharp {
           fluid(maxHeight: 600) {
@@ -91,7 +93,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    buttonsContentVerbDo: abstractAsset(layerName: { eq: "patterns-buttons-content-verb-do" }) {
+    buttonsContentDo: abstractAsset(layerName: { eq: "patterns-buttons-content-do" }) {
       childFile {
         childImageSharp {
           fluid(maxHeight: 200) {
@@ -100,7 +102,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    buttonsContentVerbDont: abstractAsset(layerName: { eq: "patterns-buttons-content-verb-dont" }) {
+    buttonsContentDont: abstractAsset(layerName: { eq: "patterns-buttons-content-dont" }) {
       childFile {
         childImageSharp {
           fluid(maxHeight: 200) {
