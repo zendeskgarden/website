@@ -13,13 +13,6 @@ import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-interface IRgbaColor {
-  red: number;
-  green: number;
-  blue: number;
-  alpha: number;
-}
-
 const validHex = /^#(?:(?:[0-9A-F]{6}(?:[0-9A-F]{2})?)|(?:[0-9A-F]{3})(?:[0-9A-F]?))$/iu;
 
 const StyledCol = styled(Col)`
@@ -59,7 +52,7 @@ const toHex = (selectedColor: IColor) => {
 const Example = () => {
   const defaultColor = `${DEFAULT_THEME.palette.blue[600]}99`;
   const [input, setInput] = useState(defaultColor);
-  const [color, setColor] = useState<string | IColor>(rgba(parseToRgb(defaultColor) as IRgbaColor));
+  const [color, setColor] = useState<string | IColor>(rgba(DEFAULT_THEME.palette.blue[600], 0.6));
 
   return (
     <Row justifyContent="center">

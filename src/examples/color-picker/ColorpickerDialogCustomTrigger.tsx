@@ -6,6 +6,7 @@
  */
 
 import React, { useState } from 'react';
+import { rgba } from 'polished';
 import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -31,11 +32,12 @@ const PaletteIconButton = React.forwardRef(
 );
 
 const Example = () => {
-  const [color, setColor] = useState<string | IColor>(DEFAULT_THEME.palette.blue[600]);
+  const [color, setColor] = useState<string | IColor>(rgba(DEFAULT_THEME.palette.blue[600], 1));
+
   const iconColor =
     typeof color === 'string'
       ? color
-      : `rgba(${color.red}, ${color.green}, ${color.blue}, ${color.alpha})`;
+      : `rgba(${color.red}, ${color.green}, ${color.blue}, ${color.alpha / 100})`;
 
   return (
     <Row>
