@@ -1,0 +1,68 @@
+---
+title: Color picker
+description: >
+  The color picker component allows users to choose a color using a variety of input methods.
+package: '@zendeskgarden/react-colorpickers'
+components:
+  - colorpickers/src/elements/Colorpicker/index.tsx
+  - colorpickers/src/elements/ColorpickerDialog/index.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To let users change or update brand colors</li>
+      <li>To let users configure chart colors</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Color picker
+
+Color picker allows users to choose colors using sliders and input fields.
+
+import ColorpickerDefault from '../../examples/colorpickers/ColorpickerDefault.tsx';
+import ColorpickerDefaultCode from '!!raw-loader!../../examples/colorpickers/ColorpickerDefault.tsx';
+
+<CodeExample code={ColorpickerDefaultCode}>
+  <ColorpickerDefault />
+</CodeExample>
+
+### Color picker dialog
+
+Color picker dialog allows users to use a color picker within a dialog.
+
+import ColorpickerDialogDefault from '../../examples/colorpickers/ColorpickerDialogDefault.tsx';
+import ColorpickerDialogDefaultCode from '!!raw-loader!../../examples/colorpickers/ColorpickerDialogDefault.tsx';
+
+<CodeExample code={ColorpickerDialogDefaultCode}>
+  <ColorpickerDialogDefault />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Colorpicker
+
+<Component components={props.data.mdx.components} componentName="colorpicker" />
+
+<PropSheet components={props.data.mdx.components} componentName="colorpicker" />
+
+### ColorpickerDialog
+
+<Component components={props.data.mdx.components} componentName="colorpickerdialog" />
+
+<PropSheet components={props.data.mdx.components} componentName="colorpickerdialog" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
