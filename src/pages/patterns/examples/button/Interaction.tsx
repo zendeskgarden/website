@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Dots } from '@zendeskgarden/react-loaders';
 
 const InteractionExample = () => {
+  const themeContext = useContext(ThemeContext);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -38,7 +40,11 @@ const InteractionExample = () => {
     <Row>
       <Col textAlign="center">
         <Button ref={buttonRef}>
-          {isLoading ? <Dots delayMS={0} aria-label="Loading invoice" /> : 'Create invoice'}
+          {isLoading ? (
+            <Dots delayMS={0} aria-label="Completing purchase" size={themeContext.space.base * 5} />
+          ) : (
+            'Complete purchase'
+          )}
         </Button>
       </Col>
     </Row>
