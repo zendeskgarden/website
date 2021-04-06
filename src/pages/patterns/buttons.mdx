@@ -4,62 +4,87 @@ description: >
   Know why they're pushing your buttons.
 ---
 
-## Overview
+A button is an element on a page that tells a user what they can do and
+triggers an action. They may be used for:
 
-Buttons are common and vital elements because they help make content interactive across the
-internet. They allow a user to take actions with a single click and are placed throughout a
-page or workflow. Buttons use visual signifiers such as shape, color, and size to show that
-a user can interact with them.
+- submitting information
+- beginning a new task
+- triggering a new element to appear on the page
+- specifying the next step in a process
 
-## Interface
+## Anatomy of Buttons
 
-**Primary buttons** are for the most important action in a given view. There is typically
-one call-to-action on a page or view. **Default** buttons are for secondary actions.
-**Basic buttons** are for repetitive or deemphasized actions in a given view.
+There is one call-to-action (CTA) per button, but there may be a few buttons
+a page or view. Buttons in the right place and with clear labels can help
+people feel confident they are taking the correct action.
 
-![Tone matrix map](abstract:patterns-buttons-type-usage.png)
+![Button types](abstract:patterns-buttons-anatomy-button-type.png)
 
-## Size
+1. **Primary** buttons are for the most important action in a given view
+1. **Default** buttons are for secondary actions
+1. **Basic** buttons are for repetitive or deemphasized actions in a given view
 
-The default button size is medium. In screens that have more information density, use small
-buttons. Large buttons are mostly used in onboarding. Buttons and text inputs within the same
-flow should be the same size.
+## How Buttons look
 
-<BestPractice>
-  <Do imageSource={props.data.buttonsSizeDo.childFile.childImageSharp.fluid} />
-  <Dont imageSource={props.data.buttonsSizeDont.childFile.childImageSharp.fluid} />
-</BestPractice>
+Button size plays a part in content and user interaction. Clear labels and
+visual signifiers such as shape, color, and size help communicate the types
+of actions available and their priority in the process.
 
-## Content
-
-Use clear, action-oriented language to help people choose the right action for them. A typical
-construction is `Verb noun`. It’s OK and expected for Button labels to mirror the content of a
-page or modal heading.
-
-Lead with verbs and omit articles, pronouns, and punctuation. Avoid terse labels that need context
-like "Yes," "No," or "Done." Buttons are sentence case, not title case or all caps. Use 1–4 words
-and a maximum of 20 characters in English including spaces to adhere to internationalization guidelines.
+- The default button size is medium
+- Use small buttons on screens that have more information density
+- Large buttons are mostly used in onboarding
 
 <BestPractice>
-  <Do imageSource={props.data.buttonsContentDo.childFile.childImageSharp.fluid}>
+  <Do imageSource={props.data.buttonsSizeDo.childFile.childImageSharp.fluid}>
     <ul>
-      <li>Use labels specific to the action they perform</li>
-      <li>Communicate a single action per button</li>
+      <li>Use same size buttons and inputs in the same flow</li>
     </ul>
   </Do>
-  <Dont imageSource={props.data.buttonsContentDont.childFile.childImageSharp.fluid}>
+  <Dont imageSource={props.data.buttonsSizeDont.childFile.childImageSharp.fluid}>
     <ul>
-      <li>Use general button labels that might cause confusion</li>
-      <li>Use labels that need more context</li>
+      <li>Avoid mixing and matching button and input sizes</li>
     </ul>
   </Dont>
 </BestPractice>
 
-## Interaction
+## How Buttons sound
 
-**Loading buttons** display a dot loader inside when communicating loading progress. The dot loader
-appears after the user has initiated an action, signifying the site is loading the next
-action to occur. Buttons shouldn’t change size while loading.
+The button CTA should guide the experience, not just finish a page.
+Typically, the CTA repeats the page heading when possible (e.g. “Add agent”).
+The phrase repetition confirms the action that will take place.
+
+Use the CTA order of `Verb noun` (such as “Upload file”) to clearly
+communicate the action. Omit articles, pronouns, and punctuation. If multiple
+actions are changing on the page or screen, “Save changes” is a good option.
+
+See below the difference between clearly labeled buttons and buttons with
+vague, general labels.
+
+<BestPractice>
+  <Do imageSource={props.data.buttonsContentDo.childFile.childImageSharp.fluid}>
+    <ul>
+      <li>Communicate a single action per button</li>
+      <li>Use the “Verb noun” formula</li>
+      <li>Keep buttons in sentence case</li>
+      <li>Consider longer languages. Use 1–4 words and a maximum of 20 characters.</li>
+    </ul>
+  </Do>
+  <Dont imageSource={props.data.buttonsContentDont.childFile.childImageSharp.fluid}>
+    <ul>
+      <li>Avoid CTAs that lack context like "Yes," "No," or "Done"</li>
+      <li>Avoid calling out more than one action</li>
+      <li>Avoid ALL CAPS</li>
+      <li>Avoid articles, pronouns, and punctuation</li>
+    </ul>
+  </Dont>
+</BestPractice>
+
+## Buttons in action
+
+**Loading** buttons display a [Dots loader](/components/dots) inside the
+button to show loading progress. The Dots loader appears after the user has
+initiated an action, signifying the site is loading the next action to occur.
+Buttons shouldn’t change size while loading.
 
 import Interaction from './examples/button/Interaction.tsx';
 import InteractionCode from '!!raw-loader!./examples/button/Interaction.tsx';
@@ -76,7 +101,7 @@ export const pageQuery = graphql`
     buttonsSizeDo: abstractAsset(layerName: { eq: "patterns-buttons-interface-button-size-do" }) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 600) {
+          fluid(maxHeight: 380) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -87,7 +112,7 @@ export const pageQuery = graphql`
     ) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 600) {
+          fluid(maxHeight: 350) {
             ...GatsbyImageSharpFluid
           }
         }
