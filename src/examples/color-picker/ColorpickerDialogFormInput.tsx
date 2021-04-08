@@ -77,6 +77,9 @@ const Example = () => {
                 setColor(selectedColor);
                 setInput(toHex(selectedColor));
               }}
+              buttonProps={{
+                'aria-label': 'choose your favorite color'
+              }}
             />
           </InputGroup>
         </Field>

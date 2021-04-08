@@ -13,7 +13,12 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <ColorpickerDialog defaultColor={DEFAULT_THEME.palette.blue[600]} />
+      <ColorpickerDialog
+        defaultColor={DEFAULT_THEME.palette.blue[600]}
+        buttonProps={{
+          'aria-label': 'choose your favorite color'
+        }}
+      />
     </Col>
   </Row>
 );
