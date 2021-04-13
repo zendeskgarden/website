@@ -23,14 +23,6 @@ const config = {
   ]
 };
 
-const { createNodeFactory } = createNodeHelpers({
-  typePrefix: `Garden`
-});
-
-const GARDEN_SVG_ID = 'Svg';
-
-const gardenSvgNode = createNodeFactory(GARDEN_SVG_ID);
-
 const parseSvg = svgContent => {
   const { data: content } = optimize(svgContent, config);
 
@@ -43,12 +35,21 @@ const parseSvg = svgContent => {
 exports.onCreateNode = async ({
   node,
   actions: { createNode, createParentChildLink },
-  loadNodeContent
+  loadNodeContent,
+  createNodeId,
+  createContentDigest
 }) => {
   if (node.internal.mediaType !== 'image/svg+xml') {
     return;
   }
 
+  const { createNodeFactory } = createNodeHelpers({
+    typePrefix: 'Garden',
+    createNodeId,
+    createContentDigest
+  });
+
+  const gardenSvgNode = createNodeFactory('Svg');
   const content = await loadNodeContent(node);
   const parsedContent = parseSvg(content);
 

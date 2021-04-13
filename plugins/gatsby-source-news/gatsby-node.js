@@ -10,18 +10,21 @@ const path = require('path');
 const yaml = require('js-yaml');
 const { createNodeHelpers } = require('gatsby-node-helpers');
 
-const { createNodeFactory, createTypeName } = createNodeHelpers({
-  typePrefix: `Garden`
-});
-
+const TYPE_PREFIX = 'Garden';
 const GARDEN_NEWS_ID = 'News';
-
-const gardenNewsNode = createNodeFactory(GARDEN_NEWS_ID);
 
 /**
  * Retrieve Garden news items from yaml file
  */
-exports.sourceNodes = ({ actions, reporter }) => {
+exports.sourceNodes = ({ actions, reporter, createNodeId, createContentDigest }) => {
+  const { createNodeFactory } = createNodeHelpers({
+    typePrefix: TYPE_PREFIX,
+    createNodeId,
+    createContentDigest
+  });
+
+  const gardenNewsNode = createNodeFactory(GARDEN_NEWS_ID);
+
   const { createNode } = actions;
 
   const news = yaml.load(
@@ -42,6 +45,10 @@ exports.sourceNodes = ({ actions, reporter }) => {
  */
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions;
+
+  const { createTypeName } = createNodeHelpers({
+    typePrefix: TYPE_PREFIX
+  });
 
   const typeDefs = [
     schema.buildObjectType({
