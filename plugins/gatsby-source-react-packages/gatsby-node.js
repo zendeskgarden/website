@@ -10,29 +10,24 @@ const util = require('util');
 const path = require('path');
 const { parse } = require('comment-parser');
 const reactDocgenTypescript = require('react-docgen-typescript');
-const createNodeHelpers = require('gatsby-node-helpers').default;
+const { createNodeHelpers } = require('gatsby-node-helpers');
 
 const readdir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
 const lstat = util.promisify(fs.lstat);
 
+const TYPE_PREFIX = 'Garden';
 const GARDEN_REACT_COMPONENT_ID = 'ReactComponent';
 const GARDEN_REACT_PACKAGE_ID = 'ReactPackage';
-const { createNodeFactory, generateTypeName } = createNodeHelpers({
-  typePrefix: `Garden`
-});
-
-const componentNode = createNodeFactory(GARDEN_REACT_COMPONENT_ID);
-const packageNode = createNodeFactory(GARDEN_REACT_PACKAGE_ID);
-const TSCONFIG_PATH = path.resolve(__dirname, '..', '..', 'react-components', 'tsconfig.json');
-const PARSER_OPTIONS = {
-  propFilter: props =>
-    !(props.description.includes('@ignore') || props.parent.fileName.includes('node_modules')),
-  shouldRemoveUndefinedFromOptional: true
-};
-const PARSER = reactDocgenTypescript.withCustomConfig(TSCONFIG_PATH, PARSER_OPTIONS);
 
 const parseComponents = filePaths => {
+  const TSCONFIG_PATH = path.resolve(__dirname, '..', '..', 'react-components', 'tsconfig.json');
+  const PARSER_OPTIONS = {
+    propFilter: props =>
+      !(props.description.includes('@ignore') || props.parent.fileName.includes('node_modules')),
+    shouldRemoveUndefinedFromOptional: true
+  };
+  const PARSER = reactDocgenTypescript.withCustomConfig(TSCONFIG_PATH, PARSER_OPTIONS);
   const components = PARSER.parse(filePaths);
 
   return components.map(component => {
@@ -84,17 +79,23 @@ const parseComponents = filePaths => {
   });
 };
 
-exports.createSchemaCustomization = ({ actions }) => {
+exports.createSchemaCustomization = ({ actions, createNodeId, createContentDigest }) => {
   const { createTypes } = actions;
 
+  const { createTypeName } = createNodeHelpers({
+    typePrefix: TYPE_PREFIX,
+    createNodeId,
+    createContentDigest
+  });
+
   const typeDefs = `
-    type ${generateTypeName(GARDEN_REACT_COMPONENT_ID)} @dontInfer {
-      name: String
-      description: String,
-      extends: String,
-      props: JSON
-    }
-  `;
+     type ${createTypeName(GARDEN_REACT_COMPONENT_ID)} @dontInfer {
+       name: String
+       description: String,
+       extends: String,
+       props: JSON
+     }
+   `;
 
   createTypes(typeDefs);
 };
@@ -102,8 +103,15 @@ exports.createSchemaCustomization = ({ actions }) => {
 /**
  * Retrieve Garden package information from `package.json` files
  */
-exports.sourceNodes = async ({ actions, reporter }) => {
+exports.sourceNodes = async ({ actions, reporter, createNodeId, createContentDigest }) => {
+  const { createNodeFactory } = createNodeHelpers({
+    typePrefix: TYPE_PREFIX,
+    createNodeId,
+    createContentDigest
+  });
+
   const { createNode } = actions;
+  const packageNode = createNodeFactory(GARDEN_REACT_PACKAGE_ID);
   const packagesRoot = path.resolve(__dirname, '../../react-components/packages');
 
   reporter.info('Sourcing Garden react-component packages...');
@@ -135,12 +143,20 @@ exports.sourceNodes = async ({ actions, reporter }) => {
   /* eslint-enable no-await-in-loop */
 };
 
-exports.createResolvers = ({ createResolvers, cache }) => {
+exports.createResolvers = ({ createResolvers, cache, createNodeId, createContentDigest }) => {
+  const { createNodeFactory, createTypeName } = createNodeHelpers({
+    typePrefix: TYPE_PREFIX,
+    createNodeId,
+    createContentDigest
+  });
+
+  const componentNode = createNodeFactory(GARDEN_REACT_COMPONENT_ID);
+
   const resolvers = {
     File: {
       // Add a `component` resolver as the build time can be long if added as a transformer plugin.
       component: {
-        type: generateTypeName(GARDEN_REACT_COMPONENT_ID),
+        type: createTypeName(GARDEN_REACT_COMPONENT_ID),
         resolve: async source => {
           const key = `component-cache-${source.internal.contentDigest}`;
           let component = await cache.get(key);
@@ -157,7 +173,7 @@ exports.createResolvers = ({ createResolvers, cache }) => {
     },
     Mdx: {
       reactPackage: {
-        type: generateTypeName(GARDEN_REACT_PACKAGE_ID),
+        type: createTypeName(GARDEN_REACT_PACKAGE_ID),
         resolve: (source, args, context) => {
           if (source.frontmatter.package) {
             return context.nodeModel.runQuery({
@@ -166,7 +182,7 @@ exports.createResolvers = ({ createResolvers, cache }) => {
                   name: { eq: source.frontmatter.package }
                 }
               },
-              type: generateTypeName(GARDEN_REACT_PACKAGE_ID),
+              type: createTypeName(GARDEN_REACT_PACKAGE_ID),
               firstOnly: true
             });
           }
@@ -175,7 +191,7 @@ exports.createResolvers = ({ createResolvers, cache }) => {
         }
       },
       reactComponents: {
-        type: [generateTypeName(GARDEN_REACT_COMPONENT_ID)],
+        type: [createTypeName(GARDEN_REACT_COMPONENT_ID)],
         resolve: async (source, args, context) => {
           const components = source.frontmatter.components;
 

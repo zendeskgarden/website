@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const createNodeHelpers = require('gatsby-node-helpers').default;
+const { createNodeHelpers } = require('gatsby-node-helpers');
 const AbstractSdk = require('abstract-sdk');
 const Bottleneck = require('bottleneck');
 const { createRemoteFileNode } = require('gatsby-source-filesystem');
@@ -15,21 +15,30 @@ const rateLimiter = new Bottleneck({
   minTime: 600
 });
 
-const { createNodeFactory } = createNodeHelpers({
-  typePrefix: 'Abstract'
-});
-
-const abstractFileNode = createNodeFactory('File');
-const abstractAssetNode = createNodeFactory('Asset', node => {
-  node.internal.mediaType = 'image/png';
-
-  return node;
-});
-
 exports.sourceNodes = async (
-  { actions: { createNode, createParentChildLink }, createNodeId, cache, getCache, reporter },
+  {
+    actions: { createNode, createParentChildLink },
+    createNodeId,
+    createContentDigest,
+    cache,
+    getCache,
+    reporter
+  },
   configOptions
 ) => {
+  const { createNodeFactory } = createNodeHelpers({
+    typePrefix: 'Abstract',
+    createNodeId,
+    createContentDigest
+  });
+
+  const abstractFileNode = createNodeFactory('File');
+  const abstractAssetNode = createNodeFactory('Asset', node => {
+    node.internal.mediaType = 'image/png';
+
+    return node;
+  });
+
   const abstractClient = new AbstractSdk.Client({
     accessToken: configOptions.apiToken
   });
