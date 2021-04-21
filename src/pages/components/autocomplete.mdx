@@ -83,7 +83,10 @@ import SizeCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Size.ts
 ### Use Autocomplete to narrow down options
 
 <BestPractice>
-  <Do imageSource={props.data.dropdownSelectionDo.childFile.childImageSharp.fluid} imageIsSquare>
+  <Do
+    imageSource={props.data.dropdownSelectionDo.childFile.childImageSharp.gatsbyImageData}
+    imageIsSquare
+  >
     <p>
       Autocomplete is useful for lists that are too long to read in full (for example, company
       employees) or that accumulate items over time (for example, an inventory).
@@ -149,9 +152,7 @@ export const pageQuery = graphql`
     ) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 200)
         }
       }
     }

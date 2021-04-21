@@ -122,7 +122,7 @@ import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validatio
 ### Use to select any number of options
 
 <BestPractice>
-  <Do imageSource={props.data.checkboxSelectionDo.childFile.childImageSharp.fluid}>
+  <Do imageSource={props.data.checkboxSelectionDo.childFile.childImageSharp.gatsbyImageData}>
     <p>
       <Markdown>
         Use to turn a standalone setting on and off, as a favorable alternative to a
@@ -130,7 +130,9 @@ import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validatio
       </Markdown>
     </p>
   </Do>
-  <Dont imageSource={props.data.checkboxStandaloneOptionDont.childFile.childImageSharp.fluid}>
+  <Dont
+    imageSource={props.data.checkboxStandaloneOptionDont.childFile.childImageSharp.gatsbyImageData}
+  >
     <p>
       <Markdown>
         Don't use to select exactly one option from a set of two or more. Use
@@ -186,9 +188,7 @@ export const pageQuery = graphql`
     ) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 200)
         }
       }
     }
@@ -197,9 +197,7 @@ export const pageQuery = graphql`
     ) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 200)
         }
       }
     }

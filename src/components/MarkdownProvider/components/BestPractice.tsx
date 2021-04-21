@@ -8,7 +8,7 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { math } from 'polished';
-import Img, { FluidObject } from 'gatsby-image';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Well, Title } from '@zendeskgarden/react-notifications';
 import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { Row, Col } from '@zendeskgarden/react-grid';
@@ -100,7 +100,7 @@ interface ICaptionProps {
   hue: string;
   title: string;
   icon: ReactNode;
-  imageSource?: string | FluidObject;
+  imageSource?: string | IGatsbyImageData;
 }
 
 const Caption: React.FC<ICaptionProps> = props => (
@@ -114,7 +114,7 @@ const Caption: React.FC<ICaptionProps> = props => (
 );
 
 interface ISectionProps extends ICaptionProps {
-  imageAlt?: string;
+  imageAlt: string;
   imageHeight?: number;
   imageWidth?: number;
   imageIsSquare?: boolean;
@@ -142,9 +142,9 @@ export const Section: React.FC<ISectionProps> = props => {
               <img alt={props.imageAlt} src={props.imageSource} style={imageStyles} />
             </div>
           ) : (
-            <Img
+            <GatsbyImage
+              image={props.imageSource}
               alt={props.imageAlt}
-              fluid={props.imageSource}
               style={{
                 margin: '0 auto',
                 ...imageStyles

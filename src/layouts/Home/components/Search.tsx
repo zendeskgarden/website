@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getLineHeight, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
@@ -34,13 +34,11 @@ const headerStyling = (p: ThemeProps<DefaultTheme>) => {
 export const Search: React.FC = () => {
   const { bannerImage } = useStaticQuery(
     graphql`
-      query {
+      {
         bannerImage: abstractAsset(layerName: { eq: "home-hero-logo" }) {
           childFile {
             childImageSharp {
-              fluid(maxWidth: 540) {
-                ...GatsbyImageSharpFluid_noBase64
-              }
+              gatsbyImageData(width: 540, placeholder: NONE)
             }
           }
         }
@@ -68,17 +66,23 @@ export const Search: React.FC = () => {
                 }
               `}
             >
-              <Img
-                fluid={bannerImage.childFile.childImageSharp.fluid}
+              <GatsbyImage
+                image={bannerImage.childFile.childImageSharp.gatsbyImageData}
                 alt=""
                 css={css`
+                  display: block;
                   margin-top: ${p => p.theme.space.xxl};
                   margin-right: auto;
                   margin-left: auto;
                   width: 100%;
                   max-width: 540px;
                 `}
-                imgStyle={{ width: 540, maxWidth: '100%', height: 540, maxHeight: '100%' }}
+                imgStyle={{
+                  width: 540,
+                  maxWidth: '100%',
+                  height: 540,
+                  maxHeight: '100%'
+                }}
               />
             </Col>
             <Col
