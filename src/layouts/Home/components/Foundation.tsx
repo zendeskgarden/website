@@ -35,6 +35,7 @@ const FoundationLink: React.FC<{
       imgStyle={{
         width: 350,
         minWidth: '100%',
+        maxWidth: '100%',
         height: 266,
         minHeight: '100%',
         maxHeight: '100%',
