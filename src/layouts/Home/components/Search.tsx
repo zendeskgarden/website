@@ -38,7 +38,7 @@ export const Search: React.FC = () => {
         bannerImage: abstractAsset(layerName: { eq: "home-hero-logo" }) {
           childFile {
             childImageSharp {
-              gatsbyImageData(width: 540, placeholder: NONE)
+              gatsbyImageData(width: 540, placeholder: NONE, layout: FULL_WIDTH)
             }
           }
         }
@@ -70,7 +70,6 @@ export const Search: React.FC = () => {
                 image={bannerImage.childFile.childImageSharp.gatsbyImageData}
                 alt=""
                 css={css`
-                  display: block;
                   margin-top: ${p => p.theme.space.xxl};
                   margin-right: auto;
                   margin-left: auto;
