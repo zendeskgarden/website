@@ -22,7 +22,7 @@ export const Patterns: React.FC = () => {
         patternsImage: abstractAsset(layerName: { eq: "home-pillars-patterns" }) {
           childFile {
             childImageSharp {
-              gatsbyImageData(width: 808, layout: CONSTRAINED)
+              gatsbyImageData(width: 808)
             }
           }
         }
