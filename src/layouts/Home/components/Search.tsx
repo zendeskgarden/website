@@ -38,7 +38,7 @@ export const Search: React.FC = () => {
         bannerImage: abstractAsset(layerName: { eq: "home-hero-logo" }) {
           childFile {
             childImageSharp {
-              gatsbyImageData(width: 540, placeholder: NONE, layout: FULL_WIDTH)
+              gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
             }
           }
         }
