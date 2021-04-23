@@ -39,15 +39,24 @@ export const StyledH1 = styled.h1`
   font-weight: ${p => p.theme.fontWeights.bold};
 `;
 
+/**
+ * 1. Override gatsby-remark-autolink-headers relative positioning.
+ */
+
 export const StyledH2 = styled(XXXL).attrs({ tag: 'h2' })`
   ${headerStyles}
 
+  /* stylelint-disable-next-line declaration-no-important */
+  position: static !important; /* [1] */
   margin-top: ${p => p.theme.space.md};
   margin-bottom: ${p => p.theme.space.md};
 `;
 
 export const StyledH3 = styled(XXL).attrs({ tag: 'h3' })`
   ${headerStyles}
+
+  /* stylelint-disable-next-line declaration-no-important */
+  position: static !important; /* [1] */
 `;
 
 export const StyledH4 = styled(XL).attrs(p => ({ tag: p.tag || 'h4' }))`
