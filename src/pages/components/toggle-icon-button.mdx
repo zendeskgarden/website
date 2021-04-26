@@ -112,7 +112,7 @@ import ToggleIconButtonTypesCode from '!!raw-loader!../../examples/button/Toggle
 
 <BestPractice>
   <Do
-    imageSource={props.data.toggleIconButtonTooltipDo.childFile.childImageSharp.fluid}
+    imageSource={props.data.toggleIconButtonTooltipDo.childFile.childImageSharp.gatsbyImageData}
     imageIsSquare
   >
     <p>
@@ -146,9 +146,7 @@ export const pageQuery = graphql`
     ) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 200)
         }
       }
     }

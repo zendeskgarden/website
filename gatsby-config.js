@@ -75,6 +75,7 @@ module.exports = {
       }
     },
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-transformer-yaml`,
     `gatsby-transformer-garden-svg`,
     `gatsby-plugin-react-helmet`,

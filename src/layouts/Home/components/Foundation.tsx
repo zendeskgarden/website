@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { css } from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
@@ -29,12 +29,13 @@ const FoundationLink: React.FC<{
       height: 100%;
     `}
   >
-    <Img
-      fluid={image.childFile.childImageSharp.fluid}
+    <GatsbyImage
+      image={image.childFile.childImageSharp.gatsbyImageData}
       alt=""
       imgStyle={{
         width: 350,
         minWidth: '100%',
+        maxWidth: '100%',
         height: 266,
         minHeight: '100%',
         maxHeight: '100%',
@@ -81,31 +82,37 @@ const FoundationLink: React.FC<{
 export const Foundation: React.FC = () => {
   const { contentImage, componentsImage, designImage } = useStaticQuery(
     graphql`
-      query {
+      {
         contentImage: abstractAsset(layerName: { eq: "home-pillars-content" }) {
           childFile {
             childImageSharp {
-              fluid(maxWidth: 350, traceSVG: { background: "#F6F4F4", color: "#228F67" }) {
-                ...GatsbyImageSharpFluid_tracedSVG
-              }
+              gatsbyImageData(
+                width: 350
+                placeholder: TRACED_SVG
+                tracedSVGOptions: { background: "#F6F4F4", color: "#228F67" }
+              )
             }
           }
         }
         designImage: abstractAsset(layerName: { eq: "home-pillars-design" }) {
           childFile {
             childImageSharp {
-              fluid(maxWidth: 350, traceSVG: { background: "#EDE0CF", color: "#00363D" }) {
-                ...GatsbyImageSharpFluid_tracedSVG
-              }
+              gatsbyImageData(
+                width: 350
+                placeholder: TRACED_SVG
+                tracedSVGOptions: { background: "#EDE0CF", color: "#00363D" }
+              )
             }
           }
         }
         componentsImage: abstractAsset(layerName: { eq: "home-pillars-components" }) {
           childFile {
             childImageSharp {
-              fluid(maxWidth: 350, traceSVG: { background: "#F6F4F4", color: "#00363D" }) {
-                ...GatsbyImageSharpFluid_tracedSVG
-              }
+              gatsbyImageData(
+                width: 350
+                placeholder: TRACED_SVG
+                tracedSVGOptions: { background: "#F6F4F4", color: "#00363D" }
+              )
             }
           }
         }
