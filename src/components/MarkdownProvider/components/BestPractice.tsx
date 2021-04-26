@@ -146,6 +146,7 @@ export const Section: React.FC<ISectionProps> = props => {
               image={props.imageSource}
               alt={props.imageAlt}
               style={{
+                display: 'block',
                 margin: '0 auto',
                 ...imageStyles
               }}
