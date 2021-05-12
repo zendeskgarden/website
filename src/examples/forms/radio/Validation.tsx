@@ -6,9 +6,8 @@
  */
 
 import React, { useState } from 'react';
-import { Field, Label, Radio, Message } from '@zendeskgarden/react-forms';
+import { Fieldset, Field, Label, Radio, Message } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
-import { MD } from '@zendeskgarden/react-typography';
 
 const cyclce: Record<string, any> = {
   annual: {
@@ -31,8 +30,8 @@ const Example = () => {
   return (
     <Row justifyContent="center">
       <Col size="auto">
-        <MD isBold>Choose a growth type</MD>
-        <div role="group" aria-label="Choose a growth type">
+        <Fieldset>
+          <Fieldset.Legend>Choose a growth type</Fieldset.Legend>
           <Field>
             <Radio
               name="validation-example"
@@ -66,7 +65,7 @@ const Example = () => {
               {cyclce[radioValue].message}
             </Message>
           </Field>
-        </div>
+        </Fieldset>
       </Col>
     </Row>
   );

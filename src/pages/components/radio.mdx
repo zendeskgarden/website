@@ -5,6 +5,7 @@ description: >
 package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/common/Field.tsx
+  - forms/src/elements/common/Fieldset.tsx
   - forms/src/elements/common/Hint.tsx
   - forms/src/elements/common/Label.tsx
   - forms/src/elements/common/Message.tsx
@@ -115,6 +116,24 @@ import ValidationCode from '!!raw-loader!../../examples/forms/radio/Validation.t
 <Component components={props.data.mdx.components} componentName="field" />
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Fieldset
+
+<Component components={props.data.mdx.components} componentName="fieldset" />
+
+<PropSheet components={props.data.mdx.components} componentName="fieldset" />
+
+#### Fieldset.Legend
+
+<Component
+  components={[
+    {
+      name: 'Fieldset.Legend',
+      extends: 'HTMLAttributes<HTMLLegendElement>'
+    }
+  ]}
+  componentName="Fieldset.Legend"
+/>
 
 ### Hint
 
