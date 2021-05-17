@@ -16,9 +16,9 @@ const Example = () => (
       <Field>
         <Label>Plant name generator</Label>
         <InputGroup>
-          <Input value="Sheepberry" disabled />
+          <Input disabled />
           <Button disabled isNeutral>
-            Germinate
+            Generate
           </Button>
         </InputGroup>
       </Field>

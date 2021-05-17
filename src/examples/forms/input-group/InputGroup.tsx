@@ -18,7 +18,7 @@ const Example = () => (
         <InputGroup>
           <Input defaultValue="Sheepberry" />
           <Button focusInset isNeutral>
-            Germinate
+            Generate
           </Button>
         </InputGroup>
       </Field>

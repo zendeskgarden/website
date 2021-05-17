@@ -26,7 +26,7 @@ const Example = () => (
         <InputGroup>
           <Input defaultValue="Sheepberry" />
           <Button focusInset isNeutral>
-            Germinate
+            Generate
           </Button>
         </InputGroup>
       </Field>
@@ -37,7 +37,7 @@ const Example = () => (
         <InputGroup isCompact>
           <Input isCompact defaultValue="Sheepberry" />
           <Button size="small" focusInset isNeutral>
-            Germinate
+            Generate
           </Button>
         </InputGroup>
       </Field>
