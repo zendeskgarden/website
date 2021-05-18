@@ -41,7 +41,7 @@ const Example = () => {
               }}
             >
               <Trigger>
-                <Button focusInset>
+                <Button focusInset isNeutral>
                   {selectedItem}
                   <Button.EndIcon isRotated={isOpen}>
                     <ChevronDownStroke />

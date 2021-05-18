@@ -16,8 +16,10 @@ const Example = () => (
       <Field>
         <Label>Plant name generator</Label>
         <InputGroup>
-          <Input value="Sheepberry" disabled />
-          <Button disabled>Germinate</Button>
+          <Input disabled />
+          <Button disabled isNeutral>
+            Generate
+          </Button>
         </InputGroup>
       </Field>
     </Col>
