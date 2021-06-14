@@ -129,7 +129,7 @@ import IconButtonTypesCode from '!!raw-loader!../../examples/button/IconButtonTy
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
     iconButtonTooltipDo: abstractAsset(
       layerName: { eq: "components-buttons-iconbutton-tooltip-do" }

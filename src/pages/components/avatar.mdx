@@ -105,7 +105,7 @@ user distinguish between the two when scanning a page.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
     avatarShapeCircle: abstractAsset(layerName: { eq: "components-avatar-shape-circle" }) {
       childFile {

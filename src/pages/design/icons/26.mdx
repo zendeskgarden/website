@@ -9,7 +9,7 @@ import { SvgSearch } from '../../../examples/design/icons/SvgSearch';
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
     svgIcons: allFile(
       filter: {
