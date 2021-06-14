@@ -57,7 +57,7 @@ interface IMarkdown extends VFile.VFile {
 }
 
 const toMarkdown = (node: ReactNode) => {
-  const element = (PROCESSOR.processSync(node as string) as IMarkdown).result;
+  const element = (PROCESSOR.processSync(node as string) as unknown as IMarkdown).result;
 
   return element.props.children;
 };
