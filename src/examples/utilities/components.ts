@@ -11,8 +11,7 @@ const components = [
     props: {
       position: {
         required: true,
-        type:
-          "'top' | 'top-left' | 'top-right' | 'right' | 'right-top' | 'right-bottom' | 'bottom' | 'bottom-left' | 'bottom-right' | 'left' | 'left-top' | 'left-bottom'",
+        type: "'top' | 'top-left' | 'top-right' | 'right' | 'right-top' | 'right-bottom' | 'bottom' | 'bottom-left' | 'bottom-right' | 'left' | 'left-top' | 'left-bottom'",
         description: 'Positions the arrow against the base element'
       },
       '[options.size]': {
