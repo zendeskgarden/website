@@ -74,6 +74,13 @@ module.exports = {
         sha: 'latest'
       }
     },
+    {
+      resolve: 'gatsby-source-figma',
+      options: {
+        figmaApiToken: process.env.FIGMA_TOKEN,
+        fileId: 'LrMJ9KvH7TtuANMDGMTLZ7'
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
     `gatsby-transformer-yaml`,

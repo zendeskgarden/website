@@ -30,7 +30,7 @@ const FoundationLink: React.FC<{
     `}
   >
     <GatsbyImage
-      image={image.childFile.childImageSharp.gatsbyImageData}
+      image={image.remoteImage.childImageSharp.gatsbyImageData}
       alt=""
       imgStyle={{
         width: 350,
@@ -83,8 +83,8 @@ export const Foundation: React.FC = () => {
   const { contentImage, componentsImage, designImage } = useStaticQuery(
     graphql`
       {
-        contentImage: abstractAsset(layerName: { eq: "home-pillars-content" }) {
-          childFile {
+        contentImage: figmaAsset(name: { eq: "home-pillars-content" }) {
+          remoteImage {
             childImageSharp {
               gatsbyImageData(
                 width: 350
@@ -94,8 +94,8 @@ export const Foundation: React.FC = () => {
             }
           }
         }
-        designImage: abstractAsset(layerName: { eq: "home-pillars-design" }) {
-          childFile {
+        designImage: figmaAsset(name: { eq: "home-pillars-design" }) {
+          remoteImage {
             childImageSharp {
               gatsbyImageData(
                 width: 350
@@ -105,8 +105,8 @@ export const Foundation: React.FC = () => {
             }
           }
         }
-        componentsImage: abstractAsset(layerName: { eq: "home-pillars-components" }) {
-          childFile {
+        componentsImage: figmaAsset(name: { eq: "home-pillars-components" }) {
+          remoteImage {
             childImageSharp {
               gatsbyImageData(
                 width: 350
