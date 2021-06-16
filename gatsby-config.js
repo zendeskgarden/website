@@ -96,7 +96,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
-        defaultQuality: 90
+        defaults: {
+          quality: 90
+        }
       }
     },
     `gatsby-plugin-remove-trailing-slashes`,

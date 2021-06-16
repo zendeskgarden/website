@@ -53,9 +53,12 @@ exports.sourceNodes = async (
       reporter.info(`Retrieving images for Figma file "${configOptions.fileId}" from CACHE...`);
     } else {
       reporter.info(`Retrieving images for Figma file "${configOptions.fileId}" from API...`);
-      const imagesResponse = await fetch(`${baseUrl}/images/${configOptions.fileId}?ids=${ids}`, {
-        headers
-      });
+      const imagesResponse = await fetch(
+        `${baseUrl}/images/${configOptions.fileId}?ids=${ids}&scale=2`,
+        {
+          headers
+        }
+      );
 
       const { images } = await imagesResponse.json();
 
