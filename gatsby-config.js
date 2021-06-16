@@ -78,7 +78,7 @@ module.exports = {
       resolve: 'gatsby-source-figma',
       options: {
         figmaApiToken: process.env.FIGMA_TOKEN,
-        fileId: 'LrMJ9KvH7TtuANMDGMTLZ7'
+        fileId: 'HifWgSrdeTlMMXUrcnrAAH'
       }
     },
     `gatsby-transformer-sharp`,
