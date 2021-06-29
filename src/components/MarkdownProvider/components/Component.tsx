@@ -17,6 +17,7 @@ export const Component: React.FC<{
   componentName: string;
   isDescribed: boolean;
 }> = ({ components, componentName, isDescribed }) => {
+  console.log(components, '<--');
   const component = components.find(c => c.name.toLowerCase() === componentName.toLowerCase())!;
 
   return (

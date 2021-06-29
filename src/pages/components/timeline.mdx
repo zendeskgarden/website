@@ -1,0 +1,92 @@
+---
+title: Timeline
+description: >
+  An Timeline is a visual way to represent a person or brand in the product. They can display text,
+  icons, or images.
+package: '@zendeskgarden/react-accordions'
+components:
+  - accordions/src/elements/Timeline.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To visually represent a person, brand, or product</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Shape
+
+An Timeline can be a circle or rounded square. See [which shape to use](#how-to-use-it-well).
+
+import AvatarShape from '../../examples/avatar/AvatarShape.tsx';
+import AvatarShapeCode from '!!raw-loader!../../examples/avatar/AvatarShape.tsx';
+
+<CodeExample code={AvatarShapeCode}>
+  <AvatarShape />
+</CodeExample>
+
+## How to use it well
+
+### Select the right shape for the job
+
+Use circles to represent people and rounded squares for objects, brands, or products. This helps a
+user distinguish between the two when scanning a page.
+
+<BestPractice>
+  <Do imageSource={props.data.avatarShapeCircle.childFile.childImageSharp.gatsbyImageData}>
+    <p>Use a circular Avatar for people.</p>
+  </Do>
+  <Do imageSource={props.data.avatarShapeSquare.childFile.childImageSharp.gatsbyImageData}>
+    <p>Use a rounded square Avatar for objects, brands, or Zendesk products.</p>
+  </Do>
+</BestPractice>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Avatar
+
+<Component components={props.data.mdx.components} componentName="avatar" />
+
+<PropSheet components={props.data.mdx.components} componentName="avatar" />
+
+#### Avatar.Text
+
+<Component
+  components={[
+    {
+      name: 'Avatar.Text',
+      extends: 'HTMLAttributes<HTMLSpanElement>'
+    }
+  ]}
+  componentName="Avatar.Text"
+/>
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    avatarShapeCircle: abstractAsset(layerName: { eq: "components-avatar-shape-circle" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    avatarShapeSquare: abstractAsset(layerName: { eq: "components-avatar-shape-square" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+  }
+`;
