@@ -27,9 +27,10 @@ const GlobalStyling = createGlobalStyle`
 
 interface IRootLayoutProps {
   hasSkipNav?: boolean;
+  path?: string;
 }
 
-const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav }) => {
+const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav, path }) => {
   return (
     <div
       css={`
@@ -60,7 +61,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav }) => {
       >
         {children}
       </main>
-      <Footer />
+      <Footer path={path} />
     </div>
   );
 };
