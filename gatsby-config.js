@@ -74,6 +74,13 @@ module.exports = {
         sha: 'latest'
       }
     },
+    {
+      resolve: 'gatsby-source-figma',
+      options: {
+        figmaApiToken: process.env.FIGMA_TOKEN,
+        fileId: 'HifWgSrdeTlMMXUrcnrAAH'
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
     `gatsby-transformer-yaml`,
@@ -89,7 +96,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
-        defaultQuality: 90
+        defaults: {
+          quality: 90
+        }
       }
     },
     `gatsby-plugin-remove-trailing-slashes`,
