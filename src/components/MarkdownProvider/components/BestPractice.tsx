@@ -126,7 +126,7 @@ export const Section: React.FC<ISectionProps> = props => {
       width: props.imageWidth,
       height: props.imageHeight,
       maxWidth: props.imageIsSquare ? 160 : undefined,
-      maxHeight: 160
+      maxHeight: props.imageIsSquare ? 160 : undefined
     };
 
     return (

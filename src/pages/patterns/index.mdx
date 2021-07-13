@@ -1,0 +1,17 @@
+---
+title: Patterns overview
+description: >
+  Existing design solutions for a more consistent UX
+---
+
+import links from '../../nav/patterns.yml';
+
+<OverviewLinks nav={links} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

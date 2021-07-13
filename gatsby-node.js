@@ -6,6 +6,7 @@
  */
 
 const path = require('path');
+const smartquotes = require('smartquotes');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -36,10 +37,22 @@ exports.onCreatePage = ({ page, actions }) => {
   if (componentExt === '.md' || componentExt === '.mdx') {
     deletePage(page);
 
+    const pageContext = page.context;
+
+    if (pageContext.frontmatter) {
+      if (pageContext.frontmatter.description) {
+        pageContext.frontmatter.description = smartquotes(pageContext.frontmatter.description);
+      }
+
+      if (pageContext.frontmatter.title) {
+        pageContext.frontmatter.title = smartquotes(pageContext.frontmatter.title);
+      }
+    }
+
     createPage({
       ...page,
       context: {
-        ...page.context,
+        ...pageContext,
         fileAbsolutePath: page.component
       }
     });

@@ -1,0 +1,8 @@
+- title: Introduction
+  items:
+    - id: /patterns
+      title: Overview
+- title: Patterns
+  items:
+    - id: /patterns/buttons
+      title: Buttons
