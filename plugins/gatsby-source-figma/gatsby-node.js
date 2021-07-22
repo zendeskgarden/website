@@ -10,51 +10,34 @@ const { createRemoteFileNode } = require('gatsby-source-filesystem');
 
 const NODE_TYPE = 'FIGMA_ASSET';
 
-// Flattens a tree into a list and associates nodes using a parent-child relationship
-const createNodeList = root => {
-  const nodes = [root];
-  const nodeList = [];
-
-  while (nodes.length) {
-    let node = nodes[0];
-
-    if (node.children) {
-      const children = node.children.map(child => ({ ...child, parent: node }));
-
-      nodes.push(...children);
-    }
-
-    node = nodes.shift();
-    nodeList.push(node);
-  }
-
-  return nodeList;
-};
-
 exports.sourceNodes = async (
   { actions: { createNode }, createContentDigest, cache, reporter },
   configOptions
 ) => {
+  const { nodeIds, fileId, scale, figmaApiToken } = configOptions;
   const baseUrl = 'https://api.figma.com/v1';
   const headers = {
     'Content-Type': 'application/json',
-    'X-FIGMA-TOKEN': configOptions.figmaApiToken
+    'X-FIGMA-TOKEN': figmaApiToken
   };
 
   try {
-    const response = await fetch(`${baseUrl}/files/${configOptions.fileId}`, { headers });
-    const { document } = await response.json();
-    const nodes = createNodeList(document).filter(node => node.type === 'FRAME');
-    const ids = nodes.map(node => node.id).join(',');
-    const FILE_CACHE_KEY = `figma-file-${configOptions.fileId}-${document.lastModified}`;
+    const fileResponse = await fetch(`${baseUrl}/files/${fileId}`, { headers });
+    const { document } = await fileResponse.json();
+    const idsParam = nodeIds.join(',');
+    const nodesResponse = await fetch(`${baseUrl}/files/${fileId}/nodes?ids=${idsParam}`, {
+      headers
+    });
+    const { nodes } = await nodesResponse.json();
+    const FILE_CACHE_KEY = `figma-file-${fileId}-${document.lastModified}`;
     const cachedImages = await cache.get(FILE_CACHE_KEY);
 
     if (cachedImages) {
-      reporter.info(`Retrieving images for Figma file "${configOptions.fileId}" from CACHE...`);
+      reporter.info(`Retrieving images for Figma file "${fileId}" from CACHE...`);
     } else {
-      reporter.info(`Retrieving images for Figma file "${configOptions.fileId}" from API...`);
+      reporter.info(`Retrieving images for Figma file "${fileId}" from API...`);
       const imagesResponse = await fetch(
-        `${baseUrl}/images/${configOptions.fileId}?ids=${ids}&scale=2`,
+        `${baseUrl}/images/${fileId}?ids=${idsParam}&scale=${scale}`,
         {
           headers
         }
@@ -67,14 +50,15 @@ exports.sourceNodes = async (
 
     const images = await cache.get(FILE_CACHE_KEY);
 
-    nodes.forEach(node => {
-      if (images[node.id]) {
-        node.imageUrl = images[node.id];
+    for (const id in nodes) {
+      if (images[id]) {
+        const node = nodes[id];
 
         createNode({
-          ...node,
-          parent: node.parent ? node.parent.id : null,
-          children: node.children ? node.children.map(child => child.id) : [],
+          ...node.document,
+          parent: null,
+          children: [],
+          imageUrl: images[id],
           internal: {
             type: NODE_TYPE,
             content: JSON.stringify(node),
@@ -82,7 +66,7 @@ exports.sourceNodes = async (
           }
         });
       }
-    });
+    }
   } catch (error) {
     reporter.error(error.message);
   }
@@ -92,15 +76,9 @@ exports.sourceNodes = async (
    Optimize remote images
    See: https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/creating-a-source-plugin/#optimize-remote-images
    */
-exports.onCreateNode = async ({
-  node, // the node that was just created
-  actions: { createNode },
-  createNodeId,
-  getCache
-}) => {
+exports.onCreateNode = async ({ node, actions: { createNode }, createNodeId, getCache }) => {
   if (node.internal.type === NODE_TYPE) {
     const fileNode = await createRemoteFileNode({
-      // the url of the remote image to generate a node for
       url: node.imageUrl,
       parentNodeId: node.id,
       createNode,

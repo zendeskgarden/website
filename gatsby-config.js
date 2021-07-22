@@ -12,6 +12,8 @@ const path = require('path');
 require('dotenv').config();
 envalid.cleanEnv(process.env, { ABSTRACT_TOKEN: envalid.str() });
 
+const figmaNodeIds = ['1:32', '1:28', '1:24'];
+
 module.exports = {
   siteMetadata: {
     title: 'Zendesk Garden',
@@ -78,7 +80,9 @@ module.exports = {
       resolve: 'gatsby-source-figma',
       options: {
         figmaApiToken: process.env.FIGMA_TOKEN,
-        fileId: 'HifWgSrdeTlMMXUrcnrAAH'
+        fileId: 'HifWgSrdeTlMMXUrcnrAAH',
+        nodeIds: figmaNodeIds,
+        scale: 2
       }
     },
     `gatsby-transformer-sharp`,
