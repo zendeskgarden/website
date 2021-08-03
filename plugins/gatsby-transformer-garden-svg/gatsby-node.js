@@ -39,6 +39,10 @@ exports.onCreateNode = async ({
   createNodeId,
   createContentDigest
 }) => {
+  if (node.internal.type === 'StaticImage') {
+    return;
+  }
+
   if (node.internal.mediaType !== 'image/svg+xml') {
     return;
   }
