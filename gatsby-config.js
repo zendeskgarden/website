@@ -12,7 +12,7 @@ const path = require('path');
 require('dotenv').config();
 envalid.cleanEnv(process.env, { ABSTRACT_TOKEN: envalid.str() });
 
-const figmaNodeIds = ['1:32', '1:28', '1:24'];
+const figmaNodeIds = ['1:22'];
 
 module.exports = {
   siteMetadata: {
