@@ -87,7 +87,7 @@ exports.onCreateNode = async ({ node, actions: { createNode }, createNodeId, get
     });
 
     if (fileNode) {
-      node.remoteImage___NODE = fileNode.id; // eslint-disable-line require-atomic-updates
+      node.childFile___NODE = fileNode.id; // eslint-disable-line require-atomic-updates
     }
   }
 };

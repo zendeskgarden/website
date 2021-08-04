@@ -36,7 +36,7 @@ export const Search: React.FC = () => {
     graphql`
       {
         bannerImage: figmaAsset(name: { eq: "home-hero-logo" }) {
-          remoteImage {
+          childFile {
             childImageSharp {
               gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
             }
@@ -67,7 +67,7 @@ export const Search: React.FC = () => {
               `}
             >
               <GatsbyImage
-                image={bannerImage.remoteImage.childImageSharp.gatsbyImageData}
+                image={bannerImage.childFile.childImageSharp.gatsbyImageData}
                 alt=""
                 css={css`
                   margin-top: ${p => p.theme.space.xxl};
