@@ -11,6 +11,7 @@ const path = require('path');
 
 require('dotenv').config();
 envalid.cleanEnv(process.env, { ABSTRACT_TOKEN: envalid.str() });
+envalid.cleanEnv(process.env, { FIGMA_TOKEN: envalid.str() });
 
 const figmaNodeIds = ['1:22'];
 
