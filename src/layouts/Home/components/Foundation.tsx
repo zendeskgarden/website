@@ -83,24 +83,36 @@ export const Foundation: React.FC = () => {
   const { contentImage, componentsImage, designImage } = useStaticQuery(
     graphql`
       {
-        contentImage: figmaAsset(name: { eq: "home-pillars-content" }) {
+        contentImage: abstractAsset(layerName: { eq: "home-pillars-content" }) {
           childFile {
             childImageSharp {
-              gatsbyImageData(width: 350)
+              gatsbyImageData(
+                width: 350
+                placeholder: TRACED_SVG
+                tracedSVGOptions: { background: "#F6F4F4", color: "#228F67" }
+              )
             }
           }
         }
-        designImage: figmaAsset(name: { eq: "home-pillars-design" }) {
+        designImage: abstractAsset(layerName: { eq: "home-pillars-design" }) {
           childFile {
             childImageSharp {
-              gatsbyImageData(width: 350)
+              gatsbyImageData(
+                width: 350
+                placeholder: TRACED_SVG
+                tracedSVGOptions: { background: "#EDE0CF", color: "#00363D" }
+              )
             }
           }
         }
-        componentsImage: figmaAsset(name: { eq: "home-pillars-components" }) {
+        componentsImage: abstractAsset(layerName: { eq: "home-pillars-components" }) {
           childFile {
             childImageSharp {
-              gatsbyImageData(width: 350)
+              gatsbyImageData(
+                width: 350
+                placeholder: TRACED_SVG
+                tracedSVGOptions: { background: "#F6F4F4", color: "#00363D" }
+              )
             }
           }
         }
