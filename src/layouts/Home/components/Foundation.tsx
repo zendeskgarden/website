@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { css } from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
@@ -15,21 +16,12 @@ import MaxWidthLayout from 'layouts/MaxWidth';
 import { SectionCallout, StyledSectionHeader } from './SectionCallout';
 import { HomeLink } from './HomeLink';
 
-const imgStyles = {
-  width: 350,
-  minWidth: '100%',
-  maxWidth: '100%',
-  height: 266,
-  minHeight: '100%',
-  maxHeight: '100%',
-  zIndex: -1
-};
-
 const FoundationLink: React.FC<{
   group: string;
   title: string;
+  image: any;
   url: string;
-}> = ({ group, title, url, children }) => (
+}> = ({ group, title, url, image }) => (
   <div
     css={css`
       display: flex;
@@ -37,7 +29,19 @@ const FoundationLink: React.FC<{
       height: 100%;
     `}
   >
-    {children}
+    <GatsbyImage
+      image={image.childFile.childImageSharp.gatsbyImageData}
+      alt=""
+      imgStyle={{
+        width: 350,
+        minWidth: '100%',
+        maxWidth: '100%',
+        height: 266,
+        minHeight: '100%',
+        maxHeight: '100%',
+        zIndex: -1
+      }}
+    />
     <div
       css={css`
         display: flex;
@@ -76,6 +80,46 @@ const FoundationLink: React.FC<{
 );
 
 export const Foundation: React.FC = () => {
+  const { contentImage, componentsImage, designImage } = useStaticQuery(
+    graphql`
+      {
+        contentImage: figmaAsset(name: { eq: "home-pillars-content" }) {
+          childFile {
+            childImageSharp {
+              gatsbyImageData(
+                width: 350
+                placeholder: TRACED_SVG
+                tracedSVGOptions: { background: "#F6F4F4", color: "#228F67" }
+              )
+            }
+          }
+        }
+        designImage: figmaAsset(name: { eq: "home-pillars-design" }) {
+          childFile {
+            childImageSharp {
+              gatsbyImageData(
+                width: 350
+                placeholder: TRACED_SVG
+                tracedSVGOptions: { background: "#EDE0CF", color: "#00363D" }
+              )
+            }
+          }
+        }
+        componentsImage: figmaAsset(name: { eq: "home-pillars-components" }) {
+          childFile {
+            childImageSharp {
+              gatsbyImageData(
+                width: 350
+                placeholder: TRACED_SVG
+                tracedSVGOptions: { background: "#F6F4F4", color: "#00363D" }
+              )
+            }
+          }
+        }
+      }
+    `
+  );
+
   return (
     <MaxWidthLayout>
       <Grid
@@ -119,15 +163,8 @@ export const Foundation: React.FC = () => {
                   group="Content"
                   title="The principles of language for writing products"
                   url="/content"
-                >
-                  <StaticImage
-                    alt=""
-                    placeholder="tracedSVG"
-                    src="../../../images/home-pillars-content.svg"
-                    tracedSVGOptions={{ color: '#478d6b', background: '#F6F4F4' }}
-                    imgStyle={imgStyles}
-                  />
-                </FoundationLink>
+                  image={contentImage}
+                />
               </Col>
               <Col
                 xs={12}
@@ -141,15 +178,8 @@ export const Foundation: React.FC = () => {
                   group="Design"
                   title="Foundations for creating purposeful UI"
                   url="/design"
-                >
-                  <StaticImage
-                    alt=""
-                    placeholder="tracedSVG"
-                    src="../../../images/home-pillars-design.svg"
-                    tracedSVGOptions={{ color: '#478d6b', background: '#EDE0CF' }}
-                    imgStyle={imgStyles}
-                  />
-                </FoundationLink>
+                  image={designImage}
+                />
               </Col>
               <Col
                 xs={12}
@@ -163,15 +193,8 @@ export const Foundation: React.FC = () => {
                   group="Components"
                   title="Development instructions for building effective user interfaces"
                   url="/components"
-                >
-                  <StaticImage
-                    alt=""
-                    placeholder="tracedSVG"
-                    src="../../../images/home-pillars-components.svg"
-                    tracedSVGOptions={{ color: '#478d6b', background: '#F6F4F4' }}
-                    imgStyle={imgStyles}
-                  />
-                </FoundationLink>
+                  image={componentsImage}
+                />
               </Col>
             </Row>
           </Col>
