@@ -86,33 +86,21 @@ export const Foundation: React.FC = () => {
         contentImage: figmaAsset(name: { eq: "home-pillars-content" }) {
           childFile {
             childImageSharp {
-              gatsbyImageData(
-                width: 350
-                placeholder: TRACED_SVG
-                tracedSVGOptions: { background: "#F6F4F4", color: "#228F67" }
-              )
+              gatsbyImageData(width: 350)
             }
           }
         }
         designImage: figmaAsset(name: { eq: "home-pillars-design" }) {
           childFile {
             childImageSharp {
-              gatsbyImageData(
-                width: 350
-                placeholder: TRACED_SVG
-                tracedSVGOptions: { background: "#EDE0CF", color: "#00363D" }
-              )
+              gatsbyImageData(width: 350)
             }
           }
         }
         componentsImage: figmaAsset(name: { eq: "home-pillars-components" }) {
           childFile {
             childImageSharp {
-              gatsbyImageData(
-                width: 350
-                placeholder: TRACED_SVG
-                tracedSVGOptions: { background: "#F6F4F4", color: "#00363D" }
-              )
+              gatsbyImageData(width: 350)
             }
           }
         }
