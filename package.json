@@ -102,7 +102,7 @@
     "gatsby-source-filesystem": "3.7.1",
     "gatsby-transformer-sharp": "3.7.1",
     "gatsby-transformer-yaml": "3.7.1",
-    "husky": "6.0.0",
+    "husky": "7.0.1",
     "js-yaml": "4.1.0",
     "lint-staged": "11.0.0",
     "lodash": "4.17.21",
