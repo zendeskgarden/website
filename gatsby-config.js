@@ -10,7 +10,9 @@ const fs = require('fs');
 const path = require('path');
 
 require('dotenv').config();
-envalid.cleanEnv(process.env, { ABSTRACT_TOKEN: envalid.str() });
+envalid.cleanEnv(process.env, { ABSTRACT_TOKEN: envalid.str(), FIGMA_TOKEN: envalid.str() });
+
+const figmaNodeIds = ['1:22' /* home-hero-logo */];
 
 module.exports = {
   siteMetadata: {
@@ -74,6 +76,15 @@ module.exports = {
         sha: 'latest'
       }
     },
+    {
+      resolve: 'gatsby-source-figma',
+      options: {
+        figmaApiToken: process.env.FIGMA_TOKEN,
+        fileId: 'HifWgSrdeTlMMXUrcnrAAH',
+        nodeIds: figmaNodeIds,
+        scale: 2
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
     `gatsby-transformer-yaml`,
@@ -89,7 +100,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
-        defaultQuality: 90
+        defaults: {
+          quality: 90
+        }
       }
     },
     `gatsby-plugin-remove-trailing-slashes`,

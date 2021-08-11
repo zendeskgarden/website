@@ -35,7 +35,7 @@ export const Search: React.FC = () => {
   const { bannerImage } = useStaticQuery(
     graphql`
       {
-        bannerImage: abstractAsset(layerName: { eq: "home-hero-logo" }) {
+        bannerImage: figmaAsset(name: { eq: "home-hero-logo" }) {
           childFile {
             childImageSharp {
               gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
