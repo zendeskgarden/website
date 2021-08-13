@@ -30,6 +30,8 @@ const FoundationLink: React.FC<{
     <svg
       width="288"
       height="220"
+      focusable="false"
+      viewBox="0 0 288 220"
       css={`
         width: 100%;
         height: auto;
