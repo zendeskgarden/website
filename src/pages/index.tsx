@@ -5,13 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
+import svg4everybody from 'svg4everybody';
 import SEO from 'components/SEO';
 import RootLayout from 'layouts/Root';
 import HomeLayout from 'layouts/Home';
 
 const IndexPage: React.FC = () => {
+  useEffect(() => svg4everybody({ polyfill: true }));
+
   return (
     <RootLayout hasSkipNav={false} path="/">
       <SEO />
