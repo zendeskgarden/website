@@ -85,14 +85,6 @@ module.exports = {
         scale: 2
       }
     },
-    {
-      resolve: 'gatsby-plugin-svg-spritemap',
-      options: {
-        pattern: ['./src/icons/*.svg'],
-        output: { filename: 'index.svg' },
-        sprite: { prefix: false }
-      }
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
     `gatsby-transformer-yaml`,

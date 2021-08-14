@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { SVGAttributes } from 'react';
 import { css } from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
@@ -13,13 +13,16 @@ import { LG } from '@zendeskgarden/react-typography';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SectionCallout, StyledSectionHeader } from './SectionCallout';
 import { HomeLink } from './HomeLink';
+import { ReactComponent as ComponentsIcon } from '../../../icons/Components.svg';
+import { ReactComponent as ContentIcon } from '../../../icons/Content.svg';
+import { ReactComponent as DesignIcon } from '../../../icons/Design.svg';
 
 const FoundationLink: React.FC<{
   group: string;
   title: string;
-  icon: string;
   url: string;
-}> = ({ group, title, url, icon }) => (
+  Icon: React.FC<SVGAttributes<SVGElement>>;
+}> = ({ group, title, url, Icon }) => (
   <div
     css={css`
       display: flex;
@@ -27,18 +30,7 @@ const FoundationLink: React.FC<{
       height: 100%;
     `}
   >
-    <svg
-      width="288"
-      height="220"
-      focusable="false"
-      viewBox="0 0 288 220"
-      css={`
-        width: 100%;
-        height: auto;
-      `}
-    >
-      <use xlinkHref={icon} />
-    </svg>
+    <Icon style={{ width: '100%', height: 'auto' }} />
     <div
       css={css`
         display: flex;
@@ -119,7 +111,7 @@ export const Foundation: React.FC = () => (
                 group="Content"
                 title="The principles of language for writing products"
                 url="/content"
-                icon="/index.svg#content"
+                Icon={ContentIcon}
               />
             </Col>
             <Col
@@ -134,7 +126,7 @@ export const Foundation: React.FC = () => (
                 group="Design"
                 title="Foundations for creating purposeful UI"
                 url="/design"
-                icon="/index.svg#design"
+                Icon={DesignIcon}
               />
             </Col>
             <Col
@@ -149,7 +141,7 @@ export const Foundation: React.FC = () => (
                 group="Components"
                 title="Development instructions for building effective user interfaces"
                 url="/components"
-                icon="/index.svg#components"
+                Icon={ComponentsIcon}
               />
             </Col>
           </Row>
