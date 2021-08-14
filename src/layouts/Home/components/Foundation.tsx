@@ -13,9 +13,9 @@ import { LG } from '@zendeskgarden/react-typography';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SectionCallout, StyledSectionHeader } from './SectionCallout';
 import { HomeLink } from './HomeLink';
-import { ReactComponent as ComponentsIcon } from '../../../icons/Components.svg';
-import { ReactComponent as ContentIcon } from '../../../icons/Content.svg';
-import { ReactComponent as DesignIcon } from '../../../icons/Design.svg';
+import { ReactComponent as ComponentsIcon } from '../../../icons/components.svg';
+import { ReactComponent as ContentIcon } from '../../../icons/content.svg';
+import { ReactComponent as DesignIcon } from '../../../icons/design.svg';
 
 const FoundationLink: React.FC<{
   group: string;
