@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import React, { SVGAttributes } from 'react';
 import { css } from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
@@ -15,13 +13,16 @@ import { LG } from '@zendeskgarden/react-typography';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SectionCallout, StyledSectionHeader } from './SectionCallout';
 import { HomeLink } from './HomeLink';
+import { ReactComponent as ComponentsIcon } from '../../../icons/components.svg';
+import { ReactComponent as ContentIcon } from '../../../icons/content.svg';
+import { ReactComponent as DesignIcon } from '../../../icons/design.svg';
 
 const FoundationLink: React.FC<{
   group: string;
   title: string;
-  image: any;
   url: string;
-}> = ({ group, title, url, image }) => (
+  Icon: React.FC<SVGAttributes<SVGElement>>;
+}> = ({ group, title, url, Icon }) => (
   <div
     css={css`
       display: flex;
@@ -29,19 +30,7 @@ const FoundationLink: React.FC<{
       height: 100%;
     `}
   >
-    <GatsbyImage
-      image={image.childFile.childImageSharp.gatsbyImageData}
-      alt=""
-      imgStyle={{
-        width: 350,
-        minWidth: '100%',
-        maxWidth: '100%',
-        height: 266,
-        minHeight: '100%',
-        maxHeight: '100%',
-        zIndex: -1
-      }}
-    />
+    <Icon style={{ width: '100%', height: 'auto' }} />
     <div
       css={css`
         display: flex;
@@ -79,127 +68,85 @@ const FoundationLink: React.FC<{
   </div>
 );
 
-export const Foundation: React.FC = () => {
-  const { contentImage, componentsImage, designImage } = useStaticQuery(
-    graphql`
-      {
-        contentImage: abstractAsset(layerName: { eq: "home-pillars-content" }) {
-          childFile {
-            childImageSharp {
-              gatsbyImageData(
-                width: 350
-                placeholder: TRACED_SVG
-                tracedSVGOptions: { background: "#F6F4F4", color: "#228F67" }
-              )
-            }
-          }
-        }
-        designImage: abstractAsset(layerName: { eq: "home-pillars-design" }) {
-          childFile {
-            childImageSharp {
-              gatsbyImageData(
-                width: 350
-                placeholder: TRACED_SVG
-                tracedSVGOptions: { background: "#EDE0CF", color: "#00363D" }
-              )
-            }
-          }
-        }
-        componentsImage: abstractAsset(layerName: { eq: "home-pillars-components" }) {
-          childFile {
-            childImageSharp {
-              gatsbyImageData(
-                width: 350
-                placeholder: TRACED_SVG
-                tracedSVGOptions: { background: "#F6F4F4", color: "#00363D" }
-              )
-            }
-          }
-        }
-      }
-    `
-  );
-
-  return (
-    <MaxWidthLayout>
-      <Grid
-        gutters="lg"
-        css={css`
-          margin-bottom: ${p => p.theme.space.base * 20}px;
-        `}
-      >
-        <Row>
-          <Col
-            sm={12}
-            lg={4}
+export const Foundation: React.FC = () => (
+  <MaxWidthLayout>
+    <Grid
+      gutters="lg"
+      css={css`
+        margin-bottom: ${p => p.theme.space.base * 20}px;
+      `}
+    >
+      <Row>
+        <Col
+          sm={12}
+          lg={4}
+          css={css`
+            margin-bottom: ${p => p.theme.space.xxl};
+          `}
+        >
+          <SectionCallout
+            section="Foundation"
+            header="The foundations for making products with Garden"
+            description="This site is an evolving library of shared knowledge that intentionally blurs the line between design, content strategy, and engineering to reinforce a cohesive user experience throughout Zendesk’s product suite."
             css={css`
-              margin-bottom: ${p => p.theme.space.xxl};
-            `}
-          >
-            <SectionCallout
-              section="Foundation"
-              header="The foundations for making products with Garden"
-              description="This site is an evolving library of shared knowledge that intentionally blurs the line between design, content strategy, and engineering to reinforce a cohesive user experience throughout Zendesk’s product suite."
-              css={css`
-                max-width: 380px;
+              max-width: 380px;
 
-                ${p => mediaQuery('down', 'md', p.theme)} {
-                  max-width: 420px;
-                }
+              ${p => mediaQuery('down', 'md', p.theme)} {
+                max-width: 420px;
+              }
+            `}
+          />
+        </Col>
+        <Col sm={12} lg={8}>
+          <Row>
+            <Col
+              xs={12}
+              sm={6}
+              lg={4}
+              css={css`
+                margin-bottom: ${p => p.theme.space.lg};
               `}
-            />
-          </Col>
-          <Col sm={12} lg={8}>
-            <Row>
-              <Col
-                xs={12}
-                sm={6}
-                lg={4}
-                css={css`
-                  margin-bottom: ${p => p.theme.space.lg};
-                `}
-              >
-                <FoundationLink
-                  group="Content"
-                  title="The principles of language for writing products"
-                  url="/content"
-                  image={contentImage}
-                />
-              </Col>
-              <Col
-                xs={12}
-                sm={6}
-                lg={4}
-                css={css`
-                  margin-bottom: ${p => p.theme.space.lg};
-                `}
-              >
-                <FoundationLink
-                  group="Design"
-                  title="Foundations for creating purposeful UI"
-                  url="/design"
-                  image={designImage}
-                />
-              </Col>
-              <Col
-                xs={12}
-                sm={6}
-                lg={4}
-                css={css`
-                  margin-bottom: ${p => p.theme.space.lg};
-                `}
-              >
-                <FoundationLink
-                  group="Components"
-                  title="Development instructions for building effective user interfaces"
-                  url="/components"
-                  image={componentsImage}
-                />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Grid>
-    </MaxWidthLayout>
-  );
-};
+            >
+              <FoundationLink
+                group="Content"
+                title="The principles of language for writing products"
+                url="/content"
+                Icon={ContentIcon}
+              />
+            </Col>
+            <Col
+              xs={12}
+              sm={6}
+              lg={4}
+              css={css`
+                margin-bottom: ${p => p.theme.space.lg};
+              `}
+            >
+              <FoundationLink
+                group="Design"
+                title="Foundations for creating purposeful UI"
+                url="/design"
+                Icon={DesignIcon}
+              />
+            </Col>
+            <Col
+              xs={12}
+              sm={6}
+              lg={4}
+              css={css`
+                margin-bottom: ${p => p.theme.space.lg};
+              `}
+            >
+              <FoundationLink
+                group="Components"
+                title="Development instructions for building effective user interfaces"
+                url="/components"
+                Icon={ComponentsIcon}
+              />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </Grid>
+  </MaxWidthLayout>
+);
