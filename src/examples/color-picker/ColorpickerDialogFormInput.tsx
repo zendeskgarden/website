@@ -59,7 +59,7 @@ const Example = () => {
       <StyledCol>
         <Field>
           <Label>Favorite color</Label>
-          <InputGroup>
+          <InputGroup style={{ zIndex: 1 }}>
             <StyledInput
               maxLength={9}
               value={input}
