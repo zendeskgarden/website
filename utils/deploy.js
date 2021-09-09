@@ -22,20 +22,30 @@ envalid.cleanEnv(process.env, {
     const dir = path.resolve(__dirname, '..', 'public');
     const branch = await garden.githubBranch();
     const production = branch === 'main';
-    const repository = await garden.githubRepository();
-    const commit = await garden.githubCommit();
-    const message = `https://github.com/${repository.owner}/${repository.repo}/commit/${commit}`;
-    const command = async () => {
-      const result = await garden.netlifyDeploy({
-        dir,
-        production,
-        message
-      });
+    const available = production ? Infinity : (await garden.netlifyBandwidth()).available;
+    const usage = production ? 0 : await garden.cmdDu(dir);
+    let url;
 
-      return result;
-    };
+    if (available > usage) {
+      const repository = await garden.githubRepository();
+      const commit = await garden.githubCommit();
+      const message = `https://github.com/${repository.owner}/${repository.repo}/commit/${commit}`;
+      const command = async () => {
+        const result = await garden.netlifyDeploy({
+          dir,
+          production,
+          message
+        });
 
-    const url = await garden.githubDeploy({ command, production });
+        return result;
+      };
+
+      url = await garden.githubDeploy({ command, production });
+    } else {
+      throw new Error(
+        `Insufficient Netlify bandwidth: ${available} bytes available, ${usage} bytes required.`
+      );
+    }
 
     /* eslint-disable-next-line no-console */
     console.log(`Deployed to ${url}`);
