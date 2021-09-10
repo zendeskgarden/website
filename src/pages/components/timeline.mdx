@@ -1,0 +1,145 @@
+---
+title: Timeline
+description: >
+  The Timeline component lists events over a period of time.
+package: '@zendeskgarden/react-accordions'
+components:
+  - accordions/src/elements/timeline/Timeline.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To track an issue over time</li>
+      <li>To show events associated with an item</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To guide users through a step by step process, use a [Stepper](/components/stepper)
+          instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The timeline component is made up of individual timeline items. Item content appears to the right of the item marker by default.
+
+import TimelineDefault from '../../examples/accordions/timeline/TimelineDefault.tsx';
+import TimelineDefaultCode from '!!raw-loader!../../examples/accordions/timeline/TimelineDefault.tsx';
+
+<CodeExample code={TimelineDefaultCode}>
+  <TimelineDefault />
+</CodeExample>
+
+### Alternating
+
+Timeline items are displayed on alternating sides of the timeline.
+
+import TimelineAlternating from '../../examples/accordions/timeline/TimelineAlternating.tsx';
+import TimelineAlternatingCode from '!!raw-loader!../../examples/accordions/timeline/TimelineAlternating.tsx';
+
+<CodeExample code={TimelineAlternatingCode}>
+  <TimelineAlternating />
+</CodeExample>
+
+### Custom media
+
+import TimelineCustomMedia from '../../examples/accordions/timeline/TimelineCustomMedia.tsx';
+import TimelineCustomMediaCode from '!!raw-loader!../../examples/accordions/timeline/TimelineCustomMedia.tsx';
+
+<CodeExample code={TimelineCustomMediaCode}>
+  <TimelineCustomMedia />
+</CodeExample>
+
+### Opposite content
+
+In the opposite layout, a second content area is present on the opposite side of the timeline.
+
+import TimelineOppositeContent from '../../examples/accordions/timeline/TimelineOppositeContent.tsx';
+import TimelineOppositeContentCode from '!!raw-loader!../../examples/accordions/timeline/TimelineOppositeContent.tsx';
+
+<CodeExample code={TimelineOppositeContentCode}>
+  <TimelineOppositeContent />
+</CodeExample>
+
+## How to use it well
+
+### Nest content when necessary
+
+Components such as links, buttons, and images can be nested in each timeline item.
+
+<BestPractice>
+  <Do>
+    <p>Do include images and other nested content if appropriate.</p>
+  </Do>
+</BestPractice>
+
+### Make interactive elements explicit
+
+Creating a visual affordance for a link or action is preferred to making the entire item interactive.
+
+<BestPractice>
+  <Do>
+    <p>Create explicit visual affordances for interactive items.</p>
+  </Do>
+  <Dont>
+    <p>Don’t rely on hover states to show that items are interactive.</p>
+  </Dont>
+</BestPractice>
+
+### Use correct hierarchy
+
+Item content can be replaced with any text style. Make sure use appropriate hierarchy when designing your content.
+
+<BestPractice>
+  <Do>
+    <p>Use balanced and appropriate typographic hierarchy.</p>
+  </Do>
+  <Dont>
+    <p>Don’t mix up typographic hierarchy when customizing item content.</p>
+  </Dont>
+</BestPractice>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+import COMPONENTS from '../../examples/accordions/components.ts';
+
+### Timeline
+
+<Component components={props.data.mdx.components} componentName="timeline" />
+
+<PropSheet components={props.data.mdx.components} componentName="timeline" />
+
+#### Timeline.Content
+
+<Component components={COMPONENTS} componentName="timeline.content" />
+
+#### Timeline.Item
+
+<Component components={COMPONENTS} componentName="timeline.item" />
+
+<PropSheet components={COMPONENTS} componentName="timeline.item" />
+
+#### Timeline.OppositeContent
+
+<Component components={COMPONENTS} componentName="timeline.oppositeContent" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

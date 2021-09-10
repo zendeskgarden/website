@@ -1,0 +1,54 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import { Timeline } from '@zendeskgarden/react-accordions';
+import { Row, Col } from '@zendeskgarden/react-grid';
+import { Span } from '@zendeskgarden/react-typography';
+
+const Example = () => (
+  <Row justifyContent="center">
+    <Col sm={7}>
+      <Timeline>
+        <Timeline.Item>
+          <Timeline.OppositeContent>
+            <Span hue="grey">Today 9:00 AM</Span>
+          </Timeline.OppositeContent>
+          <Timeline.Content>
+            <Span isBold>Issue with order</Span>
+          </Timeline.Content>
+        </Timeline.Item>
+        <Timeline.Item>
+          <Timeline.OppositeContent>
+            <Span hue="grey">Feb 08, 9:05 AM</Span>
+          </Timeline.OppositeContent>
+          <Timeline.Content>
+            <Span isBold>Ordered 3 items</Span>
+          </Timeline.Content>
+        </Timeline.Item>
+        <Timeline.Item>
+          <Timeline.OppositeContent>
+            <Span hue="grey">Jan 21, 9:13 AM</Span>
+          </Timeline.OppositeContent>
+          <Timeline.Content>
+            <Span isBold>Added 3 items to cart</Span>
+          </Timeline.Content>
+        </Timeline.Item>
+        <Timeline.Item>
+          <Timeline.OppositeContent>
+            <Span hue="grey">Jan 21, 9:21 AM </Span>
+          </Timeline.OppositeContent>
+          <Timeline.Content>
+            <Span isBold>Viewed product page</Span>
+          </Timeline.Content>
+        </Timeline.Item>
+      </Timeline>
+    </Col>
+  </Row>
+);
+
+export default Example;
