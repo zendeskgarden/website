@@ -87,10 +87,16 @@ Components such as links, buttons, and images can be nested in each timeline ite
 Creating a visual affordance for a link or action is preferred to making the entire item interactive.
 
 <BestPractice>
-  <Do>
+  <Do
+    imageSource={props.data.timelineInteractiveElementsDo.childFile.childImageSharp.gatsbyImageData}
+  >
     <p>Create explicit visual affordances for interactive items.</p>
   </Do>
-  <Dont>
+  <Dont
+    imageSource={
+      props.data.timelineInteractiveElementsDont.childFile.childImageSharp.gatsbyImageData
+    }
+  >
     <p>Don’t rely on hover states to show that items are interactive.</p>
   </Dont>
 </BestPractice>
@@ -100,10 +106,12 @@ Creating a visual affordance for a link or action is preferred to making the ent
 Item content can be replaced with any text style. Make sure use appropriate hierarchy when designing your content.
 
 <BestPractice>
-  <Do>
+  <Do imageSource={props.data.timelineCorrectHierarchyDo.childFile.childImageSharp.gatsbyImageData}>
     <p>Use balanced and appropriate typographic hierarchy.</p>
   </Do>
-  <Dont>
+  <Dont
+    imageSource={props.data.timelineCorrectHierarchyDont.childFile.childImageSharp.gatsbyImageData}
+  >
     <p>Don’t mix up typographic hierarchy when customizing item content.</p>
   </Dont>
 </BestPractice>
@@ -141,5 +149,41 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    timelineCorrectHierarchyDont: figmaAsset(
+      name: { eq: "components-timeline-correct-hierarchy-dont" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    timelineCorrectHierarchyDo: figmaAsset(
+      name: { eq: "components-timeline-correct-hierarchy-do" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    timelineInteractiveElementsDont: figmaAsset(
+      name: { eq: "components-timeline-interactive-elements-dont" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    timelineInteractiveElementsDo: figmaAsset(
+      name: { eq: "components-timeline-interactive-elements-do" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
   }
 `;

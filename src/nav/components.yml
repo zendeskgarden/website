@@ -24,14 +24,8 @@
       title: Versions
 - title: Components
   items:
-    - title: Accordions
-      items:
-        - id: /components/accordion
-          title: Accordion
-        - id: /components/stepper
-          title: Stepper
-        - id: /components/timeline
-          title: Timeline
+    - title: Accordion
+      id: /components/accordion
     - title: Avatar
       id: /components/avatar
     - title: Breadcrumbs
@@ -114,6 +108,8 @@
           title: Notifications
     - title: Pagination
       id: /components/pagination
+    - title: Stepper
+      id: /components/stepper
     - title: Table
       id: /components/table
     - title: Tabs
@@ -122,6 +118,8 @@
       id: /components/tags
     - title: Tiles
       id: /components/tiles
+    - title: Timeline
+      id: /components/timeline
     - title: Tooltip
       id: /components/tooltip
     - title: Tooltip modal
