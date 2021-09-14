@@ -77,7 +77,7 @@ import TimelineOppositeContentCode from '!!raw-loader!../../examples/accordions/
 Components such as links, buttons, and images can be nested in each timeline item.
 
 <BestPractice>
-  <Do>
+  <Do imageSource={props.data.timelineNestingDo.childFile.childImageSharp.gatsbyImageData}>
     <p>Do include images and other nested content if appropriate.</p>
   </Do>
 </BestPractice>
@@ -149,6 +149,13 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    timelineNestingDo: figmaAsset(name: { eq: "components-timeline-nesting-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
     timelineCorrectHierarchyDont: figmaAsset(
       name: { eq: "components-timeline-correct-hierarchy-dont" }
     ) {
