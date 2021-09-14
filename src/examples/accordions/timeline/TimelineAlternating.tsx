@@ -17,7 +17,7 @@ const Example = () => (
         <Timeline.Item>
           <Timeline.Content>
             <Span isBold style={{ display: 'block' }}>
-              Issue with order
+              Planted seed
             </Span>
             <Span hue="grey">Today 9:00 AM</Span>
           </Timeline.Content>
@@ -25,7 +25,7 @@ const Example = () => (
         <Timeline.Item>
           <Timeline.Content>
             <Span isBold style={{ display: 'block' }}>
-              Ordered 3 items
+              Purchased seed
             </Span>
             <Span hue="grey">Feb 08, 9:05 AM</Span>
           </Timeline.Content>
@@ -33,7 +33,7 @@ const Example = () => (
         <Timeline.Item>
           <Timeline.Content>
             <Span isBold style={{ display: 'block' }}>
-              Added 3 items to cart
+              Arranged layout of garden
             </Span>
             <Span hue="grey">Jan 21, 9:13 AM</Span>
           </Timeline.Content>
@@ -41,7 +41,7 @@ const Example = () => (
         <Timeline.Item>
           <Timeline.Content>
             <Span isBold style={{ display: 'block' }}>
-              Viewed product page
+              Chose a gardening location
             </Span>
             <Span hue="grey">Jan 21, 9:21 AM </Span>
           </Timeline.Content>

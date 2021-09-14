@@ -12,14 +12,14 @@ import { Span } from '@zendeskgarden/react-typography';
 
 const Example = () => (
   <Row justifyContent="center">
-    <Col sm={7}>
+    <Col sm={9}>
       <Timeline>
         <Timeline.Item>
           <Timeline.OppositeContent>
             <Span hue="grey">Today 9:00 AM</Span>
           </Timeline.OppositeContent>
           <Timeline.Content>
-            <Span isBold>Issue with order</Span>
+            <Span isBold>Planted seed</Span>
           </Timeline.Content>
         </Timeline.Item>
         <Timeline.Item>
@@ -27,7 +27,7 @@ const Example = () => (
             <Span hue="grey">Feb 08, 9:05 AM</Span>
           </Timeline.OppositeContent>
           <Timeline.Content>
-            <Span isBold>Ordered 3 items</Span>
+            <Span isBold>Purchased seed</Span>
           </Timeline.Content>
         </Timeline.Item>
         <Timeline.Item>
@@ -35,7 +35,7 @@ const Example = () => (
             <Span hue="grey">Jan 21, 9:13 AM</Span>
           </Timeline.OppositeContent>
           <Timeline.Content>
-            <Span isBold>Added 3 items to cart</Span>
+            <Span isBold>Arranged layout of garden</Span>
           </Timeline.Content>
         </Timeline.Item>
         <Timeline.Item>
@@ -43,7 +43,7 @@ const Example = () => (
             <Span hue="grey">Jan 21, 9:21 AM </Span>
           </Timeline.OppositeContent>
           <Timeline.Content>
-            <Span isBold>Viewed product page</Span>
+            <Span isBold>Chose a gardening location</Span>
           </Timeline.Content>
         </Timeline.Item>
       </Timeline>
