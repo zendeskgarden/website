@@ -6,9 +6,13 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { Timeline } from '@zendeskgarden/react-accordions';
 import { Span } from '@zendeskgarden/react-typography';
-import { StyledSpan } from './TimelineDefault';
+
+export const StyledSpan = styled(Span).attrs({ isBold: true })`
+  display: block;
+`;
 
 const Example = () => (
   <Timeline isAlternate>
