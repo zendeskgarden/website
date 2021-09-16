@@ -7,48 +7,43 @@
 
 import React from 'react';
 import { Timeline } from '@zendeskgarden/react-accordions';
-import { Row, Col } from '@zendeskgarden/react-grid';
 import { Span } from '@zendeskgarden/react-typography';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={9}>
-      <Timeline>
-        <Timeline.Item>
-          <Timeline.OppositeContent>
-            <Span hue="grey">Today 9:00 AM</Span>
-          </Timeline.OppositeContent>
-          <Timeline.Content>
-            <Span isBold>Planted seed</Span>
-          </Timeline.Content>
-        </Timeline.Item>
-        <Timeline.Item>
-          <Timeline.OppositeContent>
-            <Span hue="grey">Feb 08, 9:05 AM</Span>
-          </Timeline.OppositeContent>
-          <Timeline.Content>
-            <Span isBold>Purchased seed</Span>
-          </Timeline.Content>
-        </Timeline.Item>
-        <Timeline.Item>
-          <Timeline.OppositeContent>
-            <Span hue="grey">Jan 21, 9:13 AM</Span>
-          </Timeline.OppositeContent>
-          <Timeline.Content>
-            <Span isBold>Arranged layout of garden</Span>
-          </Timeline.Content>
-        </Timeline.Item>
-        <Timeline.Item>
-          <Timeline.OppositeContent>
-            <Span hue="grey">Jan 21, 9:21 AM </Span>
-          </Timeline.OppositeContent>
-          <Timeline.Content>
-            <Span isBold>Chose a gardening location</Span>
-          </Timeline.Content>
-        </Timeline.Item>
-      </Timeline>
-    </Col>
-  </Row>
+  <Timeline>
+    <Timeline.Item>
+      <Timeline.OppositeContent>
+        <Span hue="grey">Today 9:00 AM</Span>
+      </Timeline.OppositeContent>
+      <Timeline.Content>
+        <Span isBold>Planted seed</Span>
+      </Timeline.Content>
+    </Timeline.Item>
+    <Timeline.Item>
+      <Timeline.OppositeContent>
+        <Span hue="grey">Feb 08, 9:05 AM</Span>
+      </Timeline.OppositeContent>
+      <Timeline.Content>
+        <Span isBold>Purchased seed</Span>
+      </Timeline.Content>
+    </Timeline.Item>
+    <Timeline.Item>
+      <Timeline.OppositeContent>
+        <Span hue="grey">Jan 21, 9:13 AM</Span>
+      </Timeline.OppositeContent>
+      <Timeline.Content>
+        <Span isBold>Arranged layout of garden</Span>
+      </Timeline.Content>
+    </Timeline.Item>
+    <Timeline.Item>
+      <Timeline.OppositeContent>
+        <Span hue="grey">Jan 21, 9:21 AM </Span>
+      </Timeline.OppositeContent>
+      <Timeline.Content>
+        <Span isBold>Chose a gardening location</Span>
+      </Timeline.Content>
+    </Timeline.Item>
+  </Timeline>
 );
 
 export default Example;

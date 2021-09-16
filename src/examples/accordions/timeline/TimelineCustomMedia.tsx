@@ -13,40 +13,33 @@ import { ReactComponent as LocationIcon } from '@zendeskgarden/svg-icons/src/12/
 import { ReactComponent as RearrangeIcon } from '@zendeskgarden/svg-icons/src/12/rearrange-stroke.svg';
 import { ReactComponent as CartIcon } from '@zendeskgarden/svg-icons/src/12/shopping-cart-stroke.svg';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/12/leaf-stroke.svg';
+import { StyledSpan } from './TimelineDefault';
 
 const Example = () => (
   <Row justifyContent="center">
-    <Col sm={5}>
+    <Col sm="auto">
       <Timeline>
         <Timeline.Item icon={<LeafIcon />}>
           <Timeline.Content>
-            <Span isBold style={{ display: 'block' }}>
-              Planted seed
-            </Span>
+            <StyledSpan>Planted seed</StyledSpan>
             <Span hue="grey">Today 9:00 AM</Span>
           </Timeline.Content>
         </Timeline.Item>
         <Timeline.Item icon={<CartIcon />}>
           <Timeline.Content>
-            <Span isBold style={{ display: 'block' }}>
-              Purchased seed
-            </Span>
+            <StyledSpan>Purchased seed</StyledSpan>
             <Span hue="grey">Feb 08, 9:05 AM</Span>
           </Timeline.Content>
         </Timeline.Item>
         <Timeline.Item icon={<RearrangeIcon />}>
           <Timeline.Content>
-            <Span isBold style={{ display: 'block' }}>
-              Arranged layout of garden
-            </Span>
+            <StyledSpan>Arranged layout of garden</StyledSpan>
             <Span hue="grey">Jan 21, 9:13 AM</Span>
           </Timeline.Content>
         </Timeline.Item>
         <Timeline.Item icon={<LocationIcon />}>
           <Timeline.Content>
-            <Span isBold style={{ display: 'block' }}>
-              Chose a gardening location
-            </Span>
+            <StyledSpan>Chose a gardening location</StyledSpan>
             <Span hue="grey">Jan 21, 9:21 AM </Span>
           </Timeline.Content>
         </Timeline.Item>

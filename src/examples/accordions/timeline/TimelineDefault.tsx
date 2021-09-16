@@ -6,43 +6,40 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { Timeline } from '@zendeskgarden/react-accordions';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Span } from '@zendeskgarden/react-typography';
 
+export const StyledSpan = styled(Span).attrs({ isBold: true })`
+  display: block;
+`;
+
 const Example = () => (
   <Row justifyContent="center">
-    <Col sm={5}>
+    <Col sm="auto">
       <Timeline>
         <Timeline.Item>
           <Timeline.Content>
-            <Span isBold style={{ display: 'block' }}>
-              Planted seed
-            </Span>
+            <StyledSpan>Planted seed</StyledSpan>
             <Span hue="grey">Today 9:00 AM</Span>
           </Timeline.Content>
         </Timeline.Item>
         <Timeline.Item>
           <Timeline.Content>
-            <Span isBold style={{ display: 'block' }}>
-              Purchased seed
-            </Span>
+            <StyledSpan>Purchased seed</StyledSpan>
             <Span hue="grey">Feb 08, 9:05 AM</Span>
           </Timeline.Content>
         </Timeline.Item>
         <Timeline.Item>
           <Timeline.Content>
-            <Span isBold style={{ display: 'block' }}>
-              Arranged layout of garden
-            </Span>
+            <StyledSpan>Arranged layout of garden</StyledSpan>
             <Span hue="grey">Jan 21, 9:13 AM</Span>
           </Timeline.Content>
         </Timeline.Item>
         <Timeline.Item>
           <Timeline.Content>
-            <Span isBold style={{ display: 'block' }}>
-              Chose a gardening location
-            </Span>
+            <StyledSpan>Chose a gardening location</StyledSpan>
             <Span hue="grey">Jan 21, 9:21 AM </Span>
           </Timeline.Content>
         </Timeline.Item>
