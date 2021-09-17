@@ -43,6 +43,28 @@ const components = [
   {
     name: 'Stepper.Step',
     extends: 'LiHTMLAttributes<HTMLLIElement>'
+  },
+  {
+    name: 'Timeline.Content',
+    extends: 'HTMLAttributes<HTMLDivElement>'
+  },
+  {
+    name: 'Timeline.Item',
+    extends: 'HTMLLIElement',
+    props: {
+      icon: {
+        type: 'ReactNode',
+        description: 'Replaces the dot with an icon'
+      },
+      surfaceColor: {
+        type: 'string',
+        description: 'Provides surface color for an SVG icon placed on a non-white background'
+      }
+    }
+  },
+  {
+    name: 'Timeline.OppositeContent',
+    extends: 'HTMLAttributes<HTMLDivElement>'
   }
 ];
 

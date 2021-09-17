@@ -12,7 +12,14 @@ const path = require('path');
 require('dotenv').config();
 envalid.cleanEnv(process.env, { ABSTRACT_TOKEN: envalid.str(), FIGMA_TOKEN: envalid.str() });
 
-const figmaNodeIds = ['1:22' /* home-hero-logo */];
+const figmaNodeIds = [
+  '1:22' /* home-hero-logo */,
+  '111:5361' /* components-timeline-interactive-elements-do */,
+  '111:5353' /* components-timeline-interactive-elements-dont */,
+  '111:5367' /* components-timeline-correct-hierarchy-do */,
+  '111:5374' /* components-timeline-correct-hierarchy-dont */,
+  '336:2968' /* components-timeline-nesting-do */
+];
 
 module.exports = {
   siteMetadata: {

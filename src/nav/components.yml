@@ -118,6 +118,8 @@
       id: /components/tags
     - title: Tiles
       id: /components/tiles
+    - title: Timeline
+      id: /components/timeline
     - title: Tooltip
       id: /components/tooltip
     - title: Tooltip modal
