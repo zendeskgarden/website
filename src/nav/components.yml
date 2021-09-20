@@ -56,6 +56,8 @@
       id: /components/drawer
     - title: Dropdowns
       items:
+        - id: /components/dropdowns
+          title: Overview
         - id: /components/autocomplete
           title: Autocomplete
         - id: /components/menu
