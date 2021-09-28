@@ -34,33 +34,6 @@ components:
 
 ## How to use it
 
-Autocomplete expects the following overall structure:
-
-```jsx isLight
-<Dropdown>
-  <Field>
-    <Label>
-    <Hint>
-    <Autocommplete>
-  </Field>
-  <Menu>
-    <Item>
-    <Item>
-    ...
-  </Menu>
-</Dropdown>
-```
-
-### Implementation notes
-
-- The dropdowns package does not supply filtering logic. The simplest way to perform filtering is to
-  control the `inputValue` and `onInputValueChange` props, and conditionally render Item components as
-  necessary.
-
-- Due to a known [issue](https://github.com/facebook/react/issues/11538#issuecomment-390386520) caused
-  by google translation extension, any conditionally rendered text node should be wrapped with a `<span>`
-  element.
-
 ### Default
 
 The typical usage of an Autocomplete component.
@@ -127,11 +100,42 @@ import SizeCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Size.ts
 
 ## API
 
+Autocomplete expects the following overall structure:
+
+```jsx isLight
+<Dropdown>
+  <Field>
+    <Label>
+    <Hint>
+    <Autocommplete>
+  </Field>
+  <Menu>
+    <Item>
+    <Item>
+    ...
+  </Menu>
+</Dropdown>
+```
+
+<!-- markdownlint-disable no-emphasis-as-heading -->
+
+**Implementation notes**
+
+<!-- markdownlint-enable no-emphasis-as-heading -->
+
+- The dropdowns package does not supply filtering logic. The simplest way to perform filtering is to
+  control the `inputValue` and `onInputValueChange` props, and conditionally render Item components as
+  necessary.
+
+- Due to a known [issue](https://github.com/facebook/react/issues/11538#issuecomment-390386520) caused
+  by google translation extension, any conditionally rendered text node should be wrapped with a `span`
+  element.
+
 ### Autocomplete
 
 <Component components={props.data.mdx.components} componentName="autocomplete" />
 
-The Autocomplete component applies state and a11y attributes to its children. It must be nested within a
+The Autocomplete component applies state and accessibility attributes to its children. It must be nested within a
 Field component.
 
 <PropSheet components={props.data.mdx.components} componentName="autocomplete" />
@@ -140,7 +144,9 @@ Field component.
 
 <Component components={props.data.mdx.components} componentName="dropdown" />
 
-[Dropdown](/components/dropdowns) provides state and a11y through the context API to its consumers.
+import Dropdowns from '../../fragments/dropdowns.mdx';
+
+<Dropdowns />
 
 <PropSheet components={props.data.mdx.components} componentName="dropdown" />
 
@@ -148,7 +154,7 @@ Field component.
 
 <Component components={props.data.mdx.components} componentName="field" />
 
-Field provides a11y attributes to child fields. It must wrap the Autocomplete component.
+A Field provides accessibility attributes to child fields. It must wrap the Autocomplete component.
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
@@ -173,7 +179,7 @@ which is provided to the `onSelect` callback.
 
 <Component components={props.data.mdx.components} componentName="label" />
 
-Provides a label for the dropdown field. Must be nested within a Field component.
+The Label must be nested within a Field component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
