@@ -19,7 +19,7 @@ export const Patterns: React.FC = () => {
   const { patternsImage } = useStaticQuery(
     graphql`
       {
-        patternsImage: abstractAsset(layerName: { eq: "home-pillars-patterns" }) {
+        patternsImage: figmaAsset(name: { eq: "home-pillars-patterns" }) {
           childFile {
             childImageSharp {
               gatsbyImageData(width: 808)

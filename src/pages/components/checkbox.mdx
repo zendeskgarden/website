@@ -183,17 +183,15 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    checkboxSelectionDo: abstractAsset(
-      layerName: { eq: "components-forms-checkbox-standalone-do" }
-    ) {
+    checkboxSelectionDo: figmaAsset(name: { eq: "components-forms-checkbox-standalone-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)
         }
       }
     }
-    checkboxStandaloneOptionDont: abstractAsset(
-      layerName: { eq: "components-forms-checkbox-standalone-option-dont" }
+    checkboxStandaloneOptionDont: figmaAsset(
+      name: { eq: "components-forms-checkbox-standalone-option-dont" }
     ) {
       childFile {
         childImageSharp {

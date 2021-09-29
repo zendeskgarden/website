@@ -79,6 +79,7 @@ exports.sourceNodes = async (
 exports.onCreateNode = async ({ node, actions: { createNode }, createNodeId, getCache }) => {
   if (node.internal.type === NODE_TYPE) {
     const fileNode = await createRemoteFileNode({
+      ...node,
       url: node.imageUrl,
       parentNodeId: node.id,
       createNode,

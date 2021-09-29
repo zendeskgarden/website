@@ -10,20 +10,21 @@ const visit = require(`unist-util-visit`);
 const cheerio = require(`cheerio`);
 
 /**
- * This plugin allows markdown images to support referencing Abstract assets.
+ * This plugin allows markdown images to support referencing Figma assets.
  *
- * `[Alt text](abstract:{LAYER_NAME}-{FORMAT}.{EXTENSION})`
+ * `[Alt text](figma:{LAYER_NAME}-{FORMAT}.{EXTENSION})`
  */
 module.exports = ({ files, markdownNode, markdownAST, getNode }) => {
-  const retrieveAbstractUrl = imageUrl => {
+  const retrieveFigmaUrl = imageUrl => {
     /**
-     * Only transform images that match the abstract template
+     * Only transform images that match the figma template
      */
-    if (!imageUrl.startsWith('abstract:')) {
+    if (!imageUrl.startsWith('figma:')) {
       return imageUrl;
     }
 
-    const layerFileName = imageUrl.replace('abstract:', '');
+    const layerFileName = imageUrl.replace('figma:', '');
+
     const matchingFileNode = files.find(file => file.base === layerFileName);
 
     /**
@@ -39,10 +40,10 @@ module.exports = ({ files, markdownNode, markdownAST, getNode }) => {
   };
 
   /**
-   * Update markdown image path to Abstract Asset
+   * Update markdown image path to Figma Asset
    */
   visit(markdownAST, 'image', image => {
-    image.url = retrieveAbstractUrl(image.url);
+    image.url = retrieveFigmaUrl(image.url);
   });
 
   /**
@@ -67,7 +68,7 @@ module.exports = ({ files, markdownNode, markdownAST, getNode }) => {
       const imageNode = $(this); // this is necessary for cheerio usage
       const originalSrc = imageNode.attr('src');
 
-      srcMappings[originalSrc] = retrieveAbstractUrl(originalSrc);
+      srcMappings[originalSrc] = retrieveFigmaUrl(originalSrc);
     });
 
     for (const originalSrc of Object.keys(srcMappings)) {
