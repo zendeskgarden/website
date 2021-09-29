@@ -114,6 +114,11 @@ import SelectValidationCode from '!!raw-loader!../../examples/dropdowns/select/V
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
+## Accessibility
+
+If no Label component is provided with the implementation, include an `aria-label` to provide an
+accessible name for the field.
+
 ## API
 
 The Select component expects the following overall structure:
@@ -180,8 +185,7 @@ A Message can be used to show validation messages. It must be nested within a Fi
 
 <Component components={props.data.mdx.components} componentName="select" />
 
-The select component applies state and accessibility attributes to its children. If no label component
-is provided with the implementation, include an `aria-label`.
+The select component applies state and accessibility attributes to its children.
 
 <PropSheet components={props.data.mdx.components} componentName="select" />
 
