@@ -91,6 +91,23 @@ The Multiselect component expects the following overall structure:
 </Dropdown>
 ```
 
+<!-- markdownlint-disable no-emphasis-as-heading -->
+
+**Implementation notes**
+
+<!-- markdownlint-enable no-emphasis-as-heading -->
+
+- The dropdowns package does not supply filtering logic. The simplest way to perform filtering is to
+  control the `inputValue` and `onInputValueChange` props, and conditionally render Item components as
+  necessary.
+
+- Use input debouncing to delay Item rendering and prevent Downshift from reapplying accessibility
+  and interaction attributes.
+
+- Due to a known [issue](https://github.com/facebook/react/issues/11538#issuecomment-390386520) caused
+  by google translation extension, any conditionally rendered text node should be wrapped with a `span`
+  element.
+
 ### Dropdown
 
 <Component components={props.data.mdx.components} componentName="dropdown" />
