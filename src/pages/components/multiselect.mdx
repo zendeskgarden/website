@@ -74,9 +74,30 @@ import MultiselectSizeCode from '!!raw-loader!../../examples/dropdowns/multisele
 
 ## API
 
+The Multiselect component expects the following overall structure:
+
+```jsx isLight
+<Dropdown>
+  <Field>
+    <Label>
+    <Hint>
+    <Multiselect>
+  </Field>
+  <Menu>
+    <Item>
+    <Item>
+    ...
+  </Menu>
+</Dropdown>
+```
+
 ### Dropdown
 
 <Component components={props.data.mdx.components} componentName="dropdown" />
+
+import Dropdowns from '../../fragments/dropdowns.mdx';
+
+<Dropdowns />
 
 <PropSheet components={props.data.mdx.components} componentName="dropdown" />
 
@@ -84,11 +105,15 @@ import MultiselectSizeCode from '!!raw-loader!../../examples/dropdowns/multisele
 
 <Component components={props.data.mdx.components} componentName="field" />
 
+A Field provides accessibility attributes to child fields. It must wrap the Autocomplete component.
+
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
 ### Hint
 
 <Component components={props.data.mdx.components} componentName="hint" />
+
+A Hint is used to provide additional context for the dropdown field. It must be nested within a Field component.
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
@@ -96,17 +121,26 @@ import MultiselectSizeCode from '!!raw-loader!../../examples/dropdowns/multisele
 
 <Component components={props.data.mdx.components} componentName="item" />
 
+An Item is used for each dropdown option. It must be nested within a Menu component. It requires a `value` prop,
+which is provided to the `onSelect` callback.
+
 <PropSheet components={props.data.mdx.components} componentName="item" />
 
 ### Label
 
 <Component components={props.data.mdx.components} componentName="label" />
 
+The Label must be nested within a Field component.
+
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
 ### Multiselect
 
 <Component components={props.data.mdx.components} componentName="multiselect" />
+
+The multiselect component applies state and accessibility attributes to its children, and renders a
+customizable `tag` for each selected item. This tag can be any element, but the surrounding field is
+designed to work with the [tag](/components/tags) component.
 
 <PropSheet components={props.data.mdx.components} componentName="multiselect" />
 
