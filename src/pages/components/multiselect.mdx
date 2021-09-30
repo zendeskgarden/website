@@ -68,14 +68,14 @@ import MultiselectSizeCode from '!!raw-loader!../../examples/dropdowns/multisele
   <MultiselectSize />
 </CodeExample>
 
-## Configuration
-
-<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
-
 ## Accessibility
 
 If no Label component is provided with the implementation, include an `aria-label` to provide an
 accessible name for the field.
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
@@ -96,22 +96,9 @@ The Multiselect component expects the following overall structure:
 </Dropdown>
 ```
 
-<!-- markdownlint-disable no-emphasis-as-heading -->
+import FilteringNotes from '../../fragments/dropdowns-filtering-notes.mdx';
 
-**Implementation notes**
-
-<!-- markdownlint-enable no-emphasis-as-heading -->
-
-- The dropdowns package does not supply filtering logic. The simplest way to perform filtering is to
-  control the `inputValue` and `onInputValueChange` props, and conditionally render Item components as
-  necessary.
-
-- Use input debouncing to delay Item rendering and prevent Downshift from reapplying accessibility
-  and interaction attributes.
-
-- Due to a known [issue](https://github.com/facebook/react/issues/11538#issuecomment-390386520) caused
-  by google translation extension, any conditionally rendered text node should be wrapped with a `span`
-  element.
+<FilteringNotes />
 
 ### Dropdown
 
