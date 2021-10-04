@@ -149,7 +149,7 @@ A Menu expects the following overall structure:
   <Menu>
     <Item>
     <Item>
-    ...
+    {/* etc. */}
   </Menu>
 </Dropdown>
 ```
@@ -160,15 +160,12 @@ A Menu expects the following overall structure:
 
 <!-- markdownlint-enable no-emphasis-as-heading -->
 
-If loading is asynchronous, consider delaying Item rendering to prevent Downshift from reapplying accessibility and
-interaction attributes.
+If loading is asynchronous, consider delaying Item rendering to prevent Downshift from reapplying accessibility
+and interaction attributes.
 
 ### AddItem
 
 <Component components={props.data.mdx.components} componentName="addItem" />
-
-The AddItem component wraps the Item component and displays a plus icon to indicate that the user can add a
-new option to the menu.
 
 <PropSheet components={props.data.mdx.components} componentName="addItem" />
 
@@ -186,7 +183,7 @@ import Dropdowns from '../../fragments/dropdowns.mdx';
 
 <Component components={props.data.mdx.components} componentName="headerIcon" />
 
-A HeaderIcon must be nested within a HeaderItem.
+A HeaderIcon must be nested within a [HeaderItem](#headeritem).
 
 <PropSheet components={props.data.mdx.components} componentName="headerIcon" />
 
@@ -200,11 +197,8 @@ A HeaderIcon must be nested within a HeaderItem.
 
 <Component components={props.data.mdx.components} componentName="item" />
 
-An Item is used for each dropdown option. It must be nested within a Menu component. It requires a `value` prop,
-which is provided to the `onSelect` callback.
-
-Item components can be wrapped and extended with styling libraries or other layout elements. All necessary
-information is provided through the Context API.
+An Item must be nested within a [Menu](#menu) component. It requires a `value` prop, which is provided to the
+`onSelect` callback.
 
 <PropSheet components={props.data.mdx.components} componentName="item" />
 
@@ -220,7 +214,7 @@ An ItemMeta provides additional information about an Item. It must be nested wit
 
 <Component components={props.data.mdx.components} componentName="mediaBody" />
 
-The MediaBody component must be nested within a MediaItem or an Item component.
+The MediaBody component must be nested within an [Item](#item) component.
 
 <PropSheet components={props.data.mdx.components} componentName="mediaBody" />
 
@@ -228,7 +222,7 @@ The MediaBody component must be nested within a MediaItem or an Item component.
 
 <Component components={props.data.mdx.components} componentName="mediaFigure" />
 
-The MediaFigure component must be nested within a MediaItem or an Item component.
+The MediaFigure component must be nested within an [Item](#item) component.
 
 <PropSheet components={props.data.mdx.components} componentName="mediaFigure" />
 
@@ -236,15 +230,13 @@ The MediaFigure component must be nested within a MediaItem or an Item component
 
 <Component components={props.data.mdx.components} componentName="mediaItem" />
 
-The MediaItem component wraps the default Item component.
-
 <PropSheet components={props.data.mdx.components} componentName="mediaItem" />
 
 ### Menu
 
 <Component components={props.data.mdx.components} componentName="menu" />
 
-A Menu manages placement, positioning and layout of the child Item components.
+A Menu manages placement, positioning and layout of the child [Item](#item) components.
 
 <PropSheet components={props.data.mdx.components} componentName="menu" />
 
@@ -252,11 +244,9 @@ A Menu manages placement, positioning and layout of the child Item components.
 
 <Component components={props.data.mdx.components} componentName="nextItem" />
 
-The NextItem component wraps the default Item component and displays the next icon to indicate the presence
-of a succeeding level. It enables additional RTL-aware keyboard navigation in nested menus.
-
-The Dropdown component's `isOpen` and `onStateChange` props can be used to conditionally handle the open/close
-state based on selection.
+The NextItem component displays the next icon to indicate the presence of a succeeding level. It enables
+additional RTL-aware keyboard navigation in nested menus. The Dropdown component's `isOpen` and `onStateChange`
+props can be used to conditionally handle the open/close state based on selection.
 
 <PropSheet components={props.data.mdx.components} componentName="nextItem" />
 
@@ -264,11 +254,9 @@ state based on selection.
 
 <Component components={props.data.mdx.components} componentName="previousItem" />
 
-The PreviousItem component wraps the default Item component and displays the previous icon to indicate the presence
-of a preceding level. It enables additional RTL-aware keyboard navigation in nested menus.
-
-The Dropdown component's `isOpen` and `onStateChange` props can be used to conditionally handle the open/close
-state based on selection.
+The PreviousItem component displays the previous icon to indicate the presence of a preceding level. It enables
+additional RTL-aware keyboard navigation in nested menus. The Dropdown component's `isOpen` and `onStateChange`
+props can be used to conditionally handle the open/close state based on selection.
 
 <PropSheet components={props.data.mdx.components} componentName="previousItem" />
 

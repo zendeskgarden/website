@@ -94,11 +94,6 @@ import SizeCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Size.ts
   </Do>
 </BestPractice>
 
-## Accessibility
-
-If no Label component is provided with the implementation, include an `aria-label` to provide an
-accessible name for the field.
-
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
@@ -117,7 +112,7 @@ The Autocomplete component expects the following overall structure:
   <Menu>
     <Item>
     <Item>
-    ...
+    {/* etc. */}
   </Menu>
 </Dropdown>
 ```
@@ -131,7 +126,7 @@ import FilteringNotes from '../../fragments/dropdowns-filtering-notes.mdx';
 <Component components={props.data.mdx.components} componentName="autocomplete" />
 
 The Autocomplete component applies state and accessibility attributes to its children. It must be nested within a
-Field component.
+[Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="autocomplete" />
 
@@ -157,7 +152,7 @@ A Field provides accessibility attributes to child fields. It must wrap the Auto
 
 <Component components={props.data.mdx.components} componentName="hint" />
 
-A Hint is used to provide additional context for the dropdown field. It must be nested within a Field component.
+A Hint must be nested within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
@@ -165,8 +160,8 @@ A Hint is used to provide additional context for the dropdown field. It must be 
 
 <Component components={props.data.mdx.components} componentName="item" />
 
-An Item is used for each dropdown option. It must be nested within a Menu component. It requires a `value` prop,
-which is provided to the `onSelect` callback.
+An Item must be nested within a [Menu](#menu) component. It requires a `value` prop, which is provided to
+the `onSelect` callback.
 
 <PropSheet components={props.data.mdx.components} componentName="item" />
 
@@ -174,7 +169,7 @@ which is provided to the `onSelect` callback.
 
 <Component components={props.data.mdx.components} componentName="label" />
 
-The Label must be nested within a Field component.
+The Label must be nested within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 

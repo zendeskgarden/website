@@ -1,15 +1,14 @@
-The Dropdown component provides state and accessibility through the context API to its consumers while enabling
-customization.
+The Dropdown component provides state and accessibility to its consumers while enabling customization.
 
-**Placement / Positioning**: Internally, the Dropdown component uses [PopperJS](https://popper.js.org/docs/v2/)
-for positioning. Use the `popperModifiers` prop of the Menu component to customize the placement, boundaries,
-overflows etc.
+**Placement / Positioning**: The Dropdown component uses [PopperJS](https://popper.js.org/docs/v2/)
+for positioning. Use the `popperModifiers` prop of the [Menu](#menu) component to customize the placement, boundaries,
+overflows, etc.
 
-**Dropdown State**: The [Downshift](https://github.com/downshift-js/downshift) `render-prop` library handles the
-keyboard and accessibility logic. Provide other customizations directly to the Downshift provider via the
-`downshiftProps` prop. See the [stateReducer](https://github.com/downshift-js/downshift#statereducer) pattern
-for an example of a common customization strategy.
+**Dropdown State**: The [Downshift](https://github.com/downshift-js/downshift) library handles
+keyboard and accessibility logic. Provide other customizations directly to Downshift via
+`downshiftProps`. See the [stateReducer](https://github.com/downshift-js/downshift#statereducer) pattern
+for a common customization strategy example.
 
-**Server Side Rendering**: Server side rendering might require configuring specific Downshift settings. The
-dropdowns package re-exports Downshift's `resetIdCounter` utility, resetting the internal id counter which
-is used to generate unique ids for Downshift.
+**Server Side Rendering**: Server side rendering might require specific Downshift settings. The
+dropdowns package re-exports Downshift's [resetIdCounter](https://github.com/downshift-js/downshift#resetidcounter)
+utility, resetting the internal id counter which is used to generate unique ids for Downshift.

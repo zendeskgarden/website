@@ -56,8 +56,8 @@ import SelectDefaultCode from '!!raw-loader!../../examples/dropdowns/select/Defa
 
 ### Disabled
 
-A disabled Select prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may not read
-aloud by a screenreader.
+A disabled Select prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may
+not read aloud by a screenreader.
 
 import SelectDisabled from '../../examples/dropdowns/select/Disabled.tsx';
 import SelectDisabledCode from '!!raw-loader!../../examples/dropdowns/select/Disabled.tsx';
@@ -110,11 +110,6 @@ import SelectValidationCode from '!!raw-loader!../../examples/dropdowns/select/V
   <SelectValidation />
 </CodeExample>
 
-## Accessibility
-
-If no Label component is provided with the implementation, include an `aria-label` to provide an
-accessible name for the field.
-
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
@@ -134,7 +129,7 @@ The Select component expects the following overall structure:
   <Menu>
     <Item>
     <Item>
-    ...
+    {/* etc. */}
   </Menu>
 </Dropdown>
 ```
@@ -153,7 +148,7 @@ import Dropdowns from '../../fragments/dropdowns.mdx';
 
 <Component components={props.data.mdx.components} componentName="field" />
 
-A Field provides accessibility attributes to child fields. It must wrap the Autocomplete component.
+A Field provides accessibility attributes to child fields. It must wrap the Select component.
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
@@ -161,7 +156,7 @@ A Field provides accessibility attributes to child fields. It must wrap the Auto
 
 <Component components={props.data.mdx.components} componentName="hint" />
 
-A Hint is used to provide additional context for the dropdown field. It must be nested within a Field component.
+A Hint must be nested within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
@@ -169,7 +164,7 @@ A Hint is used to provide additional context for the dropdown field. It must be 
 
 <Component components={props.data.mdx.components} componentName="label" />
 
-The Label must be nested within a Field component.
+The Label must be nested within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
@@ -177,7 +172,7 @@ The Label must be nested within a Field component.
 
 <Component components={props.data.mdx.components} componentName="message" />
 
-A Message can be used to show validation messages. It must be nested within a Field component.
+A Message can be used to show validation messages. It must be nested within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="message" />
 
@@ -185,8 +180,8 @@ A Message can be used to show validation messages. It must be nested within a Fi
 
 <Component components={props.data.mdx.components} componentName="select" />
 
-The select component applies state and accessibility attributes to its children. It must be nested within a
-Field component.
+The Select component applies state and accessibility attributes to its children. It must be nested within a
+[Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="select" />
 

@@ -7,10 +7,8 @@
 - The dropdowns package does not supply filtering logic. The simplest way to perform filtering is to
   control the `inputValue` and `onInputValueChange` props, and conditionally render Item components as
   necessary.
-
-- Use input debouncing to delay Item rendering and prevent Downshift from reapplying accessibility
-  and interaction attributes.
-
+- Use input debouncing to delay Item rendering and prevent [Downshift](https://www.downshift-js.com/) from reapplying accessibility
+  and interaction attributes. See [examples](#how-to-use-it) for details.
 - Due to a known [issue](https://github.com/facebook/react/issues/11538#issuecomment-390386520) caused
-  by google translation extension, any conditionally rendered text node should be wrapped with a `span`
+  by Google Translate, any conditionally rendered text node should be wrapped with a `span`
   element.
