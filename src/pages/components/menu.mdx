@@ -143,12 +143,12 @@ import MenuSizeCode from '!!raw-loader!../../examples/dropdowns/menu/Size.tsx';
 
 A Menu expects the following overall structure:
 
-```jsx isLight
+```jsx
 <Dropdown>
-  <Trigger>
+  <Trigger />
   <Menu>
-    <Item>
-    <Item>
+    <Item />
+    <Item />
     {/* etc. */}
   </Menu>
 </Dropdown>
@@ -160,8 +160,8 @@ A Menu expects the following overall structure:
 
 <!-- markdownlint-enable no-emphasis-as-heading -->
 
-If loading is asynchronous, consider delaying Item rendering to prevent Downshift from reapplying accessibility
-and interaction attributes.
+If loading is asynchronous, consider delaying Item rendering until loading completes, to prevent Downshift
+from reapplying accessibility and interaction attributes on every re-render.
 
 ### AddItem
 
