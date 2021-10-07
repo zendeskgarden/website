@@ -64,6 +64,8 @@
           title: Multiselect
         - id: /components/select
           title: Select
+        - id: /components/select-native
+          title: Select (native)
     - title: Forms
       items:
         - id: /components/checkbox
@@ -80,8 +82,6 @@
           title: Radio
         - id: /components/range
           title: Range
-        - id: /components/select-native
-          title: Select (native)
         - id: /components/textarea
           title: Textarea
         - id: /components/toggle
