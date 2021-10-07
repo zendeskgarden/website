@@ -10,6 +10,7 @@ import { CodeBlock } from '@zendeskgarden/react-typography';
 
 export const StyledCodeBlock = styled(CodeBlock).attrs(p => ({
   language: p.className ? p.className.replace(/language-/u, '') : undefined,
+  isLight: true,
   containerProps: {
     style: { margin: `${p.theme.space.md} 0` }
   }
