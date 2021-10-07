@@ -57,7 +57,7 @@ import SelectDefaultCode from '!!raw-loader!../../examples/dropdowns/select/Defa
 ### Disabled
 
 A disabled Select prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may
-not read aloud by a screenreader.
+not be read aloud by a screenreader.
 
 import SelectDisabled from '../../examples/dropdowns/select/Disabled.tsx';
 import SelectDisabledCode from '!!raw-loader!../../examples/dropdowns/select/Disabled.tsx';
@@ -148,7 +148,8 @@ import Dropdowns from '../../fragments/dropdowns.mdx';
 
 <Component components={props.data.mdx.components} componentName="field" />
 
-A Field provides accessibility attributes to child fields. It must wrap the Select component.
+A Field provides accessibility attributes to the child [Select](#select) field by associating it
+with the corresponding [Label](#label) and [Hint](#hint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
