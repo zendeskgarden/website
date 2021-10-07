@@ -154,15 +154,6 @@ A Menu expects the following overall structure:
 </Dropdown>
 ```
 
-<!-- markdownlint-disable no-emphasis-as-heading -->
-
-**Implementation notes**
-
-<!-- markdownlint-enable no-emphasis-as-heading -->
-
-If loading is asynchronous, consider delaying Item rendering until loading completes, to prevent Downshift
-from reapplying accessibility and interaction attributes on every re-render.
-
 ### AddItem
 
 <Component components={props.data.mdx.components} componentName="addItem" />
