@@ -61,7 +61,6 @@
     "@zendeskgarden/scripts": "1.2.1",
     "@zendeskgarden/stylelint-config": "16.0.1",
     "@zendeskgarden/svg-icons": "6.30.2",
-    "abstract-sdk": "8.1.2",
     "babel-eslint": "10.1.0",
     "babel-plugin-styled-components": "1.13.2",
     "bottleneck": "2.19.5",

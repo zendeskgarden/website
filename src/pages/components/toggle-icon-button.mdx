@@ -141,8 +141,8 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    toggleIconButtonTooltipDo: abstractAsset(
-      layerName: { eq: "components-buttons-toggleiconbutton-tooltip-do" }
+    toggleIconButtonTooltipDo: figmaAsset(
+      name: { eq: "components-buttons-toggleiconbutton-tooltip-do" }
     ) {
       childFile {
         childImageSharp {

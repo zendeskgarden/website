@@ -10,10 +10,10 @@ behavior.
 
 ## Environment Variables
 
-Garden uses the [Abstract SDK](https://sdk.goabstract.com/) to source versioned
+Garden uses the [Figma API](https://www.figma.com/developers/api) to source versioned
 content and images throughout the site. To build this solution
-[generate an Abstract API token](https://sdk.goabstract.com/docs/authentication/#generating-an-access-token)
-and add it to your environment under the `ABSTRACT_TOKEN` name.
+[generate an Figma API token](https://www.figma.com/developers/api#authentication)
+and add it to your environment under the `FIGMA_TOKEN` name.
 
 ## Development Workflow
 

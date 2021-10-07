@@ -147,8 +147,8 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    dropdownSelectionDo: abstractAsset(
-      layerName: { eq: "components-dropdowns-autocomplete-selection-do" }
+    dropdownSelectionDo: figmaAsset(
+      name: { eq: "components-dropdowns-autocomplete-selection-do" }
     ) {
       childFile {
         childImageSharp {
