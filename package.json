@@ -67,7 +67,7 @@
     "cheerio": "1.0.0-rc.10",
     "codesandbox": "2.2.3",
     "comment-parser": "1.2.4",
-    "core-js": "2.6.12",
+    "core-js": "3.18.2",
     "date-fns": "2.25.0",
     "dom-helpers": "5.2.1",
     "dotenv": "10.0.0",
