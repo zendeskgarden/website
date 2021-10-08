@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ReactElement, ReactNode } from 'react';
-import remark from 'remark';
+import React, { createElement, ReactElement, ReactNode } from 'react';
+import { remark } from 'remark';
 import remark2react from 'remark-react';
 import VFile from 'vfile';
 import { Code } from '@zendeskgarden/react-typography';
@@ -50,7 +50,7 @@ export const COMPONENTS = {
   th: TH
 };
 
-const PROCESSOR = remark().use(remark2react, { remarkReactComponents: COMPONENTS });
+const PROCESSOR = remark().use(remark2react, { remarkReactComponents: COMPONENTS, createElement });
 
 interface IMarkdown extends VFile.VFile {
   result: ReactElement;
