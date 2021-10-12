@@ -56,11 +56,35 @@ import IconsCode from '!!raw-loader!../../examples/accordions/stepper/StepperIco
 
 ## API
 
+The Stepper component expects the following overall structure:
+
+```jsx
+<Stepper>
+  <Stepper.Step>
+    <Stepper.Label />
+    <Stepper.Content />
+  </Stepper.Step>
+  {/* other steps */}
+</Stepper>
+```
+
+<!-- markdownlint-disable no-emphasis-as-heading -->
+
+**Implementation notes**
+
+<!-- markdownlint-enable no-emphasis-as-heading -->
+
+- Content for a vertical stepper must be defined using the `Stepper.Content` for each step
+
+- Content for a horizontal stepper must be rendered externally. See [example](#layout) for details.
+
 import COMPONENTS from '../../examples/accordions/components.ts';
 
 ### Stepper
 
 <Component components={props.data.mdx.components} componentName="stepper" />
+
+The Stepper component provides state to its children.
 
 <PropSheet components={props.data.mdx.components} componentName="stepper" />
 
@@ -68,15 +92,24 @@ import COMPONENTS from '../../examples/accordions/components.ts';
 
 <Component components={COMPONENTS} componentName="stepper.content" />
 
+The Content component renders the step's content and provides the calculated styles for animations. It
+must be nested within a [Step](#stepperstep).
+
 #### Stepper.Label
 
 <Component components={COMPONENTS} componentName="stepper.label" />
+
+The Label component renders the provided label text with the step number or the provided icon. It must be
+nested within a [Step](#stepperstep).
 
 <PropSheet components={COMPONENTS} componentName="stepper.label" />
 
 #### Stepper.Step
 
 <Component components={COMPONENTS} componentName="stepper.step" />
+
+The Step component must wrap each step's [Label](#stepperlabel) and the corresponding
+[Content](#steppercontent) together.
 
 import { graphql } from 'gatsby';
 

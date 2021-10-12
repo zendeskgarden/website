@@ -75,11 +75,28 @@ import AccordionSizeCode from '!!raw-loader!../../examples/accordions/accordion/
 
 ## API
 
+The Accordion component expects the following overall structure:
+
+```jsx
+<Accordion>
+  <Accordion.Section>
+    <Accordion.Header>
+      <Accordion.Label />
+    </Accordion.Header>
+    <Accordion.Panel />
+  </Accordion.Section>
+  {/* other sections */}
+</Accordion>
+```
+
 import COMPONENTS from '../../examples/accordions/components.ts';
 
 ### Accordion
 
 <Component components={props.data.mdx.components} componentName="accordion" />
+
+The Accordion component provides state and accessibility attributes to its children. It follows the
+[W3C Accordion pattern](https://www.w3.org/TR/wai-aria-practices/#accordion).
 
 <PropSheet components={props.data.mdx.components} componentName="accordion" />
 
@@ -87,17 +104,29 @@ import COMPONENTS from '../../examples/accordions/components.ts';
 
 <Component components={COMPONENTS} componentName="accordion.header" />
 
+A Header acts as the trigger for the corresponding [Panel](#accordionpanel) to be expanded or collapsed.
+It renders an icon to visually indicate the current expansion state. It must be nested within a
+[Section](#accordionsection).
+
 #### Accordion.Label
 
 <Component components={COMPONENTS} componentName="accordion.label" />
+
+The Label must be nested within the [Header](#accordionheader).
 
 #### Accordion.Panel
 
 <Component components={COMPONENTS} componentName="accordion.panel" />
 
+The Panel component renders the section's content and provides the calculated styles for animations. It
+must be nested within a [Section](#accordionsection).
+
 #### Accordion.Section
 
 <Component components={COMPONENTS} componentName="accordion.section" />
+
+The Section component must wrap each section's [Header](#accordionheader) and the corresponding
+[Panel](#accordionpanel) together.
 
 import { graphql } from 'gatsby';
 
