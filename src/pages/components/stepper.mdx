@@ -70,12 +70,11 @@ The Stepper component expects the following overall structure:
 
 <!-- markdownlint-disable no-emphasis-as-heading -->
 
-**Implementation notes**
+**Stepper orientation**
 
 <!-- markdownlint-enable no-emphasis-as-heading -->
 
 - Content for a vertical stepper must be defined using the `Stepper.Content` for each step
-
 - Content for a horizontal stepper must be rendered externally. See [example](#layout) for details.
 
 import COMPONENTS from '../../examples/accordions/components.ts';
@@ -83,8 +82,6 @@ import COMPONENTS from '../../examples/accordions/components.ts';
 ### Stepper
 
 <Component components={props.data.mdx.components} componentName="stepper" />
-
-The Stepper component provides state to its children.
 
 <PropSheet components={props.data.mdx.components} componentName="stepper" />
 
