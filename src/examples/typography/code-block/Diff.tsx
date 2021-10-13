@@ -9,39 +9,25 @@ import React from 'react';
 import { CodeBlock } from '@zendeskgarden/react-typography';
 
 const Example = () => (
-  <CodeBlock language="diff" isLight={false}>{`
-@@ -1,3 +1,9 @@
-+This is an important
-+notice! It should
-+therefore be located at
-+the beginning of this
-+document!
-+
- This part of the
- document has stayed the
- same from version to
-@@ -8,13 +14,8 @@
- compress the size of the
- changes.
- 
--This paragraph contains
--text that is outdated.
--It will be deleted in the
--near future.
--
- It is important to spell
-!check this document. On
- the other hand, a
- misspelled word isn't
- the end of the world.
-@@ -22,3 +23,7 @@
- this paragraph needs to
- be changed. Things can
- be added after it.
-+
-+This paragraph contains
-+important new additions
-+to this document.
+  <CodeBlock language="diff" isLight>{`
+@@ -1,9 +1,11 @@
+-In The Rain
++Dancin’ In The Rain
+
+-The rain
+-does not bother me.
++So what if it drizzles
++And dribbles and drips?
+ I’ll splash in the garden,
+-I will stay on the ground.
++I’ll dance on the roof.
+-My epidermis
+-Provides a layer of protection.
++Let it rain on my skin,
++It can’t get in—
+ I’m waterproof.
+
++– Shel Silverstein
   `}</CodeBlock>
 );
 
