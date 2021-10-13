@@ -100,7 +100,7 @@ import SizeCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Size.ts
 
 ## API
 
-The Autocomplete component expects the following overall structure:
+The Autocomplete component follows this structure:
 
 ```jsx
 <Dropdown>
@@ -125,7 +125,7 @@ import FilteringNotes from '../../fragments/dropdowns-filtering-notes.mdx';
 
 <Component components={props.data.mdx.components} componentName="autocomplete" />
 
-The Autocomplete component applies state and accessibility attributes to its children. It must be nested within a
+The Autocomplete component applies state and accessibility attributes to its children. Nest it within a
 [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="autocomplete" />
@@ -153,7 +153,7 @@ with the corresponding [Label](#label) and [Hint](#hint).
 
 <Component components={props.data.mdx.components} componentName="hint" />
 
-A Hint must be nested within a [Field](#field) component.
+Nest a Hint within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
@@ -161,7 +161,7 @@ A Hint must be nested within a [Field](#field) component.
 
 <Component components={props.data.mdx.components} componentName="item" />
 
-An Item must be nested within a [Menu](#menu) component. It requires a `value` prop, which is provided to
+Nest an Item within a [Menu](#menu) component. It requires a `value` prop, which is provided to
 the `onSelect` callback.
 
 <PropSheet components={props.data.mdx.components} componentName="item" />
@@ -170,7 +170,7 @@ the `onSelect` callback.
 
 <Component components={props.data.mdx.components} componentName="label" />
 
-The Label must be nested within a [Field](#field) component.
+Nest a Label within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 

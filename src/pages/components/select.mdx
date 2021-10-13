@@ -116,7 +116,7 @@ import SelectValidationCode from '!!raw-loader!../../examples/dropdowns/select/V
 
 ## API
 
-The Select component expects the following overall structure:
+The Select component follows this structure:
 
 ```jsx
 <Dropdown>
@@ -157,7 +157,7 @@ with the corresponding [Label](#label) and [Hint](#hint).
 
 <Component components={props.data.mdx.components} componentName="hint" />
 
-A Hint must be nested within a [Field](#field) component.
+Nest a Hint within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
@@ -165,7 +165,7 @@ A Hint must be nested within a [Field](#field) component.
 
 <Component components={props.data.mdx.components} componentName="label" />
 
-The Label must be nested within a [Field](#field) component.
+Nest a Label within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
@@ -173,7 +173,7 @@ The Label must be nested within a [Field](#field) component.
 
 <Component components={props.data.mdx.components} componentName="message" />
 
-A Message can be used to show validation messages. It must be nested within a [Field](#field) component.
+A Message can be used to show validation messages. Nest it within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="message" />
 
@@ -181,7 +181,7 @@ A Message can be used to show validation messages. It must be nested within a [F
 
 <Component components={props.data.mdx.components} componentName="select" />
 
-The Select component applies state and accessibility attributes to its children. It must be nested within a
+The Select component applies state and accessibility attributes to its children. Nest it within a
 [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="select" />

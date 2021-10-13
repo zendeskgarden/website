@@ -74,7 +74,7 @@ import MultiselectSizeCode from '!!raw-loader!../../examples/dropdowns/multisele
 
 ## API
 
-The Multiselect component expects the following overall structure:
+The Multiselect component follows this structure:
 
 ```jsx
 <Dropdown>
@@ -118,7 +118,7 @@ with the corresponding [Label](#label) and [Hint](#hint).
 
 <Component components={props.data.mdx.components} componentName="hint" />
 
-A Hint must be nested within a [Field](#field) component.
+Nest a Hint within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
@@ -126,7 +126,7 @@ A Hint must be nested within a [Field](#field) component.
 
 <Component components={props.data.mdx.components} componentName="item" />
 
-An Item must be nested within a [Menu](#menu) component. It requires a `value` prop, which is provided
+Nest an Item within a [Menu](#menu) component. It requires a `value` prop, which is provided
 to the `onSelect` callback.
 
 <PropSheet components={props.data.mdx.components} componentName="item" />
@@ -135,7 +135,7 @@ to the `onSelect` callback.
 
 <Component components={props.data.mdx.components} componentName="label" />
 
-The Label must be nested within a [Field](#field) component.
+Nest a Label within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
@@ -143,7 +143,7 @@ The Label must be nested within a [Field](#field) component.
 
 <Component components={props.data.mdx.components} componentName="multiselect" />
 
-The Multiselect component applies state and accessibility attributes to its children. It must be nested within a
+The Multiselect component applies state and accessibility attributes to its children. Nest it within a
 [Field](#field) component. It renders a customizable `tag` for each selected item. This tag can be any element,
 but the surrounding field is designed to work with the [Tag](/components/tags) component.
 
