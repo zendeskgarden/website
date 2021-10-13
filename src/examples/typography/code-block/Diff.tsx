@@ -9,7 +9,7 @@ import React from 'react';
 import { CodeBlock } from '@zendeskgarden/react-typography';
 
 const Example = () => (
-  <CodeBlock language="diff" isLight>{`
+  <CodeBlock language="diff">{`
 @@ -1,9 +1,11 @@
 -In The Rain
 +Dancin’ In The Rain
@@ -26,8 +26,6 @@ const Example = () => (
 +Let it rain on my skin,
 +It can’t get in—
  I’m waterproof.
-
-+– Shel Silverstein
   `}</CodeBlock>
 );
 
