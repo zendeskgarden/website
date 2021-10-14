@@ -75,7 +75,7 @@ import AccordionSizeCode from '!!raw-loader!../../examples/accordions/accordion/
 
 ## API
 
-The Accordion component expects the following overall structure:
+The Accordion component follows this structure:
 
 ```jsx
 <Accordion>
@@ -104,22 +104,21 @@ The Accordion component provides state and accessibility attributes to its child
 
 <Component components={COMPONENTS} componentName="accordion.header" />
 
-A Header acts as the trigger for the corresponding [Panel](#accordionpanel) to be expanded or collapsed.
-It renders an icon to visually indicate the current expansion state. It must be nested within a
-[Section](#accordionsection).
+A Header acts as the trigger for the corresponding [Panel](#accordionpanel) to be expanded or collapsed. It
+renders an icon to show the current expansion state. Nest it within a [Section](#accordionsection) component.
 
 #### Accordion.Label
 
 <Component components={COMPONENTS} componentName="accordion.label" />
 
-The Label must be nested within the [Header](#accordionheader).
+Nest the Label within a [Header](#accordionheader) component.
 
 #### Accordion.Panel
 
 <Component components={COMPONENTS} componentName="accordion.panel" />
 
-The Panel component renders the section's content and provides the calculated styles for animations. It
-must be nested within a [Section](#accordionsection).
+The Panel component renders the section's content and provides the calculated styles for animations. Nest it
+within a [Section](#accordionsection) component.
 
 #### Accordion.Section
 
