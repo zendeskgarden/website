@@ -9,13 +9,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Field, Label, Input, FileUpload } from '@zendeskgarden/react-forms';
+import { Field, Label, Input, FileUpload, FileList, File } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const StyledCol = styled(Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
+`;
+
+const StyledFileListItem = styled(FileList.Item)`
+  margin-top: ${p => p.theme.space.xs};
 `;
 
 const Example = () => {
@@ -47,6 +51,14 @@ const Example = () => {
             <Input {...defaultDropzone.getInputProps()} />
           </FileUpload>
         </Field>
+        <FileList>
+          <StyledFileListItem>
+            <File tabIndex={0}>prickly-pear.png</File>
+          </StyledFileListItem>
+          <FileList.Item>
+            <File tabIndex={0}>saguaro.jpg</File>
+          </FileList.Item>
+        </FileList>
       </Col>
       <StyledCol sm={5}>
         <Field>
@@ -64,6 +76,18 @@ const Example = () => {
             <Input {...compactDropzone.getInputProps()} />
           </FileUpload>
         </Field>
+        <FileList>
+          <StyledFileListItem>
+            <File isCompact tabIndex={0}>
+              prickly-pear.png
+            </File>
+          </StyledFileListItem>
+          <FileList.Item>
+            <File isCompact tabIndex={0}>
+              saguaro.jpg
+            </File>
+          </FileList.Item>
+        </FileList>
       </StyledCol>
     </Row>
   );

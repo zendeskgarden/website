@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Field, Label, Hint, Input, FileUpload } from '@zendeskgarden/react-forms';
+import { Field, Label, Hint, Input, FileUpload, Message } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
@@ -21,13 +21,11 @@ const Example = () => {
   });
 
   return (
-    <Row>
-      <Col>
+    <Row justifyContent="center">
+      <Col sm={5}>
         <Field>
           <Label>Upload a photo of your ailing cactus</Label>
-          <Hint>
-            Include the entire plant in your photo. Acceptable formats are JPG, PNG, and GIF.
-          </Hint>
+          <Hint>Include the entire plant in your photo</Hint>
           <FileUpload {...getRootProps()} isDragging={isDragActive}>
             {isDragActive ? (
               <span>Drop files here</span>
@@ -36,6 +34,7 @@ const Example = () => {
             )}
             <Input {...getInputProps()} />
           </FileUpload>
+          <Message>Acceptable formats are JPG, PNG, and GIF</Message>
         </Field>
       </Col>
     </Row>
