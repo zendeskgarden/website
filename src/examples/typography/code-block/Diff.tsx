@@ -10,22 +10,30 @@ import { CodeBlock } from '@zendeskgarden/react-typography';
 
 const Example = () => (
   <CodeBlock language="diff">{`
-@@ -1,9 +1,11 @@
--In The Rain
-+Dancin’ In The Rain
+@@ -1,18 +1,18 @@
+ Roses are red,
+ Violets are blue,
+ Sugar is sweet,
+ And so are you.
 
--The rain
--does not bother me.
-+So what if it drizzles
-+And dribbles and drips?
- I’ll splash in the garden,
--I will stay on the ground.
-+I’ll dance on the roof.
--My epidermis
--Provides a layer of protection.
-+Let it rain on my skin,
-+It can’t get in—
- I’m waterproof.
+ ***
+
+ Roses are red,
+-Violets are blue,
+-I’m unoriginal,
+-This is all I can do.
++My screen is blue,
++The system crashed,
++do {} while (true)
+
+ ***
+
+ Roses are red,
+ Violets are blue,
+-Actually kind of purple,
+-Maybe more of a [royal-M400](https://garden.zendesk.com/design/color)?
++TL;DR,
++They differ in hue.
   `}</CodeBlock>
 );
 
