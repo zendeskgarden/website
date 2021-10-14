@@ -10,7 +10,9 @@ import { CodeBlock } from '@zendeskgarden/react-typography';
 
 const Example = () => (
   <CodeBlock language="diff">{`
-@@ -1,18 +1,18 @@
+@@ -1,18 +1,20 @@
++# A Garden of Roses
++
  Roses are red,
  Violets are blue,
  Sugar is sweet,
