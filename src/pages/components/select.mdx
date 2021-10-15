@@ -56,8 +56,8 @@ import SelectDefaultCode from '!!raw-loader!../../examples/dropdowns/select/Defa
 
 ### Disabled
 
-A disabled Select prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may not read
-aloud by a screenreader.
+A disabled Select prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may
+not be read aloud by a screenreader.
 
 import SelectDisabled from '../../examples/dropdowns/select/Disabled.tsx';
 import SelectDisabledCode from '!!raw-loader!../../examples/dropdowns/select/Disabled.tsx';
@@ -116,9 +116,31 @@ import SelectValidationCode from '!!raw-loader!../../examples/dropdowns/select/V
 
 ## API
 
+The Select component follows this structure:
+
+```jsx
+<Dropdown>
+  <Field>
+    <Label />
+    <Hint />
+    <Select />
+    <Message />
+  </Field>
+  <Menu>
+    <Item />
+    <Item />
+    {/* etc. */}
+  </Menu>
+</Dropdown>
+```
+
 ### Dropdown
 
 <Component components={props.data.mdx.components} componentName="dropdown" />
+
+import Dropdowns from '../../fragments/dropdowns.mdx';
+
+<Dropdowns />
 
 <PropSheet components={props.data.mdx.components} componentName="dropdown" />
 
@@ -126,11 +148,16 @@ import SelectValidationCode from '!!raw-loader!../../examples/dropdowns/select/V
 
 <Component components={props.data.mdx.components} componentName="field" />
 
+A Field provides accessibility attributes to the child [Select](#select) field by associating it
+with the corresponding [Label](#label) and [Hint](#hint).
+
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
 ### Hint
 
 <Component components={props.data.mdx.components} componentName="hint" />
+
+Nest a Hint within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
@@ -138,17 +165,24 @@ import SelectValidationCode from '!!raw-loader!../../examples/dropdowns/select/V
 
 <Component components={props.data.mdx.components} componentName="label" />
 
+Nest a Label within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
 ### Message
 
 <Component components={props.data.mdx.components} componentName="message" />
 
+A Message can be used to show validation messages. Nest it within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="message" />
 
 ### Select
 
 <Component components={props.data.mdx.components} componentName="select" />
+
+The Select component applies state and accessibility attributes to its children. Nest it within a
+[Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="select" />
 

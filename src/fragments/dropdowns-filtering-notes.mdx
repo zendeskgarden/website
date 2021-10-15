@@ -1,0 +1,10 @@
+<!-- markdownlint-disable no-emphasis-as-heading -->
+
+**Implementation notes**
+
+<!-- markdownlint-enable no-emphasis-as-heading -->
+
+- The dropdowns package does not have filtering logic. The simplest way to include filtering is to control
+  the `inputValue` and `onInputValueChange` props, and conditionally render Item components as necessary.
+- There is a known [issue](https://github.com/facebook/react/issues/11538#issuecomment-390386520) with
+  Google Translate. As a workaround, wrap any conditionally rendered text node with a `span` element.

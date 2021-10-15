@@ -1,0 +1,11 @@
+The Dropdown component provides state and accessibility to its consumers while enabling customization. It uses [PopperJS](https://popper.js.org/docs/v2/)
+for positioning.
+
+**Dropdown State**: The [Downshift](https://github.com/downshift-js/downshift) library handles
+keyboard and accessibility logic. Provide other customizations directly to Downshift via
+`downshiftProps`. See the [stateReducer](https://github.com/downshift-js/downshift#statereducer) pattern
+for a common customization strategy example.
+
+**Server Side Rendering**: Server side rendering might require specific Downshift settings. The
+dropdowns package re-exports Downshift's [resetIdCounter](https://github.com/downshift-js/downshift#resetidcounter)
+utility, resetting the internal counter which is used to generate unique IDs for Downshift.
