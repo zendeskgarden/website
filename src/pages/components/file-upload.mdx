@@ -5,6 +5,8 @@ description: >
 package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/common/Field.tsx
+  - forms/src/elements/file-list/components/File.tsx
+  - forms/src/elements/file-list/FileList.tsx
   - forms/src/elements/FileUpload.tsx
   - forms/src/elements/common/Hint.tsx
   - forms/src/elements/Input.tsx
@@ -44,9 +46,22 @@ import DisabledCode from '!!raw-loader!../../examples/forms/file-upload/Disabled
   <Disabled />
 </CodeExample>
 
+### Files
+
+A File can have an icon and be dismissed. Files work together with a
+[Progress](/components/progress) loader to show upload status. Use in
+combination with `FileList` to display a list of files.
+
+import FileList from '../../examples/forms/file-upload/FileList.tsx';
+import FileListCode from '!!raw-loader!../../examples/forms/file-upload/FileList.tsx';
+
+<CodeExample code={FileListCode}>
+  <FileList />
+</CodeExample>
+
 ### Size
 
-File upload can be default or compact. Size affects spacing between the label/description and the touch target.
+File upload can be default or compact.
 
 import Size from '../../examples/forms/file-upload/Size.tsx';
 import SizeCode from '!!raw-loader!../../examples/forms/file-upload/Size.tsx';
@@ -61,11 +76,33 @@ import SizeCode from '!!raw-loader!../../examples/forms/file-upload/Size.tsx';
 
 ## API
 
+import COMPONENTS from '../../examples/forms/file-upload/components.ts';
+
 ### Field
 
 <Component components={props.data.mdx.components} componentName="field" />
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
+
+### File
+
+<Component components={props.data.mdx.components} componentName="file" />
+
+<PropSheet components={props.data.mdx.components} componentName="file" />
+
+#### File.Close
+
+<Component components={COMPONENTS} componentName="file.close" />
+
+### FileList
+
+<Component components={props.data.mdx.components} componentName="fileList" />
+
+<PropSheet components={props.data.mdx.components} componentName="fileList" />
+
+#### FileList.Item
+
+<Component components={COMPONENTS} componentName="fileList.item" />
 
 ### FileUpload
 
