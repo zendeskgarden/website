@@ -124,6 +124,18 @@ Item content can be replaced with any text style. Make sure to use appropriate h
 
 ## API
 
+The Timeline component follows this structure:
+
+```jsx
+<Timeline>
+  <Timeline.Item>
+    <Timeline.OppositeContent /> {/* Optional */}
+    <Timeline.Content />
+  </Timeline.Item>
+  {/* other items */}
+</Timeline>
+```
+
 import COMPONENTS from '../../examples/accordions/components.ts';
 
 ### Timeline
@@ -136,15 +148,23 @@ import COMPONENTS from '../../examples/accordions/components.ts';
 
 <Component components={COMPONENTS} componentName="timeline.content" />
 
+Nest the Content within an [Item](#timelineitem) component.
+
 #### Timeline.Item
 
 <Component components={COMPONENTS} componentName="timeline.item" />
+
+An Item provides the DOM structure and styling for the default,
+[OppositeContent](#timelineoppositecontent), and alternate content layouts.
 
 <PropSheet components={COMPONENTS} componentName="timeline.item" />
 
 #### Timeline.OppositeContent
 
 <Component components={COMPONENTS} componentName="timeline.oppositeContent" />
+
+The OppositeContent component displays content on the opposite side of the separator. Nest it
+within an [Item](#timelineitem) component.
 
 import { graphql } from 'gatsby';
 
