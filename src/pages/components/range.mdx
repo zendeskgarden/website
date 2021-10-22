@@ -102,9 +102,23 @@ import ValidationCode from '!!raw-loader!../../examples/forms/range/RangeValidat
 
 ## API
 
+The Range component follows this structure:
+
+```jsx
+<Field>
+  <Label />
+  <Hint />
+  <Range />
+  <Message />
+</Field>
+```
+
 ### Field
 
 <Component components={props.data.mdx.components} componentName="field" />
+
+A Field provides accessibility attributes to its child [Range](#range) field by associating it
+with the corresponding [Label](#label) and [Hint](#hint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
@@ -112,11 +126,15 @@ import ValidationCode from '!!raw-loader!../../examples/forms/range/RangeValidat
 
 <Component components={props.data.mdx.components} componentName="hint" />
 
+Nest the Hint within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
 ### Label
 
 <Component components={props.data.mdx.components} componentName="label" />
+
+Nest the Label within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
@@ -124,11 +142,16 @@ import ValidationCode from '!!raw-loader!../../examples/forms/range/RangeValidat
 
 <Component components={props.data.mdx.components} componentName="message" />
 
+The Message component applies appropriate icon and styles based on the validation provided. Nest
+it within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="message" />
 
 ### Range
 
 <Component components={props.data.mdx.components} componentName="range" />
+
+Nest a Range within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="range" />
 

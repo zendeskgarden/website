@@ -76,17 +76,44 @@ import SizeCode from '!!raw-loader!../../examples/forms/file-upload/Size.tsx';
 
 ## API
 
+The FileUpload component follows this structure:
+
+```jsx
+<Field>
+  <Label />
+  <Hint />
+  <FileUpload>
+    <Input />
+  </FileUpload>
+</Field>
+<FileList>
+  <FileList.Item>
+    <File>
+      <File.Close />
+      <Progress />
+    </File>
+  </FileList.Item>
+  {/* etc. */}
+</FileList>
+```
+
 import COMPONENTS from '../../examples/forms/file-upload/components.ts';
 
 ### Field
 
 <Component components={props.data.mdx.components} componentName="field" />
 
+A Field provides accessibility attributes to its child [FileUpload](#fileupload) field by associating it
+with the corresponding [Label](#label) and [Hint](#hint).
+
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
 ### File
 
 <Component components={props.data.mdx.components} componentName="file" />
+
+The File component displays an icon based on the provided type, or a generic one when type is not specified.
+In case of multiple File components, nest each within an [Item](#filelistitem) component.
 
 <PropSheet components={props.data.mdx.components} componentName="file" />
 
@@ -98,18 +125,22 @@ import COMPONENTS from '../../examples/forms/file-upload/components.ts';
 
 <Component components={props.data.mdx.components} componentName="fileList" />
 
+Use the FileList component when displaying a list of multiple files.
+
 <PropSheet components={props.data.mdx.components} componentName="fileList" />
 
 #### FileList.Item
 
 <Component components={COMPONENTS} componentName="fileList.item" />
 
+Nest an Item within a [FileList](#filelist) component.
+
 ### FileUpload
 
 <Component components={props.data.mdx.components} componentName="fileUpload" />
 
-The File upload component works together with a library like
-[react-dropzone](https://react-dropzone.js.org/).
+The FileUpload component works together with a library like
+[react-dropzone](https://react-dropzone.js.org/). Nest it within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="fileUpload" />
 
@@ -117,17 +148,23 @@ The File upload component works together with a library like
 
 <Component components={props.data.mdx.components} componentName="hint" />
 
+Nest the Hint within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
 ### Input
 
 <Component components={props.data.mdx.components} componentName="input" />
 
+Nest the Input within the [FileUpload](#fileupload) component. See an [example](#default) usage.
+
 <PropSheet components={props.data.mdx.components} componentName="input" />
 
 ### Label
 
 <Component components={props.data.mdx.components} componentName="label" />
+
+Nest the Label within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
