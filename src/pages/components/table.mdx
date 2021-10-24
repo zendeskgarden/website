@@ -193,6 +193,51 @@ import TableVirtualizedCode from '!!raw-loader!../../examples/table/TableVirtual
 
 ## API
 
+The Table component follows this structure:
+
+```jsx
+<Table>
+  <Caption />
+  <Head>
+    <HeaderRow>
+      <HeaderCell />
+      <HeaderCell />
+      <SortableCell /> {/* Optional */}
+      {/* etc. */}
+    </HeaderRow>
+  </Head>
+  <Body>
+    <GroupRow>
+      {' '}
+      {/* Optional */}
+      <Cell />
+    </GroupRow>
+    <Row>
+      <Cell />
+      <Cell />
+      {/* etc. */}
+    </Row>
+    {/* etc. */}
+  </Body>
+</Table>
+```
+
+<!-- markdownlint-disable no-emphasis-as-heading -->
+
+**Implementation notes**
+
+<!-- markdownlint-enable no-emphasis-as-heading -->
+
+<!-- markdownlint-disable line-length -->
+
+- Follow the
+  [MDN Table Accessibility Practices](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced#Tables_for_visually_impaired_users)
+  guidelines to ensure the table data is accessible to screen-readers
+- Use the [SortableCell](#sortablecell) component in a sortable table to ensure that the header is interactive
+  and accessible. See an [example](#sort) usage.
+
+<!-- markdownlint-enable line-length -->
+
 ### Body
 
 <Component components={props.data.mdx.components} componentName="body" />
@@ -214,6 +259,9 @@ import TableVirtualizedCode from '!!raw-loader!../../examples/table/TableVirtual
 ### GroupRow
 
 <Component components={props.data.mdx.components} componentName="groupRow" />
+
+The GroupRow component provides styles to show a title row for a group of rows. Nest it within the
+[Body](#body) component. See an [example](grouped-rows) usage.
 
 <PropSheet components={props.data.mdx.components} componentName="groupRow" />
 
@@ -239,6 +287,9 @@ import TableVirtualizedCode from '!!raw-loader!../../examples/table/TableVirtual
 
 <Component components={props.data.mdx.components} componentName="overflowButton" />
 
+The OverflowButton component enables implementation of an overflow menu in a [Cell](#cell). Provide an
+`aria-label` attribute or use another technique to ensure it is accessible. See [example](#overflow) for details.
+
 <PropSheet components={props.data.mdx.components} componentName="overflowButton" />
 
 ### Row
@@ -250,6 +301,9 @@ import TableVirtualizedCode from '!!raw-loader!../../examples/table/TableVirtual
 ### SortableCell
 
 <Component components={props.data.mdx.components} componentName="sortableCell" />
+
+A SortableCell displays an interactive header cell with accesssibility attributes applied to enable
+implementation of a sortable table. See [example](#sort) for details.
 
 <PropSheet components={props.data.mdx.components} componentName="sortableCell" />
 
