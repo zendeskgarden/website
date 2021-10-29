@@ -166,9 +166,22 @@ import ValidationCode from '!!raw-loader!../../examples/forms/inputs/Validation.
 
 ## API
 
+The Input component follows this structure:
+
+```jsx
+<Field>
+  <Label />
+  <Hint />
+  <Input />
+  <Message />
+</Field>
+```
+
 ### FauxInput
 
 <Component components={props.data.mdx.components} componentName="fauxInput" />
+
+Nest a FauxInput within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="fauxInput" />
 
@@ -176,11 +189,16 @@ import ValidationCode from '!!raw-loader!../../examples/forms/inputs/Validation.
 
 <Component components={props.data.mdx.components} componentName="field" />
 
+A Field provides accessibility attributes to its child [Input](#input) field by associating it
+with the corresponding [Label](#label) and [Hint](#hint).
+
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
 ### Hint
 
 <Component components={props.data.mdx.components} componentName="hint" />
+
+Nest the Hint within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
@@ -188,11 +206,15 @@ import ValidationCode from '!!raw-loader!../../examples/forms/inputs/Validation.
 
 <Component components={props.data.mdx.components} componentName="input" />
 
+Nest an Input within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="input" />
 
 ### Label
 
 <Component components={props.data.mdx.components} componentName="label" />
+
+Nest the Label within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
@@ -200,11 +222,17 @@ import ValidationCode from '!!raw-loader!../../examples/forms/inputs/Validation.
 
 <Component components={props.data.mdx.components} componentName="mediaInput" />
 
+A MediaInput displays provided media elements at the start and/or end of the input. Nest
+it within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="mediaInput" />
 
 ### Message
 
 <Component components={props.data.mdx.components} componentName="message" />
+
+The Message component applies appropriate icon and styles based on the validation provided. Nest
+it within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="message" />
 

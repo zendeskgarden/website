@@ -69,9 +69,21 @@ import DragHandlesCode from '!!raw-loader!../../examples/forms/textarea/DragHand
 
 ## API
 
+The Textarea component follows this structure:
+
+```jsx
+<Field>
+  <Label />
+  <Textarea />
+</Field>
+```
+
 ### Field
 
 <Component components={props.data.mdx.components} componentName="field" />
+
+A Field provides accessibility attributes to its child [Textarea](#textarea) field by associating it
+with the corresponding [Label](#label) and [Hint](#hint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
@@ -79,11 +91,15 @@ import DragHandlesCode from '!!raw-loader!../../examples/forms/textarea/DragHand
 
 <Component components={props.data.mdx.components} componentName="label" />
 
+Nest the Label within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
 ### Textarea
 
 <Component components={props.data.mdx.components} componentName="textarea" />
+
+Nest a Textarea within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="textarea" />
 

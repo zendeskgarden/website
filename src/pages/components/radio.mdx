@@ -111,9 +111,24 @@ import ValidationCode from '!!raw-loader!../../examples/forms/radio/Validation.t
 
 ## API
 
+The Radio component follows this structure:
+
+```jsx
+<Field>
+  <Radio>
+    <Label />
+    <Hint />
+  </Radio>
+  <Message />
+</Field>
+```
+
 ### Field
 
 <Component components={props.data.mdx.components} componentName="field" />
+
+A Field provides accessibility attributes to its child [Radio](#radio) field by associating it
+with the corresponding [Label](#label) and [Hint](#hint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
@@ -121,9 +136,14 @@ import ValidationCode from '!!raw-loader!../../examples/forms/radio/Validation.t
 
 <Component components={props.data.mdx.components} componentName="fieldset" />
 
+The Fieldset component provides styles for grouping child form inputs. Wrap related [Field](#field)
+components and a [Legend](#fieldsetlegend) together within a Fieldset component. See an [example](#validation) usage.
+
 <PropSheet components={props.data.mdx.components} componentName="fieldset" />
 
 #### Fieldset.Legend
+
+Nest a Legend within a [Fieldset](#fieldset) component.
 
 <Component
   components={[
@@ -139,11 +159,15 @@ import ValidationCode from '!!raw-loader!../../examples/forms/radio/Validation.t
 
 <Component components={props.data.mdx.components} componentName="hint" />
 
+Nest the Hint within the [Radio](#radio) component.
+
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
 ### Label
 
 <Component components={props.data.mdx.components} componentName="label" />
+
+Nest the Label within the [Radio](#radio) component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
@@ -151,11 +175,16 @@ import ValidationCode from '!!raw-loader!../../examples/forms/radio/Validation.t
 
 <Component components={props.data.mdx.components} componentName="message" />
 
+The Message component applies appropriate icon and styles based on the validation provided. Nest
+it within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="message" />
 
 ### Radio
 
 <Component components={props.data.mdx.components} componentName="radio" />
+
+Nest a Radio within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="radio" />
 

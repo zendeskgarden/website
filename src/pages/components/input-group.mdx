@@ -90,9 +90,22 @@ import SizeCode from '!!raw-loader!../../examples/forms/input-group/Size.tsx';
 
 ## API
 
+The InputGroup component follows this structure:
+
+```jsx
+<Field>
+  <Label />
+  <Hint />
+  <InputGroup />
+</Field>
+```
+
 ### InputGroup
 
 <Component components={props.data.mdx.components} componentName="inputGroup" />
+
+An InputGroup provides styles for grouping child inputs and buttons together. Nest an InputGroup within a
+[Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="inputGroup" />
 
