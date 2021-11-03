@@ -195,6 +195,7 @@ import TableVirtualizedCode from '!!raw-loader!../../examples/table/TableVirtual
 
 The Table component follows this structure:
 
+<!-- prettier-ignore -->
 ```jsx
 <Table>
   <Caption />
@@ -207,7 +208,7 @@ The Table component follows this structure:
     </HeaderRow>
   </Head>
   <Body>
-    <GroupRow>
+    <GroupRow> {/* Optional */}
       <Cell />
     </GroupRow>
     <Row>
@@ -259,7 +260,7 @@ The Table component follows this structure:
 <Component components={props.data.mdx.components} componentName="groupRow" />
 
 The GroupRow component provides styles to show a title row for a group of rows. Nest it within the
-[Body](#body) component. See an [example](grouped-rows) usage.
+[Body](#body) component. See an [example](#grouped-rows) usage.
 
 <PropSheet components={props.data.mdx.components} componentName="groupRow" />
 
