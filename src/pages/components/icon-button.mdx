@@ -101,7 +101,10 @@ import IconButtonTypesCode from '!!raw-loader!../../examples/button/IconButtonTy
 ### Don't leave users in the dark
 
 <BestPractice>
-  <Do imageSource={props.data.iconButtonTooltipDo.childFile.childImageSharp.fluid} imageIsSquare>
+  <Do
+    imageSource={props.data.iconButtonTooltipDo.childFile.childImageSharp.gatsbyImageData}
+    imageIsSquare
+  >
     <p>
       <Markdown>
         Include a [Tooltip](/components/tooltip) to help any users who may be unfamiliar with the
@@ -126,16 +129,12 @@ import IconButtonTypesCode from '!!raw-loader!../../examples/button/IconButtonTy
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    iconButtonTooltipDo: abstractAsset(
-      layerName: { eq: "components-buttons-iconbutton-tooltip-do" }
-    ) {
+    iconButtonTooltipDo: figmaAsset(name: { eq: "components-buttons-iconbutton-tooltip-do" }) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 200)
         }
       }
     }

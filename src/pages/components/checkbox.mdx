@@ -122,7 +122,7 @@ import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validatio
 ### Use to select any number of options
 
 <BestPractice>
-  <Do imageSource={props.data.checkboxSelectionDo.childFile.childImageSharp.fluid}>
+  <Do imageSource={props.data.checkboxSelectionDo.childFile.childImageSharp.gatsbyImageData}>
     <p>
       <Markdown>
         Use to turn a standalone setting on and off, as a favorable alternative to a
@@ -130,7 +130,9 @@ import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validatio
       </Markdown>
     </p>
   </Do>
-  <Dont imageSource={props.data.checkboxStandaloneOptionDont.childFile.childImageSharp.fluid}>
+  <Dont
+    imageSource={props.data.checkboxStandaloneOptionDont.childFile.childImageSharp.gatsbyImageData}
+  >
     <p>
       <Markdown>
         Don't use to select exactly one option from a set of two or more. Use
@@ -146,9 +148,23 @@ import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validatio
 
 ## API
 
+The Checkbox component follows this structure:
+
+```jsx
+<Field>
+  <Checkbox>
+    <Label />
+    <Hint />
+  </Checkbox>
+  <Message />
+</Field>
+```
+
 ### Checkbox
 
 <Component components={props.data.mdx.components} componentName="checkbox" />
+
+Nest a Checkbox within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="checkbox" />
 
@@ -156,11 +172,16 @@ import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validatio
 
 <Component components={props.data.mdx.components} componentName="field" />
 
+A Field provides accessibility attributes to its child [Checkbox](#checkbox) field by associating it
+with the corresponding [Label](#label) and [Hint](#hint).
+
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
 ### Hint
 
 <Component components={props.data.mdx.components} componentName="hint" />
+
+Nest the Hint within the [Checkbox](#checkbox) component.
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
@@ -168,38 +189,37 @@ import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validatio
 
 <Component components={props.data.mdx.components} componentName="label" />
 
+Nest the Label within the [Checkbox](#checkbox) component.
+
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
 ### Message
 
 <Component components={props.data.mdx.components} componentName="message" />
 
+The Message component applies appropriate icon and styles based on the validation provided. Nest
+it within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="message" />
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    checkboxSelectionDo: abstractAsset(
-      layerName: { eq: "components-forms-checkbox-standalone-do" }
-    ) {
+    checkboxSelectionDo: figmaAsset(name: { eq: "components-forms-checkbox-standalone-do" }) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 200)
         }
       }
     }
-    checkboxStandaloneOptionDont: abstractAsset(
-      layerName: { eq: "components-forms-checkbox-standalone-option-dont" }
+    checkboxStandaloneOptionDont: figmaAsset(
+      name: { eq: "components-forms-checkbox-standalone-option-dont" }
     ) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 200)
         }
       }
     }

@@ -141,6 +141,19 @@ import MenuSizeCode from '!!raw-loader!../../examples/dropdowns/menu/Size.tsx';
 
 ## API
 
+The Menu component follows this structure:
+
+```jsx
+<Dropdown>
+  <Trigger />
+  <Menu>
+    <Item />
+    <Item />
+    {/* etc. */}
+  </Menu>
+</Dropdown>
+```
+
 ### AddItem
 
 <Component components={props.data.mdx.components} componentName="addItem" />
@@ -151,11 +164,17 @@ import MenuSizeCode from '!!raw-loader!../../examples/dropdowns/menu/Size.tsx';
 
 <Component components={props.data.mdx.components} componentName="dropdown" />
 
+import Dropdowns from '../../fragments/dropdowns.mdx';
+
+<Dropdowns />
+
 <PropSheet components={props.data.mdx.components} componentName="dropdown" />
 
 ### HeaderIcon
 
 <Component components={props.data.mdx.components} componentName="headerIcon" />
+
+Nest a HeaderIcon within a [HeaderItem](#headeritem) component.
 
 <PropSheet components={props.data.mdx.components} componentName="headerIcon" />
 
@@ -169,11 +188,16 @@ import MenuSizeCode from '!!raw-loader!../../examples/dropdowns/menu/Size.tsx';
 
 <Component components={props.data.mdx.components} componentName="item" />
 
+Nest an Item within a [Menu](#menu) component. It requires a `value` prop, which is provided to the
+`onSelect` callback.
+
 <PropSheet components={props.data.mdx.components} componentName="item" />
 
 ### ItemMeta
 
 <Component components={props.data.mdx.components} componentName="itemMeta" />
+
+An ItemMeta provides additional information about a menu item. Nest it within an [Item](#item) component.
 
 <PropSheet components={props.data.mdx.components} componentName="itemMeta" />
 
@@ -181,11 +205,15 @@ import MenuSizeCode from '!!raw-loader!../../examples/dropdowns/menu/Size.tsx';
 
 <Component components={props.data.mdx.components} componentName="mediaBody" />
 
+Nest a MediaBody within an [Item](#item) component.
+
 <PropSheet components={props.data.mdx.components} componentName="mediaBody" />
 
 ### MediaFigure
 
 <Component components={props.data.mdx.components} componentName="mediaFigure" />
+
+Nest a MediaFigure within an [Item](#item) component.
 
 <PropSheet components={props.data.mdx.components} componentName="mediaFigure" />
 
@@ -199,17 +227,27 @@ import MenuSizeCode from '!!raw-loader!../../examples/dropdowns/menu/Size.tsx';
 
 <Component components={props.data.mdx.components} componentName="menu" />
 
+A Menu manages placement, positioning and layout of the child [Item](#item) components.
+
 <PropSheet components={props.data.mdx.components} componentName="menu" />
 
 ### NextItem
 
 <Component components={props.data.mdx.components} componentName="nextItem" />
 
+The NextItem component displays the next icon to show the presence of a succeeding level. It enables
+additional RTL-aware keyboard navigation in nested menus. The [Dropdown](#dropdown) component's `isOpen` and `onStateChange`
+props can be used to conditionally handle the open/close state based on selection.
+
 <PropSheet components={props.data.mdx.components} componentName="nextItem" />
 
 ### PreviousItem
 
 <Component components={props.data.mdx.components} componentName="previousItem" />
+
+The PreviousItem component displays the previous icon to show the presence of a preceding level. It enables
+additional RTL-aware keyboard navigation in nested menus. The [Dropdown](#dropdown) component's `isOpen` and `onStateChange`
+props can be used to conditionally handle the open/close state based on selection.
 
 <PropSheet components={props.data.mdx.components} componentName="previousItem" />
 
@@ -223,12 +261,14 @@ import MenuSizeCode from '!!raw-loader!../../examples/dropdowns/menu/Size.tsx';
 
 <Component components={props.data.mdx.components} componentName="trigger" />
 
+A Trigger applies state and accessibility attributes to its children. Nest it within a [Dropdown](#dropdown) component.
+
 <PropSheet components={props.data.mdx.components} componentName="trigger" />
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

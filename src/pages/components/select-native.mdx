@@ -1,0 +1,144 @@
+---
+title: Select (native)
+description: >
+  A native Select allows a user to pick an option from a list.
+package: '@zendeskgarden/react-forms'
+components:
+  - forms/src/elements/common/Field.tsx
+  - forms/src/elements/common/Hint.tsx
+  - forms/src/elements/common/Label.tsx
+  - forms/src/elements/common/Message.tsx
+  - forms/src/elements/Select.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To select from a list on mobile devices</li>
+      <li>To make a selection in performance-constrained environments</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To make selection from a list in Zendesk products, use the custom
+          [Select](/components/select) dropdown instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+Select uses a native menu to display available options.
+
+import Default from '../../examples/forms/select/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/forms/select/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Disabled
+
+A disabled Select prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may not read
+aloud by a screenreader.
+
+import Disabled from '../../examples/forms/select/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/forms/select/Disabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+### Hidden label
+
+Select labels can be hidden.
+
+import Hidden from '../../examples/forms/select/Hidden.tsx';
+import HiddenCode from '!!raw-loader!../../examples/forms/select/Hidden.tsx';
+
+<CodeExample code={HiddenCode}>
+  <Hidden />
+</CodeExample>
+
+### Hint text
+
+Hint text gives further clarification.
+
+import Hint from '../../examples/forms/select/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/forms/select/Hint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
+</CodeExample>
+
+### Size
+
+Select can be default or compact in size.
+
+import Size from '../../examples/forms/select/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/forms/select/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+### Validation
+
+Show success, warning, and danger validation messages with the Message component.
+
+import Validation from '../../examples/forms/select/Validation.tsx';
+import ValidationCode from '!!raw-loader!../../examples/forms/select/Validation.tsx';
+
+<CodeExample code={ValidationCode}>
+  <Validation />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Field
+
+<Component components={props.data.mdx.components} componentName="field" />
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Hint
+
+<Component components={props.data.mdx.components} componentName="hint" />
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Label
+
+<Component components={props.data.mdx.components} componentName="label" />
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+### Message
+
+<Component components={props.data.mdx.components} componentName="message" />
+
+<PropSheet components={props.data.mdx.components} componentName="message" />
+
+### Select
+
+<Component components={props.data.mdx.components} componentName="select" />
+
+<PropSheet components={props.data.mdx.components} componentName="select" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

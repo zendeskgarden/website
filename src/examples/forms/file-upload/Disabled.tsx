@@ -6,41 +6,28 @@
  */
 
 import React from 'react';
-import { useDropzone } from 'react-dropzone';
-import { Field, Label, Hint, Input, FileUpload } from '@zendeskgarden/react-forms';
+import styled from 'styled-components';
+import { Field, Label, FileUpload, FileList, File } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
-const Example = () => {
-  const onDrop = React.useCallback((acceptedFiles: File[]) => {
-    alert(`${acceptedFiles.length} files accepted for upload`);
-  }, []);
+const StyledFileListItem = styled(FileList.Item)`
+  margin-top: ${p => p.theme.space.xs};
+`;
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    accept: ['image/jpeg', 'image/png', 'image/gif'],
-    disabled: true,
-    onDrop
-  });
-
-  return (
-    <Row>
-      <Col>
-        <Field>
-          <Label>Upload a photo of your ailing cactus</Label>
-          <Hint>
-            Include the entire plant in your photo. Acceptable formats are JPG, PNG, and GIF.
-          </Hint>
-          <FileUpload {...getRootProps()} isDragging={isDragActive} disabled>
-            {isDragActive ? (
-              <span>Drop files here</span>
-            ) : (
-              <span>Choose a file or drag and drop here</span>
-            )}
-            <Input {...getInputProps()} disabled />
-          </FileUpload>
-        </Field>
-      </Col>
-    </Row>
-  );
-};
+const Example = () => (
+  <Row justifyContent="center">
+    <Col sm={5}>
+      <Field>
+        <Label>Upload a photo of your ailing cactus</Label>
+        <FileUpload disabled>Choose a file or drag and drop here</FileUpload>
+      </Field>
+      <FileList>
+        <StyledFileListItem>
+          <File>prickly-pear.png</File>
+        </StyledFileListItem>
+      </FileList>
+    </Col>
+  </Row>
+);
 
 export default Example;

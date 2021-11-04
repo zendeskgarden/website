@@ -59,7 +59,7 @@ const Example = () => {
       <StyledCol>
         <Field>
           <Label>Favorite color</Label>
-          <InputGroup>
+          <InputGroup style={{ zIndex: 1 }}>
             <StyledInput
               maxLength={9}
               value={input}
@@ -76,6 +76,9 @@ const Example = () => {
               onChange={selectedColor => {
                 setColor(selectedColor);
                 setInput(toHex(selectedColor));
+              }}
+              buttonProps={{
+                'aria-label': 'choose your favorite color'
               }}
             />
           </InputGroup>

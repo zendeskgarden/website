@@ -9,8 +9,11 @@ import styled from 'styled-components';
 import { CodeBlock } from '@zendeskgarden/react-typography';
 
 export const StyledCodeBlock = styled(CodeBlock).attrs(p => ({
-  language: p.className ? p.className.replace(/language-/u, '') : undefined
+  language: p.className ? p.className.replace(/language-/u, '') : undefined,
+  isLight: true,
+  containerProps: {
+    style: { margin: `${p.theme.space.md} 0` }
+  }
 }))`
-  margin: ${p => p.theme.space.md} 0;
   border-radius: ${p => p.theme.borderRadii.md};
 `;

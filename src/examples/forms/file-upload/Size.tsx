@@ -8,8 +8,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Field, Label, Input, FileUpload } from '@zendeskgarden/react-forms';
+import { Field, Label, Input, FileUpload, FileList, File } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const StyledCol = styled(Col)`
@@ -18,51 +19,88 @@ const StyledCol = styled(Col)`
   }
 `;
 
+const StyledFileList = styled(FileList)`
+  margin-top: ${p => p.theme.space.xs};
+`;
+
 const Example = () => {
-  const onDrop = React.useCallback((acceptedFiles: File[]) => {
-    alert(`${acceptedFiles.length} files accepted for upload`);
-  }, []);
-
-  const defaultDropzone = useDropzone({
-    accept: ['image/jpeg', 'image/png', 'image/gif'],
-    onDrop
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    accept: ['image/jpeg', 'image/png', 'image/gif']
   });
 
-  const compactDropzone = useDropzone({
-    accept: ['image/jpeg', 'image/png', 'image/gif'],
-    onDrop
-  });
+  const handleKeyDown = (e: React.KeyboardEvent<any>) => {
+    if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+      e.preventDefault();
+      alert('File dismissed via keyboard');
+    }
+  };
 
   return (
     <Row justifyContent="center">
       <Col sm={5}>
         <Field>
           <Label>Upload a photo of your ailing cactus</Label>
-          <FileUpload {...defaultDropzone.getRootProps()} isDragging={defaultDropzone.isDragActive}>
-            {defaultDropzone.isDragActive ? (
+          <FileUpload {...getRootProps()} isDragging={isDragActive}>
+            {isDragActive ? (
               <span>Drop files here</span>
             ) : (
               <span>Choose a file or drag and drop here</span>
             )}
-            <Input {...defaultDropzone.getInputProps()} />
+            <Input {...getInputProps()} />
           </FileUpload>
+          <StyledFileList>
+            <FileList.Item>
+              <File type="image" tabIndex={0} aria-label="Image file" onKeyDown={handleKeyDown}>
+                prickly-pear.png
+                <File.Close onClick={() => alert('File dismissed via mouse')} />
+              </File>
+            </FileList.Item>
+            <FileList.Item>
+              <File type="image" tabIndex={0} aria-label="Image file" onKeyDown={handleKeyDown}>
+                saguaro.svg
+                <File.Close onClick={() => alert('File dismissed via mouse')} />
+              </File>
+            </FileList.Item>
+          </StyledFileList>
         </Field>
       </Col>
       <StyledCol sm={5}>
         <Field>
           <Label>Upload a photo of your ailing cactus</Label>
-          <FileUpload
-            {...compactDropzone.getRootProps()}
-            isDragging={compactDropzone.isDragActive}
-            isCompact
-          >
-            {compactDropzone.isDragActive ? (
+          <FileUpload {...getRootProps()} isDragging={isDragActive} isCompact>
+            {isDragActive ? (
               <span>Drop files here</span>
             ) : (
               <span>Choose a file or drag and drop here</span>
             )}
-            <Input {...compactDropzone.getInputProps()} />
+            <Input {...getInputProps()} />
           </FileUpload>
+          <StyledFileList>
+            <FileList.Item>
+              <File
+                type="image"
+                tabIndex={0}
+                aria-label="Image file"
+                onKeyDown={handleKeyDown}
+                isCompact
+              >
+                prickly-pear.png
+                <File.Close onClick={() => alert('File dismissed via mouse')} />
+              </File>
+            </FileList.Item>
+            <FileList.Item>
+              <File
+                type="image"
+                tabIndex={0}
+                aria-label="Image file"
+                onKeyDown={handleKeyDown}
+                isCompact
+              >
+                saguaro.svg
+                <File.Close onClick={() => alert('File dismissed via mouse')} />
+              </File>
+            </FileList.Item>
+          </StyledFileList>
         </Field>
       </StyledCol>
     </Row>

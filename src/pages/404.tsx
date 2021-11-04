@@ -9,7 +9,7 @@ import React from 'react';
 import { css } from 'styled-components';
 import SEO from 'components/SEO';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import RootLayout from 'layouts/Root';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
@@ -20,13 +20,11 @@ import { StyledH1 } from 'components/MarkdownProvider/components/Typography';
 const NotFoundPage: React.FC = () => {
   const { notFoundImage } = useStaticQuery(
     graphql`
-      query {
-        notFoundImage: abstractAsset(layerName: { eq: "general-error-404" }) {
+      {
+        notFoundImage: figmaAsset(name: { eq: "general-error-404" }) {
           childFile {
             childImageSharp {
-              fixed(width: 270, height: 270) {
-                ...GatsbyImageSharpFixed_noBase64
-              }
+              gatsbyImageData(width: 270, height: 270, layout: FIXED)
             }
           }
         }
@@ -51,8 +49,8 @@ const NotFoundPage: React.FC = () => {
         >
           <Row justifyContent="center">
             <Col sm="auto">
-              <Img
-                fixed={notFoundImage.childFile.childImageSharp.fixed}
+              <GatsbyImage
+                image={notFoundImage.childFile.childImageSharp.gatsbyImageData}
                 alt=""
                 css={css`
                   ${p => mediaQuery('down', 'xs', p.theme)} {

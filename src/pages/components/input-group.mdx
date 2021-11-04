@@ -40,15 +40,15 @@ import InputGroupCode from '!!raw-loader!../../examples/forms/input-group/InputG
   <InputGroup />
 </CodeExample>
 
-### Read-only
+### Button placement
 
-Field content can be made read-only.
+Buttons can be placed before or after the input.
 
-import Readonly from '../../examples/forms/input-group/Readonly.tsx';
-import ReadonlyCode from '!!raw-loader!../../examples/forms/input-group/Readonly.tsx';
+import ButtonPlacement from '../../examples/forms/input-group/ButtonPlacement.tsx';
+import ButtonPlacementCode from '!!raw-loader!../../examples/forms/input-group/ButtonPlacement.tsx';
 
-<CodeExample code={ReadonlyCode}>
-  <Readonly />
+<CodeExample code={ButtonPlacementCode}>
+  <ButtonPlacement />
 </CodeExample>
 
 ### Disabled
@@ -62,6 +62,17 @@ import DisabledCode from '!!raw-loader!../../examples/forms/input-group/Disabled
   <Disabled />
 </CodeExample>
 
+### Read-only
+
+Field content can be made read-only.
+
+import Readonly from '../../examples/forms/input-group/Readonly.tsx';
+import ReadonlyCode from '!!raw-loader!../../examples/forms/input-group/Readonly.tsx';
+
+<CodeExample code={ReadonlyCode}>
+  <Readonly />
+</CodeExample>
+
 ### Size
 
 Input group comes in two sizes: default and compact.
@@ -73,33 +84,35 @@ import SizeCode from '!!raw-loader!../../examples/forms/input-group/Size.tsx';
   <Size />
 </CodeExample>
 
-### Button placement
-
-Buttons can be placed before or after the input.
-
-import ButtonPlacement from '../../examples/forms/input-group/ButtonPlacement.tsx';
-import ButtonPlacementCode from '!!raw-loader!../../examples/forms/input-group/ButtonPlacement.tsx';
-
-<CodeExample code={ButtonPlacementCode}>
-  <ButtonPlacement />
-</CodeExample>
-
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
 
 ## API
 
+The InputGroup component follows this structure:
+
+```jsx
+<Field>
+  <Label />
+  <Hint />
+  <InputGroup />
+</Field>
+```
+
 ### InputGroup
 
 <Component components={props.data.mdx.components} componentName="inputGroup" />
+
+An InputGroup provides styles for grouping child inputs and buttons together. Nest an InputGroup within a
+[Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="inputGroup" />
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

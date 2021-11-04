@@ -10,7 +10,25 @@ const fs = require('fs');
 const path = require('path');
 
 require('dotenv').config();
-envalid.cleanEnv(process.env, { ABSTRACT_TOKEN: envalid.str() });
+envalid.cleanEnv(process.env, { FIGMA_TOKEN: envalid.str() });
+
+const figmaNodeIds = [
+  '1:22' /* home-hero-logo */,
+  '2:7' /* components-avatar-shape-square */,
+  '2:12' /* components-avatar-shape-circle */,
+  '25:403' /* content-voice-tone-map */,
+  '103:361' /* general-error-404 */,
+  '103:2974' /* components-buttons-iconbutton-tooltip-do */,
+  '104:364' /*  components-buttons-toggleiconbutton-tooltip-do*/,
+  '105:1647' /* components-dropdowns-autocomplete-selection-do */,
+  '108:4872' /* components-forms-checkbox-standalone-do */,
+  '108:4897' /* components-forms-checkbox-standalone-option-dont */,
+  '111:5353' /* components-timeline-interactive-elements-dont */,
+  '111:5361' /* components-timeline-interactive-elements-do */,
+  '111:5367' /* components-timeline-correct-hierarchy-do */,
+  '111:5374' /* components-timeline-correct-hierarchy-dont */,
+  '336:2968' /* components-timeline-nesting-do */
+];
 
 module.exports = {
   siteMetadata: {
@@ -73,15 +91,16 @@ module.exports = {
     'gatsby-source-news',
     'gatsby-source-react-packages',
     {
-      resolve: 'gatsby-source-abstract',
+      resolve: 'gatsby-source-figma',
       options: {
-        apiToken: process.env.ABSTRACT_TOKEN,
-        projectId: '27ff5784-e1c4-4f8c-a914-c03c380c8ea9',
-        branch: 'master',
-        sha: 'latest'
+        figmaApiToken: process.env.FIGMA_TOKEN,
+        fileId: 'HifWgSrdeTlMMXUrcnrAAH',
+        nodeIds: figmaNodeIds,
+        scale: 2
       }
     },
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-transformer-yaml`,
     `gatsby-transformer-garden-svg`,
     `gatsby-plugin-react-helmet`,
@@ -95,7 +114,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
-        defaultQuality: 90
+        defaults: {
+          quality: 90
+        }
       }
     },
     `gatsby-plugin-remove-trailing-slashes`,
@@ -110,7 +131,7 @@ module.exports = {
           patterns: require.resolve('./src/templates/PatternTemplate.tsx')
         },
         gatsbyRemarkPlugins: [
-          require.resolve('./plugins/gatsby-remark-abstract-assets'),
+          require.resolve('./plugins/gatsby-remark-figma-assets'),
           'gatsby-remark-smartypants',
           {
             resolve: 'gatsby-remark-images',

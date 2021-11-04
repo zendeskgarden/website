@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { css } from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
@@ -18,13 +18,11 @@ import { HomeLink } from './HomeLink';
 export const Patterns: React.FC = () => {
   const { patternsImage } = useStaticQuery(
     graphql`
-      query {
-        patternsImage: abstractAsset(layerName: { eq: "home-pillars-patterns" }) {
+      {
+        patternsImage: figmaAsset(name: { eq: "home-pillars-patterns" }) {
           childFile {
             childImageSharp {
-              fluid(maxWidth: 808) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(width: 808)
             }
           }
         }
@@ -53,8 +51,8 @@ export const Patterns: React.FC = () => {
               }
             `}
           >
-            <Img
-              fluid={patternsImage.childFile.childImageSharp.fluid}
+            <GatsbyImage
+              image={patternsImage.childFile.childImageSharp.gatsbyImageData}
               alt="Garden patterns"
               imgStyle={{ width: 808, maxWidth: '100%', height: 488, maxHeight: '100%' }}
             />

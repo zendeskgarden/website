@@ -96,6 +96,17 @@ import SizeCode from '!!raw-loader!../../examples/typography/code-block/Size.tsx
   <Size />
 </CodeExample>
 
+### Source diff
+
+Use Code block to highlight source code changes.
+
+import Diff from '../../examples/typography/code-block/Diff.tsx';
+import DiffCode from '!!raw-loader!../../examples/typography/code-block/Diff.tsx';
+
+<CodeExample code={DiffCode}>
+  <Diff />
+</CodeExample>
+
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
@@ -111,7 +122,7 @@ import SizeCode from '!!raw-loader!../../examples/typography/code-block/Size.tsx
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

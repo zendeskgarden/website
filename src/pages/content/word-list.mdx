@@ -330,15 +330,22 @@ Use objective terms instead.
   </Dont>
 </BestPractice>
 
-### Help Center
+### help center
 
-Capitalize both words. Also, refer to it as _Help Center_, not _the Help Center_.
+All lowercase. Help center is not a proper noun.
 
-Example: "Edit articles in Help Center."
-
-A possessive pronoun is OK.
-
-Example: “Edit articles in your Help Center.”
+<BestPractice>
+  <Do>
+    <ul>
+      <li>Use the help center to manage your knowledge.</li>
+    </ul>
+  </Do>
+  <Dont>
+    <ul>
+      <li>Use Help Center to manage your knowledge.</li>
+    </ul>
+  </Dont>
+</BestPractice>
 
 ### help desk
 
@@ -705,7 +712,7 @@ but can’t edit or create them.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

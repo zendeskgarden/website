@@ -17,7 +17,9 @@ const Example = () => (
         <Label>Invoice number</Label>
         <InputGroup>
           <Input value="GDN10136H74NK-0011" readOnly />
-          <Button focusInset>Copy</Button>
+          <Button focusInset isNeutral>
+            Copy
+          </Button>
         </InputGroup>
       </Field>
     </Col>

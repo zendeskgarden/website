@@ -56,6 +56,27 @@ import IconsCode from '!!raw-loader!../../examples/accordions/stepper/StepperIco
 
 ## API
 
+The Stepper component follows this structure:
+
+```jsx
+<Stepper>
+  <Stepper.Step>
+    <Stepper.Label />
+    <Stepper.Content />
+  </Stepper.Step>
+  {/* other steps */}
+</Stepper>
+```
+
+<!-- markdownlint-disable no-emphasis-as-heading -->
+
+**Stepper orientation**
+
+<!-- markdownlint-enable no-emphasis-as-heading -->
+
+- Define the content for a vertical stepper using the `Stepper.Content` for each step
+- Render the content for a horizontal stepper externally. See [example](#layout) for details.
+
 import COMPONENTS from '../../examples/accordions/components.ts';
 
 ### Stepper
@@ -68,9 +89,14 @@ import COMPONENTS from '../../examples/accordions/components.ts';
 
 <Component components={COMPONENTS} componentName="stepper.content" />
 
+Nest the Content within a [Step](#stepperstep) component.
+
 #### Stepper.Label
 
 <Component components={COMPONENTS} componentName="stepper.label" />
+
+The Label component renders the provided label text with the step number or the provided icon. Nest it
+within a [Step](#stepperstep).
 
 <PropSheet components={COMPONENTS} componentName="stepper.label" />
 
@@ -78,10 +104,12 @@ import COMPONENTS from '../../examples/accordions/components.ts';
 
 <Component components={COMPONENTS} componentName="stepper.step" />
 
+Wrap each step's [Label](#stepperlabel) and corresponding [Content](#steppercontent) together with the Step component.
+
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

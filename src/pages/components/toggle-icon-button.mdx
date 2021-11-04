@@ -112,7 +112,7 @@ import ToggleIconButtonTypesCode from '!!raw-loader!../../examples/button/Toggle
 
 <BestPractice>
   <Do
-    imageSource={props.data.toggleIconButtonTooltipDo.childFile.childImageSharp.fluid}
+    imageSource={props.data.toggleIconButtonTooltipDo.childFile.childImageSharp.gatsbyImageData}
     imageIsSquare
   >
     <p>
@@ -139,16 +139,14 @@ import ToggleIconButtonTypesCode from '!!raw-loader!../../examples/button/Toggle
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    toggleIconButtonTooltipDo: abstractAsset(
-      layerName: { eq: "components-buttons-toggleiconbutton-tooltip-do" }
+    toggleIconButtonTooltipDo: figmaAsset(
+      name: { eq: "components-buttons-toggleiconbutton-tooltip-do" }
     ) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 200)
         }
       }
     }

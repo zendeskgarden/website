@@ -13,7 +13,7 @@ import HomeLayout from 'layouts/Home';
 
 const IndexPage: React.FC = () => {
   return (
-    <RootLayout hasSkipNav={false}>
+    <RootLayout hasSkipNav={false} path="/">
       <SEO />
       <HomeLayout />
     </RootLayout>

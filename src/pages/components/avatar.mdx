@@ -70,10 +70,10 @@ Use circles to represent people and rounded squares for objects, brands, or prod
 user distinguish between the two when scanning a page.
 
 <BestPractice>
-  <Do imageSource={props.data.avatarShapeCircle.childFile.childImageSharp.fluid}>
+  <Do imageSource={props.data.avatarShapeCircle.childFile.childImageSharp.gatsbyImageData}>
     <p>Use a circular Avatar for people.</p>
   </Do>
-  <Do imageSource={props.data.avatarShapeSquare.childFile.childImageSharp.fluid}>
+  <Do imageSource={props.data.avatarShapeSquare.childFile.childImageSharp.gatsbyImageData}>
     <p>Use a rounded square Avatar for objects, brands, or Zendesk products.</p>
   </Do>
 </BestPractice>
@@ -105,23 +105,19 @@ user distinguish between the two when scanning a page.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    avatarShapeCircle: abstractAsset(layerName: { eq: "components-avatar-shape-circle" }) {
+    avatarShapeCircle: figmaAsset(name: { eq: "components-avatar-shape-circle" }) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 200)
         }
       }
     }
-    avatarShapeSquare: abstractAsset(layerName: { eq: "components-avatar-shape-square" }) {
+    avatarShapeSquare: figmaAsset(name: { eq: "components-avatar-shape-square" }) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 200)
         }
       }
     }

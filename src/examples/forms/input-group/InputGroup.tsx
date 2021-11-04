@@ -17,7 +17,9 @@ const Example = () => (
         <Label>Plant name generator</Label>
         <InputGroup>
           <Input defaultValue="Sheepberry" />
-          <Button focusInset>Germinate</Button>
+          <Button focusInset isNeutral>
+            Generate
+          </Button>
         </InputGroup>
       </Field>
     </Col>

@@ -106,9 +106,24 @@ import ValidationCode from '!!raw-loader!../../examples/forms/toggle/Validation.
 
 ## API
 
+The Toggle component follows this structure:
+
+```jsx
+<Field>
+  <Toggle>
+    <Label />
+    <Hint />
+    <Message />
+  </Toggle>
+</Field>
+```
+
 ### Field
 
 <Component components={props.data.mdx.components} componentName="field" />
+
+A Field provides accessibility attributes to its child [Toggle](#toggle) field by associating it
+with the corresponding [Label](#label) and [Hint](#hint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
@@ -116,11 +131,15 @@ import ValidationCode from '!!raw-loader!../../examples/forms/toggle/Validation.
 
 <Component components={props.data.mdx.components} componentName="hint" />
 
+Nest the Hint within the [Toggle](#toggle) component.
+
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
 ### Label
 
 <Component components={props.data.mdx.components} componentName="label" />
+
+Nest the Label within the [Toggle](#toggle) component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
@@ -128,18 +147,23 @@ import ValidationCode from '!!raw-loader!../../examples/forms/toggle/Validation.
 
 <Component components={props.data.mdx.components} componentName="message" />
 
+The Message component applies appropriate icon and styles based on the validation provided. Nest
+it within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="message" />
 
 ### Toggle
 
 <Component components={props.data.mdx.components} componentName="toggle" />
 
+Nest a Toggle within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="toggle" />
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

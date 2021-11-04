@@ -23,7 +23,11 @@ const StyledFooterItem = styled(Link)`
   }
 `;
 
-const Footer: React.FC = () => (
+interface IFooterProps {
+  path?: string;
+}
+
+const Footer: React.FC<IFooterProps> = ({ path }) => (
   <footer
     css={css`
       background-color: ${p => getColor('kale', 700, p.theme)};
@@ -49,6 +53,11 @@ const Footer: React.FC = () => (
         <StyledFooterItem to="https://design.zendesk.com">Blog</StyledFooterItem>
         <StyledFooterItem to="https://www.github.com/zendeskgarden">GitHub</StyledFooterItem>
         <StyledFooterItem to="/components/versions">Versions</StyledFooterItem>
+        {path === '/' ? (
+          <StyledFooterItem to="https://www.netlify.com/">
+            This site is powered by Netlify
+          </StyledFooterItem>
+        ) : null}
       </div>
       <div
         css={css`
@@ -94,7 +103,7 @@ const Footer: React.FC = () => (
         </div>
         <div
           css={css`
-            ${p => mediaQuery('down', 'md', p.theme)} {
+            ${p => mediaQuery('down', 'sm', p.theme)} {
               margin-top: ${p => p.theme.space.md};
               width: 100%;
               text-align: center;

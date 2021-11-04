@@ -64,6 +64,8 @@
           title: Multiselect
         - id: /components/select
           title: Select
+        - id: /components/select-native
+          title: Select (native)
     - title: Forms
       items:
         - id: /components/checkbox
@@ -118,6 +120,8 @@
       id: /components/tags
     - title: Tiles
       id: /components/tiles
+    - title: Timeline
+      id: /components/timeline
     - title: Tooltip
       id: /components/tooltip
     - title: Tooltip modal

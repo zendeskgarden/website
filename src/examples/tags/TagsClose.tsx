@@ -20,9 +20,9 @@ const handleKeyDown = (e: React.KeyboardEvent<any>) => {
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <Tag tabIndex={0} onClick={() => alert('Tag dismissed via mouse')} onKeyDown={handleKeyDown}>
+      <Tag tabIndex={0} onKeyDown={handleKeyDown}>
         <span>Algae</span>
-        <Tag.Close />
+        <Tag.Close onClick={() => alert('Tag dismissed via mouse')} />
       </Tag>
     </Col>
   </Row>
