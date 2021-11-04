@@ -14,6 +14,7 @@ envalid.cleanEnv(process.env, { FIGMA_TOKEN: envalid.str() });
 
 const figmaNodeIds = [
   '1:22' /* home-hero-logo */,
+  '1:37' /* home-pillars-patterns */,
   '2:7' /* components-avatar-shape-square */,
   '2:12' /* components-avatar-shape-circle */,
   '25:403' /* content-voice-tone-map */,
@@ -27,7 +28,13 @@ const figmaNodeIds = [
   '111:5361' /* components-timeline-interactive-elements-do */,
   '111:5367' /* components-timeline-correct-hierarchy-do */,
   '111:5374' /* components-timeline-correct-hierarchy-dont */,
-  '336:2968' /* components-timeline-nesting-do */
+  '336:2968' /* components-timeline-nesting-do */,
+  '112:5516' /* patterns-buttons-anatomy */,
+  '112:5480' /* patterns-buttons-anatomy-button-type */,
+  '112:5463' /* patterns-buttons-interface-button-size-do */,
+  '112:5446' /* patterns-buttons-interface-button-size-dont */,
+  '112:5443' /* patterns-buttons-content-do */,
+  '112:5436' /* patterns-buttons-content-dont */
 ];
 
 module.exports = {

@@ -18,7 +18,7 @@ There is one call-to-action (CTA) per button, but there may be a few buttons
 a page or view. Buttons in the right place and with clear labels can help
 people feel confident they are taking the correct action.
 
-![Button types](abstract:patterns-buttons-anatomy-button-type.png)
+![Button types](figma:patterns-buttons-anatomy-button-type.png)
 
 1. **Primary** buttons are for the most important action in a given view
 1. **Default** buttons are for secondary actions
@@ -35,12 +35,12 @@ of actions available and their priority in the process.
 - Large buttons are mostly used in onboarding
 
 <BestPractice>
-  <Do imageSource={props.data.buttonsSizeDo.childFile.childImageSharp.fluid}>
+  <Do imageSource={props.data.buttonsSizeDo.childFile.childImageSharp.gatsbyImageData}>
     <ul>
       <li>Use same size buttons and inputs in the same flow</li>
     </ul>
   </Do>
-  <Dont imageSource={props.data.buttonsSizeDont.childFile.childImageSharp.fluid}>
+  <Dont imageSource={props.data.buttonsSizeDont.childFile.childImageSharp.gatsbyImageData}>
     <ul>
       <li>Avoid mixing and matching button and input sizes</li>
     </ul>
@@ -61,7 +61,7 @@ See below the difference between clearly labeled buttons and buttons with
 vague, general labels.
 
 <BestPractice>
-  <Do imageSource={props.data.buttonsContentDo.childFile.childImageSharp.fluid}>
+  <Do imageSource={props.data.buttonsContentDo.childFile.childImageSharp.gatsbyImageData}>
     <ul>
       <li>Communicate a single action per button</li>
       <li>Use the “Verb noun” formula</li>
@@ -69,7 +69,7 @@ vague, general labels.
       <li>Consider longer languages. Use 1–4 words and a maximum of 20 characters.</li>
     </ul>
   </Do>
-  <Dont imageSource={props.data.buttonsContentDont.childFile.childImageSharp.fluid}>
+  <Dont imageSource={props.data.buttonsContentDont.childFile.childImageSharp.gatsbyImageData}>
     <ul>
       <li>Avoid CTAs that lack context like "Yes," "No," or "Done"</li>
       <li>Avoid calling out more than one action</li>
@@ -96,43 +96,33 @@ import InteractionCode from '!!raw-loader!./examples/button/Interaction.tsx';
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query($fileAbsolutePath: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    buttonsSizeDo: abstractAsset(layerName: { eq: "patterns-buttons-interface-button-size-do" }) {
+    buttonsSizeDo: figmaAsset(name: { eq: "patterns-buttons-interface-button-size-do" }) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 380) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 380)
         }
       }
     }
-    buttonsSizeDont: abstractAsset(
-      layerName: { eq: "patterns-buttons-interface-button-size-dont" }
-    ) {
+    buttonsSizeDont: figmaAsset(name: { eq: "patterns-buttons-interface-button-size-dont" }) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 350) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 350)
         }
       }
     }
-    buttonsContentDo: abstractAsset(layerName: { eq: "patterns-buttons-content-do" }) {
+    buttonsContentDo: figmaAsset(name: { eq: "patterns-buttons-content-do" }) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 200)
         }
       }
     }
-    buttonsContentDont: abstractAsset(layerName: { eq: "patterns-buttons-content-dont" }) {
+    buttonsContentDont: figmaAsset(name: { eq: "patterns-buttons-content-dont" }) {
       childFile {
         childImageSharp {
-          fluid(maxHeight: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(height: 200)
         }
       }
     }
