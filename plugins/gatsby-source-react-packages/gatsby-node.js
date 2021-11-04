@@ -8,9 +8,8 @@
 const fs = require('fs');
 const util = require('util');
 const path = require('path');
-const { parse } = require('comment-parser');
-const reactDocgenTypescript = require('react-docgen-typescript');
 const { createNodeHelpers } = require('gatsby-node-helpers');
+const { cmdDocgen } = require('@zendeskgarden/scripts');
 
 const readdir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
@@ -20,63 +19,20 @@ const TYPE_PREFIX = 'Garden';
 const GARDEN_REACT_COMPONENT_ID = 'ReactComponent';
 const GARDEN_REACT_PACKAGE_ID = 'ReactPackage';
 
-const parseComponents = filePaths => {
-  const TSCONFIG_PATH = path.resolve(__dirname, '..', '..', 'react-components', 'tsconfig.json');
-  const PARSER_OPTIONS = {
-    propFilter: props =>
-      !(props.description.includes('@ignore') || props.parent.fileName.includes('node_modules')),
-    shouldRemoveUndefinedFromOptional: true
-  };
-  const PARSER = reactDocgenTypescript.withCustomConfig(TSCONFIG_PATH, PARSER_OPTIONS);
-  const components = PARSER.parse(filePaths);
+const componentDoc = async (paths, cache) => {
+  const file = path.resolve(__dirname, '../../react-components/packages/theming/package.json');
+  const packageJson = JSON.parse(await readFile(file, { encoding: 'utf8' }));
+  const key = `cache-components-${packageJson.version}`;
+  let components = await cache.get(key);
 
-  return components.map(component => {
-    const props = {};
+  if (!components) {
+    const elementPaths = path.join(__dirname, '../../react-components/packages/**/elements/**');
 
-    Object.keys(component.props)
-      .sort()
-      .forEach(key => {
-        const prop = component.props[key];
-        const description = parse(`/** ${prop.description} */`)[0];
-        const type = prop.type.name.replace(/"/gu, "'");
-        let defaultValue =
-          prop.defaultValue && prop.defaultValue.value && prop.defaultValue.value.toString();
+    components = await cmdDocgen({ paths: elementPaths });
+    await cache.set(key, components);
+  }
 
-        if (
-          (type === 'string' && defaultValue !== null) ||
-          type.indexOf(`'${defaultValue}'`) !== -1
-        ) {
-          // Surround default string literals with quotes.
-          defaultValue = `'${defaultValue}'`;
-        }
-
-        const params = {};
-        let returns;
-
-        if (description) {
-          description.tags
-            .filter(tag => tag.tag === 'param')
-            .forEach(param => (params[param.name] = param.description));
-          returns = description.tags.find(tag => tag.tag.startsWith('return'));
-        }
-
-        props[key] = {
-          description: description ? description.description : '',
-          defaultValue,
-          required: prop.required,
-          type,
-          params,
-          returns: returns ? returns.description : undefined
-        };
-      });
-
-    return {
-      name: component.displayName,
-      description: component.description,
-      extends: component.tags ? component.tags.extends : '',
-      props
-    };
-  });
+  return components.filter(component => paths.includes(component.file));
 };
 
 exports.createSchemaCustomization = ({ actions, createNodeId, createContentDigest }) => {
@@ -162,7 +118,7 @@ exports.createResolvers = ({ createResolvers, cache, createNodeId, createContent
           let component = await cache.get(key);
 
           if (!component) {
-            component = parseComponents(source.absolutePath)[0];
+            component = await componentDoc(source.absolutePath, cache)[0];
 
             await cache.set(key, component);
           }
@@ -214,7 +170,7 @@ exports.createResolvers = ({ createResolvers, cache, createNodeId, createContent
             );
             const filePaths = componentNodes.map(node => node.absolutePath);
 
-            return parseComponents(filePaths);
+            return componentDoc(filePaths, cache);
           }
 
           return undefined;
