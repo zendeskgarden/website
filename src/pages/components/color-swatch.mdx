@@ -1,0 +1,84 @@
+---
+title: Color swatch
+description: >
+  The Color swatch allows users to choose colors using sliders and input fields.
+package: '@zendeskgarden/react-colorpickers'
+components:
+  - colorpickers/src/elements/ColorSwatch/index.tsx
+  - colorpickers/src/elements/ColorSwatchDialog/index.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To let users change, update, or add predefined colors</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          For more finite control over color selection, use the [Color
+          picker](/components/color-picker)
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The Color swatch allows users to select a single predefined color.
+
+import ColorSwatchDefault from '../../examples/color-swatch/ColorSwatchDefault.tsx';
+import ColorSwatchDefaultCode from '!!raw-loader!../../examples/color-swatch/ColorSwatchDefault.tsx';
+
+<CodeExample code={ColorSwatchDefaultCode}>
+  <ColorSwatchDefault />
+</CodeExample>
+
+### Custom trigger
+
+The Color swatch can be displayed using a trigger, e.g. an [Icon button](/components/icon-button).
+
+import ColorSwatchCustomTrigger from '../../examples/color-swatch/ColorSwatchCustomTrigger.tsx';
+import ColorSwatchCustomTriggerCode from '!!raw-loader!../../examples/color-swatch/ColorSwatchCustomTrigger.tsx';
+
+<CodeExample code={ColorSwatchCustomTriggerCode}>
+  <ColorSwatchCustomTrigger />
+</CodeExample>
+
+### Dialog
+
+The Color swatch can be placed inside a dialog.
+
+import ColorSwatchDialog from '../../examples/color-swatch/ColorSwatchDialog.tsx';
+import ColorSwatchDialogCode from '!!raw-loader!../../examples/color-swatch/ColorSwatchDialog.tsx';
+
+<CodeExample code={ColorSwatchDialogCode}>
+  <ColorSwatchDialog />
+</CodeExample>
+
+## API
+
+### ColorSwatch
+
+<Component components={props.data.mdx.components} componentName="colorswatch" />
+
+<PropSheet components={props.data.mdx.components} componentName="colorswatch" />
+
+### ColorSwatchDialog
+
+<Component components={props.data.mdx.components} componentName="colorswatchdialog" />
+
+<PropSheet components={props.data.mdx.components} componentName="colorswatchdialog" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
