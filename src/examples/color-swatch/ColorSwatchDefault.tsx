@@ -11,29 +11,38 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { convertToMatrix } from '@zendeskgarden/container-utilities';
 import { PALETTE } from '@zendeskgarden/react-theming';
 
-interface ILabledColor {
-  label: string;
-  value: string;
-}
+const colors = [
+  { label: 'Blue-200', value: PALETTE.blue[200] },
+  { label: 'Blue-300', value: PALETTE.blue[300] },
+  { label: 'Blue-400', value: PALETTE.blue[400] },
+  { label: 'Blue-500', value: PALETTE.blue[500] },
+  { label: 'Blue-600', value: PALETTE.blue[600] },
+  { label: 'Blue-700', value: PALETTE.blue[700] },
+  { label: 'Blue-800', value: PALETTE.blue[800] },
+  { label: 'Red-200', value: PALETTE.red[200] },
+  { label: 'Red-300', value: PALETTE.red[300] },
+  { label: 'Red-400', value: PALETTE.red[400] },
+  { label: 'Red-500', value: PALETTE.red[500] },
+  { label: 'Red-600', value: PALETTE.red[600] },
+  { label: 'Red-700', value: PALETTE.red[700] },
+  { label: 'Red-800', value: PALETTE.red[800] },
+  { label: 'Yellow-200', value: PALETTE.yellow[200] },
+  { label: 'Yellow-300', value: PALETTE.yellow[300] },
+  { label: 'Yellow-400', value: PALETTE.yellow[400] },
+  { label: 'Yellow-500', value: PALETTE.yellow[500] },
+  { label: 'Yellow-600', value: PALETTE.yellow[600] },
+  { label: 'Yellow-700', value: PALETTE.yellow[700] },
+  { label: 'Yellow-800', value: PALETTE.yellow[800] },
+  { label: 'Green-200', value: PALETTE.green[200] },
+  { label: 'Green-300', value: PALETTE.green[300] },
+  { label: 'Green-400', value: PALETTE.green[400] },
+  { label: 'Green-500', value: PALETTE.green[500] },
+  { label: 'Green-600', value: PALETTE.green[600] },
+  { label: 'Green-700', value: PALETTE.green[700] },
+  { label: 'Green-800', value: PALETTE.green[800] }
+];
 
-const colors = ['blue', 'red', 'yellow', 'green'];
-
-const shades = [200, 300, 400, 500, 600, 700, 800];
-
-const capitalize = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
-
-const labeledColors = colors.reduce(
-  (acc: ILabledColor[], hue: string) => [
-    ...acc,
-    ...shades.map(shade => ({
-      label: `${capitalize(hue)}-${shade}`,
-      value: (PALETTE as any)[hue][shade]
-    }))
-  ],
-  []
-);
-
-const matrix = convertToMatrix(labeledColors, 7);
+const matrix = convertToMatrix(colors, 7);
 
 const Example = () => (
   <Row justifyContent="center">
