@@ -52,6 +52,8 @@
       id: /components/date-picker
     - title: Color picker
       id: /components/color-picker
+    - title: Color swatch
+      id: /components/color-swatch
     - title: Drawer
       id: /components/drawer
     - title: Dropdowns

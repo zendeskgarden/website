@@ -62,7 +62,7 @@ const packageJson = `
     "lodash.debounce": "latest",
     "react-dropzone": "latest",
     "react-window": "latest",
-    "@zendeskgarden/container-utilities": "^0.5.4",
+    "@zendeskgarden/container-utilities": "^0.6.3",
     "@zendeskgarden/css-bedrock": "^8.x",
     "@zendeskgarden/react-accordions": "^8.x",
     "@zendeskgarden/react-avatars": "^8.x",
