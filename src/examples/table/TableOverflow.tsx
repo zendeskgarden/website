@@ -17,11 +17,14 @@ import {
   Row,
   Table
 } from '@zendeskgarden/react-tables';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const OverflowMenu = () => (
   <Dropdown>
     <Trigger>
-      <OverflowButton aria-label="Row actions" />
+      <Tooltip content="Row actions">
+        <OverflowButton />
+      </Tooltip>
     </Trigger>
     <Menu
       placement="bottom-end"
