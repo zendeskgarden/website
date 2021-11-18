@@ -6,8 +6,13 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Field, Label, Hint, Toggle } from '@zendeskgarden/react-forms';
+
+const StyledHint = styled(Hint)`
+  ${p => `margin-${p.theme.rtl ? 'right' : 'left'}: ${p.theme.space.base * 12}px;`}
+`;
 
 const Example = () => (
   <Row justifyContent="center">
@@ -15,8 +20,8 @@ const Example = () => (
       <Field>
         <Toggle>
           <Label>Show flowers</Label>
-          <Hint>Display flowers on this page</Hint>
         </Toggle>
+        <StyledHint>Display flowers on this page</StyledHint>
       </Field>
     </Col>
   </Row>

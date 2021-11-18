@@ -14,6 +14,10 @@ const StyledField = styled(Field)`
   margin-top: ${p => p.theme.space.xs};
 `;
 
+const StyledMessage = styled(Message)`
+  ${p => `margin-${p.theme.rtl ? 'right' : 'left'}: ${p.theme.space.base * 6}px;`}
+`;
+
 const Example = () => {
   return (
     <Row justifyContent="center">
@@ -21,20 +25,22 @@ const Example = () => {
         <Field>
           <Toggle>
             <Label>Show tulips</Label>
-            <Message validation="success">Tulips are blooming</Message>
           </Toggle>
+          <StyledMessage validation="success">Tulips are blooming</StyledMessage>
         </Field>
         <StyledField>
           <Toggle>
             <Label>Show marigolds</Label>
-            <Message validation="warning">It&apos;s not the right reason for marigolds</Message>
           </Toggle>
+          <StyledMessage validation="warning">
+            It&apos;s not the right reason for marigolds
+          </StyledMessage>
         </StyledField>
         <StyledField>
           <Toggle>
             <Label>Show roses</Label>
-            <Message validation="error">There are no roses available</Message>
           </Toggle>
+          <StyledMessage validation="error">There are no roses available</StyledMessage>
         </StyledField>
       </Col>
     </Row>
