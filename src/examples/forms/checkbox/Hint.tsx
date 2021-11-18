@@ -14,20 +14,24 @@ const StyledField = styled(Field)`
   margin-top: ${p => p.theme.space.xs};
 `;
 
+const StyledHint = styled(Hint)`
+  ${p => `margin-${p.theme.rtl ? 'right' : 'left'}: ${p.theme.space.base * 6}px;`}
+`;
+
 const Example = () => (
   <Row justifyContent="center">
     <Col size="auto">
       <Field>
         <Checkbox defaultChecked>
           <Label>Pest resistant</Label>
-          <Hint>Has natural resistance to bugs and animals</Hint>
         </Checkbox>
+        <StyledHint>Has natural resistance to bugs and animals</StyledHint>
       </Field>
       <StyledField>
         <Checkbox>
           <Label>Needs direct light</Label>
-          <Hint>Thrives in warm temperatures with lots of sun</Hint>
         </Checkbox>
+        <StyledHint>Thrives in warm temperatures with lots of sun</StyledHint>
       </StyledField>
     </Col>
   </Row>
