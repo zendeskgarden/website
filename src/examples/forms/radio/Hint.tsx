@@ -14,6 +14,10 @@ const StyledField = styled(Field)`
   margin-top: ${p => p.theme.space.xs};
 `;
 
+const StyledHint = styled(Hint)`
+  ${p => `margin-${p.theme.rtl ? 'right' : 'left'}: ${p.theme.space.base * 6}px;`}
+`;
+
 const Example = () => {
   const [radioValue, setRadioValue] = useState('annual');
 
@@ -29,8 +33,8 @@ const Example = () => {
               onChange={event => setRadioValue(event.target.value)}
             >
               <Label>Annual</Label>
-              <Hint>Completes its life cycle with growing season</Hint>
             </Radio>
+            <StyledHint>Completes its life cycle with growing season</StyledHint>
           </Field>
           <StyledField>
             <Radio
@@ -40,8 +44,8 @@ const Example = () => {
               onChange={event => setRadioValue(event.target.value)}
             >
               <Label>Perennial</Label>
-              <Hint>Lives more than two years</Hint>
             </Radio>
+            <StyledHint>Lives more than two years</StyledHint>
           </StyledField>
         </div>
       </Col>
