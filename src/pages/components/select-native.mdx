@@ -105,9 +105,26 @@ import ValidationCode from '!!raw-loader!../../examples/forms/select/Validation.
 
 ## API
 
+The native Select component follows this structure:
+
+```jsx
+<Field>
+  <Label />
+  <Hint />
+  <Select>
+    <option />
+    <option />
+    {/* etc. */}
+  </Select>
+</Field>
+```
+
 ### Field
 
 <Component components={props.data.mdx.components} componentName="field" />
+
+A Field provides accessibility attributes to the child [Select](#select) field by associating it
+with the corresponding [Label](#label) and [Hint](#hint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
@@ -115,11 +132,15 @@ import ValidationCode from '!!raw-loader!../../examples/forms/select/Validation.
 
 <Component components={props.data.mdx.components} componentName="hint" />
 
+Nest a Hint within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
 ### Label
 
 <Component components={props.data.mdx.components} componentName="label" />
+
+Nest a Label within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
@@ -127,11 +148,17 @@ import ValidationCode from '!!raw-loader!../../examples/forms/select/Validation.
 
 <Component components={props.data.mdx.components} componentName="message" />
 
+The Message component applies appropriate icon and styles based on the validation provided. Nest
+it within a [Field](#field) component.
+
 <PropSheet components={props.data.mdx.components} componentName="message" />
 
 ### Select
 
 <Component components={props.data.mdx.components} componentName="select" />
+
+The Select component applies state and accessibility attributes to its children. Nest it within a
+[Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="select" />
 
