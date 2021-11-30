@@ -10,6 +10,7 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as RoundIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { ReactComponent as SquareIcon } from '@zendeskgarden/svg-icons/src/16/bold-stroke.svg';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const Example = () => {
   const [roundPressed, setRoundPressed] = useState(false);
@@ -18,24 +19,27 @@ const Example = () => {
   return (
     <Row>
       <Col textAlign="center">
-        <ToggleIconButton
-          aria-label="round leaf"
-          isBasic={false}
-          isPressed={roundPressed}
-          onClick={() => setRoundPressed(!roundPressed)}
-        >
-          <RoundIcon />
-        </ToggleIconButton>
+        <Tooltip content="Round leaf">
+          <ToggleIconButton
+            isBasic={false}
+            isPressed={roundPressed}
+            onClick={() => setRoundPressed(!roundPressed)}
+          >
+            <RoundIcon />
+          </ToggleIconButton>
+        </Tooltip>
       </Col>
       <Col textAlign="center">
-        <ToggleIconButton
-          isBasic={false}
-          isPill={false}
-          isPressed={squarePressed}
-          onClick={() => setSquarePressed(!squarePressed)}
-        >
-          <SquareIcon aria-label="square bold" />
-        </ToggleIconButton>
+        <Tooltip content="Square bold">
+          <ToggleIconButton
+            isBasic={false}
+            isPill={false}
+            isPressed={squarePressed}
+            onClick={() => setSquarePressed(!squarePressed)}
+          >
+            <SquareIcon />
+          </ToggleIconButton>
+        </Tooltip>
       </Col>
     </Row>
   );

@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as Icon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const Example = () => {
   const [defaultPressed, setDefaultPressed] = useState(false);
@@ -18,33 +19,36 @@ const Example = () => {
   return (
     <Row alignItems="center">
       <Col textAlign="center">
-        <ToggleIconButton
-          aria-label="default leaf"
-          isPressed={defaultPressed}
-          onClick={() => setDefaultPressed(!defaultPressed)}
-        >
-          <Icon />
-        </ToggleIconButton>
+        <Tooltip content="Default leaf">
+          <ToggleIconButton
+            isPressed={defaultPressed}
+            onClick={() => setDefaultPressed(!defaultPressed)}
+          >
+            <Icon />
+          </ToggleIconButton>
+        </Tooltip>
       </Col>
       <Col textAlign="center">
-        <ToggleIconButton
-          aria-label="primary leaf"
-          isPressed={primaryPressed}
-          onClick={() => setPrimaryPressed(!primaryPressed)}
-          isPrimary
-        >
-          <Icon />
-        </ToggleIconButton>
+        <Tooltip content="Primary leaf">
+          <ToggleIconButton
+            isPressed={primaryPressed}
+            onClick={() => setPrimaryPressed(!primaryPressed)}
+            isPrimary
+          >
+            <Icon />
+          </ToggleIconButton>
+        </Tooltip>
       </Col>
       <Col textAlign="center">
-        <ToggleIconButton
-          aria-label="basic leaf"
-          isPressed={basicPressed}
-          onClick={() => setBasicPressed(!basicPressed)}
-          isBasic={false}
-        >
-          <Icon />
-        </ToggleIconButton>
+        <Tooltip content="Basic leaf">
+          <ToggleIconButton
+            isPressed={basicPressed}
+            onClick={() => setBasicPressed(!basicPressed)}
+            isBasic={false}
+          >
+            <Icon />
+          </ToggleIconButton>
+        </Tooltip>
       </Col>
     </Row>
   );

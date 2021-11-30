@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as Icon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const Example = () => {
   const [smallPressed, setSmallPressed] = useState(true);
@@ -18,34 +19,37 @@ const Example = () => {
   return (
     <Row alignItems="center">
       <Col textAlign="center">
-        <ToggleIconButton
-          aria-label="small leaf"
-          isPressed={smallPressed}
-          onClick={() => setSmallPressed(!smallPressed)}
-          size="small"
-        >
-          <Icon />
-        </ToggleIconButton>
+        <Tooltip content="Small leaf">
+          <ToggleIconButton
+            isPressed={smallPressed}
+            onClick={() => setSmallPressed(!smallPressed)}
+            size="small"
+          >
+            <Icon />
+          </ToggleIconButton>
+        </Tooltip>
       </Col>
       <Col textAlign="center">
-        <ToggleIconButton
-          aria-label="medium leaf"
-          isPressed={mediumPressed}
-          onClick={() => setMediumPressed(!mediumPressed)}
-          size="medium"
-        >
-          <Icon />
-        </ToggleIconButton>
+        <Tooltip content="Medium leaf">
+          <ToggleIconButton
+            isPressed={mediumPressed}
+            onClick={() => setMediumPressed(!mediumPressed)}
+            size="medium"
+          >
+            <Icon />
+          </ToggleIconButton>
+        </Tooltip>
       </Col>
       <Col textAlign="center">
-        <ToggleIconButton
-          aria-label="large leaf"
-          isPressed={largePressed}
-          onClick={() => setLargePressed(!largePressed)}
-          size="large"
-        >
-          <Icon />
-        </ToggleIconButton>
+        <Tooltip content="Large leaf">
+          <ToggleIconButton
+            isPressed={largePressed}
+            onClick={() => setLargePressed(!largePressed)}
+            size="large"
+          >
+            <Icon />
+          </ToggleIconButton>
+        </Tooltip>
       </Col>
     </Row>
   );
