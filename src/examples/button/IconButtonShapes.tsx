@@ -9,18 +9,23 @@ import React from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <IconButton aria-label="square leaf" isBasic={false} isPill={false}>
-        <LeafIcon />
-      </IconButton>
+      <Tooltip content="Square leaf">
+        <IconButton isBasic={false} isPill={false}>
+          <LeafIcon />
+        </IconButton>
+      </Tooltip>
     </Col>
     <Col textAlign="center">
-      <IconButton aria-label="round leaf" isBasic={false}>
-        <LeafIcon />
-      </IconButton>
+      <Tooltip content="Round leaf">
+        <IconButton isBasic={false}>
+          <LeafIcon />
+        </IconButton>
+      </Tooltip>
     </Col>
   </Row>
 );

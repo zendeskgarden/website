@@ -9,13 +9,16 @@ import React from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <IconButton aria-label="leaf">
-        <LeafIcon />
-      </IconButton>
+      <Tooltip content="Leaf">
+        <IconButton>
+          <LeafIcon />
+        </IconButton>
+      </Tooltip>
     </Col>
   </Row>
 );
