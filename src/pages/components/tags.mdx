@@ -113,11 +113,24 @@ import TagsWeightCode from '!!raw-loader!../../examples/tags/TagsWeight.tsx';
 
 ## API
 
+The Tag component follows this structure:
+
+```jsx
+<Tag>
+  <Tag.Avatar /> {/* optional */}
+  {/* tag text */}
+  <Tag.Close /> {/* optional */}
+</Tag>
+```
+
 import COMPONENTS from '../../examples/tags/components.ts';
 
 ### Tag
 
 <Component components={props.data.mdx.components} componentName="tag" />
+
+The Tag component applies appropriate styles to itself and its descendents based on the props and
+child elements provided.
 
 <PropSheet components={props.data.mdx.components} componentName="tag" />
 
@@ -125,9 +138,15 @@ import COMPONENTS from '../../examples/tags/components.ts';
 
 <Component components={COMPONENTS} componentName="tag.avatar" />
 
+The Avatar component displays the child media with appropriate styles applied. Nest it within the [Tag](#tag)
+component as the first child.
+
 #### Tag.Close
 
 <Component components={COMPONENTS} componentName="tag.close" />
+
+The Close component displays an icon with appropriate styles and accessibility attributes to allow tag
+dismissal. Nest it within the [Tag](#tag) component as the last child.
 
 import { graphql } from 'gatsby';
 
