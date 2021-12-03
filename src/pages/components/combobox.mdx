@@ -1,0 +1,204 @@
+---
+title: Combobox
+description: Combobox is an input plus a list box that appears beneath it. It is used for search and filtering.
+package: '@zendeskgarden/react-dropdowns'
+components:
+  - dropdowns/src/elements/Combobox/Combobox.tsx
+  - dropdowns/src/elements/Dropdown/Dropdown.tsx
+  - dropdowns/src/elements/Fields/Field.tsx
+  - dropdowns/src/elements/Fields/Hint.tsx
+  - dropdowns/src/elements/Menu/Items/Item.tsx
+  - dropdowns/src/elements/Fields/Label.tsx
+  - dropdowns/src/elements/Menu/Menu.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To filter down a list of options</li>
+      <li>To quickly find a known option</li>
+      <li>As a search field</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>For a searchable dropdown, use Autocomplete instead</li>
+      <li>To make more than one selection, use Multiselect instead</li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+As the user types, options appear in the list box that match what the user is typing.
+
+import ComboboxDefault from '../../examples/dropdowns/combobox/Default.tsx';
+import ComboboxDefaultCode from '!!raw-loader!../../examples/dropdowns/combobox/Default.tsx';
+
+<CodeExample code={ComboboxDefaultCode}>
+  <ComboboxDefault />
+</CodeExample>
+
+### Hidden Label
+
+The label can be hidden as needed.
+
+import ComboboxHidden from '../../examples/dropdowns/combobox/Hidden.tsx';
+import ComboboxHiddenCode from '!!raw-loader!../../examples/dropdowns/combobox/Hidden.tsx';
+
+<CodeExample code={ComboboxHiddenCode}>
+  <ComboboxHidden />
+</CodeExample>
+
+### Media
+
+You can place the magnifying glass icon at the start of the input when using the Combobox for search.
+
+import ComboboxMedia from '../../examples/dropdowns/combobox/Media.tsx';
+import ComboboxMediaCode from '!!raw-loader!../../examples/dropdowns/combobox/Media.tsx';
+
+<CodeExample code={ComboboxMediaCode}>
+  <ComboboxMedia />
+</CodeExample>
+
+### Selection Logic
+
+The combobox can can be customized to include selection logic that highlights the first relevant
+result as the user types, allowing the user to hit enter to fully select the item. If this logic
+is not included, the user must manually select a result from the list.
+
+import ComboboxSelection from '../../examples/dropdowns/combobox/Selection.tsx';
+import ComboboxSelectionCode from '!!raw-loader!../../examples/dropdowns/combobox/Selection.tsx';
+
+<CodeExample code={ComboboxSelectionCode}>
+  <ComboboxSelection />
+</CodeExample>
+
+### Size
+
+Combobox can be displayed in either default or compact size.
+
+import ComboboxSize from '../../examples/dropdowns/combobox/Size.tsx';
+import ComboboxSizeCode from '!!raw-loader!../../examples/dropdowns/combobox/Size.tsx';
+
+<CodeExample code={ComboboxSizeCode}>
+  <ComboboxSize />
+</CodeExample>
+
+## How to use it well
+
+<BestPractice>
+  <Do imageSource={props.data.comboboxHighlightDo.childFile.childImageSharp.gatsbyImageData}>
+    <p>Use balanced and appropriate typographic hierarchy.</p>
+  </Do>
+  <Dont imageSource={props.data.comboboxSearchableDont.childFile.childImageSharp.gatsbyImageData}>
+    <p>Don’t mix up typographic hierarchy when customizing item content.</p>
+  </Dont>
+</BestPractice>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+The Combobox component follows this structure:
+
+```jsx
+<Dropdown>
+  <Field>
+    <Label />
+    <Hint />
+    <Combobox />
+  </Field>
+  <Menu>
+    <Item />
+    <Item />
+    {/* etc. */}
+  </Menu>
+</Dropdown>
+```
+
+### Combobox
+
+<Component components={props.data.mdx.components} componentName="combobox" />
+
+<PropSheet components={props.data.mdx.components} componentName="combobox" />
+
+### Dropdown
+
+<Component components={props.data.mdx.components} componentName="dropdown" />
+
+import Dropdowns from '../../fragments/dropdowns.mdx';
+
+<Dropdowns />
+
+<PropSheet components={props.data.mdx.components} componentName="dropdown" />
+
+### Field
+
+<Component components={props.data.mdx.components} componentName="field" />
+
+A Field provides accessibility attributes to the child [Combobox](#combobox) field by associating it
+with the corresponding [Label](#label) and [Hint](#hint).
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Hint
+
+<Component components={props.data.mdx.components} componentName="hint" />
+
+Nest a Hint within a [Field](#field) component.
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Item
+
+<Component components={props.data.mdx.components} componentName="item" />
+
+Nest an Item within a [Menu](#menu) component. It requires a `value` prop, which is provided to
+the `onSelect` callback.
+
+<PropSheet components={props.data.mdx.components} componentName="item" />
+
+### Label
+
+<Component components={props.data.mdx.components} componentName="label" />
+
+Nest a Label within a [Field](#field) component.
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+### Menu
+
+<Component components={props.data.mdx.components} componentName="menu" />
+
+A [Menu](/components/menu) manages placement, positioning and layout of the child Item components.
+
+<PropSheet components={props.data.mdx.components} componentName="menu" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    comboboxSearchableDont: figmaAsset(
+      name: { eq: "components-dropdowns-combobox-searchable-dont" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    comboboxHighlightDo: figmaAsset(name: { eq: "components-dropdowns-combobox-highlight-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+  }
+`;

@@ -21,6 +21,8 @@ const figmaNodeIds = [
   '103:2974' /* components-buttons-iconbutton-tooltip-do */,
   '104:364' /*  components-buttons-toggleiconbutton-tooltip-do*/,
   '105:1647' /* components-dropdowns-autocomplete-selection-do */,
+  '554:9811' /* components-dropdowns-combobox-highlight-do */,
+  '554:9877' /* components-dropdowns-combobox-searchable-dont */,
   '108:4872' /* components-forms-checkbox-standalone-do */,
   '108:4897' /* components-forms-checkbox-standalone-option-dont */,
   '111:5353' /* components-timeline-interactive-elements-dont */,

@@ -60,6 +60,8 @@
       items:
         - id: /components/autocomplete
           title: Autocomplete
+        - id: /components/combobox
+          title: Combobox
         - id: /components/menu
           title: Menu
         - id: /components/multiselect
