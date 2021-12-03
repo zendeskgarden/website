@@ -15,7 +15,7 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <Tooltip content="Leaf">
-        <IconButton>
+        <IconButton aria-label="leaf">
           <LeafIcon />
         </IconButton>
       </Tooltip>

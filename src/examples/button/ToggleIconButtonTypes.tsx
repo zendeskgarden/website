@@ -21,6 +21,7 @@ const Example = () => {
       <Col textAlign="center">
         <Tooltip content="Default leaf">
           <ToggleIconButton
+            aria-label="default leaf"
             isPressed={defaultPressed}
             onClick={() => setDefaultPressed(!defaultPressed)}
           >
@@ -31,6 +32,7 @@ const Example = () => {
       <Col textAlign="center">
         <Tooltip content="Primary leaf">
           <ToggleIconButton
+            aria-label="primary leaf"
             isPressed={primaryPressed}
             onClick={() => setPrimaryPressed(!primaryPressed)}
             isPrimary
@@ -42,6 +44,7 @@ const Example = () => {
       <Col textAlign="center">
         <Tooltip content="Basic leaf">
           <ToggleIconButton
+            aria-label="basic leaf"
             isPressed={basicPressed}
             onClick={() => setBasicPressed(!basicPressed)}
             isBasic={false}

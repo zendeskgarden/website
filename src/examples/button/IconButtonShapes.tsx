@@ -15,14 +15,14 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <Tooltip content="Square leaf">
-        <IconButton isBasic={false} isPill={false}>
+        <IconButton aria-label="square leaf" isBasic={false} isPill={false}>
           <LeafIcon />
         </IconButton>
       </Tooltip>
     </Col>
     <Col textAlign="center">
       <Tooltip content="Round leaf">
-        <IconButton isBasic={false}>
+        <IconButton aria-label="round leaf" isBasic={false}>
           <LeafIcon />
         </IconButton>
       </Tooltip>

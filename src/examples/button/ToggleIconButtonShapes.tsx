@@ -21,6 +21,7 @@ const Example = () => {
       <Col textAlign="center">
         <Tooltip content="Round leaf">
           <ToggleIconButton
+            aria-label="round leaf"
             isBasic={false}
             isPressed={roundPressed}
             onClick={() => setRoundPressed(!roundPressed)}
@@ -32,6 +33,7 @@ const Example = () => {
       <Col textAlign="center">
         <Tooltip content="Square bold">
           <ToggleIconButton
+            aria-label="square bold"
             isBasic={false}
             isPill={false}
             isPressed={squarePressed}

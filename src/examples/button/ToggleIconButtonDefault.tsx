@@ -18,7 +18,11 @@ const Example = () => {
     <Row>
       <Col textAlign="center">
         <Tooltip content="Leaf">
-          <ToggleIconButton isPressed={pressed} onClick={() => setPressed(!pressed)}>
+          <ToggleIconButton
+            aria-label="leaf"
+            isPressed={pressed}
+            onClick={() => setPressed(!pressed)}
+          >
             <Icon />
           </ToggleIconButton>
         </Tooltip>

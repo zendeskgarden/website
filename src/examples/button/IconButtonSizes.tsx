@@ -15,21 +15,21 @@ const Example = () => (
   <Row alignItems="center">
     <Col textAlign="center">
       <Tooltip content="Small leaf">
-        <IconButton size="small">
+        <IconButton aria-label="small leaf" size="small">
           <LeafIcon />
         </IconButton>
       </Tooltip>
     </Col>
     <Col textAlign="center">
       <Tooltip content="Medium leaf">
-        <IconButton size="medium">
+        <IconButton aria-label="medium leaf" size="medium">
           <LeafIcon />
         </IconButton>
       </Tooltip>
     </Col>
     <Col textAlign="center">
       <Tooltip content="Large leaf">
-        <IconButton size="large">
+        <IconButton aria-label="large leaf" size="large">
           <LeafIcon />
         </IconButton>
       </Tooltip>

@@ -21,6 +21,7 @@ const Example = () => {
       <Col textAlign="center">
         <Tooltip content="Small leaf">
           <ToggleIconButton
+            aria-label="small leaf"
             isPressed={smallPressed}
             onClick={() => setSmallPressed(!smallPressed)}
             size="small"
@@ -32,6 +33,7 @@ const Example = () => {
       <Col textAlign="center">
         <Tooltip content="Medium leaf">
           <ToggleIconButton
+            aria-label="medium leaf"
             isPressed={mediumPressed}
             onClick={() => setMediumPressed(!mediumPressed)}
             size="medium"
@@ -43,6 +45,7 @@ const Example = () => {
       <Col textAlign="center">
         <Tooltip content="Large leaf">
           <ToggleIconButton
+            aria-label="large leaf"
             isPressed={largePressed}
             onClick={() => setLargePressed(!largePressed)}
             size="large"
