@@ -6,13 +6,8 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
 import { Field, Label, FileUpload, FileList, File } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
-
-const StyledFileListItem = styled(FileList.Item)`
-  margin-top: ${p => p.theme.space.xs};
-`;
 
 const Example = () => (
   <Row justifyContent="center">
@@ -20,12 +15,12 @@ const Example = () => (
       <Field>
         <Label>Upload a photo of your ailing cactus</Label>
         <FileUpload disabled>Choose a file or drag and drop here</FileUpload>
+        <FileList>
+          <FileList.Item>
+            <File>prickly-pear.png</File>
+          </FileList.Item>
+        </FileList>
       </Field>
-      <FileList>
-        <StyledFileListItem>
-          <File>prickly-pear.png</File>
-        </StyledFileListItem>
-      </FileList>
     </Col>
   </Row>
 );

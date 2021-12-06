@@ -10,6 +10,9 @@ import { FileList, File } from '@zendeskgarden/react-forms';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
+
+const handleClick = () => alert('File dismissed via mouse');
 
 const handleKeyDown = (e: React.KeyboardEvent<any>) => {
   if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
@@ -23,24 +26,39 @@ const Example = () => (
     <Col sm={5}>
       <FileList>
         <FileList.Item>
+          <File type="generic" aria-label="Generic file" tabIndex={0} onKeyDown={handleKeyDown}>
+            Garden file
+            <Tooltip content="Stop upload">
+              <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
+            </Tooltip>
+            <Progress value={0} />
+          </File>
+        </FileList.Item>
+        <FileList.Item>
           <File type="document" aria-label="Document file" tabIndex={0} onKeyDown={handleKeyDown}>
             Plant ecology.doc
-            <File.Close onClick={() => alert('File dismissed via mouse')} />
-            <Progress value={0} />
+            <Tooltip content="Stop upload">
+              <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
+            </Tooltip>
+            <Progress value={16} />
           </File>
         </FileList.Item>
         <FileList.Item>
           <File type="image" aria-label="Image file" tabIndex={0} onKeyDown={handleKeyDown}>
             Rose petals.jpg
-            <File.Close onClick={() => alert('File dismissed via mouse')} />
-            <Progress value={20} />
+            <Tooltip content="Stop upload">
+              <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
+            </Tooltip>
+            <Progress value={32} />
           </File>
         </FileList.Item>
         <FileList.Item>
           <File type="pdf" aria-label="PDF file" tabIndex={0} onKeyDown={handleKeyDown}>
             Basics of gardening.pdf
-            <File.Close onClick={() => alert('File dismissed via mouse')} />
-            <Progress value={40} />
+            <Tooltip content="Stop upload">
+              <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
+            </Tooltip>
+            <Progress value={48} />
           </File>
         </FileList.Item>
         <FileList.Item>
@@ -51,8 +69,10 @@ const Example = () => (
             onKeyDown={handleKeyDown}
           >
             Presentation bouquets.ppt
-            <File.Close onClick={() => alert('File dismissed via mouse')} />
-            <Progress value={60} />
+            <Tooltip content="Stop upload">
+              <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
+            </Tooltip>
+            <Progress value={64} />
           </File>
         </FileList.Item>
         <FileList.Item>
@@ -63,13 +83,18 @@ const Example = () => (
             onKeyDown={handleKeyDown}
           >
             Seed inventory.xlsx
-            <File.Close onClick={() => alert('File dismissed via mouse')} />
+            <Tooltip content="Stop upload">
+              <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
+            </Tooltip>
             <Progress value={80} />
           </File>
         </FileList.Item>
         <FileList.Item>
           <File type="zip" aria-label="ZIP file" tabIndex={0} onKeyDown={handleKeyDown}>
             Landscape.zip
+            <Tooltip content="Remove file">
+              <File.Delete aria-label="delete" onClick={handleClick} tabIndex={-1} />
+            </Tooltip>
             <Progress value={100} />
           </File>
         </FileList.Item>

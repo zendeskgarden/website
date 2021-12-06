@@ -19,11 +19,12 @@ import {
   FileList,
   File
 } from '@zendeskgarden/react-forms';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
-const StyledFileList = styled(FileList)`
-  margin-top: ${p => p.theme.space.xs};
+const StyledFileUpload = styled(FileUpload)`
+  min-height: ${p => p.theme.space.base * 20}px;
 `;
 
 const FileItem: React.FC<{ name: string; onRemove: () => void }> = memo(({ name, onRemove }) => {
@@ -65,7 +66,13 @@ const FileItem: React.FC<{ name: string; onRemove: () => void }> = memo(({ name,
         onKeyDown={handleKeyDown}
       >
         {name}
-        <File.Close onClick={onRemove} />
+        <Tooltip content={progress === 100 ? 'Remove file' : 'Stop upload'}>
+          {progress === 100 ? (
+            <File.Delete aria-label="delete" onClick={onRemove} tabIndex={-1} />
+          ) : (
+            <File.Close aria-label="close" onClick={onRemove} tabIndex={-1} />
+          )}
+        </Tooltip>
         <Progress value={progress} />
       </File>
     </FileList.Item>
@@ -104,22 +111,22 @@ const Example = () => {
         <Field>
           <Label>Upload a photo of your ailing cactus</Label>
           <Hint>Include the entire plant in your photo</Hint>
-          <FileUpload {...getRootProps()} isDragging={isDragActive}>
+          <StyledFileUpload {...getRootProps()} isDragging={isDragActive}>
             {isDragActive ? (
               <span>Drop files here</span>
             ) : (
               <span>Choose a file or drag and drop here</span>
             )}
             <Input {...getInputProps()} />
-          </FileUpload>
+          </StyledFileUpload>
           {files.length === 0 ? (
             <Message>Acceptable formats are JPG, PNG, and GIF</Message>
           ) : (
-            <StyledFileList>
+            <FileList>
               {files.map((file, index) => (
                 <FileItem key={file} name={file} onRemove={() => removeFile(index)} />
               ))}
-            </StyledFileList>
+            </FileList>
           )}
         </Field>
       </Col>
