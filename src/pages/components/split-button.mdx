@@ -102,9 +102,43 @@ import SplitButtonTypesCode from '!!raw-loader!../../examples/button/SplitButton
 
 ## API
 
+The SplitButton component follows this structure:
+
+```jsx
+<SplitButton>
+  <Button />
+  <Dropdown>
+    <Trigger>
+      <ChevronButton />
+    </Trigger>
+    <Menu>
+      <Item />
+      <Item />
+      {/* etc. */}
+    </Menu>
+  </Dropdown>
+</SplitButton>
+```
+
+<!-- markdownlint-disable no-emphasis-as-heading -->
+
+**Implementation notes**
+
+<!-- markdownlint-enable no-emphasis-as-heading -->
+
+The split button pattern contains:
+
+- [SplitButton](#splitbutton) component as a container
+- [Button](#button) component for the main action
+- [ChevronButton](#chevronbutton) component to show/hide secondary actions
+- [Dropdown](/components/menu/#dropdown), [Menu](/components/menu/#menu) and
+  [Trigger](/components/menu/#trigger) components for the secondary actions menu
+
 ### Button
 
 <Component components={props.data.mdx.components} componentName="button" />
+
+The Button component applies appropriate styles based on its usage and the props provided.
 
 <PropSheet components={props.data.mdx.components} componentName="button" />
 
@@ -112,11 +146,16 @@ import SplitButtonTypesCode from '!!raw-loader!../../examples/button/SplitButton
 
 <Component components={props.data.mdx.components} componentName="chevronButton" />
 
+Nest the ChevronButton within a [Trigger](/components/menu#trigger) component.
+
 <PropSheet components={props.data.mdx.components} componentName="chevronButton" />
 
 ### SplitButton
 
 <Component components={props.data.mdx.components} componentName="splitButton" />
+
+The SplitButton component applies appropriate styles to group the primary action [Button](#button) together
+with the [ChevronButton](#chevronbutton) that shows/hides the secondary actions.
 
 <PropSheet components={props.data.mdx.components} componentName="splitButton" />
 

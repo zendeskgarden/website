@@ -130,9 +130,23 @@ import ToggleIconButtonTypesCode from '!!raw-loader!../../examples/button/Toggle
 
 ## API
 
+The ToggleIconButton component follows this structure:
+
+<!-- prettier-ignore -->
+```jsx
+<Tooltip> {/* recommended */}
+  <ToggleIconButton>
+    {/* icon here */}
+  </ToggleIconButton>
+</Tooltip>
+```
+
 ### ToggleIconButton
 
 <Component components={props.data.mdx.components} componentName="toggleIconButton" />
+
+Nest the ToggleIconButton within a [Tooltip](/components/tooltip) and provide an `aria-label` to ensure it is
+accessible. See [example](#default).
 
 <PropSheet components={props.data.mdx.components} componentName="toggleIconButton" />
 

@@ -10,6 +10,7 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as StrokeIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { ReactComponent as FillIcon } from '@zendeskgarden/svg-icons/src/16/leaf-fill.svg';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const Example = () => {
   const [pressed, setPressed] = useState(false);
@@ -17,16 +18,18 @@ const Example = () => {
   return (
     <Row>
       <Col textAlign="center">
-        <ToggleIconButton
-          aria-label="leaf"
-          isPressed={pressed}
-          onClick={() => setPressed(!pressed)}
-        >
-          <svg focusable="false">
-            <FillIcon style={{ opacity: pressed ? 1 : 0 }} />
-            <StrokeIcon style={{ opacity: pressed ? 0 : 1 }} />
-          </svg>
-        </ToggleIconButton>
+        <Tooltip content="Leaf">
+          <ToggleIconButton
+            aria-label="leaf"
+            isPressed={pressed}
+            onClick={() => setPressed(!pressed)}
+          >
+            <svg focusable="false">
+              <FillIcon style={{ opacity: pressed ? 1 : 0 }} />
+              <StrokeIcon style={{ opacity: pressed ? 0 : 1 }} />
+            </svg>
+          </ToggleIconButton>
+        </Tooltip>
       </Col>
     </Row>
   );

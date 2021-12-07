@@ -120,9 +120,22 @@ import IconButtonTypesCode from '!!raw-loader!../../examples/button/IconButtonTy
 
 ## API
 
+The IconButton component follows this structure:
+
+<!-- prettier-ignore -->
+```jsx
+<Tooltip> {/* recommended */}
+  <IconButton>
+    {/* icon here */}
+  </IconButton>
+</Tooltip>
+```
+
 ### IconButton
 
 <Component components={props.data.mdx.components} componentName="iconButton" />
+
+Nest the IconButton within a [Tooltip](/components/tooltip) and provide an `aria-label` to ensure it is accessible. See [example](#default).
 
 <PropSheet components={props.data.mdx.components} componentName="iconButton" />
 

@@ -23,7 +23,7 @@ const OverflowMenu = () => (
   <Dropdown>
     <Trigger>
       <Tooltip content="Row actions">
-        <OverflowButton />
+        <OverflowButton aria-label="row actions" />
       </Tooltip>
     </Trigger>
     <Menu
