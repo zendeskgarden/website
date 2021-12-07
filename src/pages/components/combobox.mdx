@@ -22,15 +22,19 @@ components:
   </Use>
   <Misuse>
     <ul>
-      <li>For a searchable dropdown, use Autocomplete instead</li>
-      <li>To make more than one selection, use Multiselect instead</li>
+      <li>
+        <Markdown>
+          For a searchable dropdown, use [Autocomplete](/components/autocomplete) instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To make more than one selection, use [Multiselect](/components/multiselect) instead
+        </Markdown>
+      </li>
     </ul>
   </Misuse>
 </Usage>
-
-## How to use it
-
-### Default
 
 As the user types, options appear in the list box that match what the user is typing.
 
@@ -39,6 +43,19 @@ import ComboboxDefaultCode from '!!raw-loader!../../examples/dropdowns/combobox/
 
 <CodeExample code={ComboboxDefaultCode}>
   <ComboboxDefault />
+</CodeExample>
+
+## Customization
+
+### Size
+
+Combobox can be displayed in either default or compact size.
+
+import ComboboxSize from '../../examples/dropdowns/combobox/Size.tsx';
+import ComboboxSizeCode from '!!raw-loader!../../examples/dropdowns/combobox/Size.tsx';
+
+<CodeExample code={ComboboxSizeCode}>
+  <ComboboxSize />
 </CodeExample>
 
 ### Hidden Label
@@ -52,20 +69,9 @@ import ComboboxHiddenCode from '!!raw-loader!../../examples/dropdowns/combobox/H
   <ComboboxHidden />
 </CodeExample>
 
-### Media
-
-You can place the magnifying glass icon at the start of the input when using the Combobox for search.
-
-import ComboboxMedia from '../../examples/dropdowns/combobox/Media.tsx';
-import ComboboxMediaCode from '!!raw-loader!../../examples/dropdowns/combobox/Media.tsx';
-
-<CodeExample code={ComboboxMediaCode}>
-  <ComboboxMedia />
-</CodeExample>
-
 ### Selection Logic
 
-The combobox can can be customized to include selection logic that highlights the first relevant
+The combobox can be customized to include selection logic that highlights the first relevant
 result as the user types, allowing the user to hit enter to fully select the item. If this logic
 is not included, the user must manually select a result from the list.
 
@@ -76,25 +82,37 @@ import ComboboxSelectionCode from '!!raw-loader!../../examples/dropdowns/combobo
   <ComboboxSelection />
 </CodeExample>
 
-### Size
+## Usage
 
-Combobox can be displayed in either default or compact size.
-
-import ComboboxSize from '../../examples/dropdowns/combobox/Size.tsx';
-import ComboboxSizeCode from '!!raw-loader!../../examples/dropdowns/combobox/Size.tsx';
-
-<CodeExample code={ComboboxSizeCode}>
-  <ComboboxSize />
-</CodeExample>
-
-## How to use it well
-
-<BestPractice>
-  <Do imageSource={props.data.comboboxHighlightDo.childFile.childImageSharp.gatsbyImageData}>
-    <p>Use balanced and appropriate typographic hierarchy.</p>
+<BestPractice rows>
+  <Do
+    imageIsFreeForm
+    imageSource={props.data.comboboxIconPlacementDo.childFile.childImageSharp.gatsbyImageData}
+  >
+    <p>
+      Always place the magnifying glass icon at the start of the input when using the Combobox for
+      search.
+    </p>
   </Do>
-  <Dont imageSource={props.data.comboboxSearchableDont.childFile.childImageSharp.gatsbyImageData}>
-    <p>Don’t mix up typographic hierarchy when customizing item content.</p>
+  <Do
+    imageIsFreeForm
+    imageSource={props.data.comboboxHighlightDo.childFile.childImageSharp.gatsbyImageData}
+  >
+    <p>
+      When using Combobox as a search input, automatically highlight the first suggestion in the
+      list box and allow the user to hit the Enter key to submit the search.
+    </p>
+  </Do>
+  <Dont
+    imageIsFreeForm
+    imageSource={props.data.comboboxSearchableDont.childFile.childImageSharp.gatsbyImageData}
+  >
+    <p>
+      <Markdown>
+        Use an [Autocomplete](/components/autocomplete) component when creating a searchable
+        dropdown.
+      </Markdown>
+    </p>
   </Dont>
 </BestPractice>
 
@@ -158,7 +176,7 @@ Nest a Hint within a [Field](#field) component.
 
 <Component components={props.data.mdx.components} componentName="item" />
 
-Nest an Item within a [Menu](#menu) component. It requires a `value` prop, which is provided to
+Nest an Item within a [Menu](#menu) component. It requires a `value` prop, which it provides to
 the `onSelect` callback.
 
 <PropSheet components={props.data.mdx.components} componentName="item" />
@@ -189,11 +207,20 @@ export const pageQuery = graphql`
     ) {
       childFile {
         childImageSharp {
-          gatsbyImageData(height: 200)
+          gatsbyImageData(height: 407)
         }
       }
     }
     comboboxHighlightDo: figmaAsset(name: { eq: "components-dropdowns-combobox-highlight-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 284)
+        }
+      }
+    }
+    comboboxIconPlacementDo: figmaAsset(
+      name: { eq: "components-dropdowns-combobox-icon-placement-do" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)

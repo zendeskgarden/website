@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import debounce from 'lodash.debounce';
+import { filter as fuzzyFilter } from 'fuzzyjs';
 import { Item, Hint, Menu, Label, Field, Dropdown, Combobox } from '@zendeskgarden/react-dropdowns';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
@@ -47,19 +48,23 @@ const Example = () => {
   /**
    * Debounce filtering
    */
-  const filterMatchingOptionsRef = useRef(
-    debounce((value: string) => {
-      const matchedOptions = options.filter(
-        option => option.trim().toLowerCase().indexOf(value.trim().toLowerCase()) !== -1
-      );
+  const filterMatchingOptions = useMemo(
+    () =>
+      debounce(
+        (value: string) => {
+          const selectedOptions = options.filter(fuzzyFilter(value, { iterator: item => item }));
 
-      setMatchingOptions(matchedOptions);
-    }, 300)
+          setMatchingOptions(selectedOptions);
+        },
+        300,
+        { leading: true }
+      ),
+    [setMatchingOptions]
   );
 
   useEffect(() => {
-    filterMatchingOptionsRef.current(inputValue);
-  }, [inputValue]);
+    filterMatchingOptions(inputValue);
+  }, [filterMatchingOptions, inputValue]);
 
   return (
     <Row justifyContent="center">
@@ -74,7 +79,9 @@ const Example = () => {
           <Field>
             <Label>Default</Label>
             <Hint>Choose a vegetable</Hint>
-            <Combobox start={<SearchIcon />}>{selectedItem}</Combobox>
+            <Combobox start={<SearchIcon />} placeholder="Search vegetables">
+              {selectedItem}
+            </Combobox>
           </Field>
           <Menu>
             {matchingOptions.length ? (
@@ -100,7 +107,7 @@ const Example = () => {
           <Field>
             <Label>Compact</Label>
             <Hint>Choose a vegetable</Hint>
-            <Combobox isCompact start={<SearchIcon />}>
+            <Combobox isCompact start={<SearchIcon />} placeholder="Search vegetables">
               {compactSelectedItem}
             </Combobox>
           </Field>

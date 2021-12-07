@@ -78,6 +78,7 @@
     "eslint-plugin-notice": "0.9.10",
     "eslint-plugin-react": "7.26.1",
     "eslint-plugin-react-hooks": "4.2.0",
+    "fuzzyjs": "5.0.1",
     "gatsby": "3.14.2",
     "gatsby-node-helpers": "1.2.1",
     "gatsby-plugin-google-gtag": "3.14.0",

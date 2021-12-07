@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import debounce from 'lodash.debounce';
+import { filter as fuzzyFilter } from 'fuzzyjs';
 import { Item, Menu, Label, Field, Dropdown, Combobox } from '@zendeskgarden/react-dropdowns';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ReactComponent as SearchIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
@@ -37,19 +38,23 @@ const Example = () => {
   /**
    * Debounce filtering
    */
-  const filterMatchingOptionsRef = useRef(
-    debounce((value: string) => {
-      const matchedOptions = options.filter(
-        option => option.trim().toLowerCase().indexOf(value.trim().toLowerCase()) !== -1
-      );
+  const filterMatchingOptions = useMemo(
+    () =>
+      debounce(
+        (value: string) => {
+          const selectedOptions = options.filter(fuzzyFilter(value, { iterator: item => item }));
 
-      setMatchingOptions(matchedOptions);
-    }, 300)
+          setMatchingOptions(selectedOptions);
+        },
+        300,
+        { leading: true }
+      ),
+    [setMatchingOptions]
   );
 
   useEffect(() => {
-    filterMatchingOptionsRef.current(inputValue);
-  }, [inputValue]);
+    filterMatchingOptions(inputValue);
+  }, [filterMatchingOptions, inputValue]);
 
   return (
     <Row justifyContent="center">
@@ -63,7 +68,9 @@ const Example = () => {
         >
           <Field>
             <Label>Choose a vegetable</Label>
-            <Combobox start={<SearchIcon />}>{selectedItem}</Combobox>
+            <Combobox start={<SearchIcon />} placeholder="Search vegetables">
+              {selectedItem}
+            </Combobox>
           </Field>
           <Menu>
             {matchingOptions.length ? (
