@@ -84,6 +84,16 @@ user distinguish between the two when scanning a page.
 
 ## API
 
+The Avatar component follows this structure:
+
+```jsx
+<Avatar>
+  <Avatar.Text> {/* plain text */} </Avatar.Text>
+</Avatar>
+```
+
+The Avatar component only accepts react component as child. Use Text component to apply plain text.
+
 ### Avatar
 
 <Component components={props.data.mdx.components} componentName="avatar" />
@@ -101,6 +111,9 @@ user distinguish between the two when scanning a page.
   ]}
   componentName="Avatar.Text"
 />
+
+A Text component applies appropriate styles to itself and acts as a wrapper to contain plain text.
+Nest it within a [Avatar](#avatar) component.
 
 import { graphql } from 'gatsby';
 
