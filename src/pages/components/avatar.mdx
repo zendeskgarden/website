@@ -84,15 +84,23 @@ user distinguish between the two when scanning a page.
 
 ## API
 
-The Avatar component follows this structure:
+The Avatar component follows two structures:
 
 ```jsx
 <Avatar>
-  <Avatar.Text> {/* plain text */} </Avatar.Text>
+  <img src={image} alt="An interesting image">
 </Avatar>
 ```
 
-The Avatar component only accepts react component as child. Use Text component to apply plain text.
+The Avatar component only accepts a child.
+
+```jsx
+<Avatar>
+  <Avatar.Text> Aa </Avatar.Text>
+</Avatar>
+```
+
+Use Text component to apply plain text.
 
 ### Avatar
 
@@ -112,7 +120,7 @@ The Avatar component only accepts react component as child. Use Text component t
   componentName="Avatar.Text"
 />
 
-A Text component applies appropriate styles to itself and acts as a wrapper to contain plain text.
+The Text component applies appropriate styles to itself and acts as a wrapper to contain plain text.
 Nest it within a [Avatar](#avatar) component.
 
 import { graphql } from 'gatsby';
