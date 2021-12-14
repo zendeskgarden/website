@@ -1,6 +1,6 @@
 ---
 title: Combobox
-description: Combobox is an input plus a list box that appears beneath it. It is used for search and filtering.
+description: Combobox is an input plus a list box that appears beneath it. It searches and filters down options for the user.
 package: '@zendeskgarden/react-dropdowns'
 components:
   - dropdowns/src/elements/Combobox/Combobox.tsx
@@ -60,7 +60,7 @@ import ComboboxSizeCode from '!!raw-loader!../../examples/dropdowns/combobox/Siz
 
 ### Hidden Label
 
-The label can be hidden as needed.
+The label can be hidden.
 
 import ComboboxHidden from '../../examples/dropdowns/combobox/Hidden.tsx';
 import ComboboxHiddenCode from '!!raw-loader!../../examples/dropdowns/combobox/Hidden.tsx';
@@ -72,8 +72,8 @@ import ComboboxHiddenCode from '!!raw-loader!../../examples/dropdowns/combobox/H
 ### Selection Logic
 
 The combobox can be customized to include selection logic that highlights the first relevant
-result as the user types, allowing the user to hit enter to fully select the item. If this logic
-is not included, the user must manually select a result from the list.
+result as the user types, allowing the user to press Enter to select the item.
+If this logic is not included, the user must manually select a result from the list.
 
 import ComboboxSelection from '../../examples/dropdowns/combobox/Selection.tsx';
 import ComboboxSelectionCode from '!!raw-loader!../../examples/dropdowns/combobox/Selection.tsx';
@@ -100,7 +100,7 @@ import ComboboxSelectionCode from '!!raw-loader!../../examples/dropdowns/combobo
   >
     <p>
       When using Combobox as a search input, automatically highlight the first suggestion in the
-      list box and allow the user to hit the Enter key to submit the search.
+      list box and allow the user to press the Enter key to submit the search.
     </p>
   </Do>
   <Dont
@@ -142,6 +142,8 @@ The Combobox component follows this structure:
 ### Combobox
 
 <Component components={props.data.mdx.components} componentName="combobox" />
+
+Nest a Combobox within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="combobox" />
 

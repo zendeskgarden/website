@@ -8,11 +8,11 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import debounce from 'lodash.debounce';
-import { filter as fuzzyFilter } from 'fuzzyjs';
 import { Item, Hint, Menu, Label, Field, Dropdown, Combobox } from '@zendeskgarden/react-dropdowns';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { ReactComponent as SearchIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
+import { Dots } from '@zendeskgarden/react-loaders';
 
 const StyledCol = styled(Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
@@ -39,30 +39,38 @@ const options = [
 ];
 
 const Example = () => {
+  const [isLoading, setLoading] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [compactSelectedItem, setCompactSelectedItem] = useState('');
   const [compactInputValue, setCompactInputValue] = useState('');
-  const [matchingOptions, setMatchingOptions] = useState(options);
+  const [matchingOptions, setMatchingOptions] = useState<string[]>([]);
 
   /**
    * Debounce filtering
    */
   const filterMatchingOptions = useMemo(
     () =>
-      debounce(
-        (value: string) => {
-          const selectedOptions = options.filter(fuzzyFilter(value, { iterator: item => item }));
-
-          setMatchingOptions(selectedOptions);
-        },
-        300,
-        { leading: true }
-      ),
+      debounce((value: string) => {
+        if (value.length > 0) {
+          setMatchingOptions(
+            options.filter(
+              option => option.trim().toLowerCase().indexOf(value.trim().toLowerCase()) !== -1
+            ) || []
+          );
+        } else {
+          setMatchingOptions([]);
+        }
+        setLoading(false);
+      }, 750),
     [setMatchingOptions]
   );
 
   useEffect(() => {
+    if (inputValue) {
+      setLoading(true);
+    }
+
     filterMatchingOptions(inputValue);
   }, [filterMatchingOptions, inputValue]);
 
@@ -79,7 +87,11 @@ const Example = () => {
           <Field>
             <Label>Default</Label>
             <Hint>Choose a vegetable</Hint>
-            <Combobox start={<SearchIcon />} placeholder="Search vegetables">
+            <Combobox
+              start={<SearchIcon />}
+              end={isLoading ? <Dots delayMS={0} /> : null}
+              placeholder="Search vegetables"
+            >
               {selectedItem}
             </Combobox>
           </Field>
@@ -107,7 +119,12 @@ const Example = () => {
           <Field>
             <Label>Compact</Label>
             <Hint>Choose a vegetable</Hint>
-            <Combobox isCompact start={<SearchIcon />} placeholder="Search vegetables">
+            <Combobox
+              isCompact
+              start={<SearchIcon />}
+              end={isLoading ? <Dots delayMS={0} /> : null}
+              placeholder="Search vegetables"
+            >
               {compactSelectedItem}
             </Combobox>
           </Field>
