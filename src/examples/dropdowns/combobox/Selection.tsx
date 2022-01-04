@@ -53,7 +53,7 @@ const Example = () => {
         }
         setLoading(false);
       }, 750),
-    [setMatchingOptions]
+    []
   );
 
   useEffect(() => {
@@ -62,6 +62,8 @@ const Example = () => {
     }
 
     filterMatchingOptions(inputValue);
+
+    return () => filterMatchingOptions.cancel();
   }, [filterMatchingOptions, inputValue]);
 
   return (
