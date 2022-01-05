@@ -10,7 +10,6 @@ import debounce from 'lodash.debounce';
 import { Item, Menu, Label, Field, Dropdown, Combobox } from '@zendeskgarden/react-dropdowns';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ReactComponent as SearchIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
-import { Dots } from '@zendeskgarden/react-loaders';
 
 const options = [
   'Asparagus',
@@ -31,7 +30,6 @@ const options = [
 ];
 
 const Example = () => {
-  const [isLoading, setLoading] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [matchingOptions, setMatchingOptions] = useState<string[]>([]);
@@ -51,16 +49,11 @@ const Example = () => {
         } else {
           setMatchingOptions([]);
         }
-        setLoading(false);
       }, 750),
     []
   );
 
   useEffect(() => {
-    if (inputValue) {
-      setLoading(true);
-    }
-
     filterMatchingOptions(inputValue);
 
     return () => filterMatchingOptions.cancel();
@@ -77,11 +70,7 @@ const Example = () => {
         >
           <Field>
             <Label>Choose a vegetable</Label>
-            <Combobox
-              start={<SearchIcon />}
-              end={isLoading ? <Dots delayMS={0} /> : null}
-              placeholder="Search vegetables"
-            >
+            <Combobox start={<SearchIcon />} placeholder="Search vegetables">
               {selectedItem}
             </Combobox>
           </Field>

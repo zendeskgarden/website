@@ -12,7 +12,6 @@ import { Item, Hint, Menu, Label, Field, Dropdown, Combobox } from '@zendeskgard
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { ReactComponent as SearchIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
-import { Dots } from '@zendeskgarden/react-loaders';
 
 const StyledCol = styled(Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
@@ -39,7 +38,6 @@ const options = [
 ];
 
 const Example = () => {
-  const [isLoading, setLoading] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [compactSelectedItem, setCompactSelectedItem] = useState('');
@@ -61,16 +59,11 @@ const Example = () => {
         } else {
           setMatchingOptions([]);
         }
-        setLoading(false);
       }, 750),
     []
   );
 
   useEffect(() => {
-    if (inputValue) {
-      setLoading(true);
-    }
-
     filterMatchingOptions(inputValue);
 
     return () => filterMatchingOptions.cancel();
@@ -89,11 +82,7 @@ const Example = () => {
           <Field>
             <Label>Default</Label>
             <Hint>Choose a vegetable</Hint>
-            <Combobox
-              start={<SearchIcon />}
-              end={isLoading ? <Dots delayMS={0} /> : null}
-              placeholder="Search vegetables"
-            >
+            <Combobox start={<SearchIcon />} placeholder="Search vegetables">
               {selectedItem}
             </Combobox>
           </Field>
@@ -121,12 +110,7 @@ const Example = () => {
           <Field>
             <Label>Compact</Label>
             <Hint>Choose a vegetable</Hint>
-            <Combobox
-              isCompact
-              start={<SearchIcon />}
-              end={isLoading ? <Dots delayMS={0} /> : null}
-              placeholder="Search vegetables"
-            >
+            <Combobox isCompact start={<SearchIcon />} placeholder="Search vegetables">
               {compactSelectedItem}
             </Combobox>
           </Field>
