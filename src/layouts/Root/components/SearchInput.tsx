@@ -173,7 +173,8 @@ export const SearchInput = React.forwardRef<HTMLInputElement, HTMLAttributes<HTM
     useEffect(() => {
       if (typeof window !== 'undefined' /* not SSR */ && window.docsearch) {
         window.docsearch({
-          apiKey: 'c1ab842b2bfd6f3f7104a8e903c615bf',
+          appId: '640UC4VW9P',
+          apiKey: 'b76f3922117e50257fc37ae1c6f37438',
           indexName: 'garden_zendesk',
           inputSelector: `#${id}`,
           debug: process.env.NODE_ENV === 'development'
