@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 import {
   Body,
   Cell,
@@ -17,14 +18,19 @@ import {
   Row,
   Table
 } from '@zendeskgarden/react-tables';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
+
+const TooltipOverflowButton = React.forwardRef(
+  (props: ButtonHTMLAttributes<HTMLButtonElement>, ref: React.Ref<HTMLButtonElement>) => (
+    <Tooltip content={props['aria-label']} placement="start">
+      <OverflowButton ref={ref} {...props} />
+    </Tooltip>
+  )
+);
 
 const OverflowMenu = () => (
   <Dropdown>
     <Trigger>
-      <Tooltip content="Row actions">
-        <OverflowButton aria-label="row actions" />
-      </Tooltip>
+      <TooltipOverflowButton aria-label="Row actions" />
     </Trigger>
     <Menu
       placement="bottom-end"
