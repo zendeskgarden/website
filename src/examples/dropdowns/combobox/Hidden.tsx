@@ -30,6 +30,7 @@ const options = [
 ];
 
 const Example = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [matchingOptions, setMatchingOptions] = useState<string[]>([]);
@@ -42,22 +43,38 @@ const Example = () => {
       debounce((value: string) => {
         if (value.length > 0) {
           setMatchingOptions(
-            options.filter(
-              option => option.trim().toLowerCase().indexOf(value.trim().toLowerCase()) !== -1
-            ) || []
+            options.filter(option => option.match(new RegExp(value!, 'gui'))) || []
           );
         } else {
           setMatchingOptions([]);
         }
-      }, 750),
+        setIsLoading(false);
+      }, 500),
     []
   );
 
   useEffect(() => {
+    setIsLoading(true);
     filterMatchingOptions(inputValue);
 
     return () => filterMatchingOptions.cancel();
   }, [filterMatchingOptions, inputValue]);
+
+  const renderOptions = () => {
+    if (isLoading) {
+      return <Item disabled>Loading items...</Item>;
+    }
+
+    if (matchingOptions.length === 0) {
+      return <Item disabled>No matches found</Item>;
+    }
+
+    return matchingOptions.map(option => (
+      <Item key={option} value={option}>
+        <span>{option}</span>
+      </Item>
+    ));
+  };
 
   return (
     <Row justifyContent="center">
@@ -65,26 +82,17 @@ const Example = () => {
         <Dropdown
           inputValue={inputValue}
           selectedItem={selectedItem}
-          onSelect={item => setSelectedItem(item)}
+          onSelect={item => {
+            setInputValue(item);
+            setSelectedItem(item);
+          }}
           onInputValueChange={value => setInputValue(value)}
         >
           <Field>
             <Label hidden>Accessibly hidden label</Label>
-            <Combobox start={<SearchIcon />} placeholder="Search vegetables">
-              {selectedItem}
-            </Combobox>
+            <Combobox start={<SearchIcon />} placeholder="Search vegetables" />
           </Field>
-          <Menu>
-            {matchingOptions.length ? (
-              matchingOptions.map(option => (
-                <Item key={option} value={option}>
-                  <span>{option}</span>
-                </Item>
-              ))
-            ) : (
-              <Item disabled>No matches found</Item>
-            )}
-          </Menu>
+          <Menu>{renderOptions()}</Menu>
         </Dropdown>
       </Col>
     </Row>

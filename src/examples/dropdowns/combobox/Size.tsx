@@ -38,36 +38,63 @@ const options = [
 ];
 
 const Example = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [selectedItem, setSelectedItem] = useState('');
   const [inputValue, setInputValue] = useState('');
+  const [matchingOptions, setMatchingOptions] = useState<string[]>([]);
+
   const [compactSelectedItem, setCompactSelectedItem] = useState('');
   const [compactInputValue, setCompactInputValue] = useState('');
-  const [matchingOptions, setMatchingOptions] = useState<string[]>([]);
+  const [compactMatchingOptions, setCompactMatchingOptions] = useState<string[]>([]);
 
   /**
    * Debounce filtering
    */
   const filterMatchingOptions = useMemo(
     () =>
-      debounce((value: string) => {
+      debounce((value: string, compact?: boolean) => {
         if (value.length > 0) {
-          setMatchingOptions(
-            options.filter(
-              option => option.trim().toLowerCase().indexOf(value.trim().toLowerCase()) !== -1
-            ) || []
+          (compact ? setCompactMatchingOptions : setMatchingOptions)(
+            options.filter(option => option.match(new RegExp(value!, 'gui'))) || []
           );
         } else {
-          setMatchingOptions([]);
+          (compact ? setCompactMatchingOptions : setMatchingOptions)([]);
         }
-      }, 750),
+        setIsLoading(false);
+      }, 500),
     []
   );
 
   useEffect(() => {
+    setIsLoading(true);
     filterMatchingOptions(inputValue);
 
     return () => filterMatchingOptions.cancel();
   }, [filterMatchingOptions, inputValue]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    filterMatchingOptions(compactInputValue, true);
+
+    return () => filterMatchingOptions.cancel();
+  }, [filterMatchingOptions, compactInputValue]);
+
+  const renderOptions = (opts: string[]) => {
+    if (isLoading) {
+      return <Item disabled>Loading items...</Item>;
+    }
+
+    if (opts.length === 0) {
+      return <Item disabled>No matches found</Item>;
+    }
+
+    return opts.map(option => (
+      <Item key={option} value={option}>
+        <span>{option}</span>
+      </Item>
+    ));
+  };
 
   return (
     <Row justifyContent="center">
@@ -75,56 +102,38 @@ const Example = () => {
         <Dropdown
           inputValue={inputValue}
           selectedItem={selectedItem}
-          onSelect={item => setSelectedItem(item)}
+          onSelect={item => {
+            setInputValue(item);
+            setSelectedItem(item);
+          }}
           onInputValueChange={value => setInputValue(value)}
           downshiftProps={{ defaultHighlightedIndex: 0 }}
         >
           <Field>
             <Label>Default</Label>
             <Hint>Choose a vegetable</Hint>
-            <Combobox start={<SearchIcon />} placeholder="Search vegetables">
-              {selectedItem}
-            </Combobox>
+            <Combobox start={<SearchIcon />} placeholder="Search vegetables" />
           </Field>
-          <Menu>
-            {matchingOptions.length ? (
-              matchingOptions.map(option => (
-                <Item key={option} value={option}>
-                  <span>{option}</span>
-                </Item>
-              ))
-            ) : (
-              <Item disabled>No matches found</Item>
-            )}
-          </Menu>
+          <Menu>{renderOptions(matchingOptions)}</Menu>
         </Dropdown>
       </Col>
       <StyledCol sm={5}>
         <Dropdown
           inputValue={compactInputValue}
           selectedItem={compactSelectedItem}
-          onSelect={item => setCompactSelectedItem(item)}
+          onSelect={item => {
+            setCompactInputValue(item);
+            setCompactSelectedItem(item);
+          }}
           onInputValueChange={value => setCompactInputValue(value)}
           downshiftProps={{ defaultHighlightedIndex: 0 }}
         >
           <Field>
             <Label>Compact</Label>
             <Hint>Choose a vegetable</Hint>
-            <Combobox isCompact start={<SearchIcon />} placeholder="Search vegetables">
-              {compactSelectedItem}
-            </Combobox>
+            <Combobox isCompact start={<SearchIcon />} placeholder="Search vegetables" />
           </Field>
-          <Menu isCompact>
-            {matchingOptions.length ? (
-              matchingOptions.map(option => (
-                <Item key={option} value={option}>
-                  <span>{option}</span>
-                </Item>
-              ))
-            ) : (
-              <Item disabled>No matches found</Item>
-            )}
-          </Menu>
+          <Menu isCompact>{renderOptions(compactMatchingOptions)}</Menu>
         </Dropdown>
       </StyledCol>
     </Row>
