@@ -39,12 +39,8 @@ const options = [
 
 const Example = () => {
   const [isLoading, setIsLoading] = useState(false);
-
-  const [selectedItem, setSelectedItem] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [matchingOptions, setMatchingOptions] = useState<string[]>([]);
-
-  const [compactSelectedItem, setCompactSelectedItem] = useState('');
   const [compactInputValue, setCompactInputValue] = useState('');
   const [compactMatchingOptions, setCompactMatchingOptions] = useState<string[]>([]);
 
@@ -55,14 +51,16 @@ const Example = () => {
     () =>
       debounce((value: string, compact?: boolean) => {
         if (value.length > 0) {
+          const valueRegexp = new RegExp(value!, 'gui');
+
           (compact ? setCompactMatchingOptions : setMatchingOptions)(
-            options.filter(option => option.match(new RegExp(value!, 'gui'))) || []
+            options.filter(option => option.match(valueRegexp)) || []
           );
         } else {
           (compact ? setCompactMatchingOptions : setMatchingOptions)([]);
         }
         setIsLoading(false);
-      }, 500),
+      }, 250),
     []
   );
 
@@ -101,11 +99,7 @@ const Example = () => {
       <Col sm={5}>
         <Dropdown
           inputValue={inputValue}
-          selectedItem={selectedItem}
-          onSelect={item => {
-            setInputValue(item);
-            setSelectedItem(item);
-          }}
+          onSelect={item => setInputValue(item)}
           onInputValueChange={value => setInputValue(value)}
           downshiftProps={{ defaultHighlightedIndex: 0 }}
         >
@@ -120,11 +114,7 @@ const Example = () => {
       <StyledCol sm={5}>
         <Dropdown
           inputValue={compactInputValue}
-          selectedItem={compactSelectedItem}
-          onSelect={item => {
-            setCompactInputValue(item);
-            setCompactSelectedItem(item);
-          }}
+          onSelect={item => setCompactInputValue(item)}
           onInputValueChange={value => setCompactInputValue(value)}
           downshiftProps={{ defaultHighlightedIndex: 0 }}
         >

@@ -31,7 +31,6 @@ const options = [
 
 const Example = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedItem, setSelectedItem] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [matchingOptions, setMatchingOptions] = useState<string[]>([]);
 
@@ -42,14 +41,14 @@ const Example = () => {
     () =>
       debounce((value: string) => {
         if (value.length > 0) {
-          setMatchingOptions(
-            options.filter(option => option.match(new RegExp(value!, 'gui'))) || []
-          );
+          const valueRegexp = new RegExp(value!, 'gui');
+
+          setMatchingOptions(options.filter(option => option.match(valueRegexp)) || []);
         } else {
           setMatchingOptions([]);
         }
         setIsLoading(false);
-      }, 500),
+      }, 250),
     []
   );
 
@@ -81,11 +80,7 @@ const Example = () => {
       <Col sm={5}>
         <Dropdown
           inputValue={inputValue}
-          selectedItem={selectedItem}
-          onSelect={item => {
-            setInputValue(item);
-            setSelectedItem(item);
-          }}
+          onSelect={item => setInputValue(item)}
           onInputValueChange={value => setInputValue(value)}
         >
           <Field>
