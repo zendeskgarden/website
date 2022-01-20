@@ -84,23 +84,14 @@ user distinguish between the two when scanning a page.
 
 ## API
 
-The Avatar component follows two structures:
+The Avatar component follows this structure:
 
+<!-- prettier-ignore -->
 ```jsx
 <Avatar>
-  <img src={image} alt="An interesting image">
+  {/* One of icon, img, or Avatar.Text */}
 </Avatar>
 ```
-
-The Avatar component only accepts a child.
-
-```jsx
-<Avatar>
-  <Avatar.Text> Aa </Avatar.Text>
-</Avatar>
-```
-
-Use Text component to apply plain text.
 
 ### Avatar
 
@@ -120,8 +111,8 @@ Use Text component to apply plain text.
   componentName="Avatar.Text"
 />
 
-The Text component applies appropriate styles to itself and acts as a wrapper to contain plain text.
-Nest it within a [Avatar](#avatar) component.
+The Text component applies appropriate styles to child text. Nest it within an [Avatar](#avatar) component.
+See [example](#type).
 
 import { graphql } from 'gatsby';
 
