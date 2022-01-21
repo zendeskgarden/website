@@ -1,0 +1,169 @@
+---
+title: Sheet
+description: >
+  The Sheet component is a container that acts as a supplementary view, providing access to important contextual information.
+package: '@zendeskgarden/react-chrome'
+components:
+  - chrome/src/elements/sheet/Sheet.tsx
+  - chrome/src/elements/sheet/components/Body.tsx
+  - chrome/src/elements/sheet/components/Title.tsx
+  - chrome/src/elements/sheet/components/Description.tsx
+  - chrome/src/elements/sheet/components/Header.tsx
+  - chrome/src/elements/sheet/components/Footer.tsx
+  - chrome/src/elements/sheet/components/FooterItem.tsx
+  - chrome/src/elements/sheet/components/Close.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To display additional information that aids the primary view</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        For an experience where the primary view is obscured to display supplementary information or
+        actions, use a [Drawer](components/drawer)
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+A typical usage of a Sheet component.
+
+import SheetDefault from '../../examples/chrome/SheetDefault.tsx';
+import SheetDefaultCode from '!!raw-loader!../../examples/chrome/SheetDefault.tsx';
+
+<CodeExample code={SheetDefaultCode}>
+  <SheetDefault />
+</CodeExample>
+
+### Footers
+
+Sheet footers comes in three variations: no footer, footer with an [Anchor](components/anchor),
+and footer with [Buttons](components/button).
+
+import SheetFooters from '../../examples/chrome/SheetFooters.tsx';
+import SheetFootersCode from '!!raw-loader!../../examples/chrome/SheetFooters.tsx';
+
+<CodeExample code={SheetFootersCode}>
+  <SheetFooters />
+</CodeExample>
+
+### Headers
+
+Sheet headers come in three variations: no title, title, and title with description.
+
+import SheetHeaders from '../../examples/chrome/SheetHeaders.tsx';
+import SheetHeadersCode from '!!raw-loader!../../examples/chrome/SheetHeaders.tsx';
+
+<CodeExample code={SheetHeadersCode}>
+  <SheetHeaders />
+</CodeExample>
+
+### Placement
+
+Sheets can be placed at the start or end of the container. End is the default placement.
+
+import SheetPlacement from '../../examples/chrome/SheetPlacement.tsx';
+import SheetPlacementCode from '!!raw-loader!../../examples/chrome/SheetPlacement.tsx';
+
+<CodeExample code={SheetPlacementCode}>
+  <SheetPlacement />
+</CodeExample>
+
+### Size
+
+Sheets default to 380px in width. You can customise the width based on your intended
+sexperience to any size using pixels or our grid system.
+
+import SheetSize from '../../examples/chrome/SheetSize.tsx';
+import SheetSizeCode from '!!raw-loader!../../examples/chrome/SheetSize.tsx';
+
+<CodeExample code={SheetSizeCode}>
+  <SheetSize />
+</CodeExample>
+
+## API
+
+### Sheet
+
+<Component components={props.data.mdx.components} componentName="sheet" />
+
+The Sheet component provides state and accessibility attributes to its children.
+
+<PropSheet components={props.data.mdx.components} componentName="sheet" />
+
+### Sheet.Body
+
+The Sheet Body component is placed in the [`Sheet`](#sheet) component.
+This component requires accessible functionality to make the
+element focusable, if keyboard scrolling is needed.
+
+<Component components={props.data.mdx.components} componentName="sheet.body" />
+
+<PropSheet components={props.data.mdx.components} componentName="sheet.body" />
+
+### Sheet.Title
+
+The Sheet Title labels the Sheet for assistive technology.
+This component is nested in the [`Sheet.Header`](#sheetheader) component.
+
+<Component components={props.data.mdx.components} componentName="sheet.title" />
+
+<PropSheet components={props.data.mdx.components} componentName="sheet.title" />
+
+### Sheet.Description
+
+The Sheet Description describes the Sheet for assistive technology.
+This component is nested in the [`Sheet.Header`](#sheetheader) component.
+
+<Component components={props.data.mdx.components} componentName="sheet.description" />
+
+<PropSheet components={props.data.mdx.components} componentName="sheet.description" />
+
+### Sheet.Header
+
+The Sheet Header component is placed in the [`Sheet`](#sheet) component.
+
+<Component components={props.data.mdx.components} componentName="sheet.header" />
+
+<PropSheet components={props.data.mdx.components} componentName="sheet.header" />
+
+### Sheet.Footer
+
+The Sheet Footer component is placed in the [`Sheet`](#sheet) component.
+The component can alternate to compact styling.
+
+<Component components={props.data.mdx.components} componentName="sheet.footer" />
+
+<PropSheet components={props.data.mdx.components} componentName="sheet.footer" />
+
+### Sheet.FooterItem
+
+The Sheet FooterItem component is nested in the [`Sheet.Footer`](#sheetfooter) component.
+
+<Component components={props.data.mdx.components} componentName="sheet.footeritem" />
+
+<PropSheet components={props.data.mdx.components} componentName="sheet.footeritem" />
+
+### Sheet.Close
+
+The Sheet Close button component is placed in the [`Sheet`](#sheet) component.
+
+<Component components={props.data.mdx.components} componentName="sheet.close" />
+
+<PropSheet components={props.data.mdx.components} componentName="sheet.close" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
