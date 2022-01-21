@@ -93,6 +93,34 @@ import SheetSizeCode from '!!raw-loader!../../examples/chrome/SheetSize.tsx';
 
 ## API
 
+The Sheet component follows this structure:
+
+<!-- prettier-ignore -->
+```jsx
+<Sheet>
+  <Sheet.Header>
+    <Sheet.Title>
+      {/* a text to label the sheet */}
+    </Sheet.Title>
+    <Sheet.Description>
+      {/* a text describing the sheet */}
+    </Sheet.Description>
+  </Sheet.Header>
+  
+  <Sheet.Body>
+    {/* main content of the Sheet */}
+  </Sheet.Body>
+
+  <Sheet.Footer>
+    <Sheet.FooterItem>
+      {/* items to set in the footer, such as buttons */}
+    </Sheet.FooterItem>
+  </Sheet.Footer>
+
+  <Sheet.Close />
+</Sheet>
+```
+
 ### Sheet
 
 <Component components={props.data.mdx.components} componentName="sheet" />
