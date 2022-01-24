@@ -48,8 +48,6 @@
           title: Toggle icon button
     - title: Chrome
       id: /components/chrome
-    - title: Sheet
-      id: /components/sheet
     - title: Date picker
       id: /components/date-picker
     - title: Color picker
@@ -116,6 +114,8 @@
           title: Notifications
     - title: Pagination
       id: /components/pagination
+    - title: Sheet
+      id: /components/sheet
     - title: Stepper
       id: /components/stepper
     - title: Table
