@@ -1,0 +1,20 @@
+---
+title: Icon Library
+---
+
+import { graphql } from 'gatsby';
+
+### Tokens
+
+Icon tokens represent specific concepts in Zendesk products.
+Before adding an icon to your project, check the list below to see if the concept has an icon tokenassociated with it.  
+To suggest a new token, please take a look at our [icon token decision tree](https://miro.com/app/board/uXjVOcPRJo0)
+and fill out a Jira template if your request meets the criteria for addition.
+
+<!-- markdownlint-enable line-length -->
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

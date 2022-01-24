@@ -1,0 +1,16 @@
+---
+title: Icon Overview
+---
+
+import { graphql } from 'gatsby';
+
+### Usage
+
+Garden’s icon library is implemented using SVG. Icons come two sizes: 12px and 16px.
+The 16px icons can also be doubled to create 32px icons.
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
