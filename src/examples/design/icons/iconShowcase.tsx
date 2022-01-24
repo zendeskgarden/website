@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { getColor } from '@zendeskgarden/react-theming';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { ReactComponent as LightBulbIcon } from '@zendeskgarden/svg-icons/src/16/lightbulb-stroke.svg';
 import { ReactComponent as LightningBoltIcon } from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
@@ -16,19 +17,19 @@ import { ReactComponent as SmileyIcon } from '@zendeskgarden/svg-icons/src/16/sm
 const Example = () => (
   <Row alignItems="center" justifyContent="center" style={{ minHeight: '5em' }}>
     <Col size={0.8}>
-      <LeafIcon style={{ width: '100%', margin: 'auto' }} />
+      <LeafIcon color={getColor('grey', 600)} style={{ width: '100%', margin: 'auto' }} />
     </Col>
     <Col size={0.8}>
-      <LightBulbIcon style={{ width: '100%', margin: 'auto' }} />
+      <LightBulbIcon color={getColor('grey', 600)} style={{ width: '100%', margin: 'auto' }} />
     </Col>
     <Col size={0.8}>
-      <LightningBoltIcon style={{ width: '100%', margin: 'auto' }} />
+      <LightningBoltIcon color={getColor('grey', 600)} style={{ width: '100%', margin: 'auto' }} />
     </Col>
     <Col size={0.8}>
-      <LocationIcon style={{ width: '100%', margin: 'auto' }} />
+      <LocationIcon color={getColor('grey', 600)} style={{ width: '100%', margin: 'auto' }} />
     </Col>
     <Col size={0.8}>
-      <SmileyIcon style={{ width: '100%', margin: 'auto' }} />
+      <SmileyIcon color={getColor('grey', 600)} style={{ width: '100%', margin: 'auto' }} />
     </Col>
   </Row>
 );

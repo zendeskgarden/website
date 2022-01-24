@@ -4,8 +4,6 @@ title: Icon Overview
 
 import { graphql } from 'gatsby';
 
-### Usage
-
 import IconShowcase from '../../../examples/design/icons/iconShowcase.tsx';
 import IconShowcaseCode from '!!raw-loader!../../../examples/design/icons/iconShowcase.tsx';
 
@@ -13,8 +11,15 @@ import IconShowcaseCode from '!!raw-loader!../../../examples/design/icons/iconSh
   <IconShowcase />
 </CodeExample>
 
+### Usage
+
 Garden’s icon library is implemented using SVG. Icons come two sizes: 12px and 16px.
 The 16px icons can also be doubled to create 32px icons.
+
+#### Styles
+
+Icons also come in two styles: outline and filled.
+While outlined icons are the default icons to use, filled icons are used to show selected states.
 
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
