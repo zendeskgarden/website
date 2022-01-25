@@ -1,0 +1,125 @@
+---
+title: Actionable language
+---
+
+For calls to action (CTAs), try to be as specific as possible.
+This helps the user know exactly what to expect and what they can
+do when they interact with the CTA. Use this guide to find the most
+appropriate verb for an experience that includes CTAs.
+
+CTAs are most often used in [buttons](/components/button) and [anchors](/components/anchor).
+
+## To make a selection
+
+### Select
+
+Use “Select” when the user must make a decision among multiple options.
+
+## To give a person ownership
+
+### Assign
+
+Use “Assign” when referring to ownership and responsibility.
+
+## To move back and forth
+
+### Back
+
+Use “Back” to take the user to the previous step in a multi-step process.
+Pair this with [“Next”](#next). In the event that a user will lose changes,
+warn them ahead of time that they will lose any changes that have been made.
+
+### Previous
+
+Use “Previous” instead of [“Back”](#back) for pagination in tables.
+
+### Next
+
+Use “Next” to take the user to the next step in a multi-step process.
+Pair this with [“Back”](#back).
+
+- **Don’t use:** Proceed, Continue
+
+## To postpone action
+
+### Skip
+
+Use “Skip” to allow the user to postpone an action or decision.
+It’s a way for the user to avoid interruption and proceed with their current task.
+
+## To receive confirmation
+
+### Done
+
+Use “Done” to confirm the completion of a multi-step process.
+
+- **Don’t use:** OK, Got it
+
+## To make changes
+
+### Create
+
+Use “Create” when the user is about to make a brand new thing in the product.
+
+### Add
+
+Use “Add” when moving something in the product from one place to another.
+
+- Example: “Add team”, “Add channel”
+
+## To remove
+
+### Clear
+
+Use clear to remove a selection.
+
+- **Don’t use:** Deselect
+
+## To commit
+
+### Save
+
+Use “Save” when the user makes changes and wants to commit them.
+
+## To cancel
+
+### Cancel
+
+Use “Cancel” when the user makes edits but wants to discard them. It dismisses
+the page the user was editing and returns the user to the entry point they came from.
+
+- **Don’t use:** Discard changes
+
+### Leave without saving
+
+“Leave without saving” is similar to “Cancel'', with one key difference: it
+reverts all values on the page to the last saved state without reloading the page.
+
+- **Don’t use:** Discard changes
+
+### Undo
+
+Revert back to the previous state.
+
+- **Don’t use:** Dismiss, No thanks
+
+## To learn
+
+### Find out more
+
+Use “Find out more” to launch a modal that introduces a new feature.
+
+### Learn about
+
+Launch a link to the Zendesk help center.
+
+- Example: “Learn about user profiles”
+- **Don’t use:** Learn more
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
