@@ -21,8 +21,86 @@ The 16px icons can also be doubled to create 32px icons.
 Icons also come in two styles: outline and filled.
 While outlined icons are the default icons to use, filled icons are used to show selected states.
 
+### 12px and 16px
+
+The default size is 16px, and should be used for the majority of cases.
+In certain instances where 16px icons will break the line height or will not fit in a small space, 12px icons should be used.
+
+<BestPractice>
+  <Do imageSource={props.data.defaultIconSize.childFile.childImageSharp.gatsbyImageData}>
+    <p>16px is the default icon size. Use 16px icons where possible.</p>
+  </Do>
+</BestPractice>
+
+<BestPractice>
+  <Do imageSource={props.data.smallerIconSize.childFile.childImageSharp.gatsbyImageData}>
+    <p>Use 12px icons for compact spaces where 16px icons can’t fit.</p>
+  </Do>
+</BestPractice>
+
+### 32px
+
+32px icons are the scaled-up versions 16px icons. They are used for illustration only.
+
+<BestPractice>
+  <Do imageSource={props.data.illustrationIconSize.childFile.childImageSharp.gatsbyImageData}>
+    <p>Use 32px icons for illustration.</p>
+  </Do>
+</BestPractice>
+
+<BestPractice>
+  <Dont imageSource={props.data.uiIconSize.childFile.childImageSharp.gatsbyImageData}>
+    <p>Don’t use 32px icons for UI.</p>
+  </Dont>
+</BestPractice>
+
+### Best practices
+
+#### Use tooltips with interactive icons
+
+<BestPractice>
+  <Do imageSource={props.data.tooltipLabelIcon.childFile.childImageSharp.gatsbyImageData}>
+    <p>Use tooltips to label icons when they are used as actions. </p>
+  </Do>
+</BestPractice>
+
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    defaultIconSize: figmaAsset(name: { eq: "design-icons-16px-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    smallerIconSize: figmaAsset(name: { eq: "design-icons-12px-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    illustrationIconSize: figmaAsset(name: { eq: "design-icons-32px-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    uiIconSize: figmaAsset(name: { eq: "design-icons-32px-dont" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    tooltipLabelIcon: figmaAsset(name: { eq: "design-icons-tooltips-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
   }
 `;

@@ -27,7 +27,12 @@ const figmaNodeIds = [
   '111:5361' /* components-timeline-interactive-elements-do */,
   '111:5367' /* components-timeline-correct-hierarchy-do */,
   '111:5374' /* components-timeline-correct-hierarchy-dont */,
-  '336:2968' /* components-timeline-nesting-do */
+  '336:2968' /* components-timeline-nesting-do */,
+  '722:10518' /* design-icons-16px-do */,
+  '722:10550' /* design-icons-12px-do */,
+  '722:10997' /* design-icons-32px-do */,
+  '722:10580' /* design-icons-32px-dont */,
+  '722:11034' /* design-icons-tooltips-do */
 ];
 
 module.exports = {
