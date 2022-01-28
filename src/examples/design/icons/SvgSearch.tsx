@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import debounce from 'lodash/debounce';
 import { Field, MediaInput, Label } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { Code, XL } from '@zendeskgarden/react-typography';
+import { Button } from '@zendeskgarden/react-buttons';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import styled, { css } from 'styled-components';
 
@@ -29,38 +30,27 @@ const StyledSvgWrapper = styled.div<{ isAnswerBot?: boolean }>`
   color: ${p => p.isAnswerBot && '#d6eef1'};
 `;
 
-export const SvgSearch: React.FC<{
+const StyledCol = styled(Col).attrs({ forwardedAs: 'li' })``;
+const StyledRow = styled(Row).attrs({ forwardedAs: 'ul' })``;
+
+interface ISvgSearchProps {
   searchEnabled?: boolean;
   data: {
     edges: [
       { node: { name: string; relativeDirectory: string; childGardenSvg: { content: string } } }
     ];
   };
-}> = ({ data, searchEnabled }) => {
+}
+
+export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) => {
   const [inputValue, setInputValue] = useState('');
-  const [debouncedInputValue, setDebouncedInputValue] = useState(inputValue);
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const updatedDebouncedInputValue = useCallback(
-    debounce((value: string) => {
-      setDebouncedInputValue(value);
-    }, 300),
-    []
-  );
-
-  useEffect(() => {
-    updatedDebouncedInputValue(inputValue);
-  }, [inputValue, updatedDebouncedInputValue]);
-
-  const StyledCol = styled(Col).attrs({ forwardedAs: 'li' })``;
-
-  const StyledRow = styled(Row).attrs({ forwardedAs: 'ul' })``;
 
   const icons = useMemo(() => {
     return data.edges
       .filter(edge => {
-        const formattedSearchValue = debouncedInputValue.trim().toLowerCase();
+        const formattedSearchValue = inputValue.trim().toLowerCase();
 
+        // Returns every icons, since the search value is empty.
         if (formattedSearchValue.length === 0) {
           return true;
         }
@@ -81,7 +71,11 @@ export const SvgSearch: React.FC<{
           </StyledIconWrapper>
         </StyledCol>
       ));
-  }, [data, debouncedInputValue, StyledCol]);
+  }, [data, inputValue]);
+
+  const onInputChange = debounce((event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  }, 300);
 
   return (
     <div>
@@ -92,11 +86,7 @@ export const SvgSearch: React.FC<{
           `}
         >
           <Label>Filter icons</Label>
-          <MediaInput
-            start={<SearchStroke />}
-            value={inputValue}
-            onChange={e => setInputValue(e.target.value)}
-          />
+          <MediaInput start={<SearchStroke />} onChange={onInputChange} />
         </Field>
       )}
       <Grid>
@@ -107,6 +97,18 @@ export const SvgSearch: React.FC<{
               <XL>No icons found</XL>
             </StyledCol>
           )}
+        </StyledRow>
+        <StyledRow>
+          <Button
+            css={css`
+              margin: auto;
+              max-width: 50%;
+            `}
+            size="large"
+            isStretched
+          >
+            View all icons
+          </Button>
         </StyledRow>
       </Grid>
     </div>
