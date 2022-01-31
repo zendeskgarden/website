@@ -13,119 +13,175 @@ CTAs are most often used in [buttons](/components/button) and [anchors](/compone
 
 ### Select
 
-Use “Select” when the user must make a decision among multiple options.
+Use _Select_ when the user must make a decision among multiple options.
 
 ## To give a person ownership
 
 ### Assign
 
-Use “Assign” when referring to ownership and responsibility.
+Use _Assign_ when referring to ownership and responsibility.
 
 ## To move back and forth
 
 ### Back
 
-Use “Back” to take the user to the previous step in a multi-step process.
-Pair this with [“Next”](#next). In the event that a user will lose changes,
+Use _Back_ to take the user to the previous step in a multi-step process.
+Pair this with [_Next_](#next). In the event that a user will lose changes,
 warn them ahead of time that they will lose any changes that have been made.
 
 ### Previous
 
-Use “Previous” instead of [“Back”](#back) for pagination in tables.
+Use _Previous_ instead of [_Back_](#back) for pagination in tables.
 
 ### Next
 
-Use “Next” to take the user to the next step in a multi-step process.
-Pair this with [“Back”](#back).
+Use _Next_ to take the user to the next step in a multi-step process.
+Pair this with [_Back_](#back).
 
-- **Don’t use:** Proceed, Continue
+<BestPractice>
+  <Do>
+    <p>Next</p>
+  </Do>
+  <Dont>
+    <p>Proceed, Continue</p>
+  </Dont>
+</BestPractice>
 
 ## To postpone action
 
 ### Skip
 
-Use “Skip” to allow the user to postpone an action or decision.
+Use _Skip_ to allow the user to postpone an action or decision.
 It’s a way for the user to avoid interruption and proceed with their current task.
 
 ## To receive confirmation
 
 ### Done
 
-Use “Done” to confirm the completion of a multi-step process.
+Use _Done_ to confirm the completion of a multi-step process.
 
-- **Don’t use:** OK, Got it, Close
+<BestPractice>
+  <Do>
+    <p>Done</p>
+  </Do>
+  <Dont>
+    <p>OK, Got it, Close</p>
+  </Dont>
+</BestPractice>
 
 ### OK
 
-CTAs make it clear what will happen when a user interacts with it.
-“OK” doesn’t do a great job of that. For mobile experiences,
-it’s okay to use “OK” but write it as “OK”.
+The best CTAs make it clear what will happen when a user interacts with it.
+_OK_ doesn’t do a great job of that but sometimes that's all we need to say.
+In general, use _Done_ or a more specific CTA to end an experience. For mobile
+experiences, it’s okay to use _OK_ but write it as _OK_ to be concise and align
+with most mobile patterns.
 
-- **Don’t use:** Okay
+<BestPractice>
+  <Do>
+    <p>OK</p>
+  </Do>
+  <Dont>
+    <p>Okay</p>
+  </Dont>
+</BestPractice>
 
 ## To make changes
 
 ### Create
 
-Use “Create” when the user is about to make a brand new thing in the product.
+Use _Create_ when the user is about to make a brand new thing in the product.
 
 ### Add
 
-Use “Add” when moving something in the product from one place to another.
-
-- Example: “Add team”, “Add channel”
+Use _Add_ when moving something in the product from one place to another.
+For example, “Add team” and “Add channel”.
 
 ## To remove
 
 ### Clear
 
-Use clear to remove a selection.
+Use _Clear_ to remove a selection.
 
-- **Don’t use:** Deselect
+<BestPractice>
+  <Do>
+    <p>Clear</p>
+  </Do>
+  <Dont>
+    <p>Deselect</p>
+  </Dont>
+</BestPractice>
 
 ## To commit
 
 ### Save
 
-Use “Save” when the user makes changes and wants to commit them.
+Use _Save_ when the user makes changes and wants to commit them.
 
 ## To cancel
 
 ### Cancel
 
-Use “Cancel” when the user makes edits but wants to discard them. It dismisses
+Use _Cancel_ when the user makes edits but wants to discard them. It dismisses
 the page the user was editing and returns the user to the entry point they came from.
 
-- **Don’t use:** Discard changes
+<BestPractice>
+  <Do>
+    <p>Cancel</p>
+  </Do>
+  <Dont>
+    <p>Discard changes</p>
+  </Dont>
+</BestPractice>
 
 ### Leave without saving
 
-“Leave without saving” is similar to [“Cancel"](#cancel), with one key difference: it
+_Leave without saving_ is similar to [_Cancel_](#cancel), with one key difference: it
 reverts all values on the page to the last saved state without reloading the page.
 
-- **Don’t use:** Discard changes
+<BestPractice>
+  <Do>
+    <p>Leave without saving</p>
+  </Do>
+  <Dont>
+    <p>Discard changes</p>
+  </Dont>
+</BestPractice>
 
 ### Undo
 
 Revert back to the previous state.
 
-- **Don’t use:** Dismiss, No thanks
+<BestPractice>
+  <Do>
+    <p>Undo</p>
+  </Do>
+  <Dont>
+    <p>Dismiss, No thanks</p>
+  </Dont>
+</BestPractice>
 
 ## To learn
 
 ### Find out more
 
-Use “Find out more” to launch a modal that introduces a new feature.
+Use _Find out more_ to launch a modal that introduces a new feature.
 
 ### Learn about
 
-Use “Learn about” to include a link to the Zendesk help center.
+Use _Learn about_ to include a link to the Zendesk help center.
 Have the link be a few words about what the user will learn.
-Avoid the standalone “Learn more” and help center article titles
-that can’t be localized.
+For example, “Learn about user profiles”. Avoid the standalone
+_Learn more_ and help center article titles that can’t be localized.
 
-- Example: “Learn about user profiles”
-- **Don’t use:** Learn more
+<BestPractice>
+  <Do>
+    <p>Learn about</p>
+  </Do>
+  <Dont>
+    <p>Learn more</p>
+  </Dont>
+</BestPractice>
 
 import { graphql } from 'gatsby';
 
