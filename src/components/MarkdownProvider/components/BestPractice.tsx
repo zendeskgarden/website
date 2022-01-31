@@ -6,7 +6,7 @@
  */
 
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Well, Title } from '@zendeskgarden/react-notifications';
@@ -41,11 +41,16 @@ const StyledFigure = styled.figure`
   flex-grow: 1;
 `;
 
-const StyledImgContainer = styled.div`
+interface IStyledImgContainerProps extends ThemeProps<DefaultTheme> {
+  imageBackgroundColor?: string;
+}
+
+const StyledImgContainer = styled.div<IStyledImgContainerProps>`
   border: ${p => `${p.theme.borders.sm} ${getColor('neutralHue', 300, p.theme)}`};
   border-bottom: none;
   border-top-left-radius: ${p => p.theme.borderRadii.md};
   border-top-right-radius: ${p => p.theme.borderRadii.md};
+  background-color: ${p => (p.imageBackgroundColor ? p.imageBackgroundColor : 'inherit')};
   padding: ${p => p.theme.space.md};
   text-align: center;
 `;
@@ -118,6 +123,7 @@ interface ISectionProps extends ICaptionProps {
   imageHeight?: number;
   imageWidth?: number;
   imageIsSquare?: boolean;
+  imageBackgroundColor?: string;
 }
 
 export const Section: React.FC<ISectionProps> = props => {
@@ -131,7 +137,7 @@ export const Section: React.FC<ISectionProps> = props => {
 
     return (
       <StyledFigure>
-        <StyledImgContainer>
+        <StyledImgContainer imageBackgroundColor={props.imageBackgroundColor}>
           {typeof props.imageSource === 'string' ? (
             <div
               css={`
