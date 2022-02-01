@@ -57,14 +57,17 @@ export const StyledH3 = styled(XXL).attrs({ tag: 'h3' })`
 
   /* stylelint-disable-next-line declaration-no-important */
   position: static !important; /* [1] */
+  margin-top: ${p => p.theme.space.md};
 `;
 
 export const StyledH4 = styled(XL).attrs(p => ({ tag: p.tag || 'h4' }))`
   ${headerStyles}
+  margin-top: ${p => p.theme.space.md};
 `;
 
 export const StyledH5 = styled(LG).attrs({ tag: 'h5' })`
   ${headerStyles}
+  margin-top: ${p => p.theme.space.md};
 `;
 
 export const StyledH6 = styled(MD).attrs({ tag: 'h6' })`
@@ -83,7 +86,7 @@ export const StyledHr = styled.hr`
 `;
 
 export const StyledParagraph = styled(Paragraph)`
-  margin-bottom: ${p => p.theme.space.md};
+  margin-bottom: ${p => p.theme.space.sm};
 `;
 
 export const StyledStrong = styled(Span).attrs({ tag: 'strong', isBold: true })``;
