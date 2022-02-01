@@ -18,6 +18,13 @@ The 16px icons can also be doubled to create 32px icons.
 
 #### Styles
 
+import IconStyles from '../../../examples/design/icons/iconStyles.tsx';
+import IconStylesCode from '!!raw-loader!../../../examples/design/icons/iconStyles.tsx';
+
+<CodeExample code={IconStylesCode}>
+  <IconStyles />
+</CodeExample>
+
 Icons also come in two styles: outline and filled.
 While outlined icons are the default icons to use, filled icons are used to show selected states.
 
@@ -49,7 +56,10 @@ In certain instances where 16px icons will break the line height or will not fit
 </BestPractice>
 
 <BestPractice>
-  <Dont imageSource={props.data.uiIconSize.childFile.childImageSharp.gatsbyImageData}>
+  <Dont
+    imageBackgroundColor="#D2D5D8"
+    imageSource={props.data.uiIconSize.childFile.childImageSharp.gatsbyImageData}
+  >
     <p>Don’t use 32px icons for UI.</p>
   </Dont>
 </BestPractice>
