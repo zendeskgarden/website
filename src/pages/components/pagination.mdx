@@ -6,6 +6,11 @@ package: '@zendeskgarden/react-pagination'
 components:
   - pagination/src/elements/Pagination/Pagination.tsx
   - pagination/src/elements/CursorPagination/CursorPagination.tsx
+subcomponents:
+  - pagination/src/elements/CursorPagination/components/First.tsx
+  - pagination/src/elements/CursorPagination/components/Last.tsx
+  - pagination/src/elements/CursorPagination/components/Next.tsx
+  - pagination/src/elements/CursorPagination/components/Previous.tsx
 ---
 
 <Usage>
@@ -72,8 +77,6 @@ import OffsetDefaultCode from '!!raw-loader!../../examples/pagination/OffsetDefa
 
 ## API
 
-import COMPONENTS from '../../examples/pagination/components.ts';
-
 ### Pagination
 
 <Component components={props.data.mdx.components} componentName="pagination" />
@@ -88,19 +91,27 @@ import COMPONENTS from '../../examples/pagination/components.ts';
 
 #### CursorPagination.First
 
-<Component components={COMPONENTS} componentName="cursorPagination.first" />
+<Component components={props.data.mdx.subcomponents} componentName="cursorPagination.first" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="cursorPagination.first" />
 
 #### CursorPagination.Last
 
-<Component components={COMPONENTS} componentName="cursorPagination.last" />
+<Component components={props.data.mdx.subcomponents} componentName="cursorPagination.last" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="cursorPagination.last" />
 
 #### CursorPagination.Next
 
-<Component components={COMPONENTS} componentName="cursorPagination.next" />
+<Component components={props.data.mdx.subcomponents} componentName="cursorPagination.next" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="cursorPagination.next" />
 
 #### CursorPagination.Previous
 
-<Component components={COMPONENTS} componentName="cursorPagination.previous" />
+<Component components={props.data.mdx.subcomponents} componentName="cursorPagination.previous" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="cursorPagination.previous" />
 
 import { graphql } from 'gatsby';
 

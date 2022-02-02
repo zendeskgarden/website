@@ -6,6 +6,9 @@ package: '@zendeskgarden/react-typography'
 components:
   - typography/src/elements/lists/OrderedList.tsx
   - typography/src/elements/lists/UnorderedList.tsx
+subcomponents:
+  - typography/src/elements/lists/OrderedListItem.tsx
+  - typography/src/elements/lists/UnorderedListItem.tsx
 ---
 
 ## How to use it
@@ -49,8 +52,6 @@ import SizeCode from '!!raw-loader!../../examples/typography/lists/Size.tsx';
 
 ## API
 
-import COMPONENTS from '../../examples/typography/components.ts';
-
 ### OrderedList
 
 <Component components={props.data.mdx.components} componentName="orderedList" />
@@ -59,7 +60,9 @@ import COMPONENTS from '../../examples/typography/components.ts';
 
 #### OrderedList.Item
 
-<Component components={COMPONENTS} componentName="orderedList.item" />
+<Component components={props.data.mdx.subcomponents} componentName="orderedList.item" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="orderedList.item" />
 
 ### UnorderedList
 
@@ -69,7 +72,9 @@ import COMPONENTS from '../../examples/typography/components.ts';
 
 #### UnorderedList.Item
 
-<Component components={COMPONENTS} componentName="unorderedList.item" />
+<Component components={props.data.mdx.subcomponents} componentName="unorderedList.item" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="unorderedList.item" />
 
 import { graphql } from 'gatsby';
 

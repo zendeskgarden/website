@@ -6,6 +6,12 @@ description: >
 package: '@zendeskgarden/react-modals'
 components:
   - modals/src/elements/TooltipModal/TooltipModal.tsx
+subcomponents:
+  - modals/src/elements/TooltipModal/Body.tsx
+  - modals/src/elements/TooltipModal/Close.tsx
+  - modals/src/elements/TooltipModal/Footer.tsx
+  - modals/src/elements/TooltipModal/FooterItem.tsx
+  - modals/src/elements/TooltipModal/Title.tsx
 ---
 
 <Usage>
@@ -62,8 +68,6 @@ import PlacementCode from '!!raw-loader!../../examples/tooltip-modal/TooltipModa
 
 ## API
 
-import COMPONENTS from '../../examples/tooltip-modal/components.ts';
-
 ### TooltipModal
 
 <Component components={props.data.mdx.components} componentName="tooltipModal" />
@@ -72,23 +76,33 @@ import COMPONENTS from '../../examples/tooltip-modal/components.ts';
 
 #### TooltipModal.Body
 
-<Component components={COMPONENTS} componentName="tooltipModal.body" />
+<Component components={props.data.mdx.subcomponents} componentName="tooltipModal.body" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tooltipModal.body" />
 
 #### TooltipModal.Close
 
-<Component components={COMPONENTS} componentName="tooltipModal.close" />
+<Component components={props.data.mdx.subcomponents} componentName="tooltipModal.close" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tooltipModal.close" />
 
 #### TooltipModal.Footer
 
-<Component components={COMPONENTS} componentName="tooltipModal.footer" />
+<Component components={props.data.mdx.subcomponents} componentName="tooltipModal.footer" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tooltipModal.footer" />
 
 #### TooltipModal.FooterItem
 
-<Component components={COMPONENTS} componentName="tooltipModal.footerItem" />
+<Component components={props.data.mdx.subcomponents} componentName="tooltipModal.footerItem" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tooltipModal.footerItem" />
 
 #### TooltipModal.Title
 
-<Component components={COMPONENTS} componentName="tooltipModal.title" />
+<Component components={props.data.mdx.subcomponents} componentName="tooltipModal.title" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tooltipModal.title" />
 
 import { graphql } from 'gatsby';
 
