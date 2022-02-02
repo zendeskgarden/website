@@ -5,6 +5,10 @@ description: >
 package: '@zendeskgarden/react-accordions'
 components:
   - accordions/src/elements/stepper/Stepper.tsx
+subcomponents:
+  - accordions/src/elements/stepper/components/Content.tsx
+  - accordions/src/elements/stepper/components/Label.tsx
+  - accordions/src/elements/stepper/components/Step.tsx
 ---
 
 <Usage>
@@ -77,8 +81,6 @@ The Stepper component follows this structure:
 - Define the content for a vertical stepper using the `Stepper.Content` for each step
 - Render the content for a horizontal stepper externally. See [example](#layout) for details.
 
-import COMPONENTS from '../../examples/accordions/components.ts';
-
 ### Stepper
 
 <Component components={props.data.mdx.components} componentName="stepper" />
@@ -87,24 +89,28 @@ import COMPONENTS from '../../examples/accordions/components.ts';
 
 #### Stepper.Content
 
-<Component components={COMPONENTS} componentName="stepper.content" />
+<Component components={props.data.mdx.subcomponents} componentName="stepper.content" />
 
 Nest the Content within a [Step](#stepperstep) component.
 
+<PropSheet components={props.data.mdx.subcomponents} componentName="stepper.content" />
+
 #### Stepper.Label
 
-<Component components={COMPONENTS} componentName="stepper.label" />
+<Component components={props.data.mdx.subcomponents} componentName="stepper.label" />
 
 The Label component renders the provided label text with the step number or the provided icon. Nest it
 within a [Step](#stepperstep).
 
-<PropSheet components={COMPONENTS} componentName="stepper.label" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="stepper.label" />
 
 #### Stepper.Step
 
-<Component components={COMPONENTS} componentName="stepper.step" />
+<Component components={props.data.mdx.subcomponents} componentName="stepper.step" />
 
 Wrap each step's [Label](#stepperlabel) and corresponding [Content](#steppercontent) together with the Step component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="stepper.step" />
 
 import { graphql } from 'gatsby';
 

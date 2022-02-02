@@ -5,6 +5,10 @@ description: >
 package: '@zendeskgarden/react-accordions'
 components:
   - accordions/src/elements/timeline/Timeline.tsx
+subcomponents:
+  - accordions/src/elements/timeline/components/Content.tsx
+  - accordions/src/elements/timeline/components/Item.tsx
+  - accordions/src/elements/timeline/components/OppositeContent.tsx
 ---
 
 <Usage>
@@ -136,8 +140,6 @@ The Timeline component follows this structure:
 </Timeline>
 ```
 
-import COMPONENTS from '../../examples/accordions/components.ts';
-
 ### Timeline
 
 <Component components={props.data.mdx.components} componentName="timeline" />
@@ -146,25 +148,29 @@ import COMPONENTS from '../../examples/accordions/components.ts';
 
 #### Timeline.Content
 
-<Component components={COMPONENTS} componentName="timeline.content" />
+<Component components={props.data.mdx.subcomponents} componentName="timeline.content" />
 
 Nest the Content within an [Item](#timelineitem) component.
 
+<PropSheet components={props.data.mdx.subcomponents} componentName="timeline.content" />
+
 #### Timeline.Item
 
-<Component components={COMPONENTS} componentName="timeline.item" />
+<Component components={props.data.mdx.subcomponents} componentName="timeline.item" />
 
 An Item provides the DOM structure and styling for the default,
 [OppositeContent](#timelineoppositecontent), and alternate content layouts.
 
-<PropSheet components={COMPONENTS} componentName="timeline.item" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="timeline.item" />
 
 #### Timeline.OppositeContent
 
-<Component components={COMPONENTS} componentName="timeline.oppositeContent" />
+<Component components={props.data.mdx.subcomponents} componentName="timeline.oppositeContent" />
 
 The OppositeContent component displays content on the opposite side of the separator. Nest it
 within an [Item](#timelineitem) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="timeline.oppositeContent" />
 
 import { graphql } from 'gatsby';
 
