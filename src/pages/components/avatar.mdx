@@ -6,6 +6,8 @@ description: >
 package: '@zendeskgarden/react-avatars'
 components:
   - avatars/src/elements/Avatar.tsx
+subcomponents:
+  - avatars/src/elements/components/Text.tsx
 ---
 
 <Usage>
@@ -92,15 +94,9 @@ user distinguish between the two when scanning a page.
 
 #### Avatar.Text
 
-<Component
-  components={[
-    {
-      name: 'Avatar.Text',
-      extends: 'HTMLAttributes<HTMLSpanElement>'
-    }
-  ]}
-  componentName="Avatar.Text"
-/>
+<Component components={props.data.mdx.subcomponents} componentName="avatar.text" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="avatar.text" />
 
 import { graphql } from 'gatsby';
 
