@@ -6,7 +6,10 @@ package: '@zendeskgarden/react-typography'
 components:
   - typography/src/elements/MD.tsx
   - typography/src/elements/Paragraph.tsx
-  - typography/src/elements/Span.tsx
+  - typography/src/elements/span/Span.tsx
+subcomponents:
+  - typography/src/elements/span/Icon.tsx
+  - typography/src/elements/span/StartIcon.tsx
 ---
 
 <Usage>
@@ -88,8 +91,6 @@ import MonospaceCode from '!!raw-loader!../../examples/typography/span/Monospace
 
 ## API
 
-import COMPONENTS from '../../examples/typography/components.ts';
-
 ### MD
 
 <Component components={props.data.mdx.components} componentName="md" />
@@ -110,11 +111,15 @@ import COMPONENTS from '../../examples/typography/components.ts';
 
 #### Span.Icon
 
-<Component components={COMPONENTS} componentName="span.icon" />
+<Component components={props.data.mdx.subcomponents} componentName="span.icon" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="span.icon" />
 
 #### Span.StartIcon
 
-<Component components={COMPONENTS} componentName="span.startIcon" />
+<Component components={props.data.mdx.subcomponents} componentName="span.startIcon" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="span.startIcon" />
 
 import { graphql } from 'gatsby';
 

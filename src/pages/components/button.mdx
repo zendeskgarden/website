@@ -6,6 +6,9 @@ description: >
 package: '@zendeskgarden/react-buttons'
 components:
   - buttons/src/elements/Button.tsx
+subcomponents:
+  - buttons/src/elements/components/EndIcon.tsx
+  - buttons/src/elements/components/StartIcon.tsx
 ---
 
 <Usage>
@@ -126,8 +129,6 @@ The Button component follows this structure:
 </Button>
 ```
 
-import COMPONENTS from '../../examples/button/components.ts';
-
 ### Button
 
 <Component components={props.data.mdx.components} componentName="button" />
@@ -138,21 +139,21 @@ The Button component applies appropriate styles based on its usage and the props
 
 #### Button.EndIcon
 
-<Component components={COMPONENTS} componentName="button.endIcon" />
+<Component components={props.data.mdx.subcomponents} componentName="button.endIcon" />
 
 The EndIcon component appropriately positions its child icon within the button. Nest it within the
 [Button](#button) component as the last child. See [example](#media).
 
-<PropSheet components={COMPONENTS} componentName="button.endIcon" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="button.endIcon" />
 
 #### Button.StartIcon
 
-<Component components={COMPONENTS} componentName="button.startIcon" />
+<Component components={props.data.mdx.subcomponents} componentName="button.startIcon" />
 
 The StartIcon component appropriately positions its child icon within the button. Nest it within the
 [Button](#button) component as the first child. See [example](#media).
 
-<PropSheet components={COMPONENTS} componentName="button.startIcon" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="button.startIcon" />
 
 import { graphql } from 'gatsby';
 

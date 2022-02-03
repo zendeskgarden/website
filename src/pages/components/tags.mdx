@@ -5,6 +5,9 @@ description: >
 package: '@zendeskgarden/react-tags'
 components:
   - tags/src/elements/Tag.tsx
+subcomponents:
+  - tags/src/elements/Avatar.tsx
+  - tags/src/elements/Close.tsx
 ---
 
 <Usage>
@@ -123,8 +126,6 @@ The Tag component follows this structure:
 </Tag>
 ```
 
-import COMPONENTS from '../../examples/tags/components.ts';
-
 ### Tag
 
 <Component components={props.data.mdx.components} componentName="tag" />
@@ -136,17 +137,21 @@ child elements provided.
 
 #### Tag.Avatar
 
-<Component components={COMPONENTS} componentName="tag.avatar" />
+<Component components={props.data.mdx.subcomponents} componentName="tag.avatar" />
 
 The Avatar component displays the child media with appropriate styles applied. Nest it within the [Tag](#tag)
 component as the first child.
 
+<PropSheet components={props.data.mdx.subcomponents} componentName="tag.avatar" />
+
 #### Tag.Close
 
-<Component components={COMPONENTS} componentName="tag.close" />
+<Component components={props.data.mdx.subcomponents} componentName="tag.close" />
 
 The Close component displays an icon with appropriate styles and accessibility attributes to allow tag
 dismissal. Nest it within the [Tag](#tag) component as the last child.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tag.close" />
 
 import { graphql } from 'gatsby';
 

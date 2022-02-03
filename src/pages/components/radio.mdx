@@ -10,6 +10,8 @@ components:
   - forms/src/elements/common/Label.tsx
   - forms/src/elements/common/Message.tsx
   - forms/src/elements/Radio.tsx
+subcomponents:
+  - forms/src/elements/common/Legend.tsx
 ---
 
 <Usage>
@@ -143,17 +145,11 @@ components and a [Legend](#fieldsetlegend) together within a Fieldset component.
 
 #### Fieldset.Legend
 
+<Component components={props.data.mdx.subcomponents} componentName="fieldset.legend" />
+
 Nest a Legend within a [Fieldset](#fieldset) component.
 
-<Component
-  components={[
-    {
-      name: 'Fieldset.Legend',
-      extends: 'HTMLAttributes<HTMLLegendElement>'
-    }
-  ]}
-  componentName="Fieldset.Legend"
-/>
+<PropSheet components={props.data.mdx.subcomponents} componentName="fieldset.legend" />
 
 ### Hint
 

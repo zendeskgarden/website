@@ -11,6 +11,10 @@ components:
   - forms/src/elements/common/Hint.tsx
   - forms/src/elements/Input.tsx
   - forms/src/elements/common/Label.tsx
+subcomponents:
+  - forms/src/elements/file-list/components/Close.tsx
+  - forms/src/elements/file-list/components/Delete.tsx
+  - forms/src/elements/file-list/components/Item.tsx
 ---
 
 <Usage>
@@ -108,8 +112,6 @@ The FileUpload component follows this structure:
 </FileList>
 ```
 
-import COMPONENTS from '../../examples/forms/file-upload/components.ts';
-
 ### Field
 
 <Component components={props.data.mdx.components} componentName="field" />
@@ -130,7 +132,15 @@ In case of multiple File components, nest each within an [Item](#filelistitem) c
 
 #### File.Close
 
-<Component components={COMPONENTS} componentName="file.close" />
+<Component components={props.data.mdx.subcomponents} componentName="file.close" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="file.close" />
+
+#### File.Delete
+
+<Component components={props.data.mdx.subcomponents} componentName="file.delete" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="file.delete" />
 
 ### FileList
 
@@ -142,7 +152,9 @@ Use the FileList component when displaying a list of multiple files.
 
 #### FileList.Item
 
-<Component components={COMPONENTS} componentName="fileList.item" />
+<Component components={props.data.mdx.subcomponents} componentName="fileList.item" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="fileList.item" />
 
 Nest an Item within a [FileList](#filelist) component.
 
