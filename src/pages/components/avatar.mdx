@@ -84,6 +84,15 @@ user distinguish between the two when scanning a page.
 
 ## API
 
+The Avatar component follows this structure:
+
+<!-- prettier-ignore -->
+```jsx
+<Avatar>
+  {/* One of icon, img, or Avatar.Text */}
+</Avatar>
+```
+
 ### Avatar
 
 <Component components={props.data.mdx.components} componentName="avatar" />
@@ -101,6 +110,9 @@ user distinguish between the two when scanning a page.
   ]}
   componentName="Avatar.Text"
 />
+
+The Text component applies appropriate styles to child text. Nest it within an [Avatar](#avatar) component.
+See [example](#type).
 
 import { graphql } from 'gatsby';
 
