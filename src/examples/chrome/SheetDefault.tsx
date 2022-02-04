@@ -47,7 +47,6 @@ const Example = () => {
             <Toggle
               checked={isSheetOpen}
               onChange={() => setSheetOpen(!isSheetOpen)}
-              aria-expanded={isSheetOpen}
               aria-controls={sheetId}
             >
               <Label>Show Sheet</Label>
@@ -57,7 +56,13 @@ const Example = () => {
       </Row>
 
       <StyledRow justifyContent="end">
-        <Sheet id={sheetId} isOpen={isSheetOpen} focusOnMount restoreFocus>
+        <Sheet
+          id={sheetId}
+          isOpen={isSheetOpen}
+          focusOnMount
+          restoreFocus
+          aria-expanded={isSheetOpen}
+        >
           <Sheet.Header>
             <Sheet.Title>Garden</Sheet.Title>
             <Sheet.Description>Vegetables in the Garden</Sheet.Description>

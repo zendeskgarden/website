@@ -61,8 +61,8 @@ const Example = () => {
         <Col size={size.cols}>
           <Sheet isOpen isAnimated={false} size={size.sheet}>
             <Sheet.Header>
-              <Sheet.Title>Garden</Sheet.Title>
-              <Sheet.Description>Vegetables in the Garden</Sheet.Description>
+              <Sheet.Title>Size</Sheet.Title>
+              <Sheet.Description>Sizing the Sheet</Sheet.Description>
             </Sheet.Header>
 
             <Sheet.Body>

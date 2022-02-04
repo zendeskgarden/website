@@ -46,8 +46,8 @@ const Example = () => {
         <Col sm={3} md={4} lg={7}>
           <Sheet isOpen placement={placement} size="100%">
             <Sheet.Header>
-              <Sheet.Title>Garden</Sheet.Title>
-              <Sheet.Description>Vegetables in the Garden</Sheet.Description>
+              <Sheet.Title>Placement</Sheet.Title>
+              <Sheet.Description>From side to side</Sheet.Description>
             </Sheet.Header>
 
             <Sheet.Body>

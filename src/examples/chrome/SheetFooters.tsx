@@ -40,13 +40,25 @@ const StyledSheetFooterItem = styled(Sheet.FooterItem)`
 const Example = () => (
   <Row>
     <StyledCol sm={12} md={4} lg={4}>
-      <StyledSheet isOpen size="100%">
+      <StyledSheet
+        isOpen
+        size="100%"
+        aria-describedby=""
+        aria-labelledby=""
+        title="Sheet with no footer"
+      >
         <Sheet.Close />
       </StyledSheet>
     </StyledCol>
 
     <StyledCol sm={12} md={4} lg={4}>
-      <StyledSheet isOpen size="100%">
+      <StyledSheet
+        isOpen
+        size="100%"
+        aria-describedby=""
+        aria-labelledby=""
+        title="Sheet footer with an anchor"
+      >
         <Sheet.Body />
 
         <Sheet.Footer isCompact>
@@ -58,7 +70,13 @@ const Example = () => (
     </StyledCol>
 
     <StyledCol sm={12} md={4} lg={4}>
-      <StyledSheet isOpen size="100%">
+      <StyledSheet
+        isOpen
+        size="100%"
+        aria-describedby=""
+        aria-labelledby=""
+        title="Sheet footer with buttons"
+      >
         <Sheet.Body />
 
         <Sheet.Footer>

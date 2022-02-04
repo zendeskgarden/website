@@ -33,13 +33,25 @@ const StyledSheet = styled(Sheet)`
 const Example = () => (
   <Row>
     <StyledCol sm={12} md={4} lg={4}>
-      <StyledSheet isOpen size="100%">
+      <StyledSheet
+        isOpen
+        size="100%"
+        aria-describedby=""
+        aria-labelledby=""
+        title="Sheet with no title"
+      >
         <Sheet.Close />
       </StyledSheet>
     </StyledCol>
 
     <StyledCol sm={12} md={4} lg={4}>
-      <StyledSheet isOpen size="100%">
+      <StyledSheet
+        isOpen
+        size="100%"
+        aria-describedby=""
+        aria-labelledby=""
+        title="Sheet with title"
+      >
         <Sheet.Header>
           <Sheet.Title>Heading</Sheet.Title>
         </Sheet.Header>
@@ -48,7 +60,13 @@ const Example = () => (
     </StyledCol>
 
     <StyledCol sm={12} md={4} lg={4}>
-      <StyledSheet isOpen size="100%">
+      <StyledSheet
+        isOpen
+        size="100%"
+        aria-describedby=""
+        aria-labelledby=""
+        title="Sheet with title and description"
+      >
         <Sheet.Header>
           <Sheet.Title>Heading</Sheet.Title>
           <Sheet.Description>Description</Sheet.Description>
