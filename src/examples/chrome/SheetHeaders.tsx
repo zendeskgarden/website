@@ -6,45 +6,57 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { Sheet } from '@zendeskgarden/react-chrome';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Row, Col } from '@zendeskgarden/react-grid';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 
-const surroundingBorder = '1px dotted gray';
-const surroundingBorderStyle = {
-  borderRight: surroundingBorder,
-  borderTop: surroundingBorder,
-  borderBottom: surroundingBorder
-};
+const StyledCol = styled(Col)`
+  height: ${props => props.theme.space.base * 120}px;
+
+  ${props => mediaQuery('down', 'sm', props.theme)} {
+    height: ${props => props.theme.space.base * 80}px;
+
+    &:not(:last-child) {
+      margin-bottom: ${props => props.theme.space.md};
+    }
+  }
+`;
+
+const StyledSheet = styled(Sheet)`
+  border-top: ${props => props.theme.borderWidths.sm} dashed;
+  border-right: ${props => props.theme.borderWidths.sm} dashed;
+  border-bottom: ${props => props.theme.borderWidths.sm} dashed;
+  border-color: ${props => getColor('neutralHue', 400, props.theme)};
+`;
 
 const Example = () => (
-  <Grid gutters="sm">
-    <Row style={{ height: '525px' }}>
-      <Col size={4}>
-        <Sheet isOpen size="100%" style={surroundingBorderStyle}>
-          <Sheet.Close />
-        </Sheet>
-      </Col>
+  <Row>
+    <StyledCol sm={12} md={4} lg={4}>
+      <StyledSheet isOpen size="100%">
+        <Sheet.Close />
+      </StyledSheet>
+    </StyledCol>
 
-      <Col size={4}>
-        <Sheet isOpen size="100%" style={surroundingBorderStyle}>
-          <Sheet.Header>
-            <Sheet.Title>Heading</Sheet.Title>
-          </Sheet.Header>
-          <Sheet.Close />
-        </Sheet>
-      </Col>
+    <StyledCol sm={12} md={4} lg={4}>
+      <StyledSheet isOpen size="100%">
+        <Sheet.Header>
+          <Sheet.Title>Heading</Sheet.Title>
+        </Sheet.Header>
+        <Sheet.Close />
+      </StyledSheet>
+    </StyledCol>
 
-      <Col size={4}>
-        <Sheet isOpen size="100%" style={surroundingBorderStyle}>
-          <Sheet.Header>
-            <Sheet.Title>Heading</Sheet.Title>
-            <Sheet.Description>Description</Sheet.Description>
-          </Sheet.Header>
-          <Sheet.Close />
-        </Sheet>
-      </Col>
-    </Row>
-  </Grid>
+    <StyledCol sm={12} md={4} lg={4}>
+      <StyledSheet isOpen size="100%">
+        <Sheet.Header>
+          <Sheet.Title>Heading</Sheet.Title>
+          <Sheet.Description>Description</Sheet.Description>
+        </Sheet.Header>
+        <Sheet.Close />
+      </StyledSheet>
+    </StyledCol>
+  </Row>
 );
 
 export default Example;

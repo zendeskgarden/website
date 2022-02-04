@@ -5,74 +5,76 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
+import styled from 'styled-components';
 import { Sheet } from '@zendeskgarden/react-chrome';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Field, Toggle, Label } from '@zendeskgarden/react-forms';
+import { getColor } from '@zendeskgarden/react-theming';
+
+const StyledField = styled(Field)`
+  margin: ${props => props.theme.space.md};
+`;
+
+const StyledRow = styled(Row)`
+  border: ${props => props.theme.borderWidths.sm} dashed;
+  border-color: ${props => getColor('neutralHue', 400, props.theme)};
+`;
 
 const Example = () => {
   const [placement, setSheetPlacement] = useState<'start' | 'end' | undefined>('start');
-  const toggleSheetPlacement = () => {
+
+  const toggleSheetPlacement = useCallback(() => {
     if (placement === 'end') setSheetPlacement('start');
     if (placement === 'start') setSheetPlacement('end');
-  };
+  }, [placement]);
 
   return (
     <Grid gutters={false}>
-      <Row style={{ marginBottom: '20px' }}>
+      <Row>
         <Col>
-          <Field>
+          <StyledField>
             <Toggle checked={placement === 'start'} onChange={toggleSheetPlacement}>
               <Label>Place at start of container</Label>
             </Toggle>
-          </Field>
+          </StyledField>
         </Col>
       </Row>
 
-      <Row style={{ outline: '1px dotted gray' }}>
-        <Col size={12}>
-          <div
-            style={{
-              width: '100%',
-              height: '415px',
-              display: 'flex',
-              justifyContent: placement === 'end' ? 'flex-end' : 'flex-start'
-            }}
-          >
-            <Sheet isOpen placement={placement}>
-              <Sheet.Header>
-                <Sheet.Title>Garden</Sheet.Title>
-                <Sheet.Description>Vegetables in the Garden</Sheet.Description>
-              </Sheet.Header>
+      <StyledRow justifyContent={placement}>
+        <Col sm={3} md={4} lg={7}>
+          <Sheet isOpen placement={placement} size="100%">
+            <Sheet.Header>
+              <Sheet.Title>Garden</Sheet.Title>
+              <Sheet.Description>Vegetables in the Garden</Sheet.Description>
+            </Sheet.Header>
 
-              <Sheet.Body>
-                Shaved almonds soy milk black bean chili dip second course salad edamame apple
-                vinaigrette cremini mushrooms tofu mint with fiery fruit coconut sugar roasted
-                peanuts Thai dark and stormy banana crunchy seaweed sparkling pomegranate punch
-                summer blackberries strawberry spinach salad crispy Thai curry mediterranean
-                vegetables crumbled lentils. Apricot shiitake mushrooms seasonal rich coconut cream
-                ginger carrot spiced juice guacamole hot sandwiches burritos jalapeño four-layer
-                green tea overflowing berries pomegranate avocado basil pesto Thai super chili.
-                Blueberries casserole cumin picnic salad cherries heat miso turmeric glazed
-                aubergine vine tomatoes cool fig arugula cashew salad chia seeds homemade balsamic
-                sesame soba noodles. Corn amaranth salsify bunya nuts nori azuki bean chickweed
-                potato bell pepper artichoke. Nori grape silver beet broccoli kombu beet greens fava
-                bean potato
-              </Sheet.Body>
+            <Sheet.Body>
+              Shaved almonds soy milk black bean chili dip second course salad edamame apple
+              vinaigrette cremini mushrooms tofu mint with fiery fruit coconut sugar roasted peanuts
+              Thai dark and stormy banana crunchy seaweed sparkling pomegranate punch summer
+              blackberries strawberry spinach salad crispy Thai curry mediterranean vegetables
+              crumbled lentils. Apricot shiitake mushrooms seasonal rich coconut cream ginger carrot
+              spiced juice guacamole hot sandwiches burritos jalapeño four-layer green tea
+              overflowing berries pomegranate avocado basil pesto Thai super chili. Blueberries
+              casserole cumin picnic salad cherries heat miso turmeric glazed aubergine vine
+              tomatoes cool fig arugula cashew salad chia seeds homemade balsamic sesame soba
+              noodles. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper
+              artichoke. Nori grape silver beet broccoli kombu beet greens fava bean potato
+            </Sheet.Body>
 
-              <Sheet.Footer>
-                <Sheet.FooterItem>
-                  <Button>Basic</Button>
-                </Sheet.FooterItem>
-                <Sheet.FooterItem>
-                  <Button isPrimary>Primary</Button>
-                </Sheet.FooterItem>
-              </Sheet.Footer>
-            </Sheet>
-          </div>
+            <Sheet.Footer>
+              <Sheet.FooterItem>
+                <Button>Basic</Button>
+              </Sheet.FooterItem>
+              <Sheet.FooterItem>
+                <Button isPrimary>Primary</Button>
+              </Sheet.FooterItem>
+            </Sheet.Footer>
+          </Sheet>
         </Col>
-      </Row>
+      </StyledRow>
     </Grid>
   );
 };

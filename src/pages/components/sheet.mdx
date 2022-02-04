@@ -47,8 +47,8 @@ import SheetDefaultCode from '!!raw-loader!../../examples/chrome/SheetDefault.ts
 
 ### Footers
 
-Sheet footers comes in three variations: no footer, footer with an [Anchor](components/anchor),
-and footer with [Buttons](components/button).
+Sheet footers comes in three variations: no footer, footer with an [Anchor](/components/anchor),
+and footer with [Buttons](/components/button).
 
 import SheetFooters from '../../examples/chrome/SheetFooters.tsx';
 import SheetFootersCode from '!!raw-loader!../../examples/chrome/SheetFooters.tsx';
@@ -82,7 +82,7 @@ import SheetPlacementCode from '!!raw-loader!../../examples/chrome/SheetPlacemen
 ### Size
 
 Sheets default to 380px in width. You can customise the width based on your intended
-experience to any size using pixels or our grid system.
+experience to any size using pixels or our [grid system](/components/grid).
 
 import SheetSize from '../../examples/chrome/SheetSize.tsx';
 import SheetSizeCode from '!!raw-loader!../../examples/chrome/SheetSize.tsx';
@@ -108,7 +108,7 @@ The Sheet component follows this structure:
   </Sheet.Header>
   
   <Sheet.Body>
-    {/* main content of the Sheet */}
+    {/* main content of the sheet */}
   </Sheet.Body>
 
   <Sheet.Footer>
@@ -125,15 +125,15 @@ The Sheet component follows this structure:
 
 <Component components={props.data.mdx.components} componentName="sheet" />
 
-The Sheet component provides state and accessibility attributes to its children.
+The `Sheet` component provides state and accessibility attributes to its children.
 
 <PropSheet components={props.data.mdx.components} componentName="sheet" />
 
 ### Sheet.Body
 
-The Sheet Body component is placed in the [`Sheet`](#sheet) component.
-This component requires accessible functionality to make the
-element focusable, if keyboard scrolling is needed.
+Nest `Sheet.Body` in the [`Sheet`](#sheet) component.
+`Sheet.Body` requires additional accessible functionality to make the
+element focusable for keyboard scrolling.
 
 <Component components={props.data.mdx.components} componentName="sheet.body" />
 
@@ -141,8 +141,8 @@ element focusable, if keyboard scrolling is needed.
 
 ### Sheet.Title
 
-The Sheet Title labels the Sheet for assistive technology.
-This component is nested in the [`Sheet.Header`](#sheetheader) component.
+`Sheet.Title` labels the Sheet for assistive technology.
+Nest `Sheet.Title` in the [`Sheet.Header`](#sheetheader) component.
 
 <Component components={props.data.mdx.components} componentName="sheet.title" />
 
@@ -150,8 +150,8 @@ This component is nested in the [`Sheet.Header`](#sheetheader) component.
 
 ### Sheet.Description
 
-The Sheet Description describes the Sheet for assistive technology.
-This component is nested in the [`Sheet.Header`](#sheetheader) component.
+`Sheet.Description` describes the Sheet for assistive technology.
+Nest `Sheet.Description` in the [`Sheet.Header`](#sheetheader) component.
 
 <Component components={props.data.mdx.components} componentName="sheet.description" />
 
@@ -159,7 +159,7 @@ This component is nested in the [`Sheet.Header`](#sheetheader) component.
 
 ### Sheet.Header
 
-The Sheet Header component is placed in the [`Sheet`](#sheet) component.
+Nest `Sheet Header` in the [`Sheet`](#sheet) component.
 
 <Component components={props.data.mdx.components} componentName="sheet.header" />
 
@@ -167,8 +167,8 @@ The Sheet Header component is placed in the [`Sheet`](#sheet) component.
 
 ### Sheet.Footer
 
-The Sheet Footer component is placed in the [`Sheet`](#sheet) component.
-The component can alternate to compact styling.
+Nest `Sheet.Footer` in the [`Sheet`](#sheet) component.
+Can be default or compact in size. This reduces padding on footer items.
 
 <Component components={props.data.mdx.components} componentName="sheet.footer" />
 
@@ -176,7 +176,7 @@ The component can alternate to compact styling.
 
 ### Sheet.FooterItem
 
-The Sheet FooterItem component is nested in the [`Sheet.Footer`](#sheetfooter) component.
+Nest `Sheet.FooterItem` in the [`Sheet.Footer`](#sheetfooter) component.
 
 <Component components={props.data.mdx.components} componentName="sheet.footeritem" />
 
@@ -184,7 +184,8 @@ The Sheet FooterItem component is nested in the [`Sheet.Footer`](#sheetfooter) c
 
 ### Sheet.Close
 
-The Sheet Close button component is placed in the [`Sheet`](#sheet) component.
+Nest `Sheet.Close` button in the [`Sheet`](#sheet) component.
+`Sheet.Close` should be the last subcomponent in `Sheet` for consistent tab order.
 
 <Component components={props.data.mdx.components} componentName="sheet.close" />
 
