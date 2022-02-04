@@ -8,11 +8,20 @@
 import React, { createContext, useContext } from 'react';
 import { UnorderedList, OrderedList } from '@zendeskgarden/react-typography';
 import { css } from 'styled-components';
+import { math } from 'polished';
 
 const ListContext = createContext<'ol' | 'ul' | undefined>(undefined);
 
+/**
+ * 1. Lists following a paragraph sibling must have negative margin to achieve intended `space.sm` margining.
+ */
 const listStyling = css`
-  margin: ${p => p.theme.space.sm} 0 ${p => p.theme.space.sm} ${p => p.theme.space.lg};
+  margin-bottom: ${p => p.theme.space.md};
+  margin-left: ${p => p.theme.space.lg};
+
+  p + & {
+    margin-top: ${p => math(`${p.theme.space.sm} - ${p.theme.space.md}`)}; /* [1] */
+  }
 `;
 
 export const UL: React.FC = props => {
