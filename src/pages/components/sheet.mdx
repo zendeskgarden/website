@@ -5,6 +5,7 @@ description: >
 package: '@zendeskgarden/react-chrome'
 components:
   - chrome/src/elements/sheet/Sheet.tsx
+subcomponents:
   - chrome/src/elements/sheet/components/Body.tsx
   - chrome/src/elements/sheet/components/Title.tsx
   - chrome/src/elements/sheet/components/Description.tsx
@@ -131,65 +132,65 @@ The `Sheet` component provides state and accessibility attributes to its childre
 
 ### Sheet.Body
 
+<Component components={props.data.mdx.subcomponents} componentName="sheet.body" />
+
 Nest `Sheet.Body` in the [`Sheet`](#sheet) component.
 `Sheet.Body` requires additional accessible functionality to make the
 element focusable for keyboard scrolling.
 
-<Component components={props.data.mdx.components} componentName="sheet.body" />
-
-<PropSheet components={props.data.mdx.components} componentName="sheet.body" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.body" />
 
 ### Sheet.Title
+
+<Component components={props.data.mdx.subcomponents} componentName="sheet.title" />
 
 `Sheet.Title` labels the Sheet for assistive technology.
 Nest `Sheet.Title` in the [`Sheet.Header`](#sheetheader) component.
 
-<Component components={props.data.mdx.components} componentName="sheet.title" />
-
-<PropSheet components={props.data.mdx.components} componentName="sheet.title" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.title" />
 
 ### Sheet.Description
+
+<Component components={props.data.mdx.subcomponents} componentName="sheet.description" />
 
 `Sheet.Description` describes the Sheet for assistive technology.
 Nest `Sheet.Description` in the [`Sheet.Header`](#sheetheader) component.
 
-<Component components={props.data.mdx.components} componentName="sheet.description" />
-
-<PropSheet components={props.data.mdx.components} componentName="sheet.description" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.description" />
 
 ### Sheet.Header
 
+<Component components={props.data.mdx.subcomponents} componentName="sheet.header" />
+
 Nest `Sheet Header` in the [`Sheet`](#sheet) component.
 
-<Component components={props.data.mdx.components} componentName="sheet.header" />
-
-<PropSheet components={props.data.mdx.components} componentName="sheet.header" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.header" />
 
 ### Sheet.Footer
+
+<Component components={props.data.mdx.subcomponents} componentName="sheet.footer" />
 
 Nest `Sheet.Footer` in the [`Sheet`](#sheet) component.
 Can be default or compact in size. This reduces padding on footer items.
 
-<Component components={props.data.mdx.components} componentName="sheet.footer" />
-
-<PropSheet components={props.data.mdx.components} componentName="sheet.footer" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.footer" />
 
 ### Sheet.FooterItem
 
+<Component components={props.data.mdx.subcomponents} componentName="sheet.footeritem" />
+
 Nest `Sheet.FooterItem` in the [`Sheet.Footer`](#sheetfooter) component.
 
-<Component components={props.data.mdx.components} componentName="sheet.footeritem" />
-
-<PropSheet components={props.data.mdx.components} componentName="sheet.footeritem" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.footeritem" />
 
 ### Sheet.Close
+
+<Component components={props.data.mdx.subcomponents} componentName="sheet.close" />
 
 Nest `Sheet.Close` button in the [`Sheet`](#sheet) component.
 `Sheet.Close` should be the last subcomponent in `Sheet` for consistent tab order.
 
-<Component components={props.data.mdx.components} componentName="sheet.close" />
-
-<PropSheet components={props.data.mdx.components} componentName="sheet.close" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.close" />
 
 import { graphql } from 'gatsby';
 
