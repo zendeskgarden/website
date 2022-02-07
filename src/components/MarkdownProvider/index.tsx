@@ -17,6 +17,7 @@ import { ObjectBlock } from './components/ObjectBlock';
 import { PropSheet } from './components/PropSheet';
 import { Usage, Use, Misuse } from './components/Usage';
 import { BestPractice, Do, Dont, Caution } from './components/BestPractice';
+import { ImageFigure } from './components/ImageFigure';
 import { COMPONENTS, Markdown } from './components/Markdown';
 import { OverviewLinks } from './components/OverviewLinks';
 
@@ -47,6 +48,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
       BestPractice,
       Markdown,
       OverviewLinks,
+      ImageFigure,
       /**
        * Markdown elements
        */

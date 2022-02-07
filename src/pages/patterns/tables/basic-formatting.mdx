@@ -367,31 +367,17 @@ import TableLoadingCode from '!!raw-loader!../examples/tables/TableLoading.tsx';
 Our tables have been designed to accommodate localization and internationalization standards so they do not break the
 experience.
 
-<figure>
-  <div style="border:1px solid #E5E5E5;">
-    <img
-      src="figma:patterns-tables-basic-formatting-localization-bulgarian.png"
-      alt="Bulgarian localization example"
-    />
-  </div>
-  <figcaption align="center" style="text-align:center;color:#68737D;margin-top:8px;">
-    Bulgarian example
-  </figcaption>
-</figure>
+<ImageFigure
+  caption="Bulgarian example"
+  imgAlt="Bulgarian example"
+  imageSource={props.data.tablesLocalizationBulgarian.childFile.childImageSharp.gatsbyImageData}
+/>
 
-<br />
-
-<figure>
-  <div style="border:1px solid #E5E5E5;">
-    <img
-      src="figma:patterns-tables-basic-formatting-localization-arabic.png"
-      alt="Arabic localization example"
-    />
-  </div>
-  <figcaption align="center" style="text-align:center;color:#68737D;margin-top:8px;">
-    Arabic RTL example
-  </figcaption>
-</figure>
+<ImageFigure
+  caption="Arabic RTL example"
+  imgAlt="Arabic RTL example"
+  imageSource={props.data.tablesLocalizationArabic.childFile.childImageSharp.gatsbyImageData}
+/>
 
 ## Accessibility
 
@@ -419,6 +405,24 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    tablesLocalizationBulgarian: figmaAsset(
+      name: { eq: "patterns-tables-basic-formatting-localization-bulgarian" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    tablesLocalizationArabic: figmaAsset(
+      name: { eq: "patterns-tables-basic-formatting-localization-arabic" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
     tablesRowHeightsDo: figmaAsset(
       name: { eq: "patterns-tables-basic-formatting-row-heights-do" }
     ) {
