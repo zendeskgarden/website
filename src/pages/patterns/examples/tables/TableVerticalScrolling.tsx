@@ -32,6 +32,10 @@ const StyledHead = styled(Head)`
   background: ${props => props.theme.colors.background};
 `;
 
+const StyledParagraph = styled(Paragraph)`
+  margin-top: ${props => props.theme.space.lg};
+`;
+
 const Example = () => (
   <div style={{ overflowX: 'auto', maxHeight: '400px' }}>
     <Table style={{ minWidth: 500 }}>
@@ -52,8 +56,7 @@ const Example = () => (
         ))}
       </Body>
     </Table>
-    <br />
-    <Paragraph>
+    <StyledParagraph>
       Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water
       spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion
       desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize
@@ -64,7 +67,7 @@ const Example = () => (
       black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water
       chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko
       chicory celtuce parsley jícama.
-    </Paragraph>
+    </StyledParagraph>
   </div>
 );
 
