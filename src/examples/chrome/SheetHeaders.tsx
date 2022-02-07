@@ -32,7 +32,7 @@ const StyledSheet = styled(Sheet)`
 
 const Example = () => (
   <Row>
-    <StyledCol sm={12} md={4} lg={4}>
+    <StyledCol md>
       <StyledSheet
         isOpen
         size="100%"
@@ -44,7 +44,7 @@ const Example = () => (
       </StyledSheet>
     </StyledCol>
 
-    <StyledCol sm={12} md={4} lg={4}>
+    <StyledCol md>
       <StyledSheet
         isOpen
         size="100%"
@@ -59,7 +59,7 @@ const Example = () => (
       </StyledSheet>
     </StyledCol>
 
-    <StyledCol sm={12} md={4} lg={4}>
+    <StyledCol md>
       <StyledSheet
         isOpen
         size="100%"

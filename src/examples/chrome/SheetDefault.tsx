@@ -20,18 +20,16 @@ const StyledField = styled(Field)`
 const StyledRow = styled(Row)`
   border: ${props => props.theme.borderWidths.sm} dashed;
   border-color: ${props => getColor('neutralHue', 400, props.theme)};
+`;
 
+const StyledSheet = styled(Sheet)`
   ${props => mediaQuery('down', 'sm', props.theme)} {
-    & > aside {
-      box-sizing: content-box;
-      width: 100%;
-    }
+    width: 100%;
 
-    /* stylelint-disable */
-    & > aside > div {
+    /* sheet inner wrapper */
+    & > div {
       min-width: 100%;
     }
-    /* stylelint-enable */
   }
 `;
 
@@ -56,7 +54,7 @@ const Example = () => {
       </Row>
 
       <StyledRow justifyContent="end">
-        <Sheet
+        <StyledSheet
           id={sheetId}
           isOpen={isSheetOpen}
           focusOnMount
@@ -94,7 +92,7 @@ const Example = () => {
           </Sheet.Footer>
 
           <Sheet.Close onClick={() => setSheetOpen(false)} />
-        </Sheet>
+        </StyledSheet>
       </StyledRow>
     </Grid>
   );

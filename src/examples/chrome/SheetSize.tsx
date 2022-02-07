@@ -13,13 +13,6 @@ import { Button } from '@zendeskgarden/react-buttons';
 import { Fieldset, Field, Radio, Label } from '@zendeskgarden/react-forms';
 import { getColor } from '@zendeskgarden/react-theming';
 
-const [col4, col6, px380, px480] = [
-  { label: '4 columns', sheet: '100%', cols: 4 },
-  { label: '6 columns', sheet: '100%', cols: 6 },
-  { label: '380 pixels', sheet: '380px', cols: 'auto' },
-  { label: '480 pixels', sheet: '480px', cols: 'auto' }
-];
-
 const StyledFieldset = styled(Fieldset)`
   margin: ${props => props.theme.space.md};
 `;
@@ -35,6 +28,13 @@ const StyledSheetFooterItem = styled(Sheet.FooterItem)`
     margin-left: 0;
   }
 `;
+
+const [col4, col6, px380, px480] = [
+  { label: '4 columns', sheet: '100%', cols: 4 },
+  { label: '6 columns', sheet: '100%', cols: 6 },
+  { label: '380 pixels', sheet: '380px', cols: 'auto' },
+  { label: '480 pixels', sheet: '480px', cols: 'auto' }
+];
 
 const Example = () => {
   const [size, setSheetSize] =
