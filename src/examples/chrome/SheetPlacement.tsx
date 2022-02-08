@@ -24,7 +24,7 @@ const StyledRow = styled(Row)`
 
 const StyledSheet = styled(Sheet)`
   ${props => mediaQuery('down', 'sm', props.theme)} {
-    width: 100%;
+    width: 90%;
 
     /* sheet inner wrapper */
     & > div {
@@ -34,7 +34,7 @@ const StyledSheet = styled(Sheet)`
 `;
 
 const Example = () => {
-  const [placement, setSheetPlacement] = useState<'start' | 'end' | undefined>('start');
+  const [placement, setSheetPlacement] = useState<'start' | 'end'>('start');
 
   const toggleSheetPlacement = useCallback(() => {
     if (placement === 'end') setSheetPlacement('start');
