@@ -4,8 +4,8 @@ description: >
   Tables display sets of related data across rows and columns. Tables make it easier for users to compare and analyze information.
 ---
 
-import BasicFormatting from '../examples/tables/BasicFormatting.tsx';
-import BasicFormattingCode from '!!raw-loader!../examples/tables/BasicFormatting.tsx';
+import BasicFormatting from '../../../examples/table/shared/TableDefault.tsx';
+import BasicFormattingCode from '!!raw-loader!../../../examples/table/shared/TableDefault.tsx';
 
 <CodeExample code={BasicFormattingCode}>
   <BasicFormatting />
@@ -71,8 +71,8 @@ Tables come in three sizes: small, medium, and large.
   row content
 - Small can be used when more information density is needed
 
-import TableSize from '../examples/tables/TableSize.tsx';
-import TableSizeCode from '!!raw-loader!../examples/tables/TableSize.tsx';
+import TableSize from '../../../examples/table/shared/TableSize.tsx';
+import TableSizeCode from '!!raw-loader!../../../examples/table/shared/TableSize.tsx';
 
 <CodeExample code={TableSizeCode}>
   <TableSize />
@@ -149,8 +149,8 @@ with some exceptions for quantitative data.
 
 If a table includes many rows of data, striped rows make it easier to keep their place when scanning horizontally.
 
-import TableStripedRows from '../examples/tables/TableStripedRows.tsx';
-import TableStripedRowsCode from '!!raw-loader!../examples/tables/TableStripedRows.tsx';
+import TableStripedRows from '../../../examples/table/shared/TableStripedRows.tsx';
+import TableStripedRowsCode from '../../../examples/table/shared/TableStripedRows.tsx';
 
 <CodeExample code={TableStripedRowsCode}>
   <TableStripedRows />
@@ -174,8 +174,8 @@ paired with the [Pagination](/components/pagination) component to create a consi
 - Cursor pagination is the default and recommended approach [due to performance](https://support.zendesk.com/hc/en-us/articles/4408846180634)
 - Cap a single page view at 100 rows
 
-import TableCursorPagination from '../examples/tables/TableCursorPagination.tsx';
-import TableCursorPaginationCode from '!!raw-loader!../examples/tables/TableCursorPagination.tsx';
+import TableCursorPagination from '../../../examples/table/TableCursorPagination.tsx';
+import TableCursorPaginationCode from '!!raw-loader!../../../examples/table/TableCursorPagination.tsx';
 
 <CodeExample code={TableCursorPaginationCode}>
   <TableCursorPagination />
@@ -224,8 +224,8 @@ In infinitely scrolling tables, you can only manually select items.
 For tables with more rows than can be displayed in the viewport, the header row is fixed at the top of the viewport.
 Keeping the column headers within view while scrolling helps users maintain context.
 
-import TableVerticalScrolling from '../examples/tables/TableVerticalScrolling.tsx';
-import TableVerticalScrollingCode from '!!raw-loader!../examples/tables/TableVerticalScrolling.tsx';
+import TableVerticalScrolling from '../../../examples/table/TableVerticalScrolling.tsx';
+import TableVerticalScrollingCode from '!!raw-loader!../../../examples/table/TableVerticalScrolling.tsx';
 
 <CodeExample code={TableVerticalScrollingCode}>
   <TableVerticalScrolling />
@@ -238,8 +238,8 @@ removed from the page DOM. When something scrolls into view, it is added to the 
 
 - Use [react-window](https://github.com/bvaughn/react-window) to efficiently render large data sets
 
-import TableVirtualized from '../examples/tables/TableVirtualized.tsx';
-import TableVirtualizedCode from '!!raw-loader!../examples/tables/TableVirtualized.tsx';
+import TableVirtualized from '../../../examples/table/TableVirtualized.tsx';
+import TableVirtualizedCode from '!!raw-loader!../../../examples/table/TableVirtualized.tsx';
 
 <CodeExample code={TableVirtualizedCode}>
   <TableVirtualized />
@@ -256,8 +256,8 @@ Sorting is implemented by selecting arrows in table headers.
 If any ordering applied to a table including default ordering, the sorting icon should be present. This indicates how
 the table is being ordered and also creates a better affordance for the control.
 
-import TableSort from '../examples/tables/TableSort.tsx';
-import TableSortCode from '!!raw-loader!../examples/tables/TableSort.tsx';
+import TableSort from '../../../examples/table/TableSort.tsx';
+import TableSortCode from '!!raw-loader!../../../examples/table/TableSort.tsx';
 
 <CodeExample code={TableSortCode}>
   <TableSort />
@@ -268,8 +268,8 @@ import TableSortCode from '!!raw-loader!../examples/tables/TableSort.tsx';
 T​​o have row reordering, you can apply drag-and-drop functionality with [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd).
 For accessibility support, please [read the react-beautiful-dnd guidelines](https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/about/accessibility.md).
 
-import TableDraggable from '../examples/tables/TableDraggable.tsx';
-import TableDraggableCode from '!!raw-loader!../examples/tables/TableDraggable.tsx';
+import TableDraggable from '../../../examples/table/TableDraggable.tsx';
+import TableDraggableCode from '!!raw-loader!../../../examples/table/TableDraggable.tsx';
 
 <CodeExample code={TableDraggableCode}>
   <TableDraggable />
@@ -282,8 +282,8 @@ The [Caption](/components/table#table-caption) is the title of a table.
 - A table must have a [Caption](/components/table#caption) or `aria-describedby` attribute that identifies the element
   which titles or describes the table
 
-import TableCaption from '../examples/tables/TableCaption.tsx';
-import TableCaptionCode from '!!raw-loader!../examples/tables/TableCaption.tsx';
+import TableCaption from '../../../examples/table/TableCaption.tsx';
+import TableCaptionCode from '!!raw-loader!../../../examples/table/TableCaption.tsx';
 
 <CodeExample code={TableCaptionCode}>
   <TableCaption />
@@ -355,8 +355,8 @@ compared against a blank screen or a spinner.
 - The width of the Skeleton should match the width of the intended cell content, while the Skeleton’s height will be 60%
   of the font size
 
-import TableLoading from '../examples/tables/TableLoading.tsx';
-import TableLoadingCode from '!!raw-loader!../examples/tables/TableLoading.tsx';
+import TableLoading from '../../../examples/table/TableLoading.tsx';
+import TableLoadingCode from '!!raw-loader!../../../examples/table/TableLoading.tsx';
 
 <CodeExample code={TableLoadingCode}>
   <TableLoading />
