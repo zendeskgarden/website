@@ -69,7 +69,7 @@ export const Patterns: React.FC = () => {
           >
             <SectionCallout
               section="Patterns"
-              header="Existing design solutions for a more consistent UX"
+              header="Additional context for how to use components."
               description="Opinionated design recipes that combine best practices from content, design, and engineering to create high-quality user interfaces quickly."
               css={css`
                 margin-right: auto;
