@@ -30,6 +30,8 @@ const StyledSvgWrapper = styled.div<{ isAnswerBot?: boolean }>`
   color: ${p => p.isAnswerBot && '#d6eef1'};
 `;
 
+// const StyledGradient = styled.
+
 const StyledCol = styled(Col).attrs({ forwardedAs: 'li' })``;
 const StyledRow = styled(Row).attrs({ forwardedAs: 'ul' })``;
 
@@ -42,36 +44,60 @@ interface ISvgSearchProps {
   };
 }
 
+const Icon = (edge: any) => {
+  return (
+    <StyledCol lg={3} md={4} xs={6}>
+      <StyledIconWrapper>
+        <StyledSvgWrapper
+          isAnswerBot={edge.node.name === 'answer-bot'}
+          // eslint-disable-next-line @typescript-eslint/naming-convention
+          dangerouslySetInnerHTML={{ __html: edge.node.childGardenSvg.content }}
+        />
+        <Code size="small" title={edge.node.name}>
+          {edge.node.name}
+        </Code>
+      </StyledIconWrapper>
+    </StyledCol>
+  );
+};
+
 export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) => {
   const [inputValue, setInputValue] = useState('');
+  const [collapsed, setCollapsed] = useState(true);
+
+  const filteredIcons = useMemo(() => {
+    return data.edges.filter(edge => {
+      const formattedSearchValue = inputValue.trim().toLowerCase();
+
+      // Returns every icons, since the search value is empty.
+      if (formattedSearchValue.length === 0) {
+        return true;
+      }
+
+      return edge.node.name.trim().toLowerCase().includes(formattedSearchValue);
+    });
+  }, [data.edges, inputValue]);
 
   const icons = useMemo(() => {
-    return data.edges
-      .filter(edge => {
-        const formattedSearchValue = inputValue.trim().toLowerCase();
+    const elements: any = [];
+    const formattedSearchValue = inputValue.trim().toLowerCase();
 
-        // Returns every icons, since the search value is empty.
-        if (formattedSearchValue.length === 0) {
-          return true;
-        }
+    if (formattedSearchValue.length) {
+      setCollapsed(false);
+    }
 
-        return edge.node.name.trim().toLowerCase().includes(formattedSearchValue);
-      })
-      .map(edge => (
-        <StyledCol key={edge.node.name} lg={3} md={4} xs={6}>
-          <StyledIconWrapper>
-            <StyledSvgWrapper
-              isAnswerBot={edge.node.name === 'answer-bot'}
-              // eslint-disable-next-line @typescript-eslint/naming-convention
-              dangerouslySetInnerHTML={{ __html: edge.node.childGardenSvg.content }}
-            />
-            <Code size="small" title={edge.node.name}>
-              {edge.node.name}
-            </Code>
-          </StyledIconWrapper>
-        </StyledCol>
-      ));
-  }, [data, inputValue]);
+    if (!filteredIcons) return elements;
+
+    const length = collapsed ? 32 : filteredIcons.length;
+
+    for (let i = 0; i < length; i++) {
+      const edge: any = filteredIcons[i];
+
+      edge?.node && elements.push(<Icon key={edge.node.name} {...edge} />);
+    }
+
+    return elements;
+  }, [inputValue, collapsed, filteredIcons]);
 
   const onInputChange = debounce((event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -98,18 +124,25 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
             </StyledCol>
           )}
         </StyledRow>
-        <StyledRow>
-          <Button
+        {collapsed && (
+          <StyledRow
             css={css`
-              margin: auto;
-              max-width: 50%;
+              margin-bottom: ${p => p.theme.space.lg};
             `}
-            size="large"
-            isStretched
           >
-            View all icons
-          </Button>
-        </StyledRow>
+            <Button
+              isStretched
+              css={css`
+                margin: auto;
+                max-width: 50%;
+              `}
+              size="large"
+              onClick={() => setCollapsed(false)}
+            >
+              View all icons
+            </Button>
+          </StyledRow>
+        )}
       </Grid>
     </div>
   );
