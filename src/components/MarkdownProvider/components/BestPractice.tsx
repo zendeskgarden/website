@@ -124,6 +124,7 @@ interface ISectionProps extends ICaptionProps {
   imageWidth?: number;
   imageIsSquare?: boolean;
   imageBackgroundColor?: string;
+  imageIsFreeForm?: boolean;
 }
 
 export const Section: React.FC<ISectionProps> = props => {
@@ -132,7 +133,7 @@ export const Section: React.FC<ISectionProps> = props => {
       width: props.imageWidth,
       height: props.imageHeight,
       maxWidth: props.imageIsSquare ? 160 : undefined,
-      maxHeight: 160
+      maxHeight: props.imageIsFreeForm ? undefined : 160
     };
 
     return (
@@ -191,10 +192,21 @@ export const Caution: React.FC<ISectionProps> = props => (
   />
 );
 
-export const BestPractice: React.FC = props => (
-  <StyledRow>
-    {React.Children.map(props.children, child => (
-      <StyledCol sm>{child}</StyledCol>
-    ))}
-  </StyledRow>
-);
+interface IBestPracticesProps {
+  rows?: boolean;
+}
+
+export const BestPractice: React.FC<IBestPracticesProps> = ({ rows, ...props }) =>
+  rows ? (
+    <>
+      {React.Children.map(props.children, child => (
+        <StyledRow>{child}</StyledRow>
+      ))}
+    </>
+  ) : (
+    <StyledRow>
+      {React.Children.map(props.children, child => (
+        <StyledCol sm>{child}</StyledCol>
+      ))}
+    </StyledRow>
+  );

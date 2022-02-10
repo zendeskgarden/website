@@ -6,6 +6,10 @@ package: '@zendeskgarden/react-datepickers'
 components:
   - datepickers/src/elements/Datepicker/Datepicker.tsx
   - datepickers/src/elements/DatepickerRange/DatepickerRange.tsx
+subcomponents:
+  - datepickers/src/elements/DatepickerRange/components/Calendar.tsx
+  - datepickers/src/elements/DatepickerRange/components/End.tsx
+  - datepickers/src/elements/DatepickerRange/components/Start.tsx
 ---
 
 <Usage>
@@ -34,8 +38,7 @@ import DefaultCode from '!!raw-loader!../../examples/date-picker/DatepickerDefau
 
 Dates are formatted using the
 [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat)
-utility. For other formats, consider libraries like
-[date-fns](https://date-fns.org/) or [momentjs](https://momentjs.com/).
+utility. For other formats, consider using a library like [date-fns](https://date-fns.org/).
 
 import Custom from '../../examples/date-picker/DatepickerCustom.tsx';
 import CustomCode from '!!raw-loader!../../examples/date-picker/DatepickerCustom.tsx';
@@ -112,19 +115,21 @@ import TimeWindowCode from '!!raw-loader!../../examples/date-picker/DatepickerTi
 
 #### DatepickerRange.Calendar
 
-<Component
-  components={[
-    {
-      name: 'DatepickerRange.Calendar',
-      extends: 'HTMLAttributes<HTMLDivElement>'
-    }
-  ]}
-  componentName="DatepickerRange.Calendar"
-/>
+<Component components={props.data.mdx.subcomponents} componentName="datepickerRange.calendar" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="datepickerRange.calendar" />
 
 #### DatepickerRange.End
 
+<Component components={props.data.mdx.subcomponents} componentName="datepickerRange.end" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="datepickerRange.end" />
+
 #### DatepickerRange.Start
+
+<Component components={props.data.mdx.subcomponents} componentName="datepickerRange.start" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="datepickerRange.start" />
 
 import { graphql } from 'gatsby';
 

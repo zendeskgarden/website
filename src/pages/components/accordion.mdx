@@ -5,6 +5,11 @@ description: >
 package: '@zendeskgarden/react-accordions'
 components:
   - accordions/src/elements/accordion/Accordion.tsx
+subcomponents:
+  - accordions/src/elements/accordion/components/Header.tsx
+  - accordions/src/elements/accordion/components/Label.tsx
+  - accordions/src/elements/accordion/components/Panel.tsx
+  - accordions/src/elements/accordion/components/Section.tsx
 ---
 
 <Usage>
@@ -89,8 +94,6 @@ The Accordion component follows this structure:
 </Accordion>
 ```
 
-import COMPONENTS from '../../examples/accordions/components.ts';
-
 ### Accordion
 
 <Component components={props.data.mdx.components} componentName="accordion" />
@@ -102,29 +105,37 @@ The Accordion component provides state and accessibility attributes to its child
 
 #### Accordion.Header
 
-<Component components={COMPONENTS} componentName="accordion.header" />
+<Component components={props.data.mdx.subcomponents} componentName="accordion.header" />
 
 A Header acts as the trigger for the corresponding [Panel](#accordionpanel) to be expanded or collapsed. It
 renders an icon to show the current expansion state. Nest it within a [Section](#accordionsection) component.
 
+<PropSheet components={props.data.mdx.subcomponents} componentName="accordion.header" />
+
 #### Accordion.Label
 
-<Component components={COMPONENTS} componentName="accordion.label" />
+<Component components={props.data.mdx.subcomponents} componentName="accordion.label" />
 
 Nest the Label within a [Header](#accordionheader) component.
 
+<PropSheet components={props.data.mdx.subcomponents} componentName="accordion.label" />
+
 #### Accordion.Panel
 
-<Component components={COMPONENTS} componentName="accordion.panel" />
+<Component components={props.data.mdx.subcomponents} componentName="accordion.panel" />
 
 Nest a Panel within a [Section](#accordionsection) component.
 
+<PropSheet components={props.data.mdx.subcomponents} componentName="accordion.panel" />
+
 #### Accordion.Section
 
-<Component components={COMPONENTS} componentName="accordion.section" />
+<Component components={props.data.mdx.subcomponents} componentName="accordion.section" />
 
 Wrap each section's [Header](#accordionheader) and corresponding [Panel](#accordionpanel) together with
 the Section component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="accordion.section" />
 
 import { graphql } from 'gatsby';
 

@@ -5,6 +5,12 @@ description: >
 package: '@zendeskgarden/react-modals'
 components:
   - modals/src/elements/DrawerModal/DrawerModal.tsx
+subcomponents:
+  - modals/src/elements/DrawerModal/Body.tsx
+  - modals/src/elements/DrawerModal/Close.tsx
+  - modals/src/elements/DrawerModal/Footer.tsx
+  - modals/src/elements/DrawerModal/FooterItem.tsx
+  - modals/src/elements/DrawerModal/Header.tsx
 ---
 
 <Usage>
@@ -39,8 +45,6 @@ import DefaultCode from '!!raw-loader!../../examples/drawer/DrawerDefault.tsx';
 
 ## API
 
-import COMPONENTS from '../../examples/drawer/components.ts';
-
 ### DrawerModal
 
 <Component components={props.data.mdx.components} componentName="drawerModal" />
@@ -49,23 +53,33 @@ import COMPONENTS from '../../examples/drawer/components.ts';
 
 #### DrawerModal.Body
 
-<Component components={COMPONENTS} componentName="drawerModal.body" />
+<Component components={props.data.mdx.subcomponents} componentName="drawerModal.body" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="drawerModal.body" />
 
 #### DrawerModal.Close
 
-<Component components={COMPONENTS} componentName="drawerModal.close" />
+<Component components={props.data.mdx.subcomponents} componentName="drawerModal.close" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="drawerModal.close" />
 
 #### DrawerModal.Footer
 
-<Component components={COMPONENTS} componentName="drawerModal.footer" />
+<Component components={props.data.mdx.subcomponents} componentName="drawerModal.footer" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="drawerModal.footer" />
 
 #### DrawerModal.FooterItem
 
-<Component components={COMPONENTS} componentName="drawerModal.footerItem" />
+<Component components={props.data.mdx.subcomponents} componentName="drawerModal.footerItem" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="drawerModal.footerItem" />
 
 #### DrawerModal.Header
 
-<Component components={COMPONENTS} componentName="drawerModal.header" />
+<Component components={props.data.mdx.subcomponents} componentName="drawerModal.header" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="drawerModal.header" />
 
 import { graphql } from 'gatsby';
 

@@ -1,0 +1,192 @@
+---
+title: Actionable language
+---
+
+For calls to action (CTAs), try to be as specific as possible.
+This helps the user know exactly what to expect and what they can
+do when they interact with the CTA. Use this guide to find the most
+appropriate verb for an experience that includes CTAs.
+
+CTAs are most often used in [buttons](/components/button) and [anchors](/components/anchor).
+
+## To make a selection
+
+### Select
+
+Use _Select_ when the user must make a decision among multiple options.
+
+## To give a person ownership
+
+### Assign
+
+Use _Assign_ when referring to ownership and responsibility.
+
+## To move back and forth
+
+### Back
+
+Use _Back_ to take the user to the previous step in a multi-step process.
+Pair this with [_Next_](#next). In the event that a user will lose changes,
+warn them ahead of time that they will lose any changes that have been made.
+
+### Previous
+
+Use _Previous_ instead of [_Back_](#back) for pagination in tables.
+
+### Next
+
+Use _Next_ to take the user to the next step in a multi-step process.
+Pair this with [_Back_](#back).
+
+<BestPractice>
+  <Do>
+    <p>Next</p>
+  </Do>
+  <Dont>
+    <p>Proceed, Continue</p>
+  </Dont>
+</BestPractice>
+
+## To postpone action
+
+### Skip
+
+Use _Skip_ to allow the user to postpone an action or decision.
+It’s a way for the user to avoid interruption and proceed with their current task.
+
+## To receive confirmation
+
+### Done
+
+Use _Done_ to confirm the completion of a multi-step process.
+
+<BestPractice>
+  <Do>
+    <p>Done</p>
+  </Do>
+  <Dont>
+    <p>OK, Got it, Close</p>
+  </Dont>
+</BestPractice>
+
+### OK
+
+The best CTAs make it clear what will happen when a user interacts with it.
+_OK_ doesn’t do a great job of that but sometimes that's all we need to say.
+In general, use _Done_ or a more specific CTA to end an experience. For mobile
+experiences, it’s okay to use _OK_ but write it as _OK_ to be concise and align
+with most mobile patterns.
+
+<BestPractice>
+  <Do>
+    <p>OK</p>
+  </Do>
+  <Dont>
+    <p>Okay</p>
+  </Dont>
+</BestPractice>
+
+## To make changes
+
+### Create
+
+Use _Create_ when the user is about to make a brand new thing in the product.
+
+### Add
+
+Use _Add_ when moving something in the product from one place to another.
+For example, “Add team” and “Add channel”.
+
+## To remove
+
+### Clear
+
+Use _Clear_ to remove a selection.
+
+<BestPractice>
+  <Do>
+    <p>Clear</p>
+  </Do>
+  <Dont>
+    <p>Deselect</p>
+  </Dont>
+</BestPractice>
+
+## To commit
+
+### Save
+
+Use _Save_ when the user makes changes and wants to commit them.
+
+## To cancel
+
+### Cancel
+
+Use _Cancel_ when the user makes edits but wants to discard them. It dismisses
+the page the user was editing and returns the user to the entry point they came from.
+
+<BestPractice>
+  <Do>
+    <p>Cancel</p>
+  </Do>
+  <Dont>
+    <p>Discard changes</p>
+  </Dont>
+</BestPractice>
+
+### Leave without saving
+
+_Leave without saving_ is similar to [_Cancel_](#cancel), with one key difference: it
+reverts all values on the page to the last saved state without reloading the page.
+
+<BestPractice>
+  <Do>
+    <p>Leave without saving</p>
+  </Do>
+  <Dont>
+    <p>Discard changes</p>
+  </Dont>
+</BestPractice>
+
+### Undo
+
+Revert back to the previous state.
+
+<BestPractice>
+  <Do>
+    <p>Undo</p>
+  </Do>
+  <Dont>
+    <p>Dismiss, No thanks</p>
+  </Dont>
+</BestPractice>
+
+## To learn
+
+### Find out more
+
+Use _Find out more_ to launch a modal that introduces a new feature.
+
+### Learn about
+
+Use _Learn about_ to include a link to the Zendesk help center.
+Have the link be a few words about what the user will learn.
+For example, “Learn about user profiles”. Avoid the standalone
+_Learn more_ and help center article titles that can’t be localized.
+
+<BestPractice>
+  <Do>
+    <p>Learn about</p>
+  </Do>
+  <Dont>
+    <p>Learn more</p>
+  </Dont>
+</BestPractice>
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

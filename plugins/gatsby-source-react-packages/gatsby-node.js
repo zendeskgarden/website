@@ -18,6 +18,7 @@ const lstat = util.promisify(fs.lstat);
 const TYPE_PREFIX = 'Garden';
 const GARDEN_REACT_COMPONENT_ID = 'ReactComponent';
 const GARDEN_REACT_PACKAGE_ID = 'ReactPackage';
+const GARDEN_REACT_SUBCOMPONENT_ID = 'ReactSubcomponent';
 
 const componentDoc = async (paths, cache) => {
   const file = path.resolve(__dirname, '../../react-components/packages/theming/package.json');
@@ -51,6 +52,12 @@ exports.createSchemaCustomization = ({ actions, createNodeId, createContentDiges
        extends: String,
        props: JSON
      }
+     type ${createTypeName(GARDEN_REACT_SUBCOMPONENT_ID)} @dontInfer {
+       name: String
+       description: String,
+       extends: String,
+       props: JSON
+     }
    `;
 
   createTypes(typeDefs);
@@ -70,7 +77,7 @@ exports.sourceNodes = async ({ actions, reporter, createNodeId, createContentDig
   const packageNode = createNodeFactory(GARDEN_REACT_PACKAGE_ID);
   const packagesRoot = path.resolve(__dirname, '../../react-components/packages');
 
-  reporter.info('Sourcing Garden react-component packages...');
+  reporter.info('Sourcing Garden react-components packages...');
 
   /* eslint-disable no-await-in-loop */
   for (const file of await readdir(packagesRoot)) {
@@ -99,6 +106,9 @@ exports.sourceNodes = async ({ actions, reporter, createNodeId, createContentDig
   /* eslint-enable no-await-in-loop */
 };
 
+/**
+ * These resolvers are added to src/pages/index as global GraphQL fragments
+ */
 exports.createResolvers = ({ createResolvers, cache, createNodeId, createContentDigest }) => {
   const { createNodeFactory, createTypeName } = createNodeHelpers({
     typePrefix: TYPE_PREFIX,
@@ -107,6 +117,27 @@ exports.createResolvers = ({ createResolvers, cache, createNodeId, createContent
   });
 
   const componentNode = createNodeFactory(GARDEN_REACT_COMPONENT_ID);
+
+  const getFilePaths = async (components, context) => {
+    const componentNodes = await Promise.all(
+      components.map(component => {
+        const query = {
+          query: {
+            filter: {
+              sourceInstanceName: { eq: 'react-components' },
+              relativePath: { eq: component }
+            }
+          },
+          type: 'File',
+          firstOnly: true
+        };
+
+        return context.nodeModel.runQuery(query);
+      })
+    );
+
+    return componentNodes.map(node => node.absolutePath);
+  };
 
   const resolvers = {
     File: {
@@ -152,23 +183,21 @@ exports.createResolvers = ({ createResolvers, cache, createNodeId, createContent
           const components = source.frontmatter.components;
 
           if (components) {
-            const componentNodes = await Promise.all(
-              components.map(component => {
-                const query = {
-                  query: {
-                    filter: {
-                      sourceInstanceName: { eq: 'react-components' },
-                      relativePath: { eq: component }
-                    }
-                  },
-                  type: 'File',
-                  firstOnly: true
-                };
+            const filePaths = await getFilePaths(components, context);
 
-                return context.nodeModel.runQuery(query);
-              })
-            );
-            const filePaths = componentNodes.map(node => node.absolutePath);
+            return componentDoc(filePaths, cache);
+          }
+
+          return undefined;
+        }
+      },
+      reactSubcomponents: {
+        type: [createTypeName(GARDEN_REACT_SUBCOMPONENT_ID)],
+        resolve: async (source, args, context) => {
+          const subcomponents = source.frontmatter.subcomponents;
+
+          if (subcomponents) {
+            const filePaths = await getFilePaths(subcomponents, context);
 
             return componentDoc(filePaths, cache);
           }

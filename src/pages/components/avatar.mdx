@@ -6,6 +6,8 @@ description: >
 package: '@zendeskgarden/react-avatars'
 components:
   - avatars/src/elements/Avatar.tsx
+subcomponents:
+  - avatars/src/elements/components/Text.tsx
 ---
 
 <Usage>
@@ -84,6 +86,15 @@ user distinguish between the two when scanning a page.
 
 ## API
 
+The Avatar component follows this structure:
+
+<!-- prettier-ignore -->
+```jsx
+<Avatar>
+  {/* One of icon, img, or Avatar.Text */}
+</Avatar>
+```
+
 ### Avatar
 
 <Component components={props.data.mdx.components} componentName="avatar" />
@@ -92,15 +103,12 @@ user distinguish between the two when scanning a page.
 
 #### Avatar.Text
 
-<Component
-  components={[
-    {
-      name: 'Avatar.Text',
-      extends: 'HTMLAttributes<HTMLSpanElement>'
-    }
-  ]}
-  componentName="Avatar.Text"
-/>
+<Component components={props.data.mdx.subcomponents} componentName="avatar.text" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="avatar.text" />
+
+The Text component applies appropriate styles to child text. Nest it within an [Avatar](#avatar) component.
+See [example](#type).
 
 import { graphql } from 'gatsby';
 

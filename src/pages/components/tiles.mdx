@@ -5,6 +5,11 @@ description: >
 package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/tiles/Tiles.tsx
+subcomponents:
+  - forms/src/elements/tiles/components/Description.tsx
+  - forms/src/elements/tiles/components/Icon.tsx
+  - forms/src/elements/tiles/components/Label.tsx
+  - forms/src/elements/tiles/components/Tile.tsx
 ---
 
 <Usage>
@@ -92,8 +97,6 @@ import LayoutCode from '!!raw-loader!../../examples/forms/tiles/TilesLayout.tsx'
 
 ## API
 
-import COMPONENTS from '../../examples/forms/tiles/components.ts';
-
 ### Tiles
 
 <Component components={props.data.mdx.components} componentName="tiles" />
@@ -102,21 +105,27 @@ import COMPONENTS from '../../examples/forms/tiles/components.ts';
 
 #### Tiles.Description
 
-<Component components={COMPONENTS} componentName="tiles.description" />
+<Component components={props.data.mdx.subcomponents} componentName="tiles.description" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tiles.description" />
 
 #### Tiles.Icon
 
-<Component components={COMPONENTS} componentName="tiles.icon" />
+<Component components={props.data.mdx.subcomponents} componentName="tiles.icon" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tiles.icon" />
 
 #### Tiles.Label
 
-<Component components={COMPONENTS} componentName="tiles.label" />
+<Component components={props.data.mdx.subcomponents} componentName="tiles.label" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tiles.label" />
 
 #### Tiles.Tile
 
-<Component components={COMPONENTS} componentName="tiles.tile" />
+<Component components={props.data.mdx.subcomponents} componentName="tiles.tile" />
 
-<PropSheet components={COMPONENTS} componentName="tiles.tile" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="tiles.tile" />
 
 import { graphql } from 'gatsby';
 
