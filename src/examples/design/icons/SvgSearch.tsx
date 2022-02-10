@@ -8,6 +8,7 @@
 import React, { useState, useMemo } from 'react';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import debounce from 'lodash/debounce';
+import { rgba } from 'polished';
 import { Field, MediaInput, Label } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { Code, XL } from '@zendeskgarden/react-typography';
@@ -30,21 +31,42 @@ const StyledSvgWrapper = styled.div<{ isAnswerBot?: boolean }>`
   color: ${p => p.isAnswerBot && '#d6eef1'};
 `;
 
-// const StyledGradient = styled.
+const StyledGradient = styled.div`
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  background: linear-gradient(0deg, #fff 14%, ${rgba(255, 255, 255, 0)} 100%);
+  width: 100%;
+  height: 200px;
+`;
 
 const StyledCol = styled(Col).attrs({ forwardedAs: 'li' })``;
 const StyledRow = styled(Row).attrs({ forwardedAs: 'ul' })``;
 
-interface ISvgSearchProps {
-  searchEnabled?: boolean;
-  data: {
-    edges: [
-      { node: { name: string; relativeDirectory: string; childGardenSvg: { content: string } } }
-    ];
+const StyledTokenContainer = styled(StyledRow)<{ isExpand: boolean }>`
+  position: relative;
+  overflow-y: hidden;
+  max-height: ${p => (p.isExpand ? `620px` : `inherit`)};
+`;
+
+interface ISvgNodeProps {
+  node: {
+    name: string;
+    relativeDirectory: string;
+    childGardenSvg: {
+      content: string;
+    };
   };
 }
 
-const Icon = (edge: any) => {
+interface ISvgSearchProps {
+  searchEnabled?: boolean;
+  data: {
+    edges: ISvgNodeProps[];
+  };
+}
+
+const Icon = (edge: ISvgNodeProps) => {
   return (
     <StyledCol lg={3} md={4} xs={6}>
       <StyledIconWrapper>
@@ -65,39 +87,26 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
   const [inputValue, setInputValue] = useState('');
   const [collapsed, setCollapsed] = useState(true);
 
-  const filteredIcons = useMemo(() => {
-    return data.edges.filter(edge => {
-      const formattedSearchValue = inputValue.trim().toLowerCase();
-
-      // Returns every icons, since the search value is empty.
-      if (formattedSearchValue.length === 0) {
-        return true;
-      }
-
-      return edge.node.name.trim().toLowerCase().includes(formattedSearchValue);
-    });
-  }, [data.edges, inputValue]);
-
   const icons = useMemo(() => {
-    const elements: any = [];
-    const formattedSearchValue = inputValue.trim().toLowerCase();
+    return data.edges
+      .filter(edge => {
+        const formattedSearchValue = inputValue.trim().toLowerCase();
 
-    if (formattedSearchValue.length) {
-      setCollapsed(false);
-    }
+        // Returns every icons, since the search value is empty.
+        if (formattedSearchValue.length === 0) {
+          return true;
+        }
 
-    if (!filteredIcons) return elements;
+        if (formattedSearchValue.length) {
+          setCollapsed(false);
+        }
 
-    const length = collapsed ? 32 : filteredIcons.length;
-
-    for (let i = 0; i < length; i++) {
-      const edge: any = filteredIcons[i];
-
-      edge?.node && elements.push(<Icon key={edge.node.name} {...edge} />);
-    }
-
-    return elements;
-  }, [inputValue, collapsed, filteredIcons]);
+        return edge.node.name.trim().toLowerCase().includes(formattedSearchValue);
+      })
+      .map(edge => {
+        return <Icon key={edge.node.name} {...edge} />;
+      });
+  }, [data.edges, inputValue]);
 
   const onInputChange = debounce((event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -109,6 +118,7 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
         <Field
           css={css`
             margin-bottom: ${p => p.theme.space.lg};
+            width: 50%;
           `}
         >
           <Label>Filter icons</Label>
@@ -116,14 +126,17 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
         </Field>
       )}
       <Grid>
-        <StyledRow>
+        <StyledTokenContainer isExpand={collapsed}>
           {icons}
-          {icons.length === 0 && (
+          {collapsed && <StyledGradient />}
+        </StyledTokenContainer>
+        {icons.length === 0 && (
+          <StyledRow>
             <StyledCol textAlign="center">
               <XL>No icons found</XL>
             </StyledCol>
-          )}
-        </StyledRow>
+          </StyledRow>
+        )}
         {collapsed && (
           <StyledRow
             css={css`
