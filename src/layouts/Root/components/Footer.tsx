@@ -7,7 +7,6 @@
 
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { math } from 'polished';
 import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { Link } from './StyledNavigationLink';
@@ -20,6 +19,10 @@ const StyledFooterItem = styled(Link)`
   &:hover,
   &:focus {
     color: inherit;
+  }
+
+  ${p => mediaQuery('down', 'sm', p.theme)} {
+    margin-right: 0;
   }
 `;
 
@@ -41,31 +44,9 @@ const Footer: React.FC<IFooterProps> = ({ path }) => (
       <div
         css={css`
           display: flex;
-          padding-bottom: ${p => p.theme.space.md};
-
-          ${p => mediaQuery('down', 'sm', p.theme)} {
-            flex-direction: column;
-            padding-left: ${p => math(`${p.theme.iconSizes.md} + ${p.theme.space.md}`)};
-            text-align: center;
-          }
-        `}
-      >
-        <StyledFooterItem to="https://design.zendesk.com">Blog</StyledFooterItem>
-        <StyledFooterItem to="https://www.github.com/zendeskgarden">GitHub</StyledFooterItem>
-        <StyledFooterItem to="/components/versions">Versions</StyledFooterItem>
-        {path === '/' ? (
-          <StyledFooterItem to="https://www.netlify.com/">
-            This site is powered by Netlify
-          </StyledFooterItem>
-        ) : null}
-      </div>
-      <div
-        css={css`
-          display: flex;
           flex-wrap: wrap;
           align-items: center;
-          border-top: ${p => p.theme.borders.sm} ${p => getColor('kale', 500, p.theme)};
-          padding-top: ${p => p.theme.space.md};
+          padding-bottom: ${p => p.theme.space.md};
 
           ${p => mediaQuery('down', 'sm', p.theme)} {
             flex-direction: column;
@@ -80,7 +61,7 @@ const Footer: React.FC<IFooterProps> = ({ path }) => (
             align-items: center;
 
             ${p => mediaQuery('down', 'sm', p.theme)} {
-              margin-bottom: ${p => p.theme.space.md};
+              margin-bottom: ${p => p.theme.space.xs};
             }
           `}
         >
@@ -94,15 +75,38 @@ const Footer: React.FC<IFooterProps> = ({ path }) => (
         </div>
         <div
           css={css`
-            flex-basis: ${p => math(`${p.theme.iconSizes.md} + ${p.theme.space.md}`)};
-            flex-grow: 1;
             padding: 0 ${p => p.theme.space.sm};
           `}
         >
           Garden is the design system by Zendesk.
         </div>
+      </div>
+      <div
+        css={css`
+          display: flex;
+          border-top: ${p => p.theme.borders.sm} ${p => getColor('kale', 500, p.theme)};
+          padding-top: ${p => p.theme.space.md};
+          padding-bottom: ${p => p.theme.space.lg};
+
+          ${p => mediaQuery('down', 'sm', p.theme)} {
+            flex-direction: column;
+            text-align: center;
+          }
+        `}
+      >
+        <StyledFooterItem to="https://design.zendesk.com">Blog</StyledFooterItem>
+        <StyledFooterItem to="https://www.github.com/zendeskgarden">GitHub</StyledFooterItem>
+        <StyledFooterItem to="/components/versions">Versions</StyledFooterItem>
+        {path === '/' ? (
+          <StyledFooterItem to="https://www.netlify.com/">
+            This site is powered by Netlify
+          </StyledFooterItem>
+        ) : null}
         <div
           css={css`
+            flex-grow: 1;
+            text-align: right;
+
             ${p => mediaQuery('down', 'sm', p.theme)} {
               margin-top: ${p => p.theme.space.md};
               width: 100%;
