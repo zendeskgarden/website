@@ -36,17 +36,17 @@ import BasicFormattingCode from '!!raw-loader!../../../examples/table/shared/Tab
 
 Headers categorize and organize the information within the table.
 
-1. Ensure header cells accurately describe the data contained in the rows and columns
-1. Use one or two nouns that quickly help people understand what data is in the table
-1. Avoid using verbs to prevent confusion with CTAs
-1. Header cell labels shouldn't create sentences with data cell content
-1. Use sentence case
-1. Header cells are marked up with `<th>` to make them accessible
+- Ensure header cells accurately describe the data contained in the rows and columns
+- Use one or two nouns that quickly help people understand what data is in the table
+- Avoid using verbs to prevent confusion with CTAs
+- Header cell labels shouldn't create sentences with data cell content
+- Use sentence case
+- Header cells are marked up with `<th>` to make them accessible
 
 Internationalization could result in text expansion. If the text length in a header cell exceeds the specified width of
 a column, there are a few options:
 
-- Truncate with an ellipsis
+- Truncate with an [Ellipsis](https://garden.zendesk.com/components/typography#ellipsis)
 - Wrap the content. In the case of headers, content should be bottom aligned.
 - Ignore the specified width and stretch the column width to accommodate the text. This could trigger horizontal
   scrolling for the table.
@@ -161,7 +161,7 @@ import TableStripedRowsCode from '../../../examples/table/shared/TableStripedRow
 
 #### Grouped rows
 
-When creating additional categorization of similar items, use grouped rows.
+When creating additional categorization of similar items, use [grouped rows](/components/table#grouped-rows).
 
 - They should be used only when the groups will contain 10 or more items
 - Avoid overuse to prevent busy layouts that are harder to understand
@@ -255,8 +255,8 @@ Sorting is implemented by selecting arrows in table headers.
 - Clicking again will reverse the order
 - Clicking a third time will remove sorting
 
-If any ordering applied to a table including default ordering, the sorting icon should be present. This indicates how
-the table is being ordered and also creates a better affordance for the control.
+If any ordering is applied to a table including default ordering, the sorting icon should be present. This indicates how
+the table is being ordered and also creates a clear affordance to control.
 
 import TableSort from '../../../examples/table/TableSort.tsx';
 import TableSortCode from '!!raw-loader!../../../examples/table/TableSort.tsx';
@@ -300,11 +300,11 @@ Use an [Anchor](/components/anchor) for data cell text elements that link elsewh
 1. These anchors within a table typically navigate the user to a new page
 1. If you want to open a link in an external window or tab, use an [External anchor](/components/anchor#external-anchor)
 
-#### Date and Time
+#### Date and time
 
 Follow our [date and time formatting](/content/grammar#date-and-time) guidelines.
 
-![Date and Time](figma:patterns-tables-basic-formatting-date-time.png)
+![Date and time](figma:patterns-tables-basic-formatting-date-time.png)
 
 ## States
 
@@ -316,7 +316,7 @@ Follow our [date and time formatting](/content/grammar#date-and-time) guidelines
   <thead>
     <tr>
       <th width="30%">Row/Cell state</th>
-      <th>Description</th>
+      <th>Additional guidance</th>
     </tr>
   </thead>
   <tbody>
