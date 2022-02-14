@@ -36,7 +36,7 @@ const StyledSheet = styled(Sheet)`
 
 const StyledSheetFooterItem = styled(Sheet.FooterItem)`
   &:first-child {
-    margin-left: 0;
+    margin-${props => (props.theme.rtl ? 'right' : 'left')}: 0;
   }
 `;
 
