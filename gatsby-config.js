@@ -14,6 +14,7 @@ envalid.cleanEnv(process.env, { FIGMA_TOKEN: envalid.str() });
 
 const figmaNodeIds = [
   '1:22' /* home-hero-logo */,
+  '1:37' /* home-pillars-patterns */,
   '2:7' /* components-avatar-shape-square */,
   '2:12' /* components-avatar-shape-circle */,
   '25:403' /* content-voice-tone-map */,
@@ -30,7 +31,27 @@ const figmaNodeIds = [
   '111:5361' /* components-timeline-interactive-elements-do */,
   '111:5367' /* components-timeline-correct-hierarchy-do */,
   '111:5374' /* components-timeline-correct-hierarchy-dont */,
-  '336:2968' /* components-timeline-nesting-do */
+  '336:2968' /* components-timeline-nesting-do */,
+  '112:5516' /* patterns-buttons-anatomy */,
+  '112:5480' /* patterns-buttons-anatomy-button-type */,
+  '112:5463' /* patterns-buttons-interface-button-size-do */,
+  '112:5446' /* patterns-buttons-interface-button-size-dont */,
+  '112:5443' /* patterns-buttons-content-do */,
+  '112:5436' /* patterns-buttons-content-dont */,
+  '530:3577' /* patterns-tables-basic-formatting-anatomy */,
+  '539:5678' /* patterns-tables-basic-formatting-wrap-and-truncation */,
+  '539:6323' /* patterns-tables-basic-formatting-row-heights-do */,
+  '539:6332' /* patterns-tables-basic-formatting-row-heights-dont */,
+  '541:12026' /* patterns-tables-basic-formatting-cell-alignment */,
+  '541:12531' /* patterns-tables-basic-formatting-grouping */,
+  '762:10926' /* patterns-tables-basic-formatting-pagination-cursor */,
+  '566:10441' /* patterns-tables-basic-formatting-pagination-offset */,
+  '566:10823' /* patterns-tables-basic-formatting-pagination-selecting-all */,
+  '704:10527' /* patterns-tables-basic-formatting-anchors */,
+  '566:11850' /* patterns-tables-basic-formatting-date-time */,
+  '566:12145' /* patterns-tables-basic-formatting-row-cell-states */,
+  '566:12289' /* patterns-tables-basic-formatting-localization-bulgarian */,
+  '566:12568' /* patterns-tables-basic-formatting-localization-arabic */
 ];
 
 module.exports = {
@@ -66,6 +87,13 @@ module.exports = {
       options: {
         name: `components`,
         path: path.join(__dirname, 'src/pages/components')
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `patterns`,
+        path: path.join(__dirname, 'src/pages/patterns')
       }
     },
     {
@@ -123,7 +151,8 @@ module.exports = {
         defaultLayouts: {
           content: require.resolve('./src/templates/ContentTemplate.tsx'),
           design: require.resolve('./src/templates/DesignTemplate.tsx'),
-          components: require.resolve('./src/templates/ComponentTemplate.tsx')
+          components: require.resolve('./src/templates/ComponentTemplate.tsx'),
+          patterns: require.resolve('./src/templates/PatternTemplate.tsx')
         },
         gatsbyRemarkPlugins: [
           require.resolve('./plugins/gatsby-remark-figma-assets'),
@@ -133,7 +162,8 @@ module.exports = {
             options: {
               maxWidth: 1000,
               linkImagesToOriginal: false,
-              disableBgImageOnAlpha: true
+              disableBgImageOnAlpha: true,
+              quality: 100
             }
           },
           {

@@ -1,0 +1,17 @@
+---
+title: Patterns overview
+description: >
+  Additional context for how to use components.
+---
+
+import links from '../../nav/patterns.yml';
+
+<OverviewLinks nav={links} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
