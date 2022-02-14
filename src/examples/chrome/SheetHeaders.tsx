@@ -11,11 +11,14 @@ import { Sheet } from '@zendeskgarden/react-chrome';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 
+const sheetHeight = 480;
+const condensedSheetHeight = 380;
+
 const StyledCol = styled(Col)`
-  height: ${props => props.theme.space.base * 120}px;
+  height: ${sheetHeight}px;
 
   ${props => mediaQuery('down', 'sm', props.theme)} {
-    height: ${props => props.theme.space.base * 80}px;
+    height: ${condensedSheetHeight}px;
 
     &:not(:last-child) {
       margin-bottom: ${props => props.theme.space.md};
@@ -24,9 +27,9 @@ const StyledCol = styled(Col)`
 `;
 
 const StyledSheet = styled(Sheet)`
-  border-top: ${props => props.theme.borderWidths.sm} dashed;
-  border-right: ${props => props.theme.borderWidths.sm} dashed;
-  border-bottom: ${props => props.theme.borderWidths.sm} dashed;
+  border: ${props => props.theme.borderWidths.sm} dashed;
+  ${props => (props.theme.rtl ? 'border-right' : 'border-left')}: ${props =>
+    props.theme.borderWidths.sm} solid;
   border-color: ${props => getColor('neutralHue', 400, props.theme)};
 `;
 

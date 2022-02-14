@@ -56,8 +56,8 @@ const Example = () => {
       <StyledRow justifyContent={placement}>
         <StyledSheet isOpen placement={placement}>
           <Sheet.Header>
-            <Sheet.Title>Placement</Sheet.Title>
-            <Sheet.Description>From side to side</Sheet.Description>
+            <Sheet.Title>Garden</Sheet.Title>
+            <Sheet.Description>Vegetables in the Garden</Sheet.Description>
           </Sheet.Header>
 
           <Sheet.Body>
