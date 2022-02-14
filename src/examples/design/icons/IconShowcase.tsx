@@ -7,33 +7,32 @@
 
 import React from 'react';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { getColor } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { ReactComponent as LightBulbIcon } from '@zendeskgarden/svg-icons/src/16/lightbulb-stroke.svg';
 import { ReactComponent as LightningBoltIcon } from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
 import { ReactComponent as LocationIcon } from '@zendeskgarden/svg-icons/src/16/location-stroke.svg';
 import { ReactComponent as SmileyIcon } from '@zendeskgarden/svg-icons/src/16/smiley-stroke.svg';
 
+const ICON_FILL = PALETTE.grey[600];
+
 const Example = () => (
   <Grid>
     <Row alignItems="center" justifyContent="center" style={{ minHeight: '5em' }}>
       <Col size={1}>
-        <LeafIcon color={getColor('grey', 600)} style={{ width: '100%', margin: 'auto' }} />
+        <LeafIcon color={ICON_FILL} style={{ width: '100%', margin: 'auto' }} />
       </Col>
       <Col size={1}>
-        <LightBulbIcon color={getColor('grey', 600)} style={{ width: '100%', margin: 'auto' }} />
+        <LightBulbIcon color={ICON_FILL} style={{ width: '100%', margin: 'auto' }} />
       </Col>
       <Col size={1}>
-        <LightningBoltIcon
-          color={getColor('grey', 600)}
-          style={{ width: '100%', margin: 'auto' }}
-        />
+        <LightningBoltIcon color={ICON_FILL} style={{ width: '100%', margin: 'auto' }} />
       </Col>
       <Col size={1}>
-        <LocationIcon color={getColor('grey', 600)} style={{ width: '100%', margin: 'auto' }} />
+        <LocationIcon color={ICON_FILL} style={{ width: '100%', margin: 'auto' }} />
       </Col>
       <Col size={1}>
-        <SmileyIcon color={getColor('grey', 600)} style={{ width: '100%', margin: 'auto' }} />
+        <SmileyIcon color={ICON_FILL} style={{ width: '100%', margin: 'auto' }} />
       </Col>
     </Row>
   </Grid>

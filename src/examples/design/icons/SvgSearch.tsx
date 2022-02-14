@@ -115,15 +115,18 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
   return (
     <div>
       {searchEnabled && (
-        <Field
-          css={css`
-            margin-bottom: ${p => p.theme.space.lg};
-            width: 50%;
-          `}
-        >
-          <Label>Filter icons</Label>
-          <MediaInput start={<SearchStroke />} onChange={onInputChange} />
-        </Field>
+        <Row>
+          <Col size={8}>
+            <Field
+              css={css`
+                margin-bottom: ${p => p.theme.space.lg};
+              `}
+            >
+              <Label>Filter icons</Label>
+              <MediaInput start={<SearchStroke />} onChange={onInputChange} />
+            </Field>
+          </Col>
+        </Row>
       )}
       <Grid>
         <StyledTokenContainer isExpand={collapsed}>
