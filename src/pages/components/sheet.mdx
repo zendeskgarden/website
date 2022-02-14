@@ -122,6 +122,8 @@ The Sheet component follows this structure:
 </Sheet>
 ```
 
+Please keep the subcomponent structure in the order displayed in the example above.
+
 ### Sheet
 
 <Component components={props.data.mdx.components} componentName="sheet" />
@@ -134,9 +136,8 @@ The Sheet component provides state and accessibility attributes to its children.
 
 <Component components={props.data.mdx.subcomponents} componentName="sheet.body" />
 
-Nest Body in the [Sheet](#sheet) component.
-Body requires additional accessible functionality to make the
-element focusable for keyboard scrolling.
+A Body requires additional accessible functionality to make the
+element focusable for keyboard scrolling. Nest it within the [Sheet](#sheet) component.
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="sheet.body" />
 
@@ -144,8 +145,7 @@ element focusable for keyboard scrolling.
 
 <Component components={props.data.mdx.subcomponents} componentName="sheet.title" />
 
-Title labels the Sheet for assistive technology.
-Nest Title in the [Sheet.Header](#sheetheader) component.
+A Title labels the Sheet for assistive technology. Nest it within a [Header](#sheetheader) component.
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="sheet.title" />
 
@@ -153,8 +153,8 @@ Nest Title in the [Sheet.Header](#sheetheader) component.
 
 <Component components={props.data.mdx.subcomponents} componentName="sheet.description" />
 
-Description describes the Sheet for assistive technology.
-Nest Description in the [Sheet.Header](#sheetheader) component.
+A Description describes the Sheet for assistive technology.
+Nest it within a [Header](#sheetheader) component.
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="sheet.description" />
 
@@ -162,7 +162,8 @@ Nest Description in the [Sheet.Header](#sheetheader) component.
 
 <Component components={props.data.mdx.subcomponents} componentName="sheet.header" />
 
-Nest Header in the [Sheet](#sheet) component.
+Nest a Header within the [Sheet](#sheet) component. If neither [Title][#sheettitle] nor
+[Description][#sheetdescription] are used, the Header should be omitted.
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="sheet.header" />
 
@@ -170,8 +171,7 @@ Nest Header in the [Sheet](#sheet) component.
 
 <Component components={props.data.mdx.subcomponents} componentName="sheet.footer" />
 
-Nest Footer in the [Sheet](#sheet) component.
-Can be default or compact in size. This reduces padding on footer items.
+Nest a Footer within the [Sheet](#sheet) component.
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="sheet.footer" />
 
@@ -179,7 +179,7 @@ Can be default or compact in size. This reduces padding on footer items.
 
 <Component components={props.data.mdx.subcomponents} componentName="sheet.footeritem" />
 
-Nest FooterItem in the [Sheet.Footer](#sheetfooter) component.
+Nest a FooterItem within the [Footer](#sheetfooter) component.
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="sheet.footeritem" />
 
@@ -187,8 +187,7 @@ Nest FooterItem in the [Sheet.Footer](#sheetfooter) component.
 
 <Component components={props.data.mdx.subcomponents} componentName="sheet.close" />
 
-Nest Close button in the [Sheet](#sheet) component.
-Close should be the last subcomponent in Sheet for consistent tab order.
+Nest a Close button within a [Sheet](#sheet) component as the last child for consistent tab order.
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="sheet.close" />
 
