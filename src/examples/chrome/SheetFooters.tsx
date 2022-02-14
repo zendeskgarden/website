@@ -12,14 +12,11 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { Anchor, Button } from '@zendeskgarden/react-buttons';
 import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 
-const sheetHeight = 480;
-const condensedSheetHeight = 380;
-
 const StyledCol = styled(Col)`
-  height: ${sheetHeight}px;
+  height: 480px;
 
   ${props => mediaQuery('down', 'sm', props.theme)} {
-    height: ${condensedSheetHeight}px;
+    height: 320px;
 
     &:not(:last-child) {
       margin-bottom: ${props => props.theme.space.md};
