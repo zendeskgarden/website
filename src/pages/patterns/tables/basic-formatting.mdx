@@ -1,0 +1,447 @@
+---
+title: Basic formatting
+description: >
+  Tables display sets of related data across rows and columns. Tables make it easier for users to compare and analyze information.
+---
+
+import BasicFormatting from '../../../examples/table/TableDefault.tsx';
+import BasicFormattingCode from '!!raw-loader!../../../examples/table/TableDefault.tsx';
+
+<CodeExample code={BasicFormattingCode}>
+  <BasicFormatting />
+</CodeExample>
+
+## Anatomy
+
+### Parts of a table
+
+![Parts of a table](figma:patterns-tables-basic-formatting-anatomy.png)
+
+1. Columns are vertical groupings of information that categorize and prioritize data
+1. Header rows describe the data provided in a column or row
+1. Rows are horizontal groups of data that fall under each column
+
+### Table content
+
+![Table content](figma:patterns-tables-basic-formatting-wrap-and-truncation.png)
+
+1. Header and data cells should be concise
+1. Text wrapping is the default and recommended behavior. Ensure the cells in the row are top aligned to help with
+   scannability.
+1. Keep in mind, truncation in a table can make it harder for users to scan. Use an
+   [Ellipsis](/components/typography#ellipsis-text) to truncate long text at the end of the first line and provide a
+   title attribute that appears on hover.
+
+### Header cells
+
+Headers categorize and organize the information within the table.
+
+- Ensure header cells accurately describe the data contained in the rows and columns
+- Use one or two nouns that quickly help people understand what data is in the table
+- Avoid using verbs to prevent confusion with CTAs
+- Header cell labels shouldn't create sentences with data cell content
+- Use sentence case
+- Header cells are marked up with `<th>` to make them accessible
+
+Internationalization could result in text expansion. If the text length in a header cell exceeds the specified width of
+a column, there are a few options:
+
+- Truncate with an [Ellipsis](https://garden.zendesk.com/components/typography#ellipsis)
+- Wrap the content. In the case of headers, content should be bottom aligned.
+- Ignore the specified width and stretch the column width to accommodate the text. This could trigger horizontal
+  scrolling for the table.
+
+### Data cells
+
+Data cells contain the actual data and are located below header cells.
+
+- Ensure the content is detailed yet concise
+- Avoid repeating the words used in the header to help with scannability
+- Use sentence case
+- Data cells are marked up with `<td>` to make them accessible
+
+## Formatting
+
+### Size
+
+Tables come in three sizes: small, medium, and large.
+
+- Medium is the default size and accommodates information density in most cases
+- Large is used when [Avatars](/components/avatar) are introduced into rows to create additional breathing room between
+  row content
+- Small can be used when more information density is needed
+
+import TableSize from '../../../examples/table/TableSize.tsx';
+import TableSizeCode from '!!raw-loader!../../../examples/table/TableSize.tsx';
+
+<CodeExample code={TableSizeCode}>
+  <TableSize />
+</CodeExample>
+
+#### Row heights
+
+<BestPractice>
+  <Do imageSource={props.data.tablesRowHeightsDo.childFile.childImageSharp.gatsbyImageData}>
+    <ul>
+      <li>
+        Use a larger <a href="/components/table#headerrow">header row</a> height compared to the
+        body rows.
+      </li>
+    </ul>
+  </Do>
+  <Dont imageSource={props.data.tablesRowHeightsDont.childFile.childImageSharp.gatsbyImageData}>
+    <ul>
+      <li>Don’t use the same heights for header rows and body rows.</li>
+    </ul>
+  </Dont>
+</BestPractice>
+
+#### Layout
+
+There are ways to design a table to make it easier to see and find information:
+
+- A table must have at least 2 columns, otherwise use a [List](/components/lists) element
+- Use horizontal lines to reduce visual noise in the table
+- White space signals a different column
+- You can specify max-width for columns but it's not required
+- Don't place elements relating to the data outside of the table
+
+#### Alignment
+
+How text is displayed can make a column easier to view, use, and manage. Left align all text for greatest scannability,
+with some exceptions for quantitative data.
+
+![Cell Alignment](figma:patterns-tables-basic-formatting-cell-alignment.png)
+
+<table>
+  <thead>
+    <tr>
+      <th width="70%">Cell format</th>
+      <th>Alignment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. Text</td>
+      <td>Left align</td>
+    </tr>
+    <tr>
+      <td>2. Categorical data that uses numbers (for example, dates, phone numbers)</td>
+      <td>Left align</td>
+    </tr>
+    <tr>
+      <td>3. Quantitative data</td>
+      <td>Right align</td>
+    </tr>
+    <tr>
+      <td>
+        4. <a href="/components/tags">Tags</a> or <a href="/components/avatar">Avatars</a>
+      </td>
+      <td>Left align</td>
+    </tr>
+    <tr>
+      <td>5. Icons</td>
+      <td>Center align</td>
+    </tr>
+  </tbody>
+</table>
+
+### Variations
+
+#### Striped rows
+
+If a table includes many rows of data, striped rows make it easier to keep their place when scanning horizontally.
+
+import TableStripedRows from '../../../examples/table/TableStripedRows.tsx';
+import TableStripedRowsCode from '../../../examples/table/TableStripedRows.tsx';
+
+<CodeExample code={TableStripedRowsCode}>
+  <TableStripedRows />
+</CodeExample>
+
+#### Grouped rows
+
+When creating additional categorization of similar items, use [grouped rows](/components/table#grouped-rows).
+
+- They should be used only when the groups will contain 10 or more items
+- Avoid overuse to prevent busy layouts that are harder to understand
+- Don’t use striped and grouped rows at the same time
+
+![Grouping](figma:patterns-tables-basic-formatting-grouping.png)
+
+#### Pagination
+
+Pagination separates table rows into pages and allows users to navigate between those pages. Our table component is
+paired with the [Pagination](/components/pagination) component to create a consistent experience.
+
+- Cursor pagination is the default and recommended approach [due to performance](https://support.zendesk.com/hc/en-us/articles/4408846180634)
+- Cap a single page view at 100 rows
+
+import TableCursorPagination from '../../../examples/table/TableCursorPagination.tsx';
+import TableCursorPaginationCode from '!!raw-loader!../../../examples/table/TableCursorPagination.tsx';
+
+<CodeExample code={TableCursorPaginationCode}>
+  <TableCursorPagination />
+</CodeExample>
+
+##### Cursor pagination
+
+Use [Cursor pagination](/components/pagination#cursor-pagination) for real-time data.
+
+- This includes when new records are added frequently or in data sets where the latest results are first
+- There is no concept of the total number of pages in the set
+- Use “Previous” and “Next” as pagination labels
+
+![Pagination Cursor](figma:patterns-tables-basic-formatting-pagination-cursor.png)
+
+##### Offset pagination
+
+Use [Offset pagination](/components/pagination#offset-pagination) when you know the number of records or where you are
+in the data set.
+
+- Ensure the margin between the table component and the pagination is 20px
+
+![Pagination Offset](figma:patterns-tables-basic-formatting-pagination-offset.png)
+
+##### Select all for pagination
+
+In paginated tables, you can select all checkboxes but that selection only affects the current page being shown.
+
+- Users should only be able to take action on what they can see
+
+![Pagination Selecting All](figma:patterns-tables-basic-formatting-pagination-selecting-all.png)
+
+#### Infinite scrolling
+
+In cases where the database supports infinite scrolling, there is no need to say how many pages of data there are.
+If you have an infinitely scrolling table, you should also offer [sorting](/patterns/tables/basic-formatting#sorting) to
+help users navigate the data.
+
+##### Select all for infinite scrolling
+
+In infinitely scrolling tables, you can only manually select items.
+
+##### Vertical scrolling
+
+For tables with more rows than can be displayed in the viewport, the header row is fixed at the top of the viewport.
+Keeping the column headers within view while scrolling helps users maintain context.
+
+import TableVerticalScrolling from '../../../examples/table/TableVerticalScrolling.tsx';
+import TableVerticalScrollingCode from '!!raw-loader!../../../examples/table/TableVerticalScrolling.tsx';
+
+<CodeExample code={TableVerticalScrollingCode}>
+  <TableVerticalScrolling />
+</CodeExample>
+
+##### Virtualization
+
+Virtualization means what you see in the browser is what is in the DOM. When something scrolls out of view, it gets
+removed from the page DOM. When something scrolls into view, it is added to the DOM.
+
+- Use [react-window](https://github.com/bvaughn/react-window) to efficiently render large data sets
+
+import TableVirtualized from '../../../examples/table/TableVirtualized.tsx';
+import TableVirtualizedCode from '!!raw-loader!../../../examples/table/TableVirtualized.tsx';
+
+<CodeExample code={TableVirtualizedCode}>
+  <TableVirtualized />
+</CodeExample>
+
+#### Sorting
+
+Sorting is implemented by selecting arrows in table headers.
+
+- Clicking the header text will sort by ascending order (A→Z, 1→9, Date and Time, Priority (High→Low))
+- Clicking again will reverse the order
+- Clicking a third time will remove sorting
+
+If any ordering is applied to a table including default ordering, the sorting icon should be present. This indicates how
+the table is being ordered and also creates a clear affordance to control.
+
+import TableSort from '../../../examples/table/TableSort.tsx';
+import TableSortCode from '!!raw-loader!../../../examples/table/TableSort.tsx';
+
+<CodeExample code={TableSortCode}>
+  <TableSort />
+</CodeExample>
+
+#### Draggable
+
+T​​o have row reordering, you can apply drag-and-drop functionality with [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd).
+For accessibility support, please [read the react-beautiful-dnd guidelines](https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/about/accessibility.md).
+
+import TableDraggable from '../../../examples/table/TableDraggable.tsx';
+import TableDraggableCode from '!!raw-loader!../../../examples/table/TableDraggable.tsx';
+
+<CodeExample code={TableDraggableCode}>
+  <TableDraggable />
+</CodeExample>
+
+#### Table caption
+
+The [Caption](/components/table#table-caption) is the title of a table.
+
+- A table must have a [Caption](/components/table#caption) or `aria-describedby` attribute that identifies the element
+  which titles or describes the table
+
+import TableCaption from '../../../examples/table/TableCaption.tsx';
+import TableCaptionCode from '!!raw-loader!../../../examples/table/TableCaption.tsx';
+
+<CodeExample code={TableCaptionCode}>
+  <TableCaption />
+</CodeExample>
+
+#### Anchors
+
+Use an [Anchor](/components/anchor) for data cell text elements that link elsewhere.
+
+![Anchors](figma:patterns-tables-basic-formatting-anchors.png)
+
+1. These anchors within a table typically navigate the user to a new page
+1. If you want to open a link in an external window or tab, use an [External anchor](/components/anchor#external-anchor)
+
+#### Date and time
+
+Follow our [date and time formatting](/content/grammar#date-and-time) guidelines.
+
+![Date and time](figma:patterns-tables-basic-formatting-date-time.png)
+
+## States
+
+### Rows and cells
+
+![Row and Cell States](figma:patterns-tables-basic-formatting-row-cell-states.png)
+
+<table>
+  <thead>
+    <tr>
+      <th width="30%">Row/Cell state</th>
+      <th>Additional guidance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. Empty cell</td>
+      <td>Cells with no values should be left blank. Do not use a hyphen, en, or em dash.</td>
+    </tr>
+    <tr>
+      <td>2. Hover</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3. Focused</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4. Selected</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5. Focused and selected</td>
+      <td>
+        The last row checked is the focused row, unless the user clicks on a different row or uses
+        the keyboard to change focus.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Loading
+
+Skeleton screens are used to indicate that a screen is loading. They are perceived as being shorter in duration when
+compared against a blank screen or a spinner.
+
+- Implement the [Skeleton](/components/skeleton) component in each cell up to three rows
+- For a table with three or more rows, show the first three rows as skeletons with the header cells being shown at all
+  times to provide instant context of incoming tabular data
+- The width of the Skeleton should match the width of the intended cell content, while the Skeleton’s height will be 60%
+  of the font size
+
+import TableLoading from '../../../examples/table/TableLoading.tsx';
+import TableLoadingCode from '!!raw-loader!../../../examples/table/TableLoading.tsx';
+
+<CodeExample code={TableLoadingCode}>
+  <TableLoading />
+</CodeExample>
+
+## Localization & internationalization
+
+Our tables have been designed to accommodate localization and internationalization standards so they do not break the
+experience.
+
+<ImageFigure
+  caption="Bulgarian example"
+  imgAlt="Bulgarian example"
+  imageSource={props.data.tablesLocalizationBulgarian.childFile.childImageSharp.gatsbyImageData}
+/>
+
+<ImageFigure
+  caption="Arabic RTL example"
+  imgAlt="Arabic RTL example"
+  imageSource={props.data.tablesLocalizationArabic.childFile.childImageSharp.gatsbyImageData}
+/>
+
+## Accessibility
+
+### General considerations
+
+All Garden [Tables](/components/table) are built with accessible markup.
+
+### Screen reader order
+
+People using screen readers can have the row and column cells read aloud as they navigate through the table. Screen
+readers speak one cell at a time and reference the associated header cells, so the reader doesn’t lose context.
+
+### Additional resources
+
+- [https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced)
+
+---
+
+<h2>Feedback</h2>
+
+Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yiFC7)
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    tablesLocalizationBulgarian: figmaAsset(
+      name: { eq: "patterns-tables-basic-formatting-localization-bulgarian" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    tablesLocalizationArabic: figmaAsset(
+      name: { eq: "patterns-tables-basic-formatting-localization-arabic" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    tablesRowHeightsDo: figmaAsset(
+      name: { eq: "patterns-tables-basic-formatting-row-heights-do" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 380)
+        }
+      }
+    }
+    tablesRowHeightsDont: figmaAsset(
+      name: { eq: "patterns-tables-basic-formatting-row-heights-dont" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 350)
+        }
+      }
+    }
+  }
+`;

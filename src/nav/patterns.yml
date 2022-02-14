@@ -1,0 +1,10 @@
+- title: Introduction
+  items:
+    - id: /patterns
+      title: Overview
+- title: Patterns
+  items:
+    - title: Tables
+      items:
+        - id: /patterns/tables/basic-formatting
+          title: Basic formatting
