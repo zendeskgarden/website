@@ -127,12 +127,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-yaml`,
     `gatsby-transformer-garden-svg`,
-    {
-      resolve: `gatsby-plugin-csp`,
-      options: {
-        reportOnly: true
-      }
-    },
+    `gatsby-plugin-csp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-algolia-docsearch`,
     {
