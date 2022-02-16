@@ -114,6 +114,8 @@
           title: Notifications
     - title: Pagination
       id: /components/pagination
+    - title: Sheet
+      id: /components/sheet
     - title: Stepper
       id: /components/stepper
     - title: Table
