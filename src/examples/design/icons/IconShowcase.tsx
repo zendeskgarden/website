@@ -7,14 +7,14 @@
 
 import React from 'react';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { ReactComponent as LightBulbIcon } from '@zendeskgarden/svg-icons/src/16/lightbulb-stroke.svg';
 import { ReactComponent as LightningBoltIcon } from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
 import { ReactComponent as LocationIcon } from '@zendeskgarden/svg-icons/src/16/location-stroke.svg';
 import { ReactComponent as SmileyIcon } from '@zendeskgarden/svg-icons/src/16/smiley-stroke.svg';
 
-const ICON_FILL = PALETTE.grey[600];
+const ICON_FILL = DEFAULT_THEME.palette.grey[600];
 
 const Example = () => (
   <Grid>

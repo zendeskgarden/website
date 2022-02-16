@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import debounce from 'lodash/debounce';
 import { rgba } from 'polished';
@@ -86,6 +86,7 @@ const Icon = (edge: ISvgNodeProps) => {
 export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) => {
   const [inputValue, setInputValue] = useState('');
   const [collapsed, setCollapsed] = useState(true);
+  const debounceRef: any = useRef();
 
   const icons = useMemo(() => {
     return data.edges
@@ -108,9 +109,22 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
       });
   }, [data.edges, inputValue]);
 
-  const onInputChange = debounce((event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
-  }, 300);
+  useEffect(() => {
+    debounceRef.current = debounce((event: React.ChangeEvent<HTMLInputElement>) => {
+      setInputValue(event.target.value);
+    }, 300);
+
+    return () => {
+      debounceRef.current.cancel();
+    };
+  }, []);
+
+  const onInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      debounceRef.current(event);
+    },
+    [debounceRef]
+  );
 
   return (
     <div>
