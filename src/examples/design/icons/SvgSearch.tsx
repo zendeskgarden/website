@@ -29,11 +29,26 @@ const StyledSvgWrapper = styled.div<{ isAnswerBot?: boolean }>`
   color: ${p => p.isAnswerBot && '#d6eef1'};
 `;
 
+const StyledMetadataParagraph = styled.p`
+  display: none;
+`;
+
+const StyledCol = styled(Col).attrs({ forwardedAs: 'li' })``;
+
+const StyledRow = styled(Row).attrs({ forwardedAs: 'ul' })``;
+
 export const SvgSearch: React.FC<{
   searchEnabled?: boolean;
   data: {
     edges: [
-      { node: { name: string; relativeDirectory: string; childGardenSvg: { content: string } } }
+      {
+        node: {
+          name: string;
+          relativeDirectory: string;
+          childGardenSvg: { content: string };
+          fields: { token: string };
+        };
+      }
     ];
   };
 }> = ({ data, searchEnabled }) => {
@@ -51,10 +66,6 @@ export const SvgSearch: React.FC<{
   useEffect(() => {
     updatedDebouncedInputValue(inputValue);
   }, [inputValue, updatedDebouncedInputValue]);
-
-  const StyledCol = styled(Col).attrs({ forwardedAs: 'li' })``;
-
-  const StyledRow = styled(Row).attrs({ forwardedAs: 'ul' })``;
 
   const icons = useMemo(() => {
     return data.edges
@@ -78,10 +89,13 @@ export const SvgSearch: React.FC<{
             <Code size="small" title={edge.node.name}>
               {edge.node.name}
             </Code>
+            {edge.node.fields.token ? (
+              <StyledMetadataParagraph>{edge.node.fields.token}</StyledMetadataParagraph>
+            ) : null}
           </StyledIconWrapper>
         </StyledCol>
       ));
-  }, [data, debouncedInputValue, StyledCol]);
+  }, [data, debouncedInputValue]);
 
   return (
     <div>

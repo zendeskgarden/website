@@ -8,6 +8,8 @@
 const { createNodeHelpers } = require('gatsby-node-helpers');
 const { optimize } = require('svgo');
 
+const iconTokens = require('./icon-tokens');
+
 const config = {
   plugins: [
     {
@@ -34,7 +36,7 @@ const parseSvg = svgContent => {
 
 exports.onCreateNode = async ({
   node,
-  actions: { createNode, createParentChildLink },
+  actions: { createNode, createNodeField, createParentChildLink },
   loadNodeContent,
   createNodeId,
   createContentDigest
@@ -59,6 +61,11 @@ exports.onCreateNode = async ({
     ...parsedContent
   });
 
+  createNodeField({
+    node,
+    name: 'token',
+    value: iconTokens.get(node.name)
+  });
   createNode(svgNode);
   createParentChildLink({ parent: node, child: svgNode });
 };
