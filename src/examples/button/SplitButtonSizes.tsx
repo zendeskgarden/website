@@ -30,8 +30,7 @@ const Example = () => {
           <Button size="small">Harvest</Button>
           <Dropdown
             onStateChange={options =>
-              Object.prototype.hasOwnProperty.call(options, 'isOpen') &&
-              setSmallRotated(options.isOpen)
+              Object.hasOwn(options, 'isOpen') && setSmallRotated(options.isOpen)
             }
           >
             <Trigger>
@@ -50,8 +49,7 @@ const Example = () => {
           <Button size="medium">Harvest</Button>
           <Dropdown
             onStateChange={options =>
-              Object.prototype.hasOwnProperty.call(options, 'isOpen') &&
-              setMediumRotated(options.isOpen)
+              Object.hasOwn(options, 'isOpen') && setMediumRotated(options.isOpen)
             }
           >
             <Trigger>
@@ -70,8 +68,7 @@ const Example = () => {
           <Button size="large">Harvest</Button>
           <Dropdown
             onStateChange={options =>
-              Object.prototype.hasOwnProperty.call(options, 'isOpen') &&
-              setLargeRotated(options.isOpen)
+              Object.hasOwn(options, 'isOpen') && setLargeRotated(options.isOpen)
             }
           >
             <Trigger>

@@ -38,14 +38,14 @@ const Example = () => {
           onStateChange={(changes, stateAndHelpers) => {
             const updatedState: any = {};
 
-            if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
+            if (Object.hasOwn(changes, 'isOpen')) {
               updatedState.isOpen =
                 changes.selectedItem === 'berry' ||
                 changes.selectedItem === 'fruits' ||
                 changes.isOpen;
             }
 
-            if (Object.prototype.hasOwnProperty.call(changes, 'selectedItem')) {
+            if (Object.hasOwn(changes, 'selectedItem')) {
               updatedState.tempSelectedItem = changes.selectedItem;
               stateAndHelpers.setHighlightedIndex(1);
             }

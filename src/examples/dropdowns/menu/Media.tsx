@@ -38,9 +38,7 @@ const Example = () => {
 
             alert(message);
           }}
-          onStateChange={options =>
-            Object.prototype.hasOwnProperty.call(options, 'isOpen') && setRotated(options.isOpen)
-          }
+          onStateChange={options => Object.hasOwn(options, 'isOpen') && setRotated(options.isOpen)}
         >
           <Trigger>
             <Button>
