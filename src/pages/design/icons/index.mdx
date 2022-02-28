@@ -25,10 +25,10 @@ import IconStylesCode from '!!raw-loader!../../../examples/design/icons/IconStyl
   <IconStyles />
 </CodeExample>
 
-Icons also come in two styles: outline and filled.
-While outlined icons are the default icons to use, filled icons are used to show selected states.
+Icons also come in two styles: stroke and fill.
+While stroke icons are the default icons to use, fill icons are used to show selected states.
 
-### 12px and 16px
+#### 12px and 16px
 
 The default size is 16px, and should be used for the majority of cases.
 In certain instances where 16px icons will break the line height or will not fit in a small space, 12px icons should be used.
@@ -45,7 +45,7 @@ In certain instances where 16px icons will break the line height or will not fit
   </Do>
 </BestPractice>
 
-### 32px
+#### 32px
 
 32px icons are the scaled-up versions 16px icons. They are used for illustration only.
 
@@ -57,7 +57,7 @@ In certain instances where 16px icons will break the line height or will not fit
 
 <BestPractice>
   <Dont imageSource={props.data.uiIconSize.childFile.childImageSharp.gatsbyImageData}>
-    <p>Don’t use 32px icons for UI.</p>
+    <p>Don’t use 32px icons for interactions.</p>
   </Dont>
 </BestPractice>
 

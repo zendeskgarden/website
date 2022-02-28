@@ -23,11 +23,11 @@ const Example = () => {
     <Row justifyContent="center">
       <StyledCol xs md={3}>
         <LeafStrokeIcon />
-        <MD>Stroke style (default)</MD>
+        <MD>Stroke (default)</MD>
       </StyledCol>
       <StyledCol xs md={3}>
         <LeafFillIcon />
-        <MD>Filled Styled</MD>
+        <MD>Fill</MD>
       </StyledCol>
     </Row>
   );
