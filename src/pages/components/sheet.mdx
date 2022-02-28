@@ -1,0 +1,200 @@
+---
+title: Sheet
+description: >
+  The Sheet component is a container that acts as a supplementary view, providing access to important contextual information.
+package: '@zendeskgarden/react-chrome'
+components:
+  - chrome/src/elements/sheet/Sheet.tsx
+subcomponents:
+  - chrome/src/elements/sheet/components/Body.tsx
+  - chrome/src/elements/sheet/components/Title.tsx
+  - chrome/src/elements/sheet/components/Description.tsx
+  - chrome/src/elements/sheet/components/Header.tsx
+  - chrome/src/elements/sheet/components/Footer.tsx
+  - chrome/src/elements/sheet/components/FooterItem.tsx
+  - chrome/src/elements/sheet/components/Close.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To display additional information that aids the primary view</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          For an experience where the primary view is obscured to display supplementary information
+          or actions, use a [Drawer](/components/drawer)
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+A typical usage of a Sheet component.
+
+import SheetDefault from '../../examples/chrome/SheetDefault.tsx';
+import SheetDefaultCode from '!!raw-loader!../../examples/chrome/SheetDefault.tsx';
+
+<CodeExample code={SheetDefaultCode}>
+  <SheetDefault />
+</CodeExample>
+
+### Footers
+
+Sheet footers comes in three variations: no footer, footer with an [Anchor](/components/anchor),
+and footer with [Buttons](/components/button).
+
+import SheetFooters from '../../examples/chrome/SheetFooters.tsx';
+import SheetFootersCode from '!!raw-loader!../../examples/chrome/SheetFooters.tsx';
+
+<CodeExample code={SheetFootersCode}>
+  <SheetFooters />
+</CodeExample>
+
+### Headers
+
+Sheet headers come in three variations: no title, title, and title with description.
+
+import SheetHeaders from '../../examples/chrome/SheetHeaders.tsx';
+import SheetHeadersCode from '!!raw-loader!../../examples/chrome/SheetHeaders.tsx';
+
+<CodeExample code={SheetHeadersCode}>
+  <SheetHeaders />
+</CodeExample>
+
+### Placement
+
+Sheets can be placed at the start or end of the container. End is the default placement.
+
+import SheetPlacement from '../../examples/chrome/SheetPlacement.tsx';
+import SheetPlacementCode from '!!raw-loader!../../examples/chrome/SheetPlacement.tsx';
+
+<CodeExample code={SheetPlacementCode}>
+  <SheetPlacement />
+</CodeExample>
+
+### Size
+
+Sheets default to 380px in width. You can customize the width based on your intended
+experience to any size using pixels or our [grid system](/components/grid).
+
+import SheetSize from '../../examples/chrome/SheetSize.tsx';
+import SheetSizeCode from '!!raw-loader!../../examples/chrome/SheetSize.tsx';
+
+<CodeExample code={SheetSizeCode}>
+  <SheetSize />
+</CodeExample>
+
+## API
+
+The Sheet component follows this structure:
+
+<!-- prettier-ignore -->
+```jsx
+<Sheet>
+  <Sheet.Header>
+    <Sheet.Title>
+      {/* a text to label the sheet */}
+    </Sheet.Title>
+    <Sheet.Description>
+      {/* a text describing the sheet */}
+    </Sheet.Description>
+  </Sheet.Header>
+  
+  <Sheet.Body>
+    {/* main content of the sheet */}
+  </Sheet.Body>
+
+  <Sheet.Footer>
+    <Sheet.FooterItem>
+      {/* items to set in the footer, such as buttons */}
+    </Sheet.FooterItem>
+  </Sheet.Footer>
+
+  <Sheet.Close />
+</Sheet>
+```
+
+Please keep the subcomponent structure in the order displayed in the example above.
+
+### Sheet
+
+<Component components={props.data.mdx.components} componentName="sheet" />
+
+The Sheet component provides state and accessibility attributes to its children.
+
+<PropSheet components={props.data.mdx.components} componentName="sheet" />
+
+#### Sheet.Body
+
+<Component components={props.data.mdx.subcomponents} componentName="sheet.body" />
+
+A Body requires additional accessible functionality to make the
+element focusable for keyboard scrolling. Nest it within the [Sheet](#sheet) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.body" />
+
+#### Sheet.Title
+
+<Component components={props.data.mdx.subcomponents} componentName="sheet.title" />
+
+A Title labels the Sheet for assistive technology. Nest it within a [Header](#sheetheader) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.title" />
+
+#### Sheet.Description
+
+<Component components={props.data.mdx.subcomponents} componentName="sheet.description" />
+
+A Description describes the Sheet for assistive technology.
+Nest it within a [Header](#sheetheader) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.description" />
+
+#### Sheet.Header
+
+<Component components={props.data.mdx.subcomponents} componentName="sheet.header" />
+
+Nest a Header within the [Sheet](#sheet) component. If neither [Title](#sheettitle) nor
+[Description](#sheetdescription) are used, the Header should be omitted.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.header" />
+
+#### Sheet.Footer
+
+<Component components={props.data.mdx.subcomponents} componentName="sheet.footer" />
+
+Nest a Footer within the [Sheet](#sheet) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.footer" />
+
+#### Sheet.FooterItem
+
+<Component components={props.data.mdx.subcomponents} componentName="sheet.footeritem" />
+
+Nest a FooterItem within the [Footer](#sheetfooter) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.footeritem" />
+
+#### Sheet.Close
+
+<Component components={props.data.mdx.subcomponents} componentName="sheet.close" />
+
+Nest a Close button within a [Sheet](#sheet) component as the last child for consistent tab order.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="sheet.close" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

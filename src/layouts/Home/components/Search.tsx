@@ -11,7 +11,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getLineHeight, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
-import { LG } from '@zendeskgarden/react-typography';
+import { LG, XXXL } from '@zendeskgarden/react-typography';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SearchInput } from 'layouts/Root/components/SearchInput';
 
@@ -94,13 +94,14 @@ export const Search: React.FC = () => {
               `}
             >
               <div>
-                <h1
+                <XXXL
+                  tag="h1"
                   css={css`
                     ${headerStyling}
                   `}
                 >
                   Welcome to Garden
-                </h1>
+                </XXXL>
                 <LG
                   tag="p"
                   css={css`

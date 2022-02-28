@@ -32,9 +32,7 @@ const Example = () => {
       <Col textAlign="center">
         <Dropdown
           onSelect={item => alert(`You planted a ${item}`)}
-          onStateChange={options =>
-            Object.prototype.hasOwnProperty.call(options, 'isOpen') && setRotated(options.isOpen)
-          }
+          onStateChange={options => Object.hasOwn(options, 'isOpen') && setRotated(options.isOpen)}
         >
           <Trigger>
             <Button isDanger>

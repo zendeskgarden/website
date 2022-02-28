@@ -21,8 +21,7 @@ const Example = () => {
         <Dropdown
           onSelect={item => alert(`You planted a ${item}`)}
           onStateChange={options =>
-            Object.prototype.hasOwnProperty.call(options, 'isOpen') &&
-            setDefaultRotated(options.isOpen)
+            Object.hasOwn(options, 'isOpen') && setDefaultRotated(options.isOpen)
           }
         >
           <Trigger>
@@ -44,8 +43,7 @@ const Example = () => {
         <Dropdown
           onSelect={item => alert(`You planted a ${item}`)}
           onStateChange={options =>
-            Object.prototype.hasOwnProperty.call(options, 'isOpen') &&
-            setCompactRotated(options.isOpen)
+            Object.hasOwn(options, 'isOpen') && setCompactRotated(options.isOpen)
           }
         >
           <Trigger>

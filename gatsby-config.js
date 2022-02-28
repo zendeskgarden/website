@@ -210,10 +210,16 @@ module.exports = {
         svgo: true,
         svgoConfig: {
           plugins: [
-            { removeViewBox: false },
-            { cleanupIDs: true },
             {
-              addAttributesToSVGElement: {
+              name: 'removeViewBox',
+              active: false
+            },
+            {
+              name: 'cleanupIDs'
+            },
+            {
+              name: 'addAttributesToSVGElement',
+              params: {
                 attributes: [{ focusable: false }, { role: 'presentation' }]
               }
             }

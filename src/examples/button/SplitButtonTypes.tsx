@@ -21,8 +21,7 @@ const Example = () => {
           <Button>Harvest</Button>
           <Dropdown
             onStateChange={options =>
-              Object.prototype.hasOwnProperty.call(options, 'isOpen') &&
-              setDefaultRotated(options.isOpen)
+              Object.hasOwn(options, 'isOpen') && setDefaultRotated(options.isOpen)
             }
           >
             <Trigger>
@@ -41,8 +40,7 @@ const Example = () => {
           <Button isPrimary>Harvest</Button>
           <Dropdown
             onStateChange={options =>
-              Object.prototype.hasOwnProperty.call(options, 'isOpen') &&
-              setPrimaryRotated(options.isOpen)
+              Object.hasOwn(options, 'isOpen') && setPrimaryRotated(options.isOpen)
             }
           >
             <Trigger>
