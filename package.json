@@ -62,7 +62,7 @@
     "@zendeskgarden/react-tooltips": "8.48.2",
     "@zendeskgarden/react-typography": "8.48.2",
     "@zendeskgarden/scripts": "1.4.0",
-    "@zendeskgarden/stylelint-config": "16.0.1",
+    "@zendeskgarden/stylelint-config": "17.0.0",
     "@zendeskgarden/svg-icons": "6.31.1",
     "babel-eslint": "10.1.0",
     "babel-plugin-styled-components": "2.0.6",
