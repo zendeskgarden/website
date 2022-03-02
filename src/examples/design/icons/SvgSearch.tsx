@@ -8,6 +8,7 @@
 import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import debounce from 'lodash/debounce';
+import type { DebouncedFunc } from 'lodash';
 import { rgba } from 'polished';
 import { Field, MediaInput, Label } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
@@ -40,7 +41,10 @@ const StyledGradient = styled.div`
   height: 200px;
 `;
 
-const StyledCol = styled(Col).attrs({ forwardedAs: 'li' })``;
+const StyledCol = styled(Col).attrs({ forwardedAs: 'li' })`
+  margin-bottom: ${p => p.theme.space.lg};
+`;
+
 const StyledRow = styled(Row).attrs({ forwardedAs: 'ul' })``;
 
 const StyledTokenContainer = styled(StyledRow)<{ isExpand: boolean }>`
@@ -66,6 +70,8 @@ interface ISvgSearchProps {
   };
 }
 
+type ChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => void;
+
 const Icon = (edge: ISvgNodeProps) => {
   return (
     <StyledCol lg={3} md={4} xs={6}>
@@ -86,7 +92,7 @@ const Icon = (edge: ISvgNodeProps) => {
 export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) => {
   const [inputValue, setInputValue] = useState('');
   const [collapsed, setCollapsed] = useState(true);
-  const debounceRef: any = useRef();
+  const debounceRef = useRef<DebouncedFunc<ChangeHandler>>();
 
   const icons = useMemo(() => {
     return data.edges
@@ -115,13 +121,13 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
     }, 300);
 
     return () => {
-      debounceRef.current.cancel();
+      debounceRef.current!.cancel();
     };
   }, []);
 
   const onInputChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      debounceRef.current(event);
+      debounceRef.current!(event);
     },
     [debounceRef]
   );
@@ -155,11 +161,7 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
           </StyledRow>
         )}
         {collapsed && (
-          <StyledRow
-            css={css`
-              margin-bottom: ${p => p.theme.space.lg};
-            `}
-          >
+          <StyledRow>
             <Button
               isStretched
               css={css`
