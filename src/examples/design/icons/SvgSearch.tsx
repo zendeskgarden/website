@@ -142,7 +142,7 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
                 margin-bottom: ${p => p.theme.space.lg};
               `}
             >
-              <Label>Filter icons</Label>
+              <Label>Search icons</Label>
               <MediaInput start={<SearchStroke />} onChange={onInputChange} />
             </Field>
           </Col>
