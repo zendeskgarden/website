@@ -1,0 +1,113 @@
+---
+title: Icon Overview
+---
+
+import { graphql } from 'gatsby';
+
+import IconShowcase from '../../../examples/design/icons/IconShowcase.tsx';
+import IconShowcaseCode from '!!raw-loader!../../../examples/design/icons/IconShowcase.tsx';
+
+<CodeExample code={IconShowcaseCode}>
+  <IconShowcase />
+</CodeExample>
+
+### Usage
+
+Garden’s icon library is implemented using SVG. Icons come two sizes: 12px and 16px.
+The 16px icons can also be doubled to create 32px icons.
+
+#### Styles
+
+import IconStyles from '../../../examples/design/icons/IconStyles.tsx';
+import IconStylesCode from '!!raw-loader!../../../examples/design/icons/IconStyles.tsx';
+
+<CodeExample code={IconStylesCode}>
+  <IconStyles />
+</CodeExample>
+
+Icons also come in two styles: stroke and fill.
+While stroke icons are the default icons to use, fill icons are used to show selected states.
+
+#### 12px and 16px
+
+The default size is 16px, and should be used for the majority of cases.
+In certain instances where 16px icons will break the line height or will not fit in a small space, 12px icons should be used.
+
+<BestPractice>
+  <Do imageSource={props.data.defaultIconSize.childFile.childImageSharp.gatsbyImageData}>
+    <p>16px is the default icon size. Use 16px icons where possible.</p>
+  </Do>
+</BestPractice>
+
+<BestPractice>
+  <Do imageSource={props.data.smallerIconSize.childFile.childImageSharp.gatsbyImageData}>
+    <p>Use 12px icons for compact spaces where 16px icons can’t fit.</p>
+  </Do>
+</BestPractice>
+
+#### 32px
+
+32px icons are the scaled-up versions 16px icons. They are used for illustration only.
+
+<BestPractice>
+  <Do imageSource={props.data.illustrationIconSize.childFile.childImageSharp.gatsbyImageData}>
+    <p>Use 32px icons for illustration.</p>
+  </Do>
+</BestPractice>
+
+<BestPractice>
+  <Dont imageSource={props.data.uiIconSize.childFile.childImageSharp.gatsbyImageData}>
+    <p>Don’t use 32px icons for interactions.</p>
+  </Dont>
+</BestPractice>
+
+### Best practices
+
+#### Include tooltips for interactive icons
+
+<BestPractice>
+  <Do imageSource={props.data.tooltipLabelIcon.childFile.childImageSharp.gatsbyImageData}>
+    <p>Use tooltips to clearly label interactive icons for accessibility.</p>
+  </Do>
+</BestPractice>
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    defaultIconSize: figmaAsset(name: { eq: "design-icons-16px-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    smallerIconSize: figmaAsset(name: { eq: "design-icons-12px-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    illustrationIconSize: figmaAsset(name: { eq: "design-icons-32px-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    uiIconSize: figmaAsset(name: { eq: "design-icons-32px-dont" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    tooltipLabelIcon: figmaAsset(name: { eq: "design-icons-tooltips-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+  }
+`;

@@ -1,12 +1,16 @@
 ---
-title: 26px icons
+title: Icon Library
 ---
+
+import { graphql } from 'gatsby';
+
+### All Icons
+
+This is a list of all the icons in the Garden library, independent of context.
 
 import { SvgSearch } from '../../../examples/design/icons/SvgSearch';
 
 <SvgSearch data={props.data.svgIcons} />
-
-import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
@@ -14,7 +18,7 @@ export const pageQuery = graphql`
     svgIcons: allFile(
       filter: {
         sourceInstanceName: { eq: "svg-icons" }
-        relativeDirectory: { eq: "26" }
+        relativeDirectory: { eq: "16" }
         name: { glob: "!wordmark-*" }
       }
       sort: { fields: name, order: ASC }

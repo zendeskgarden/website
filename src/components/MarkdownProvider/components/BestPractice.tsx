@@ -118,6 +118,7 @@ interface ISectionProps extends ICaptionProps {
   imageHeight?: number;
   imageWidth?: number;
   imageIsSquare?: boolean;
+  imageBackgroundColor?: string;
   imageIsFreeForm?: boolean;
 }
 
