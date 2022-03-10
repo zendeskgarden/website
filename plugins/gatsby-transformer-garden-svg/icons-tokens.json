@@ -1,0 +1,46 @@
+{
+    "plus-stroke": {
+        "name": "Add New",
+        "altName": []
+    },
+    "alert-error-stroke": {
+        "name": "Alert Error",
+        "altName": ["circle", "exclamation point"]
+    },
+    "info-stroke": {
+        "name": "Alert Info",
+        "altName": ["information", "i", "circle"]
+    },
+    "check-circle-stroke": {
+        "name": "Alert Success",
+        "altName": ["checkmark"]
+    },
+    "alert-warning-stroke": {
+        "name": "Alert Warning",
+        "altName": ["danger", "triangle", "exclamation point"]
+    },
+    "paperclip-stroke": {
+        "name": "Attachment",
+        "altName": ["file"]
+    },
+    "user-solo-stroke": {
+        "name": "Avatar",
+        "altName": ["profile", "person", "user"]
+    },
+    "chevron-left": {
+        "name": "Back",
+        "altName": []
+    },
+    "speech-bubble-conversation-stroke": {
+        "name": "Conversation",
+        "altName": []
+    },
+    "close-stroke": {
+        "name": "Close",
+        "altName": ["clear", "x", "dismiss", "cancel"]
+    },
+    "panels-fill": {
+        "name": "Dashboard",
+        "altName": ["overview"]
+    }
+}

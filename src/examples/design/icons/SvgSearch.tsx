@@ -12,7 +12,7 @@ import type { DebouncedFunc } from 'lodash';
 import { rgba } from 'polished';
 import { Field, MediaInput, Label } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
-import { Code, XL } from '@zendeskgarden/react-typography';
+import { Code, MD, XL } from '@zendeskgarden/react-typography';
 import { Button } from '@zendeskgarden/react-buttons';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import styled, { css } from 'styled-components';
@@ -30,6 +30,15 @@ const StyledSvgWrapper = styled.div<{ isAnswerBot?: boolean }>`
   margin: 0 0 ${p => p.theme.space.sm};
   fill: ${p => p.isAnswerBot && PALETTE.kale[700]};
   color: ${p => p.isAnswerBot && '#d6eef1'};
+`;
+
+const StyledMD = styled(MD)`
+  margin-top: ${p => p.theme.space.sm};
+  margin-bottom: ${p => p.theme.space.sm};
+`;
+
+const StyledHiddenSpan = styled.span`
+  display: none;
 `;
 
 const StyledGradient = styled.div`
@@ -58,6 +67,8 @@ interface ISvgNodeProps {
     name: string;
     relativeDirectory: string;
     childGardenSvg: {
+      altName?: string[];
+      token?: string;
       content: string;
     };
   };
@@ -73,9 +84,13 @@ interface ISvgSearchProps {
 type ChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 const Icon = (edge: ISvgNodeProps) => {
+  const token = edge.node.childGardenSvg.token;
+  const alternativeName = edge.node.childGardenSvg.altName;
+
   return (
     <StyledCol lg={3} md={4} xs={6}>
       <StyledIconWrapper>
+        {token && <StyledMD>{token}</StyledMD>}
         <StyledSvgWrapper
           isAnswerBot={edge.node.name === 'answer-bot'}
           // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -84,6 +99,9 @@ const Icon = (edge: ISvgNodeProps) => {
         <Code size="small" title={edge.node.name}>
           {edge.node.name}
         </Code>
+        {alternativeName?.map(name => (
+          <StyledHiddenSpan key={name}>{name}</StyledHiddenSpan>
+        ))}
       </StyledIconWrapper>
     </StyledCol>
   );

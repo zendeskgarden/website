@@ -4,6 +4,17 @@ title: Icon Library
 
 import { graphql } from 'gatsby';
 
+### Tokens
+
+Icon tokens represent specific concepts in Zendesk products.
+Before adding an icon to your project, check the list below to see if the
+concept has an icon token associated with it.
+
+To suggest a new token, please take a look at our icon token decision tree
+and fill out a Jira template if your request meets the criteria for addition.
+
+<SvgSearch data={props.data.tokens} />
+
 ### All Icons
 
 This is a list of all the icons in the Garden library, independent of context.
@@ -30,6 +41,28 @@ export const pageQuery = graphql`
           relativeDirectory
           childGardenSvg {
             content
+          }
+        }
+      }
+    }
+    tokens: allFile(
+      filter: {
+        childrenGardenSvg: { elemMatch: { token: { ne: "" } } }
+        sourceInstanceName: { eq: "svg-icons" }
+        relativeDirectory: { eq: "16" }
+        name: { glob: "!wordmark-*" }
+      }
+      sort: { fields: name, order: ASC }
+    ) {
+      totalCount
+      edges {
+        node {
+          name
+          relativeDirectory
+          childGardenSvg {
+            altName
+            content
+            token
           }
         }
       }

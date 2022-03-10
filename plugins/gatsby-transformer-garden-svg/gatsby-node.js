@@ -8,6 +8,8 @@
 const { createNodeHelpers } = require('gatsby-node-helpers');
 const { optimize } = require('svgo');
 
+const tokens = require('./icons-tokens.json');
+
 const config = {
   plugins: [
     {
@@ -30,6 +32,19 @@ const parseSvg = svgContent => {
     content,
     originalContent: svgContent
   };
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = `
+    type Token implements Node @dontInfer {
+      name: String
+      alt_name: [String]
+    }
+  `;
+
+  createTypes(typeDefs);
 };
 
 exports.onCreateNode = async ({
@@ -56,6 +71,8 @@ exports.onCreateNode = async ({
   const svgNode = gardenSvgNode({
     id: `${node.relativeDirectory}-${node.name}`,
     parent: node.id,
+    token: tokens[node.name]?.name || '',
+    altName: tokens[node.name]?.altName,
     ...parsedContent
   });
 
