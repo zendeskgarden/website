@@ -8,7 +8,7 @@
 const { createNodeHelpers } = require('gatsby-node-helpers');
 const { optimize } = require('svgo');
 
-const { tokens } = require('./tokens.json');
+const tokens = require('./tokens.json');
 
 const cache = {};
 const getToken = icon => {

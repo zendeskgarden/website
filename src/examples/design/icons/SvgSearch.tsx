@@ -37,7 +37,7 @@ const StyledMD = styled(MD)`
   margin-bottom: ${p => p.theme.space.sm};
 `;
 
-const StyledHiddenSpan = styled.span`
+const StyledHiddenParagraph = styled.p`
   display: none;
 `;
 
@@ -67,7 +67,7 @@ interface ISvgNodeProps {
     name: string;
     relativeDirectory: string;
     childGardenSvg: {
-      altName?: string[];
+      alternatives?: string[];
       token?: string;
       content: string;
     };
@@ -85,7 +85,7 @@ type ChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 const Icon = (edge: ISvgNodeProps) => {
   const token = edge.node.childGardenSvg.token;
-  const alternativeName = edge.node.childGardenSvg.altName;
+  const alternativeName = edge.node.childGardenSvg.alternatives;
 
   return (
     <StyledCol lg={3} md={4} xs={6}>
@@ -100,7 +100,7 @@ const Icon = (edge: ISvgNodeProps) => {
           {edge.node.name}
         </Code>
         {alternativeName?.map(name => (
-          <StyledHiddenSpan key={name}>{name}</StyledHiddenSpan>
+          <StyledHiddenParagraph key={name}>{name}</StyledHiddenParagraph>
         ))}
       </StyledIconWrapper>
     </StyledCol>
