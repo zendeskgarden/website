@@ -8,7 +8,26 @@
 const { createNodeHelpers } = require('gatsby-node-helpers');
 const { optimize } = require('svgo');
 
-const tokens = require('./icons-tokens.json');
+const { tokens } = require('./tokens.json');
+
+const cache = {};
+const getToken = icon => {
+  for (const token of tokens) {
+    if (token.icon === icon) {
+      if (!cache[token.icon]) {
+        cache[token.icon] = new Set();
+      }
+
+      if (!cache[token.icon].has(token.name)) {
+        cache[token.icon].add(token.name);
+
+        return token;
+      }
+    }
+  }
+
+  return null;
+};
 
 const config = {
   plugins: [
@@ -67,12 +86,13 @@ exports.onCreateNode = async ({
   const gardenSvgNode = createNodeFactory('Svg');
   const content = await loadNodeContent(node);
   const parsedContent = parseSvg(content);
+  const token = getToken(node.name);
 
   const svgNode = gardenSvgNode({
     id: `${node.relativeDirectory}-${node.name}`,
     parent: node.id,
-    token: tokens[node.name]?.name || '',
-    altName: tokens[node.name]?.altName,
+    token: token?.name || '',
+    alternatives: token?.alternatives,
     ...parsedContent
   });
 
