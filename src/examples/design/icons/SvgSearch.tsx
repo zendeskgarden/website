@@ -67,7 +67,7 @@ interface ISvgNodeProps {
     name: string;
     relativeDirectory: string;
     childGardenSvg: {
-      alternatives?: string[];
+      synonyms?: string[];
       token?: string;
       content: string;
     };
@@ -85,7 +85,7 @@ type ChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 const Icon = (edge: ISvgNodeProps) => {
   const token = edge.node.childGardenSvg.token;
-  const alternativeName = edge.node.childGardenSvg.alternatives;
+  const synonyms = edge.node.childGardenSvg.synonyms;
 
   return (
     <StyledCol lg={3} md={4} xs={6}>
@@ -99,7 +99,7 @@ const Icon = (edge: ISvgNodeProps) => {
         <Code size="small" title={edge.node.name}>
           {edge.node.name}
         </Code>
-        {alternativeName?.map(name => (
+        {synonyms?.map(name => (
           <StyledHiddenParagraph key={name}>{name}</StyledHiddenParagraph>
         ))}
       </StyledIconWrapper>

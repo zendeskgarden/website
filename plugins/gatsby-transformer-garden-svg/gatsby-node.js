@@ -5,23 +5,85 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+const fetch = require('node-fetch');
 const { createNodeHelpers } = require('gatsby-node-helpers');
 const { optimize } = require('svgo');
 
-const tokens = require('./tokens.json');
+const tokens = new Map();
 
-const cache = {};
-const getToken = icon => {
-  for (const token of tokens) {
-    if (token.icon === icon) {
-      if (!cache[token.icon]) {
-        cache[token.icon] = new Set();
-      }
+exports.onPreInit = async (_, configOptions) => {
+  const { figmaApiToken, fileId, nodeId } = configOptions;
+  const baseURL = 'https://api.figma.com/v1';
+  const headers = {
+    'Content-Type': 'application/json',
+    'X-FIGMA-TOKEN': figmaApiToken
+  };
 
-      if (!cache[token.icon].has(token.name)) {
-        cache[token.icon].add(token.name);
+  // Fetch for all the components ids.
+  const file = await fetch(`${baseURL}/files/${fileId}/nodes?ids=${nodeId}`, { headers });
+  const { nodes } = await file.json();
+  const frame = nodes[Object.keys(nodes)[0]];
+  const nodeIds = [];
+  const metadata = new Map();
 
-        return token;
+  for (const [key, value] of Object.entries(frame.components)) {
+    let name = value.name;
+    const description = value.description;
+
+    if (name !== 'Style=Stroke' && name.includes('token')) {
+      let synonyms = description.split(':')[1]?.split(',');
+
+      synonyms = synonyms?.map(token => token.trim().replace('\n', ''));
+      // eslint-disable-next-line prefer-named-capture-group
+      name = name.replace(/\b(\stoken)\b/u, '');
+
+      metadata.set(key, {
+        name,
+        synonyms
+      });
+
+      nodeIds.push(key);
+    }
+  }
+
+  // Based on the components, makes another fetch to get the children metadata.
+  const components = await fetch(`${baseURL}/files/${fileId}/nodes?ids=${nodeIds.join(',')}`, {
+    headers
+  });
+  const { nodes: icons } = await components.json();
+
+  for (const [key, value] of Object.entries(icons)) {
+    const { children } = value.document;
+    const { name, synonyms } = metadata.get(key);
+    const icon = children[0].name
+      .split('-')[0]
+      .trim()
+      .replace('_', '')
+      .replace(/\s/gu, '-')
+      .toLowerCase();
+
+    tokens.set(name, {
+      icon,
+      synonyms
+    });
+  }
+};
+
+const cache = new Set();
+const getToken = nodeName => {
+  for (const [key, value] of tokens) {
+    if (cache.has(key)) continue;
+    const { icon, synonyms } = value;
+    const variants = [icon, `${icon}-stroke`, `${icon}-fill`];
+
+    for (const variant of variants) {
+      if (variant === nodeName) {
+        cache.add(key);
+
+        return {
+          token: key,
+          synonyms
+        };
       }
     }
   }
@@ -58,8 +120,8 @@ exports.createSchemaCustomization = ({ actions }) => {
 
   const typeDefs = `
     type Token implements Node @dontInfer {
-      name: String
-      alt_name: [String]
+      token: String
+      synonyms: [String]
     }
   `;
 
@@ -91,8 +153,8 @@ exports.onCreateNode = async ({
   const svgNode = gardenSvgNode({
     id: `${node.relativeDirectory}-${node.name}`,
     parent: node.id,
-    token: token?.name || '',
-    alternatives: token?.alternatives,
+    token: token?.token ? token.token : '',
+    synonyms: token?.synonyms ? token.synonyms : [],
     ...parsedContent
   });
 
