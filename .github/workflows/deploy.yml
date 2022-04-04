@@ -1,0 +1,49 @@
+name: Deployment
+
+on:
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
+  workflow_dispatch:
+    branch:
+      description: 'The branch to deploy'
+      default: 'main'
+      required: false
+      type: string
+    figmaToken:
+      description: 'Figma token to use'
+      default: 'main'
+      required: true
+      type: string
+
+env:
+  NODE_ENV: production
+  FIGMA_TOKEN: ${{ github.event.inputs.figmaToken }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        ref: ${{ github.event.inputs.branch }}
+        # https://github.com/actions/checkout/blob/main/src/input-helper.ts#L103
+        submodules: 'TRUE'
+
+      - name: Setup
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'yarn'
+
+      - name: Install
+        run: yarn
+
+      - name: Test
+        run: yarn test
+
+      - name: Build
+        run: yarn build
+
+      - name: Deploy
+        # if we want to limit which branch we deploy
+        # if: ${{ github.ref == 'refs/heads/main' }}
+        run: node utils/deploy-action.js
