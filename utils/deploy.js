@@ -17,8 +17,10 @@ envalid.cleanEnv(process.env, {
   NETLIFY_TOKEN: envalid.str()
 });
 
-const deploy = async ({ dir, branch }) => {
+(async () => {
   try {
+    const dir = path.resolve(__dirname, '..', 'public');
+    const branch = await garden.githubBranch();
     const production = branch === 'main';
     const available = production ? Infinity : (await garden.netlifyBandwidth()).available;
     const usage = production ? 0 : await garden.cmdDu(dir);
@@ -52,18 +54,4 @@ const deploy = async ({ dir, branch }) => {
     console.error(error);
     process.exitCode = 1;
   }
-};
-
-if (require.main === module) {
-  (async () => {
-    const dir = path.resolve(__dirname, '..', 'public');
-    const branch = await garden.githubBranch();
-
-    await deploy({
-      dir,
-      branch
-    });
-  })();
-} else {
-  module.exports = deploy;
-}
+})();
