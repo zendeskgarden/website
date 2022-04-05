@@ -19,52 +19,51 @@ exports.onPreInit = async (_, configOptions) => {
     'X-FIGMA-TOKEN': figmaApiToken
   };
 
-  // Fetch for all the components ids.
   const file = await fetch(`${baseURL}/files/${fileId}/nodes?ids=${nodeId}`, { headers });
   const { nodes } = await file.json();
   const frame = nodes[Object.keys(nodes)[0]];
-  const nodeIds = [];
-  const metadata = new Map();
+  const { children } = frame.document;
 
-  for (const [key, value] of Object.entries(frame.components)) {
-    let name = value.name;
-    const description = value.description;
-
-    if (name !== 'Style=Stroke' && name.includes('token')) {
-      let synonyms = description.split(':')[1]?.split(',');
-
-      synonyms = synonyms?.map(token => token.trim().replace('\n', ''));
+  for (const node of children) {
+    if (node.type === 'COMPONENT') {
       // eslint-disable-next-line prefer-named-capture-group
-      name = name.replace(/\b(\stoken)\b/u, '');
+      const name = node.name.replace(/\b(\s+token)\b/u, '').toLowerCase();
+      const id = node.id;
+      const iconId = node.children[0].componentId;
+      const icon = node.children[0].name
+        .split('-')[0]
+        .trim()
+        .replace('_', '')
+        .replace(/\s/gu, '-')
+        .toLowerCase();
 
-      metadata.set(key, {
-        name,
-        synonyms
+      tokens.set(name, {
+        id,
+        iconId,
+        icon
       });
-
-      nodeIds.push(key);
     }
   }
 
-  // Based on the components, makes another fetch to get the children metadata.
-  const components = await fetch(`${baseURL}/files/${fileId}/nodes?ids=${nodeIds.join(',')}`, {
-    headers
-  });
-  const { nodes: icons } = await components.json();
+  for (const [key, value] of tokens) {
+    const { id, iconId } = value;
+    const metadata = frame.components[id];
+    let style = frame.components[iconId].name.substring(6).toLowerCase();
 
-  for (const [key, value] of Object.entries(icons)) {
-    const { children } = value.document;
-    const { name, synonyms } = metadata.get(key);
-    const icon = children[0].name
-      .split('-')[0]
-      .trim()
-      .replace('_', '')
-      .replace(/\s/gu, '-')
-      .toLowerCase();
+    if (style !== 'stroke' && style !== 'fill') {
+      style = null;
+    }
 
-    tokens.set(name, {
+    let synonyms = metadata.description.split(':')[1]?.split(',');
+
+    synonyms = synonyms?.map(token => token.trim().replace('\n', ''));
+
+    const { icon } = tokens.get(key);
+
+    tokens.set(key, {
       icon,
-      synonyms
+      style,
+      synonyms: synonyms || []
     });
   }
 };
@@ -73,18 +72,16 @@ const cache = new Set();
 const getToken = nodeName => {
   for (const [key, value] of tokens) {
     if (cache.has(key)) continue;
-    const { icon, synonyms } = value;
-    const variants = [icon, `${icon}-stroke`, `${icon}-fill`];
+    const { icon, style, synonyms } = value;
+    const variant = style ? `${icon}-${style}` : icon;
 
-    for (const variant of variants) {
-      if (variant === nodeName) {
-        cache.add(key);
+    if (variant === nodeName) {
+      cache.add(key);
 
-        return {
-          token: key,
-          synonyms
-        };
-      }
+      return {
+        token: key,
+        synonyms
+      };
     }
   }
 

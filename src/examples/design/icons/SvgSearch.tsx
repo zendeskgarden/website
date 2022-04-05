@@ -33,6 +33,9 @@ const StyledSvgWrapper = styled.div<{ isAnswerBot?: boolean }>`
 `;
 
 const StyledMD = styled(MD)`
+  &::first-letter {
+    text-transform: uppercase;
+  }
   margin-top: ${p => p.theme.space.sm};
   margin-bottom: ${p => p.theme.space.sm};
 `;
