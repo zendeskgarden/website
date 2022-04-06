@@ -11,7 +11,7 @@ const { optimize } = require('svgo');
 
 const tokens = new Map();
 
-exports.onPreInit = async (_, configOptions) => {
+exports.onPreInit = async ({ reporter }, configOptions) => {
   const { figmaApiToken, fileId, nodeId } = configOptions;
   const baseURL = 'https://api.figma.com/v1';
   const headers = {
@@ -19,52 +19,64 @@ exports.onPreInit = async (_, configOptions) => {
     'X-FIGMA-TOKEN': figmaApiToken
   };
 
-  const file = await fetch(`${baseURL}/files/${fileId}/nodes?ids=${nodeId}`, { headers });
-  const { nodes } = await file.json();
-  const frame = nodes[Object.keys(nodes)[0]];
-  const { children } = frame.document;
+  try {
+    const fileResponse = await fetch(`${baseURL}/files/${fileId}/nodes?ids=${nodeId}`, { headers });
+    const { nodes } = await fileResponse.json();
+    const frame = nodes[Object.keys(nodes)[0]];
+    const { children } = frame.document;
 
-  for (const node of children) {
-    if (node.type === 'COMPONENT') {
-      // eslint-disable-next-line prefer-named-capture-group
-      const name = node.name.replace(/\b(\s+token)\b/u, '').toLowerCase();
-      const id = node.id;
-      const iconId = node.children[0].componentId;
-      const icon = node.children[0].name
-        .split('-')[0]
-        .trim()
-        .replace('_', '')
-        .replace(/\s/gu, '-')
-        .toLowerCase();
+    for (const node of children) {
+      if (node.type === 'COMPONENT') {
+        const name = node.name.replace(/(?:\s+token)/u, '').toLowerCase();
+        const id = node.id;
+        const iconId = node.children[0]?.componentId;
 
-      tokens.set(name, {
-        id,
-        iconId,
-        icon
+        if (!iconId) {
+          // have a better description later
+          reporter.info(`Skipped ${name}; can't find iconId`);
+          continue;
+        }
+
+        const icon = node.children[0].name
+          // .replace(/\s+?(?:_)(?:\s+-.*)/gu, '')
+          .split('-')[0]
+          .trim()
+          .replace('_', '')
+          .replace(/\s/gu, '-')
+          .toLowerCase();
+
+        reporter.info(`Fetched ${name} -> ${icon}`);
+        tokens.set(name, {
+          id,
+          iconId,
+          icon
+        });
+      }
+    }
+
+    for (const [key, value] of tokens) {
+      const { id, iconId } = value;
+      const metadata = frame.components[id];
+      let style = frame.components[iconId].name.substring(6).toLowerCase();
+
+      if (style !== 'stroke' && style !== 'fill') {
+        style = null;
+      }
+
+      let synonyms = metadata.description.split(':')[1]?.split(',');
+
+      synonyms = synonyms?.map(token => token.trim().replace('\n', ''));
+
+      const { icon } = tokens.get(key);
+
+      tokens.set(key, {
+        icon,
+        style,
+        synonyms
       });
     }
-  }
-
-  for (const [key, value] of tokens) {
-    const { id, iconId } = value;
-    const metadata = frame.components[id];
-    let style = frame.components[iconId].name.substring(6).toLowerCase();
-
-    if (style !== 'stroke' && style !== 'fill') {
-      style = null;
-    }
-
-    let synonyms = metadata.description.split(':')[1]?.split(',');
-
-    synonyms = synonyms?.map(token => token.trim().replace('\n', ''));
-
-    const { icon } = tokens.get(key);
-
-    tokens.set(key, {
-      icon,
-      style,
-      synonyms: synonyms || []
-    });
+  } catch (error) {
+    reporter.info(error.message);
   }
 };
 
