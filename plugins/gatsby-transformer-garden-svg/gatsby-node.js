@@ -11,7 +11,30 @@ const { optimize } = require('svgo');
 
 const tokens = new Map();
 
-exports.onPreInit = async ({ reporter }, configOptions) => {
+/**
+ *
+ * Document {
+ *  id
+ *  name
+ *  type
+ *  children
+ * }
+ *
+ * Components {
+ *  id: {
+ *   key,
+ *   name,
+ *   description
+ *  }
+ * }
+ *
+ * Response {
+ *  document: Document,
+ *  components: Components
+ * }
+ *
+ */
+async function getFigmaNodes(configOptions) {
   const { figmaApiToken, fileId, nodeId } = configOptions;
   const baseURL = 'https://api.figma.com/v1';
   const headers = {
@@ -19,61 +42,125 @@ exports.onPreInit = async ({ reporter }, configOptions) => {
     'X-FIGMA-TOKEN': figmaApiToken
   };
 
+  const fileResponse = await fetch(`${baseURL}/files/${fileId}/nodes?ids=${nodeId}`, { headers });
+  const { nodes } = await fileResponse.json();
+  const frame = nodes[Object.keys(nodes)[0]];
+
+  return frame;
+}
+
+/**
+ * @param {string} iconName expected format '_[Match match] - 16px icon'
+ *
+ * @returns the extracted SVG file basename; ex. '[match-match]'
+ */
+const getBasename = iconName => {
+  const regex = /_*(?<icon>.*)\s+-/u;
+  const match = iconName.trim().toLowerCase().match(regex);
+
+  if (!match) {
+    throw new Error(`Failed to match known icon format for ${iconName}`);
+  }
+
+  return match.groups.icon.replace(/\s+/gu, '-');
+};
+
+/**
+ * @param {string} nodeName expected format '[Match match] Token',
+ *
+ * @returns the extracted token; ex. '[match match]'
+ */
+const getTokenName = nodeName => {
+  const regex = /(?<token>.*)\s+token/u;
+  const match = nodeName.trim().toLowerCase().match(regex);
+
+  if (!match) {
+    throw new Error(`Failed to match known token format for ${nodeName}`);
+  }
+
+  return match.groups.token.replace(/\s\s+/u, ' ');
+};
+
+/**
+ * @param {string} list expected format 'alt search terms: [Match match]',
+ *
+ * @returns synonyms seperated by commas
+ */
+const getSynonyms = list => {
+  const regex = /alt search terms:\s(?<synonyms>.*)/u;
+  const match = list.trim().toLowerCase().match(regex);
+
+  return match?.groups.synonyms.replace(/,\s+/gu, ',') || '';
+};
+
+/**
+ * @param {string} nodeName expected format '[Match match] Token',
+ *
+ * @returns the extracted token; ex. '[match match]'
+ */
+const getStyle = name => {
+  const regex = /style=(?<style>.*)/u;
+  const match = name.trim().toLowerCase().match(regex);
+
+  return match?.groups.style || null;
+};
+
+exports.onPreInit = async ({ reporter }, configOptions) => {
   try {
-    const fileResponse = await fetch(`${baseURL}/files/${fileId}/nodes?ids=${nodeId}`, { headers });
-    const { nodes } = await fileResponse.json();
-    const frame = nodes[Object.keys(nodes)[0]];
-    const { children } = frame.document;
+    const { components, document } = await getFigmaNodes(configOptions);
+    const nodes = document.children;
 
-    for (const node of children) {
-      if (node.type === 'COMPONENT') {
-        const name = node.name.replace(/(?:\s+token)/u, '').toLowerCase();
-        const id = node.id;
-        const iconId = node.children[0]?.componentId;
+    /**
+     *
+     * Node {
+     *  id,
+     *  name,
+     *  type,
+     *  children
+     * }
+     *
+     */
+    const parseNode = node => {
+      const tokenName = getTokenName(node.name);
 
-        if (!iconId) {
-          // have a better description later
-          reporter.info(`Skipped ${name}; can't find iconId`);
-          continue;
-        }
+      const iconNode = node.children[0];
+      const iconName = getBasename(iconNode.name);
+      const iconComponentId = iconNode.componentId;
 
-        const icon = node.children[0].name
-          // .replace(/\s+?(?:_)(?:\s+-.*)/gu, '')
-          .split('-')[0]
-          .trim()
-          .replace('_', '')
-          .replace(/\s/gu, '-')
-          .toLowerCase();
+      const iconComponent = components[iconComponentId];
+      const style = getStyle(iconComponent.name);
 
-        reporter.info(`Fetched ${name} -> ${icon}`);
-        tokens.set(name, {
-          id,
-          iconId,
-          icon
-        });
-      }
-    }
+      const component = components[node.id];
+      const synonyms = getSynonyms(component.description)?.split(',');
 
-    for (const [key, value] of tokens) {
-      const { id, iconId } = value;
-      const metadata = frame.components[id];
-      let style = frame.components[iconId].name.substring(6).toLowerCase();
-
-      if (style !== 'stroke' && style !== 'fill') {
-        style = null;
-      }
-
-      let synonyms = metadata.description.split(':')[1]?.split(',');
-
-      synonyms = synonyms?.map(token => token.trim().replace('\n', ''));
-
-      const { icon } = tokens.get(key);
-
-      tokens.set(key, {
-        icon,
+      tokens.set(tokenName, {
+        icon: iconName,
         style,
         synonyms
       });
+
+      reporter.info(`Fetched ${tokenName} -> ${iconName}`);
+    };
+
+    // Performs a breadth-first search for `COMPONENT` type nodes.
+    const queue = [nodes];
+
+    while (queue.length) {
+      const currentNode = queue.shift();
+      // Have store the length within a vairable,
+      // because the length could be mutated while traversing through the nodes.
+      const length = currentNode.length;
+
+      for (let i = 0; i < length; i++) {
+        const node = currentNode[i];
+
+        if (node?.children) {
+          if (node.type === 'COMPONENT') {
+            parseNode(node);
+          }
+          queue.push(currentNode[i].children);
+        }
+      }
     }
   } catch (error) {
     reporter.info(error.message);

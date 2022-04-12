@@ -131,8 +131,10 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
 
         return edge.node.name.trim().toLowerCase().includes(formattedSearchValue);
       })
-      .map(edge => {
-        return <Icon key={edge.node.name} {...edge} />;
+      .map((edge: any) => {
+        const token = edge.node.childGardenSvg.token;
+
+        return <Icon key={token ? `${token}:${edge.node.name}` : edge.node.name} {...edge} />;
       });
   }, [data.edges, inputValue]);
 
