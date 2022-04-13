@@ -115,6 +115,9 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
   const [collapsed, setCollapsed] = useState(true);
   const debounceRef = useRef<DebouncedFunc<ChangeHandler>>();
 
+  // eslint-disable-next-line no-console
+  console.log(data.edges);
+
   const icons = useMemo(() => {
     return data.edges
       .filter(edge => {
