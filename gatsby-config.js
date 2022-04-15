@@ -135,8 +135,8 @@ module.exports = {
       resolve: 'gatsby-transformer-garden-svg',
       options: {
         figmaApiToken: process.env.FIGMA_TOKEN,
-        fileId: '6g87L4FdKZTA3knt3Rsfdx',
-        nodeId: '6473:32955'
+        fileId: 'HifWgSrdeTlMMXUrcnrAAH',
+        nodeId: '909:11204'
       }
     },
     `gatsby-plugin-react-helmet`,

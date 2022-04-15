@@ -82,6 +82,7 @@ interface ISvgSearchProps {
   data: {
     edges: ISvgNodeProps[];
   };
+  collapsible: boolean;
 }
 
 type ChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -110,9 +111,9 @@ const Icon = (edge: ISvgNodeProps) => {
   );
 };
 
-export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) => {
+export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled, collapsible }) => {
   const [inputValue, setInputValue] = useState('');
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(!collapsible);
   const debounceRef = useRef<DebouncedFunc<ChangeHandler>>();
 
   // eslint-disable-next-line no-console
@@ -207,5 +208,6 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
 };
 
 SvgSearch.defaultProps = {
-  searchEnabled: true
+  searchEnabled: true,
+  collapsible: false
 };

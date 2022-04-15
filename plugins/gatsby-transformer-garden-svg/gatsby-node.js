@@ -12,44 +12,6 @@ const { optimize } = require('svgo');
 const tokens = new Map();
 
 /**
- *
- * Document {
- *  id
- *  name
- *  type
- *  children
- * }
- *
- * Components {
- *  id: {
- *   key,
- *   name,
- *   description
- *  }
- * }
- *
- * Response {
- *  document: Document,
- *  components: Components
- * }
- *
- */
-async function getFigmaNodes(configOptions) {
-  const { figmaApiToken, fileId, nodeId } = configOptions;
-  const baseURL = 'https://api.figma.com/v1';
-  const headers = {
-    'Content-Type': 'application/json',
-    'X-FIGMA-TOKEN': figmaApiToken
-  };
-
-  const fileResponse = await fetch(`${baseURL}/files/${fileId}/nodes?ids=${nodeId}`, { headers });
-  const { nodes } = await fileResponse.json();
-  const frame = nodes[Object.keys(nodes)[0]];
-
-  return frame;
-}
-
-/**
  * @param {string} iconName expected format '_[Match match] - 16px icon'
  *
  * @returns the extracted SVG file basename; ex. '[match-match]'
@@ -105,6 +67,51 @@ const getStyle = name => {
   return match?.groups.style || null;
 };
 
+/**
+ *
+ * {
+ *  document {
+ *   id,
+ *   name,
+ *   type,
+ *   children,
+ *   componentId,
+ *   ...
+ *  },
+ *  components: {
+ *   id: {
+ *    key,
+ *    name,
+ *    description
+ *    ...
+ *   }
+ *  },
+ *  componentSets: {
+ *    id: {
+ *    key,
+ *    name,
+ *    description
+ *    ...
+ *  }
+ * }
+ *
+ *
+ */
+async function getFigmaNodes(configOptions) {
+  const { figmaApiToken, fileId, nodeId } = configOptions;
+  const baseURL = 'https://api.figma.com/v1';
+  const headers = {
+    'Content-Type': 'application/json',
+    'X-FIGMA-TOKEN': figmaApiToken
+  };
+
+  const fileResponse = await fetch(`${baseURL}/files/${fileId}/nodes?ids=${nodeId}`, { headers });
+  const { nodes } = await fileResponse.json();
+  const frame = nodes[Object.keys(nodes)[0]];
+
+  return frame;
+}
+
 exports.onPreInit = async ({ reporter }, configOptions) => {
   try {
     const { components, document } = await getFigmaNodes(configOptions);
@@ -119,18 +126,30 @@ exports.onPreInit = async ({ reporter }, configOptions) => {
      *  children
      * }
      *
+     * Depending on the node type, there can have additonal
+     * properties associated with it depending on its node type.
+     *
      */
     const parseNode = node => {
       const tokenName = getTokenName(node.name);
 
       const iconNode = node.children[0];
       const iconName = getBasename(iconNode.name);
-      const iconComponentId = iconNode.componentId;
+      const iconComponentId = iconNode?.componentId;
+
+      if (!iconComponentId) {
+        throw new Error("Failed to get Icon's componentId");
+      }
 
       const iconComponent = components[iconComponentId];
       const style = getStyle(iconComponent.name);
 
-      const component = components[node.id];
+      const component = components[node.componentId];
+
+      if (!component) {
+        throw new Error(`Failed to get component for node: ${node.id}`);
+      }
+
       const synonyms = getSynonyms(component.description)?.split(',');
 
       tokens.set(tokenName, {
@@ -147,7 +166,7 @@ exports.onPreInit = async ({ reporter }, configOptions) => {
 
     while (queue.length) {
       const currentNode = queue.shift();
-      // Have store the length within a vairable,
+      // Have to store the length within a vairable,
       // because the length could be mutated while traversing through the nodes.
       const length = currentNode.length;
 
@@ -155,13 +174,17 @@ exports.onPreInit = async ({ reporter }, configOptions) => {
         const node = currentNode[i];
 
         if (node?.children) {
-          if (node.type === 'COMPONENT') {
+          // The second condition ensure it's not a inner-instance, which is the icon itself.
+          if (node.type === 'INSTANCE' && node.id.charAt(0) !== 'I') {
             parseNode(node);
           }
-          queue.push(currentNode[i].children);
+          queue.push(node.children);
         }
       }
     }
+
+    // eslint-disable-next-line no-console
+    console.log(tokens);
   } catch (error) {
     reporter.info(error.message);
   }
@@ -176,6 +199,8 @@ const getToken = nodeName => {
 
     if (variant === nodeName) {
       cache.add(key);
+      // eslint-disable-next-line no-console
+      console.log(key);
 
       return {
         token: key,
