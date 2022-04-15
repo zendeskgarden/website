@@ -10,7 +10,6 @@ on:
       type: string
 
 env:
-  NODE_ENV: development
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
   NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -23,36 +22,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         ref: ${{ github.event.inputs.branch }}
-        # https://github.com/actions/checkout/blob/main/src/input-helper.ts#L103
-        submodules: 'TRUE'
 
-      - name: Setup
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
 
-      # https://github.com/actions/setup-node/issues/182
-      - name: Install Yarn
-        run: npm install --global yarn
-
-      - name: Install
+      - name: build
         run: yarn
 
-      - name: Test
+      - name: test
         run: yarn test
 
-      - name: Build
-        env:
-          NODE_ENV: production
-        run: yarn build
-
-      - name: Deploy Production
-        if: ${{ github.ref == 'refs/heads/main' }}
-        # https://github.com/zendeskgarden/scripts/tree/main/src/netlify/deploy#command
-        run: yarn garden netlify-deploy public --production --message "https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
-
-      - name: Deploy Draft
-        if: ${{ github.ref != 'refs/heads/main' }}
-        # https://github.com/zendeskgarden/scripts/tree/main/src/netlify/deploy#command
-        run: yarn garden netlify-deploy public --message "https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
+      - name: deploy
+        run: scripts/deploy.js
