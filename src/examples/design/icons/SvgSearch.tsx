@@ -113,11 +113,11 @@ const Icon = (edge: ISvgNodeProps) => {
 
 export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled, collapsible }) => {
   const [inputValue, setInputValue] = useState('');
-  const [collapsed, setCollapsed] = useState(!collapsible);
+  const [collapsed, setCollapsed] = useState(collapsible);
   const debounceRef = useRef<DebouncedFunc<ChangeHandler>>();
 
   // eslint-disable-next-line no-console
-  console.log(data.edges);
+  console.log(data);
 
   const icons = useMemo(() => {
     return data.edges
