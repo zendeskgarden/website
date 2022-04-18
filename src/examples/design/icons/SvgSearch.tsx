@@ -70,9 +70,11 @@ interface ISvgNodeProps {
     name: string;
     relativeDirectory: string;
     childGardenSvg: {
-      synonyms?: string[];
-      token?: string;
       content: string;
+    };
+    fields: {
+      token?: string;
+      synonyms?: string[];
     };
   };
 }
@@ -88,8 +90,7 @@ interface ISvgSearchProps {
 type ChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 const Icon = (edge: ISvgNodeProps) => {
-  const token = edge.node.childGardenSvg.token;
-  const synonyms = edge.node.childGardenSvg.synonyms;
+  const { token, synonyms } = edge.node.fields || {};
 
   return (
     <StyledCol lg={3} md={4} xs={6}>
@@ -136,7 +137,7 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled, coll
         return edge.node.name.trim().toLowerCase().includes(formattedSearchValue);
       })
       .map((edge: any) => {
-        const token = edge.node.childGardenSvg.token;
+        const token = (edge.node.fields || {}).token;
 
         return <Icon key={token ? `${token}:${edge.node.name}` : edge.node.name} {...edge} />;
       });

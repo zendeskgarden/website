@@ -45,22 +45,22 @@ export const pageQuery = graphql`
     }
     tokens: allFile(
       filter: {
-        childrenGardenSvg: { elemMatch: { token: { ne: "" } } }
         sourceInstanceName: { eq: "svg-icons" }
+        fields: { token: { ne: "" } }
         relativeDirectory: { eq: "16" }
         name: { glob: "!wordmark-*" }
       }
-      sort: { fields: name, order: ASC }
     ) {
       totalCount
       edges {
         node {
           name
-          relativeDirectory
           childGardenSvg {
-            synonyms
             content
+          }
+          fields {
             token
+            synonyms
           }
         }
       }

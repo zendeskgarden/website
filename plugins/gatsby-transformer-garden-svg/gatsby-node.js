@@ -251,7 +251,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.onCreateNode = async ({
   node,
-  actions: { createNode, createParentChildLink },
+  actions: { createNode, createNodeField, createParentChildLink },
   loadNodeContent,
   createNodeId,
   createContentDigest
@@ -274,9 +274,21 @@ exports.onCreateNode = async ({
   const svgNode = gardenSvgNode({
     id: `${node.relativeDirectory}-${node.name}`,
     parent: node.id,
-    token: tokenData?.token ? tokenData.token : '',
-    synonyms: tokenData?.synonyms ? tokenData.synonyms : [],
+    // token: tokenData?.token ? tokenData.token : '',
+    // synonyms: tokenData?.synonyms ? tokenData.synonyms : [],
     ...parsedContent
+  });
+
+  createNodeField({
+    node,
+    name: 'token',
+    value: tokenData?.token ? tokenData.token : ''
+  });
+
+  createNodeField({
+    node,
+    name: 'synonyms',
+    value: tokenData?.synonyms ? tokenData.synonyms : []
   });
 
   // eslint-disable-next-line no-console
