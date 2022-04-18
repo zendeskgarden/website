@@ -1,16 +1,15 @@
 ---
-title: Icon Library
+title: Chrome Icons
 ---
 
 import { graphql } from 'gatsby';
 
-### All Icons
-
-This is a list of all the icons in the Garden library, independent of context.
+Below are all the icons currently available to use in the [Chrome](/components/chrome) component.
+These icons should only be used within Chrome.
 
 import { SvgSearch } from '../../../examples/design/icons/SvgSearch';
 
-<SvgSearch data={props.data.svgIcons} collapsible />
+<SvgSearch data={props.data.svgIcons} />
 
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
@@ -18,7 +17,7 @@ export const pageQuery = graphql`
     svgIcons: allFile(
       filter: {
         sourceInstanceName: { eq: "svg-icons" }
-        relativeDirectory: { eq: "16" }
+        relativeDirectory: { eq: "26" }
         name: { glob: "!wordmark-*" }
       }
       sort: { fields: name, order: ASC }
