@@ -4,13 +4,22 @@ title: Icon Library
 
 import { graphql } from 'gatsby';
 
+### Tokens
+
+Icon tokens represent specific concepts in Zendesk products.
+Before adding an icon to your project, check the list below to see if the
+concept has an icon token associated with it.
+
+<SvgSearch data={props.data.tokens} />
+
 ### All Icons
 
 This is a list of all the icons in the Garden library, independent of context.
+Use these icons only if you can’t find a suitable token.
 
 import { SvgSearch } from '../../../examples/design/icons/SvgSearch';
 
-<SvgSearch data={props.data.svgIcons} />
+<SvgSearch data={props.data.svgIcons} collapsible />
 
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
@@ -30,6 +39,28 @@ export const pageQuery = graphql`
           relativeDirectory
           childGardenSvg {
             content
+          }
+        }
+      }
+    }
+    tokens: allFile(
+      filter: {
+        childrenGardenSvg: { elemMatch: { token: { ne: "" } } }
+        sourceInstanceName: { eq: "svg-icons" }
+        relativeDirectory: { eq: "16" }
+        name: { glob: "!wordmark-*" }
+      }
+      sort: { fields: name, order: ASC }
+    ) {
+      totalCount
+      edges {
+        node {
+          name
+          relativeDirectory
+          childGardenSvg {
+            synonyms
+            content
+            token
           }
         }
       }

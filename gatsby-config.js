@@ -131,7 +131,14 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
     `gatsby-transformer-yaml`,
-    `gatsby-transformer-garden-svg`,
+    {
+      resolve: 'gatsby-transformer-garden-svg',
+      options: {
+        figmaApiToken: process.env.FIGMA_TOKEN,
+        fileId: 'HifWgSrdeTlMMXUrcnrAAH',
+        nodeId: '909:11204'
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-algolia-docsearch`,
     {
