@@ -271,6 +271,11 @@ exports.onCreateNode = async ({
   const parsedContent = parseSvg(content);
   const tokenData = getToken(node.name);
 
+  if (tokenData) {
+    // eslint-disable-next-line no-console
+    console.log(tokenData);
+  }
+
   const svgNode = gardenSvgNode({
     id: `${node.relativeDirectory}-${node.name}`,
     parent: node.id,
@@ -290,9 +295,6 @@ exports.onCreateNode = async ({
     name: 'synonyms',
     value: tokenData?.synonyms ? tokenData.synonyms : []
   });
-
-  // eslint-disable-next-line no-console
-  console.log(svgNode);
 
   createNode(svgNode);
   createParentChildLink({ parent: node, child: svgNode });
