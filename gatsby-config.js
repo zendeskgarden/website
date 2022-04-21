@@ -139,6 +139,14 @@ module.exports = {
         nodeId: '909:11204'
       }
     },
+    {
+      resolve: 'gatsby-source-tokens',
+      options: {
+        figmaApiToken: process.env.FIGMA_TOKEN,
+        fileId: 'HifWgSrdeTlMMXUrcnrAAH',
+        nodeId: '909:11204'
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-algolia-docsearch`,
     {

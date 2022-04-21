@@ -10,7 +10,9 @@ Icon tokens represent specific concepts in Zendesk products.
 Before adding an icon to your project, check the list below to see if the
 concept has an icon token associated with it.
 
-<SvgSearch data={props.data.tokens} />
+import { TokenSearch } from '../../../examples/design/icons/TokenSearch';
+
+<TokenSearch data={props.data.tokens} icons={props.data.svgIcons.edges} />
 
 ### All Icons
 
@@ -43,25 +45,14 @@ export const pageQuery = graphql`
         }
       }
     }
-    tokens: allFile(
-      filter: {
-        sourceInstanceName: { eq: "svg-icons" }
-        fields: { token: { ne: "" } }
-        relativeDirectory: { eq: "16" }
-        name: { glob: "!wordmark-*" }
-      }
-    ) {
+    tokens: allIconToken {
       totalCount
       edges {
         node {
-          name
-          childGardenSvg {
-            content
-          }
-          fields {
-            token
-            synonyms
-          }
+          style
+          synonyms
+          icon
+          id
         }
       }
     }
