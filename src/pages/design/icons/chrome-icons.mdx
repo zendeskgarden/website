@@ -1,5 +1,5 @@
 ---
-title: Chrome Icons
+title: Chrome icons
 ---
 
 import { graphql } from 'gatsby';
@@ -9,7 +9,7 @@ These icons should only be used within Chrome.
 
 import { SvgSearch } from '../../../examples/design/icons/SvgSearch';
 
-<SvgSearch data={props.data.svgIcons} />
+<SvgSearch data={props.data.svgIcons} defaultCollapsed={false} inputPlaceholder="Search icons" />
 
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {

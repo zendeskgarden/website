@@ -10,7 +10,7 @@ import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import debounce from 'lodash/debounce';
 import type { DebouncedFunc } from 'lodash';
 import { rgba } from 'polished';
-import { Field, MediaInput, Label } from '@zendeskgarden/react-forms';
+import { Field, MediaInput } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { Code, XL } from '@zendeskgarden/react-typography';
 import { Button } from '@zendeskgarden/react-buttons';
@@ -68,7 +68,8 @@ interface ISvgSearchProps {
   data: {
     edges: ISvgNodeProps[];
   };
-  collapsible: boolean;
+  inputPlaceholder?: string;
+  defaultCollapsed: boolean;
 }
 
 type ChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -90,9 +91,14 @@ const Icon = (edge: ISvgNodeProps) => {
   );
 };
 
-export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, collapsible, searchEnabled }) => {
+export const SvgSearch: React.FC<ISvgSearchProps> = ({
+  data,
+  defaultCollapsed,
+  inputPlaceholder,
+  searchEnabled
+}) => {
   const [inputValue, setInputValue] = useState('');
-  const [collapsed, setCollapsed] = useState(collapsible);
+  const [collapsed, setCollapsed] = useState(defaultCollapsed);
   const debounceRef = useRef<DebouncedFunc<ChangeHandler>>();
 
   const icons = useMemo(() => {
@@ -143,8 +149,11 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, collapsible, search
                 margin-bottom: ${p => p.theme.space.lg};
               `}
             >
-              <Label>Search icons</Label>
-              <MediaInput start={<SearchStroke />} onChange={onInputChange} />
+              <MediaInput
+                start={<SearchStroke />}
+                placeholder={inputPlaceholder}
+                onChange={onInputChange}
+              />
             </Field>
           </Col>
         </Row>
@@ -183,5 +192,5 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, collapsible, search
 
 SvgSearch.defaultProps = {
   searchEnabled: true,
-  collapsible: false
+  defaultCollapsed: true
 };

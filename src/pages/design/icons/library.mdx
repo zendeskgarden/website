@@ -10,7 +10,7 @@ This is a list of all the icons in the Garden library, independent of context.
 
 import { SvgSearch } from '../../../examples/design/icons/SvgSearch';
 
-<SvgSearch data={props.data.svgIcons} collapsible />
+<SvgSearch data={props.data.svgIcons} inputPlaceholder="Filter all icons" />
 
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
