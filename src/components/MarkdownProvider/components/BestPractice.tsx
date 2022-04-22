@@ -114,7 +114,6 @@ const Caption: React.FC<ICaptionProps> = props => (
 );
 
 interface ISectionProps extends ICaptionProps {
-  imageAlt: string;
   imageHeight?: number;
   imageWidth?: number;
   imageIsSquare?: boolean;
@@ -122,7 +121,7 @@ interface ISectionProps extends ICaptionProps {
   imageIsFreeForm?: boolean;
 }
 
-export const Section: React.FC<ISectionProps> = props => {
+const Section: React.FC<ISectionProps> = props => {
   if (props.imageSource) {
     const imageStyles = {
       width: props.imageWidth,
@@ -141,12 +140,12 @@ export const Section: React.FC<ISectionProps> = props => {
                 justify-content: center;
               `}
             >
-              <img alt={props.imageAlt} src={props.imageSource} style={imageStyles} />
+              <img alt="" src={props.imageSource} style={imageStyles} />
             </div>
           ) : (
             <GatsbyImage
               image={props.imageSource}
-              alt={props.imageAlt}
+              alt=""
               style={{
                 display: 'block',
                 margin: '0 auto',
@@ -164,27 +163,15 @@ export const Section: React.FC<ISectionProps> = props => {
 };
 
 export const Do: React.FC<ISectionProps> = props => (
-  <Section
-    {...props}
-    title="Do this"
-    imageAlt="do this"
-    hue="successHue"
-    icon={<CheckLgStrokeIcon />}
-  />
+  <Section {...props} title="Do this" hue="successHue" icon={<CheckLgStrokeIcon />} />
 );
 
 export const Dont: React.FC<ISectionProps> = props => (
-  <Section {...props} title="Not this" imageAlt="not this" hue="dangerHue" icon={<XStrokeIcon />} />
+  <Section {...props} title="Not this" hue="dangerHue" icon={<XStrokeIcon />} />
 );
 
 export const Caution: React.FC<ISectionProps> = props => (
-  <Section
-    {...props}
-    title="Caution"
-    imageAlt="caution"
-    hue="warningHue"
-    icon={<AlertErrorStrokeIcon />}
-  />
+  <Section {...props} title="Caution" hue="warningHue" icon={<AlertErrorStrokeIcon />} />
 );
 
 interface IBestPracticesProps {
