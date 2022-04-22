@@ -134,9 +134,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-garden-svg',
       options: {
-        figmaApiToken: process.env.FIGMA_TOKEN,
-        fileId: 'HifWgSrdeTlMMXUrcnrAAH',
-        nodeId: '909:11204'
+        figmaApiToken: process.env.FIGMA_TOKEN
       }
     },
     {

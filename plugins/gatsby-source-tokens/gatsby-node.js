@@ -91,7 +91,8 @@ const getStyle = name => {
  *  }
  * }
  *
- *
+ * Returns all the nodes within the node that's being fetched.
+ * The document contains a tree structure of all the nodes.
  */
 async function getFigmaNodes(configOptions) {
   const { figmaApiToken, fileId, nodeId } = configOptions;
@@ -128,15 +129,11 @@ exports.sourceNodes = async (
    *  children
    * }
    *
-   * Depending on the node type, there can have additional
-   * properties associated with it depending on its node type.
+   * Depending on the node type, there can have additional properties associated with it.
    *
    */
   const parseNode = node => {
     const tokenName = getTokenName(node.name);
-
-    // eslint-disable-next-line no-console
-    console.log(tokenName);
 
     const iconNode = node.children[0];
     const iconName = getBasename(iconNode.name);
@@ -198,38 +195,3 @@ exports.sourceNodes = async (
     }
   }
 };
-
-// const config = {
-//   plugins: [
-//     {
-//       name: 'addAttributesToSVGElement',
-//       params: {
-//         attributes: [{ focusable: false }, { role: 'presentation' }]
-//       }
-//     },
-//     {
-//       name: 'removeViewBox',
-//       active: false
-//     }
-//   ]
-// };
-
-// const parseSvg = svgContent => {
-//   const { data: content } = optimize(svgContent, config);
-
-//   return {
-//     content,
-//     originalContent: svgContent
-//   };
-// };
-
-// exports.onCreateNode = async ({
-//   node,
-//   actions: { createNode, createNodeField, createParentChildLink },
-//   createNodeId
-// }) => {
-//   if (node.internal.mediaType !== 'image/svg+xml') {
-//     return;
-//   }
-
-// };

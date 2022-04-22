@@ -5,10 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useMemo } from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
-import { Code, MD } from '@zendeskgarden/react-typography';
-import styled from 'styled-components';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
+import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Code, MD, XL } from '@zendeskgarden/react-typography';
+import { Field, MediaInput } from '@zendeskgarden/react-forms';
+import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
+import debounce from 'lodash/debounce';
+import type { DebouncedFunc } from 'lodash';
+import styled, { css } from 'styled-components';
 
 const StyledIconWrapper = styled.div`
   display: flex;
@@ -46,6 +50,35 @@ const StyledMD = styled(MD)`
   margin-bottom: ${p => p.theme.space.sm};
 `;
 
+interface ISvgNodeProps {
+  node: {
+    name: string;
+    relativeDirectory: string;
+    childGardenSvg: {
+      content: string;
+    };
+  };
+}
+
+interface ITokenNodeProps {
+  node: {
+    name: string;
+    id: string;
+    style?: string;
+    synonyms: string[];
+    icon?: string;
+  };
+}
+
+interface ITokenSearchProps {
+  data: {
+    edges: ITokenNodeProps[];
+  };
+  icons: ISvgNodeProps[];
+}
+
+type ChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => void;
+
 const Icon = (props: any) => {
   const { icon: iconName, id: token, svg, synonyms } = props;
 
@@ -68,35 +101,86 @@ const Icon = (props: any) => {
   );
 };
 
-export const TokenSearch: React.FC<any> = ({ data, icons }) => {
-  const [inputValue] = useState('');
+export const TokenSearch: React.FC<ITokenSearchProps> = ({ data, icons }) => {
+  const [inputValue, setInputValue] = useState('');
+  const debounceRef = useRef<DebouncedFunc<ChangeHandler>>();
 
   const tokens = useMemo(() => {
-    return data.edges
-      .filter((edge: any) => {
-        const formattedSearchValue = inputValue.trim().toLowerCase();
+    const nodes = [];
+    const filteredEdges = data.edges.filter((edge: ITokenNodeProps) => {
+      const formattedSearchValue = inputValue.trim().toLowerCase();
 
-        // Returns every icons, since the search value is empty.
-        if (formattedSearchValue.length === 0) {
-          return true;
+      // Returns every icons, since the search value is empty.
+      if (formattedSearchValue.length === 0) {
+        return true;
+      }
+
+      return edge.node.id.trim().toLowerCase().includes(formattedSearchValue);
+    });
+
+    for (const edge of filteredEdges) {
+      const iconNode = icons.find((icon: ISvgNodeProps) => {
+        if (edge.node.style) {
+          return icon.node.name === `${edge.node.icon}-${edge.node.style}`;
         }
 
-        return edge.node.id.trim().toLowerCase().includes(formattedSearchValue);
-      })
-      .map((edge: any) => {
-        const iconNode = icons.find((icon: any) => {
-          if (edge.node.style) {
-            return icon.node.name === `${edge.node.icon}-${edge.node.style}`;
-          }
+        return icon.node.name === edge.node.icon;
+      });
 
-          return icon.node.name === edge.node.icon;
-        });
-
+      if (iconNode) {
         const svg = iconNode?.node.childGardenSvg.content;
 
-        return <Icon key={edge.node.id} {...{ ...edge.node, svg }} />;
-      });
+        nodes.push(<Icon key={edge.node.id} {...{ ...edge.node, svg }} />);
+      }
+    }
+
+    return nodes;
   }, [data.edges, inputValue, icons]);
 
-  return <StyledTokenContainer>{tokens}</StyledTokenContainer>;
+  const onInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      debounceRef.current!(event);
+    },
+    [debounceRef]
+  );
+
+  useEffect(() => {
+    debounceRef.current = debounce((event: React.ChangeEvent<HTMLInputElement>) => {
+      setInputValue(event.target.value);
+    }, 300);
+
+    return () => {
+      debounceRef.current!.cancel();
+    };
+  }, []);
+
+  return (
+    <div>
+      <Grid>
+        <Row>
+          <Col size={8}>
+            <Field
+              css={css`
+                margin-bottom: ${p => p.theme.space.lg};
+              `}
+            >
+              <MediaInput
+                start={<SearchStroke />}
+                onChange={onInputChange}
+                placeholder="Filter tokens"
+              />
+            </Field>
+          </Col>
+        </Row>
+        <StyledTokenContainer>{tokens}</StyledTokenContainer>
+        {tokens.length === 0 && (
+          <StyledRow>
+            <StyledCol textAlign="center">
+              <XL>No tokens found</XL>
+            </StyledCol>
+          </StyledRow>
+        )}
+      </Grid>
+    </div>
+  );
 };

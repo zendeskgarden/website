@@ -12,7 +12,7 @@ import type { DebouncedFunc } from 'lodash';
 import { rgba } from 'polished';
 import { Field, MediaInput, Label } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
-import { Code, MD, XL } from '@zendeskgarden/react-typography';
+import { Code, XL } from '@zendeskgarden/react-typography';
 import { Button } from '@zendeskgarden/react-buttons';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import styled, { css } from 'styled-components';
@@ -30,18 +30,6 @@ const StyledSvgWrapper = styled.div<{ isAnswerBot?: boolean }>`
   margin: 0 0 ${p => p.theme.space.sm};
   fill: ${p => p.isAnswerBot && PALETTE.kale[700]};
   color: ${p => p.isAnswerBot && '#d6eef1'};
-`;
-
-const StyledMD = styled(MD)`
-  &::first-letter {
-    text-transform: uppercase;
-  }
-  margin-top: ${p => p.theme.space.sm};
-  margin-bottom: ${p => p.theme.space.sm};
-`;
-
-const StyledHiddenParagraph = styled.p`
-  display: none;
 `;
 
 const StyledGradient = styled.div`
@@ -72,10 +60,6 @@ interface ISvgNodeProps {
     childGardenSvg: {
       content: string;
     };
-    fields: {
-      token?: string;
-      synonyms?: string[];
-    };
   };
 }
 
@@ -84,18 +68,15 @@ interface ISvgSearchProps {
   data: {
     edges: ISvgNodeProps[];
   };
-  collapsible: boolean;
+  defaultCollapsed: boolean;
 }
 
 type ChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 const Icon = (edge: ISvgNodeProps) => {
-  const { token, synonyms } = edge.node.fields || {};
-
   return (
     <StyledCol lg={3} md={4} xs={6}>
       <StyledIconWrapper>
-        {token && <StyledMD>{token}</StyledMD>}
         <StyledSvgWrapper
           isAnswerBot={edge.node.name === 'answer-bot'}
           // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -104,21 +85,15 @@ const Icon = (edge: ISvgNodeProps) => {
         <Code size="small" title={edge.node.name}>
           {edge.node.name}
         </Code>
-        {synonyms?.map(name => (
-          <StyledHiddenParagraph key={name}>{name}</StyledHiddenParagraph>
-        ))}
       </StyledIconWrapper>
     </StyledCol>
   );
 };
 
-export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled, collapsible }) => {
+export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled, defaultCollapsed }) => {
   const [inputValue, setInputValue] = useState('');
-  const [collapsed, setCollapsed] = useState(collapsible);
+  const [collapsed, setCollapsed] = useState(defaultCollapsed);
   const debounceRef = useRef<DebouncedFunc<ChangeHandler>>();
-
-  // eslint-disable-next-line no-console
-  console.log(data);
 
   const icons = useMemo(() => {
     return data.edges
@@ -137,9 +112,7 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled, coll
         return edge.node.name.trim().toLowerCase().includes(formattedSearchValue);
       })
       .map((edge: any) => {
-        const token = (edge.node.fields || {}).token;
-
-        return <Icon key={token ? `${token}:${edge.node.name}` : edge.node.name} {...edge} />;
+        return <Icon key={edge.node.name} {...edge} />;
       });
   }, [data.edges, inputValue]);
 
@@ -210,5 +183,5 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled, coll
 
 SvgSearch.defaultProps = {
   searchEnabled: true,
-  collapsible: false
+  defaultCollapsed: true
 };
