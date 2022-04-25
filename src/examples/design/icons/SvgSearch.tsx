@@ -10,7 +10,7 @@ import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import debounce from 'lodash/debounce';
 import type { DebouncedFunc } from 'lodash';
 import { rgba } from 'polished';
-import { Field, MediaInput } from '@zendeskgarden/react-forms';
+import { Field, MediaInput, Label } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { Code, XL } from '@zendeskgarden/react-typography';
 import { Button } from '@zendeskgarden/react-buttons';
@@ -149,6 +149,7 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({
                 margin-bottom: ${p => p.theme.space.lg};
               `}
             >
+              <Label hidden>Search icons</Label>
               <MediaInput
                 start={<SearchStroke />}
                 placeholder={inputPlaceholder}
