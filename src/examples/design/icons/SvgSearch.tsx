@@ -68,6 +68,8 @@ interface ISvgSearchProps {
   data: {
     edges: ISvgNodeProps[];
   };
+  inputPlaceholder?: string;
+  defaultCollapsed: boolean;
 }
 
 type ChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -89,9 +91,14 @@ const Icon = (edge: ISvgNodeProps) => {
   );
 };
 
-export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) => {
+export const SvgSearch: React.FC<ISvgSearchProps> = ({
+  data,
+  defaultCollapsed,
+  inputPlaceholder,
+  searchEnabled
+}) => {
   const [inputValue, setInputValue] = useState('');
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(defaultCollapsed);
   const debounceRef = useRef<DebouncedFunc<ChangeHandler>>();
 
   const icons = useMemo(() => {
@@ -142,8 +149,12 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
                 margin-bottom: ${p => p.theme.space.lg};
               `}
             >
-              <Label>Search icons</Label>
-              <MediaInput start={<SearchStroke />} onChange={onInputChange} />
+              <Label hidden>Search icons</Label>
+              <MediaInput
+                start={<SearchStroke />}
+                placeholder={inputPlaceholder}
+                onChange={onInputChange}
+              />
             </Field>
           </Col>
         </Row>
@@ -181,5 +192,6 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, searchEnabled }) =>
 };
 
 SvgSearch.defaultProps = {
-  searchEnabled: true
+  searchEnabled: true,
+  defaultCollapsed: true
 };
