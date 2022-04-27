@@ -37,8 +37,9 @@ const [col4, col6, px380, px480] = [
 ];
 
 const Example = () => {
-  const [size, setSheetSize] =
-    useState<{ label: string; sheet: string; cols: string | number }>(px380);
+  const [size, setSheetSize] = useState<{ label: string; sheet: string; cols: string | number }>(
+    px380
+  );
 
   return (
     <Grid gutters={false}>
