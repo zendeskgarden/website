@@ -34,8 +34,8 @@ const StyledSheet = styled(Sheet)`
 `;
 
 const Example = () => {
-  const [sheetId] = useState('sheet-example');
-  const [isSheetOpen, setSheetOpen] = useState(true);
+  const sheetId = 'sheet-example';
+  const [isSheetOpen, setIsSheetOpen] = useState(true);
 
   return (
     <Grid gutters={false}>
@@ -44,7 +44,7 @@ const Example = () => {
           <StyledField>
             <Toggle
               checked={isSheetOpen}
-              onChange={() => setSheetOpen(!isSheetOpen)}
+              onChange={() => setIsSheetOpen(!isSheetOpen)}
               aria-controls={sheetId}
             >
               <Label>Show Sheet</Label>
@@ -85,13 +85,13 @@ const Example = () => {
               <Button>Action</Button>
             </Sheet.FooterItem>
             <Sheet.FooterItem>
-              <Button isPrimary onClick={() => setSheetOpen(false)}>
+              <Button isPrimary onClick={() => setIsSheetOpen(false)}>
                 Close
               </Button>
             </Sheet.FooterItem>
           </Sheet.Footer>
 
-          <Sheet.Close onClick={() => setSheetOpen(false)} />
+          <Sheet.Close onClick={() => setIsSheetOpen(false)} />
         </StyledSheet>
       </StyledRow>
     </Grid>

@@ -29,10 +29,10 @@ const StyledContainer = styled.div`
 `;
 
 const Example = () => {
-  const [currentStep, setStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0);
 
-  const onNext = () => setStep(currentStep + 1);
-  const onBack = () => setStep(currentStep - 1);
+  const onNext = () => setCurrentStep(currentStep + 1);
+  const onBack = () => setCurrentStep(currentStep - 1);
 
   const allSteps = [
     {
