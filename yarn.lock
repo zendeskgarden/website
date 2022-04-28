@@ -3750,10 +3750,10 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-6.4.5.tgz#b51a50046f42a11b8d1bfec46e100b02fd6fc1d9"
   integrity sha512-vX7vDJVQoyYFUshYXXX5QE2fL9M6K2bnxTeB2IVyEIaGRYEi20xjoY6cuO1uAQ7RaIRGCSyZFKgWW+/IrlQMKg==
 
-"@zendeskgarden/eslint-config@27.0.1":
-  version "27.0.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-27.0.1.tgz#bba832d3d17a641d9652c7e96ecd4e3dc3d64c40"
-  integrity sha512-osAkgiyczyhs62ouELlMG+CK9O06lxn/7uwR4CXrJ+t9DG64HMy+D8BCMREmGBE1wttoaySbF8FrUQlatxY/Ww==
+"@zendeskgarden/eslint-config@28.0.0":
+  version "28.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-28.0.0.tgz#e8bf01853fab06b6ebc5c03d6c5dbee4659ebdb4"
+  integrity sha512-5UsrMXixuoBHTGnP823p6BnBB/MgSFS2sCSyoyns6SpbNrvFZMJWwJSgZODNwt5HSXKsw8Kp/226yb0LTtoHiQ==
 
 "@zendeskgarden/react-accordions@8.49.4":
   version "8.49.4"
@@ -4004,10 +4004,10 @@
     react-docgen-typescript "2.1.1"
     typescript "4.4.4"
 
-"@zendeskgarden/stylelint-config@17.0.0":
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-17.0.0.tgz#16c87f656ef00408a2feaccd47be6bcee6d60554"
-  integrity sha512-SaoOECirhXxLkqSNIlkqrRFl8AgiDthltxi6iN5QUxsA3QkCXIHM8HCQumkw6ZcU41boIjgIoTucf9D9uh5Jsg==
+"@zendeskgarden/stylelint-config@19.0.0":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-19.0.0.tgz#7ff946acb4aa4d6d258325f78c7700be11a93c37"
+  integrity sha512-fCcAi4zoeFH0gcOK85HHSZk0Bne3WNePMAb/61hoaJoP4YIJD+GzVV+BSoZFPJP+/7InB0nOyn+dzj0+iOUBag==
 
 "@zendeskgarden/svg-icons@6.32.0":
   version "6.32.0"

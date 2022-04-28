@@ -37,9 +37,7 @@ const [col4, col6, px380, px480] = [
 ];
 
 const Example = () => {
-  const [size, setSheetSize] = useState<{ label: string; sheet: string; cols: string | number }>(
-    px380
-  );
+  const [size, setSize] = useState<{ label: string; sheet: string; cols: string | number }>(px380);
 
   return (
     <Grid gutters={false}>
@@ -49,7 +47,7 @@ const Example = () => {
             <StyledFieldset.Legend>Sheet size</StyledFieldset.Legend>
             {[col4, col6, px380, px480].map(sampleSize => (
               <Field key={`sizes-${sampleSize.label.replace(' ', '-')}`}>
-                <Radio checked={size === sampleSize} onChange={() => setSheetSize(sampleSize)}>
+                <Radio checked={size === sampleSize} onChange={() => setSize(sampleSize)}>
                   <Label>{sampleSize.label}</Label>
                 </Radio>
               </Field>

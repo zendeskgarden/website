@@ -34,11 +34,11 @@ const StyledSheet = styled(Sheet)`
 `;
 
 const Example = () => {
-  const [placement, setSheetPlacement] = useState<'start' | 'end'>('start');
+  const [placement, setPlacement] = useState<'start' | 'end'>('start');
 
   const toggleSheetPlacement = useCallback(() => {
-    if (placement === 'end') setSheetPlacement('start');
-    if (placement === 'start') setSheetPlacement('end');
+    if (placement === 'end') setPlacement('start');
+    if (placement === 'start') setPlacement('end');
   }, [placement]);
 
   return (
