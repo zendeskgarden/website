@@ -29,7 +29,7 @@ jobs:
           cache: 'yarn'
 
       - name: build
-        run: yarn
+        run: yarn --frozen-lockfile
 
       - name: test
         run: yarn test
