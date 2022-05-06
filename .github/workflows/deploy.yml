@@ -1,0 +1,38 @@
+name: Deployment
+
+on:
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
+  workflow_dispatch:
+    branch:
+      description: 'The branch to deploy'
+      default: 'main'
+      required: false
+      type: string
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v3
+        ref: ${{ github.event.inputs.branch }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: build
+        run: yarn --frozen-lockfile
+
+      - name: test
+        run: yarn test
+
+      - name: deploy
+        run: scripts/deploy.js
