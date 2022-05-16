@@ -120,7 +120,7 @@ const Example = () => {
                       setFocusedRowIndex(index);
                     }}
                   >
-                    <Label hidden>Select ticket #{index}</Label>
+                    <Label hidden>Select ticket for {data[index].fruit}</Label>
                   </Checkbox>
                 </Field>
               </Cell>
