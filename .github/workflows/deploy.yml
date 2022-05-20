@@ -3,11 +3,12 @@ name: Deployment
 on:
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
   workflow_dispatch:
-    branch:
-      description: 'The branch to deploy'
-      default: 'main'
-      required: false
-      type: string
+    inputs:
+      branch:
+        description: 'The branch to deploy'
+        default: 'main'
+        required: false
+        type: string
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -21,7 +22,8 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v3
-        ref: ${{ github.event.inputs.branch }}
+        with:
+          ref: ${{ github.event.inputs.branch }}
 
       - uses: actions/setup-node@v3
         with:
