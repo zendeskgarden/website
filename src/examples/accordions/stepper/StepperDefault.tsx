@@ -37,7 +37,9 @@ const Example = () => {
           Your garden&apos;s success depends on its location, so choose a spot that has healthy
           soil, gets good light, and is easily watered.
           <StyledButtons>
-            <Button onClick={onNext}>Next</Button>
+            <Button tabIndex={step === 0 ? undefined : -1} onClick={onNext}>
+              Next
+            </Button>
           </StyledButtons>
         </Stepper.Content>
       </Stepper.Step>
@@ -48,8 +50,12 @@ const Example = () => {
           consider aesthetics like color and layout. If you&apos;re growing food, think about
           harvest times and the kinds of pests that might be attracted to your crops.
           <StyledButtons>
-            <Button onClick={onBack}>Back</Button>
-            <Button onClick={onNext}>Next</Button>
+            <Button tabIndex={step === 1 ? undefined : -1} onClick={onBack}>
+              Back
+            </Button>
+            <Button tabIndex={step === 1 ? undefined : -1} onClick={onNext}>
+              Next
+            </Button>
           </StyledButtons>
         </Stepper.Content>
       </Stepper.Step>
@@ -59,7 +65,9 @@ const Example = () => {
           Buy clean, hearty, disease-free seeds. Most seed from reliable seed companies will meet
           these specifications.
           <StyledButtons>
-            <Button onClick={onBack}>Back</Button>
+            <Button tabIndex={step === 2 ? undefined : -1} onClick={onBack}>
+              Back
+            </Button>
           </StyledButtons>
         </Stepper.Content>
       </Stepper.Step>
