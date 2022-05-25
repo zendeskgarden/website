@@ -38,4 +38,4 @@ jobs:
         run: yarn test
 
       - name: deploy
-        run: scripts/deploy.js
+        run: utils/deploy.js
