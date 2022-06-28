@@ -1,0 +1,62 @@
+---
+title: Pane
+description: >
+  Panes give users a quick way to resize layouts vertically or horizontally by
+  interacting with the splitter. They can also be used to create expandable or
+  collapsible layouts.
+package: '@zendeskgarden/react-grid'
+components:
+  - grid/src/elements/Colorpicker/index.tsx
+  - colorpickers/src/elements/ColorpickerDialog/index.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To make a structured layout resizable, expandable or collapsible</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Vertical
+
+Panes can be used in a vertical orientation. The panes resize up to the values
+that you set.
+
+### Horizontal
+
+Panes can be used in a horizontal orientation as well.
+
+### Grid
+
+Panes can be resized in both vertical and horizontal directions for a complex
+grid flexible layout.
+
+## Customization
+
+### Vertical collapse
+
+Panes can be collapsed or expanded by using the splitter together with an
+[Icon button](/components/icon-button). Vertical orientation uses a small circular
+icon button positioned on top of the splitter by default in both collapsed and
+expanded states. [Tooltips](/components/tooltip) should be used to describe the action.
+
+### Horizontal collapse
+
+Horizontal orientation also uses a small [Icon button](/components/icon-button) to
+collapse the pane. When the pane is collapsed, a stretched [Button](/components/button)
+is used to indicate an expandable state of the pane.
+
+### Icon button position
+
+Icon button can be positioned at the start, center or on the end of the splitter.
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
