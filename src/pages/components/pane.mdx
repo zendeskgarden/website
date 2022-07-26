@@ -5,6 +5,13 @@ description: >
   interacting with the splitter. They can also be used to create expandable or
   collapsible layouts.
 package: '@zendeskgarden/react-grid'
+components:
+  - grid/src/elements/pane/PaneProvider.tsx
+  - grid/src/elements/pane/Pane.tsx
+subcomponents:
+  - grid/src/elements/pane/components/Content.tsx
+  - grid/src/elements/pane/components/Splitter.tsx
+  - grid/src/elements/pane/components/SplitterButton.tsx
 ---
 
 <Usage>
@@ -95,6 +102,38 @@ import IconButtonPositionCode from '!!raw-loader!../../examples/pane/IconButtonP
 ## Configuration
 
 <Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### PaneProvider
+
+<Component components={props.data.mdx.components} componentName="paneProvider" />
+
+<PropSheet components={props.data.mdx.components} componentName="paneProvider" />
+
+### Pane
+
+<Component components={props.data.mdx.components} componentName="pane" />
+
+<PropSheet components={props.data.mdx.components} componentName="pane" />
+
+#### Pane.Content
+
+<Component components={props.data.mdx.subcomponents} componentName="pane.content" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="pane.content" />
+
+#### Pane.Splitter
+
+<Component components={props.data.mdx.subcomponents} componentName="pane.splitter" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="pane.splitter" />
+
+#### Pane.SplitterButton
+
+<Component components={props.data.mdx.subcomponents} componentName="pane.splitterButton" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="pane.splitterButton" />
 
 import { graphql } from 'gatsby';
 
