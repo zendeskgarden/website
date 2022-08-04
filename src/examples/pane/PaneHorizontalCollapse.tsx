@@ -9,7 +9,7 @@ import React from 'react';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import useResizeObserver from 'use-resize-observer';
 import { XL, Paragraph } from '@zendeskgarden/react-typography';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
@@ -20,6 +20,10 @@ const StyledDiv = styled.div`
 
 const StyledParagraph = styled(Paragraph)`
   margin-top: ${p => p.theme.space.xs};
+`;
+
+const StyledPane = styled(Pane)<{ isSecondary?: boolean }>`
+  ${p => p.isSecondary && `background-color: ${getColor('neutralHue', 100, p.theme)}`};
 `;
 
 const Example = () => {
@@ -44,7 +48,7 @@ const Example = () => {
               gridTemplateRows: getGridTemplateRows()
             }}
           >
-            <Pane>
+            <StyledPane>
               <StyledDiv>
                 <Pane.Content>
                   <XL>Pane 1</XL>
@@ -54,12 +58,8 @@ const Example = () => {
                   </StyledParagraph>
                 </Pane.Content>
               </StyledDiv>
-            </Pane>
-            <Pane
-              style={{
-                backgroundColor: PALETTE.grey[100]
-              }}
-            >
+            </StyledPane>
+            <StyledPane isSecondary>
               <StyledDiv>
                 <Pane.Content>
                   <XL>Pane 2</XL>
@@ -78,7 +78,7 @@ const Example = () => {
               >
                 <Pane.SplitterButton label="Toggle row-2" placement="center" />
               </Pane.Splitter>
-            </Pane>
+            </StyledPane>
           </div>
         )}
       </PaneProvider>

@@ -9,12 +9,13 @@ import React from 'react';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import useResizeObserver from 'use-resize-observer';
 import { XL, Paragraph } from '@zendeskgarden/react-typography';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const StyledPaneContent = styled(Pane.Content)`
+const StyledPaneContent = styled(Pane.Content)<{ isSecondary?: boolean }>`
   padding: ${p => p.theme.space.base * 6}px ${p => p.theme.space.base * 6}px
     ${p => p.theme.space.base * 4}px;
+  ${p => p.isSecondary && `background-color: ${getColor('neutralHue', 100, p.theme)}`};
 `;
 
 const StyledParagraph = styled(Paragraph)`
@@ -60,11 +61,7 @@ const Example = () => {
               />
             </Pane>
             <Pane>
-              <StyledPaneContent
-                style={{
-                  backgroundColor: PALETTE.grey[100]
-                }}
-              >
+              <StyledPaneContent isSecondary>
                 <XL>Pane 2</XL>
                 <StyledParagraph>
                   Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi
