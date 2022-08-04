@@ -8,17 +8,18 @@
 import React from 'react';
 import { Tooltip, Title, Paragraph } from '@zendeskgarden/react-tooltips';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { Button } from '@zendeskgarden/react-buttons';
 
 const Example = () => (
   <Row>
     <Col textAlign="center">
       <Tooltip size="small" content="Eat, drink, and be rosemary" placement="top-start">
-        <span>Small</span>
+        <Button>Small</Button>
       </Tooltip>
     </Col>
     <Col textAlign="center">
       <Tooltip size="medium" content="I want to start gardening, but I haven’t botany plants.">
-        <span>Medium</span>
+        <Button>Medium</Button>
       </Tooltip>
     </Col>
     <Col textAlign="center">
@@ -35,7 +36,7 @@ const Example = () => (
           </>
         }
       >
-        <span>Large</span>
+        <Button>Large</Button>
       </Tooltip>
     </Col>
     <Col textAlign="center">
@@ -54,7 +55,7 @@ const Example = () => (
           </>
         }
       >
-        <span>Extra large</span>
+        <Button>Extra large</Button>
       </Tooltip>
     </Col>
   </Row>

@@ -8,12 +8,13 @@
 import React from 'react';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { Button } from '@zendeskgarden/react-buttons';
 
 const Example = () => (
   <Row>
     <Col textAlign="center">
       <Tooltip content="Eat, drink, and be rosemary">
-        <span>Hover for a tooltip</span>
+        <Button>Hover for a tooltip</Button>
       </Tooltip>
     </Col>
   </Row>
