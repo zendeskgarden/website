@@ -61,12 +61,9 @@ import PaneGridCode from '!!raw-loader!../../examples/pane/PaneGrid.tsx';
 
 ## Customization
 
-### Vertical collapse
+Panes can be collapsed or expanded by using the [SplitterButton](#panesplitterbutton).
 
-Panes can be collapsed or expanded by using the splitter together with an
-[Icon button](/components/icon-button). Vertical orientation uses a small circular
-icon button positioned on top of the splitter by default in both collapsed and
-expanded states. [Tooltips](/components/tooltip) should be used to describe the action.
+### Vertical collapse
 
 import PaneVerticalCollapse from '../../examples/pane/PaneVerticalCollapse.tsx';
 import PaneVerticalCollapseCode from '!!raw-loader!../../examples/pane/PaneVerticalCollapse.tsx';
@@ -77,10 +74,6 @@ import PaneVerticalCollapseCode from '!!raw-loader!../../examples/pane/PaneVerti
 
 ### Horizontal collapse
 
-Horizontal orientation also uses a small [Icon button](/components/icon-button) to
-collapse the pane. When the pane is collapsed, a stretched [Button](/components/button)
-is used to indicate an expandable state of the pane.
-
 import PaneHorizontalCollapse from '../../examples/pane/PaneHorizontalCollapse.tsx';
 import PaneHorizontalCollapseCode from '!!raw-loader!../../examples/pane/PaneHorizontalCollapse.tsx';
 
@@ -88,9 +81,11 @@ import PaneHorizontalCollapseCode from '!!raw-loader!../../examples/pane/PaneHor
   <PaneHorizontalCollapse />
 </CodeExample>
 
-### Icon button position
+### Splitter button position
 
-Icon button can be positioned at the start, center or on the end of the splitter.
+The [SplitterButton](#panesplitterbutton) can be positioned at the start, center or end of the
+splitter. Its default position is at the start when used in vertical orientation and at the
+center when used in horizontal orientation.
 
 import IconButtonPosition from '../../examples/pane/IconButtonPosition.tsx';
 import IconButtonPositionCode from '!!raw-loader!../../examples/pane/IconButtonPosition.tsx';
