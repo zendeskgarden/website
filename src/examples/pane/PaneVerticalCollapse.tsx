@@ -9,12 +9,8 @@ import React from 'react';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import useResizeObserver from 'use-resize-observer';
 import { XL, Paragraph } from '@zendeskgarden/react-typography';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
-
-const StyledDiv = styled.div`
-  padding: ${p => p.theme.space.base * 6}px;
-`;
 
 const StyledParagraph = styled(Paragraph)`
   margin-top: ${p => p.theme.space.xs};
@@ -22,6 +18,11 @@ const StyledParagraph = styled(Paragraph)`
 
 const StyledPaneContent = styled(Pane.Content)`
   height: 180px;
+`;
+
+const StyledPane = styled(Pane)<{ isSecondary?: boolean }>`
+  padding: ${p => p.theme.space.base * 6}px;
+  ${p => p.isSecondary && `background-color: ${getColor('neutralHue', 100, p.theme)}`};
 `;
 
 const Example = () => {
@@ -46,35 +47,27 @@ const Example = () => {
               gridTemplateColumns: getGridTemplateColumns()
             }}
           >
-            <Pane
-              style={{
-                backgroundColor: PALETTE.grey[100]
-              }}
-            >
-              <StyledDiv>
-                <StyledPaneContent>
-                  <XL>Pane 1</XL>
-                  <StyledParagraph>
-                    Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi
-                    amaranth water spinach avocado.
-                  </StyledParagraph>
-                </StyledPaneContent>
-              </StyledDiv>
+            <StyledPane isSecondary>
+              <StyledPaneContent>
+                <XL>Pane 1</XL>
+                <StyledParagraph>
+                  Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi
+                  amaranth water spinach avocado.
+                </StyledParagraph>
+              </StyledPaneContent>
               <Pane.Splitter layoutKey="column-1" min={1} max={10} aria-label="pane1 splitter">
                 <Pane.SplitterButton label="Toggle column-1" placement="start" />
               </Pane.Splitter>
-            </Pane>
-            <Pane>
-              <StyledDiv>
-                <StyledPaneContent>
-                  <XL>Pane 2</XL>
-                  <StyledParagraph>
-                    Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi
-                    amaranth water spinach avocado.
-                  </StyledParagraph>
-                </StyledPaneContent>
-              </StyledDiv>
-            </Pane>
+            </StyledPane>
+            <StyledPane>
+              <StyledPaneContent>
+                <XL>Pane 2</XL>
+                <StyledParagraph>
+                  Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi
+                  amaranth water spinach avocado.
+                </StyledParagraph>
+              </StyledPaneContent>
+            </StyledPane>
           </div>
         )}
       </PaneProvider>
