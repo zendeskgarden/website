@@ -62,6 +62,7 @@ const packageJson = `
     "lodash.debounce": "latest",
     "react-dropzone": "latest",
     "react-window": "latest",
+    "use-resize-observer": "latest",
     "@zendeskgarden/container-utilities": "^0.6.3",
     "@zendeskgarden/css-bedrock": "^8.x",
     "@zendeskgarden/react-accordions": "^8.x",

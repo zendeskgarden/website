@@ -1,0 +1,139 @@
+---
+title: Pane
+description: >
+  Panes give users a quick way to resize layouts vertically or horizontally by
+  interacting with the splitter. They can also be used to create expandable or
+  collapsible layouts.
+package: '@zendeskgarden/react-grid'
+components:
+  - grid/src/elements/pane/PaneProvider.tsx
+  - grid/src/elements/pane/Pane.tsx
+subcomponents:
+  - grid/src/elements/pane/components/Content.tsx
+  - grid/src/elements/pane/components/Splitter.tsx
+  - grid/src/elements/pane/components/SplitterButton.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To make a structured layout resizable, expandable, or collapsible</li>
+    </ul>
+  </Use>
+</Usage>
+
+## How to use it
+
+### Vertical
+
+Panes can be used in a vertical orientation. The panes resize up to the values
+that you set.
+
+import PaneVertical from '../../examples/pane/PaneVertical.tsx';
+import PaneVerticalCode from '!!raw-loader!../../examples/pane/PaneVertical.tsx';
+
+<CodeExample code={PaneVerticalCode}>
+  <PaneVertical />
+</CodeExample>
+
+### Horizontal
+
+Panes can be used in a horizontal orientation as well.
+
+import PaneHorizontal from '../../examples/pane/PaneHorizontal.tsx';
+import PaneHorizontalCode from '!!raw-loader!../../examples/pane/PaneHorizontal.tsx';
+
+<CodeExample code={PaneHorizontalCode}>
+  <PaneHorizontal />
+</CodeExample>
+
+### Grid
+
+Panes can be resized in both vertical and horizontal directions for a complex
+grid flexible layout.
+
+import PaneGrid from '../../examples/pane/PaneGrid.tsx';
+import PaneGridCode from '!!raw-loader!../../examples/pane/PaneGrid.tsx';
+
+<CodeExample code={PaneGridCode}>
+  <PaneGrid />
+</CodeExample>
+
+## Customization
+
+Panes can be collapsed or expanded by using the [SplitterButton](#panesplitterbutton).
+
+### Vertical collapse
+
+import PaneVerticalCollapse from '../../examples/pane/PaneVerticalCollapse.tsx';
+import PaneVerticalCollapseCode from '!!raw-loader!../../examples/pane/PaneVerticalCollapse.tsx';
+
+<CodeExample code={PaneVerticalCollapseCode}>
+  <PaneVerticalCollapse />
+</CodeExample>
+
+### Horizontal collapse
+
+import PaneHorizontalCollapse from '../../examples/pane/PaneHorizontalCollapse.tsx';
+import PaneHorizontalCollapseCode from '!!raw-loader!../../examples/pane/PaneHorizontalCollapse.tsx';
+
+<CodeExample code={PaneHorizontalCollapseCode}>
+  <PaneHorizontalCollapse />
+</CodeExample>
+
+### Splitter button position
+
+The [SplitterButton](#panesplitterbutton) can be positioned at the start, center or end of the
+splitter. Its default position is at the start when used in vertical orientation and at the
+center when used in horizontal orientation.
+
+import SplitterButtonPosition from '../../examples/pane/SplitterButtonPosition.tsx';
+import SplitterButtonPositionCode from '!!raw-loader!../../examples/pane/SplitterButtonPosition.tsx';
+
+<CodeExample code={SplitterButtonPositionCode}>
+  <SplitterButtonPosition />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### PaneProvider
+
+<Component components={props.data.mdx.components} componentName="paneProvider" />
+
+<PropSheet components={props.data.mdx.components} componentName="paneProvider" />
+
+### Pane
+
+<Component components={props.data.mdx.components} componentName="pane" />
+
+<PropSheet components={props.data.mdx.components} componentName="pane" />
+
+#### Pane.Content
+
+<Component components={props.data.mdx.subcomponents} componentName="pane.content" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="pane.content" />
+
+#### Pane.Splitter
+
+<Component components={props.data.mdx.subcomponents} componentName="pane.splitter" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="pane.splitter" />
+
+#### Pane.SplitterButton
+
+<Component components={props.data.mdx.subcomponents} componentName="pane.splitterButton" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="pane.splitterButton" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
