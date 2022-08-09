@@ -14,7 +14,7 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <Tooltip content="Eat, drink, and be rosemary">
-        <Button>Hover for a tooltip</Button>
+        <Button isBasic>Hover for a tooltip</Button>
       </Tooltip>
     </Col>
   </Row>

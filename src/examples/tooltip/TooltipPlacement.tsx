@@ -31,7 +31,7 @@ const Example = () => (
   <Row style={{ margin: 80 }}>
     <Col textAlign="center">
       <Tooltip placement={PLACEMENTS.topStart} content="Eat, drink, and be rosemary">
-        <Button>Hover for a tooltip</Button>
+        <Button isBasic>Hover for a tooltip</Button>
       </Tooltip>
     </Col>
   </Row>

@@ -14,12 +14,12 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <Tooltip size="small" content="Eat, drink, and be rosemary" placement="top-start">
-        <Button>Small</Button>
+        <Button size="small">Small</Button>
       </Tooltip>
     </Col>
     <Col textAlign="center">
       <Tooltip size="medium" content="I want to start gardening, but I haven’t botany plants.">
-        <Button>Medium</Button>
+        <Button size="medium">Medium</Button>
       </Tooltip>
     </Col>
     <Col textAlign="center">
@@ -36,7 +36,7 @@ const Example = () => (
           </>
         }
       >
-        <Button>Large</Button>
+        <Button size="large">Large</Button>
       </Tooltip>
     </Col>
     <Col textAlign="center">
@@ -55,7 +55,7 @@ const Example = () => (
           </>
         }
       >
-        <Button>Extra large</Button>
+        <Button size="large">Extra large</Button>
       </Tooltip>
     </Col>
   </Row>
