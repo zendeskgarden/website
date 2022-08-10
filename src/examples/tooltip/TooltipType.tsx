@@ -8,12 +8,15 @@
 import React from 'react';
 import { Tooltip, Title, Paragraph } from '@zendeskgarden/react-tooltips';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { Button } from '@zendeskgarden/react-buttons';
 
 const Example = () => (
   <Row>
     <Col textAlign="center">
       <Tooltip type="dark" size="small" content="Eat, drink, and be rosemary">
-        <span>Dark tooltip</span>
+        <Button size="small" isPrimary>
+          Dark tooltip
+        </Button>
       </Tooltip>
     </Col>
     <Col textAlign="center">
@@ -31,7 +34,7 @@ const Example = () => (
           </>
         }
       >
-        <span>Light tooltip</span>
+        <Button isPrimary>Light tooltip</Button>
       </Tooltip>
     </Col>
   </Row>
