@@ -1,0 +1,408 @@
+---
+title: Rich-text editor
+description: >
+  A rich-text editor lets a user edit and format text using a "what-you-see-is-what-you-get" (WYSIWYG) editing area.
+---
+
+![Rich-text editor](figma:patterns-rich-text-editor-intro.png)
+
+## Anatomy
+
+A Rich-text editor (RTE) can be used for writing various things such as articles, comments, and messages. The toolbar
+has menus and actions for controlling the appearance of text. It can also be a shortcut for adding content such as
+images, links, and other types of media.
+
+Toolbar actions are designed to look and behave like [Icon buttons](/components/icon-button). They should follow Icon
+buttons as much as possible including focus and hover states.
+
+![Rich-text editor](figma:patterns-rich-text-editor-anatomy.png)
+
+1. [Media button](/components/button#media)
+2. [Media button](/components/button#media) with hidden labels
+3. [Toggle icon button](/components/toggle-icon-button)
+4. [Icon button](/components/icon-button)
+5. [Menu](/components/menu)
+
+For the content inside the rich-text editor, the visual treatment should follow the defined typography styles in
+the toolbar.
+
+![Rich-text editor](figma:patterns-rich-text-editor-example.png)
+
+- [Blockquote](/components/typography#block-quote)
+- [Bulleted and numbered list](/components/lists)
+- [Paragraph](/components/typography#block-quote)
+- [Code](/components/code)
+- [Code block](/components/code-block)
+
+### Related components
+
+- [CKEditor](https://zendeskgarden.github.io/ckeditor/?path=/story/demo--default)
+
+## Toolbar sections
+
+Toolbar sections have semantic meaning, so it’s important that they’re categorized by function. Toolbar can have up to
+4 categories that are visually separated and appear in this order.
+
+![Toolbar sections](figma:patterns-rich-text-editor-toolbar-sections.png)
+
+1. Text formatting
+2. Paragraph formatting
+3. Insert media
+4. Other actions
+
+Toolbars with only a few actions can have them grouped together without separators.
+
+![Collapsed toolbar sections](figma:patterns-rich-text-editor-toolbar-sections-collapsed-actions.png)
+
+### Text formatting
+
+- Text style (Dropdown selections: Paragraph, Heading 1, Heading 2, Heading 3)
+- Text size (Dropdown selections: Small, Normal, Large, Extra large)
+- Text color (Dropdown selection: Color swatch)
+- Bold
+- Italic
+- Underline
+
+### Paragraph formatting
+
+- Code
+- Bulleted list
+- Numbered list
+- Increase indent
+- Decrease indent
+- Alignment (Dropdown selections: Left, Center, Right)
+
+### Insert media
+
+- Blockquote
+- Link
+- Horizontal Rule
+- Code block
+- Image
+- Video
+- Table
+
+### Other actions
+
+- HTML Source Editing
+- Emoji
+
+### Tooltips
+
+Tooltips should be provided for every action, unless the action contains a label (for example Paragraph), following
+[Icon button](/components/icon-button) best practices.
+
+## Formatting
+
+### Toolbar location
+
+When considering the placement of the toolbar, think about the size of the editing experience. For long-form writing,
+anchor the toolbar to the top of the editor.
+
+![Rich-text editor with the toolbar on the top](figma:patterns-rich-text-editor-formatting-toolbar-location-start.png)
+
+For short-form writing, the toolbar can also be anchored to the bottom of the editor.
+
+![Rich-text editor with the toolbar on the bottom](figma:patterns-rich-text-editor-formatting-toolbar-location-end.png)
+
+Display the toolbar in a menu when space is limited. When using a menu, provide at least `20px` padding within
+the textarea to prevent toolbars from covering content.
+
+![Rich-text editor with the hidden toolbar as a menu that can be opened](figma:patterns-rich-text-editor-formatting-toolbar-location-floating.png)
+
+![Rich-text editor with the opened toolbar as a menu](figma:patterns-rich-text-editor-formatting-toolbar-location-floating-opened.png)
+
+### Toolbar size
+
+Default size of the toolbar is `48px`. This includes icon buttons with `8px` padding in the toolbar. Compact version of
+the toolbar reduces the padding to 4px with the height of the toolbar being 40px tall. The compact version is better suited
+when there are certain space constraints, such as being used in a [Drawer](/components/drawer/).
+
+![Examples of default and compact toolbar sizes](figma:patterns-rich-text-editor-formatting-toolbar-size.png)
+
+1. **Default** size toolbar with `8px` padding
+2. **Compact** size toolbar `4px` padding
+
+### Responsive behavior
+
+Toolbar actions are responsive based on the width of the container. Icons can be used while keeping the chevron to show
+that there are dropdown selections.
+
+![Paragraph dropdown example where the icon replaces the label if the space is limited](figma:patterns-rich-text-editor-formatting-responsive-behavior.png)
+
+1. [Media button](/components/button#media)
+2. Media button with hidden label
+
+When a toolbar has many actions, the actions at the end will go into an overflow menu.
+
+![Overflow menu is visible if toolbar actions can't fit all the icons](figma:patterns-rich-text-editor-formatting-responsive-behavior-overflow.png)
+
+### Resizable textarea
+
+Textarea should resize vertically as the user types. The minimum and maximum height can be restricted depending on
+space constraints.
+
+![Rich-text editor with minimum height of the textarea defined](figma:patterns-rich-text-editor-formatting-resizable-textarea.png)
+
+![Rich-text editor height expands with additional content](figma:patterns-rich-text-editor-formatting-resizable-textarea-expanded.png)
+
+Once the maximum height of the textarea is reached, a scrollbar should appear next to it.
+
+![Scrollbar visible on the side once the textarea reaches its maximum height](figma:patterns-rich-text-editor-formatting-resizable-textarea-scrollbar.png)
+
+## States
+
+### Disabled states
+
+If a formatting option is not available for selected text, it should be disabled.
+
+![Disabled icon button example](figma:patterns-rich-text-editor-states-disabled.png)
+
+1. Disabled icon button
+
+## Flows
+
+### Inserting new link
+
+New link can be added by selecting a text and converting it to a link with a shortcut or by pressing the button.
+
+![Selecting text to create a link](figma:patterns-rich-text-editor-flows-insert-link-select.png)
+
+![Creating a new link from selected text](figma:patterns-rich-text-editor-flows-insert-link-save.png)
+
+### Editing link
+
+Editing link tooltip modal should give the user a choice of previewing the link and opening it in a new window,
+editing the link or breaking the link.
+
+![Previewing the link in the rich-text editor](figma:patterns-rich-text-editor-flows-edit-link-select.png)
+
+![Editing the link in the rich-text editor](figma:patterns-rich-text-editor-flows-edit-link-save.png)
+
+## Localization
+
+CKEditor offers user interface localization options and the translation system is opened to third-party plugins.
+Read more about it on the [CKEditor localization support page](https://ckeditor.com/docs/ckeditor5/latest/framework/guides/deep-dive/ui/localization.html).
+
+## Accessibility
+
+### Managing focus
+
+When the toolbar is opened as a menu, the focus should be looped within that menu. This should be the case for all
+dropdowns in the toolbar.
+
+![Focus order when opening a floating toolbar](figma:patterns-rich-text-editor-accessibility-managing-focus.png)
+
+1. User selects the text they want to make bold
+2. Pressing tab will take them to the toolbar unless `Tab` key is reserved for indenting. In that case, a custom
+   shortcut is used to move the focus to the toolbar.
+3. The focus is then inside the toolbar until they pick an action or close the toolbar with the `Esc` key. If textarea
+   reserves the use of `Tab` key for indenting lines, the user can use the `Left arrow` and `Right arrow` to navigate
+   within the toolbar.
+4. Once the toolbar is closed, the focus goes back to its original position
+
+If the editor has enabled indentation, the `Tab` key will be reserved for setting the indentation of the current line.
+In those situations a custom text shortcut is used to move the focus from the editor to the toolbar: `Alt + F10` on PC,
+and `Option + F10` on macOS. Read more about [keyboard support](https://ckeditor.com/docs/ckeditor5/latest/features/keyboard-support.html).
+
+---
+
+<h2>Feedback</h2>
+
+Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yiFC7)
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    rteIntro: figmaAsset(name: { eq: "patterns-rich-text-editor-intro" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteAnatomy: figmaAsset(name: { eq: "patterns-rich-text-editor-anatomy" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteExample: figmaAsset(name: { eq: "patterns-rich-text-editor-example" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteToolbarSections: figmaAsset(name: { eq: "patterns-rich-text-editor-toolbar-sections" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteToolbarSectionsCollapsedActions: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-toolbar-sections-collapsed-actions" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteToolbarSectionsKeyboardShortcuts: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-toolbar-sections-keyboard-shortcuts" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarLocationStart: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-start" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarLocationEnd: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-end" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarLocationFloating: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-floating" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarLocationFloatingOpened: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-floating-opened" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarSize: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-size" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResponsiveBehavior: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-responsive-behavior" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResponsiveBehaviorOverflow: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-responsive-behavior-overflow" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResizableTextarea: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-resizable-textarea" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResizableTextareaExpanded: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-resizable-textarea-expanded" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResizableTextareaScrollbar: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-resizable-textarea-scrollbar" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteStatesDisabled: figmaAsset(name: { eq: "patterns-rich-text-editor-states-disabled" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFlowsInsertLinkSelect: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-flows-insert-link-select" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFlowsInsertLinkSave: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-flows-insert-link-save" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFlowsEditLinkSelect: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-flows-edit-link-select" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFlowsEditLinkSave: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-flows-edit-link-save" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteAccessibilityManagingFocus: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-accessibility-managing-focus" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+  }
+`;

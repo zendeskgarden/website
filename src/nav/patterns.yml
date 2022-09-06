@@ -4,6 +4,8 @@
       title: Overview
 - title: Patterns
   items:
+    - title: Rich-text editor
+      id: /patterns/rich-text-editor
     - title: Tables
       items:
         - id: /patterns/tables/basic-formatting

@@ -56,7 +56,29 @@ const figmaNodeIds = [
   '566:11850' /* patterns-tables-basic-formatting-date-time */,
   '566:12145' /* patterns-tables-basic-formatting-row-cell-states */,
   '566:12289' /* patterns-tables-basic-formatting-localization-bulgarian */,
-  '566:12568' /* patterns-tables-basic-formatting-localization-arabic */
+  '566:12568' /* patterns-tables-basic-formatting-localization-arabic */,
+  '1202:16334' /* patterns-rich-text-editor-intro */,
+  '1202:16535' /* patterns-rich-text-editor-anatomy */,
+  '1202:25862' /* patterns-rich-text-editor-example */,
+  '1203:17178' /* patterns-rich-text-editor-toolbar-sections */,
+  '1203:23238' /* patterns-rich-text-editor-toolbar-sections-collapsed-actions */,
+  '1203:23878' /* patterns-rich-text-editor-toolbar-sections-keyboard-shortcuts */,
+  '1203:34882' /* patterns-rich-text-editor-formatting-toolbar-location-start */,
+  '1204:26131' /* patterns-rich-text-editor-formatting-toolbar-location-end */,
+  '1204:26433' /* patterns-rich-text-editor-formatting-toolbar-location-floating */,
+  '1204:26615' /* patterns-rich-text-editor-formatting-toolbar-location-floating-opened */,
+  '1204:26774' /* patterns-rich-text-editor-formatting-toolbar-size */,
+  '1204:26904' /* patterns-rich-text-editor-formatting-responsive-behavior */,
+  '1204:26905' /* patterns-rich-text-editor-formatting-responsive-behavior-overflow */,
+  '1204:26906' /* patterns-rich-text-editor-formatting-resizable-textarea */,
+  '1204:26907' /* patterns-rich-text-editor-formatting-resizable-textarea-expanded */,
+  '1204:28088' /* patterns-rich-text-editor-formatting-resizable-textarea-scrollbar */,
+  '1204:28377' /* patterns-rich-text-editor-states-disabled */,
+  '1204:28680' /* patterns-rich-text-editor-flows-insert-link-select */,
+  '1204:28838' /* patterns-rich-text-editor-flows-insert-link-save */,
+  '1204:32300' /* patterns-rich-text-editor-flows-edit-link-select */,
+  '1204:32478' /* patterns-rich-text-editor-flows-edit-link-save */,
+  '1204:33072' /* patterns-rich-text-editor-accessibility-managing-focus */
 ];
 
 module.exports = {
