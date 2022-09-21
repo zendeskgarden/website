@@ -205,7 +205,11 @@ const Example = () => {
                         {...provided.draggableProps}
                       >
                         <DraggableCell isDragOccurring={snapshot.isDragging}>
-                          <DraggableContainer id={item.id} {...provided.dragHandleProps}>
+                          <DraggableContainer
+                            id={item.id}
+                            aria-label={item.name}
+                            {...provided.dragHandleProps}
+                          >
                             <GripIcon />
                           </DraggableContainer>
                         </DraggableCell>
