@@ -1,0 +1,70 @@
+---
+title: Status indicator
+description: >
+  The Status indicator provides a consistent, accessible representation of a users current 
+  status.
+package: '@zendeskgarden/react-avatars'
+components:
+  - avatars/src/elements/StatusIndicator.tsx
+  - avatars/src/elements/Avatar.tsx
+subcomponents:
+  - avatars/src/elements/components/Text.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To display contextual information for a users current status</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>To communicate all other statuses, use a [Tag](/components/tags).</Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of a Status indicator component.
+
+import StatusIndicatorDefault from '../../examples/avatar/StatusIndicatorDefault.tsx';
+import StatusIndicatorDefaultCode from '!!raw-loader!../../examples/avatar/StatusIndicatorDefault.tsx';
+
+<CodeExample code={StatusIndicatorDefaultCode}>
+  <StatusIndicatorDefault />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+The Avatar component follows this structure:
+
+<!-- prettier-ignore -->
+```jsx
+<Avatar>
+  {/* One of icon, img, or Avatar.Text */}
+</Avatar>
+```
+
+### Avatar
+
+<Component components={props.data.mdx.components} componentName="avatar" />
+
+<PropSheet components={props.data.mdx.components} componentName="avatar" />
+
+#### Avatar.Text
+
+<Component components={props.data.mdx.subcomponents} componentName="avatar.text" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="avatar.text" />
+
+The Text component applies appropriate styles to child text. Nest it within an [Avatar](#avatar) component.
+See [example](#type).
