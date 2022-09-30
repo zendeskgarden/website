@@ -1,0 +1,101 @@
+---
+title: Status indicator
+description: >
+  The Status indicator provides a consistent, accessible representation of a user's current 
+  status.
+package: '@zendeskgarden/react-avatars'
+components:
+  - avatars/src/elements/StatusIndicator.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To display contextual information for a user's current status</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>To communicate all other statuses, use a [Tag](/components/tags)</Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of a Status indicator component.
+
+import StatusIndicatorDefault from '../../examples/avatar/StatusIndicatorDefault.tsx';
+import StatusIndicatorDefaultCode from '!!raw-loader!../../examples/avatar/StatusIndicatorDefault.tsx';
+
+<CodeExample code={StatusIndicatorDefaultCode}>
+  <StatusIndicatorDefault />
+</CodeExample>
+
+### Caption
+
+Status indicators include a custom or no caption.
+
+import StatusIndicatorCaption from '../../examples/avatar/StatusIndicatorCaption.tsx';
+import StatusIndicatorCaptionCode from '!!raw-loader!../../examples/avatar/StatusIndicatorCaption.tsx';
+
+<CodeExample code={StatusIndicatorCaptionCode}>
+  <StatusIndicatorCaption />
+</CodeExample>
+
+### Type
+
+There are 4 types of Status indicators: available, away, transfers only, and offline.
+
+import StatusIndicatorType from '../../examples/avatar/StatusIndicatorType.tsx';
+import StatusIndicatorTypeCode from '!!raw-loader!../../examples/avatar/StatusIndicatorType.tsx';
+
+<CodeExample code={StatusIndicatorTypeCode}>
+  <StatusIndicatorType />
+</CodeExample>
+
+### Size
+
+Status indicators come in two sizes: default and compact.
+
+import StatusIndicatorSize from '../../examples/avatar/StatusIndicatorSize.tsx';
+import StatusIndicatorSizeCode from '!!raw-loader!../../examples/avatar/StatusIndicatorSize.tsx';
+
+<CodeExample code={StatusIndicatorSizeCode}>
+  <StatusIndicatorSize />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+The Status indicator component follows this structure:
+
+<!-- prettier-ignore -->
+```jsx
+<StatusIndicator>
+  {/* Status text */}
+</StatusIndicator>
+```
+
+### StatusIndicator
+
+<Component components={props.data.mdx.components} componentName="statusIndicator" />
+
+Provide an `aria-label` to ensure it is accessible.
+
+<PropSheet components={props.data.mdx.components} componentName="statusIndicator" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

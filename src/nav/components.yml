@@ -118,6 +118,8 @@
       id: /components/pane
     - title: Sheet
       id: /components/sheet
+    - title: Status indicator
+      id: /components/status-indicator
     - title: Stepper
       id: /components/stepper
     - title: Table
