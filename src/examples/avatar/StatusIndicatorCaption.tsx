@@ -12,7 +12,7 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <StatusIndicator type="away" aria-label="status: away - Foraging for mushrooms">
+      <StatusIndicator type="away" aria-label="status: away">
         Foraging for mushrooms
       </StatusIndicator>
     </Col>
