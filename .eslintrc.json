@@ -9,6 +9,7 @@
     "sort-imports": "off",
     "react/display-name": "off",
     "react/no-array-index-key": "off",
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
     "react/destructuring-assignment": "off"
   },
   "overrides": [
