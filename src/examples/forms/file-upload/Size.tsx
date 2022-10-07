@@ -26,7 +26,7 @@ const StyledFileUpload = styled(FileUpload)`
 
 const Example = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    accept: ['image/jpeg', 'image/png', 'image/gif']
+    accept: { 'image/*': ['.jpeg', '.png', '.gif'] }
   });
 
   const handleClick = () => alert('File dismissed via mouse');
