@@ -233,7 +233,7 @@ The Table component follows this structure:
   [MDN Table Accessibility Practices](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced#Tables_for_visually_impaired_users)
   guidelines to ensure the table data is accessible to screen-readers
 - Use the [SortableCell](#sortablecell) component in a sortable table to ensure that the header is interactive
-  and accessible. See [example](#sort).
+  and accessible. See [SortableCell example](#sort).
 
 <!-- markdownlint-enable line-length -->
 
@@ -260,7 +260,7 @@ The Table component follows this structure:
 <Component components={props.data.mdx.components} componentName="groupRow" />
 
 The GroupRow component provides styles to show a title row for a group of rows. Nest it within the
-[Body](#body) component. See [example](#grouped-rows).
+[Body](#body) component. See [GroupedRow example](#grouped-rows).
 
 <PropSheet components={props.data.mdx.components} componentName="groupRow" />
 
@@ -287,8 +287,7 @@ The GroupRow component provides styles to show a title row for a group of rows. 
 <Component components={props.data.mdx.components} componentName="overflowButton" />
 
 The OverflowButton component enables implementation of an overflow menu in a [Cell](#cell). Nest it
-within a [Tooltip](/components/tooltip) and provide an `aria-label` to ensure it is accessible. See
-[example](#overflow).
+within a [Tooltip](/components/tooltip) and provide an `aria-label` to ensure it is accessible. See [OverflowButton example](#overflow).
 
 <PropSheet components={props.data.mdx.components} componentName="overflowButton" />
 
