@@ -12,7 +12,7 @@ import { Progress } from '@zendeskgarden/react-loaders';
 const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
-      <Progress value={50} />
+      <Progress value={50} aria-label="Default Progress loader" />
     </Col>
   </Row>
 );
