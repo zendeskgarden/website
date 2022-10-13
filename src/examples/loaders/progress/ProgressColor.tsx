@@ -13,13 +13,13 @@ import { Progress } from '@zendeskgarden/react-loaders';
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <Progress color={PALETTE.grey[600]} value={80} aria-label="Grey Progress loader" />
+      <Progress color={PALETTE.grey[600]} value={80} aria-label="Fertilizing seeds" />
     </Col>
     <Col textAlign="center">
-      <Progress color={PALETTE.blue[600]} value={80} aria-label="Blue Progress loader" />
+      <Progress color={PALETTE.blue[600]} value={80} aria-label="Watering all plants" />
     </Col>
     <Col textAlign="center">
-      <Progress color={PALETTE.kale[600]} value={80} aria-label="Kale Progress loader" />
+      <Progress color={PALETTE.kale[600]} value={80} aria-label="Removing weeds" />
     </Col>
   </Row>
 );
