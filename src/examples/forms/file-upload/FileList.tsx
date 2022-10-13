@@ -31,7 +31,7 @@ const Example = () => (
             <Tooltip content="Stop upload">
               <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
             </Tooltip>
-            <Progress value={0} />
+            <Progress value={0} aria-hidden="true" />
           </File>
         </FileList.Item>
         <FileList.Item>
@@ -40,7 +40,7 @@ const Example = () => (
             <Tooltip content="Stop upload">
               <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
             </Tooltip>
-            <Progress value={16} />
+            <Progress value={16} aria-label="Uploading Plant ecology.doc" />
           </File>
         </FileList.Item>
         <FileList.Item>
@@ -49,7 +49,7 @@ const Example = () => (
             <Tooltip content="Stop upload">
               <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
             </Tooltip>
-            <Progress value={32} />
+            <Progress value={32} aria-label="Uploading Rose petals.jpg" />
           </File>
         </FileList.Item>
         <FileList.Item>
@@ -58,7 +58,7 @@ const Example = () => (
             <Tooltip content="Stop upload">
               <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
             </Tooltip>
-            <Progress value={48} />
+            <Progress value={48} aria-label="Uploading Basics of gardening.pdf" />
           </File>
         </FileList.Item>
         <FileList.Item>
@@ -72,7 +72,7 @@ const Example = () => (
             <Tooltip content="Stop upload">
               <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
             </Tooltip>
-            <Progress value={64} />
+            <Progress value={64} aria-label="Uploading Presentation bouquets.ppt" />
           </File>
         </FileList.Item>
         <FileList.Item>
@@ -86,7 +86,7 @@ const Example = () => (
             <Tooltip content="Stop upload">
               <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
             </Tooltip>
-            <Progress value={80} />
+            <Progress value={80} aria-label="Uploading Seed inventory.xlsx" />
           </File>
         </FileList.Item>
         <FileList.Item>
@@ -95,7 +95,7 @@ const Example = () => (
             <Tooltip content="Remove file">
               <File.Delete aria-label="delete" onClick={handleClick} tabIndex={-1} />
             </Tooltip>
-            <Progress value={100} />
+            <Progress value={100} aria-label="Uploading Landscape.zip" />
           </File>
         </FileList.Item>
       </FileList>
