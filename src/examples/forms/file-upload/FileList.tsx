@@ -95,7 +95,7 @@ const Example = () => (
             <Tooltip content="Remove file">
               <File.Delete aria-label="delete" onClick={handleClick} tabIndex={-1} />
             </Tooltip>
-            <Progress value={100} aria-label="Uploading Landscape.zip" />
+            <Progress value={100} aria-hidden="true" />
           </File>
         </FileList.Item>
       </FileList>
