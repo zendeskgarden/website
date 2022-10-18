@@ -12,13 +12,13 @@ import { Progress } from '@zendeskgarden/react-loaders';
 const Example = () => (
   <Row alignItems="center">
     <Col textAlign="center">
-      <Progress size="small" value={80} />
+      <Progress size="small" value={80} aria-label="Tilling the land" />
     </Col>
     <Col textAlign="center">
-      <Progress size="medium" value={80} />
+      <Progress size="medium" value={80} aria-label="Harvesting crops" />
     </Col>
     <Col textAlign="center">
-      <Progress size="large" value={80} />
+      <Progress size="large" value={80} aria-label="Tending to plants" />
     </Col>
   </Row>
 );
