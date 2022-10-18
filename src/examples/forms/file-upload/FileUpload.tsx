@@ -73,7 +73,11 @@ const FileItem: React.FC<{ name: string; onRemove: () => void }> = memo(({ name,
             <File.Close aria-label="close" onClick={onRemove} tabIndex={-1} />
           )}
         </Tooltip>
-        <Progress value={progress} />
+        <Progress
+          value={progress}
+          aria-label={`Uploading ${name}`}
+          aria-hidden={progress === 100}
+        />
       </File>
     </FileList.Item>
   );
