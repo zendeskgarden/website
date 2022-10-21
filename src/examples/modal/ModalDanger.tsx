@@ -21,7 +21,9 @@ const Example = () => {
         </Button>
         {visible && (
           <Modal onClose={() => setVisible(false)}>
-            <Header isDanger>Remove plant food from your garden</Header>
+            <Header tag="h2" isDanger>
+              Remove plant food from your garden
+            </Header>
             <Body>
               Plant food helps gardens grow. Removing plant food negatively affects the plant
               health.

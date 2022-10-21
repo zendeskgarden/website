@@ -19,7 +19,7 @@ const Example = () => {
         <Button onClick={() => setVisible(true)}>Open modal</Button>
         {visible && (
           <Modal onClose={() => setVisible(false)}>
-            <Header>Do you need plant food?</Header>
+            <Header tag="h2">Do you need plant food?</Header>
             <Body>
               To boost your plants chances of success, use a combination of top-quality soil and the
               right plant food. Try growing in containers filled with plant food, which can help
