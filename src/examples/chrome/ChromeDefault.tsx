@@ -90,11 +90,11 @@ const Example = () => {
         </Header>
         <Content id="example-main-content">
           <Main style={{ padding: 28 }}>
-            <XXL>Main Content</XXL>
+            <XXL tag="h1">Main Content</XXL>
             <MD>Beetroot water spinach okra water chestnut ricebean pea catsear.</MD>
           </Main>
           <Sidebar style={{ padding: 28 }}>
-            <XXL>Example Sidebar</XXL>
+            <XXL tag="h2">Example Sidebar</XXL>
             <MD>
               Beetroot water spinach okra water chestnut ricebean pea catsear courgette summer
               purslane. Water spinach arugula pea tatsoi aubergine spring onion bush tomato kale
