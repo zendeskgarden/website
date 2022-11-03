@@ -20,7 +20,7 @@ const Example = () => {
         <Button onClick={() => setVisible(true)}>Open large modal</Button>
         {visible && (
           <Modal isLarge onClose={() => setVisible(false)}>
-            <Header>Do you need plant food?</Header>
+            <Header tag="h2">Do you need plant food?</Header>
             <Body>
               <Paragraph>
                 Plant nutrition is the study of the chemical elements and compounds necessary for

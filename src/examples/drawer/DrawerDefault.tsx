@@ -21,7 +21,7 @@ const Example = () => {
       <Col textAlign="center">
         <Button onClick={open}>Open Drawer</Button>
         <DrawerModal isOpen={isOpen} onClose={close}>
-          <DrawerModal.Header>Tending a garden</DrawerModal.Header>
+          <DrawerModal.Header tag="h2">Tending a garden</DrawerModal.Header>
           <DrawerModal.Body>
             <Paragraph>
               Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi
