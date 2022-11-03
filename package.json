@@ -133,7 +133,7 @@
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-order": "5.0.0",
     "stylelint-processor-styled-components": "1.10.0",
-    "svgo": "2.8.0",
+    "svgo": "3.0.0",
     "typescript": "4.8.4",
     "unist-util-visit": "2.0.3",
     "use-resize-observer": "9.0.2",
