@@ -30,7 +30,7 @@ const Example = () => {
           onClose={() => setReferenceElement(null)}
           placement="top"
         >
-          <TooltipModal.Title>Tooltip modal header</TooltipModal.Title>
+          <TooltipModal.Title tag="h2">Tooltip modal header</TooltipModal.Title>
           <TooltipModal.Body>
             Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea
             sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber
