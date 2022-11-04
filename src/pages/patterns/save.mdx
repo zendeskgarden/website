@@ -1,0 +1,258 @@
+---
+title: Save
+description: >
+  The Save command is used whenever a user wants to apply changes or maintain progress.
+---
+
+## Anatomy
+
+### Action footer
+
+![Save pattern anatomy](figma:patterns-save-anatomy-action-footer.png)
+
+1. The **Save** button is the [primary button](/components/button#type) on a page, placed at the end
+   of all form inputs
+2. The **Cancel** button is a [basic button](/components/button#type), left of the Save button
+3. In a [page footer](/components/chrome#footer), the Save and Cancel buttons remain fixed
+
+### Saving changes
+
+Saving applies to a page or view.
+
+Always [enable](/patterns/buttons#disabled) the Save button for users to trigger an action even if
+there are no new changes to save.
+
+- If there are tabs, save all data per tab
+- If the page or tab has an indication of the last edit date, that timestamp should update
+- After changes are saved, show a loader inside the Save button if saving takes time, and ignore
+  trigger actions for the duration
+- Ensure a custom, translated label for the loader is provided on implementation
+
+import SavePatternInteraction from '../../examples/save/SavePatternInteraction.tsx';
+import SavePatternInteractionCode from '!!raw-loader!../../examples/save/SavePatternInteraction.tsx';
+
+<CodeExample code={SavePatternInteractionCode}>
+  <SavePatternInteraction />
+</CodeExample>
+
+### Notifications
+
+#### Successful Save
+
+![Save pattern success notification](figma:patterns-save-anatomy-success-notification.png)
+
+1. A success [notification](/components/notifications) appears at the top right of the screen
+   indicating changes have been saved
+
+<BestPractice>
+  <Do
+    imageIsFreeForm
+    imageSource={props.data.saveSuccessDo.childFile.childImageSharp.gatsbyImageData}
+  >
+    <ul>
+      <li>Use transient notifications to confirm saving actions.</li>
+    </ul>
+  </Do>
+  <Dont
+    imageIsFreeForm
+    imageSource={props.data.saveSuccessDont.childFile.childImageSharp.gatsbyImageData}
+  >
+    <ul>
+      <li>Do not place actions inside notifications as it is transient and inaccessible.</li>
+    </ul>
+  </Dont>
+</BestPractice>
+
+## States
+
+### Save errors
+
+Errors can be presented in a variety of ways, depending on the issue.
+
+![Save pattern error single field](figma:patterns-save-errors.png)
+
+1. Show validation errors inline if the Save button is actioned but something is wrong
+
+![Save pattern multiple errors](figma:patterns-save-validation-alert.png)
+
+1. An error [alert](/components/alerts#type) that summarizes the errors at the top of the page improves
+   screen reader accessibility
+
+### Unsaved changes
+
+If a user navigates away from a page, tab or stepper flow before applying changes, use an Unsaved
+changes modal.
+
+![Save pattern Unsaved changes](figma:patterns-save-unsaved-changes.png)
+
+1. **Leave without saving** reverts all values on the page to the last saved state without reloading the
+   page.
+2. **Go back** returns to the previous view without discarding changes and reloading the page.
+
+### Canceling changes
+
+**Cancel** actively discards changes the user made and dismisses the current view. Cancel should never
+clear the form, or clear changes and reload the page. This increases the risk of accidental data loss.
+
+## Workflows
+
+### Basic form
+
+[Google Drive video](https://drive.google.com/file/d/1U57FoWNntJmDBPQVjx3gKZvB9EIAu2Ot/view?usp=sharing)
+
+### Tabs
+
+[Google Drive video](https://drive.google.com/file/d/18be1JMbsHBDSoEHmmZZ6r-O91MgtAvC3/view?usp=sharing)
+
+## Localization & internationalization
+
+### RTL (right-to-left)
+
+For RTL languages, the layout of the interface is mirrored.
+
+<ImageFigure
+  caption="Arabic RTL notification example"
+  imgAlt="Arabic RTL notification example"
+  imageSource={props.data.saveLocalizationArabic.childFile.childImageSharp.gatsbyImageData}
+/>
+
+## Accessibility
+
+### Tabbing order
+
+#### Basic form (LTR)
+
+For the main content area.
+
+![Save pattern action footer focus](figma:patterns-save-action-footer-focus.png)
+
+1. Breadcrumb, “Shop”
+2. Breadcrumb, “Customize”
+3. Input, “Section name required”
+4. Input, “Description required”
+5. File Upload, “Drag files here or click to upload”
+6. Button, “Cancel”
+7. Button, “Save”
+
+#### Basic form validation
+
+Screen readers will read the alert message at the top of the page to summarise all errors
+on the page or view.
+
+![Save pattern validation alert focus](figma:patterns-save-validation-alert-focus.png)
+
+1. Input, “Section name required, enter a section name”
+2. Input, “Description required, enter a description”
+3. File Upload, “Drag files here or click to upload”
+4. Button, “Cancel”
+5. Button, “Save”
+
+#### Unsaved changes <!-- markdownlint-disable-line -->
+
+Focus will be trapped inside the modals interactive elements until the user actions those elements,
+presses `esc` or clicks outside the modal.
+
+![Save pattern Unsaved changes focus](figma:patterns-save-unsaved-changes-focus.png)
+
+1. Button, “Go back”
+2. Button, “Leave without saving”
+3. Icon button, “Close modal”
+
+#### Additional resources
+
+- [https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html](https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html)
+- [https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html](https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html)
+- [https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion.html](https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion.html)
+
+---
+
+## Feedback
+
+Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yiFC7)
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    saveAnatomy: figmaAsset(name: { eq: "patterns-save-anatomy-action-footer" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    saveSuccessNotification: figmaAsset(
+      name: { eq: "patterns-save-anatomy-success-notification" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    saveSuccessDo: figmaAsset(name: { eq: "patterns-save-anatomy-success-notification-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 300)
+        }
+      }
+    }
+    saveSuccessDont: figmaAsset(name: { eq: "patterns-save-anatomy-success-notification-dont" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 300)
+        }
+      }
+    }
+    saveErrors: figmaAsset(name: { eq: "patterns-save-errors" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    saveValidation: figmaAsset(name: { eq: "patterns-save-validation-alert" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    saveUnsavedChanges: figmaAsset(name: { eq: "patterns-save-unsaved-changes" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    saveLocalizationArabic: figmaAsset(name: { eq: "patterns-save-rtl" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    saveActionFooterFocus: figmaAsset(name: { eq: "patterns-save-action-footer-focus" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    saveValidationAlertFocus: figmaAsset(name: { eq: "patterns-save-validation-alert-focus" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    saveUnsavedChangesFocus: figmaAsset(name: { eq: "patterns-save-unsaved-changes-focus" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+  }
+`;

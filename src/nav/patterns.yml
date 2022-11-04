@@ -8,6 +8,8 @@
       id: /patterns/buttons
     - title: Rich-text editor
       id: /patterns/rich-text-editor
+    - title: Save
+      id: /patterns/save
     - title: Tables
       items:
         - id: /patterns/tables/basic-formatting
