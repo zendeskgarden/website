@@ -21,7 +21,7 @@ const StyledCol = styled(Col)`
 `;
 
 const Example = () => (
-  <Tiles name="example" aria-label="Tiles component example">
+  <Tiles name="example" aria-label="Description Tiles component example">
     <Row>
       <Col sm={4}>
         <Tiles.Tile value="leaf">
