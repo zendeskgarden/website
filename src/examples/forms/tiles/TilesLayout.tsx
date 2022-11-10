@@ -21,7 +21,7 @@ const StyledCol = styled(Col)`
 const Example = () => (
   <Row>
     <Col sm={6}>
-      <Tiles name="example-centered" aria-label="Tiles component example">
+      <Tiles name="example-centered" aria-label="Layout Tiles component example">
         <Tiles.Tile value="leaf-centered">
           <Tiles.Icon>
             <LeafIcon />
