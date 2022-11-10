@@ -28,16 +28,16 @@ there are no new changes to save.
   trigger actions for the duration
 - Ensure a custom, translated label for the loader is provided on implementation
 
-import SavePatternInteraction from '../../examples/save/SavePatternInteraction.tsx';
-import SavePatternInteractionCode from '!!raw-loader!../../examples/save/SavePatternInteraction.tsx';
+import ButtonPatternInteraction from '../../examples/button/ButtonPatternInteraction.tsx';
+import ButtonPatternInteractionCode from '!!raw-loader!../../examples/button/ButtonPatternInteraction.tsx';
 
-<CodeExample code={SavePatternInteractionCode}>
-  <SavePatternInteraction />
+<CodeExample code={ButtonPatternInteractionCode}>
+  <ButtonPatternInteraction />
 </CodeExample>
 
 ### Notifications
 
-#### Successful Save
+#### Successful save
 
 ![Save pattern success notification](figma:patterns-save-anatomy-success-notification.png)
 
@@ -86,8 +86,8 @@ changes modal.
 ![Save pattern Unsaved changes](figma:patterns-save-unsaved-changes.png)
 
 1. **Leave without saving** reverts all values on the page to the last saved state without reloading the
-   page.
-2. **Go back** returns to the previous view without discarding changes and reloading the page.
+   page
+2. **Go back** returns to the previous view without discarding changes and reloading the page
 
 ### Canceling changes
 
@@ -98,7 +98,7 @@ clear the form, or clear changes and reload the page. This increases the risk of
 
 ### Basic form
 
-[Google Drive video](https://drive.google.com/file/d/1U57FoWNntJmDBPQVjx3gKZvB9EIAu2Ot/view?usp=sharing)
+[Google Drive video](https://drive.google.com/file/d/1L99ZenUxZ4BIAR3DVU-VcQk46ym4Owpa/view?usp=sharing)
 
 ### Tabs
 
@@ -120,7 +120,7 @@ For RTL languages, the layout of the interface is mirrored.
 
 ### Tabbing order
 
-#### Basic form (LTR)
+#### Basic form (left-to-right)
 
 For the main content area.
 
@@ -137,7 +137,7 @@ For the main content area.
 #### Basic form validation
 
 Screen readers will read the alert message at the top of the page to summarise all errors
-on the page or view.
+yaron the page or view.
 
 ![Save pattern validation alert focus](figma:patterns-save-validation-alert-focus.png)
 

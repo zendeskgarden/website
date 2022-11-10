@@ -39,11 +39,11 @@ const ButtonPatternInteraction = () => {
   return (
     <Row>
       <Col textAlign="center">
-        <Button ref={buttonRef}>
+        <Button isPrimary ref={buttonRef}>
           {isLoading ? (
-            <Dots delayMS={0} aria-label="Completing purchase" size={themeContext.space.base * 5} />
+            <Dots delayMS={0} aria-label="Save" size={themeContext.space.base * 5} />
           ) : (
-            'Complete purchase'
+            'Save'
           )}
         </Button>
       </Col>
