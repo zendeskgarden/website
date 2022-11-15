@@ -14,7 +14,8 @@
     "lint:md": "markdownlint ./*.md {content,src}/**/*.{md,mdx}",
     "prepare": "git submodule update --depth 1 --init && yarn build",
     "start": "gatsby develop --open",
-    "test": "prettier-package-json --list-different && yarn format:all --check && yarn lint && yarn tsc"
+    "test": "prettier-package-json --list-different && yarn format:all --check && yarn lint && yarn tsc",
+    "upgrade": "node utils/upgrade.js --components --containers --submodule"
   },
   "resolutions": {
     "@types/vfile-message": "1.0.1"
