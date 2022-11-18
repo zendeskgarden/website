@@ -1,5 +1,5 @@
 ---
-title: Alerts
+title: Global Alert
 description: >
   A Global Alert provides system-wide feedback and updates to users.
 package: '@zendeskgarden/react-notifications'
@@ -37,6 +37,9 @@ subcomponents:
 
 ### Default
 
+The global alert is the first element of a page and pushes content down. They are read first
+by a screen reader and is persistent until the user dismisses it or the issue has been resolved.
+
 import Default from '../../examples/notifications/global-alert/GlobalAlertDefault.tsx';
 import DefaultCode from '!!raw-loader!../../examples/notifications/global-alert/GlobalAlertDefault.tsx';
 
@@ -63,14 +66,44 @@ import TypesCode from '!!raw-loader!../../examples/notifications/global-alert/Gl
 Allow for one action button for the user to address the issue
 associated with the banner, with the exception of “learn more”.
 
+<BestPractice>
+  <Do
+    imageSource={props.data.globalAlertClearlyActionable.childFile.childImageSharp.gatsbyImageData}
+    imageIsSquare
+  >
+    <p>Global alerts should have one clear action</p>
+  </Do>
+</BestPractice>
+
 ### Allow users to dismiss
 
 Allow users to close the banner if it does not impede the use of the product.
+
+<BestPractice>
+  <Do
+    imageSource={props.data.globalAlertDismissable.childFile.childImageSharp.gatsbyImageData}
+    imageIsSquare
+  >
+    <p>Passive, informational messages should be dismissible</p>
+  </Do>
+</BestPractice>
 
 ### Do not time out
 
 Global alerts are persistent. They should either be dismissed temporarily
 by the user or dismissed automatically when the issue is resolved.
+
+<BestPractice>
+  <Do
+    imageSource={props.data.globalAlertPersistent.childFile.childImageSharp.gatsbyImageData}
+    imageIsSquare
+  >
+    <p>
+      Global alerts are always visible until the issue has been resolved or the alert is manually
+      dismissed by the user
+    </p>
+  </Do>
+</BestPractice>
 
 ## Configuration
 
@@ -144,5 +177,32 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    globalAlertClearlyActionable: figmaAsset(
+      name: { eq: "components-dropdowns-autocomplete-selection-do" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    globalAlertDismissable: figmaAsset(
+      name: { eq: "components-dropdowns-autocomplete-selection-do" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    globalAlertPersistent: figmaAsset(
+      name: { eq: "components-dropdowns-autocomplete-selection-do" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
   }
 `;

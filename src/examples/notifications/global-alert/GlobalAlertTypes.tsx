@@ -8,6 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GlobalAlert } from '@zendeskgarden/react-notifications';
+import { Anchor } from '@zendeskgarden/react-buttons';
 
 const Container = styled.div`
   & > * {
@@ -22,31 +23,37 @@ const Container = styled.div`
 const Example = () => (
   <Container>
     <GlobalAlert type="info">
-      <GlobalAlert.Title>Info</GlobalAlert.Title>
-      <GlobalAlert.Content>Gumbo beet greens corn soko endive gumbo gourd.</GlobalAlert.Content>
-      <GlobalAlert.Button>Primary</GlobalAlert.Button>
-      <GlobalAlert.Close aria-label="Close GlobalAlert" />
+      <GlobalAlert.Title>New update available</GlobalAlert.Title>
+      <GlobalAlert.Content>
+        <span>Your account will automatically update in 5 days. </span>
+        <Anchor href="#" isExternal>
+          Find out more
+        </Anchor>
+      </GlobalAlert.Content>
+      <GlobalAlert.Button>Update now</GlobalAlert.Button>
+      <GlobalAlert.Close aria-label="Close Global Alert" />
     </GlobalAlert>
 
     <GlobalAlert type="warning">
       <GlobalAlert.Title>Warning</GlobalAlert.Title>
-      <GlobalAlert.Content>Gumbo beet greens corn soko endive gumbo gourd.</GlobalAlert.Content>
-      <GlobalAlert.Button>Primary</GlobalAlert.Button>
-      <GlobalAlert.Close aria-label="Close GlobalAlert" />
+      <GlobalAlert.Content>
+        <span>During system maintenance, you may experience a service disruption. </span>
+        <Anchor href="#" isExternal>
+          Learn more
+        </Anchor>
+      </GlobalAlert.Content>
+      <GlobalAlert.Close aria-label="Close Global Alert" />
     </GlobalAlert>
 
     <GlobalAlert type="error">
-      <GlobalAlert.Title>Error</GlobalAlert.Title>
-      <GlobalAlert.Content>Gumbo beet greens corn soko endive gumbo gourd.</GlobalAlert.Content>
-      <GlobalAlert.Button>Primary</GlobalAlert.Button>
-      <GlobalAlert.Close aria-label="Close GlobalAlert" />
+      <GlobalAlert.Title>Chat is disconnected</GlobalAlert.Title>
+      <GlobalAlert.Content>Reconnect to make this session live.</GlobalAlert.Content>
+      <GlobalAlert.Button>Reconnect</GlobalAlert.Button>
     </GlobalAlert>
 
     <GlobalAlert type="success">
       <GlobalAlert.Title>Success</GlobalAlert.Title>
-      <GlobalAlert.Content>Gumbo beet greens corn soko endive gumbo gourd.</GlobalAlert.Content>
-      <GlobalAlert.Button>Primary</GlobalAlert.Button>
-      <GlobalAlert.Close aria-label="Close GlobalAlert" />
+      <GlobalAlert.Content>Your trial has been updated!</GlobalAlert.Content>
     </GlobalAlert>
   </Container>
 );
