@@ -1,0 +1,212 @@
+---
+title: Copy
+description: >
+  The copy action provides the user the ability to copy a value from an input field or other areas within 
+  the interface. It temporarily stores information that can be retrieved and used within a given flow.
+---
+
+## Anatomy
+
+- Always include the value being copied and the copy action which can be represented as a [Button](/components/button)
+  or an [Icon Button](/components/icon-button)
+- When the field label is unavailable, it is recommended to use the [Tooltip](/components/tooltip) component on the
+  action to reinforce the type of information being copied
+
+![A ‘default’ copy layout within a form consisting of a label, input field and a “Copy” button](figma:patterns-copy-anatomy.png)
+
+1. **Label** of the value being copied. Ensure a label is visible in the interface however it can be
+   [visually hidden](/components/input#hidden-label) if required.
+2. **Actual value** that will be copied
+3. **Copy** action
+
+### Related components
+
+- [Input group](/components/input-group)
+- [Notification](/components/notifications)
+- [Icon button](/components/icon-button)
+- [Tooltip](/components/tooltip)
+
+## Layouts
+
+### Default
+
+- Use an [Input group](/components/input-group) to enable the copy action within forms
+- If the data being copied is read-only, use a [read-only Input group](/components/input-group#read-only)
+- Use a medium-sized default button for copy actions and place the button to the side of the input field
+
+![‘Defaut’ copy layout of an Input group within forms](figma:patterns-copy-layouts-default.png)
+
+![The user has actioned the “Copy“ button with a transient Notification appearing top right of screen](figma:patterns-copy-layouts-default-notification.png)
+
+### Minimal
+
+Copy interaction can be also found in a more minimal style, for example in list items within cards. The label in
+that case would not be visible, or it might have an icon at the start to indicate the field type. The copy action
+would be to the side of the item as an [Icon button](/components/icon-button).
+
+![‘Minimal’ copy layout of three list items](figma:patterns-copy-layouts-minimal.png)
+
+![‘Minimal’ copy layout of three list items with a Tooltip on hover or focus on an Icon button](figma:patterns-copy-layouts-minimal-tooltip.png)
+
+## Content
+
+- For Input groups, use “Copy” as the visible button label
+- For Icon buttons, include the object as part of the Tooltip content
+- If there are multiple copy buttons on a page or view, ensure the appropriate [ARIA](/patterns/copy/#aria-attributes)
+  or [alt](/patterns/copy/#alt-text) attributes are added
+
+![The copy pattern displayed in ‘default’ and ‘minimal’ layouts](figma:patterns-copy-content.png)
+
+## Flows
+
+After the interaction, provide feedback with a success [Notification](/components/notifications). Notifications
+should remain on screen for at least 5 seconds.
+
+![The ‘default’ copy layout where the user has actioned the “Copy” button and a transient Notification appearing top right of screen for at least 5 seconds](figma:patterns-copy-layouts-default-notification.png)
+
+## Localization & internationalization
+
+The copy action should appear on the right side of the Input field for LTR (left-to-right) languages and on the
+left side for RTL (right-to-left) languages.
+
+Different languages can also affect the copy label length so ensure adequate space is considered within the
+Input field.
+
+## Accessibility
+
+### Default <!-- markdownlint-disable-line -->
+
+<BestPractice>
+  <Do
+    imageIsFreeForm
+    imageSource={props.data.copyAccessibilityDo.childFile.childImageSharp.gatsbyImageData}
+    alt="Input group with a read-only Input field"
+  >
+    <ul>
+      <li>Use the read-only Input field in forms.</li>
+    </ul>
+  </Do>
+  <Dont
+    imageIsFreeForm
+    imageSource={props.data.copyAccessibilityDont.childFile.childImageSharp.gatsbyImageData}
+    alt="Input group with a disabled Input field"
+  >
+    <ul>
+      <li>Don’t use the disabled Input field.</li>
+    </ul>
+  </Dont>
+</BestPractice>
+
+### Minimal <!-- markdownlint-disable-line -->
+
+When the copy interaction is used in a list, make sure that the interaction is discoverable by using the copy
+icon inside an Icon button and provide a [Tooltip](/components/tooltip) on hover or focus.
+
+![‘Minimal’ copy layout of three list items with a Tooltip on keyboard focus on an Icon button](figma:patterns-copy-accessibility-minimal-focused.png)
+
+### Alt text
+
+In the example above, the icon text label and copy button text label should match. The email icon will have `alt`
+text as "email" and the copy Icon button will say "Copy email".
+
+### ARIA attributes
+
+If there are multiple copy fields on a page or view within a form, use the `aria-label` attribute within the
+“Copy” button to match the fields name.
+
+![Two Input groups within a form showing “Copy” button actions](figma:patterns-copy-accessibility-aria-labels.png)
+
+1. `<button aria-label="Copy invoice number">Copy</button>`
+2. `<button aria-label="Copy confirmation number">Copy</button>`
+
+### Additional resources
+
+- [https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html)
+
+---
+
+## Feedback
+
+Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yiFC7)
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    copyAnatomy: figmaAsset(name: { eq: "patterns-copy-anatomy" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    copyLayoutsDefault: figmaAsset(name: { eq: "patterns-copy-layouts-default" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    copyLayoutsDefaultNotification: figmaAsset(
+      name: { eq: "patterns-copy-layouts-default-notification" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    copyLayoutsMinimal: figmaAsset(name: { eq: "patterns-copy-layouts-minimal" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    copyLayoutsMinimalTooltip: figmaAsset(name: { eq: "patterns-copy-layouts-minimal-tooltip" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    copyLayoutsContent: figmaAsset(name: { eq: "patterns-copy-content" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    copyAccessibilityDo: figmaAsset(name: { eq: "patterns-copy-accessibility-input-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 300)
+        }
+      }
+    }
+    copyAccessibilityDont: figmaAsset(name: { eq: "patterns-copy-accessibility-input-dont" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 300)
+        }
+      }
+    }
+    copyAccessibilityMinimal: figmaAsset(
+      name: { eq: "patterns-copy-accessibility-minimal-focused" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    copyAccessibilityAria: figmaAsset(name: { eq: "patterns-copy-accessibility-aria-labels" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+  }
+`;
