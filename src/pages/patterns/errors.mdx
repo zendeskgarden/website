@@ -1,0 +1,38 @@
+---
+title: Error handling
+description: >
+  Error messages let users know that a problem has occurred and what to do about it.
+---
+
+## Global Alerts
+
+Use the Global Alert to communicate system level errors that interrupt a user’s task.
+
+### Anatomy
+
+![Global Alert](figma:patterns-errors-global-alert)
+
+1. Title
+2. Message
+3. Button
+
+---
+
+<h2>Feedback</h2>
+
+Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yiFC7)
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    GlobalAlert: figmaAsset(name: { eq: "patterns-errors-global-alert" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+  }
+`;
