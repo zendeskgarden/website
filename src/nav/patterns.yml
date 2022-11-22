@@ -6,6 +6,8 @@
   items:
     - title: Buttons
       id: /patterns/buttons
+    - title: Copy
+      id: /patterns/copy
     - title: Rich-text editor
       id: /patterns/rich-text-editor
     - title: Save
