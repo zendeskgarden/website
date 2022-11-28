@@ -10,7 +10,7 @@ Use the Global Alert to communicate system level errors that interrupt a user’
 
 ### Anatomy
 
-![Global Alert](figma:patterns-errors-global-alert)
+![Global Alert](figma:patterns-error-global-alert-anatomy)
 
 1. Title
 2. Message
@@ -27,7 +27,7 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    GlobalAlert: figmaAsset(name: { eq: "patterns-errors-global-alert" }) {
+    GlobalAlert: figmaAsset(name: { eq: "patterns-error-global-alert-anatomy" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)

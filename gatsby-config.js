@@ -52,6 +52,7 @@ const figmaNodeIds = [
   '1232:34213' /* patterns-buttons-content-do */,
   '1232:34208' /* patterns-buttons-content-dont */,
   '1232:34264' /* patterns-buttons-localization-arabic */,
+  '1435:38818' /* patterns-error-global-alert-anatomy */,
   '1202:16334' /* patterns-rich-text-editor-intro */,
   '1202:16535' /* patterns-rich-text-editor-anatomy */,
   '1202:25862' /* patterns-rich-text-editor-example */,
