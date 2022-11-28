@@ -10,18 +10,12 @@ import styled from 'styled-components';
 import { GlobalAlert } from '@zendeskgarden/react-notifications';
 import { Anchor } from '@zendeskgarden/react-buttons';
 
-const Container = styled.div`
-  & > * {
-    margin-bottom: 32px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+const StyledSpacer = styled.div`
+  height: ${p => p.theme.space.md};
 `;
 
 const Example = () => (
-  <Container>
+  <>
     <GlobalAlert type="info">
       <GlobalAlert.Title>New update available</GlobalAlert.Title>
       <GlobalAlert.Content>
@@ -34,6 +28,8 @@ const Example = () => (
       <GlobalAlert.Close aria-label="Close Global Alert" />
     </GlobalAlert>
 
+    <StyledSpacer />
+
     <GlobalAlert type="warning">
       <GlobalAlert.Title>Warning</GlobalAlert.Title>
       <GlobalAlert.Content>
@@ -45,17 +41,21 @@ const Example = () => (
       <GlobalAlert.Close aria-label="Close Global Alert" />
     </GlobalAlert>
 
+    <StyledSpacer />
+
     <GlobalAlert type="error">
       <GlobalAlert.Title>Chat is disconnected</GlobalAlert.Title>
       <GlobalAlert.Content>Reconnect to make this session live.</GlobalAlert.Content>
       <GlobalAlert.Button>Reconnect</GlobalAlert.Button>
     </GlobalAlert>
 
+    <StyledSpacer />
+
     <GlobalAlert type="success">
       <GlobalAlert.Title>Success</GlobalAlert.Title>
       <GlobalAlert.Content>Your trial has been updated!</GlobalAlert.Content>
     </GlobalAlert>
-  </Container>
+  </>
 );
 
 export default Example;

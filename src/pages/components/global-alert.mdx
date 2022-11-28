@@ -1,7 +1,7 @@
 ---
-title: Global Alert
+title: Global alert
 description: >
-  A Global Alert provides system-wide feedback and updates to users.
+  A Global alert provides system-wide feedback and updates to users.
 package: '@zendeskgarden/react-notifications'
 components:
   - notifications/src/elements/global-alert/GlobalAlert.tsx
@@ -111,21 +111,21 @@ by the user or dismissed automatically when the issue is resolved.
 
 ## API
 
-The GlobalAlert component follows this structure:
+The Global alert component follows this structure:
 
 <!-- prettier-ignore -->
 ```jsx
 <GlobalAlert>
   <GlobalAlert.Title>
-    {/* an optional title for global alert */}
+    {/* a title for global alert */}
   </GlobalAlert.Title>
   
   <GlobalAlert.Content>
-    {/* main content of global alert; for text and nesting anchors */}
+    {/* main text content and nested anchors */}
   </GlobalAlert.Content>
 
   <GlobalAlert.Button>
-    {/* interaction for global alert */}
+    {/* optional action for global alert */}
   </GlobalAlert.Button>
 
   <GlobalAlert.Close aria-label="Close Button" />
@@ -134,13 +134,13 @@ The GlobalAlert component follows this structure:
 
 ### GlobalAlert
 
-The GlobalAlert component applies appropriate icon, and styles based on the type provided.
+The Global alert component applies appropriate icon, and styles based on the type provided.
 
 <Component components={props.data.mdx.components} componentName="globalalert" />
 
 <PropSheet components={props.data.mdx.components} componentName="globalalert" />
 
-### GlobalAlert.Button
+#### GlobalAlert.Button
 
 Nest the Button within a [GlobalAlert](#globalalert) component.
 
@@ -148,7 +148,7 @@ Nest the Button within a [GlobalAlert](#globalalert) component.
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="globalalert.button" />
 
-### GlobalAlert.Close
+#### GlobalAlert.Close
 
 Nest a Close button within a [GlobalAlert](#globalalert) component as the last child for consistent tab order.
 
@@ -156,7 +156,7 @@ Nest a Close button within a [GlobalAlert](#globalalert) component as the last c
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="globalalert.close" />
 
-### GlobalAlert.Content
+#### GlobalAlert.Content
 
 Nest the Content within a [GlobalAlert](#globalalert) component.
 
@@ -164,7 +164,7 @@ Nest the Content within a [GlobalAlert](#globalalert) component.
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="globalalert.content" />
 
-### GlobalAlert.Title
+#### GlobalAlert.Title
 
 Nest the Title within a [GlobalAlert](#globalalert) component.
 

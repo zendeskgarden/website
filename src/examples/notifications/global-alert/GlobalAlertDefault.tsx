@@ -12,7 +12,7 @@ const Example = () => (
   <GlobalAlert type="info">
     <GlobalAlert.Title>Info</GlobalAlert.Title>
     <GlobalAlert.Content>Gumbo beet greens corn soko endive gumbo gourd.</GlobalAlert.Content>
-    <GlobalAlert.Close aria-label="Close GlobalAlert" />
+    <GlobalAlert.Close aria-label="Close Global Alert" />
   </GlobalAlert>
 );
 

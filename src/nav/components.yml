@@ -111,7 +111,7 @@
         - id: /components/alerts
           title: Alerts
         - id: /components/global-alert
-          title: GlobalAlert
+          title: Global alert
         - id: /components/notifications
           title: Notifications
     - title: Pagination
