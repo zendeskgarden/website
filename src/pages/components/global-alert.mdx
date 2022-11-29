@@ -108,12 +108,13 @@ The Global alert component follows this structure:
 <!-- prettier-ignore -->
 ```jsx
 <GlobalAlert>
-  <GlobalAlert.Title>
-    {/* a title for global alert */}
-  </GlobalAlert.Title>
-  
   <GlobalAlert.Content>
     {/* main text content and nested anchors */}
+
+    <GlobalAlert.Title>
+      {/* a title for global alert */}
+    </GlobalAlert.Title>
+
   </GlobalAlert.Content>
 
   <GlobalAlert.Button>

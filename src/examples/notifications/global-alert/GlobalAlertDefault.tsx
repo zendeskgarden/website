@@ -10,8 +10,10 @@ import { GlobalAlert } from '@zendeskgarden/react-notifications';
 
 const Example = () => (
   <GlobalAlert type="info">
-    <GlobalAlert.Title>Info</GlobalAlert.Title>
-    <GlobalAlert.Content>Gumbo beet greens corn soko endive gumbo gourd.</GlobalAlert.Content>
+    <GlobalAlert.Content>
+      <GlobalAlert.Title>Info</GlobalAlert.Title>
+      Gumbo beet greens corn soko endive gumbo gourd.
+    </GlobalAlert.Content>
     <GlobalAlert.Close aria-label="Close Global Alert" />
   </GlobalAlert>
 );

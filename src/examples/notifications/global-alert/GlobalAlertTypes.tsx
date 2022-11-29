@@ -17,8 +17,8 @@ const StyledSpacer = styled.div`
 const Example = () => (
   <>
     <GlobalAlert type="info">
-      <GlobalAlert.Title>New update available</GlobalAlert.Title>
       <GlobalAlert.Content>
+        <GlobalAlert.Title>New update available</GlobalAlert.Title>
         Your account will automatically update in 5 days.{' '}
         <Anchor href="#" isExternal>
           Find out more
@@ -31,8 +31,8 @@ const Example = () => (
     <StyledSpacer />
 
     <GlobalAlert type="warning">
-      <GlobalAlert.Title>Warning</GlobalAlert.Title>
       <GlobalAlert.Content>
+        <GlobalAlert.Title>Warning</GlobalAlert.Title>
         During system maintenance, you may experience a service disruption.{' '}
         <Anchor href="#" isExternal>
           Learn more
@@ -44,16 +44,20 @@ const Example = () => (
     <StyledSpacer />
 
     <GlobalAlert type="error">
-      <GlobalAlert.Title>Chat is disconnected</GlobalAlert.Title>
-      <GlobalAlert.Content>Reconnect to make this session live.</GlobalAlert.Content>
+      <GlobalAlert.Content>
+        <GlobalAlert.Title>Chat is disconnected</GlobalAlert.Title>
+        Reconnect to make this session live.
+      </GlobalAlert.Content>
       <GlobalAlert.Button>Reconnect</GlobalAlert.Button>
     </GlobalAlert>
 
     <StyledSpacer />
 
     <GlobalAlert type="success">
-      <GlobalAlert.Title>Success</GlobalAlert.Title>
-      <GlobalAlert.Content>Your trial has been updated!</GlobalAlert.Content>
+      <GlobalAlert.Content>
+        <GlobalAlert.Title>Success</GlobalAlert.Title>
+        Your trial has been updated!
+      </GlobalAlert.Content>
     </GlobalAlert>
   </>
 );
