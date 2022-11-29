@@ -37,7 +37,7 @@ subcomponents:
 
 ### Default
 
-The global alert is the first element of a page and pushes content down. They are read first
+The Global alert is the first element of a page and pushes content down. It is read first
 by a screen reader and is persistent until the user dismisses it or the issue has been resolved.
 
 import Default from '../../examples/notifications/global-alert/GlobalAlertDefault.tsx';
@@ -69,7 +69,6 @@ associated with the banner, with the exception of “learn more”.
 <BestPractice>
   <Do
     imageSource={props.data.globalAlertClearlyActionable.childFile.childImageSharp.gatsbyImageData}
-    imageIsSquare
   >
     <p>Global alerts should have one clear action</p>
   </Do>
@@ -77,13 +76,10 @@ associated with the banner, with the exception of “learn more”.
 
 ### Allow users to dismiss
 
-Allow users to close the banner if it does not impede the use of the product.
+Allow users to close the Global alert if it does not impede the use of the product.
 
 <BestPractice>
-  <Do
-    imageSource={props.data.globalAlertDismissable.childFile.childImageSharp.gatsbyImageData}
-    imageIsSquare
-  >
+  <Do imageSource={props.data.globalAlertDismissable.childFile.childImageSharp.gatsbyImageData}>
     <p>Passive, informational messages should be dismissible</p>
   </Do>
 </BestPractice>
@@ -94,10 +90,7 @@ Global alerts are persistent. They should either be dismissed temporarily
 by the user or dismissed automatically when the issue is resolved.
 
 <BestPractice>
-  <Do
-    imageSource={props.data.globalAlertPersistent.childFile.childImageSharp.gatsbyImageData}
-    imageIsSquare
-  >
+  <Do imageSource={props.data.globalAlertPersistent.childFile.childImageSharp.gatsbyImageData}>
     <p>
       Global alerts are always visible until the issue has been resolved or the alert is manually
       dismissed by the user

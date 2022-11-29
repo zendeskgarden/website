@@ -19,7 +19,7 @@ const Example = () => (
     <GlobalAlert type="info">
       <GlobalAlert.Title>New update available</GlobalAlert.Title>
       <GlobalAlert.Content>
-        <span>Your account will automatically update in 5 days. </span>
+        Your account will automatically update in 5 days.{' '}
         <Anchor href="#" isExternal>
           Find out more
         </Anchor>
@@ -33,7 +33,7 @@ const Example = () => (
     <GlobalAlert type="warning">
       <GlobalAlert.Title>Warning</GlobalAlert.Title>
       <GlobalAlert.Content>
-        <span>During system maintenance, you may experience a service disruption. </span>
+        During system maintenance, you may experience a service disruption.{' '}
         <Anchor href="#" isExternal>
           Learn more
         </Anchor>
