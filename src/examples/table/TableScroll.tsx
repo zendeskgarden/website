@@ -7,14 +7,18 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import getScrollbarSize from 'dom-helpers/scrollbarSize';
+import { getColor } from '@zendeskgarden/react-theming';
 import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
 
-const SCROLLBAR_SIZE = getScrollbarSize();
+const StyledStickyHead = styled(Head)`
+  position: sticky;
+  top: 0;
+  box-shadow: ${props => {
+    const boxShadow = props.theme.shadows.sm(getColor('neutralHue', 200, props.theme) as string);
 
-const StyledSpacerCell = styled(HeaderCell)`
-  padding: 0;
-  width: ${SCROLLBAR_SIZE}px;
+    return `${boxShadow.replace('2px', '1px')}`;
+  }};
+  background-color: ${props => props.theme.colors.background};
 `;
 
 interface IRow {
@@ -32,30 +36,25 @@ const rowData: IRow[] = Array.from(Array(100)).map((row, index) => ({
 }));
 
 const Example = () => (
-  <div style={{ overflowX: 'auto' }}>
-    <Table style={{ minWidth: 500 }}>
-      <Head>
+  <div style={{ maxHeight: 500, overflowY: 'auto' }}>
+    <Table>
+      <StyledStickyHead>
         <HeaderRow>
           <HeaderCell>Fruit</HeaderCell>
           <HeaderCell>Sun exposure</HeaderCell>
           <HeaderCell>Soil type</HeaderCell>
-          <StyledSpacerCell aria-hidden />
         </HeaderRow>
-      </Head>
+      </StyledStickyHead>
+      <Body>
+        {rowData.map(data => (
+          <Row key={data.index}>
+            <Cell>{data.fruit}</Cell>
+            <Cell>{data.sun}</Cell>
+            <Cell>{data.soil}</Cell>
+          </Row>
+        ))}
+      </Body>
     </Table>
-    <div style={{ maxHeight: 500, overflowY: 'auto' }}>
-      <Table>
-        <Body>
-          {rowData.map(data => (
-            <Row key={data.index}>
-              <Cell>{data.fruit}</Cell>
-              <Cell>{data.sun}</Cell>
-              <Cell>{data.soil}</Cell>
-            </Row>
-          ))}
-        </Body>
-      </Table>
-    </div>
   </div>
 );
 
