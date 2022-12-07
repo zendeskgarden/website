@@ -1,0 +1,200 @@
+---
+title: Global alert
+description: >
+  A Global alert provides system-wide feedback and updates to users.
+package: '@zendeskgarden/react-notifications'
+components:
+  - notifications/src/elements/global-alert/GlobalAlert.tsx
+subcomponents:
+  - notifications/src/elements/global-alert/GlobalAlertButton.tsx
+  - notifications/src/elements/global-alert/GlobalAlertClose.tsx
+  - notifications/src/elements/global-alert/GlobalAlertContent.tsx
+  - notifications/src/elements/global-alert/GlobalAlertTitle.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>Announce new versions of products</li>
+      <li>Inform users of trial status</li>
+      <li>Let users know they are in an editing mode</li>
+      <li>Communicate system maintenance or disconnection from servers</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          For more contextual feedback about an action or task, use an [Alert](/components/alerts)
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The Global alert is the first element of a page and pushes content down. It is read first
+by a screen reader and is persistent until the user dismisses it or the issue has been resolved.
+
+import Default from '../../examples/notifications/global-alert/GlobalAlertDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/notifications/global-alert/GlobalAlertDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Type
+
+Types indicate what kind of message is in the Global alert and help the user understand
+how to respond. They can be info, warning, error, or success.
+
+import Types from '../../examples/notifications/global-alert/GlobalAlertTypes.tsx';
+import TypesCode from '!!raw-loader!../../examples/notifications/global-alert/GlobalAlertTypes.tsx';
+
+<CodeExample code={TypesCode}>
+  <Types />
+</CodeExample>
+
+## How to use it well
+
+### Clearly actionable
+
+Provide one button to address the issue, and an optional way to “learn more”.
+
+<BestPractice>
+  <Do
+    imageSource={props.data.globalAlertClearlyActionable.childFile.childImageSharp.gatsbyImageData}
+  >
+    <p>Global alerts should have one clear action</p>
+  </Do>
+</BestPractice>
+
+### Allow users to dismiss
+
+Allow users to close the Global alert if it does not impede the use of the product.
+
+<BestPractice>
+  <Do imageSource={props.data.globalAlertDismissable.childFile.childImageSharp.gatsbyImageData}>
+    <p>Passive, informational messages should be dismissible</p>
+  </Do>
+</BestPractice>
+
+### Do not time out
+
+Global alerts are persistent. They should either be dismissed temporarily
+by the user or dismissed automatically when the issue is resolved.
+
+<BestPractice>
+  <Do imageSource={props.data.globalAlertPersistent.childFile.childImageSharp.gatsbyImageData}>
+    <p>
+      Global alerts are always visible until the issue has been resolved or the alert is manually
+      dismissed by the user
+    </p>
+  </Do>
+</BestPractice>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+The Global alert component follows this structure:
+
+<!-- prettier-ignore -->
+```jsx
+<GlobalAlert>
+  <GlobalAlert.Content>
+    {/* main text content and nested anchors */}
+
+    <GlobalAlert.Title>
+      {/* a title for global alert */}
+    </GlobalAlert.Title>
+
+  </GlobalAlert.Content>
+
+  <GlobalAlert.Button>
+    {/* optional action for global alert */}
+  </GlobalAlert.Button>
+
+  <GlobalAlert.Close aria-label="Close Button" />
+</GlobalAlert>
+```
+
+### GlobalAlert
+
+The Global alert component applies appropriate icon, and styles based on the type provided.
+
+<Component components={props.data.mdx.components} componentName="globalalert" />
+
+<PropSheet components={props.data.mdx.components} componentName="globalalert" />
+
+#### GlobalAlert.Button
+
+Nest the Button within a [GlobalAlert](#globalalert) component.
+
+<Component components={props.data.mdx.subcomponents} componentName="globalalert.button" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="globalalert.button" />
+
+#### GlobalAlert.Close
+
+Nest a Close button within a [GlobalAlert](#globalalert) component as the last child for consistent tab order.
+
+<Component components={props.data.mdx.subcomponents} componentName="globalalert.close" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="globalalert.close" />
+
+#### GlobalAlert.Content
+
+Nest the Content within a [GlobalAlert](#globalalert) component.
+
+<Component components={props.data.mdx.subcomponents} componentName="globalalert.content" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="globalalert.content" />
+
+#### GlobalAlert.Title
+
+Nest the Title within a [GlobalAlert](#globalalert) component.
+
+<Component components={props.data.mdx.subcomponents} componentName="globalalert.title" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="globalalert.title" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    globalAlertClearlyActionable: figmaAsset(
+      name: { eq: "components-notification-global-alert-clearly-actionable" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    globalAlertDismissable: figmaAsset(
+      name: { eq: "components-notification-global-alert-dismissable" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    globalAlertPersistent: figmaAsset(
+      name: { eq: "components-notification-global-alert-persistent" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+  }
+`;
