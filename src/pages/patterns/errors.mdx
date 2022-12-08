@@ -4,6 +4,8 @@ description: >
   Error messages let users know that a problem has occurred and what to do about it.
 ---
 
+<!-- markdownlint-disable no-duplicate-header -->
+
 Examples of errors include:
 
 - The system has failed to load or perform an action
@@ -11,34 +13,36 @@ Examples of errors include:
 
 Error messages are best surfaced using these components:
 
-- Global Alerts
-- Alerts
-- Notifications
-- Validation messages (in Forms)
+- [Global Alerts](/components/global-alert)
+- [Alerts](/components/alerts)
+- [Notifications](/components/notifications)
+- [Validation messages](/components/forms/input#validation)
 
 ## Global Alerts
 
 Use the Global Alert to communicate system level errors that interrupt a user’s task.
 
-### Global alert anatomy
+### Anatomy
 
 - Always include a title to explain what has went wrong and how to fix it
 - Provide a clear action to address the issue
 
 ![Global Alert anatomy](figma:patterns-error-global-alert-anatomy.png)
 
-1. Title
-2. Message
-3. Button
+1. The **Title** announces what has went wrong
+2. The **Content** area describes how to address the issue. It may include an [anchor](/components/anchor) to
+   provide additional information
+3. This [**Button**](/components/global-alert#globalalertbutton) provides a way to resolve the error.
+   This button is placed towards the end of the Global alert
 
-### Global alert layout
+### Layout
 
 Global Alerts sit above chrome and push all page content down. They are the first item seen and announced by screen readers.
 For errors, Global Alerts should be persistent until the issue has been resolved by the user or system.
 
 ![Global Alert layout](figma:patterns-error-global-alert-layout.png)
 
-### Layout Examples
+### Examples
 
 #### Disconnection
 
@@ -54,15 +58,15 @@ Use alerts to communicate contextual information on how to fix an error.
 They persist until they are dismissed by the user or the issue is resolved.
 They are most commonly used in conjunction with validation messages in forms.
 
-### Alert anatomy
+### Anatomy
 
 ![Alert anatomy](figma:patterns-error-alert-anatomy.png)
 
-1. Title
-2. Message
-3. Close button
+1. **Title**
+2. The **Paragraph** area describes in more detail the error and how to fix
+3. The **Close button** is an [icon button](/components/icon-button), at the end of the Alert
 
-### Alert layout
+### Layout
 
 Alerts appear near their related items. They can expand to fill the width of the container or area they are in.
 
@@ -79,7 +83,7 @@ Alerts appear near their related items. They can expand to fill the width of the
 
 Use error notifications when an activity can not be completed.
 
-### Notification anatomy
+### Anatomy
 
 ![Notifications anatomy](figma:patterns-error-notification-anatomy.png)
 
@@ -87,14 +91,14 @@ Use error notifications when an activity can not be completed.
 2. Message
 3. Close button
 
-### Notification layout
+### Layout
 
 Notifications should sit on the top right side of a workspace and remain on screen for at least 5 seconds.
 Avoid covering important elements.
 
 ![Notifications layout](figma:patterns-error-notification-layout.png)
 
-### Notification examples
+### Examples
 
 #### Failed actions
 
@@ -108,14 +112,14 @@ The notification component helps communicate that an action could not be complet
 
 Use the message component to help users correct input errors as they happen. Clearly explain how to fix the error.
 
-### Form anatomy
+### Anatomy
 
 ![Forms anatomy](figma:patterns-error-forms-anatomy.png)
 
 1. The input field’s border turns red to indicate an error
 2. Provide a detailed error message to describe what went wrong
 
-### Form layout
+### Layout
 
 #### Multiple form errors
 
@@ -124,7 +128,7 @@ Also provide an Alert at the top of the form, listing a summary of the fields th
 
 ![Forms example, multiple form errors](figma:patterns-error-forms-layout-multiple.png)
 
-### Form formatting
+### Formatting
 
 #### Validate on submit
 
