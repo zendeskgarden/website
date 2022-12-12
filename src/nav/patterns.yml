@@ -8,6 +8,8 @@
       id: /patterns/buttons
     - title: Copy
       id: /patterns/copy
+    - title: Error handling
+      id: /patterns/errors
     - title: Rich-text editor
       id: /patterns/rich-text-editor
     - title: Save

@@ -1,0 +1,315 @@
+---
+title: Error handling
+description: >
+  Error messages let users know that a problem has occurred and what to do about it.
+---
+
+<!-- markdownlint-disable no-duplicate-header -->
+
+Examples of errors include:
+
+- The system has failed to load or perform an action
+- The user has made an incorrect action or input
+
+Error messages are best surfaced using these components:
+
+- [Global Alerts](/components/global-alert)
+- [Alerts](/components/alerts)
+- [Notifications](/components/notifications)
+- [Validation messages](/components/input#validation)
+
+## Global Alerts
+
+Use the Global Alert to communicate system level errors that interrupt a user’s task.
+
+### Anatomy
+
+- Always include a title to explain what has went wrong and how to fix it
+- Provide a clear action to address the issue
+
+![Global Alert anatomy](figma:patterns-error-global-alert-anatomy.png)
+
+1. The **Title** announces what has went wrong
+1. The **Content** area describes how to address the issue. It may include an [anchor](/components/anchor) to
+   provide additional information
+1. This [**Button**](/components/global-alert#globalalertbutton) provides a way to resolve the error.
+   This button is placed towards the end of the Global alert
+
+### Layout
+
+Global Alerts sit above chrome and push all page content down. They are the first item seen and announced by screen readers.
+For errors, Global Alerts should be persistent until the issue has been resolved by the user or system.
+
+![Global Alert layout](figma:patterns-error-global-alert-layout.png)
+
+### Examples
+
+#### Disconnection
+
+Use the Global Alert component to communicate that users have lost the connection to Zendesk.
+Provide a button to allow users to reconnect.
+There is no close button as the alert should only be dismissed when the connection is restored.
+
+![Global Alert example, user has been disconnected](figma:patterns-error-global-alert-disconnect.png)
+
+## Alerts
+
+Use alerts to communicate contextual information on how to fix an error.
+They persist until they are dismissed by the user or the issue is resolved.
+They are most commonly used in conjunction with validation messages in forms.
+
+### Anatomy
+
+![Alert anatomy](figma:patterns-error-alert-anatomy.png)
+
+1. **Title**
+1. The **Paragraph** area describes in more detail the error and how to fix
+1. The **Close button** is an [icon button](/components/icon-button), at the end of the Alert
+
+### Layout
+
+Alerts appear near their related items. They can expand to fill the width of the container or area they are in.
+
+![Alert layout](figma:patterns-error-alert-layout.png)
+
+#### In conjunction with forms
+
+![Alert example with form inputs](figma:patterns-error-alert-layout-multiple.png)
+
+1. An Alert at the beginning of the form to summarize what went wrong
+1. Each individual form input with errors is highlighted
+
+## Notifications
+
+Use error notifications when an activity can not be completed.
+
+### Anatomy
+
+![Notifications anatomy](figma:patterns-error-notification-anatomy.png)
+
+1. Title
+1. Message
+1. Close button
+
+### Layout
+
+Notifications should sit on the top right side of a workspace and remain on screen for at least 5 seconds.
+Avoid covering important elements.
+
+![Notifications layout](figma:patterns-error-notification-layout.png)
+
+### Examples
+
+#### Failed actions
+
+The notification component helps communicate that an action could not be completed.
+
+![Notification example, File upload has failed](figma:patterns-error-notification-failed-upload.png)
+
+1. An error notification appears at the top right of the screen indicating that the user’s image could not be uploaded
+
+## Forms
+
+Use the message component to help users correct input errors as they happen. Clearly explain how to fix the error.
+
+### Anatomy
+
+![Forms anatomy](figma:patterns-error-forms-anatomy.png)
+
+1. The input field’s border turns red to indicate an error
+1. Provide a detailed error message to describe what went wrong
+
+### Layout
+
+#### Multiple form errors
+
+For multiple form errors, provide inline error messages for each.
+Also provide an Alert at the top of the form, listing a summary of the fields that need correcting.
+
+![Forms example, multiple form errors](figma:patterns-error-forms-layout-multiple.png)
+
+### Formatting
+
+#### Validate on submit
+
+Use validation messages after submission to reduce interrupting users as they move through forms.
+Live validation should be used sparingly (i.e. severe errors, passwords, emails).
+
+<BestPractice>
+  <Do
+    imageIsFreeForm
+    imageSource={props.data.FormsValidateDo.childFile.childImageSharp.gatsbyImageData}
+  >
+    <ul>
+      <li>Show error validation after the user has tried submitting the form.</li>
+    </ul>
+  </Do>
+  <Dont
+    imageIsFreeForm
+    imageSource={props.data.FormsValidateDont.childFile.childImageSharp.gatsbyImageData}
+  >
+    <ul>
+      <li>Do not use live validation.</li>
+    </ul>
+  </Dont>
+</BestPractice>
+
+#### Keep data the user has entered
+
+Keep incorrect values that users have entered to help them avoid making the same mistake twice.
+
+<BestPractice>
+  <Do
+    imageIsFreeForm
+    imageSource={props.data.FormsKeepDataDo.childFile.childImageSharp.gatsbyImageData}
+  >
+    <ul>
+      <li>Keep invalid data to let users understand what to correct.</li>
+    </ul>
+  </Do>
+  <Dont
+    imageIsFreeForm
+    imageSource={props.data.FormsKeepDataDont.childFile.childImageSharp.gatsbyImageData}
+  >
+    <ul>
+      <li>Do not clear invalid data.</li>
+    </ul>
+  </Dont>
+</BestPractice>
+
+## Accessibility
+
+Error messages need to be perceivable and understandable for people of all abilities.
+An accessible error message should exhibit these qualities.
+
+- Written in text. Icons and color can be used, but not alone.
+- Close to the element that triggered the error
+- Informative, helping the user resolve the issue
+- The message should refer to the failed element in code
+
+## Additional resources
+
+[https://www.w3.org/WAI/standards-guidelines/act/rules/36b590/proposed/](https://www.w3.org/WAI/standards-guidelines/act/rules/36b590/proposed/)
+[https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html](https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html)
+[https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion.html](https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion.html)
+
+---
+
+## Feedback
+
+Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yiFC7)
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    GlobalAlertAnatomy: figmaAsset(name: { eq: "patterns-error-global-alert-anatomy" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    GlobalAlertLayout: figmaAsset(name: { eq: "patterns-error-global-alert-layout" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    GlobalAlertDisconnect: figmaAsset(name: { eq: "patterns-error-global-alert-disconnect" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    AlertAnatomy: figmaAsset(name: { eq: "patterns-error-alert-anatomy" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    AlertLayout: figmaAsset(name: { eq: "patterns-error-alert-layout" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    AlertLayoutMultiple: figmaAsset(name: { eq: "patterns-error-alert-layout-multiple" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    NotificationAnatomy: figmaAsset(name: { eq: "patterns-error-notification-anatomy" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    NotificationLayout: figmaAsset(name: { eq: "patterns-error-notification-layout" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    NotificationFailedUpload: figmaAsset(
+      name: { eq: "patterns-error-notification-failed-upload" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    FormsAnatomy: figmaAsset(name: { eq: "patterns-error-forms-anatomy" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    FormsLayout: figmaAsset(name: { eq: "patterns-error-forms-layout-multiple" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    FormsValidateDo: figmaAsset(name: { eq: "patterns-error-forms-validate-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    FormsValidateDont: figmaAsset(name: { eq: "patterns-error-forms-validate-dont" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    FormsKeepDataDo: figmaAsset(name: { eq: "patterns-error-forms-keep-data-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    FormsKeepDataDont: figmaAsset(name: { eq: "patterns-error-forms-keep-data-dont" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+  }
+`;
