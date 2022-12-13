@@ -10,14 +10,15 @@ import styled from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
 
-const StyledStickyHead = styled(Head)`
+const StyledHeaderRow = styled(HeaderRow)`
+  border-bottom: none;
+`;
+
+const StyledHead = styled(Head)`
+  box-sizing: border-box;
   position: sticky;
   top: 0;
-  box-shadow: ${props => {
-    const boxShadow = props.theme.shadows.sm(getColor('neutralHue', 200, props.theme) as string);
-
-    return `${boxShadow.replace('2px', '1px')}`;
-  }};
+  box-shadow: inset 0 -1px 0 ${props => getColor('neutralHue', 300, props.theme)};
   background-color: ${props => props.theme.colors.background};
 `;
 
@@ -37,14 +38,14 @@ const rowData: IRow[] = Array.from(Array(100)).map((row, index) => ({
 
 const Example = () => (
   <div style={{ maxHeight: 500, overflowY: 'auto' }}>
-    <Table>
-      <StyledStickyHead>
-        <HeaderRow>
+    <Table style={{ minWidth: 500 }}>
+      <StyledHead>
+        <StyledHeaderRow>
           <HeaderCell>Fruit</HeaderCell>
           <HeaderCell>Sun exposure</HeaderCell>
           <HeaderCell>Soil type</HeaderCell>
-        </HeaderRow>
-      </StyledStickyHead>
+        </StyledHeaderRow>
+      </StyledHead>
       <Body>
         {rowData.map(data => (
           <Row key={data.index}>
