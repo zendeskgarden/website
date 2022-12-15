@@ -80,7 +80,7 @@ Use default skeleton loaders on white or light backgrounds. Use light skeleton l
 <BestPractice>
   <Do
     imageIsFreeForm
-    imageSource={props.data.LoadersSkeletonPredictableDo.childFile.childImageSharp.gatsbyImageData}
+    imageSource={props.data.LoadersSkeletonDo.childFile.childImageSharp.gatsbyImageData}
     alt="A few skeleton loaders to orient the user"
   >
     <ul>
@@ -89,7 +89,7 @@ Use default skeleton loaders on white or light backgrounds. Use light skeleton l
   </Do>
   <Dont
     imageIsFreeForm
-    imageSource={props.data.LoadersSkeletonPredictableDont.childFile.childImageSharp.gatsbyImageData}
+    imageSource={props.data.LoadersSkeletonDont.childFile.childImageSharp.gatsbyImageData}
     alt="Too many skeleton loaders"
   >
     <ul>
@@ -183,34 +183,28 @@ export const pageQuery = graphql`
         }
       }
     }
-    LoadersSkeletonPredictable: figmaAsset(name: { eq: "patterns-loaders-skeleton-predictable" }) {
+    LoadersSkeleton: figmaAsset(name: { eq: "patterns-loaders-skeleton" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    LoadersSkeletonPredictableDo: figmaAsset(
-      name: { eq: "patterns-loaders-skeleton-predictable-do" }
-    ) {
+    LoadersSkeletonDo: figmaAsset(name: { eq: "patterns-loaders-skeleton-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    LoadersSkeletonPredictableDont: figmaAsset(
-      name: { eq: "patterns-loaders-skeleton-predictable-dont" }
-    ) {
+    LoadersSkeletonDont: figmaAsset(name: { eq: "patterns-loaders-skeleton-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    LoadersSKeletonUnpredictable: figmaAsset(
-      name: { eq: "patterns-loaders-skeleton-unpredictable" }
-    ) {
+    LoadersSpinner: figmaAsset(name: { eq: "patterns-loaders-spinner" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
