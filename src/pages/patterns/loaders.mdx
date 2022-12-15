@@ -80,20 +80,22 @@ Use default skeleton loaders on white or light backgrounds. Use light skeleton l
 <BestPractice>
   <Do
     imageIsFreeForm
-    imageSoruce={props.data.LoadersSkeletonPredictableDo.childFile.childImageSharp.gatsbyImageData}
+    imageSource={props.data.LoadersSkeletonPredictableDo.childFile.childImageSharp.gatsbyImageData}
+    alt="A few skeleton loaders to orient the user"
   >
     <ul>
-      <li>Show a skeleton loader to orient the user</li>
+      <li>Show a skeleton loader to orient the user.</li>
     </ul>
   </Do>
   <Dont
     imageIsFreeForm
-    imageSoruce={
+    imageSource={
       props.data.LoadersSkeletonPredictableDont.childFile.childImageSharp.gatsbyImageData
     }
+    alt="Too many skeleton loaders"
   >
     <ul>
-      <li>Avoid mapping every line with a skeleton loader</li>
+      <li>Avoid mapping every line with a skeleton loader.</li>
     </ul>
   </Dont>
 </BestPractice>
