@@ -10,6 +10,8 @@
       id: /patterns/copy
     - title: Error handling
       id: /patterns/errors
+    - title: Loaders
+      id: /patterns/loaders
     - title: Rich-text editor
       id: /patterns/rich-text-editor
     - title: Save
