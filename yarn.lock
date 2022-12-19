@@ -3819,6 +3819,14 @@
     "@zendeskgarden/container-utilities" "^0.6.2"
     react-uid "^2.2.0"
 
+"@zendeskgarden/container-utilities@1.0.1", "@zendeskgarden/container-utilities@^1.0.0", "@zendeskgarden/container-utilities@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-1.0.1.tgz#54f1ee1d86850d2484609a097526a91fe6444211"
+  integrity sha512-eEIgOqdbeRx+MYbjrgUTtJ80/O3DQegY/rvHafCb0Ar7xSxpWYRQ3L3QfGm7mWJWD1Vj5Q5zZWdmq+94Ur/yPA==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    "@reach/auto-id" "^0.17.0"
+
 "@zendeskgarden/container-utilities@^0.6.2":
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.6.2.tgz#c427459cf7881f3653040d35876717c8a96c3d62"
@@ -3834,14 +3842,6 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.16.0"
-
-"@zendeskgarden/container-utilities@^1.0.0", "@zendeskgarden/container-utilities@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-1.0.1.tgz#54f1ee1d86850d2484609a097526a91fe6444211"
-  integrity sha512-eEIgOqdbeRx+MYbjrgUTtJ80/O3DQegY/rvHafCb0Ar7xSxpWYRQ3L3QfGm7mWJWD1Vj5Q5zZWdmq+94Ur/yPA==
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    "@reach/auto-id" "^0.17.0"
 
 "@zendeskgarden/css-bedrock@9.0.0":
   version "9.0.0"

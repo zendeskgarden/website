@@ -22,7 +22,7 @@ const rowData: IRow[] = Array.from(Array(100)).map((row, index) => ({
 }));
 
 const Example = () => (
-  <div style={{ maxHeight: 500, overflowY: 'auto' }}>
+  <div style={{ maxHeight: 500, overflow: 'auto' }}>
     <Table style={{ minWidth: 500 }}>
       <Head isSticky>
         <HeaderRow>
