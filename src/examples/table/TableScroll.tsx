@@ -6,17 +6,7 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
-import getScrollbarSize from 'dom-helpers/scrollbarSize';
 import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
-
-const SCROLLBAR_SIZE = getScrollbarSize();
-
-const StyledSpacerCell = styled(HeaderCell)`
-  padding: 0;
-  width: ${SCROLLBAR_SIZE}px;
-`;
-
 interface IRow {
   index: number;
   fruit: string;
@@ -32,30 +22,25 @@ const rowData: IRow[] = Array.from(Array(100)).map((row, index) => ({
 }));
 
 const Example = () => (
-  <div style={{ overflowX: 'auto' }}>
+  <div style={{ maxHeight: 500, overflow: 'auto' }}>
     <Table style={{ minWidth: 500 }}>
-      <Head>
+      <Head isSticky>
         <HeaderRow>
           <HeaderCell>Fruit</HeaderCell>
           <HeaderCell>Sun exposure</HeaderCell>
           <HeaderCell>Soil type</HeaderCell>
-          <StyledSpacerCell aria-hidden />
         </HeaderRow>
       </Head>
+      <Body>
+        {rowData.map(data => (
+          <Row key={data.index}>
+            <Cell>{data.fruit}</Cell>
+            <Cell>{data.sun}</Cell>
+            <Cell>{data.soil}</Cell>
+          </Row>
+        ))}
+      </Body>
     </Table>
-    <div style={{ maxHeight: 500, overflowY: 'auto' }}>
-      <Table>
-        <Body>
-          {rowData.map(data => (
-            <Row key={data.index}>
-              <Cell>{data.fruit}</Cell>
-              <Cell>{data.sun}</Cell>
-              <Cell>{data.soil}</Cell>
-            </Row>
-          ))}
-        </Body>
-      </Table>
-    </div>
   </div>
 );
 
