@@ -1,0 +1,213 @@
+---
+title: Loaders
+description: >
+  Loaders are used when certain elements or parts of the page could take longer to display.
+---
+
+![Loaders intro](figma:patterns-loaders-intro.png)
+
+## Overview
+
+Different loaders are used to communicate structure and context of the content being loaded,
+each one tailored to a specific use case.
+
+| Component                        | Description                                                                                                                              |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| [Skeleton](/components/skeleton) | Default Loader. Used when the content on the page is known or predictable.                                                               |
+| [Spinner](/components/spinner)   | Used as an alternative to the Skeleton loader when the content is unknown or unpredictable                                               |
+| [Dots](/components/dots)         | Used inside the interface to represent a busy state. For example, inside buttons, asynchronous loading menus, or other small components. |
+| [Progress](/components/progress) | Used for communicating progress from 0 to 100%                                                                                           |
+| [Inline](/components/progress)   | Reserved for typing indicators.                                                                                                          |
+
+## Usage
+
+### Predictable content
+
+When loading pages or parts of pages with predictable layout, [Skeleton loader](/components/skeleton)
+is used to show a blank stand-in version of the component that has not fully loaded. It provides a visual estimate of
+the space needed. This is the preferred loader in most situations as it provides a sense of progress, helps orient the
+user, and sets expectations on the type of content they can expect.
+
+![Example of skeleton loaders for predictable content](figma:patterns-loaders-skeleton.png)
+
+The size of the loader should approximately reflect the content it represents. Show a few skeleton loaders to orient
+the user, but don’t map out every element even if a page has a lot of content. Mapping out skeleton loaders in the
+first few elements of the header/body area are enough to convey the loading process.
+
+Loader animation has a built-in short delay which should give time for the fast loading content to show before the
+loader becomes visible. Loader should be persistent until the content is fully loaded.
+
+Use default skeleton loaders on white or light backgrounds.
+Use [light skeleton loaders](/components/skeleton#light) on dark backgrounds.
+
+<BestPractice>
+  <Do
+    imageIsFreeForm
+    imageSource={props.data.LoadersSkeletonDo.childFile.childImageSharp.gatsbyImageData}
+    alt="A few skeleton loaders to orient the user"
+  >
+    <ul>
+      <li>Show a skeleton loader to orient the user.</li>
+    </ul>
+  </Do>
+  <Dont
+    imageIsFreeForm
+    imageSource={props.data.LoadersSkeletonDont.childFile.childImageSharp.gatsbyImageData}
+    alt="Too many skeleton loaders"
+  >
+    <ul>
+      <li>Avoid mapping every line with a skeleton loader.</li>
+    </ul>
+  </Dont>
+</BestPractice>
+
+### Unpredictable content
+
+A [Spinner loader](/components/spinner) is used when content is unknown or unpredictable. Spinner appears
+before a page is loaded to assure a user that the content is on its way. Use spinners for pages and screens or within
+components such as tables. Center the spinner in the container or content you’re applying it to. Spinner is also used
+as an alternative loader to Skeleton in situations where the content can't be easily estimated but it's still
+important to provide a sense of progress.
+
+![Example of Spinner loader for unpredictable content](figma:patterns-loaders-spinner.png)
+
+### Completing action
+
+The [Dots loader](/components/dots) communicates ongoing activity after a user takes an action. It tells
+them that something is taking place. Dots loader is used for buttons, search inputs, or other small components to
+indicate these components are doing something.
+
+Use the loader for actions where it might take several seconds for the process to complete.
+
+![Example of dot loaders when completing an action](figma:patterns-loaders-completing-action.png)
+
+1. [Primary buttons](/components/button#type) are common candidates for using this loader
+1. [Icon buttons](/components/icon-button) are less likely to use this loader but still necessary
+   if the user needs to be informed of the action taking place
+
+Use the loader for search inputs if it might take several seconds to perform the query.
+
+![Example of dot loaders during search](figma:patterns-loaders-search-inputs.png)
+
+Use the loader for [Menus](/components/menu) where it might take several seconds to show information.
+
+![Example of dot loaders in a menu](figma:patterns-loaders-menu.png)
+
+### Progress
+
+A [Progress loader](/components/progress) communicates progress from 0 to 100% when downloading or
+uploading content. The most common use for a progress loader is in the [File upload](/components/file-upload)
+component. Descriptive text is displayed to help clarify
+what is in progress.
+
+![Example of progress loaders in a File upload](figma:patterns-loaders-progress.png)
+
+### Typing
+
+The [Inline loader](/components/inline) is used as a typing indicator. This signals the other party is
+present and preparing a reply. The loader should be centered in the message bubble with other content
+appearing above or below.
+
+![Example of Inline loader when typing in chat](figma:patterns-loaders-typing.png)
+
+## Localization
+
+### Right-to-left languages
+
+Some loaders are direction-agnostic, which means that they are always positioned in the same place within the context,
+and use the same direction for any animation elements. Dots and Spinner are examples of that.
+
+Skeleton, Progress and Inline change direction for right-to-left languages. Skeleton animation and layout should change
+direction. Progress loader should fill from the right (0) to the left (100%) side. Inline animation should change direction.
+
+## Accessibility
+
+Progress bar loaders have ARIA `role="progressbar"` applied to indicate the loading status, whereas Dots, Spinners, and
+Inline loaders have the role of `img`. The `aria-live` property, `alert` role, or `status` role is not added by default
+, but it can be extended on the component if needed. This should be evaluated on a case-by-case basis, depending on
+what part of the page is loading, the speed of loading on slower connections, and other live regions on the page.
+Before, during, and after loading, browser focus should remain where the user put it.
+
+---
+
+## Feedback
+
+Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yiFC7)
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    LoadersIntro: figmaAsset(name: { eq: "patterns-loaders-intro" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    LoadersSkeleton: figmaAsset(name: { eq: "patterns-loaders-skeleton" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    LoadersSkeletonDo: figmaAsset(name: { eq: "patterns-loaders-skeleton-do" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    LoadersSkeletonDont: figmaAsset(name: { eq: "patterns-loaders-skeleton-dont" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    LoadersSpinner: figmaAsset(name: { eq: "patterns-loaders-spinner" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    LoadersCompletingAction: figmaAsset(name: { eq: "patterns-loaders-completing-action" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    LoadersSearchInputs: figmaAsset(name: { eq: "patterns-loaders-search-inputs" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    LoadersMenu: figmaAsset(name: { eq: "patterns-loaders-menu" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    LoadersProgress: figmaAsset(name: { eq: "patterns-loaders-progress" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    LoadersTyping: figmaAsset(name: { eq: "patterns-loaders-typing" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+  }
+`;
