@@ -15,7 +15,7 @@
     "prepare": "git submodule update --depth 1 --init && yarn build",
     "start": "gatsby develop --open",
     "test": "prettier-package-json --list-different && yarn format:all --check && yarn lint && yarn tsc",
-    "upgrade": "node utils/upgrade.js --components --containers --submodule"
+    "upgrade": "utils/upgrade.js"
   },
   "resolutions": {
     "@types/vfile-message": "1.0.1"
@@ -82,6 +82,7 @@
     "eslint-plugin-notice": "0.9.10",
     "eslint-plugin-react": "7.31.10",
     "eslint-plugin-react-hooks": "4.6.0",
+    "execa": "5.1.1",
     "gatsby": "3.14.6",
     "gatsby-node-helpers": "1.2.1",
     "gatsby-plugin-google-gtag": "3.14.0",
