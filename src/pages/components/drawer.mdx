@@ -84,7 +84,7 @@ import DefaultCode from '!!raw-loader!../../examples/drawer/DrawerDefault.tsx';
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

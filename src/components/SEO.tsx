@@ -5,50 +5,55 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React, { ReactNode } from 'react';
+import { graphql, useStaticQuery, HeadProps } from 'gatsby';
+import { PALETTE } from '@zendeskgarden/react-theming';
 
-/* eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires */
-const { PALETTE } = require('@zendeskgarden/react-theming');
+import { IPageContext, IPageData } from '../templates/types';
 
-const SEO: React.FC<{
-  description?: string;
-  lang?: string;
-  meta?: HTMLMetaElement[];
+interface ISEOProps {
   title?: string;
-}> = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            siteUrl
-            description
-          }
+  description?: string;
+  children?: ReactNode;
+}
+
+export const SEO = ({
+  title,
+  description,
+  data,
+  pageContext,
+  children
+}: HeadProps<IPageData, IPageContext> & ISEOProps): JSX.Element => {
+  const { frontmatter = {} } = pageContext;
+
+  const { site } = useStaticQuery(graphql`
+    query PageMetadata {
+      site {
+        siteMetadata {
+          title
+          siteUrl
+          description
         }
       }
-    `
-  );
+    }
+  `);
 
-  const metaDescription = description || site.siteMetadata.description;
+  const info = {
+    title: title || frontmatter.title || site.siteMetadata.title,
+    description: description || frontmatter.description || site.siteMetadata.description
+  };
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang
-      }}
-      title={title || site.siteMetadata.title}
-      titleTemplate={title ? `%s / ${site.siteMetadata.title}` : undefined}
-      meta={[
+    <>
+      <title>{info.title}</title>
+      {[
         {
           name: 'application-name',
           content: site.siteMetadata.title
         },
         {
           name: 'description',
-          content: metaDescription
+          content: info.description
         },
         {
           name: 'msapplication-config',
@@ -56,11 +61,11 @@ const SEO: React.FC<{
         },
         {
           property: 'og:title',
-          content: site.siteMetadata.title
+          content: info.title
         },
         {
           property: 'og:description',
-          content: site.siteMetadata.description
+          content: info.description
         },
         {
           property: 'og:image',
@@ -78,24 +83,44 @@ const SEO: React.FC<{
           property: 'og:image:height',
           content: '640'
         },
+        // see: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image
         {
-          property: 'twitter:card',
+          name: 'twitter:site',
+          content: site.siteMetadata.siteUrl
+        },
+        {
+          name: 'twitter:card',
           content: 'summary_large_image'
         }
-      ].concat(meta!)}
-      link={[
+      ]
+        .concat(
+          data.mdx
+            ? [
+                // see: https://community.hubspot.com/t5/Share-Your-Work/Make-your-Slack-previews-better-Add-Reading-Time-Publish-Date/m-p/182219
+                {
+                  name: 'twitter:label1',
+                  content: 'Time to read'
+                },
+                {
+                  name: 'twitter:data1',
+                  content: `${data.mdx.fields.timeToRead.minutes} minutes`
+                }
+              ]
+            : []
+        )
+        .map((props, index) => (
+          <meta key={`head-meta-${index}`} {...props} />
+        ))}
+
+      {[
         { rel: 'mask-icon', href: '/mask-icon.svg', color: PALETTE.kale[700] },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
         { rel: 'shortcut icon', href: '/favicon.ico' }
-      ]}
-    />
+      ].map((props, index) => (
+        <link key={`head-link-${index}`} {...props} />
+      ))}
+
+      {children}
+    </>
   );
 };
-
-SEO.defaultProps = {
-  lang: 'en',
-  meta: [],
-  description: ''
-};
-
-export default SEO;

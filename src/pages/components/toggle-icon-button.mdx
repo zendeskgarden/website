@@ -132,12 +132,12 @@ import ToggleIconButtonTypesCode from '!!raw-loader!../../examples/button/Toggle
 
 The ToggleIconButton component follows this structure:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```jsx
-<Tooltip> {/* recommended */}
-  <ToggleIconButton>
-    {/* icon here */}
-  </ToggleIconButton>
+<Tooltip>
+  {' '}
+  {/* recommended */}
+  <ToggleIconButton>{/* icon here */}</ToggleIconButton>
 </Tooltip>
 ```
 
@@ -153,9 +153,9 @@ accessible. See [default example](#default).
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    toggleIconButtonTooltipDo: figmaAsset(
+    toggleIconButtonTooltipDo: gardenFigmaAssets(
       name: { eq: "components-buttons-toggleiconbutton-tooltip-do" }
     ) {
       childFile {

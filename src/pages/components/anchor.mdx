@@ -80,7 +80,7 @@ The Anchor component applies appropriate attributes, icon, and styles based on t
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

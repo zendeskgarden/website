@@ -152,7 +152,7 @@ but the surrounding field is designed to work with the [Tag](/components/tags) c
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

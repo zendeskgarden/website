@@ -4,14 +4,12 @@ description: >
   The principles of language for writing products.
 ---
 
-import links from '../../nav/content.yml';
-
-<OverviewLinks nav={links} />
+<OverviewLinks nav={props.data.mdx.navigation} />
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

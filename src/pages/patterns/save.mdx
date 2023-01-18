@@ -147,7 +147,7 @@ on the page or view.
 4. Button, “Cancel”
 5. Button, “Save”
 
-<!-- markdownlint-disable no-duplicate-header -->
+{/* markdownlint-disable no-duplicate-header */}
 
 #### Unsaved changes
 
@@ -174,17 +174,19 @@ Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yi
 
 import { graphql } from 'gatsby';
 
+export { SEO as Head } from 'components/SEO';
+
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    saveAnatomy: figmaAsset(name: { eq: "patterns-save-anatomy-action-footer" }) {
+    saveAnatomy: gardenFigmaAssets(name: { eq: "patterns-save-anatomy-action-footer" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveSuccessNotification: figmaAsset(
+    saveSuccessNotification: gardenFigmaAssets(
       name: { eq: "patterns-save-anatomy-success-notification" }
     ) {
       childFile {
@@ -193,63 +195,71 @@ export const pageQuery = graphql`
         }
       }
     }
-    saveSuccessDo: figmaAsset(name: { eq: "patterns-save-anatomy-success-notification-do" }) {
+    saveSuccessDo: gardenFigmaAssets(
+      name: { eq: "patterns-save-anatomy-success-notification-do" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    saveSuccessDont: figmaAsset(name: { eq: "patterns-save-anatomy-success-notification-dont" }) {
+    saveSuccessDont: gardenFigmaAssets(
+      name: { eq: "patterns-save-anatomy-success-notification-dont" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    saveErrors: figmaAsset(name: { eq: "patterns-save-errors" }) {
+    saveErrors: gardenFigmaAssets(name: { eq: "patterns-save-errors" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveValidation: figmaAsset(name: { eq: "patterns-save-validation-alert" }) {
+    saveValidation: gardenFigmaAssets(name: { eq: "patterns-save-validation-alert" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveUnsavedChanges: figmaAsset(name: { eq: "patterns-save-unsaved-changes" }) {
+    saveUnsavedChanges: gardenFigmaAssets(name: { eq: "patterns-save-unsaved-changes" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveLocalizationArabic: figmaAsset(name: { eq: "patterns-save-rtl" }) {
+    saveLocalizationArabic: gardenFigmaAssets(name: { eq: "patterns-save-rtl" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveActionFooterFocus: figmaAsset(name: { eq: "patterns-save-action-footer-focus" }) {
+    saveActionFooterFocus: gardenFigmaAssets(name: { eq: "patterns-save-action-footer-focus" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveValidationAlertFocus: figmaAsset(name: { eq: "patterns-save-validation-alert-focus" }) {
+    saveValidationAlertFocus: gardenFigmaAssets(
+      name: { eq: "patterns-save-validation-alert-focus" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveUnsavedChangesFocus: figmaAsset(name: { eq: "patterns-save-unsaved-changes-focus" }) {
+    saveUnsavedChangesFocus: gardenFigmaAssets(
+      name: { eq: "patterns-save-unsaved-changes-focus" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)

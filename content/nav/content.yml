@@ -1,0 +1,22 @@
+- title: Introduction
+  items:
+    - id: /content
+      title: Overview
+- title: Foundations
+  items:
+    - id: /content/principles
+      title: Principles
+    - id: /content/voice-and-tone
+      title: Voice and tone
+- title: Style
+  items:
+    - id: /content/grammar
+      title: Grammar
+    - id: /content/punctuation
+      title: Punctuation
+    - id: /content/word-list
+      title: Word list
+- title: Guides
+  items:
+    - id: /content/actionable-language
+      title: Actionable language

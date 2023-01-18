@@ -405,9 +405,9 @@ Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    tablesLocalizationBulgarian: figmaAsset(
+    tablesLocalizationBulgarian: gardenFigmaAssets(
       name: { eq: "patterns-tables-basic-formatting-localization-bulgarian" }
     ) {
       childFile {
@@ -416,7 +416,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    tablesLocalizationArabic: figmaAsset(
+    tablesLocalizationArabic: gardenFigmaAssets(
       name: { eq: "patterns-tables-basic-formatting-localization-arabic" }
     ) {
       childFile {
@@ -425,7 +425,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    tablesRowHeightsDo: figmaAsset(
+    tablesRowHeightsDo: gardenFigmaAssets(
       name: { eq: "patterns-tables-basic-formatting-row-heights-do" }
     ) {
       childFile {
@@ -434,7 +434,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    tablesRowHeightsDont: figmaAsset(
+    tablesRowHeightsDont: gardenFigmaAssets(
       name: { eq: "patterns-tables-basic-formatting-row-heights-dont" }
     ) {
       childFile {

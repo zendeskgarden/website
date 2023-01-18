@@ -14,7 +14,7 @@ Describes a set of standards that make our product usable to people experiencing
 disabilities. Avoid using accessible as a synonym for “simple.” For that
 purpose, use terms like easy to learn, easy to use, or intuitive.
 
-<!-- markdownlint-disable -->
+{/* markdownlint-disable */}
 
 ### aka, a.k.a.
 
@@ -294,7 +294,7 @@ customers."
 
 Don’t use it as a heading for a type of note. Use _tip_ instead.
 
-<!-- markdownlint-disable -->
+{/* markdownlint-disable */}
 
 ### i.e.
 
@@ -623,7 +623,7 @@ but can’t edit or create them.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

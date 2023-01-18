@@ -64,3 +64,5 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+src/gatsby-types.d.ts

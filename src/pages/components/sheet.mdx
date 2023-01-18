@@ -96,26 +96,18 @@ import SheetSizeCode from '!!raw-loader!../../examples/chrome/SheetSize.tsx';
 
 The Sheet component follows this structure:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```jsx
 <Sheet>
   <Sheet.Header>
-    <Sheet.Title>
-      {/* a text to label the sheet */}
-    </Sheet.Title>
-    <Sheet.Description>
-      {/* a text describing the sheet */}
-    </Sheet.Description>
+    <Sheet.Title>{/* a text to label the sheet */}</Sheet.Title>
+    <Sheet.Description>{/* a text describing the sheet */}</Sheet.Description>
   </Sheet.Header>
-  
-  <Sheet.Body>
-    {/* main content of the sheet */}
-  </Sheet.Body>
+
+  <Sheet.Body>{/* main content of the sheet */}</Sheet.Body>
 
   <Sheet.Footer>
-    <Sheet.FooterItem>
-      {/* items to set in the footer, such as buttons */}
-    </Sheet.FooterItem>
+    <Sheet.FooterItem>{/* items to set in the footer, such as buttons */}</Sheet.FooterItem>
   </Sheet.Footer>
 
   <Sheet.Close />
@@ -194,7 +186,7 @@ Nest a Close button within a [Sheet](#sheet) component as the last child for con
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

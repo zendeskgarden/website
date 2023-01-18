@@ -4,14 +4,12 @@ description: >
   Foundations for creating purposeful UI.
 ---
 
-import links from '../../nav/design.yml';
-
-<OverviewLinks nav={links} />
+<OverviewLinks nav={props.data.mdx.navigation} />
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

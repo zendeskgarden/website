@@ -77,37 +77,37 @@ View the [zendeskgarden/svg-icons](https://github.com/zendeskgarden/svg-icons#re
 repository for implementation instructions.
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    defaultIconSize: figmaAsset(name: { eq: "design-icons-16px-do" }) {
+    defaultIconSize: gardenFigmaAssets(name: { eq: "design-icons-16px-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)
         }
       }
     }
-    smallerIconSize: figmaAsset(name: { eq: "design-icons-12px-do" }) {
+    smallerIconSize: gardenFigmaAssets(name: { eq: "design-icons-12px-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)
         }
       }
     }
-    illustrationIconSize: figmaAsset(name: { eq: "design-icons-32px-do" }) {
+    illustrationIconSize: gardenFigmaAssets(name: { eq: "design-icons-32px-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)
         }
       }
     }
-    uiIconSize: figmaAsset(name: { eq: "design-icons-32px-dont" }) {
+    uiIconSize: gardenFigmaAssets(name: { eq: "design-icons-32px-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)
         }
       }
     }
-    tooltipLabelIcon: figmaAsset(name: { eq: "design-icons-tooltips-do" }) {
+    tooltipLabelIcon: gardenFigmaAssets(name: { eq: "design-icons-tooltips-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)

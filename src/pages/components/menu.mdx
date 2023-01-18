@@ -279,7 +279,7 @@ A Trigger applies state and accessibility attributes to its children. Nest it wi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

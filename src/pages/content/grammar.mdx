@@ -51,10 +51,10 @@ while.”
 | --------------------------------------------------- | ----------------------------- |
 | Less than a minute ago today.                       | < 1 minute ago                |
 | More than a minute and less than an hour ago today. | 43 minutes ago<br/>43 min ago |
-| More than an hour ago today.                        | Today at {time}               |
-| On the previous calendar date.                      | Yesterday at {time}           |
-| Before yesterday and in the current calendar year.  | {date} at {time}              |
-| Any time before the current year.                   | {date} at {time}              |
+| More than an hour ago today.                        | Today at {'{time}'}           |
+| On the previous calendar date.                      | Yesterday at {'{time}'}       |
+| Before yesterday and in the current calendar year.  | {'{date}'} at {'{time}'}      |
+| Any time before the current year.                   | {'{date}'} at {'{time}'}      |
 
 ## Emoji
 
@@ -158,7 +158,7 @@ per component. Don’t move from past to present tense—we’re not time travel
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;
