@@ -8,9 +8,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-
-/* eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires */
-const { PALETTE } = require('@zendeskgarden/react-theming');
+import { PALETTE } from '@zendeskgarden/react-theming';
 
 const SEO: React.FC<{
   description?: string;
@@ -32,6 +30,7 @@ const SEO: React.FC<{
     `
   );
 
+  const metaTitle = title || site.siteMetadata.title;
   const metaDescription = description || site.siteMetadata.description;
 
   return (
@@ -39,7 +38,7 @@ const SEO: React.FC<{
       htmlAttributes={{
         lang
       }}
-      title={title || site.siteMetadata.title}
+      title={metaTitle}
       titleTemplate={title ? `%s / ${site.siteMetadata.title}` : undefined}
       meta={[
         {
@@ -56,11 +55,11 @@ const SEO: React.FC<{
         },
         {
           property: 'og:title',
-          content: site.siteMetadata.title
+          content: metaTitle
         },
         {
           property: 'og:description',
-          content: site.siteMetadata.description
+          content: metaDescription
         },
         {
           property: 'og:image',
