@@ -10,71 +10,82 @@
 const path = require('path');
 const chalk = require('chalk');
 const execa = require('execa');
+const ora = require('ora');
 
 const pkg = require('../package.json');
 
-async function getVersionForPackage(packageName) {
-  /**
-   * for npm variant of getting the latest version:
-   * const latest = (await execa('npm', ['show', packages[0], 'version'])).stdout;
-   */
-
-  const info = JSON.parse((await execa('yarn', ['info', `${packageName}@latest`, '--json'])).stdout)
-    .data['dist-tags'];
-
-  // eslint-disable-next-line no-console
-  console.info(chalk.bold('latest version found:'), chalk.bold.green(info.latest), '\n');
-
-  return info;
-}
-
-async function setReactPackagesGitModuleTag(version) {
-  const options = { cwd: path.resolve('react-components') };
-
-  // eslint-disable-next-line no-console
-  console.info(chalk.bold('fetching latest git tags\n'));
-
-  await execa('git', ['fetch', '--all', '--tags'], options);
-
-  // eslint-disable-next-line no-console
-  console.info(chalk.bold(`checking out git tag ${chalk.green(`v${version}`)}\n`));
-
-  await execa('git', ['checkout', `tags/v${version}`], options);
-}
-
-async function installReactComponentPackages(packages, version) {
-  const packagesToInstall = packages.map(
-    reactComponentsPackage => `${reactComponentsPackage}@${version}`
+const printCommandTitle = () => chalk.bold('updating `react-components` repository and packages');
+const printSuccessStatus = () => chalk.bold(`Successfully updated "react-components"`);
+const printErrorStatus = error => chalk.bold.red(error.message || 'something went wrong');
+const printLatestVersion = ({ version } = {}) =>
+  `${chalk.bold('latest version found:')} ${chalk.bold.green(version)}\n`;
+const printStatusFetchingTags = () => chalk.bold('fetching latest git tags');
+const printStatusCheckoutTag = ({ version }) =>
+  chalk.bold(`checking out git tag ${chalk.green(`v${version}`)}\n`);
+const printStatusInstallingPackages = ({ packages, version }) =>
+  chalk.bold(
+    `installing ${chalk.green(packages.length)} 'react-components' packages @ ${chalk.green(
+      version
+    )}`
   );
-
-  // eslint-disable-next-line no-console
-  console.info(
-    chalk.bold(
-      `installing ${chalk.green(packages.length)} 'react-components' packages @ ${chalk.green(
-        version
-      )}\n`
-    )
-  );
-
-  await execa('yarn', ['add', '-D'].concat(packagesToInstall), { stdio: 'inherit' });
-}
 
 (async function main() {
-  // eslint-disable-next-line no-console
-  console.info(chalk.bold('\nupdating `react-components` repository\n'));
+  const spinner = ora({
+    prefixText: chalk.bold.green('[GARDEN]:')
+  });
 
   try {
+    spinner.info(printCommandTitle());
+
     const packages = Object.keys(pkg.devDependencies).filter(pkgName =>
       pkgName.startsWith('@zendeskgarden/react-')
     );
 
-    const { latest } = await getVersionForPackage(packages[0]);
+    /**
+     * since all the packages are versioned together, we only need to check
+     * one package from the batch to get the latest version that was published
+     *
+     * for npm variant of getting the latest version:
+     * const latest = (await execa('npm', ['show', packages[0], 'version'])).stdout;
+     */
 
-    await setReactPackagesGitModuleTag(latest);
+    const { latest: version } = JSON.parse(
+      (await execa('yarn', ['info', `${packages[0]}@latest`, '--json'])).stdout
+    ).data['dist-tags'];
 
-    await installReactComponentPackages(packages, latest);
+    spinner.info(printLatestVersion({ version }));
+
+    /**
+     * we set the git submodule with the tag that matches the latest version
+     */
+    const options = { cwd: path.resolve('react-components') };
+
+    spinner.info(printStatusFetchingTags());
+
+    await execa('git', ['fetch', '--all', '--tags'], options);
+
+    spinner.info(printStatusCheckoutTag({ version }));
+
+    await execa('git', ['checkout', `tags/v${version}`], options);
+
+    /**
+     * final step is to install the latest version of the components
+     */
+    const packagesToInstall = packages.map(
+      reactComponentsPackage => `${reactComponentsPackage}@${version}`
+    );
+
+    spinner.info(printStatusInstallingPackages({ packages, version }));
+    spinner.start(`running command 'yarn add ..' for packages`);
+
+    // we pass in the ignore scripts to prevent rebuilding the website and updating the submodule
+    await execa('yarn', ['add', '-D'].concat(packagesToInstall, '--ignore-scripts'));
+
+    spinner.succeed(printSuccessStatus());
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
+    spinner.fail(printErrorStatus(error));
+    process.exitCode = 1;
+  } finally {
+    spinner.stop();
   }
 })();

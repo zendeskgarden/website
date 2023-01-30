@@ -35,8 +35,11 @@ This repo contains the [Gatsby](https://www.gatsbyjs.org/)-powered site for
 - `upgrade` - upgrades the `react-component` git submodule and component packages
 
   ```bash
-  yarn upgrade
+  yarn run upgrade
   ```
+
+  > if this command is ran manually, please make sure to rebuild the website
+  > (or restart development server) to see the updates reflect
 
 ## 🤝 Contribution
 
