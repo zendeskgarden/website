@@ -41,7 +41,7 @@ const Example = () => {
   return (
     <Chrome isFluid style={{ height: 500, minWidth: 600 }} hue={PALETTE.blue[800]}>
       <SkipNav targetId="example-navigation-main-content">Skip to main content</SkipNav>
-      <Nav isExpanded={expanded}>
+      <Nav isExpanded={expanded} aria-label="chrome navigation example nav">
         <NavItem hasLogo>
           <NavItemIcon>
             <ProductIcon style={{ color: PALETTE.green[400] }} />
@@ -74,7 +74,7 @@ const Example = () => {
         </NavItem>
       </Nav>
       {showSubNav && (
-        <SubNav>
+        <SubNav aria-label="chrome navigation example sub-nav">
           <SubNavItem isCurrent={subNav === 'item-1'} onClick={() => setSubNav('item-1')}>
             <SubNavItemText>Subnav 1</SubNavItemText>
           </SubNavItem>
