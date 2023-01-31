@@ -18,7 +18,7 @@ const Example = () => {
     <Row justifyContent="center">
       <Col size="auto">
         <Fieldset>
-          <Fieldset.Legend>plant preference</Fieldset.Legend>
+          <Fieldset.Legend>Plant preference</Fieldset.Legend>
           <Field>
             <Checkbox checked={pest} onChange={() => setPest(!pest)}>
               <Label>Pest resistant</Label>
