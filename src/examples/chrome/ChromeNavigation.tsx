@@ -74,7 +74,7 @@ const Example = () => {
         </NavItem>
       </Nav>
       {showSubNav && (
-        <SubNav aria-label="chrome navigation example sub-nav">
+        <SubNav aria-label="chrome navigation example subnav">
           <SubNavItem isCurrent={subNav === 'item-1'} onClick={() => setSubNav('item-1')}>
             <SubNavItemText>Subnav 1</SubNavItemText>
           </SubNavItem>
