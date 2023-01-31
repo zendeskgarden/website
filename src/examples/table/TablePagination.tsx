@@ -57,11 +57,13 @@ const Example = () => {
                 .map(createRow)}
         </Body>
       </StyledTable>
-      <Pagination
-        totalPages={rowData.length / pageSize}
-        currentPage={currentPage}
-        onChange={setCurrentPage}
-      />
+      <nav aria-label="table example pagination">
+        <Pagination
+          totalPages={rowData.length / pageSize}
+          currentPage={currentPage}
+          onChange={setCurrentPage}
+        />
+      </nav>
     </div>
   );
 };
