@@ -20,7 +20,7 @@ const Example = () => {
     <Row>
       <Col textAlign="center">
         <Button onClick={open}>Open Drawer</Button>
-        <DrawerModal isOpen={isOpen} onClose={close} restoreFocus focusOnMount>
+        <DrawerModal isOpen={isOpen} onClose={close} restoreFocus>
           <DrawerModal.Header tag="h2">Tending a garden</DrawerModal.Header>
           <DrawerModal.Body>
             <Paragraph>
