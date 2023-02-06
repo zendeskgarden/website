@@ -19,7 +19,6 @@ import {
   FileList,
   File
 } from '@zendeskgarden/react-forms';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
@@ -49,10 +48,19 @@ const FileItem: React.FC<{ name: string; onRemove: () => void }> = memo(({ name,
     };
   }, []);
 
-  const handleKeyDown = (e: React.KeyboardEvent<any>) => {
+  const handleFileKeyDown = (e: React.KeyboardEvent<any>) => {
     if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
       e.preventDefault();
       onRemove();
+    }
+  };
+
+  const handleCloseKeyDown = (e: React.KeyboardEvent<any>) => {
+    const KEYS = [KEY_CODES.SPACE, KEY_CODES.ENTER, KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
+
+    if (KEYS.includes(e.keyCode)) {
+      e.preventDefault();
+      alert('File dismissed via keyboard');
     }
   };
 
@@ -63,16 +71,22 @@ const FileItem: React.FC<{ name: string; onRemove: () => void }> = memo(({ name,
         title={name}
         tabIndex={0}
         aria-label="Image file"
-        onKeyDown={handleKeyDown}
+        onKeyDown={handleFileKeyDown}
       >
         {name}
-        <Tooltip content={progress === 100 ? 'Remove file' : 'Stop upload'}>
-          {progress === 100 ? (
-            <File.Delete aria-label="delete" onClick={onRemove} tabIndex={-1} />
-          ) : (
-            <File.Close aria-label="close" onClick={onRemove} tabIndex={-1} />
-          )}
-        </Tooltip>
+        {progress === 100 ? (
+          <File.Delete
+            aria-label="Press delete to remove"
+            onClick={onRemove}
+            onKeyDown={handleCloseKeyDown}
+          />
+        ) : (
+          <File.Close
+            aria-label="Press delete to remove"
+            onClick={onRemove}
+            onKeyDown={handleCloseKeyDown}
+          />
+        )}
         <Progress
           value={progress}
           aria-label={`Uploading ${name}`}
