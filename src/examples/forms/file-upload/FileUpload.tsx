@@ -77,23 +77,21 @@ const FileItem: React.FC<{ name: string; onRemove: () => void }> = memo(({ name,
         onKeyDown={handleFileKeyDown}
       >
         {name}
-        {progress === 100 ? (
-          <Tooltip content="Remove file">
+        <Tooltip content={progress === 100 ? 'Remove file' : 'Stop upload'}>
+          {progress === 100 ? (
             <File.Delete
               aria-label="Remove file"
               onClick={onRemove}
               onKeyDown={handleCloseKeyDown}
             />
-          </Tooltip>
-        ) : (
-          <Tooltip content="Stop upload">
+          ) : (
             <File.Close
               aria-label="Stop upload"
               onClick={onRemove}
               onKeyDown={handleCloseKeyDown}
             />
-          </Tooltip>
-        )}
+          )}
+        </Tooltip>
         <Progress
           value={progress}
           aria-label={`Uploading ${name}`}
