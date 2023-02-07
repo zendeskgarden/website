@@ -30,7 +30,7 @@ const handleCloseKeyDown = (e: React.KeyboardEvent<any>) => {
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <Tag tabIndex={0} aria-label="Tag, press delete to remove" onKeyDown={handleTagKeyDown}>
+      <Tag tabIndex={0} aria-label="Algae, press delete to remove" onKeyDown={handleTagKeyDown}>
         <span>Algae</span>
         <Tooltip content="Remove tag">
           <Tag.Close
