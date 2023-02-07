@@ -21,6 +21,7 @@ import {
 } from '@zendeskgarden/react-forms';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const StyledFileUpload = styled(FileUpload)`
   min-height: ${p => p.theme.space.base * 20}px;
@@ -64,28 +65,34 @@ const FileItem: React.FC<{ name: string; onRemove: () => void }> = memo(({ name,
     }
   };
 
+  const labelAction = progress === 100 ? 'remove' : 'cancel upload';
+
   return (
     <FileList.Item>
       <File
         type="image"
         title={name}
+        aria-label={`Image file, press delete to ${labelAction}`}
         tabIndex={0}
-        aria-label="Image file"
         onKeyDown={handleFileKeyDown}
       >
         {name}
         {progress === 100 ? (
-          <File.Delete
-            aria-label="Press delete to remove"
-            onClick={onRemove}
-            onKeyDown={handleCloseKeyDown}
-          />
+          <Tooltip content="Remove file">
+            <File.Delete
+              aria-label="Remove file"
+              onClick={onRemove}
+              onKeyDown={handleCloseKeyDown}
+            />
+          </Tooltip>
         ) : (
-          <File.Close
-            aria-label="Press delete to remove"
-            onClick={onRemove}
-            onKeyDown={handleCloseKeyDown}
-          />
+          <Tooltip content="Stop upload">
+            <File.Close
+              aria-label="Stop upload"
+              onClick={onRemove}
+              onKeyDown={handleCloseKeyDown}
+            />
+          </Tooltip>
         )}
         <Progress
           value={progress}
