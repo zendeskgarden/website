@@ -102,7 +102,7 @@ export const PropSheet: React.FC<{
                       </MD>
                     </Cell>
                     <Cell>
-                      <MD tag="div" isMonospace={defaultMonospace}>
+                      <MD isMonospace={defaultMonospace}>
                         {prop.type === 'DefaultTheme' ? (
                           <Markdown>[DEFAULT_THEME](/components/theme-object)</Markdown>
                         ) : (
