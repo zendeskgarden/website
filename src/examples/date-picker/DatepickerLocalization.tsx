@@ -19,8 +19,8 @@ const Example = () => {
         <Field>
           <Label>Select a date</Label>
           <Hint>Arabic localization</Hint>
-          <Datepicker value={state} onChange={setState} locale="ar-SA">
-            <Input />
+          <Datepicker value={state} onChange={setState} locale="ar-EG">
+            <Input lang="ar-EG" />
           </Datepicker>
         </Field>
       </Col>
