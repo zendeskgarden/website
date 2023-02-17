@@ -188,7 +188,9 @@ const Example = () => {
       <Table>
         <Head>
           <HeaderRow>
-            <HeaderCell isMinimum />
+            <HeaderCell isMinimum hidden>
+              Draggable grip
+            </HeaderCell>
             <HeaderCell>Fruit</HeaderCell>
             <HeaderCell>Sun exposure</HeaderCell>
             <HeaderCell>Soil</HeaderCell>
