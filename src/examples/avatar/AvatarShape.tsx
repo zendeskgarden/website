@@ -16,11 +16,13 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]} size="medium">
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <UserIcon role="img" aria-label="User" />
       </Avatar>
     </Col>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.kale[700]} size="medium" isSystem>
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <ZendeskIcon role="img" aria-label="Zendesk" />
       </Avatar>
     </Col>

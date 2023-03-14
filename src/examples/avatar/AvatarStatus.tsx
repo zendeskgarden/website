@@ -15,16 +15,19 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]} status="away">
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <UserIcon role="img" aria-label="user" />
       </Avatar>
     </Col>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]} status="available">
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <UserIcon role="img" aria-label="user" />
       </Avatar>
     </Col>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]} badge={8}>
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <UserIcon role="img" aria-label="user" />
       </Avatar>
     </Col>

@@ -15,26 +15,31 @@ const Example = () => (
   <Row alignItems="center">
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]} size="extraextrasmall">
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <UserIcon role="img" aria-label="extra extra small user avatar" />
       </Avatar>
     </Col>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]} size="extrasmall">
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <UserIcon role="img" aria-label="extra small user avatar" />
       </Avatar>
     </Col>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]} size="small">
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <UserIcon role="img" aria-label="small user avatar" />
       </Avatar>
     </Col>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]} size="medium">
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <UserIcon role="img" aria-label="medium user avatar" />
       </Avatar>
     </Col>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]} size="large">
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <UserIcon role="img" aria-label="large user avatar" />
       </Avatar>
     </Col>

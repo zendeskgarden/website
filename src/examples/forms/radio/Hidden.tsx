@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Field, Label, Radio } from '@zendeskgarden/react-forms';
+import { Field, Fieldset, Label, Radio } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
@@ -15,7 +15,8 @@ const Example = () => {
   return (
     <Row justifyContent="center">
       <Col size="auto">
-        <div role="group" aria-label="Choose an option">
+        <Fieldset>
+          <Fieldset.Legend>Choose an option</Fieldset.Legend>
           <Field>
             <Radio
               name="hidden-example"
@@ -36,7 +37,7 @@ const Example = () => {
               <Label hidden>Accessibly hidden label two</Label>
             </Radio>
           </Field>
-        </div>
+        </Fieldset>
       </Col>
     </Row>
   );

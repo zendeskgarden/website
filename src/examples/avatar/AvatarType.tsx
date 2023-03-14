@@ -15,6 +15,7 @@ const Example = () => (
   <Row>
     <Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[600]}>
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <UserIcon role="img" aria-label="icon avatar" />
       </Avatar>
     </Col>

@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Field, Label, Radio, Hint } from '@zendeskgarden/react-forms';
+import { Field, Label, Radio, Hint, Fieldset } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const StyledField = styled(Field)`
@@ -20,7 +20,8 @@ const Example = () => {
   return (
     <Row justifyContent="center">
       <Col size="auto">
-        <div role="group" aria-label="Choose a plant lifecycle">
+        <Fieldset>
+          <Fieldset.Legend>Choose a plant lifecycle</Fieldset.Legend>
           <Field>
             <Radio
               name="hint-example"
@@ -43,7 +44,7 @@ const Example = () => {
               <Hint>Lives more than two years</Hint>
             </Radio>
           </StyledField>
-        </div>
+        </Fieldset>
       </Col>
     </Row>
   );

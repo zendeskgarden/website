@@ -64,6 +64,7 @@ const ScrollableRow = styled(Row).attrs({ role: 'row' })`
 const ScrollableCell = styled(Cell).attrs({ role: 'cell' })``;
 
 const Example = () => (
+  // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
   <div role="grid" aria-rowcount={rowData.length} aria-colcount={4}>
     <ScrollableTable>
       <ScrollableHead>

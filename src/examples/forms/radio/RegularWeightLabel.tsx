@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Field, Label, Radio } from '@zendeskgarden/react-forms';
+import { Field, Fieldset, Label, Radio } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const Example = () => {
@@ -15,7 +15,8 @@ const Example = () => {
   return (
     <Row justifyContent="center">
       <Col size="auto">
-        <div role="group" aria-label="Choose a plant lifecycle">
+        <Fieldset>
+          <Fieldset.Legend>Choose a plant lifecycle</Fieldset.Legend>
           <Field>
             <Radio
               name="weight-example"
@@ -36,7 +37,7 @@ const Example = () => {
               <Label isRegular>Perennial</Label>
             </Radio>
           </Field>
-        </div>
+        </Fieldset>
       </Col>
     </Row>
   );
