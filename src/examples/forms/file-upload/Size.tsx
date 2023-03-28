@@ -31,8 +31,17 @@ const Example = () => {
 
   const handleClick = () => alert('File dismissed via mouse');
 
-  const handleKeyDown = (e: React.KeyboardEvent<any>) => {
+  const handleFileKeyDown = (e: React.KeyboardEvent<any>) => {
     if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+      e.preventDefault();
+      alert('File dismissed via keyboard');
+    }
+  };
+
+  const handleCloseKeyDown = (e: React.KeyboardEvent<any>) => {
+    const KEYS = [KEY_CODES.SPACE, KEY_CODES.ENTER, KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
+
+    if (KEYS.includes(e.keyCode)) {
       e.preventDefault();
       alert('File dismissed via keyboard');
     }
@@ -53,18 +62,36 @@ const Example = () => {
           </StyledFileUpload>
           <FileList>
             <FileList.Item>
-              <File type="image" tabIndex={0} aria-label="Image file" onKeyDown={handleKeyDown}>
+              <File
+                type="image"
+                tabIndex={0}
+                aria-label="Image file, press delete to remove"
+                onKeyDown={handleFileKeyDown}
+              >
                 prickly-pear.png
-                <Tooltip content="Remove file" zIndex={1}>
-                  <File.Delete aria-label="delete" onClick={handleClick} tabIndex={-1} />
+                <Tooltip content="Remove file">
+                  <File.Delete
+                    aria-label="Remove file"
+                    onClick={handleClick}
+                    onKeyDown={handleCloseKeyDown}
+                  />
                 </Tooltip>
               </File>
             </FileList.Item>
             <FileList.Item>
-              <File type="image" tabIndex={0} aria-label="Image file" onKeyDown={handleKeyDown}>
+              <File
+                type="image"
+                tabIndex={0}
+                aria-label="Image file, press delete to remove"
+                onKeyDown={handleFileKeyDown}
+              >
                 saguaro.svg
-                <Tooltip content="Remove file" zIndex={1}>
-                  <File.Delete aria-label="delete" onClick={handleClick} tabIndex={-1} />
+                <Tooltip content="Remove file">
+                  <File.Delete
+                    aria-label="Remove file"
+                    onClick={handleClick}
+                    onKeyDown={handleCloseKeyDown}
+                  />
                 </Tooltip>
               </File>
             </FileList.Item>
@@ -87,13 +114,17 @@ const Example = () => {
               <File
                 type="image"
                 tabIndex={0}
-                aria-label="Image file"
-                onKeyDown={handleKeyDown}
+                aria-label="Image file, press delete to remove"
+                onKeyDown={handleFileKeyDown}
                 isCompact
               >
                 prickly-pear.png
                 <Tooltip content="Remove file">
-                  <File.Delete aria-label="delete" onClick={handleClick} tabIndex={-1} />
+                  <File.Delete
+                    aria-label="Remove file"
+                    onClick={handleClick}
+                    onKeyDown={handleCloseKeyDown}
+                  />
                 </Tooltip>
               </File>
             </FileList.Item>
@@ -101,13 +132,17 @@ const Example = () => {
               <File
                 type="image"
                 tabIndex={0}
-                aria-label="Image file"
-                onKeyDown={handleKeyDown}
+                aria-label="Image file, press delete to remove"
+                onKeyDown={handleFileKeyDown}
                 isCompact
               >
                 saguaro.svg
                 <Tooltip content="Remove file">
-                  <File.Delete aria-label="delete" onClick={handleClick} tabIndex={-1} />
+                  <File.Delete
+                    aria-label="Remove file"
+                    onClick={handleClick}
+                    onKeyDown={handleCloseKeyDown}
+                  />
                 </Tooltip>
               </File>
             </FileList.Item>

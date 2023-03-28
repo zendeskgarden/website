@@ -19,9 +19,9 @@ import {
   FileList,
   File
 } from '@zendeskgarden/react-forms';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const StyledFileUpload = styled(FileUpload)`
   min-height: ${p => p.theme.space.base * 20}px;
@@ -49,28 +49,47 @@ const FileItem: React.FC<{ name: string; onRemove: () => void }> = memo(({ name,
     };
   }, []);
 
-  const handleKeyDown = (e: React.KeyboardEvent<any>) => {
+  const handleFileKeyDown = (e: React.KeyboardEvent<any>) => {
     if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
       e.preventDefault();
       onRemove();
     }
   };
 
+  const handleCloseKeyDown = (e: React.KeyboardEvent<any>) => {
+    const KEYS = [KEY_CODES.SPACE, KEY_CODES.ENTER, KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
+
+    if (KEYS.includes(e.keyCode)) {
+      e.preventDefault();
+      alert('File dismissed via keyboard');
+    }
+  };
+
+  const labelAction = progress === 100 ? 'remove' : 'cancel upload';
+
   return (
     <FileList.Item>
       <File
         type="image"
         title={name}
+        aria-label={`Image file, press delete to ${labelAction}`}
         tabIndex={0}
-        aria-label="Image file"
-        onKeyDown={handleKeyDown}
+        onKeyDown={handleFileKeyDown}
       >
         {name}
         <Tooltip content={progress === 100 ? 'Remove file' : 'Stop upload'}>
           {progress === 100 ? (
-            <File.Delete aria-label="delete" onClick={onRemove} tabIndex={-1} />
+            <File.Delete
+              aria-label="Remove file"
+              onClick={onRemove}
+              onKeyDown={handleCloseKeyDown}
+            />
           ) : (
-            <File.Close aria-label="close" onClick={onRemove} tabIndex={-1} />
+            <File.Close
+              aria-label="Stop upload"
+              onClick={onRemove}
+              onKeyDown={handleCloseKeyDown}
+            />
           )}
         </Tooltip>
         <Progress

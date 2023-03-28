@@ -12,7 +12,7 @@ const Example = () => {
   const [page, setPage] = useState(10);
 
   return (
-    <>
+    <nav aria-label="pagination example padding">
       <Pagination totalPages={20} pagePadding={0} currentPage={page} onChange={setPage} />
       <Pagination
         totalPages={20}
@@ -21,7 +21,7 @@ const Example = () => {
         onChange={setPage}
         style={{ marginTop: '16px' }}
       />
-    </>
+    </nav>
   );
 };
 
