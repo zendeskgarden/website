@@ -12,36 +12,7 @@
 This repo contains the [Gatsby](https://www.gatsbyjs.org/)-powered site for
 [garden.zendesk.com](https://garden.zendesk.com/).
 
-## 🎛 Scripts
-
-- `start` - starts the Gatsby development server for the website
-
-  ```bash
-  yarn start
-  ```
-
-- `build` - builds the Gatsby website as a static website
-
-  ```bash
-  yarn build
-  ```
-
-- `test` - lints and formats the website source code as well as running a type check with `tsc`
-
-  ```bash
-  yarn test
-  ```
-
-- `upgrade` - upgrades the `react-component` git submodule and component packages
-
-  ```bash
-  yarn run upgrade
-  ```
-
-  > if this command is ran manually, please make sure to rebuild the website
-  > (or restart development server) to see the updates reflect
-
-## 🤝 Contribution
+## Contribution
 
 Thanks for your interest in Garden! Community involvement helps make our
 design system fresh and tasty for everyone.
@@ -56,8 +27,8 @@ to submit a PR.
 Community behavior is benevolently ruled by a [code of
 conduct](.github/CODE_OF_CONDUCT.md). Please participate accordingly.
 
-## 🪪 License
+## License
 
-Copyright 2023 Zendesk
+Copyright 2021 Zendesk
 
 Licensed under the [Apache License, Version 2.0](LICENSE.md)

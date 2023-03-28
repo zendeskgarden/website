@@ -31,6 +31,7 @@ commands are available:
   run as a git `pre-commit` hook.
 - `yarn build` to rebuild the Gatsby site JS, CSS, and HTML. The build runs
   as part of the initial install.
+- `yarn run upgrade` - upgrades the `react-component` git submodule and component packages
 
 ## Pull Request Workflow
 
