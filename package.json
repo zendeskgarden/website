@@ -14,7 +14,8 @@
     "lint:md": "markdownlint ./*.md {content,src}/**/*.{md,mdx}",
     "prepare": "git submodule update --depth 1 --init && yarn build",
     "start": "gatsby develop --open",
-    "test": "prettier-package-json --list-different && yarn format:all --check && yarn lint && yarn tsc"
+    "test": "prettier-package-json --list-different && yarn format:all --check && yarn lint && yarn tsc",
+    "upgrade": "utils/upgrade.js"
   },
   "resolutions": {
     "@types/vfile-message": "1.0.1"
@@ -81,6 +82,7 @@
     "eslint-plugin-notice": "0.9.10",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
+    "execa": "5.1.1",
     "gatsby": "3.15.0",
     "gatsby-node-helpers": "1.2.1",
     "gatsby-plugin-google-gtag": "3.15.0",
@@ -110,6 +112,7 @@
     "lodash.debounce": "4.0.8",
     "markdownlint-cli": "0.33.0",
     "node-fetch": "2.6.9",
+    "ora": "5.4.1",
     "polished": "4.2.2",
     "postcss": "8.4.21",
     "postcss-scss": "4.0.6",
