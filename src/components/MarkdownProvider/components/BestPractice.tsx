@@ -119,10 +119,12 @@ interface ISectionProps extends ICaptionProps {
   imageIsSquare?: boolean;
   imageBackgroundColor?: string;
   imageIsFreeForm?: boolean;
+  imageAltText?: string;
 }
 
 const Section: React.FC<ISectionProps> = props => {
   if (props.imageSource) {
+    const imageAltText = props.imageAltText || '';
     const imageStyles = {
       width: props.imageWidth,
       height: props.imageHeight,
@@ -140,12 +142,12 @@ const Section: React.FC<ISectionProps> = props => {
                 justify-content: center;
               `}
             >
-              <img alt="" src={props.imageSource} style={imageStyles} />
+              <img alt={imageAltText} src={props.imageSource} style={imageStyles} />
             </div>
           ) : (
             <GatsbyImage
               image={props.imageSource}
-              alt=""
+              alt={imageAltText}
               style={{
                 display: 'block',
                 margin: '0 auto',
