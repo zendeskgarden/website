@@ -40,16 +40,17 @@ Drag and drop between lists puts more emphasis on dropzones and source placehold
 
 ### Draggable item
 
-The grip handle and border define the default Draggable item. The grip icon provides a visual  
-affordance to communicate drag-and-drop. Border communicates the boundaries of a draggable item.  
-Draggable items with many interactive elements can restrict movement to the grip handle only.
+The grip handle and border define the default Draggable item. Draggable items should have labels
+that are short and easily identifiable. Sometimes these are user-generated so the length may vary.
+The grip icon provides a visual affordance to communicate drag-and-drop. Border communicates
+the boundaries of a draggable item. Draggable items with many interactive elements can restrict
+movement to the grip handle only.
 
-![Draggable item with default, selected, dragged, and disabled state comparison.](figma:patterns-dnd-formatting-draggable.png)
+![Draggable item with default, grabbed, and disabled state comparison.](figma:patterns-dnd-formatting-draggable.png)
 
 1. **Default** state communicates what is draggable
-2. **Selected** state communicates the item selected with a keyboard
-3. **Dragged** state communicates the item moving
-4. **Disabled** state communicates a non-interactive item
+2. **Grabbed** state communicates the item moving
+3. **Disabled** state communicates a non-interactive item
 
 #### Dragging larger items
 
@@ -175,7 +176,7 @@ Provide visual affordance when items are both draggable and potential dropzones.
 This is the most basic example of drag-and-drop. Interaction is discoverable through a grip handle on the item.
 See [Draggable tables](https://garden.zendesk.com/components/table#draggable) for reordering rows.
 
-Once the item is grabbed, empty space proportional to the selected item will communicate where the item will
+Once the item is grabbed, empty space proportional to the grabbed item will communicate where the item will
 be placed after release. The dragged item should follow the cursor around the screen without any delay.
 
 Once the item is released on the desired location, the movement is instantaneous. If the item is released
@@ -273,11 +274,11 @@ They support assistive technologies, like screen readers, and need to be localiz
 Provide consistent keyboard controls for non-mouse users:
 
 - `Space` key selects the focused item, or releases the item within a different dropzone container
-- `Up` and `Down` arrows keys change the position order of a selected item within a single container
-- `Left` and `Right` arrow keys move the selected item between different containers on the screen.
+- `Up` and `Down` arrows keys change the position order of a grabbed item within a single container
+- `Left` and `Right` arrow keys move the grabbed item between different containers on the screen.
   Swap `Left` and `Right` bindings to match the LTR or RTL direction
 - If the workflow supports Undo and Redo actions, those should work for the drag and drop interaction
-- `Esc` key cancels movement of the selected item and returns it to the original position
+- `Esc` key cancels movement of the grabbed item and returns it to the original position
 
 ### Screen readers
 
