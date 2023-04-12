@@ -143,7 +143,10 @@ const figmaNodeIds = [
   '1833:47060' /* patterns-tables-basic-formatting-view-actions */,
   '1833:47025' /* patterns-tables-basic-formatting-overflow-actions */,
   '1833:47001' /* patterns-tables-basic-formatting-overflow-tooltip */,
-  '1868:53136' /* patterns-tables-default-avatars-large-table */,
+  '1868:53136' /* patterns-tables-basic-formatting-default-avatars-large-table */,
+  '1868:53248' /* patterns-tables-basic-formatting-small-avatars-default-table */,
+  '1745:45691' /* patterns-tables-basic-formatting-action-icons */,
+  '1747:45874' /* patterns-tables-basic-formatting-tags-anatomy */,
   '1914:52833' /* patterns-tables-basic-formatting-loading-states */
 ];
 
