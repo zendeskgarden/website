@@ -21,45 +21,6 @@ import BasicFormattingCode from '!!raw-loader!../../../examples/table/TableDefau
 1. Header rows describe the data provided in a column or row
 1. Rows are horizontal groups of data that fall under each column
 
-### Table content
-
-![Table content](figma:patterns-tables-basic-formatting-wrap-and-truncation.png)
-
-1. Header and data cells should be concise
-1. Text wrapping is the default and recommended behavior. Ensure the cells in the row are top aligned to help with
-   scannability.
-1. Keep in mind, truncation in a table can make it harder for users to scan. Use an
-   [Ellipsis](/components/typography#ellipsis-text) to truncate long text at the end of the first line and provide a
-   title attribute that appears on hover.
-
-### Header cells
-
-Headers categorize and organize the information within the table.
-
-- Ensure header cells accurately describe the data contained in the rows and columns
-- Use one or two nouns that quickly help people understand what data is in the table
-- Avoid using verbs to prevent confusion with CTAs
-- Header cell labels shouldn't create sentences with data cell content
-- Use sentence case
-- Header cells are marked up with `<th>` to make them accessible
-
-Internationalization could result in text expansion. If the text length in a header cell exceeds the specified width of
-a column, there are a few options:
-
-- Truncate with an [Ellipsis](https://garden.zendesk.com/components/typography#ellipsis)
-- Wrap the content. In the case of headers, content should be bottom aligned.
-- Ignore the specified width and stretch the column width to accommodate the text. This could trigger horizontal
-  scrolling for the table.
-
-### Data cells
-
-Data cells contain the actual data and are located below header cells.
-
-- Ensure the content is detailed yet concise
-- Avoid repeating the words used in the header to help with scannability
-- Use sentence case
-- Data cells are marked up with `<td>` to make them accessible
-
 ## Formatting
 
 ### Size
@@ -83,10 +44,7 @@ import TableSizeCode from '!!raw-loader!../../../examples/table/TableSize.tsx';
 <BestPractice>
   <Do imageSource={props.data.tablesRowHeightsDo.childFile.childImageSharp.gatsbyImageData}>
     <ul>
-      <li>
-        Use a larger <a href="/components/table#headerrow">header row</a> height compared to the
-        body rows.
-      </li>
+      <li>Use a larger header row height compared to the body rows.</li>
     </ul>
   </Do>
   <Dont imageSource={props.data.tablesRowHeightsDont.childFile.childImageSharp.gatsbyImageData}>
@@ -113,38 +71,86 @@ with some exceptions for quantitative data.
 
 ![Cell Alignment](figma:patterns-tables-basic-formatting-cell-alignment.png)
 
-<table>
-  <thead>
-    <tr>
-      <th width="70%">Cell format</th>
-      <th>Alignment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1. Text</td>
-      <td>Left align</td>
-    </tr>
-    <tr>
-      <td>2. Categorical data that uses numbers (for example, dates, phone numbers)</td>
-      <td>Left align</td>
-    </tr>
-    <tr>
-      <td>3. Quantitative data</td>
-      <td>Right align</td>
-    </tr>
-    <tr>
-      <td>
-        4. <a href="/components/tags">Tags</a> or <a href="/components/avatar">Avatars</a>
-      </td>
-      <td>Left align</td>
-    </tr>
-    <tr>
-      <td>5. Icons</td>
-      <td>Center align</td>
-    </tr>
-  </tbody>
-</table>
+| <b>Cellc content</b>                                                                                        | <b>Alignment</b> |
+| ----------------------------------------------------------------------------------------------------------- | ---------------- |
+| 1. Text                                                                                                     | Left align       |
+| 2. Categorical data that uses numbers (for example, [dates](/content/grammar#date-and-time), phone numbers) | Left align       |
+| 3. Quantitative data                                                                                        | Right align      |
+| 4. [Tags](/components/tags) or [Avatars](/components/avatar)                                                | Left align       |
+| 5. Icons                                                                                                    | Center align     |
+
+## Wrapping and truncation
+
+### Text
+
+Text wrapping is the default and recommended behavior. Ensure the cells in that row are top aligned to help with
+scannability. Keep in mind, truncation in a table can make it harder for users to scan.
+Use an [Ellipsis](/components/typography#ellipsis-text) to truncate long text at the end of the first line and provide
+a title attribute that appears on hover.
+
+![Table content](figma:patterns-tables-basic-formatting-wrap-and-truncation.png)
+
+1. Header and data cells should be concise
+1. Text wrapping is the default and recommended behavior. Ensure the cells in the row are top aligned to help with
+   scannability.
+1. Keep in mind, truncation in a table can make it harder for users to scan. Use an
+   [Ellipsis](/components/typography#ellipsis-text) to truncate long text at the end of the first line and
+   provide a title attribute that appears on hover.
+
+#### Header cells
+
+Headers categorize and organize the information within the table.
+
+- Ensure header cells accurately describe the data contained in the rows and columns
+- Use one or two nouns that quickly help people understand what data is in the table
+- Avoid using verbs to prevent confusion with CTAs
+- Header cell labels shouldn't create sentences with data cell content
+- Use sentence case
+- Header cells are marked up with `<th>` to make them accessible
+- Ensure [visually-hidden header cell content](/components/table#draggable) is accessible for screen readers
+
+Internationalization could result in text expansion. If the text length in a header cell exceeds the specified width of
+a column, there are a few options:
+
+- Truncate with an [Ellipsis](/components/typography#ellipsis)
+- Wrap the content. In the case of headers, content should be bottom aligned.
+- Ignore the specified width and stretch the column width to accommodate the text. This could trigger horizontal
+  scrolling for the table.
+
+#### Data cells
+
+Data cells contain the actual data and are located below header cells.
+
+- Ensure the content is detailed yet concise
+- Avoid repeating the words used in the header to help with scannability
+- Use sentence case
+- Data cells are marked up with `<td>` to make them accessible
+
+### Tags
+
+#### Truncation
+
+Any tags that exceed the width of the cell, use an [Ellipsis](/components/typography#ellipsis)
+to truncate long text and provide a title attribute that appears on hover.
+
+![Tags truncation](figma:patterns-tables-basic-formatting-tags-truncation.png)
+
+#### Overflow
+
+If there are greater than two tags, use a [Button](/components/button) with the `isLink` prop indicating the
+number of additional tags.
+
+![Tags overflow](figma:patterns-tables-basic-formatting-tags-overflow.png)
+
+- When the user interacts with the button, it will open a [Tooltip Modal](/components/tooltip-modal) with `auto`
+  placement set, ensuring it remains viewable within the viewport
+- When toggling the tag list, ensure the appropriate
+  [ARIA attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded) are included
+- For localization, create two strings for the button text: one for the "+ {number}" and another for the "more" string
+- If the number of tags becomes unwieldy within the [Tooltip Modal](/components/tooltip-modal), include an action that
+  allows the user to view all tag information in a separate view
+
+![Tags overflow expanded](figma:patterns-tables-basic-formatting-tags-overflow-expanded.png)
 
 ### Variations
 
@@ -168,6 +174,40 @@ When creating additional categorization of similar items, use [grouped rows](/co
 - Don’t use striped and grouped rows at the same time
 
 ![Grouping](figma:patterns-tables-basic-formatting-grouping.png)
+
+### Row actions
+
+There are multiple locations within a row to perform actions. Common actions include View, Edit, Delete
+or a combination of these within a single row.
+
+- If linking to another page or a new tab, use an [Anchor](/components/anchor)
+- If opening a Drawer/Sheet/Modal in the same view, use a [Button](/components/button) with the `isLink` prop
+
+#### View and Edit
+
+"View" or "Edit" actions are to be contained within the data cells of a row in addition to the overflow menu.
+
+![View actions](figma:patterns-tables-basic-formatting-view-actions.png)
+
+1. The first "View" or "Edit" action is contained within the first column and will take the user to additional
+   view or edit detail on that given item
+1. The overflow menu includes an additional "View" or "Edit" action, providing a second way to access the same
+   content for viewing or editing
+
+#### Additional actions
+
+All additional actions are to be placed inside the [overflow menu](/components/table#overflow).
+
+- Group complementary actions inside the menu, using separators to create visual hierarchy
+- For destructive actions, place a separator line above and use the danger styling
+
+![Overflow actions](figma:patterns-tables-basic-formatting-overflow-actions.png)
+
+#### Screen readers
+
+Ensure elements for the rows are clearly labeled and accessible.
+
+![Overflow tooltip](figma:patterns-tables-basic-formatting-overflow-tooltip.png)
 
 #### Pagination
 
@@ -310,41 +350,15 @@ Follow our [date and time formatting](/content/grammar#date-and-time) guidelines
 
 ### Rows and cells
 
-![Row and Cell States](figma:patterns-tables-basic-formatting-row-cell-states.png)
+![Row and cell states](figma:patterns-tables-basic-formatting-row-cell-states.png)
 
-<table>
-  <thead>
-    <tr>
-      <th width="30%">Row/Cell state</th>
-      <th>Additional guidance</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1. Empty cell</td>
-      <td>Cells with no values should be left blank. Do not use a hyphen, en, or em dash.</td>
-    </tr>
-    <tr>
-      <td>2. Hover</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>3. Focused</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>4. Selected</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>5. Focused and selected</td>
-      <td>
-        The last row checked is the focused row, unless the user clicks on a different row or uses
-        the keyboard to change focus.
-      </td>
-    </tr>
-  </tbody>
-</table>
+| <b>Row/cell state</b>   | <b>Additional guidance</b>                                                                                               |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| 1. Empty cell           | Cells with no values should be left blank. Do not use a hyphen, en, or em dash.                                          |
+| 1. Hover                |                                                                                                                          |
+| 1. Focused              |                                                                                                                          |
+| 1. Selected             |                                                                                                                          |
+| 1. Focused and selected | The last row checked is the focused row, unless the user clicks on a different row or uses the keyboard to change focus. |
 
 ### Loading
 
@@ -356,6 +370,8 @@ compared against a blank screen or a spinner.
   times to provide instant context of incoming tabular data
 - The width of the Skeleton should match the width of the intended cell content, while the Skeleton’s height will be 60%
   of the font size
+
+![Loading states](figma:patterns-tables-basic-formatting-loading-states.png)
 
 import TableLoading from '../../../examples/table/TableLoading.tsx';
 import TableLoadingCode from '!!raw-loader!../../../examples/table/TableLoading.tsx';
@@ -398,7 +414,7 @@ readers speak one cell at a time and reference the associated header cells, so t
 
 ---
 
-<h2>Feedback</h2>
+## Feedback
 
 Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yiFC7)
 

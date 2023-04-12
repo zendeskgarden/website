@@ -142,7 +142,9 @@ const figmaNodeIds = [
   '1833:46943' /* patterns-tables-basic-formatting-tags-overflow-expanded */,
   '1833:47060' /* patterns-tables-basic-formatting-view-actions */,
   '1833:47025' /* patterns-tables-basic-formatting-overflow-actions */,
-  '1833:47001' /* patterns-tables-basic-formatting-overflow-tooltip */
+  '1833:47001' /* patterns-tables-basic-formatting-overflow-tooltip */,
+  '1868:53136' /* patterns-tables-default-avatars-large-table */,
+  '1914:52833' /* patterns-tables-basic-formatting-loading-states */
 ];
 
 module.exports = {
