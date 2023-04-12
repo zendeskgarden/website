@@ -23,6 +23,8 @@ import BasicFormattingCode from '!!raw-loader!../../../examples/table/TableDefau
 
 ## Formatting
 
+<!-- markdownlint-disable no-duplicate-header -->
+
 ### Size
 
 Tables come in three sizes: small, medium, and large.
@@ -79,6 +81,54 @@ with some exceptions for quantitative data.
 | 4. [Tags](/components/tags) or [Avatars](/components/avatar)                                                | Left align       |
 | 5. Icons                                                                                                    | Center align     |
 
+## Avatars, icons, and tags
+
+### Avatars
+
+[Avatars](/components/avatar) help represent a person or brand in tables. They can display icons or images.
+
+### Size
+
+Avatar sizes for tables include default and small.
+
+![Small avatars in a Default table](figma:patterns-tables-basic-formatting-small-avatars-default-table.png)
+
+- Use a small Avatar in a default table when more density is needed when displaying information
+  about many users at once
+- Default size tables with an Avatar have a height of 52px with 10px of top and bottom padding and 12px of
+  left and right padding
+
+![Default avatars in a Large table](figma:patterns-tables-basic-formatting-default-avatars-large-table.png)
+
+- Use a default Avatar in a large size Table in contexts where the user data is the main object of the table,
+  and if there are multiple items of metadata associated with the user
+- Large size tables with an Avatar have a height of 60px with 10px of top and
+  bottom padding and 12px of left and right padding
+
+### Icons
+
+There are 2 types of icons that are used in tables: informational icons and icon buttons.
+
+![Table icons](figma:patterns-tables-basic-formatting-action-icons.png)
+
+1. Informational icons are icons that help communicate the state of the cell value. Informational icons must include
+   a `title` attribute and `aria-label` to provide mouse and keyboard users with more context about the icon’s meaning.
+1. [Icon Buttons](/components/icon-button) allow the user to complete an action, for example opening an overflow menu
+
+### Tags
+
+[Tags](/components/tags) let users categorize cell content using a keyword.
+
+![Tags in table](figma:patterns-tables-basic-formatting-tags-anatomy.png)
+
+1. The default size for Tags in table cells is small. Tags are left aligned with 4px of spacing between each tag.
+1. If there are more Tags than can be displayed in a cell, use an Anchor to show the number of hidden Tags.
+   See [Wrapping and Truncation](/patterns/tables/basic-formatting#wrapping-and-truncation) for more information.
+1. If a Tag exceeds the width of a cell, the Tag can be truncated.
+   See [Wrapping and Truncation](/patterns/tables/basic-formatting#wrapping-and-truncation) for more information.
+1. Tags can be inline with other data about a user. The Tag should be inline with the data it is related to with
+   the same 4px spacing between the data and Tag.
+
 ## Wrapping and truncation
 
 ### Text
@@ -88,7 +138,7 @@ scannability. Keep in mind, truncation in a table can make it harder for users t
 Use an [Ellipsis](/components/typography#ellipsis-text) to truncate long text at the end of the first line and provide
 a title attribute that appears on hover.
 
-![Table content](figma:patterns-tables-basic-formatting-wrap-and-truncation.png)
+![Wrapping and truncation](figma:patterns-tables-basic-formatting-wrap-and-truncation.png)
 
 1. Header and data cells should be concise
 1. Text wrapping is the default and recommended behavior. Ensure the cells in the row are top aligned to help with
