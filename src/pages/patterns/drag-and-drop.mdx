@@ -8,8 +8,9 @@ description: >
 
 ## Anatomy
 
-Drag and drop interaction is common in workflows where the user wants to change the order or of items.  
-It is also often used to build something by moving items around the screen,  
+[Drag and drop](https://zendeskgarden.github.io/react-components/?path=/story/packages-drag-drop-patterns--drag-and-drop)
+interaction is common in workflows where the user wants to change the order or of items.
+It is also often used to build something by moving items around the screen,
 for example, a layout, report, or dashboard.
 
 ![List of items with one item being dragged to show parts of the item.](figma:patterns-dnd-anatomy.png)
@@ -40,7 +41,7 @@ Drag and drop between lists puts more emphasis on dropzones and source placehold
 
 ### Draggable item
 
-The grip handle and border define the default Draggable item. Draggable items should have labels
+The grip handle and border define the default [Draggable](/components/draggable) item. Draggable items should have labels
 that are short and easily identifiable. Sometimes these are user-generated so the length may vary.
 The grip icon provides a visual affordance to communicate drag-and-drop. Border communicates
 the boundaries of a draggable item. Draggable items with many interactive elements can restrict
@@ -85,7 +86,7 @@ Placeholders and indicators are visible during the drag-and-drop interaction. Th
 
 #### When to use which
 
-Use empty placeholders for most basic drag and drop interactions, such as reordering  
+Use empty placeholders for most basic drag and drop interactions, such as reordering
 items within a single list.
 ![A list containing draggable items with an empty placeholder space where the dragged item will be placed upon release.](figma:patterns-dnd-formatting-placeholder-empty.png)
 
@@ -93,7 +94,7 @@ Use a solid grey placeholder when moving items between many lists, to show where
 the item originated and where it is going.
 ![A list containing draggable items with a grey placeholder space where the dragged item will be placed upon release.](figma:patterns-dnd-formatting-placeholder-solid.png)
 
-Use target indicators when working with complex layouts where you don’t want to transform  
+Use target indicators when working with complex layouts where you don’t want to transform
 the layout before releasing the item.
 ![A list containing draggable items with a horizontal target indicator
 showing where the dragged item will be placed upon release.](figma:patterns-dnd-formatting-target-indicator.png)
