@@ -187,9 +187,18 @@ Once the item is released on the desired location, the movement is instantaneous
 outside of the dropzone container, it snaps back into its original place.
 
 ![Four draggable items each containing a description and an overflow icon with one item having a hover state.](figma:patterns-dnd-flows-reorder-1.png)
+
+---
+
 ![Four draggable items each containing a description and an overflow icon with the second item being dragged.](figma:patterns-dnd-flows-reorder-2.png)
+
+---
+
 ![Four draggable items each containing a description and an overflow icon with the second item being dragged
 to the third place.](figma:patterns-dnd-flows-reorder-3.png)
+
+---
+
 ![Four draggable items each containing a description and an overflow icon in the updated order.](figma:patterns-dnd-flows-reorder-4.png)
 
 ### Moving items between multiple lists
@@ -206,8 +215,17 @@ Upon release of the item, position it at the end, unless the user specified a pl
 Communicate to the user if the change will be saved immediately or through a page-level save action.
 
 ![Three lists with draggable items with a cursor hovering over one item in the first group.](figma:patterns-dnd-flows-multiple-lists-1.png)
+
+---
+
 ![Item being dragged from the first list and other lists becoming active.](figma:patterns-dnd-flows-multiple-lists-2.png)
+
+---
+
 ![Item being dragged from the first list and another list getting highlighted.](figma:patterns-dnd-flows-multiple-lists-3.png)
+
+---
+
 ![Updated list order after item being dropped.](figma:patterns-dnd-flows-multiple-lists-4.png)
 
 ### Moving an item onto an item or a list (nesting or replacing)
@@ -225,10 +243,25 @@ Show the item instantly in the target location. Item will transform the layout o
 of the container. Use text and icons to communicate the intention, such as nesting or replacing.
 
 ![Two lists containing items with one item showing a hover state.](figma:patterns-dnd-flows-moving-nesting-1.png)
+
+---
+
 ![Dragged item from the left list changes the other dropzone to active.](figma:patterns-dnd-flows-moving-nesting-2.png)
+
+---
+
 ![Dragged item highlights the dropzone where it can be placed.](figma:patterns-dnd-flows-moving-nesting-3.png)
+
+---
+
 ![Target indicator appearing where the dragged item can be placed.](figma:patterns-dnd-flows-moving-nesting-4.png)
+
+---
+
 ![Dragged item highlights the nested item which can be replaced.](figma:patterns-dnd-flows-moving-nesting-5.png)
+
+---
+
 ![Updated lists after one item was replaced with another.](figma:patterns-dnd-flows-moving-nesting-6.png)
 
 ### Predictable drop behavior and collision algorithms
@@ -461,28 +494,28 @@ export const pageQuery = graphql`
     dndFlowsReorder1: figmaAsset(name: { eq: "patterns-dnd-flows-reorder-1" }) {
       childFile {
         childImageSharp {
-          gatsbyImageData(height: 480)
+          gatsbyImageData(height: 440)
         }
       }
     }
     dndFlowsReorder2: figmaAsset(name: { eq: "patterns-dnd-flows-reorder-2" }) {
       childFile {
         childImageSharp {
-          gatsbyImageData(height: 480)
+          gatsbyImageData(height: 440)
         }
       }
     }
     dndFlowsReorder3: figmaAsset(name: { eq: "patterns-dnd-flows-reorder-3" }) {
       childFile {
         childImageSharp {
-          gatsbyImageData(height: 480)
+          gatsbyImageData(height: 440)
         }
       }
     }
     dndFlowsReorder4: figmaAsset(name: { eq: "patterns-dnd-flows-reorder-4" }) {
       childFile {
         childImageSharp {
-          gatsbyImageData(height: 480)
+          gatsbyImageData(height: 440)
         }
       }
     }
