@@ -73,7 +73,7 @@ with some exceptions for quantitative data.
 
 ![Cell Alignment](figma:patterns-tables-basic-formatting-cell-alignment.png)
 
-| <b>Cellc content</b>                                                                                        | <b>Alignment</b> |
+| <b>Cell content</b>                                                                                         | <b>Alignment</b> |
 | ----------------------------------------------------------------------------------------------------------- | ---------------- |
 | 1. Text                                                                                                     | Left align       |
 | 2. Categorical data that uses numbers (for example, [dates](/content/grammar#date-and-time), phone numbers) | Left align       |
@@ -81,13 +81,13 @@ with some exceptions for quantitative data.
 | 4. [Tags](/components/tags) or [Avatars](/components/avatar)                                                | Left align       |
 | 5. Icons                                                                                                    | Center align     |
 
-## Avatars, icons, and tags
+### Avatars, icons, and tags
 
-### Avatars
+#### Avatars
 
 [Avatars](/components/avatar) help represent a person or brand in tables. They can display icons or images.
 
-### Size
+#### Size
 
 Avatar sizes for tables include default and small.
 
@@ -95,17 +95,17 @@ Avatar sizes for tables include default and small.
 
 - Use a small Avatar in a default table when more density is needed when displaying information
   about many users at once
-- Default size tables with an Avatar have a height of 52px with 10px of top and bottom padding and 12px of
+- Default size tables with an Avatar have a starting height of 52px with 10px of top and bottom padding and 12px of
   left and right padding
 
 ![Default avatars in a Large table](figma:patterns-tables-basic-formatting-default-avatars-large-table.png)
 
 - Use a default Avatar in a large size Table in contexts where the user data is the main object of the table,
   and if there are multiple items of metadata associated with the user
-- Large size tables with an Avatar have a height of 60px with 10px of top and
+- Large size tables with an Avatar have a starting height of 60px with 10px of top and
   bottom padding and 12px of left and right padding
 
-### Icons
+#### Icons
 
 There are 2 types of icons that are used in tables: informational icons and icon buttons.
 
@@ -113,19 +113,20 @@ There are 2 types of icons that are used in tables: informational icons and icon
 
 1. Informational icons are icons that help communicate the state of the cell value. Informational icons must include
    a `title` attribute and `aria-label` to provide mouse and keyboard users with more context about the icon’s meaning.
-1. [Icon Buttons](/components/icon-button) allow the user to complete an action, for example opening an overflow menu
+1. [Overflow buttons](/components/table#overflowbutton) allow users to see additional table actions within
+   an overflow menu
 
-### Tags
+#### Tags
 
 [Tags](/components/tags) let users categorize cell content using a keyword.
 
 ![Tags in table](figma:patterns-tables-basic-formatting-tags-anatomy.png)
 
 1. The default size for Tags in table cells is small. Tags are left aligned with 4px of spacing between each tag.
-1. If there are more Tags than can be displayed in a cell, use an Anchor to show the number of hidden Tags.
-   See [Wrapping and Truncation](/patterns/tables/basic-formatting#wrapping-and-truncation) for more information.
+1. If there are more Tags than can be displayed in a cell, use a `Button` with `isLink` prop.
+   See [Wrapping and Truncation](#overflow) for more information.
 1. If a Tag exceeds the width of a cell, the Tag can be truncated.
-   See [Wrapping and Truncation](/patterns/tables/basic-formatting#wrapping-and-truncation) for more information.
+   See [Wrapping and Truncation](#truncation) for more information.
 1. Tags can be inline with other data about a user. The Tag should be inline with the data it is related to with
    the same 4px spacing between the data and Tag.
 
@@ -141,10 +142,8 @@ a title attribute that appears on hover.
 ![Wrapping and truncation](figma:patterns-tables-basic-formatting-wrap-and-truncation.png)
 
 1. Header and data cells should be concise
-1. Text wrapping is the default and recommended behavior. Ensure the cells in the row are top aligned to help with
-   scannability.
-1. Keep in mind, truncation in a table can make it harder for users to scan. Use an
-   [Ellipsis](/components/typography#ellipsis-text) to truncate long text at the end of the first line and
+1. Ensure the cells in the row are top aligned to help with scannability.
+1. Use an [Ellipsis](/components/typography#ellipsis-text) to truncate long text at the end of the first line and
    provide a title attribute that appears on hover.
 
 #### Header cells
@@ -249,7 +248,8 @@ or a combination of these within a single row.
 All additional actions are to be placed inside the [overflow menu](/components/table#overflow).
 
 - Group complementary actions inside the menu, using separators to create visual hierarchy
-- For destructive actions, place a separator line above and use the danger styling
+- For destructive actions, place a [separator](/components/menu#separator) line above the
+  [menu item](/components/meun#item) using the `isDanger` prop
 
 ![Overflow actions](figma:patterns-tables-basic-formatting-overflow-actions.png)
 
@@ -304,7 +304,7 @@ In paginated tables, you can select all checkboxes but that selection only affec
 #### Infinite scrolling
 
 In cases where the database supports infinite scrolling, there is no need to say how many pages of data there are.
-If you have an infinitely scrolling table, you should also offer [sorting](/patterns/tables/basic-formatting#sorting) to
+If you have an infinitely scrolling table, you should also offer [sorting](#sorting) to
 help users navigate the data.
 
 ##### Select all for infinite scrolling
@@ -402,13 +402,13 @@ Follow our [date and time formatting](/content/grammar#date-and-time) guidelines
 
 ![Row and cell states](figma:patterns-tables-basic-formatting-row-cell-states.png)
 
-| <b>Row/cell state</b>   | <b>Additional guidance</b>                                                                                               |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| 1. Empty cell           | Cells with no values should be left blank. Do not use a hyphen, en, or em dash.                                          |
-| 2. Hover                |                                                                                                                          |
-| 3. Focused              |                                                                                                                          |
-| 4. Selected             |                                                                                                                          |
-| 5. Focused and selected | The last row checked is the focused row, unless the user clicks on a different row or uses the keyboard to change focus. |
+| <b>Row/cell state</b>   | <b>Additional guidance</b>                                                      |
+| ----------------------- | ------------------------------------------------------------------------------- |
+| 1. Empty cell           | Cells with no values should be left blank. Do not use a hyphen, en, or em dash. |
+| 2. Hover                |                                                                                 |
+| 3. Focused              |                                                                                 |
+| 4. Selected             |                                                                                 |
+| 5. Focused and selected |                                                                                 |
 
 ### Loading
 
@@ -420,8 +420,6 @@ compared against a blank screen or a spinner.
   times to provide instant context of incoming tabular data
 - The width of the Skeleton should match the width of the intended cell content, while the Skeleton’s height will be 60%
   of the font size
-
-![Loading states](figma:patterns-tables-basic-formatting-loading-states.png)
 
 import TableLoading from '../../../examples/table/TableLoading.tsx';
 import TableLoadingCode from '!!raw-loader!../../../examples/table/TableLoading.tsx';
@@ -496,7 +494,7 @@ export const pageQuery = graphql`
     ) {
       childFile {
         childImageSharp {
-          gatsbyImageData(height: 380)
+          gatsbyImageData(height: 480)
         }
       }
     }
@@ -505,7 +503,7 @@ export const pageQuery = graphql`
     ) {
       childFile {
         childImageSharp {
-          gatsbyImageData(height: 350)
+          gatsbyImageData(height: 480)
         }
       }
     }
