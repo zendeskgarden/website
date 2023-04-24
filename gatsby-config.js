@@ -136,7 +136,17 @@ const figmaNodeIds = [
   '566:11850' /* patterns-tables-basic-formatting-date-time */,
   '566:12145' /* patterns-tables-basic-formatting-row-cell-states */,
   '566:12289' /* patterns-tables-basic-formatting-localization-bulgarian */,
-  '566:12568' /* patterns-tables-basic-formatting-localization-arabic */
+  '566:12568' /* patterns-tables-basic-formatting-localization-arabic */,
+  '1833:46885' /* patterns-tables-basic-formatting-tags-truncation */,
+  '1833:46828' /* patterns-tables-basic-formatting-tags-overflow */,
+  '1833:46943' /* patterns-tables-basic-formatting-tags-overflow-expanded */,
+  '1833:47060' /* patterns-tables-basic-formatting-view-actions */,
+  '1833:47025' /* patterns-tables-basic-formatting-overflow-actions */,
+  '1833:47001' /* patterns-tables-basic-formatting-overflow-tooltip */,
+  '1868:53136' /* patterns-tables-basic-formatting-default-avatars-large-table */,
+  '1868:53248' /* patterns-tables-basic-formatting-small-avatars-default-table */,
+  '1745:45691' /* patterns-tables-basic-formatting-action-icons */,
+  '1747:45874' /* patterns-tables-basic-formatting-tags-anatomy */
 ];
 
 module.exports = {
