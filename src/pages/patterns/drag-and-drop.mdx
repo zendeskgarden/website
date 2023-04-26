@@ -103,7 +103,8 @@ showing where the dragged item will be placed upon release.](figma:patterns-dnd-
 
 #### Placeholders
 
-Placeholders and indicators appear during the drag-and-drop interaction. They show where you can place a grabbed item.
+[Placeholders](/components/draggable#placeholder) and indicators appear during the drag-and-drop interaction.
+They show where you can place a grabbed item.
 
 ![Three lists showing empty space placeholder, a solid grey placeholder, and a disabled state.](figma:patterns-dnd-formatting-placeholders-and-disabled.png)
 
@@ -113,8 +114,8 @@ Placeholders and indicators appear during the drag-and-drop interaction. They sh
 
 #### Target indicators
 
-Target indicators show where dragged items will appear upon release. Use them in condensed layouts
-or when you don't want to transform the list while dragging.
+[Target indicators](/components/draggable#indicator) show where dragged items will appear upon release.
+Use them in condensed layouts or when you don't want to transform the list while dragging.
 
 ![Two examples showing when vertical and horizontal indicators appear when a draggable item is dragged.](figma:patterns-dnd-formatting-indicator-orientation.png)
 
@@ -123,10 +124,10 @@ or when you don't want to transform the list while dragging.
 
 ### Dropzones
 
-Dropzones are locations on the screen where the item can be moved onto. For flat structure lists,
-the dropzone is usually the list container. In complex workflows, dropzone might be another list — flat or nested,
-or even another item. Dropzones can be communicated in several ways, by using dashed borders, labels or a
-task-oriented context of reordering or building something on the screen.
+[Dropzones](/components/draggable#dropzone) are locations on the screen where the item can be moved onto.
+For flat structure lists, the dropzone is usually the list container. In complex workflows, dropzone might
+be another list — flat or nested, or even another item. Dropzones can be communicated in several ways,
+by using dashed borders, labels or a task-oriented context of reordering or building something on the screen.
 
 #### Border treatment
 
@@ -397,7 +398,7 @@ export const pageQuery = graphql`
     ) {
       childFile {
         childImageSharp {
-          gatsbyImageData(height: 440)
+          gatsbyImageData(height: 540)
         }
       }
     }
@@ -406,7 +407,7 @@ export const pageQuery = graphql`
     ) {
       childFile {
         childImageSharp {
-          gatsbyImageData(height: 440)
+          gatsbyImageData(height: 540)
         }
       }
     }
