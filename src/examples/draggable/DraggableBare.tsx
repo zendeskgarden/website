@@ -10,11 +10,17 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { Draggable } from '@zendeskgarden/react-drag-drop';
 
 const Example = () => (
-  <Row>
-    <Col>
+  <Row justifyContent="center">
+    <Col size={4}>
       <Draggable>
         <Draggable.Grip />
-        <Draggable.Content>Button</Draggable.Content>
+        <Draggable.Content>Orange</Draggable.Content>
+      </Draggable>
+    </Col>
+    <Col size={4}>
+      <Draggable isBare>
+        <Draggable.Grip />
+        <Draggable.Content>Orange</Draggable.Content>
       </Draggable>
     </Col>
   </Row>
