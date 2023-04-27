@@ -12,11 +12,11 @@ import { Draggable, DraggableList } from '@zendeskgarden/react-drag-drop';
 import styled from 'styled-components';
 
 const items = [
-  { id: '1', value: 'Pear' },
-  { id: '2', value: 'Pomegranate' },
-  { id: '3', value: 'Orange' },
-  { id: '4', value: 'Grapes' },
-  { id: '5', value: 'Strawberries' }
+  { id: '1', value: 'Pear', isActive: false },
+  { id: '2', value: 'Pomegranate', isActive: true },
+  { id: '3', value: 'Orange', isActive: false },
+  { id: '4', value: 'Grapes', isActive: false },
+  { id: '5', value: 'Strawberries', isActive: false }
 ];
 
 const StyledHeading = styled(MD)`
@@ -30,8 +30,8 @@ const Example = () => (
         Favorites
       </StyledHeading>
       <DraggableList>
-        {items.map((item, idx) =>
-          idx === 1 ? (
+        {items.map(item =>
+          item.isActive ? (
             <DraggableList.DropIndicator
               key={item.id}
               aria-label={`Drop indicator for ${item.value} at position 2`}
