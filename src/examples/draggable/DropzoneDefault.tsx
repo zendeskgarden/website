@@ -180,9 +180,9 @@ const DroppableColumn = ({ items, isActive, isHighlighted }: IDroppableColumnPro
   let message;
 
   if (isEmpty && isHighlighted) {
-    message = 'Drop item here';
+    message = 'Drop to add';
   } else if (isEmpty) {
-    message = 'Drag to add';
+    message = 'Drag fruits here';
   }
 
   return (
@@ -225,15 +225,7 @@ const Example = () => {
   }, []);
 
   const onDragOver = useCallback(({ over }: DragOverEvent) => {
-    const overId = over?.id;
-
-    if (!overId) {
-      setDropzoneIsHighlighted(false);
-
-      return;
-    }
-
-    setDropzoneIsHighlighted((overId as string) === 'dropzone');
+    setDropzoneIsHighlighted((over?.id as string) === 'dropzone');
   }, []);
 
   const onDragEnd = useCallback(
