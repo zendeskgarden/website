@@ -155,9 +155,10 @@ const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((props, re
 DraggableItem.displayName = 'DraggableItem';
 
 const StyledDraggable = styled(DraggableItem)`
+  cursor: default;
+
   &:hover {
     background-color: ${p => p.theme.colors.background};
-    cursor: default;
   }
 `;
 
