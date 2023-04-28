@@ -171,6 +171,31 @@ import DropzoneDangerCode from '!!raw-loader!../../examples/draggable/DropzoneDa
 
 ## API
 
+The `Draggable` and `DraggableList` components follow this structure:
+
+```jsx
+<DraggableList>
+  <DraggableList.Item>
+    <Draggable>
+      <Draggable.Grip />
+      <Draggable.Content>{/* content */}</Draggable.Content>
+    </Draggable>
+  </DraggableList.Item>
+  {/* other items */}
+</DraggableList>
+```
+
+The `Dropzone` component follows this structure:
+
+```jsx
+<Dropzone>
+  <Dropzone.Icon>
+    <Icon />
+  </Dropzone.Icon>
+  <Dropzone.Message>{/* message */}</Dropzone.Message>
+</Dropzone>
+```
+
 ### Draggable
 
 <Component components={props.data.mdx.components} componentName="draggable" />
