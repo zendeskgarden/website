@@ -154,6 +154,13 @@ const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((props, re
 
 DraggableItem.displayName = 'DraggableItem';
 
+const StyledDraggable = styled(DraggableItem)`
+  &:hover {
+    background-color: ${p => p.theme.colors.background};
+    cursor: default;
+  }
+`;
+
 const DraggableListItem = ({ id, value }: IDraggableItemProps) => {
   const { isDragging, attributes, listeners, setNodeRef, setActivatorNodeRef } = useDraggable({
     id: id!,
@@ -191,7 +198,7 @@ const DroppableColumn = ({ items, isActive, isHighlighted }: IDroppableColumnPro
         <DraggableList>
           {items.map(item => (
             <DraggableList.Item key={item.id}>
-              <DraggableItem {...item} />
+              <StyledDraggable {...item} />
             </DraggableList.Item>
           ))}
         </DraggableList>
