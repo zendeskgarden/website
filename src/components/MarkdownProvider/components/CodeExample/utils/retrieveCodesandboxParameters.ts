@@ -63,6 +63,7 @@ const packageJson = `
     "react-dropzone": "latest",
     "react-window": "latest",
     "use-resize-observer": "latest",
+    "@dnd-kit/core": "6.x",
     "@zendeskgarden/container-utilities": "^0.6.3",
     "@zendeskgarden/css-bedrock": "^8.x",
     "@zendeskgarden/react-accordions": "^8.x",
