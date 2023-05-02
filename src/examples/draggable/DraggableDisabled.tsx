@@ -11,7 +11,7 @@ import { Draggable } from '@zendeskgarden/react-drag-drop';
 
 const Example = () => (
   <Row justifyContent="center">
-    <Col size={4}>
+    <Col sm={4}>
       <Draggable isDisabled>
         <Draggable.Grip />
         <Draggable.Content>Pear</Draggable.Content>

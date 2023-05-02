@@ -6,23 +6,31 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Draggable } from '@zendeskgarden/react-drag-drop';
+import { mediaQuery } from '@zendeskgarden/react-theming';
+
+const StyledCol = styled(Col)`
+  ${p => mediaQuery('down', 'xs', p.theme)} {
+    margin-top: ${p => p.theme.space.sm};
+  }
+`;
 
 const Example = () => (
   <Row justifyContent="center">
-    <Col size={4}>
+    <Col sm={4}>
       <Draggable>
         <Draggable.Grip />
         <Draggable.Content>Orange</Draggable.Content>
       </Draggable>
     </Col>
-    <Col size={4}>
+    <StyledCol sm={4}>
       <Draggable isBare>
         <Draggable.Grip />
         <Draggable.Content>Orange</Draggable.Content>
       </Draggable>
-    </Col>
+    </StyledCol>
   </Row>
 );
 

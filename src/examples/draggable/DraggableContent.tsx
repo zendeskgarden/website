@@ -6,19 +6,15 @@
  */
 
 import React from 'react';
-import { getColor } from '@zendeskgarden/react-theming';
+import { PALETTE, getColor } from '@zendeskgarden/react-theming';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Draggable } from '@zendeskgarden/react-drag-drop';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
-import { MD } from '@zendeskgarden/react-typography';
+import { Span } from '@zendeskgarden/react-typography';
 import { ReactComponent as PuzzleIcon } from '@zendeskgarden/svg-icons/src/16/puzzle-piece-stroke.svg';
 import { ReactComponent as OverflowIcon } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import styled from 'styled-components';
-
-const StyledSubtitle = styled(MD)`
-  color: ${p => getColor('neutralHue', 600, p.theme)};
-`;
 
 const StyledDecorator = styled.div`
   display: flex;
@@ -28,15 +24,17 @@ const StyledDecorator = styled.div`
 
 const Example = () => (
   <Row justifyContent="center">
-    <Col size={7}>
+    <Col sm={7}>
       <Draggable isCompact>
         <Draggable.Grip />
         <StyledDecorator>
           <PuzzleIcon />
         </StyledDecorator>
         <Draggable.Content>
-          <MD isBold>Citrus</MD>
-          <StyledSubtitle>Oranges, mandarins, limes, and the like</StyledSubtitle>
+          <Span isBold tag="div">
+            Citrus
+          </Span>
+          <Span hue={PALETTE.grey[600]}>Oranges, mandarins, limes, and the like</Span>
         </Draggable.Content>
         <Tooltip content="More options">
           <IconButton aria-label="More options">

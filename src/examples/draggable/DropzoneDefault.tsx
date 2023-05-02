@@ -6,7 +6,7 @@
  */
 
 import React, { RefObject, forwardRef, useCallback, useEffect, useRef, useState } from 'react';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 import {
   Announcements,
   MeasuringStrategy,
@@ -32,6 +32,7 @@ import {
 } from '@zendeskgarden/react-drag-drop';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { MD } from '@zendeskgarden/react-typography';
+import { mediaQuery } from '@zendeskgarden/react-theming';
 
 type IColumns = Record<string, IColumnItem[]>;
 
@@ -129,6 +130,16 @@ const StyledDropzone = styled(Dropzone)`
   min-height: ${p => p.theme.space.base * 34}px;
 `;
 
+const StyledDraggableOverlay = styled.div`
+  padding: ${p => p.theme.space.xxs} 0;
+`;
+
+const StyledCol = styled(Col)`
+  ${p => mediaQuery('down', 'xs', p.theme)} {
+    margin-top: ${p => p.theme.space.sm};
+  }
+`;
+
 const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((props, ref) => {
   const { isOverlay, value, tabIndex, ...restProps } = props;
 
@@ -145,9 +156,7 @@ const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((props, re
   return (
     <Draggable {...restProps} tabIndex={isOverlay ? -1 : tabIndex} ref={ref}>
       <Draggable.Grip />
-      <Draggable.Content>
-        <div>{value}</div>
-      </Draggable.Content>
+      <Draggable.Content>{value}</Draggable.Content>
     </Draggable>
   );
 });
@@ -214,7 +223,6 @@ const Example = () => {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [dropzoneIsHighlighted, setDropzoneIsHighlighted] = useState<boolean>(false);
 
-  const theme = useTheme();
   const overlayRef = useRef<HTMLDivElement>(null);
 
   const activeItem = columns.draggables.find(item => item.id === activeId);
@@ -280,7 +288,7 @@ const Example = () => {
       measuring={{ droppable: { strategy: MeasuringStrategy.Always } }}
     >
       <Row justifyContent="center">
-        <Col size={4}>
+        <Col sm={4}>
           <StyledHeading isBold>List of produce</StyledHeading>
           <DraggableList>
             {draggableItems.map(item => (
@@ -288,17 +296,17 @@ const Example = () => {
             ))}
           </DraggableList>
         </Col>
-        <Col size={5}>
+        <StyledCol sm={5}>
           <StyledHeading isBold>Favorite fruits</StyledHeading>
           <DroppableColumn
             items={dropzoneItems}
             isActive={!!activeId}
             isHighlighted={dropzoneIsHighlighted}
           />
-        </Col>
+        </StyledCol>
         <DragOverlay>
           {activeItem && (
-            <div style={{ padding: `${theme.space.xxs} 0` }}>
+            <StyledDraggableOverlay>
               <DraggableItem
                 ref={overlayRef}
                 id={activeItem.id}
@@ -306,7 +314,7 @@ const Example = () => {
                 isOverlay
                 isGrabbed
               />
-            </div>
+            </StyledDraggableOverlay>
           )}
         </DragOverlay>
       </Row>

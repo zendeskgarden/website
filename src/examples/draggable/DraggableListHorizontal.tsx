@@ -23,8 +23,8 @@ const StyledHeading = styled(MD)`
 
 const Example = () => (
   <Row justifyContent="center">
-    <Col size={10}>
-      <StyledHeading isBold tag="h3">
+    <Col sm={10}>
+      <StyledHeading isBold tag="h4">
         Favorites
       </StyledHeading>
       <DraggableList isHorizontal>
