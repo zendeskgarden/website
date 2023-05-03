@@ -1,0 +1,259 @@
+---
+title: Draggable
+description: >
+  The draggable is an interactive element that can be "grabbed", dragged, and dropped to
+  another location. This lets users rearrange and/or organize items.
+package: '@zendeskgarden/react-drag-drop'
+components:
+  - drag-drop/src/elements/draggable/Draggable.tsx
+  - drag-drop/src/elements/draggable-list/DraggableList.tsx
+  - drag-drop/src/elements/dropzone/Dropzone.tsx
+subcomponents:
+  - drag-drop/src/elements/draggable/components/Content.tsx
+  - drag-drop/src/elements/draggable/components/Grip.tsx
+  - drag-drop/src/elements/draggable-list/components/DropIndicator.tsx
+  - drag-drop/src/elements/draggable-list/components/Item.tsx
+  - drag-drop/src/elements/dropzone/components/Icon.tsx
+  - drag-drop/src/elements/dropzone/components/Message.tsx
+---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>Reordering a list</li>
+      <li>Moving objects between lists</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To let users upload files, use [File upload](/components/file-upload) instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+<!-- markdownlint-disable no-duplicate-header -->
+
+## How to use it
+
+### Default
+
+The Draggable has a content area and a grip to communicate it can be dragged and dropped.
+
+import DraggableDefault from '../../examples/draggable/DraggableDefault.tsx';
+import DraggableDefaultCode from '!!raw-loader!../../examples/draggable/DraggableDefault.tsx';
+
+<CodeExample code={DraggableDefaultCode}>
+  <DraggableDefault />
+</CodeExample>
+
+### Bare
+
+Borders can be removed using `isBare` prop.
+
+import DraggableBare from '../../examples/draggable/DraggableBare.tsx';
+import DraggableBareCode from '!!raw-loader!../../examples/draggable/DraggableBare.tsx';
+
+<CodeExample code={DraggableBareCode}>
+  <DraggableBare />
+</CodeExample>
+
+### Content
+
+The Draggable content area can accept other components and text.
+
+import DraggableContent from '../../examples/draggable/DraggableContent.tsx';
+import DraggableContentCode from '!!raw-loader!../../examples/draggable/DraggableContent.tsx';
+
+<CodeExample code={DraggableContentCode}>
+  <DraggableContent />
+</CodeExample>
+
+### Disabled
+
+The Draggable can be disabled to prevent interaction. It doesn't appear in the tab order,
+can't receive focus, and may not be read aloud by a screenreader.
+
+import DraggableDisabled from '../../examples/draggable/DraggableDisabled.tsx';
+import DraggableDisabledCode from '!!raw-loader!../../examples/draggable/DraggableDisabled.tsx';
+
+<CodeExample code={DraggableDisabledCode}>
+  <DraggableDisabled />
+</CodeExample>
+
+### Placeholder
+
+A Placeholder is used to indicate where the Draggable will be placed when dropped.
+
+import DraggablePlaceholder from '../../examples/draggable/DraggablePlaceholder.tsx';
+import DraggablePlaceholderCode from '!!raw-loader!../../examples/draggable/DraggablePlaceholder.tsx';
+
+<CodeExample code={DraggablePlaceholderCode}>
+  <DraggablePlaceholder />
+</CodeExample>
+
+### Size
+
+Can be default or compact in size. This changes the vertical padding.
+
+import DraggableSize from '../../examples/draggable/DraggableSize.tsx';
+import DraggableSizeCode from '!!raw-loader!../../examples/draggable/DraggableSize.tsx';
+
+<CodeExample code={DraggableSizeCode}>
+  <DraggableSize />
+</CodeExample>
+
+## Draggable list
+
+### Default
+
+Use the list component to organize `Draggable` items into a vertical list.
+
+import DraggableListDefault from '../../examples/draggable/DraggableListDefault.tsx';
+import DraggableListDefaultCode from '!!raw-loader!../../examples/draggable/DraggableListDefault.tsx';
+
+<CodeExample code={DraggableListDefaultCode}>
+  <DraggableListDefault />
+</CodeExample>
+
+### Horizontal
+
+Use `isHorizontal` to display items in a row.
+
+import DraggableListHorizontal from '../../examples/draggable/DraggableListHorizontal.tsx';
+import DraggableListHorizontalCode from '!!raw-loader!../../examples/draggable/DraggableListHorizontal.tsx';
+
+<CodeExample code={DraggableListHorizontalCode}>
+  <DraggableListHorizontal />
+</CodeExample>
+
+### Indicator
+
+Use indicators to communicate where the `Draggable` will land between other items.
+
+import DraggableListIndicator from '../../examples/draggable/DraggableListIndicator.tsx';
+import DraggableListIndicatorCode from '!!raw-loader!../../examples/draggable/DraggableListIndicator.tsx';
+
+<CodeExample code={DraggableListIndicatorCode}>
+  <DraggableListIndicator />
+</CodeExample>
+
+## Dropzone
+
+### Default
+
+The Dropzone allows users to designate an area as a drop target. This example uses [dnd-kit](https://github.com/clauderic/dnd-kit).
+
+import DropzoneDefault from '../../examples/draggable/DropzoneDefault.tsx';
+import DropzoneDefaultCode from '!!raw-loader!../../examples/draggable/DropzoneDefault.tsx';
+
+<CodeExample code={DropzoneDefaultCode}>
+  <DropzoneDefault />
+</CodeExample>
+
+### Danger
+
+Danger styling communicates that items dropped will be removed or deleted. This example uses [dnd-kit](https://github.com/clauderic/dnd-kit).
+
+import DropzoneDanger from '../../examples/draggable/DropzoneDanger.tsx';
+import DropzoneDangerCode from '!!raw-loader!../../examples/draggable/DropzoneDanger.tsx';
+
+<CodeExample code={DropzoneDangerCode}>
+  <DropzoneDanger />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+A `Draggable` component can be used independently from a `DraggableList`.
+They follow this structure:
+
+```jsx
+<DraggableList>
+  <DraggableList.Item>
+    <Draggable>
+      <Draggable.Grip />
+      <Draggable.Content>{/* content */}</Draggable.Content>
+    </Draggable>
+  </DraggableList.Item>
+  {/* other items */}
+</DraggableList>
+```
+
+The `Dropzone` component may or may not be a sibling to the `Draggable` component.
+It follows this structure:
+
+```jsx
+<Dropzone>
+  <Dropzone.Icon>
+    <Icon />
+  </Dropzone.Icon>
+  <Dropzone.Message>{/* message */}</Dropzone.Message>
+</Dropzone>
+```
+
+### Draggable
+
+<Component components={props.data.mdx.components} componentName="draggable" />
+
+<PropSheet components={props.data.mdx.components} componentName="draggable" />
+
+#### Draggable.Content
+
+<Component components={props.data.mdx.subcomponents} componentName="draggable.content" />
+
+#### Draggable.Grip
+
+<Component components={props.data.mdx.subcomponents} componentName="draggable.grip" />
+
+Provides visual indication that a `Draggable` can be grabbed and moved.
+
+### DraggableList
+
+<Component components={props.data.mdx.components} componentName="draggableList" />
+
+<PropSheet components={props.data.mdx.components} componentName="draggableList" />
+
+#### DraggableList.DropIndicator
+
+<Component components={props.data.mdx.subcomponents} componentName="draggableList.dropIndicator" />
+
+Indicates the position where a `DraggableList.Item` being dragged will be inserted into a `DraggableList`.
+
+#### DraggableList.Item
+
+<Component components={props.data.mdx.subcomponents} componentName="draggableList.item" />
+
+Nest an Item within a `DraggableList` component.
+
+### Dropzone
+
+<Component components={props.data.mdx.components} componentName="dropzone" />
+
+<PropSheet components={props.data.mdx.components} componentName="dropzone" />
+
+#### Dropzone.Icon
+
+<Component components={props.data.mdx.subcomponents} componentName="dropzone.icon" />
+
+Nest a custom [icon](/design/icons) in `Dropzone.Icon`.
+
+#### Dropzone.Message
+
+<Component components={props.data.mdx.subcomponents} componentName="dropzone.message" />
+
+Nest content within a `Dropzone.Message` to apply appropriate styles.
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;

@@ -54,6 +54,8 @@
       id: /components/color-picker
     - title: Color swatch
       id: /components/color-swatch
+    - title: Draggable
+      id: /components/draggable
     - title: Drawer
       id: /components/drawer
     - title: Dropdowns
