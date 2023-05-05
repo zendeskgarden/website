@@ -55,7 +55,7 @@ const components = [
         defaultValue: 600,
         description: 'Selects a shade for the given hue'
       },
-      '[optinos.shadowWidth]': {
+      '[options.shadowWidth]': {
         type: 'string',
         defaultValue: "'md'",
         description:
@@ -133,7 +133,7 @@ const components = [
         defaultValue: 600,
         description: 'Selects a shade for the given hue'
       },
-      '[optinos.shadowWidth]': {
+      '[options.shadowWidth]': {
         type: 'string',
         defaultValue: "'md'",
         description:
