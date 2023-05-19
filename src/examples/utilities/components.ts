@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { SELECTOR_FOCUS_VISIBLE } from '@zendeskgarden/react-theming';
+
 const components = [
   {
     name: 'arrowStyles',
@@ -34,6 +36,59 @@ const components = [
     }
   },
   {
+    name: 'focusStyles',
+    props: {
+      '[options.theme]': {
+        required: true,
+        type: 'DefaultTheme',
+        defaultValue: 'DEFAULT_THEME',
+        description: 'Provides values used to resolve the desired color'
+      },
+      '[options.hue]': {
+        type: 'Object | string',
+        defaultValue: "'primaryHue'",
+        description:
+          'Provides a theme object [palette](/components/theme-object#palette) hue or [color](/components/theme-object#colors) key, or any valid CSS color notation'
+      },
+      '[options.shade]': {
+        type: 'number',
+        defaultValue: 600,
+        description: 'Selects a shade for the given hue'
+      },
+      '[options.shadowWidth]': {
+        type: 'string',
+        defaultValue: "'md'",
+        description:
+          'Provides a theme object [shadowWidth](/components/theme-object#shadowwidths) key for the cumulative width of the `box-shadow`'
+      },
+      '[options.spacerWidth]': {
+        type: 'string',
+        defaultValue: "'sm'",
+        description:
+          'Provides a theme object [shadowWidth](/components/theme-object#shadowwidths) for the white spacer, or `null` to remove'
+      },
+      '[options.inset]': {
+        type: 'boolean',
+        description: 'Determines whether the `box-shadow` is inset'
+      },
+      '[options.selector]': {
+        type: 'string',
+        defaultValue: SELECTOR_FOCUS_VISIBLE,
+        description: 'Provides a subsitute pseudo-class CSS selector'
+      },
+      '[options.styles]': {
+        type: 'CSSObject',
+        description: 'Adds CSS property values to be rendered on focus'
+      },
+      '[options.condition]': {
+        type: 'boolean',
+        defaultValue: 'true',
+        description:
+          'Supplies an optional condition that can be used to prevent the focus `box-shadow`'
+      }
+    }
+  },
+  {
     name: 'getColor',
     props: {
       hue: {
@@ -55,6 +110,44 @@ const components = [
       transparency: {
         type: 'number',
         description: 'Sets an alpha channel between 0 and 1'
+      }
+    }
+  },
+  {
+    name: 'getFocusBoxShadow',
+    props: {
+      '[options.theme]': {
+        required: true,
+        type: 'DefaultTheme',
+        defaultValue: 'DEFAULT_THEME',
+        description: 'Provides values used to resolve the desired color'
+      },
+      '[options.hue]': {
+        type: 'Object | string',
+        defaultValue: "'primaryHue'",
+        description:
+          'Provides a theme object [palette](/components/theme-object#palette) hue or [color](/components/theme-object#colors) key, or any valid CSS color notation'
+      },
+      '[options.shade]': {
+        type: 'number',
+        defaultValue: 600,
+        description: 'Selects a shade for the given hue'
+      },
+      '[options.shadowWidth]': {
+        type: 'string',
+        defaultValue: "'md'",
+        description:
+          'Provides a theme object [shadowWidth](/components/theme-object#shadowwidths) key for the cumulative width of the `box-shadow`'
+      },
+      '[options.spacerWidth]': {
+        type: 'string',
+        defaultValue: "'sm'",
+        description:
+          'Provides a theme object [shadowWidth](/components/theme-object#shadowwidths) for the white spacer, or `null` to remove'
+      },
+      '[options.inset]': {
+        type: 'boolean',
+        description: 'Determines whether the `box-shadow` is inset'
       }
     }
   },
@@ -152,6 +245,36 @@ const components = [
         required: true,
         type: 'Partial<ThemeProps<Partial<DefaultTheme>>>',
         description: 'Provides component props which contain the context `theme` object'
+      }
+    }
+  },
+  {
+    name: 'useText',
+    props: {
+      component: {
+        required: true,
+        type: 'string',
+        description: 'Specifies the React component to which the `props` belong'
+      },
+      props: {
+        required: true,
+        type: 'Record<string, any>',
+        description: 'Provides component props to check for `name`'
+      },
+      name: {
+        required: true,
+        type: 'string',
+        description: 'Determines the name of the component prop to set default text on'
+      },
+      text: {
+        required: true,
+        type: 'string',
+        description: 'Specifies default text to apply if the value of `props[name]` is `undefined`'
+      },
+      condition: {
+        type: 'boolean',
+        defaultValue: true,
+        description: 'Supplies an optional condition that can be used to prevent evaluation'
       }
     }
   },

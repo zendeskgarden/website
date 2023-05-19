@@ -8,6 +8,8 @@
       id: /patterns/buttons
     - title: Copy
       id: /patterns/copy
+    - title: Drag and drop
+      id: /patterns/drag-and-drop
     - title: Error handling
       id: /patterns/errors
     - title: Loaders
