@@ -5,17 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme } from 'styled-components';
-import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
+import { SELECTOR_FOCUS_VISIBLE, mediaQuery } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
-import { math, rgba } from 'polished';
-
-const boxShadow = (theme: DefaultTheme) => {
-  const color = getColor('primaryHue', 600, theme);
-  const shadow = rgba(color as string, 0.35);
-
-  return `inset ${theme.shadows.sm(shadow)}`;
-};
+import { math } from 'polished';
 
 export const StyledAnchor = styled(Anchor).attrs(props => ({
   /* eslint-disable-next-line prefer-named-capture-group */
@@ -23,7 +16,8 @@ export const StyledAnchor = styled(Anchor).attrs(props => ({
 }))`
   &.anchor.before {
     position: relative;
-    margin-left: -${p => math(`${p.theme.space.xs} * 2 + ${p.theme.iconSizes.md}`)};
+    margin-right: ${p => p.theme.space.base}px;
+    margin-left: -${p => math(`${p.theme.space.xs} * 2 + ${p.theme.iconSizes.md} + ${p.theme.space.base}`)};
     border-radius: ${p => p.theme.borderRadii.md};
     padding: 0 ${p => p.theme.iconSizes.md};
     color: transparent;
@@ -34,8 +28,7 @@ export const StyledAnchor = styled(Anchor).attrs(props => ({
       padding: 0 ${p => p.theme.space.sm};
     }
 
-    &[data-garden-focus-visible] {
-      box-shadow: ${p => boxShadow(p.theme)};
+    ${SELECTOR_FOCUS_VISIBLE} {
       color: inherit;
     }
 
