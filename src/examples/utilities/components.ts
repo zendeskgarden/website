@@ -53,13 +53,24 @@ const components = [
       '[options.shade]': {
         type: 'number',
         defaultValue: 600,
-        description: 'Selects a shade for the given hue'
+        description: 'Selects a shade for the given `hue`'
       },
       '[options.shadowWidth]': {
         type: 'string',
         defaultValue: "'md'",
         description:
           'Provides a theme object [shadowWidth](/components/theme-object#shadowwidths) key for the cumulative width of the `box-shadow`'
+      },
+      '[options.spacerHue]': {
+        type: 'Object | string',
+        defaultValue: "'background'",
+        description:
+          'Provides a theme object [palette](/components/theme-object#palette) hue or [color](/components/theme-object#colors) key, or any valid CSS color notation'
+      },
+      '[options.spacerShade]': {
+        type: 'number',
+        defaultValue: 600,
+        description: 'Selects a shade for the given `spacerHue`'
       },
       '[options.spacerWidth]': {
         type: 'string',
@@ -131,13 +142,24 @@ const components = [
       '[options.shade]': {
         type: 'number',
         defaultValue: 600,
-        description: 'Selects a shade for the given hue'
+        description: 'Selects a shade for the given `hue`'
       },
       '[options.shadowWidth]': {
         type: 'string',
         defaultValue: "'md'",
         description:
           'Provides a theme object [shadowWidth](/components/theme-object#shadowwidths) key for the cumulative width of the `box-shadow`'
+      },
+      '[options.spacerHue]': {
+        type: 'Object | string',
+        defaultValue: "'background'",
+        description:
+          'Provides a theme object [palette](/components/theme-object#palette) hue or [color](/components/theme-object#colors) key, or any valid CSS color notation'
+      },
+      '[options.spacerShade]': {
+        type: 'number',
+        defaultValue: 600,
+        description: 'Selects a shade for the given `spacerHue`'
       },
       '[options.spacerWidth]': {
         type: 'string',
@@ -148,6 +170,11 @@ const components = [
       '[options.inset]': {
         type: 'boolean',
         description: 'Determines whether the `box-shadow` is inset'
+      },
+      '[options.boxShadow]': {
+        type: 'string',
+        description:
+          'Provides an existing `box-shadow` (a drop shadow, for example) to be retained along with the focus ring'
       }
     }
   },
