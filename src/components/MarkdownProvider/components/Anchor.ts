@@ -24,7 +24,7 @@ export const StyledAnchor = styled(Anchor).attrs(props => ({
 
     /* stylelint-disable selector-max-specificity */
     ${p => mediaQuery('down', 'md', p.theme)} {
-      margin-left: -${p => math(`${p.theme.space.xxs} * 2 + ${p.theme.iconSizes.md}`)};
+      margin-left: -${p => math(`${p.theme.space.xxs} * 2 + ${p.theme.iconSizes.md} + ${p.theme.space.base}`)};
       padding: 0 ${p => p.theme.space.sm};
     }
 
