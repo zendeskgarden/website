@@ -8,11 +8,17 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
+import { SELECTOR_FOCUS_VISIBLE, getColor } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { XXL } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import MaxWidthLayout from 'layouts/MaxWidth';
+
+const StyledNewsAnchor = styled(Anchor)`
+  ${SELECTOR_FOCUS_VISIBLE} {
+    color: ${p => getColor('primaryHue', 700, p.theme)};
+  }
+`;
 
 const StyledSectionHeader = styled(XXL).attrs({ tag: 'h2', isBold: true })`
   margin-bottom: ${p => p.theme.space.md};
@@ -63,7 +69,7 @@ export const News: React.FC = () => {
                         margin-bottom: ${p => p.theme.space.lg};
                       `}
                     >
-                      <Anchor
+                      <StyledNewsAnchor
                         href={edge.node.url}
                         css={css`
                           color: ${p => p.theme.colors.foreground};
@@ -71,13 +77,16 @@ export const News: React.FC = () => {
                         `}
                       >
                         {edge.node.title}
-                      </Anchor>
+                      </StyledNewsAnchor>
                       <p
                         css={css`
                           color: ${p => getColor('grey', 700, p.theme)};
                         `}
                       >
-                        Article by <Anchor href={edge.node.author_url}>{edge.node.author}</Anchor>
+                        Article by{' '}
+                        <StyledNewsAnchor href={edge.node.author_url}>
+                          {edge.node.author}
+                        </StyledNewsAnchor>
                       </p>
                     </Col>
                   );

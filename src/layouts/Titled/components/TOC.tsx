@@ -52,10 +52,19 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
 
 const StyledAnchor = styled(Anchor)<{ isCurrent: boolean }>`
   display: block;
+  position: relative;
   margin: ${p => p.theme.space.xxs} 0;
-  margin-left: ${p => p.isCurrent && `-${p.theme.borderWidths.sm}`};
-  border-left: ${p => p.isCurrent && `${p.theme.borders.sm} ${getColor('grey', 800, p.theme)}`};
+  margin-left: ${p => p.theme.space.xxs};
+  overflow: visible;
   text-align: left;
+
+  &::before {
+    position: absolute;
+    left: -${p => math(`(${p.theme.space.xxs} + 1px)`)};
+    border-left: ${p => p.isCurrent && `${p.theme.borders.sm} ${getColor('grey', 800, p.theme)}`};
+    height: 100%;
+    content: '';
+  }
 `;
 
 export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
