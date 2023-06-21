@@ -3575,15 +3575,15 @@
     "@babel/runtime" "^7.8.4"
     "@reach/auto-id" "^0.18.0"
 
-"@zendeskgarden/css-bedrock@9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-bedrock/-/css-bedrock-9.0.0.tgz#7bc9e54b0d847e18f4e33e08a5a9961cdad360f6"
-  integrity sha512-dHwlDJ5v4ijX3yCr4Z97UGaRYFrD3AeWv+HmFcr4QQRlOE4prkIvahXxR6eD4QhxwEs91FtWpJxvCsZAJGHuRA==
+"@zendeskgarden/css-bedrock@9.1.0":
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-bedrock/-/css-bedrock-9.1.0.tgz#6383d98fd5db845d804c7d5a34351f7f4996ba4d"
+  integrity sha512-34or+YZmuXP39Y2TaQZxDwzb6TS8GJBj6TlBrZuRXbg83SfTWMhHr1C2t33XDi9Ml4/lajpWtOxINSfXyUJI3w==
   dependencies:
-    "@zendeskgarden/css-variables" "^6.4.5"
+    "@zendeskgarden/css-variables" "^6.4.6"
     modern-normalize "^1.0.0"
 
-"@zendeskgarden/css-variables@^6.4.5":
+"@zendeskgarden/css-variables@^6.4.6":
   version "6.4.5"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-6.4.5.tgz#b51a50046f42a11b8d1bfec46e100b02fd6fc1d9"
   integrity sha512-vX7vDJVQoyYFUshYXXX5QE2fL9M6K2bnxTeB2IVyEIaGRYEi20xjoY6cuO1uAQ7RaIRGCSyZFKgWW+/IrlQMKg==
