@@ -53,8 +53,11 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
 const StyledAnchor = styled(Anchor)<{ isCurrent: boolean }>`
   display: block;
   position: relative;
-  margin: ${p => p.theme.space.xxs} 0;
-  margin-left: ${p => p.theme.space.xxs};
+  margin: ${({
+    theme: {
+      space: { xxs }
+    }
+  }) => `${xxs} 0 ${xxs} ${xxs}`};
   overflow: visible;
   text-align: left;
 

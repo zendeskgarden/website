@@ -18,6 +18,10 @@ const StyledNewsAnchor = styled(Anchor)`
   ${SELECTOR_FOCUS_VISIBLE} {
     color: ${p => getColor('primaryHue', 700, p.theme)};
   }
+
+  &:active {
+    color: ${p => getColor('primaryHue', 800, p.theme)};
+  }
 `;
 
 const StyledSectionHeader = styled(XXL).attrs({ tag: 'h2', isBold: true })`
