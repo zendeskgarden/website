@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { SELECTOR_FOCUS_VISIBLE, focusStyles, mediaQuery } from '@zendeskgarden/react-theming';
+import { focusStyles, mediaQuery } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { math } from 'polished';
 
@@ -14,13 +14,6 @@ export const StyledAnchor = styled(Anchor).attrs(props => ({
   /* eslint-disable-next-line prefer-named-capture-group */
   isExternal: props.href && !/^(#|\/(?!\/))/u.test(props.href)
 }))`
-  ${({ theme }) =>
-    focusStyles({
-      theme,
-      inset: true,
-      styles: { outlineColor: 'transparent' }
-    })}
-
   &.anchor.before {
     position: relative;
     margin-left: -${p => math(`${p.theme.space.xs} * 2 + ${p.theme.iconSizes.md}`)};
@@ -28,14 +21,17 @@ export const StyledAnchor = styled(Anchor).attrs(props => ({
     padding: 0 ${p => p.theme.iconSizes.md};
     color: transparent;
 
+    ${({ theme }) =>
+      focusStyles({
+        theme,
+        inset: true,
+        styles: { outlineColor: 'transparent', color: 'inherit' }
+      })}
+
     /* stylelint-disable selector-max-specificity */
     ${p => mediaQuery('down', 'md', p.theme)} {
       margin-left: -${p => math(`${p.theme.space.xxs} * 2 + ${p.theme.iconSizes.md}`)};
       padding: 0 ${p => p.theme.space.sm};
-    }
-
-    ${SELECTOR_FOCUS_VISIBLE} {
-      color: inherit;
     }
 
     & > svg {
