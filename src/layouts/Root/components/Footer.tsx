@@ -22,6 +22,10 @@ const StyledFooterItem = styled(Link)`
   }
 
   ${SELECTOR_FOCUS_VISIBLE} {
+    /*
+      updates the default outline-color from
+      css-bedrock for the darker footer background
+    */
     outline-color: currentcolor;
   }
 
