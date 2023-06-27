@@ -7,7 +7,7 @@
 
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import { SELECTOR_FOCUS_VISIBLE, getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { Link } from './StyledNavigationLink';
 import MaxWidthLayout from 'layouts/MaxWidth';
@@ -19,6 +19,14 @@ const StyledFooterItem = styled(Link)`
   &:hover,
   &:focus {
     color: inherit;
+  }
+
+  ${SELECTOR_FOCUS_VISIBLE} {
+    /*
+      updates the default outline-color from
+      css-bedrock for the darker footer background
+    */
+    outline-color: currentcolor;
   }
 
   ${p => mediaQuery('down', 'sm', p.theme)} {
