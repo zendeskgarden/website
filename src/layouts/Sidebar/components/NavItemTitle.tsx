@@ -38,7 +38,7 @@ export const NavItemTitle = ({ children }: INavItemTitleProps) => {
         }
 
         return (
-          <Tag key={index} hue={hue}>
+          <Tag key={index} hue={hue} size="small">
             {tag}
           </Tag>
         );
