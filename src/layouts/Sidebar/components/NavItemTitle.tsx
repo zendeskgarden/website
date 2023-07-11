@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Tag } from '@zendeskgarden/react-tags';
 import React from 'react';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { Tag } from '@zendeskgarden/react-tags';
 
 interface INavItemTitleProps {
   children: string;
@@ -14,7 +15,7 @@ interface INavItemTitleProps {
 
 export const NavItemTitle = ({ children }: INavItemTitleProps) => {
   const tags: string[] = [];
-  const regex = /\s*?\[(?<tag>.*?)\]/gmu;
+  const regex = /\s*?\((?<tag>.*?)\)/gmu;
   const title = children.replace(regex, (_, tag) => {
     tags.push(tag);
 
@@ -29,7 +30,7 @@ export const NavItemTitle = ({ children }: INavItemTitleProps) => {
 
         switch (tag) {
           case 'deprecated':
-            hue = 'yellow';
+            hue = PALETTE.yellow[200];
             break;
 
           case 'new':
@@ -39,7 +40,7 @@ export const NavItemTitle = ({ children }: INavItemTitleProps) => {
 
         return (
           <Tag key={index} hue={hue} size="small">
-            {tag}
+            {tag.charAt(0).toUpperCase() + tag.slice(1)}
           </Tag>
         );
       })}
