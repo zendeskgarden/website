@@ -15,7 +15,7 @@ interface INavItemTitleProps {
 
 export const NavItemTitle = ({ children }: INavItemTitleProps) => {
   const tags: string[] = [];
-  const regex = /\s*?\((?<tag>.*?)\)/gmu;
+  const regex = /\s*?\[(?<tag>.*?)\]/gmu;
   const title = children.replace(regex, (_, tag) => {
     tags.push(tag);
 
