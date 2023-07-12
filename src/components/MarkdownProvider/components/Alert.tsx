@@ -10,8 +10,10 @@ import styled from 'styled-components';
 import {
   Alert as GardenAlert,
   IAlertProps as IGardenAlertProps,
+  Paragraph,
   Title
 } from '@zendeskgarden/react-notifications';
+import { Markdown } from './Markdown';
 
 const StyledAlert = styled(GardenAlert)`
   margin-bottom: ${p => p.theme.space.xl};
@@ -24,6 +26,8 @@ interface IAlertProps extends IGardenAlertProps {
 export const Alert = ({ children, title, ...props }: IAlertProps) => (
   <StyledAlert {...props}>
     {title && <Title>{title}</Title>}
-    {children}
+    <Paragraph>
+      <Markdown>{children}</Markdown>
+    </Paragraph>
   </StyledAlert>
 );
