@@ -37,7 +37,7 @@
         - id: /components/button
           title: Button
         - id: /components/button-group
-          title: Button group
+          title: Button group [deprecated]
         - id: /components/icon-button
           title: Icon button
         - id: /components/split-button

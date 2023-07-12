@@ -12,6 +12,7 @@ import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { ISidebarSection } from '..';
 import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
+import { NavItemTitle } from './NavItemTitle';
 
 const StyledSidebarLink = styled(StyledNavigationLink)`
   display: block;
@@ -58,7 +59,7 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
                   to={item.id ? item.id : item.items![0].id!}
                   activeClassName={item.id ? undefined : 'active-heading'}
                 >
-                  {item.title}
+                  <NavItemTitle>{item.title}</NavItemTitle>
                 </StyledSidebarLink>
                 {isExpanded && (
                   <ul
@@ -74,7 +75,7 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
                         `}
                       >
                         <StyledSidebarLink to={nestedItem.id!}>
-                          {nestedItem.title}
+                          <NavItemTitle>{nestedItem.title}</NavItemTitle>
                         </StyledSidebarLink>
                       </li>
                     ))}

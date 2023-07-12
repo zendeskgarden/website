@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { ISidebarSection } from '../../../layouts/Sidebar';
 import { LG, UnorderedList } from '@zendeskgarden/react-typography';
 import { Link } from '../../../layouts/Root/components/StyledNavigationLink';
+import { NavItemTitle } from '../../../layouts/Sidebar/components/NavItemTitle';
 
 const StyledUnorderedList = styled(UnorderedList)`
   margin: 0 0 ${p => p.theme.space.sm} 0;
@@ -38,7 +39,9 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
                       <UnorderedList>
                         {group.items.map(child => (
                           <UnorderedList.Item key={child.id}>
-                            <Link to={`${child.id}`}>{child.title}</Link>
+                            <Link to={`${child.id}`}>
+                              <NavItemTitle>{child.title}</NavItemTitle>
+                            </Link>
                           </UnorderedList.Item>
                         ))}
                       </UnorderedList>
@@ -48,7 +51,9 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
 
                 return (
                   <StyledListItem key={group.title}>
-                    <Link to={`${group.id}`}>{group.title}</Link>
+                    <Link to={`${group.id}`}>
+                      <NavItemTitle>{group.title}</NavItemTitle>
+                    </Link>
                   </StyledListItem>
                 );
               })}
