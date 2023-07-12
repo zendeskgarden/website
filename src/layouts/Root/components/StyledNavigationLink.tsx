@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import { focusStyles, getColor } from '@zendeskgarden/react-theming';
 
 interface ILink {
-  children: string;
+  children: ReactNode;
   to: string;
   activeClassName?: string;
 }

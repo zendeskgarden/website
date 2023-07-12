@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
+import { Alert } from './components/Alert';
 import { Code } from '@zendeskgarden/react-typography';
 import { CodeExample } from './components/CodeExample';
 import { StyledCodeBlock as CodeBlock } from './components/CodeBlock';
@@ -33,6 +34,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
       /**
        * Helper components
        */
+      Alert,
       CodeExample,
       ColorPalette,
       Component,
