@@ -133,7 +133,7 @@
     "slugs": "0.1.3",
     "smartquotes": "2.3.2",
     "styled-components": "5.3.11",
-    "stylelint": "14.16.1",
+    "stylelint": "15.10.1",
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-order": "5.0.0",
     "stylelint-processor-styled-components": "1.10.0",
