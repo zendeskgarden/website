@@ -75,7 +75,7 @@
         - id: /components/checkbox
           title: Checkbox
         - id: /components/combobox
-          title: Combobox
+          title: Combobox [new]
         - id: /components/file-upload
           title: File upload
         - id: /components/input

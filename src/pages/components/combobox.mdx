@@ -1,6 +1,6 @@
 ---
 title: Combobox
-description: Combobox is an input plus a listbox that appears beneath it. It searches and filters down options for the user.
+description: Combobox is an input plus a listbox that appears beneath it. It searches and filters down options, allowing the user to select.
 package: '@zendeskgarden/react-dropdowns.next'
 components:
   - 'dropdowns.next/src/elements/combobox/Combobox.tsx'
@@ -10,11 +10,83 @@ components:
   - 'dropdowns.next/src/elements/combobox/Message.tsx'
   - 'dropdowns.next/src/elements/combobox/OptGroup.tsx'
   - 'dropdowns.next/src/elements/combobox/Option.tsx'
+  - 'dropdowns.next/src/elements/combobox/Tag.tsx'
 subcomponents:
   - 'dropdowns.next/src/elements/combobox/OptionMeta.tsx'
-  - 'dropdowns.next/src/elements/combobox/Tag.tsx'
   - 'dropdowns.next/src/elements/combobox/TagAvatar.tsx'
 ---
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To filter down a large list of options</li>
+      <li>To make a selection from a list of options</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To pick an option from a list on mobile devices, use [Select](/components/select) instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+By default, the Combobox presents a list of suggested options upon value entry.
+
+import Default from '../../examples/combobox/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/combobox/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Select only
+
+Add the `isEditable={false}` prop to make Combobox behave like a native `<select>`.
+
+import SelectOnly from '../../examples/combobox/SelectOnly.tsx';
+import SelectOnlyCode from '!!raw-loader!../../examples/combobox/SelectOnly.tsx';
+
+<CodeExample code={SelectOnlyCode}>
+  <SelectOnly />
+</CodeExample>
+
+## How to use it well
+
+### Narrow down options
+
+<BestPractice>
+  <Do
+    imageSource={props.data.dropdownSelectionDo.childFile.childImageSharp.gatsbyImageData}
+    imageIsSquare
+  >
+    <p>
+      Combobox is useful for lists that are too long to read in full (for example, company
+      employees) or that accumulate items over time (for example, an inventory).
+    </p>
+  </Do>
+</BestPractice>
+
+### Apply icons consistently
+
+<BestPractice>
+  <Do
+    imageIsFreeForm
+    imageSource={props.data.comboboxIconPlacementDo.childFile.childImageSharp.gatsbyImageData}
+  >
+    <p>
+      Always place the magnifying glass icon at the start of the input when using the Combobox for
+      search.
+    </p>
+  </Do>
+</BestPractice>
 
 ## Configuration
 
@@ -85,6 +157,14 @@ Nest an Option within a [Combobox](#combobox) or [OptGroup](#optgroup) component
 
 <PropSheet components={props.data.mdx.components} componentName="option" />
 
+#### Option.Meta
+
+<Component components={props.data.mdx.subcomponents} componentName="option.meta" />
+
+Nest Meta within an [Option](#option) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="option.meta" />
+
 ### OptGroup
 
 <Component components={props.data.mdx.components} componentName="optgroup" />
@@ -95,18 +175,45 @@ Nest an OptGroup within a [Combobox](#combobox) component.
 
 ### Tag
 
-<Component components={props.data.mdx.subcomponents} componentName="tag" />
+<Component components={props.data.mdx.components} componentName="tag" />
 
 The Tag is not intended to be used directly. It is used internally by the
 Combobox component to render selected options. Reference the props below for
 overriding [Option](#option) `tagProps`.
 
-<PropSheet components={props.data.mdx.subcomponents} componentName="tag" />
+<PropSheet components={props.data.mdx.components} componentName="tag" />
+
+#### Tag.Avatar
+
+<Component components={props.data.mdx.subcomponents} componentName="tag.avatar" />
+
+Use Avatar to render `children` of [Option](#option) `tagProps` with an
+associated image.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tag.avatar" />
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
   query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
+    dropdownSelectionDo: figmaAsset(
+      name: { eq: "components-dropdowns-autocomplete-selection-do" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
+    comboboxIconPlacementDo: figmaAsset(
+      name: { eq: "components-dropdowns-combobox-icon-placement-do" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 200)
+        }
+      }
+    }
   }
 `;
