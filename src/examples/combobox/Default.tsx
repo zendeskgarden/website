@@ -9,35 +9,27 @@ import React from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
 import { Combobox, Field, Label, Option } from '@zendeskgarden/react-dropdowns.next';
 
-const options = [
-  'Asparagus',
-  'Brussel sprouts',
-  'Cauliflower',
-  'Garlic',
-  'Jerusalem artichoke',
-  'Kale',
-  'Lettuce',
-  'Onion',
-  'Mushroom',
-  'Potato',
-  'Radish',
-  'Spinach',
-  'Tomato',
-  'Yam',
-  'Zucchini'
-];
-
 const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
       <Field>
         <Label>Choose a vegetable</Label>
         <Combobox>
-          {options.map(option => (
-            <Option key={option} value={option}>
-              {option}
-            </Option>
-          ))}
+          <Option value="Asparagus" />
+          <Option value="Brussel sprouts" />
+          <Option value="Cauliflower" />
+          <Option value="Garlic" />
+          <Option value="Jerusalem artichoke" />
+          <Option value="Kale" />
+          <Option value="Lettuce" />
+          <Option value="Onion" />
+          <Option value="Mushroom" />
+          <Option value="Potato" />
+          <Option value="Radish" />
+          <Option value="Spinach" />
+          <Option value="Tomato" />
+          <Option value="Yam" />
+          <Option value="Zucchini" />
         </Combobox>
       </Field>
     </Col>

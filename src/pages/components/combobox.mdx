@@ -47,15 +47,83 @@ import DefaultCode from '!!raw-loader!../../examples/combobox/Default.tsx';
   <Default />
 </CodeExample>
 
+### Autocomplete
+
+In conjunction with user-provided filtering, the `isAutocomplete` prop
+highlights an option for selection.
+
+import Autocomplete from '../../examples/combobox/Autocomplete.tsx';
+import AutocompleteCode from '!!raw-loader!../../examples/combobox/Autocomplete.tsx';
+
+<CodeExample code={AutocompleteCode}>
+  <Autocomplete />
+</CodeExample>
+
+### Disabled
+
+A disabled Combobox prevents user interaction. It doesn't appear in the tab
+order, can't receive focus, and may not be read aloud by a screenreader.
+
+import Disabled from '../../examples/combobox/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/combobox/Disabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+### Hidden label
+
+Combobox labels can be hidden.
+
+import Hidden from '../../examples/combobox/Hidden.tsx';
+import HiddenCode from '!!raw-loader!../../examples/combobox/Hidden.tsx';
+
+<CodeExample code={HiddenCode}>
+  <Hidden />
+</CodeExample>
+
+### Hint text
+
+Hint text gives further clarification.
+
+import Hint from '../../examples/combobox/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/combobox/Hint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
+</CodeExample>
+
 ### Select only
 
-Add the `isEditable={false}` prop to make Combobox behave like a native `<select>`.
+Add `isEditable={false}` to make Combobox behave like a native `<select>`.
 
 import SelectOnly from '../../examples/combobox/SelectOnly.tsx';
 import SelectOnlyCode from '!!raw-loader!../../examples/combobox/SelectOnly.tsx';
 
 <CodeExample code={SelectOnlyCode}>
   <SelectOnly />
+</CodeExample>
+
+### Size
+
+Combobox can be default or compact in size.
+
+import Size from '../../examples/combobox/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/combobox/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+### Validation
+
+Show success, warning, and error validation messages with the Message component.
+
+import Validation from '../../examples/combobox/Validation.tsx';
+import ValidationCode from '!!raw-loader!../../examples/combobox/Validation.tsx';
+
+<CodeExample code={ValidationCode}>
+  <Validation />
 </CodeExample>
 
 ## How to use it well

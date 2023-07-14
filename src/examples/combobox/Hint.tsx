@@ -7,17 +7,18 @@
 
 import React from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Label, Option } from '@zendeskgarden/react-dropdowns.next';
+import { Combobox, Field, Hint, Label, Option } from '@zendeskgarden/react-dropdowns.next';
 
 const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
       <Field>
-        <Label>Houseplant</Label>
-        <Combobox isEditable={false}>
-          <Option value="Fern" isSelected />
-          <Option value="Rubber tree" />
-          <Option value="Snake plant" />
+        <Label>Plant</Label>
+        <Hint>Choose your favorite plant</Hint>
+        <Combobox>
+          <Option value="Cactus" />
+          <Option value="Orchid" />
+          <Option value="Succulent" isSelected />
         </Combobox>
       </Field>
     </Col>

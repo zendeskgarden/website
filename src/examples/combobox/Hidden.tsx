@@ -13,9 +13,9 @@ const Example = () => (
   <Row justifyContent="center">
     <Col sm={5}>
       <Field>
-        <Label>Houseplant</Label>
-        <Combobox isEditable={false}>
-          <Option value="Fern" isSelected />
+        <Label hidden>Accessibly hidden label</Label>
+        <Combobox>
+          <Option value="Fern" />
           <Option value="Rubber tree" />
           <Option value="Snake plant" />
         </Combobox>
