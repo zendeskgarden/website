@@ -16,19 +16,14 @@ const Example = () => (
         <Label>Choose a vegetable</Label>
         <Combobox>
           <Option value="Asparagus" />
-          <Option value="Brussel sprouts" />
+          <Option value="Broccoli" />
           <Option value="Cauliflower" />
-          <Option value="Garlic" />
-          <Option value="Jerusalem artichoke" />
           <Option value="Kale" />
           <Option value="Lettuce" />
           <Option value="Onion" />
-          <Option value="Mushroom" />
-          <Option value="Potato" />
           <Option value="Radish" />
           <Option value="Spinach" />
           <Option value="Tomato" />
-          <Option value="Yam" />
           <Option value="Zucchini" />
         </Combobox>
       </Field>

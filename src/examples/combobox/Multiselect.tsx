@@ -11,6 +11,7 @@ import { Col, Row } from '@zendeskgarden/react-grid';
 import {
   Combobox,
   Field,
+  Hint,
   IComboboxProps,
   Label,
   Option
@@ -60,8 +61,14 @@ const Example = () => {
     <Row justifyContent="center">
       <Col sm={5}>
         <Field>
-          <Label>Vegetables</Label>
-          <Combobox isAutocomplete onChange={debounceHandleChange}>
+          <Label>Seeds</Label>
+          <Hint>Plan your vegetable garden</Hint>
+          <Combobox
+            isAutocomplete
+            isMultiselectable
+            maxHeight="auto"
+            onChange={debounceHandleChange}
+          >
             {options.length === 0 ? (
               <Option isDisabled label="" value="No matches found" />
             ) : (

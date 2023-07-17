@@ -15,6 +15,7 @@ import {
   Label,
   Option
 } from '@zendeskgarden/react-dropdowns.next';
+import { ReactComponent as SearchIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 
 const OPTIONS = [
   'Asparagus',
@@ -60,8 +61,8 @@ const Example = () => {
     <Row justifyContent="center">
       <Col sm={5}>
         <Field>
-          <Label>Vegetables</Label>
-          <Combobox isAutocomplete onChange={debounceHandleChange}>
+          <Label>Find a vegetable</Label>
+          <Combobox onChange={debounceHandleChange} placeholder="Search" startIcon={<SearchIcon />}>
             {options.length === 0 ? (
               <Option isDisabled label="" value="No matches found" />
             ) : (
