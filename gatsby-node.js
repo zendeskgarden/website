@@ -9,6 +9,15 @@ const path = require('path');
 const smartquotes = require('smartquotes');
 const { createFilePath } = require('gatsby-source-filesystem');
 
+exports.createPages = ({ actions }) => {
+  const { createRedirect } = actions;
+
+  createRedirect({
+    fromPath: `/components/select-native`,
+    toPath: `/components/select`
+  });
+};
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
