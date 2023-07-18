@@ -25,7 +25,7 @@ const Example = () => (
         <Combobox validation="success">
           <Option value="Cactus" isDisabled isSelected />
         </Combobox>
-        <Message validation="success">Cactus was successfully submitted</Message>
+        <Message validation="success">Cactus is available</Message>
       </Field>
     </Col>
     <StyledCol>
@@ -34,7 +34,7 @@ const Example = () => (
         <Combobox validation="warning">
           <Option value="Cactus" isDisabled isSelected />
         </Combobox>
-        <Message validation="warning">A cactus is a very dry plant</Message>
+        <Message validation="warning">Only 2 left in inventory</Message>
       </Field>
     </StyledCol>
     <StyledCol>
