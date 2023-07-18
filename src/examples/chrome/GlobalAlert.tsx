@@ -5,7 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
+import useResizeObserver from 'use-resize-observer';
 import { ReactComponent as ProductIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as HomeIcon } from '@zendeskgarden/svg-icons/src/26/home-fill.svg';
 import { ReactComponent as EmailIcon } from '@zendeskgarden/svg-icons/src/26/email-fill.svg';
@@ -29,26 +30,17 @@ import {
 import { GlobalAlert } from '@zendeskgarden/react-notifications';
 import { Button } from '@zendeskgarden/react-buttons';
 
+const HEIGHT = 400; // Chrome's 100vh height adjusted for demo
+
 const Example = () => {
-  const HEIGHT = 400;
-  const [height, setHeight] = useState(HEIGHT); // 100vh height adjusted for demo
+  const { height = 0, ref } = useResizeObserver({ box: 'border-box' });
   const [showGlobalAlert, setShowGlobalAlert] = useState(true);
   const [nav, setNav] = useState('nav-1');
-  const globalAlertRef = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    // Compensate for the addition of a Global alert
-    setHeight(
-      showGlobalAlert && globalAlertRef.current
-        ? HEIGHT - globalAlertRef.current.offsetHeight
-        : HEIGHT
-    );
-  }, [showGlobalAlert]);
 
   return (
-    <>
+    <div style={{ minWidth: 600 }}>
       {showGlobalAlert && (
-        <GlobalAlert type="info" ref={globalAlertRef}>
+        <GlobalAlert type="info" ref={ref}>
           <GlobalAlert.Content>
             <GlobalAlert.Title>Info</GlobalAlert.Title>
             Gumbo beet greens corn soko endive gumbo gourd.
@@ -59,7 +51,7 @@ const Example = () => {
           />
         </GlobalAlert>
       )}
-      <Chrome isFluid style={{ height, minWidth: 600 }}>
+      <Chrome isFluid style={{ height: showGlobalAlert ? HEIGHT - height : HEIGHT }}>
         <SkipNav targetId="example-global-alert-main-content">Skip to main content</SkipNav>
         <Nav aria-label="chrome example nav">
           <NavItem hasLogo>
@@ -110,7 +102,7 @@ const Example = () => {
           </Footer>
         </Body>
       </Chrome>
-    </>
+    </div>
   );
 };
 
