@@ -61,21 +61,21 @@
     - title: Dropdowns
       items:
         - id: /components/autocomplete
-          title: Autocomplete
-        - id: /components/combobox
-          title: Combobox
+          title: Autocomplete [deprecated]
+        - id: /components/legacy-combobox
+          title: Combobox [deprecated]
         - id: /components/menu
           title: Menu
         - id: /components/multiselect
-          title: Multiselect
-        - id: /components/select
-          title: Select
-        - id: /components/select-native
-          title: Select (native)
+          title: Multiselect [deprecated]
+        - id: /components/legacy-select
+          title: Select [deprecated]
     - title: Forms
       items:
         - id: /components/checkbox
           title: Checkbox
+        - id: /components/combobox
+          title: Combobox [new]
         - id: /components/file-upload
           title: File upload
         - id: /components/input
@@ -88,6 +88,8 @@
           title: Radio
         - id: /components/range
           title: Range
+        - id: /components/select
+          title: Select
         - id: /components/textarea
           title: Textarea
         - id: /components/toggle

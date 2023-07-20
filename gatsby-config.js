@@ -232,7 +232,7 @@ module.exports = {
       options: {
         name: `react-components`,
         path: path.join(__dirname, 'react-components/packages'),
-        ignore: ['**/*.!(ts|tsx)']
+        ignore: ['**/*.!(next|ts|tsx)']
       }
     },
     {

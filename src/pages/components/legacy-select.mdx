@@ -1,0 +1,201 @@
+---
+title: Select
+description: >
+  Select allows a user to pick one option from a list.
+  This helps simplify the UI when space is limited.
+package: '@zendeskgarden/react-dropdowns'
+components:
+  - dropdowns/src/elements/Dropdown/Dropdown.tsx
+  - dropdowns/src/elements/Fields/Field.tsx
+  - dropdowns/src/elements/Fields/Hint.tsx
+  - dropdowns/src/elements/Fields/Label.tsx
+  - dropdowns/src/elements/Fields/Message.tsx
+  - dropdowns/src/elements/Select/Select.tsx
+---
+
+<Alert title="Deprecated" type="warning">
+  Select does not meet Web Content Accessibility Guidelines (WCAG) requirements. Use
+  [Combobox](/components/combobox#select-only) instead.
+</Alert>
+
+<Usage>
+  <Use>
+    <ul>
+      <li>To make a selection from a list of options</li>
+    </ul>
+  </Use>
+  <Misuse>
+    <ul>
+      <li>
+        <Markdown>
+          To filter a large list of options, use [Autocomplete](/components/autocomplete) instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To make multiple selections from a list, use [Multiselect](/components/multiselect)
+          instead
+        </Markdown>
+      </li>
+      <li>
+        <Markdown>
+          To select from a list on mobile, use a native [Select](/components/select-native) instead
+        </Markdown>
+      </li>
+    </ul>
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+Select works with the [Menu](/components/menu) component to display available options.
+
+import SelectDefault from '../../examples/dropdowns/select/Default.tsx';
+import SelectDefaultCode from '!!raw-loader!../../examples/dropdowns/select/Default.tsx';
+
+<CodeExample code={SelectDefaultCode}>
+  <SelectDefault />
+</CodeExample>
+
+### Disabled
+
+A disabled Select prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may
+not be read aloud by a screenreader.
+
+import SelectDisabled from '../../examples/dropdowns/select/Disabled.tsx';
+import SelectDisabledCode from '!!raw-loader!../../examples/dropdowns/select/Disabled.tsx';
+
+<CodeExample code={SelectDisabledCode}>
+  <SelectDisabled />
+</CodeExample>
+
+### Hidden label
+
+Select labels can be hidden.
+
+import Hidden from '../../examples/dropdowns/select/Hidden.tsx';
+import HiddenCode from '!!raw-loader!../../examples/dropdowns/select/Hidden.tsx';
+
+<CodeExample code={HiddenCode}>
+  <Hidden />
+</CodeExample>
+
+### Hint text
+
+Hint text gives further clarification.
+
+import SelectHint from '../../examples/dropdowns/select/Hint.tsx';
+import SelectHintCode from '!!raw-loader!../../examples/dropdowns/select/Hint.tsx';
+
+<CodeExample code={SelectHintCode}>
+  <SelectHint />
+</CodeExample>
+
+### Size
+
+Select can be default or compact in size.
+
+import SelectSize from '../../examples/dropdowns/select/Size.tsx';
+import SelectSizeCode from '!!raw-loader!../../examples/dropdowns/select/Size.tsx';
+
+<CodeExample code={SelectSizeCode}>
+  <SelectSize />
+</CodeExample>
+
+### Validation
+
+Show success, warning, and danger validation messages with the Message component.
+
+import SelectValidation from '../../examples/dropdowns/select/Validation.tsx';
+import SelectValidationCode from '!!raw-loader!../../examples/dropdowns/select/Validation.tsx';
+
+<CodeExample code={SelectValidationCode}>
+  <SelectValidation />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+The Select component follows this structure:
+
+```jsx
+<Dropdown>
+  <Field>
+    <Label />
+    <Hint />
+    <Select />
+    <Message />
+  </Field>
+  <Menu>
+    <Item />
+    <Item />
+    {/* etc. */}
+  </Menu>
+</Dropdown>
+```
+
+### Dropdown
+
+<Component components={props.data.mdx.components} componentName="dropdown" />
+
+import Dropdowns from '../../fragments/dropdowns.mdx';
+
+<Dropdowns />
+
+<PropSheet components={props.data.mdx.components} componentName="dropdown" />
+
+### Field
+
+<Component components={props.data.mdx.components} componentName="field" />
+
+A Field provides accessibility attributes to the child [Select](#select) field by associating it
+with the corresponding [Label](#label) and [Hint](#hint).
+
+<PropSheet components={props.data.mdx.components} componentName="field" />
+
+### Hint
+
+<Component components={props.data.mdx.components} componentName="hint" />
+
+Nest a Hint within a [Field](#field) component.
+
+<PropSheet components={props.data.mdx.components} componentName="hint" />
+
+### Label
+
+<Component components={props.data.mdx.components} componentName="label" />
+
+Nest a Label within a [Field](#field) component.
+
+<PropSheet components={props.data.mdx.components} componentName="label" />
+
+### Message
+
+<Component components={props.data.mdx.components} componentName="message" />
+
+The Message component applies appropriate icon and styles based on the validation provided. Nest
+it within a [Field](#field) component.
+
+<PropSheet components={props.data.mdx.components} componentName="message" />
+
+### Select
+
+<Component components={props.data.mdx.components} componentName="select" />
+
+The Select component applies state and accessibility attributes to its children. Nest it within a
+[Field](#field) component.
+
+<PropSheet components={props.data.mdx.components} componentName="select" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+  }
+`;
