@@ -97,10 +97,7 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
       aria-label="Primary"
       css={css`
         position: fixed;
-        top: ${p => p.theme.space.base * 20}px;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        inset: ${p => p.theme.space.base * 20}px 0 0 0;
         background-color: ${p => p.theme.palette.tofu};
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.xxl};
         overflow: scroll;

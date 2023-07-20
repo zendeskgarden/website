@@ -7,6 +7,7 @@
   ],
   "rules": {
     "sort-imports": "off",
+    "jsx-a11y/prefer-tag-over-role": "off",
     "react/display-name": "off",
     "react/no-array-index-key": "off",
     "react/no-unknown-property": ["error", { "ignore": ["css"] }],
