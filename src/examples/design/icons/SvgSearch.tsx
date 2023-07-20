@@ -45,7 +45,9 @@ const StyledCol = styled(Col).attrs({ forwardedAs: 'li' })`
   margin-bottom: ${p => p.theme.space.lg};
 `;
 
-const StyledRow = styled(Row).attrs({ forwardedAs: 'ul' })``;
+const StyledRow = styled(Row).attrs({ forwardedAs: 'ul' })`
+  /* stylelint-disable-next-line no-empty-source */
+`;
 
 const StyledTokenContainer = styled(StyledRow)<{ isExpand: boolean }>`
   position: relative;

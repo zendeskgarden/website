@@ -48,20 +48,24 @@ const ScrollableHeaderRow = styled(HeaderRow).attrs({ role: 'row' })`
   table-layout: fixed;
 `;
 
-const ScrollableHeaderCell = styled(HeaderCell).attrs({ role: 'columnheader' })``;
+const ScrollableHeaderCell = styled(HeaderCell).attrs({ role: 'columnheader' })`
+  /* stylelint-disable-next-line no-empty-source */
+`;
 
 const ScrollableBody = styled(Body)`
-  /* stylelint-disable-next-line */
+  /* stylelint-disable-next-line declaration-no-important */
   display: block !important;
 `;
 
 const ScrollableRow = styled(Row).attrs({ role: 'row' })`
-  /* stylelint-disable-next-line */
+  /* stylelint-disable-next-line declaration-no-important */
   display: table !important;
   table-layout: fixed;
 `;
 
-const ScrollableCell = styled(Cell).attrs({ role: 'cell' })``;
+const ScrollableCell = styled(Cell).attrs({ role: 'cell' })`
+  /* stylelint-disable-next-line no-empty-source */
+`;
 
 const Example = () => (
   <div role="grid" aria-rowcount={rowData.length} aria-colcount={4}>

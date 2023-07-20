@@ -44,9 +44,10 @@ export const StyledH1 = styled.h1`
  */
 
 export const StyledH2 = styled(XXXL).attrs({ tag: 'h2' })`
+  /* stylelint-disable */
+
   ${headerStyles}
 
-  /* stylelint-disable-next-line declaration-no-important */
   position: static !important; /* [1] */
   margin-top: ${p => p.theme.space.md};
   margin-bottom: ${p => p.theme.space.md};
@@ -55,7 +56,6 @@ export const StyledH2 = styled(XXXL).attrs({ tag: 'h2' })`
 export const StyledH3 = styled(XXL).attrs({ tag: 'h3' })`
   ${headerStyles}
 
-  /* stylelint-disable-next-line declaration-no-important */
   position: static !important; /* [1] */
 `;
 
