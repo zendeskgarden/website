@@ -29,6 +29,7 @@ const StyledMobileNavButton = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 1;
+  /* stylelint-disable-next-line color-function-notation */
   border: ${p => p.theme.borders.sm} ${p => rgba(p.theme.palette.white as string, 0.2)};
   border-radius: 100px;
   background-color: ${p => getColor('kale', 800, p.theme)};

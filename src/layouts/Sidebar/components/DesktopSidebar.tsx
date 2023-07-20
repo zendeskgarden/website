@@ -97,7 +97,7 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.md} ${p => p.theme.space.lg} 0;
         min-width: 220px;
 
-        @media (max-width: 1440px) {
+        @media (width <= 1440px) {
           padding: ${p => p.theme.space.lg} ${p => p.theme.space.md};
         }
 
@@ -109,10 +109,7 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
       <div
         css={css`
           position: absolute;
-          top: 0;
-          right: 50%;
-          bottom: 0;
-          left: 0;
+          inset: 0 50% 0 0;
           z-index: -1;
           background-color: ${p => p.theme.palette.tofu};
 
