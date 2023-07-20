@@ -17,7 +17,7 @@ import { DesktopSidebar } from './components/DesktopSidebar';
 
 export interface ISidebarSection {
   title: string;
-  id?: string;
+  id: string;
   items?: ISidebarSection[];
 }
 

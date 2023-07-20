@@ -39,7 +39,7 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
                       <UnorderedList>
                         {group.items.map(child => (
                           <UnorderedList.Item key={child.id}>
-                            <Link to={`${child.id}`}>
+                            <Link to={child.id}>
                               <NavItemTitle>{child.title}</NavItemTitle>
                             </Link>
                           </UnorderedList.Item>
@@ -51,7 +51,7 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
 
                 return (
                   <StyledListItem key={group.title}>
-                    <Link to={`${group.id}`}>
+                    <Link to={group.id}>
                       <NavItemTitle>{group.title}</NavItemTitle>
                     </Link>
                   </StyledListItem>
