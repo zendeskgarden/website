@@ -341,9 +341,6 @@ module.exports = {
               active: false
             },
             {
-              name: 'cleanupIDs'
-            },
-            {
               name: 'addAttributesToSVGElement',
               params: {
                 attributes: [{ focusable: false }, { role: 'presentation' }]
