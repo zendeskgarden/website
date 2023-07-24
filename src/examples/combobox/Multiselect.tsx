@@ -6,7 +6,7 @@
  */
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { debounce } from 'lodash';
+import debounce from 'lodash.debounce';
 import { Col, Row } from '@zendeskgarden/react-grid';
 import {
   Combobox,
