@@ -3,3 +3,28 @@ title: Filters
 description: >
   Filters are used to reduce the amount of visible data in a dataset.
 ---
+---
+title: Filters
+description: >
+  Filters are used to reduce the amount of visible data in a dataset.
+---
+
+## Overview
+Filtering allows users to set specific parameters to reduce the amount of visible data in a dataset. There are two types of filters: basic filters and advanced filters. Basic filters allow users to make a few selections from predetermined parameters. Advanced filters allow users to set multiple filters; sometimes these filters are also configurable.
+
+## General structure
+Both basic and advanced filter patterns are made using the same basic building blocks: an entry point, a container, and selection methods.
+
+![Filter pattern anatomy](figma:filter-anatomy.png)
+
+1. Entry point
+2. Container
+3. Selection methods
+
+## Formatting
+### Entry point
+![Filter pattern entry points](figma:filter-formatting-entry-points.png)
+The Filter entry point is the [Button](/components/button) the user clicks to enter the Filter pattern.
+* A [Default Button](/components/button) should be used to open an Advanced Filter.
+* A [Media Button](/components/button) should be used to open a Basic Filter. 
+* An [Icon Button](/components/button) should be used when the Filter pattern lives within a toolbar on the page, or to conserve UI space.
