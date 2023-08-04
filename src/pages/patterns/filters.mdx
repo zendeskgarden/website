@@ -94,3 +94,290 @@ Selecting another menu option replaces the current Filter with the new selection
 Multiple selection basic filters use multiple selections within a category to filter data.
 The Menu remains open as the user makes their selections.
 The selections are surfaced as Tags with a Basic Button to clear all filters.
+
+![Filter pattern basic multiple select 1](figma:filter-usage-basic-multipleselect-1.png)
+![Filter pattern basic multiple select 2](figma:filter-usage-basic-multipleselect-2.png)
+
+#### Nested menu
+
+A [Nested menu](/components/menu) can be used to organize subcategories of data that can be used to filter a dataset.
+
+![Filter pattern basic nested menu 1](figma:filter-usage-basic-nestedmenu-1.png)
+![Filter pattern basic nested menu 2](figma:filter-usage-basic-nestedmenu-2.png)
+![Filter pattern basic nested menu 3](figma:filter-usage-basic-nestedmenu-3.png)
+
+### Advanced filtering
+
+Advanced Filters allow users to set and configure multiple filters on a dataset.
+
+#### Tooltip modal
+
+A Tooltip modal allows users to filter a dataset through one category with many options,
+and allows the user to search for specific options.
+They can also be part of a more complex flow.
+
+![Filter pattern advanced tooltip modal](figma:filter-usage-advanced-tooltip-modal.png)
+
+#### Sheet
+
+A Sheet is used when the dataset is filtered live as the user makes their selections.
+Selections are surfaced as a Tag as the user sets each filter.
+
+![Filter pattern advanced sheet 1](figma:filter-usage-advanced-sheet-1.png)
+![Filter pattern advanced sheet 2](figma:filter-usage-advanced-sheet-2.png)
+![Filter pattern advanced sheet 3](figma:filter-usage-advanced-sheet-3.png)
+![Filter pattern advanced sheet 4](figma:filter-usage-advanced-sheet-4.png)
+![Filter pattern advanced sheet 5](figma:filter-usage-advanced-sheet-5.png)
+![Filter pattern advanced sheet 6](figma:filter-usage-advanced-sheet-6.png)
+
+#### Drawer
+
+A Drawer is used to batch apply multiple filters at once. Selections are surfaced as a Tag
+after the user applies their filters and closes the Drawer.
+
+![Filter pattern advanced drawer 1](figma:filter-usage-advanced-drawer-1.png)
+![Filter pattern advanced drawer 2](figma:filter-usage-advanced-drawer-2.png)
+![Filter pattern advanced drawer 3](figma:filter-usage-advanced-drawer-3.png)
+
+## Behavior
+
+### Bulk actions
+
+When items are selected in a table and a filter is applied, the Filter overrides the selections and deselects them.
+
+![Filter pattern behavior bulk actions 1](figma:filter-behavior-bulk-actions-1.png)
+![Filter pattern behavior bulk actions 2](figma:filter-behavior-bulk-actions-2.png)
+
+## Localization & internationalization
+
+### RTL right-to-left
+
+![Filter pattern localization](figma:filter-localization.png)
+
+Filter entry points are mirrored for RTL languages.
+For more information about RTL considerations, see our [Buttons pattern](/patterns/buttons).
+
+## Accessibility
+
+### Tabbing order
+
+![Filter pattern accessibility tabbing order](figma:filter-accessibility-tabbing.png)
+
+1. User opens the filter container
+2. The focus moves to the first filter category and continues through all categories.
+3. If filters are applied live, focus moves to close filter. Filter can also be closed with the `esc` key.
+4. Focus moves to the first tag after container is closed.
+
+### Affordances
+
+Additional affordances should be included to ensure users are aware of the filters applied
+and the results of those filters. Screen readers should read out the results of a filter
+after the filtering actions are completed.
+
+### Additional resources
+
+[WAI-ARIA Combobox: "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/"]
+[WAI-ARIA Listbox: "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/"]
+[WAI-ARIA Menu: "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/"]
+
+---
+
+<h2>Feedback</h2>
+
+Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yiFC7)
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    rteIntro: figmaAsset(name: { eq: "patterns-rich-text-editor-intro" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteAnatomy: figmaAsset(name: { eq: "patterns-rich-text-editor-anatomy" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteExample: figmaAsset(name: { eq: "patterns-rich-text-editor-example" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteToolbarSections: figmaAsset(name: { eq: "patterns-rich-text-editor-toolbar-sections" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteToolbarSectionsCollapsedActions: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-toolbar-sections-collapsed-actions" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteToolbarSectionsKeyboardShortcuts: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-toolbar-sections-keyboard-shortcuts" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarLocationStart: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-start" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarLocationEnd: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-end" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarLocationFloating: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-floating" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarLocationFloatingOpened: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-floating-opened" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarSize: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-size" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResponsiveBehavior: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-responsive-behavior" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResponsiveBehaviorOverflow: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-responsive-behavior-overflow" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResizableTextarea: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-resizable-textarea" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResizableTextareaExpanded: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-resizable-textarea-expanded" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResizableTextareaScrollbar: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-resizable-textarea-scrollbar" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteStatesDisabled: figmaAsset(name: { eq: "patterns-rich-text-editor-states-disabled" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFlowsInsertLinkSelect: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-flows-insert-link-select" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFlowsInsertLinkSave: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-flows-insert-link-save" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFlowsEditLinkSelect: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-flows-edit-link-select" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFlowsEditLinkSave: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-flows-edit-link-save" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteAccessibilityManagingFocus: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-accessibility-managing-focus" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+  }
+`;
