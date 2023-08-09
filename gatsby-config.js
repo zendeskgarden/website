@@ -107,7 +107,7 @@ const figmaNodeIds = [
   '2308:8805' /* filter-behavior-bulk-actions-1 */,
   '2308:9144' /* filter-behavior-bulk-actions-2 */,
   '2308:9443' /* filter-localization */,
-  '2340:5949' /* filter-accessibility-tabbing */,
+  '2350:5949' /* filter-accessibility-tabbing */,
   '1515:41072' /* patterns-loaders-intro */,
   '1515:41445' /* patterns-loaders-skeleton */,
   '1528:41198' /* patterns-loaders-skeleton-do */,
