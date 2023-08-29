@@ -88,7 +88,7 @@ const figmaNodeIds = [
   '2306:98' /* filter-usage-basic-singleselect-1 */,
   '2306:1904' /* filter-usage-basic-singleselect-2 */,
   '2306:2205' /* filter-usage-basic-singleselect-3 */,
-  '2350:2508' /* filter-usage-basic-singleselect-4 */,
+  '2306:2508' /* filter-usage-basic-singleselect-4 */,
   '2306:399' /* filter-usage-basic-multipleselect-1 */,
   '2306:1001' /* filter-usage-basic-multipleselect-2 */,
   '2306:700' /* filter-usage-basic-nestedmenu-1 */,
