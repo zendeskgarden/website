@@ -32,19 +32,17 @@ const headerStyling = (p: ThemeProps<DefaultTheme>) => {
 };
 
 export const Search: React.FC = () => {
-  const { bannerImage } = useStaticQuery(
-    graphql`
-      {
-        bannerImage: figmaAsset(name: { eq: "home-hero-logo" }) {
-          childFile {
-            childImageSharp {
-              gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
-            }
+  const { bannerImage } = useStaticQuery(graphql`
+    {
+      bannerImage: figmaAsset(name: { eq: "home-hero-logo" }) {
+        childFile {
+          childImageSharp {
+            gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   return (
     <div
