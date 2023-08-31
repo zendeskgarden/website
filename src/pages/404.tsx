@@ -18,19 +18,17 @@ import { XL, LG } from '@zendeskgarden/react-typography';
 import { StyledH1 } from 'components/MarkdownProvider/components/Typography';
 
 const NotFoundPage: React.FC = () => {
-  const { notFoundImage } = useStaticQuery(
-    graphql`
-      {
-        notFoundImage: figmaAsset(name: { eq: "general-error-404" }) {
-          childFile {
-            childImageSharp {
-              gatsbyImageData(width: 270, height: 270, layout: FIXED)
-            }
+  const { notFoundImage } = useStaticQuery(graphql`
+    {
+      notFoundImage: figmaAsset(name: { eq: "general-error-404" }) {
+        childFile {
+          childImageSharp {
+            gatsbyImageData(width: 270, height: 270, layout: FIXED)
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   return (
     <RootLayout>

@@ -29,22 +29,20 @@ const StyledSectionHeader = styled(XXL).attrs({ tag: 'h2', isBold: true })`
 `;
 
 export const News: React.FC = () => {
-  const { allGardenNews } = useStaticQuery(
-    graphql`
-      query {
-        allGardenNews {
-          edges {
-            node {
-              title
-              author
-              author_url
-              url
-            }
+  const { allGardenNews } = useStaticQuery(graphql`
+    query {
+      allGardenNews {
+        edges {
+          node {
+            title
+            author
+            author_url
+            url
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   return (
     <div

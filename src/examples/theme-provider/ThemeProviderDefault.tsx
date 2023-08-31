@@ -104,7 +104,8 @@ const sizeStyles = (
     retVal = css`
       border-radius: ${borderRadius} ${borderRadius} ${math(`${borderRadius} * 2`)}
         ${math(`${borderRadius} * 2`)} / ${borderRadius} ${borderRadius} 100% 100%;
-      background-position: ${backgroundSize / 2}px ${backgroundSize / 2}px,
+      background-position:
+        ${backgroundSize / 2}px ${backgroundSize / 2}px,
         ${backgroundSize}px ${backgroundSize}px;
       background-size: ${backgroundSize}px ${backgroundSize}px;
       width: ${size}px;
