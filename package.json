@@ -114,7 +114,7 @@
     "lodash.debounce": "4.0.8",
     "markdownlint-cli": "0.35.0",
     "node-fetch": "2.7.0",
-    "ora": "5.4.1",
+    "ora": "7.0.1",
     "polished": "4.2.2",
     "postcss": "8.4.29",
     "postcss-scss": "4.0.7",

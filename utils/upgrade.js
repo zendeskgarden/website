@@ -7,11 +7,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const ora = require('ora');
 const resolve = require('path').resolve;
 
 (async () => {
   const { execa } = await import('execa');
+  const { default: ora } = await import('ora');
   const spinner = ora();
 
   try {
