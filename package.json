@@ -139,7 +139,7 @@
     "stylelint-order": "6.0.3",
     "svgo": "3.0.2",
     "typescript": "5.2.2",
-    "unist-util-visit": "2.0.3",
+    "unist-util-visit": "5.0.0",
     "use-resize-observer": "9.1.0",
     "vfile": "6.0.1"
   }
