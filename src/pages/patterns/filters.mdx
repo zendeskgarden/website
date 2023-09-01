@@ -1,0 +1,396 @@
+---
+title: Filters
+description: >
+  Filters are used to reduce the amount of visible data in a dataset.
+---
+
+## Overview
+
+Filtering allows users to set specific parameters to reduce the amount of visible data in a dataset.
+There are two types of filters: basic filters and advanced filters. Basic filters allow users to make a
+few selections from predetermined parameters. Advanced filters allow users to set multiple filters;
+sometimes these filters are also configurable.
+
+## General structure
+
+Both basic and advanced filter patterns are made using the same basic building blocks: an entry point,
+a container, and selection methods.
+
+![Filter pattern anatomy](figma:filter-anatomy.png)
+
+1. Entry point
+2. Container
+3. Selection methods
+
+## Formatting
+
+### Entry point
+
+![Filter pattern entry points](figma:filter-formatting-entry-points.png)
+The Filter entry point is the [Button](/components/button) the user clicks to enter the Filter pattern.
+
+- A [Default Button](/components/button) should be used to open an Advanced Filter.
+- A [Media Button](/components/button#media) should be used to open a Basic Filter.
+- An [Icon Button](/components/icon-button) should be used when the Filter pattern lives within a toolbar on the page,
+  or to conserve UI space.
+
+### Location and spacing
+
+![Filter pattern location and spacing](figma:filter-formatting-location.png)
+
+Filters are 20px below the page header and description.
+The Search bar and filter button have 12px of padding between them.
+Filters have 12px of padding below to allow space for Tags and 12px of space between the Tags and filter results.
+The filter results are 12px above the table.
+
+![Filter pattern icons](figma:filter-formatting-location-icons.png)
+
+To save space in a view, an Icon Button in a toolbar can be used to open a Filter.
+Include a [Tooltip](/components/tooltip) to help any users who may be unfamiliar with the icon,
+as well as a `title` attribute and `aria-label`.
+
+### Surfacing filters and results
+
+![Filter pattern surfacing tags](figma:filter-formatting-surfacing.png)
+
+Filter parameters should be surfaced as [Tags](/components/tags) above the dataset they are filtering.
+The Tag content contains the filter parameter category in Bold, followed by the user's selection in Regular weight.
+The number of results after Filtering should be visible to users where possible.
+The number of resulting data items should be displayed above the table below the filtering tags.
+For guidance on formatting loading states, see our [Tables Basic Formatting pattern](/pattern/tables).
+
+## Selection methods
+
+Different components are used depending on the type of selections a user is making to filter their dataset.
+
+| Selection method                                         | Description                                                                                                        | Container                                |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
+| Single select                                            | A user wants to use one category or subcategory to filter data                                                     | Menu                                     |
+| Multiple selections, one category or subcategory of data | A user wants to use more than one selection to filter data                                                         | Menu that allows for multiple selections |
+| Multiple selections, few categories of data              | A user wants to use multiple selections within different categories to quickly filter data                         | Nested menu                              |
+| Multiple selections, one category with many options      | A user wants to be able to search options and use multiple selections within a large set of options to filter data | Tooltip modal                            |
+| Many categories, live updates                            | A user wants to set multiple filters across a dataset with many categories and see their dataset update live       | Sheet                                    |
+| Many categories, batch updates                           | A user wants to set multiple filters across a dataset with many categories and apply them all at once              | Drawer                                   |
+
+## Usage
+
+### Basic filtering
+
+Basic Filters allow users to filter a dataset through one category with only a few options.
+
+#### Single select
+
+Single select basic filters use one selection to filter data. Upon the selection,
+the Menu closes and the filter is surfaced as a Tag.
+Selecting another menu option replaces the current Filter with the new selection.
+
+![Filter pattern basic single select 1](figma:filter-usage-basic-singleselect-1.png)
+
+![Filter pattern basic single select 2](figma:filter-usage-basic-singleselect-2.png)
+
+![Filter pattern basic single select 3](figma:filter-usage-basic-singleselect-3.png)
+
+![Filter pattern basic single select 4](figma:filter-usage-basic-singleselect-4.png)
+
+#### Multiple selections
+
+Multiple selection basic filters use multiple selections within a category to filter data.
+The Menu remains open as the user makes their selections.
+The selections are surfaced as Tags with a Basic Button to clear all filters.
+
+![Filter pattern basic multiple select 1](figma:filter-usage-basic-multipleselect-1.png)
+
+![Filter pattern basic multiple select 2](figma:filter-usage-basic-multipleselect-2.png)
+
+#### Nested menu
+
+A [Nested menu](/components/menu) can be used to organize subcategories of data that can be used to filter a dataset.
+
+![Filter pattern basic nested menu 1](figma:filter-usage-basic-nestedmenu-1.png)
+
+![Filter pattern basic nested menu 2](figma:filter-usage-basic-nestedmenu-2.png)
+
+![Filter pattern basic nested menu 3](figma:filter-usage-basic-nestedmenu-3.png)
+
+### Advanced filtering
+
+Advanced Filters allow users to set and configure multiple filters on a dataset.
+
+#### Tooltip modal
+
+A Tooltip modal allows users to filter a dataset through one category with many options,
+and allows the user to search for specific options.
+They can also be part of a more complex flow.
+
+![Filter pattern advanced tooltip modal](figma:filter-usage-advanced-tooltip-modal.png)
+
+#### Sheet
+
+A Sheet is used when the dataset is filtered live as the user makes their selections.
+Selections are surfaced as a Tag as the user sets each filter.
+
+![Filter pattern advanced sheet 1](figma:filter-usage-advanced-sheet-1.png)
+
+![Filter pattern advanced sheet 2](figma:filter-usage-advanced-sheet-2.png)
+
+![Filter pattern advanced sheet 3](figma:filter-usage-advanced-sheet-3.png)
+
+![Filter pattern advanced sheet 4](figma:filter-usage-advanced-sheet-4.png)
+
+![Filter pattern advanced sheet 5](figma:filter-usage-advanced-sheet-5.png)
+
+#### Drawer
+
+A Drawer is used to batch apply multiple filters at once. Selections are surfaced as a Tag
+after the user applies their filters and closes the Drawer.
+
+![Filter pattern advanced drawer 1](figma:filter-usage-advanced-drawer-1.png)
+
+![Filter pattern advanced drawer 2](figma:filter-usage-advanced-drawer-2.png)
+
+![Filter pattern advanced drawer 3](figma:filter-usage-advanced-drawer-3.png)
+
+## Behavior
+
+### Bulk actions
+
+When items are selected in a table and a filter is applied, the Filter overrides the selections and deselects them.
+
+![Filter pattern behavior bulk actions 1](figma:filter-behavior-bulk-actions-1.png)
+
+![Filter pattern behavior bulk actions 2](figma:filter-behavior-bulk-actions-2.png)
+
+## Localization & internationalization
+
+### RTL right-to-left
+
+![Filter pattern localization](figma:filter-localization.png)
+
+Filter entry points are mirrored for RTL languages.
+For more information about RTL considerations, see our [Buttons pattern](/patterns/buttons).
+
+## Accessibility
+
+### Tabbing order
+
+![Filter pattern accessibility tabbing order](figma:filter-accessibility-tabbing.png)
+
+1. User opens the filter container
+2. The focus moves to the first filter category and continues through all categories.
+3. Focus moves to close filter. Filter can also be closed with the `esc` key.
+4. Focus returns to Filter trigger button.
+5. Focus moves to the first tag after container is closed.
+
+### Affordances
+
+Additional affordances should be included to ensure users are aware of the filters applied
+and the results of those filters. Screen readers should read out the results of a filter
+after the filtering actions are completed.
+
+### Additional resources
+
+- [Garden Combobox](https://garden.zendesk.com/components/combobox)
+- [WAI-ARIA Listbox](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/)
+- [WAI-ARIA Menu](https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/)
+
+---
+
+<h2>Feedback</h2>
+
+Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yiFC7)
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    rteIntro: figmaAsset(name: { eq: "patterns-rich-text-editor-intro" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteAnatomy: figmaAsset(name: { eq: "patterns-rich-text-editor-anatomy" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteExample: figmaAsset(name: { eq: "patterns-rich-text-editor-example" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteToolbarSections: figmaAsset(name: { eq: "patterns-rich-text-editor-toolbar-sections" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteToolbarSectionsCollapsedActions: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-toolbar-sections-collapsed-actions" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteToolbarSectionsKeyboardShortcuts: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-toolbar-sections-keyboard-shortcuts" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarLocationStart: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-start" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarLocationEnd: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-end" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarLocationFloating: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-floating" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarLocationFloatingOpened: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-floating-opened" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingToolbarSize: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-toolbar-size" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResponsiveBehavior: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-responsive-behavior" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResponsiveBehaviorOverflow: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-responsive-behavior-overflow" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResizableTextarea: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-resizable-textarea" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResizableTextareaExpanded: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-resizable-textarea-expanded" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFormattingResizableTextareaScrollbar: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-formatting-resizable-textarea-scrollbar" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteStatesDisabled: figmaAsset(name: { eq: "patterns-rich-text-editor-states-disabled" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFlowsInsertLinkSelect: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-flows-insert-link-select" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFlowsInsertLinkSave: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-flows-insert-link-save" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFlowsEditLinkSelect: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-flows-edit-link-select" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteFlowsEditLinkSave: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-flows-edit-link-save" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+    rteAccessibilityManagingFocus: figmaAsset(
+      name: { eq: "patterns-rich-text-editor-accessibility-managing-focus" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
+  }
+`;
