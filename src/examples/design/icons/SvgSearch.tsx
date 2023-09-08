@@ -9,11 +9,9 @@ import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react'
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import debounce from 'lodash/debounce';
 import type { DebouncedFunc } from 'lodash';
-import { rgba } from 'polished';
 import { Field, MediaInput, Label } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { Code, XL } from '@zendeskgarden/react-typography';
-import { Button } from '@zendeskgarden/react-buttons';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import styled, { css } from 'styled-components';
 
@@ -32,27 +30,12 @@ const StyledSvgWrapper = styled.div<{ isAnswerBot?: boolean }>`
   color: ${p => p.isAnswerBot && '#d6eef1'};
 `;
 
-const StyledGradient = styled.div`
-  position: absolute;
-  bottom: 0;
-  z-index: 1;
-  background: linear-gradient(0deg, #fff 14%, ${rgba(255, 255, 255, 0)} 100%);
-  width: 100%;
-  height: 200px;
-`;
-
 const StyledCol = styled(Col).attrs({ forwardedAs: 'li' })`
   margin-bottom: ${p => p.theme.space.lg};
 `;
 
 const StyledRow = styled(Row).attrs({ forwardedAs: 'ul' })`
   /* stylelint-disable-next-line no-empty-source */
-`;
-
-const StyledTokenContainer = styled(StyledRow)<{ isExpand: boolean }>`
-  position: relative;
-  overflow-y: hidden;
-  max-height: ${p => (p.isExpand ? `620px` : `inherit`)};
 `;
 
 interface ISvgNodeProps {
@@ -71,7 +54,6 @@ interface ISvgSearchProps {
     edges: ISvgNodeProps[];
   };
   inputPlaceholder?: string;
-  defaultCollapsed: boolean;
 }
 
 type ChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -92,14 +74,8 @@ const Icon = (edge: ISvgNodeProps) => {
   );
 };
 
-export const SvgSearch: React.FC<ISvgSearchProps> = ({
-  data,
-  defaultCollapsed,
-  inputPlaceholder,
-  searchEnabled
-}) => {
+export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, inputPlaceholder, searchEnabled }) => {
   const [inputValue, setInputValue] = useState('');
-  const [collapsed, setCollapsed] = useState(defaultCollapsed);
   const debounceRef = useRef<DebouncedFunc<ChangeHandler>>();
 
   const icons = useMemo(() => {
@@ -110,10 +86,6 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({
         // Returns every icons, since the search value is empty.
         if (formattedSearchValue.length === 0) {
           return true;
-        }
-
-        if (formattedSearchValue.length) {
-          setCollapsed(false);
         }
 
         return edge.node.name.trim().toLowerCase().includes(formattedSearchValue);
@@ -161,30 +133,12 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({
         </Row>
       )}
       <Grid>
-        <StyledTokenContainer isExpand={collapsed}>
-          {icons}
-          {collapsed && <StyledGradient />}
-        </StyledTokenContainer>
+        <StyledRow>{icons}</StyledRow>
         {icons.length === 0 && (
           <StyledRow>
             <StyledCol textAlign="center">
               <XL>No icons found</XL>
             </StyledCol>
-          </StyledRow>
-        )}
-        {collapsed && (
-          <StyledRow>
-            <Button
-              isStretched
-              css={css`
-                margin: auto;
-                max-width: 50%;
-              `}
-              size="large"
-              onClick={() => setCollapsed(false)}
-            >
-              View all icons
-            </Button>
           </StyledRow>
         )}
       </Grid>
@@ -193,6 +147,5 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({
 };
 
 SvgSearch.defaultProps = {
-  searchEnabled: true,
-  defaultCollapsed: true
+  searchEnabled: true
 };
