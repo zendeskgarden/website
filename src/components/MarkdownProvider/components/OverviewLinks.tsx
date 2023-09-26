@@ -35,7 +35,9 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
                 if (group.items) {
                   return (
                     <StyledListItem key={group.title}>
-                      <h3>{group.title}</h3>
+                      <h3>
+                        <NavItemTitle>{group.title}</NavItemTitle>
+                      </h3>
                       <UnorderedList>
                         {group.items.map(child => (
                           <UnorderedList.Item key={child.id}>

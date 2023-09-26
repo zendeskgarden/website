@@ -64,8 +64,8 @@
           title: Autocomplete [deprecated]
         - id: /components/legacy-combobox
           title: Combobox [deprecated]
-        - id: /components/menu
-          title: Menu
+        - id: /components/legacy-menu
+          title: Menu [deprecated]
         - id: /components/multiselect
           title: Multiselect [deprecated]
         - id: /components/legacy-select
@@ -108,6 +108,8 @@
           title: Skeleton
         - id: /components/spinner
           title: Spinner
+    - title: Menu [new]
+      id: /components/menu
     - title: Modal
       id: /components/modal
     - title: Notification
