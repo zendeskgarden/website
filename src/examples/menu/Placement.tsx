@@ -12,11 +12,10 @@ import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
 const Example = () => (
   <Row justifyContent="center">
     <Col textAlign="center">
-      <Menu button="Menu" placement="top-start">
-        <Item value="Asparagus" />
-        <Item value="Broccoli" />
-        <Item value="Cauliflower" />
-        <Item value="Kale" />
+      <Menu button="Flowers" placement="top" fallbackPlacements={['bottom']}>
+        <Item value="acacia">Acacia</Item>
+        <Item value="daisy">Daisy</Item>
+        <Item value="honeysuckle">Honeysuckle</Item>
       </Menu>
     </Col>
   </Row>

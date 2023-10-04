@@ -45,7 +45,7 @@ const Example = () => {
   return (
     <Row justifyContent="center">
       <Col textAlign="center">
-        <Menu button="Menu" onChange={handleChange}>
+        <Menu button="Fruits" onChange={handleChange}>
           {items.map(item =>
             item.value === 'separator' ? (
               <Separator key={item.value} />

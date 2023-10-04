@@ -7,16 +7,27 @@
 
 import React from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
-import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item, ItemGroup, Separator } from '@zendeskgarden/react-dropdowns.next';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => (
   <Row justifyContent="center">
     <Col textAlign="center">
-      <Menu button="Choose vegetable">
-        <Item value="Asparagus" icon={<LeafIcon />} />
-        <Item value="Broccoli" icon={<LeafIcon />} />
-        <Item value="Cauliflower" icon={<LeafIcon />} />
+      <Menu button="Menu">
+        <ItemGroup icon={<LeafIcon />} legend="Plants">
+          <Item icon={<LeafIcon />} value="cactus">
+            Cactus
+            <Item.Meta>15 available</Item.Meta>
+          </Item>
+          <Item icon={<LeafIcon />} value="flower">
+            Flower
+          </Item>
+          <Item value="succulent">Succulent</Item>
+        </ItemGroup>
+        <Separator />
+        <Item type="add" value="add-plant">
+          Add plant
+        </Item>
       </Menu>
     </Col>
   </Row>

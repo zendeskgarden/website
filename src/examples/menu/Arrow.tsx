@@ -17,15 +17,14 @@ const Example = () => (
       <Menu
         hasArrow
         button={props => (
-          <IconButton {...props} aria-label="Menu">
+          <IconButton {...props} aria-label="Choose a plant">
             <LeafIcon />
           </IconButton>
         )}
       >
-        <Item value="Asparagus" />
-        <Item value="Broccoli" />
-        <Item value="Cauliflower" />
-        <Item value="Kale" />
+        <Item value="acacia">Acacia</Item>
+        <Item value="daisy">Daisy</Item>
+        <Item value="honeysuckle">Honeysuckle</Item>
       </Menu>
     </Col>
   </Row>

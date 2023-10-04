@@ -25,8 +25,8 @@ const Example = () => {
       <Col textAlign="center">
         <Menu
           button={props => (
-            <Button {...props}>
-              Menu
+            <Button {...props} isBasic>
+              Pick flowers
               <Button.EndIcon isRotated={rotated}>
                 <ChevronIcon />
               </Button.EndIcon>
@@ -34,10 +34,9 @@ const Example = () => {
           )}
           onChange={handleChange}
         >
-          <Item value="Asparagus" />
-          <Item value="Broccoli" />
-          <Item value="Cauliflower" />
-          <Item value="Kale" />
+          <Item value="hydrangea">Hydrangea</Item>
+          <Item value="petunia">Petunia</Item>
+          <Item value="lily">Lily</Item>
         </Menu>
       </Col>
     </Row>
