@@ -14,10 +14,12 @@ import { ReactComponent as ChevronIcon } from '@zendeskgarden/svg-icons/src/16/c
 const Example = () => {
   const [rotated, setRotated] = useState<boolean | undefined>();
 
-  const handleChange = ({ isExpanded }: { isExpanded?: boolean }) => {
+  const handleChange = ({ isExpanded, value }: { isExpanded?: boolean; value?: string }) => {
     if (isExpanded !== undefined) {
       setRotated(isExpanded);
     }
+
+    value && alert(`You chose ${value}`);
   };
 
   return (

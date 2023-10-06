@@ -5,39 +5,53 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
 import { Menu, Item, ItemGroup, ISelectedItem } from '@zendeskgarden/react-dropdowns.next';
 
 const Example = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
-  const handleChange = ({
-    isExpanded,
-    selectedItems
-  }: {
-    isExpanded?: boolean;
-    selectedItems?: ISelectedItem[];
-  }) => {
-    // Only close if the selected item type is undefined or 'radio'
-    if (isExpanded !== undefined && !selectedItems) {
-      setExpanded(isExpanded);
-    }
-  };
+  const handleChange = useCallback(
+    ({
+      isExpanded,
+      selectedItems
+    }: {
+      isExpanded?: boolean;
+      value?: string;
+      selectedItems?: ISelectedItem[];
+    }) => {
+      const lastItem = selectedItems?.[selectedItems.length - 1];
+      const isNonCheckboxItem = !selectedItems || lastItem?.type !== 'checkbox';
+
+      if (isExpanded !== undefined && isNonCheckboxItem) {
+        setExpanded(isExpanded);
+      }
+    },
+    []
+  );
 
   return (
     <Row justifyContent="center">
       <Col textAlign="center">
         <Menu button="Choose produce" onChange={handleChange} isExpanded={expanded}>
           <ItemGroup legend="Select vegetables" type="checkbox">
-            <Item value="Asparagus" />
-            <Item value="Broccoli" />
-            <Item value="Cauliflower" isSelected />
+            <Item value="asparagus">Asparagus</Item>
+            <Item value="broccoli">Broccoli</Item>
+            <Item value="cauliflower" isSelected>
+              Cauliflower
+            </Item>
           </ItemGroup>
           <ItemGroup legend="Pick a fruit" type="radio">
-            <Item value="Apple" name="fruits" />
-            <Item value="Kiwi" name="fruits" />
-            <Item value="Banana" name="fruits" />
+            <Item value="apple" name="fruits">
+              Apple
+            </Item>
+            <Item value="kiwi" name="fruits">
+              Kiwi
+            </Item>
+            <Item value="banana" name="fruits">
+              Banana
+            </Item>
           </ItemGroup>
         </Menu>
       </Col>

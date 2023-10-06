@@ -31,16 +31,21 @@ const StyledHiddenText = styled.span(hideVisually);
 const Example = () => {
   const [items, setItems] = useState(BASE_ITEMS);
 
-  const handleChange = useCallback(({ type, isExpanded }) => {
-    const isNext = type.includes('next');
-    const isPrev = type.includes('previous');
+  const handleChange = useCallback(
+    ({ type, value, isExpanded }: { type?: string; value?: string; isExpanded?: boolean }) => {
+      const isNext = type?.includes('next');
+      const isPrev = type?.includes('previous');
 
-    if (isNext || isPrev) {
-      setItems(isNext ? NESTED_ITEMS : BASE_ITEMS);
-    } else if (isExpanded === false) {
-      setItems(BASE_ITEMS);
-    }
-  }, []);
+      if (isNext || isPrev) {
+        setItems(isNext ? NESTED_ITEMS : BASE_ITEMS);
+      } else if (isExpanded === false) {
+        setItems(BASE_ITEMS);
+      }
+
+      value && !isNext && !isPrev && alert(`You chose ${value}`);
+    },
+    []
+  );
 
   return (
     <Row justifyContent="center">
