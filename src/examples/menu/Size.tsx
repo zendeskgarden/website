@@ -25,9 +25,9 @@ const Example = () => {
       </Col>
       <Col textAlign="center">
         <Menu button="Compact" isCompact onChange={handleChange}>
-          <Item value="cactus">Grape tomato</Item>
-          <Item value="flower">Baby corn</Item>
-          <Item value="succulent">Pearl onion</Item>
+          <Item value="grape-tomato">Grape tomato</Item>
+          <Item value="baby-corn">Baby corn</Item>
+          <Item value="pearl-onion">Pearl onion</Item>
         </Menu>
       </Col>
     </Row>
