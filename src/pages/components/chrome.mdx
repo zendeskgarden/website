@@ -74,8 +74,10 @@ import StandaloneHeaderCode from '!!raw-loader!../../examples/chrome/ChromeStand
 ### Navigation panel
 
 The panel can be expanded to display labels alongside nav icons. A subnav can be
-shown for additional items. The `hue` can be modified to change the color while
-still maintaining accessible contrast levels.
+shown for additional items. The `hue` can be modified to change the nav
+background color. Note this may result in inaccessible contrast levels on nav
+buttons. Always test the resulting contrast values to ensure they're compliant
+with WCAG guidelines.
 
 import Navigation from '../../examples/chrome/ChromeNavigation.tsx';
 import NavigationCode from '!!raw-loader!../../examples/chrome/ChromeNavigation.tsx';
