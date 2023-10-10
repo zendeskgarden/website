@@ -116,7 +116,7 @@
     "node-fetch": "2.7.0",
     "ora": "7.0.1",
     "polished": "4.2.2",
-    "postcss": "8.4.29",
+    "postcss": "8.4.31",
     "postcss-scss": "4.0.7",
     "postcss-styled": "0.34.0",
     "postcss-styled-syntax": "0.4.0",
