@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
@@ -23,21 +23,6 @@ const Example = () => {
   const [mediumRotated, setMediumRotated] = useState<boolean>();
   const [largeRotated, setLargeRotated] = useState<boolean>();
 
-  const handleSmallChange = useCallback(
-    changes => changes.isExpanded !== undefined && setSmallRotated(changes.isExpanded),
-    []
-  );
-
-  const handleMediumChange = useCallback(
-    changes => changes.isExpanded !== undefined && setMediumRotated(changes.isExpanded),
-    []
-  );
-
-  const handleLargeChange = useCallback(
-    changes => changes.isExpanded !== undefined && setLargeRotated(changes.isExpanded),
-    []
-  );
-
   return (
     <Row alignItems="center">
       <Col textAlign="center" sm>
@@ -52,7 +37,9 @@ const Example = () => {
                 isRotated={smallRotated}
               />
             )}
-            onChange={handleSmallChange}
+            onChange={changes =>
+              changes.isExpanded !== undefined && setSmallRotated(changes.isExpanded)
+            }
             placement="bottom-end"
             zIndex={10000}
           >
@@ -74,7 +61,9 @@ const Example = () => {
                 isRotated={mediumRotated}
               />
             )}
-            onChange={handleMediumChange}
+            onChange={changes =>
+              changes.isExpanded !== undefined && setMediumRotated(changes.isExpanded)
+            }
             placement="bottom-end"
             zIndex={10000}
           >
@@ -96,7 +85,9 @@ const Example = () => {
                 isRotated={largeRotated}
               />
             )}
-            onChange={handleLargeChange}
+            onChange={changes =>
+              changes.isExpanded !== undefined && setLargeRotated(changes.isExpanded)
+            }
             placement="bottom-end"
             zIndex={10000}
           >
