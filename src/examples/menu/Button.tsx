@@ -5,20 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => {
-  const [active, setActive] = useState<boolean | undefined>();
-
-  const handleChange = ({ isExpanded, value }: { isExpanded?: boolean; value?: string }) => {
-    if (isExpanded !== undefined) {
-      setActive(isExpanded);
-    }
-
+  const handleChange = ({ value }: { value?: string }) => {
     value && alert(`You chose ${value}`);
   };
 
@@ -27,7 +21,7 @@ const Example = () => {
       <Col textAlign="center">
         <Menu
           button={props => (
-            <Button {...props} isPrimary={active}>
+            <Button {...props} isPrimary>
               <Button.StartIcon>
                 <LeafIcon />
               </Button.StartIcon>
