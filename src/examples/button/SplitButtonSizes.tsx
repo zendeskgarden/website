@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
-import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
 
 const StyledCol = styled(Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
@@ -28,58 +28,73 @@ const Example = () => {
       <Col textAlign="center" sm>
         <SplitButton>
           <Button size="small">Harvest</Button>
-          <Dropdown
-            onStateChange={options =>
-              Object.hasOwn(options, 'isOpen') && setSmallRotated(options.isOpen)
+          <Menu
+            button={props => (
+              <ChevronButton
+                {...props}
+                aria-label="other actions"
+                size="small"
+                isRotated={smallRotated}
+              />
+            )}
+            onChange={changes =>
+              changes.isExpanded !== undefined && setSmallRotated(changes.isExpanded)
             }
+            placement="bottom-end"
+            zIndex={10000}
           >
-            <Trigger>
-              <ChevronButton aria-label="other actions" size="small" isRotated={smallRotated} />
-            </Trigger>
-            <Menu placement="bottom-end">
-              <Item value="prune">Prune</Item>
-              <Item value="water">Water</Item>
-              <Item value="fertilize">Fertilize</Item>
-            </Menu>
-          </Dropdown>
+            <Item value="prune">Prune</Item>
+            <Item value="water">Water</Item>
+            <Item value="fertilize">Fertilize</Item>
+          </Menu>
         </SplitButton>
       </Col>
       <StyledCol textAlign="center" sm>
         <SplitButton>
           <Button size="medium">Harvest</Button>
-          <Dropdown
-            onStateChange={options =>
-              Object.hasOwn(options, 'isOpen') && setMediumRotated(options.isOpen)
+          <Menu
+            button={props => (
+              <ChevronButton
+                {...props}
+                aria-label="other actions"
+                size="medium"
+                isRotated={mediumRotated}
+              />
+            )}
+            onChange={changes =>
+              changes.isExpanded !== undefined && setMediumRotated(changes.isExpanded)
             }
+            placement="bottom-end"
+            zIndex={10000}
           >
-            <Trigger>
-              <ChevronButton aria-label="other actions" size="medium" isRotated={mediumRotated} />
-            </Trigger>
-            <Menu placement="bottom-end">
-              <Item value="prune">Prune</Item>
-              <Item value="water">Water</Item>
-              <Item value="fertilize">Fertilize</Item>
-            </Menu>
-          </Dropdown>
+            <Item value="prune">Prune</Item>
+            <Item value="water">Water</Item>
+            <Item value="fertilize">Fertilize</Item>
+          </Menu>
         </SplitButton>
       </StyledCol>
       <StyledCol textAlign="center" sm>
         <SplitButton>
           <Button size="large">Harvest</Button>
-          <Dropdown
-            onStateChange={options =>
-              Object.hasOwn(options, 'isOpen') && setLargeRotated(options.isOpen)
+          <Menu
+            button={props => (
+              <ChevronButton
+                {...props}
+                aria-label="other actions"
+                size="large"
+                isRotated={largeRotated}
+              />
+            )}
+            onChange={changes =>
+              changes.isExpanded !== undefined && setLargeRotated(changes.isExpanded)
             }
+            placement="bottom-end"
+            zIndex={10000}
           >
-            <Trigger>
-              <ChevronButton aria-label="other actions" size="large" isRotated={largeRotated} />
-            </Trigger>
-            <Menu placement="bottom-end">
-              <Item value="prune">Prune</Item>
-              <Item value="water">Water</Item>
-              <Item value="fertilize">Fertilize</Item>
-            </Menu>
-          </Dropdown>
+            <Item value="prune">Prune</Item>
+            <Item value="water">Water</Item>
+            <Item value="fertilize">Fertilize</Item>
+          </Menu>
         </SplitButton>
       </StyledCol>
     </Row>
