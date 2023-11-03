@@ -17,21 +17,21 @@ and add it to your environment under the `FIGMA_TOKEN` name.
 
 ## Development Workflow
 
-Before you start, be sure [yarn](https://yarnpkg.com/en/) is installed
-on your system. After you clone this repo, run `yarn` to install
+Before you start, be sure [npm](https://www.npmjs.com/package/npm) is installed
+on your system. After you clone this repo, run `npm install` to install
 dependencies needed for development. After installation, the following
 commands are available:
 
-- `yarn start` to launch the Gatsby server with live reload
+- `npm start` to launch the Gatsby server with live reload
   – source files will be watched for changes.
-- `yarn test` to run package tests.
-- `yarn lint` to enforce consistent code conventions. Note this is run
+- `npm test` to run package tests.
+- `npm run lint` to enforce consistent code conventions. Note this is run
   as a git `pre-commit` hook.
-- `yarn format` to enforce code style with opinionated formats. Note this is
+- `npm run format` to enforce code style with opinionated formats. Note this is
   run as a git `pre-commit` hook.
-- `yarn build` to rebuild the Gatsby site JS, CSS, and HTML. The build runs
+- `npm run build` to rebuild the Gatsby site JS, CSS, and HTML. The build runs
   as part of the initial install.
-- `yarn run upgrade` to upgrade Garden component packages and sync the `react-components` submodule.
+- `npm run upgrade` to upgrade Garden component packages and sync the `react-components` submodule.
 
 ## Pull Request Workflow
 
