@@ -7,6 +7,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+const { readFile } = require('node:fs/promises');
 const resolve = require('path').resolve;
 
 (async () => {
@@ -17,21 +18,23 @@ const resolve = require('path').resolve;
   try {
     spinner.info('Upgrading @zendeskgarden/react-* dependencies...').start();
 
-    await execa('yarn', [
-      'upgrade',
-      '--scope',
-      '@zendeskgarden',
-      '--pattern',
-      'react',
-      '--latest',
-      '--ignore-scripts'
-    ]);
+    const file = resolve(__dirname, '../package.json');
+    const pkg = JSON.parse(await readFile(file, { encoding: 'utf8' }));
+    const devDependencies = Object.keys(pkg.devDependencies);
+    const packages = devDependencies.filter(key => key.startsWith('@zendeskgarden/react-'));
+
+    await execa(
+      'npm',
+      ['install', '--no-audit', '--save-exact', '--ignore-scripts'].concat(
+        packages.map(value => `${value}@latest`)
+      )
+    );
 
     spinner.info('Syncing react-components submodule...');
 
-    const { stdout } = await execa('yarn', ['info', '@zendeskgarden/react-theming', '--json']);
+    const { stdout } = await execa('npm', ['info', '@zendeskgarden/react-theming', '--json']);
     const json = JSON.parse(stdout);
-    const latest = json.data['dist-tags'].latest;
+    const latest = json['dist-tags'].latest;
     const options = { cwd: resolve('react-components') };
 
     await execa('git', ['fetch', '--all', '--tags'], options);
