@@ -6,7 +6,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "format": "prettier-package-json --write && npm run -- format:all --write",
-    "format:all": "prettier --loglevel warn '**/*.{js,jsx,ts,tsx,json,md,mdx,yml}' '!.github/ISSUE_TEMPLATE.md'",
+    "format:all": "prettier --log-level warn '**/*.{js,jsx,ts,tsx,json,md,mdx,yml}' '!.github/ISSUE_TEMPLATE.md'",
     "postinstall": "husky install",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:md",
     "lint:css": "stylelint 'src/**/*.{js,ts,tsx}'",
