@@ -7,8 +7,8 @@
 
 import React from 'react';
 import { css } from 'styled-components';
-import SEO from 'components/SEO';
-import { useStaticQuery, graphql } from 'gatsby';
+import { SEO } from 'components/SEO';
+import { useStaticQuery, graphql, HeadProps } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import RootLayout from 'layouts/Root';
 import MaxWidthLayout from 'layouts/MaxWidth';
@@ -16,6 +16,8 @@ import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { XL, LG } from '@zendeskgarden/react-typography';
 import { StyledH1 } from 'components/MarkdownProvider/components/Typography';
+
+export const Head = (props: HeadProps) => <SEO title="Not found" {...props} />;
 
 const NotFoundPage: React.FC = () => {
   const { notFoundImage } = useStaticQuery(graphql`
@@ -32,7 +34,6 @@ const NotFoundPage: React.FC = () => {
 
   return (
     <RootLayout>
-      <SEO title="Not found" />
       <MaxWidthLayout>
         <Grid
           css={css`

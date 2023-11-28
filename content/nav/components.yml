@@ -1,0 +1,162 @@
+- title: Introduction
+  items:
+    - id: /components
+      title: Overview
+- title: Foundations
+  items:
+    - id: https://github.com/zendeskgarden/css-components/tree/main/packages/bedrock
+      title: Bedrock CSS
+    - id: https://github.com/zendeskgarden/tailwindcss
+      title: Design tokens
+    - id: https://zendeskgarden.github.io/react-containers
+      title: Containers
+    - title: Theming
+      items:
+        - id: /components/palette
+          title: Palette
+        - id: /components/theme-object
+          title: Theme object
+        - id: /components/theme-provider
+          title: Theme provider
+        - id: /components/utilities
+          title: Utilities
+    - id: /components/versions
+      title: Versions
+- title: Components
+  items:
+    - title: Accordion
+      id: /components/accordion
+    - title: Avatar
+      id: /components/avatar
+    - title: Breadcrumbs
+      id: /components/breadcrumbs
+    - title: Buttons
+      items:
+        - id: /components/anchor
+          title: Anchor
+        - id: /components/button
+          title: Button
+        - id: /components/button-group
+          title: Button group [deprecated]
+        - id: /components/icon-button
+          title: Icon button
+        - id: /components/split-button
+          title: Split button
+        - id: /components/toggle-button
+          title: Toggle button
+        - id: /components/toggle-icon-button
+          title: Toggle icon button
+    - title: Chrome
+      id: /components/chrome
+    - title: Date picker
+      id: /components/date-picker
+    - title: Color picker
+      id: /components/color-picker
+    - title: Color swatch
+      id: /components/color-swatch
+    - title: Draggable
+      id: /components/draggable
+    - title: Drawer
+      id: /components/drawer
+    - title: Dropdowns
+      items:
+        - id: /components/autocomplete
+          title: Autocomplete [deprecated]
+        - id: /components/legacy-combobox
+          title: Combobox [deprecated]
+        - id: /components/legacy-menu
+          title: Menu [deprecated]
+        - id: /components/multiselect
+          title: Multiselect [deprecated]
+        - id: /components/legacy-select
+          title: Select [deprecated]
+    - title: Forms
+      items:
+        - id: /components/checkbox
+          title: Checkbox
+        - id: /components/combobox
+          title: Combobox [new]
+        - id: /components/file-upload
+          title: File upload
+        - id: /components/input
+          title: Input
+        - id: /components/input-group
+          title: Input group
+        - id: /components/multi-thumb-range
+          title: Multi-thumb range
+        - id: /components/radio
+          title: Radio
+        - id: /components/range
+          title: Range
+        - id: /components/select
+          title: Select
+        - id: /components/textarea
+          title: Textarea
+        - id: /components/toggle
+          title: Toggle
+    - title: Grid
+      id: /components/grid
+    - title: Loaders
+      items:
+        - id: /components/dots
+          title: Dots
+        - id: /components/inline
+          title: Inline
+        - id: /components/progress
+          title: Progress
+        - id: /components/skeleton
+          title: Skeleton
+        - id: /components/spinner
+          title: Spinner
+    - title: Menu [new]
+      id: /components/menu
+    - title: Modal
+      id: /components/modal
+    - title: Notification
+      items:
+        - id: /components/alerts
+          title: Alerts
+        - id: /components/global-alert
+          title: Global alert
+        - id: /components/notifications
+          title: Notifications
+    - title: Pagination
+      id: /components/pagination
+    - title: Pane
+      id: /components/pane
+    - title: Sheet
+      id: /components/sheet
+    - title: Status indicator
+      id: /components/status-indicator
+    - title: Stepper
+      id: /components/stepper
+    - title: Table
+      id: /components/table
+    - title: Tabs
+      id: /components/tabs
+    - title: Tags
+      id: /components/tags
+    - title: Tiles
+      id: /components/tiles
+    - title: Timeline
+      id: /components/timeline
+    - title: Tooltip
+      id: /components/tooltip
+    - title: Tooltip modal
+      id: /components/tooltip-modal
+    - title: Typography
+      items:
+        - title: Code
+          id: /components/code
+        - title: Code block
+          id: /components/code-block
+        - title: Lists
+          id: /components/lists
+        - title: Paragraph
+          id: /components/paragraph
+        - title: Span
+          id: /components/span
+        - title: Typography
+          id: /components/typography
+    - title: Well
+      id: /components/well

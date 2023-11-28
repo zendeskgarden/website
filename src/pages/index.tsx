@@ -6,15 +6,16 @@
  */
 
 import React from 'react';
-import { graphql } from 'gatsby';
-import SEO from 'components/SEO';
+import { graphql, HeadProps } from 'gatsby';
+import { SEO } from 'components/SEO';
 import RootLayout from 'layouts/Root';
 import HomeLayout from 'layouts/Home';
+
+export const Head = (props: HeadProps) => <SEO {...props} />;
 
 const IndexPage: React.FC = () => {
   return (
     <RootLayout hasSkipNav={false} path="/">
-      <SEO />
       <HomeLayout />
     </RootLayout>
   );
@@ -30,13 +31,24 @@ export const SidebarPageFragment = graphql`
     mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {
       id
       excerpt
-      body
       tableOfContents(maxDepth: 3)
+      navigation {
+        id: url
+        title
+        items {
+          id: url
+          title
+          items {
+            id: url
+            title
+          }
+        }
+      }
       package: reactPackage {
         version
         name
         description
-        packageName
+        packageName: name
       }
       components: reactComponents {
         name

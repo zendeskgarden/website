@@ -42,5 +42,6 @@ export interface IPageContext {
   frontmatter: {
     title?: string;
     description?: string;
+    slug?: string;
   };
 }

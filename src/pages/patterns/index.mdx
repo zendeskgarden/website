@@ -4,9 +4,7 @@ description: >
   Additional context for how to use components.
 ---
 
-import links from '../../nav/patterns.yml';
-
-<OverviewLinks nav={links} />
+<OverviewLinks nav={props.data.mdx.navigation} />
 
 import { graphql } from 'gatsby';
 

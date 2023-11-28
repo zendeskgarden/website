@@ -4,9 +4,7 @@ description: >
   Development instructions for building effective user interfaces.
 ---
 
-import links from '../../nav/components.yml';
-
-<OverviewLinks nav={links} />
+<OverviewLinks nav={props.data.mdx.navigation} />
 
 import { graphql } from 'gatsby';
 

@@ -5,21 +5,28 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React, { ReactNode } from 'react';
+import { graphql, useStaticQuery, HeadProps } from 'gatsby';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { IPageContext, IPageData } from '../templates/types';
 
-/* eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires */
-const { PALETTE } = require('@zendeskgarden/react-theming');
-
-const SEO: React.FC<{
-  description?: string;
-  lang?: string;
-  meta?: HTMLMetaElement[];
+interface ISEOProps {
   title?: string;
-}> = ({ description, lang, meta, title }) => {
+  description?: string;
+  children?: ReactNode;
+}
+
+export const SEO = ({
+  title,
+  description,
+  data,
+  pageContext,
+  children
+}: HeadProps<IPageData, IPageContext> & ISEOProps): JSX.Element => {
+  const { frontmatter = {} } = pageContext;
+
   const { site } = useStaticQuery(graphql`
-    query {
+    query PageMetadata {
       site {
         siteMetadata {
           title
@@ -30,23 +37,22 @@ const SEO: React.FC<{
     }
   `);
 
-  const metaDescription = description || site.siteMetadata.description;
+  const info = {
+    title: title || frontmatter.title || site.siteMetadata.title,
+    description: description || frontmatter.description || site.siteMetadata.description
+  };
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang
-      }}
-      title={title || site.siteMetadata.title}
-      titleTemplate={title ? `%s / ${site.siteMetadata.title}` : undefined}
-      meta={[
+    <>
+      <title>{info.title}</title>
+      {[
         {
           name: 'application-name',
           content: site.siteMetadata.title
         },
         {
           name: 'description',
-          content: metaDescription
+          content: info.description
         },
         {
           name: 'msapplication-config',
@@ -54,11 +60,11 @@ const SEO: React.FC<{
         },
         {
           property: 'og:title',
-          content: site.siteMetadata.title
+          content: info.title
         },
         {
           property: 'og:description',
-          content: site.siteMetadata.description
+          content: info.description
         },
         {
           property: 'og:image',
@@ -77,23 +83,22 @@ const SEO: React.FC<{
           content: '640'
         },
         {
-          property: 'twitter:card',
+          name: 'twitter:card',
           content: 'summary_large_image'
         }
-      ].concat(meta!)}
-      link={[
+      ].map((props, index) => (
+        <meta key={`head-meta-${index}`} {...props} />
+      ))}
+
+      {[
         { rel: 'mask-icon', href: '/mask-icon.svg', color: PALETTE.kale[700] },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
         { rel: 'shortcut icon', href: '/favicon.ico' }
-      ]}
-    />
+      ].map((props, index) => (
+        <link key={`head-link-${index}`} {...props} />
+      ))}
+
+      {children}
+    </>
   );
 };
-
-SEO.defaultProps = {
-  lang: 'en',
-  meta: [],
-  description: ''
-};
-
-export default SEO;
