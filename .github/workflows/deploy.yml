@@ -21,21 +21,21 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.branch }}
           submodules: true
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
+          cache: 'npm'
 
       - name: build
-        run: yarn --frozen-lockfile
+        run: npm ci
 
       - name: test
-        run: yarn test
+        run: npm test
 
       - name: deploy
         run: utils/deploy.js

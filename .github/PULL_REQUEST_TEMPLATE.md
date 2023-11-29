@@ -19,4 +19,4 @@
 - [ ] :black_nib: copy updates are approved (add the content strategist as a reviewer)
 - [ ] :link: considered opportunities for adding cross-reference URLs (grep for keywords)
 - [ ] :wheelchair: analyzed via [axe](https://www.deque.com/axe/) and evaluated using VoiceOver
-- [ ] :memo: tested in Chrome, Firefox, Safari, Edge, and IE11
+- [ ] :memo: tested in Chrome, Firefox, Safari, Edge
