@@ -6,7 +6,7 @@
  */
 
 import dotenv from 'dotenv';
-import {cleanEnv, str} from 'envalid';
+import { cleanEnv, str } from 'envalid';
 import fs from 'fs';
 import path from 'path';
 import { GatsbyConfig } from 'gatsby';
