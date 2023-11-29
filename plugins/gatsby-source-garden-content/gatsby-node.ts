@@ -22,7 +22,7 @@ import {
 const TYPE_PREFIX = 'Garden';
 const GARDEN_NEWS_ID = 'News';
 const GARDEN_NAV_ID = 'Navigation';
-const GARDEN_FIGMA_ID = 'FigmaAssets';
+const GARDEN_FIGMA_ID = 'FigmaAsset';
 // identifiers
 const PLUGIN_NAME = 'garden-content';
 const GATSBY_PLUGIN_NAME = `gatsby-source-${PLUGIN_NAME}`;

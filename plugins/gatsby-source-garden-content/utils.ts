@@ -29,7 +29,7 @@ export function loadYamlFile(pathName: string) {
 
 export function getFigmaAssetsMetadata() {
   const {
-    data: { file: fileId, assets: nodeIds, scale },
+    data: { fileId, nodeIds, scale },
     hash
   } = loadYamlFile('figma/assets.yml');
 
