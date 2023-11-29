@@ -33,7 +33,7 @@ const config: GatsbyConfig = {
       }
     },
     /* generators */
-    // 'gatsby-plugin-netlify',
+    'gatsby-plugin-netlify',
     'gatsby-plugin-sitemap',
     /* sources */
     {
