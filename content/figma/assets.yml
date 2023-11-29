@@ -1,14 +1,10 @@
-file: 'HifWgSrdeTlMMXUrcnrAAH'
+fileId: 'HifWgSrdeTlMMXUrcnrAAH'
 scale: 2
-assets:
-  - '1:22' # home-hero-logo
-  - '1:37' # home-pillars-patterns
+nodeIds:
   - '2:7' # components-avatar-shape-square
   - '2:12' # components-avatar-shape-circle
-  - '25:403' # content-voice-tone-map
-  - '103:361' # general-error-404
   - '103:2974' # components-buttons-iconbutton-tooltip-do
-  - '104:364' #  components-buttons-toggleiconbutton-tooltip-do
+  - '104:364' #  components-buttons-toggleiconbutton-tooltip-do*/,
   - '105:1647' # components-dropdowns-autocomplete-selection-do
   - '554:9806' # components-dropdowns-combobox-icon-placement-do
   - '554:9811' # components-dropdowns-combobox-highlight-do
@@ -23,11 +19,15 @@ assets:
   - '111:5367' # components-timeline-correct-hierarchy-do
   - '111:5374' # components-timeline-correct-hierarchy-dont
   - '336:2968' # components-timeline-nesting-do
-  - '722:10518' # design-icons-16px-do
+  - '25:403' # content-voice-tone-map
   - '722:10550' # design-icons-12px-do
+  - '722:10518' # design-icons-16px-do
   - '722:10997' # design-icons-32px-do
   - '722:10580' # design-icons-32px-dont
   - '722:11034' # design-icons-tooltips-do
+  - '103:361' # general-error-404
+  - '1:22' # home-hero-logo
+  - '1:37' # home-pillars-patterns
   - '1227:32371' # patterns-buttons-anatomy-button-type
   - '1228:33886' # patterns-buttons-interface-button-size-do
   - '1228:33876' # patterns-buttons-interface-button-size-dont
@@ -44,46 +44,110 @@ assets:
   - '1232:34208' # patterns-buttons-content-dont
   - '1232:34264' # patterns-buttons-localization-arabic
   - '1403:38096' # patterns-copy-anatomy
-  - '1403:38112' # patterns-copy-layouts-default
-  - '1403:38250' # patterns-copy-layouts-default-notification
-  - '1403:38125' # patterns-copy-layouts-minimal
-  - '1403:38145' # patterns-copy-layouts-minimal-tooltip
-  - '1403:38188' # patterns-copy-content
+  - '1840:54835' # patterns-dnd-accessibility-alternative-1
   - '1403:38278' # patterns-copy-accessibility-input-do
   - '1403:38264' # patterns-copy-accessibility-input-dont
   - '1403:38167' # patterns-copy-accessibility-minimal-focused
   - '1403:38222' # patterns-copy-accessibility-aria-labels
-  - '1435:38818' # patterns-error-global-alert-anatomy
-  - '1442:39335' # patterns-error-global-alert-layout
-  - '1440:39192' # patterns-error-global-alert-disconnect
+  - '1403:38188' # patterns-copy-content
+  - '1403:38112' # patterns-copy-layouts-default
+  - '1403:38250' # patterns-copy-layouts-default-notification
+  - '1403:38125' # patterns-copy-layouts-minimal
+  - '1403:38145' # patterns-copy-layouts-minimal-tooltip
+  - '1840:50595' # patterns-dnd-anatomy
+  - '1840:50608' # patterns-dnd-anatomy-flow-1
+  - '1840:50619' # patterns-dnd-anatomy-flow-2
+  - '1840:50632' # patterns-dnd-anatomy-flow-3
+  - '1840:50644' # patterns-dnd-anatomy-flow-4
+  - '1840:53047' # patterns-dnd-flows-reorder-1
+  - '1840:53086' # patterns-dnd-flows-reorder-2
+  - '1840:53135' # patterns-dnd-flows-reorder-3
+  - '1840:53184' # patterns-dnd-flows-reorder-4
+  - '1840:53223' # patterns-dnd-flows-multiple-lists-1
+  - '1840:53246' # patterns-dnd-flows-multiple-lists-2
+  - '1840:53272' # patterns-dnd-flows-multiple-lists-3
+  - '1840:53298' # patterns-dnd-flows-multiple-lists-4
+  - '1840:53328' # patterns-dnd-flows-moving-nesting-1
+  - '1840:53350' # patterns-dnd-flows-moving-nesting-2
+  - '1840:53374' # patterns-dnd-flows-moving-nesting-3
+  - '1840:53398' # patterns-dnd-flows-moving-nesting-4
+  - '1840:53425' # patterns-dnd-flows-moving-nesting-5
+  - '1840:53451' # patterns-dnd-flows-moving-nesting-6
+  - '1840:53475' # patterns-dnd-flows-collision-algorithm-1
+  - '1840:53495' # patterns-dnd-flows-collision-algorithm-2
+  - '1840:53527' # patterns-dnd-flows-collision-algorithm-3
+  - '1840:51870' # patterns-dnd-formatting-draggable
+  - '1840:51886' # patterns-dnd-formatting-draggable-preview-do
+  - '1840:51918' # patterns-dnd-formatting-draggable-preview-dont
+  - '1840:52252' # patterns-dnd-formatting-placeholder-empty
+  - '1840:52261' # patterns-dnd-formatting-placeholder-solid
+  - '1840:52270' # patterns-dnd-formatting-target-indicator
+  - '1840:52279' # patterns-dnd-formatting-placeholders-and-disabled
+  - '1840:52310' # patterns-dnd-formatting-indicator-orientation
+  - '1840:52729' # patterns-dnd-formatting-dropzone-states
+  - '1840:52747' # patterns-dnd-formatting-dropzone-examples
+  - '1840:52759' # patterns-dnd-formatting-dropzone-empty-populated
+  - '1840:52773' # patterns-dnd-formatting-dropzone-replace
+  - '1840:49529' # patterns-dnd-intro
   - '1502:39525' # patterns-error-alert-anatomy
   - '1502:39565' # patterns-error-alert-layout
   - '1502:39604' # patterns-error-alert-layout-multiple
-  - '1502:39530' # patterns-error-notification-anatomy
-  - '1502:39578' # patterns-error-notification-layout
-  - '1502:39591' # patterns-error-notification-failed-upload
   - '1502:39535' # patterns-error-forms-anatomy
   - '1502:39618' # patterns-error-forms-layout-multiple
   - '1502:39630' # patterns-error-forms-validate-do
   - '1502:39635' # patterns-error-forms-validate-dont
   - '1502:39633' # patterns-error-forms-keep-data-do
   - '1502:39638' # patterns-error-forms-keep-data-dont
+  - '1435:38818' # patterns-error-global-alert-anatomy
+  - '1442:39335' # patterns-error-global-alert-layout
+  - '1440:39192' # patterns-error-global-alert-disconnect
+  - '1502:39530' # patterns-error-notification-anatomy
+  - '1502:39578' # patterns-error-notification-layout
+  - '1502:39591' # patterns-error-notification-failed-upload
+  - '2350:5949' # patterns-filter-accessibility-tabbing
+  - '2308:5035' # patterns-filter-anatomy
+  - '2308:8805' # patterns-filter-behavior-bulk-actions-1
+  - '2308:9144' # patterns-filter-behavior-bulk-actions-2
+  - '2308:5109' # patterns-filter-formatting-entry-points
+  - '2308:5115' # patterns-filter-formatting-location
+  - '2308:5430' # patterns-filter-formatting-location-icons
+  - '2308:5739' # patterns-filter-formatting-surfacing
+  - '2308:9443' # patterns-filter-localization
+  - '2350:5799' # patterns-filter-usage-advanced-tooltip-modal
+  - '2308:7279' # patterns-filter-usage-advanced-sheet-1
+  - '2308:6038' # patterns-filter-usage-advanced-sheet-2
+  - '2308:6347' # patterns-filter-usage-advanced-sheet-3
+  - '2308:6970' # patterns-filter-usage-advanced-sheet-4
+  - '2308:8207' # patterns-filter-usage-advanced-sheet-5
+  - '2308:7579' # patterns-filter-usage-advanced-drawer-1
+  - '2308:7893' # patterns-filter-usage-advanced-drawer-2
+  - '2308:8506' # patterns-filter-usage-advanced-drawer-3
+  - '2306:98' # patterns-filter-usage-basic-singleselect-1
+  - '2306:1904' # patterns-filter-usage-basic-singleselect-2
+  - '2306:2205' # patterns-filter-usage-basic-singleselect-3
+  - '2306:2508' # patterns-filter-usage-basic-singleselect-4
+  - '2306:399' # patterns-filter-usage-basic-multipleselect-1
+  - '2306:1001' # patterns-filter-usage-basic-multipleselect-2
+  - '2306:700' # patterns-filter-usage-basic-nestedmenu-1
+  - '2306:1302' # patterns-filter-usage-basic-nestedmenu-2
+  - '2306:1603' # patterns-filter-usage-basic-nestedmenu-3
+  - '1515:41891' # patterns-loaders-completing-action
   - '1515:41072' # patterns-loaders-intro
+  - '1515:41922' # patterns-loaders-menu
+  - '1515:41932' # patterns-loaders-progress
+  - '1515:41905' # patterns-loaders-search-inputs
   - '1515:41445' # patterns-loaders-skeleton
   - '1528:41198' # patterns-loaders-skeleton-do
   - '1528:41361' # patterns-loaders-skeleton-dont
   - '1515:41790' # patterns-loaders-spinner
-  - '1515:41891' # patterns-loaders-completing-action
-  - '1515:41905' # patterns-loaders-search-inputs
-  - '1515:41922' # patterns-loaders-menu
-  - '1515:41932' # patterns-loaders-progress
   - '1515:41914' # patterns-loaders-typing
-  - '1202:16334' # patterns-rich-text-editor-intro
+  - '1204:33072' # patterns-rich-text-editor-accessibility-managing-focus
   - '1202:16535' # patterns-rich-text-editor-anatomy
   - '1202:25862' # patterns-rich-text-editor-example
-  - '1203:17178' # patterns-rich-text-editor-toolbar-sections
-  - '1203:23238' # patterns-rich-text-editor-toolbar-sections-collapsed-actions
-  - '1203:23878' # patterns-rich-text-editor-toolbar-sections-keyboard-shortcuts
+  - '1204:28680' # patterns-rich-text-editor-flows-insert-link-select
+  - '1204:28838' # patterns-rich-text-editor-flows-insert-link-save
+  - '1204:32300' # patterns-rich-text-editor-flows-edit-link-select
+  - '1204:32478' # patterns-rich-text-editor-flows-edit-link-save
   - '1203:34882' # patterns-rich-text-editor-formatting-toolbar-location-start
   - '1204:26131' # patterns-rich-text-editor-formatting-toolbar-location-end
   - '1204:26433' # patterns-rich-text-editor-formatting-toolbar-location-floating
@@ -94,34 +158,43 @@ assets:
   - '1204:26906' # patterns-rich-text-editor-formatting-resizable-textarea
   - '1204:26907' # patterns-rich-text-editor-formatting-resizable-textarea-expanded
   - '1204:28088' # patterns-rich-text-editor-formatting-resizable-textarea-scrollbar
+  - '1202:16334' # patterns-rich-text-editor-intro
   - '1204:28377' # patterns-rich-text-editor-states-disabled
-  - '1204:28680' # patterns-rich-text-editor-flows-insert-link-select
-  - '1204:28838' # patterns-rich-text-editor-flows-insert-link-save
-  - '1204:32300' # patterns-rich-text-editor-flows-edit-link-select
-  - '1204:32478' # patterns-rich-text-editor-flows-edit-link-save
-  - '1204:33072' # patterns-rich-text-editor-accessibility-managing-focus
+  - '1203:17178' # patterns-rich-text-editor-toolbar-sections
+  - '1203:23238' # patterns-rich-text-editor-toolbar-sections-collapsed-actions
+  - '1203:23878' # patterns-rich-text-editor-toolbar-sections-keyboard-shortcuts
+  - '1322:35878' # patterns-save-action-footer-focus
   - '1311:34444' # patterns-save-anatomy-action-footer
   - '1311:34883' # patterns-save-anatomy-success-notification
   - '1311:35077' # patterns-save-anatomy-success-notification-do
   - '1311:35064' # patterns-save-anatomy-success-notification-dont
   - '1321:35012' # patterns-save-errors
-  - '1321:35220' # patterns-save-validation-alert
-  - '1322:35434' # patterns-save-unsaved-changes
   - '1322:35712' # patterns-save-rtl
-  - '1322:35878' # patterns-save-action-footer-focus
+  - '1322:35434' # patterns-save-unsaved-changes
+  - '1321:35220' # patterns-save-validation-alert
   - '1322:36040' # patterns-save-validation-alert-focus
   - '1322:36240' # patterns-save-unsaved-changes-focus
+  - '1745:45691' # patterns-tables-basic-formatting-action-icons
+  - '704:10527' # patterns-tables-basic-formatting-anchors
   - '530:3577' # patterns-tables-basic-formatting-anatomy
-  - '539:5678' # patterns-tables-basic-formatting-wrap-and-truncation
-  - '539:6323' # patterns-tables-basic-formatting-row-heights-do
-  - '539:6332' # patterns-tables-basic-formatting-row-heights-dont
   - '541:12026' # patterns-tables-basic-formatting-cell-alignment
+  - '566:11850' # patterns-tables-basic-formatting-date-time
+  - '1868:53136' # patterns-tables-basic-formatting-default-avatars-large-table
   - '541:12531' # patterns-tables-basic-formatting-grouping
+  - '566:12289' # patterns-tables-basic-formatting-localization-bulgarian
+  - '566:12568' # patterns-tables-basic-formatting-localization-arabic
+  - '1833:47025' # patterns-tables-basic-formatting-overflow-actions
+  - '1833:47001' # patterns-tables-basic-formatting-overflow-tooltip
   - '762:10926' # patterns-tables-basic-formatting-pagination-cursor
   - '566:10441' # patterns-tables-basic-formatting-pagination-offset
   - '566:10823' # patterns-tables-basic-formatting-pagination-selecting-all
-  - '704:10527' # patterns-tables-basic-formatting-anchors
-  - '566:11850' # patterns-tables-basic-formatting-date-time
   - '566:12145' # patterns-tables-basic-formatting-row-cell-states
-  - '566:12289' # patterns-tables-basic-formatting-localization-bulgarian
-  - '566:12568' # patterns-tables-basic-formatting-localization-arabic
+  - '539:6323' # patterns-tables-basic-formatting-row-heights-do
+  - '539:6332' # patterns-tables-basic-formatting-row-heights-dont
+  - '1868:53248' # patterns-tables-basic-formatting-small-avatars-default-table
+  - '1747:45874' # patterns-tables-basic-formatting-tags-anatomy
+  - '1833:46828' # patterns-tables-basic-formatting-tags-overflow
+  - '1833:46943' # patterns-tables-basic-formatting-tags-overflow-expanded
+  - '1833:46885' # patterns-tables-basic-formatting-tags-truncation
+  - '1833:47060' # patterns-tables-basic-formatting-view-actions
+  - '539:5678' # patterns-tables-basic-formatting-wrap-and-truncation

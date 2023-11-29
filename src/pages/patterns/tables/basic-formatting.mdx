@@ -407,7 +407,7 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($slug: String) {
     ...SidebarPageFragment
-    tablesLocalizationBulgarian: gardenFigmaAssets(
+    tablesLocalizationBulgarian: gardenFigmaAsset(
       name: { eq: "patterns-tables-basic-formatting-localization-bulgarian" }
     ) {
       childFile {
@@ -416,7 +416,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    tablesLocalizationArabic: gardenFigmaAssets(
+    tablesLocalizationArabic: gardenFigmaAsset(
       name: { eq: "patterns-tables-basic-formatting-localization-arabic" }
     ) {
       childFile {
@@ -425,7 +425,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    tablesRowHeightsDo: gardenFigmaAssets(
+    tablesRowHeightsDo: gardenFigmaAsset(
       name: { eq: "patterns-tables-basic-formatting-row-heights-do" }
     ) {
       childFile {
@@ -434,7 +434,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    tablesRowHeightsDont: gardenFigmaAssets(
+    tablesRowHeightsDont: gardenFigmaAsset(
       name: { eq: "patterns-tables-basic-formatting-row-heights-dont" }
     ) {
       childFile {

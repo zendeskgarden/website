@@ -179,14 +179,14 @@ export { SEO as Head } from 'components/SEO';
 export const pageQuery = graphql`
   query ($slug: String) {
     ...SidebarPageFragment
-    saveAnatomy: gardenFigmaAssets(name: { eq: "patterns-save-anatomy-action-footer" }) {
+    saveAnatomy: gardenFigmaAsset(name: { eq: "patterns-save-anatomy-action-footer" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveSuccessNotification: gardenFigmaAssets(
+    saveSuccessNotification: gardenFigmaAsset(
       name: { eq: "patterns-save-anatomy-success-notification" }
     ) {
       childFile {
@@ -195,7 +195,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    saveSuccessDo: gardenFigmaAssets(
+    saveSuccessDo: gardenFigmaAsset(
       name: { eq: "patterns-save-anatomy-success-notification-do" }
     ) {
       childFile {
@@ -204,7 +204,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    saveSuccessDont: gardenFigmaAssets(
+    saveSuccessDont: gardenFigmaAsset(
       name: { eq: "patterns-save-anatomy-success-notification-dont" }
     ) {
       childFile {
@@ -213,42 +213,42 @@ export const pageQuery = graphql`
         }
       }
     }
-    saveErrors: gardenFigmaAssets(name: { eq: "patterns-save-errors" }) {
+    saveErrors: gardenFigmaAsset(name: { eq: "patterns-save-errors" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveValidation: gardenFigmaAssets(name: { eq: "patterns-save-validation-alert" }) {
+    saveValidation: gardenFigmaAsset(name: { eq: "patterns-save-validation-alert" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveUnsavedChanges: gardenFigmaAssets(name: { eq: "patterns-save-unsaved-changes" }) {
+    saveUnsavedChanges: gardenFigmaAsset(name: { eq: "patterns-save-unsaved-changes" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveLocalizationArabic: gardenFigmaAssets(name: { eq: "patterns-save-rtl" }) {
+    saveLocalizationArabic: gardenFigmaAsset(name: { eq: "patterns-save-rtl" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveActionFooterFocus: gardenFigmaAssets(name: { eq: "patterns-save-action-footer-focus" }) {
+    saveActionFooterFocus: gardenFigmaAsset(name: { eq: "patterns-save-action-footer-focus" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveValidationAlertFocus: gardenFigmaAssets(
+    saveValidationAlertFocus: gardenFigmaAsset(
       name: { eq: "patterns-save-validation-alert-focus" }
     ) {
       childFile {
@@ -257,7 +257,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    saveUnsavedChangesFocus: gardenFigmaAssets(
+    saveUnsavedChangesFocus: gardenFigmaAsset(
       name: { eq: "patterns-save-unsaved-changes-focus" }
     ) {
       childFile {

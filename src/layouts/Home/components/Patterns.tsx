@@ -16,19 +16,17 @@ import MaxWidthLayout from 'layouts/MaxWidth';
 import { HomeLink } from './HomeLink';
 
 export const Patterns: React.FC = () => {
-  const { patternsImage } = useStaticQuery(
-    graphql`
-      {
-        patternsImage: gardenFigmaAssets(name: { eq: "home-pillars-patterns" }) {
-          childFile {
-            childImageSharp {
-              gatsbyImageData(width: 808)
-            }
+  const { patternsImage } = useStaticQuery(graphql`
+    {
+      patternsImage: gardenFigmaAsset(name: { eq: "home-pillars-patterns" }) {
+        childFile {
+          childImageSharp {
+            gatsbyImageData(width: 808)
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   return (
     <MaxWidthLayout>

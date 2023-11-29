@@ -7,14 +7,11 @@
 
 import { GatsbyNode } from 'gatsby';
 import { createNodeHelpers } from 'gatsby-node-helpers';
-
 import {
-  printMessage,
-  highlightMessage,
   getGardenReactVersion,
   generateGardenReactDoctypes,
   generateGardenReactPackages
-} from './utility';
+} from './utils';
 
 // graphql types
 const TYPE_PREFIX = 'Garden';
@@ -42,11 +39,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async ({
     packagesCacheKey = `${packagesCacheKey}-${version}`;
     componentsCacheKey = `${componentsCacheKey}-${version}`;
 
-    reporter.info(
-      printMessage(
-        `loading documentation types for Garden react components ${highlightMessage(`v${version}`)}`
-      )
-    );
+    reporter.info(`load documentation types for Garden react components ${`v${version}`}`);
 
     // eslint-disable-next-line no-negated-condition
     if (!(await cache.get(packagesCacheKey))) {
@@ -54,17 +47,13 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async ({
       const packages = await generateGardenReactPackages();
 
       reporter.info(
-        printMessage(
-          `loaded Garden package information from source for ${highlightMessage(
-            `${packages!.length}`
-          )} packages`
-        )
+        `loaded Garden package information from source for ${`${packages!.length}`} packages`
       );
 
       span.setTag(PLUGIN_NAME, 'caching-packages');
       await cache.set(packagesCacheKey, packages);
     } else {
-      reporter.info(printMessage('loaded Garden component packages from cache'));
+      reporter.info('loaded Garden component packages from cache');
     }
 
     // eslint-disable-next-line no-negated-condition
@@ -73,24 +62,20 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async ({
       const docTypes = await generateGardenReactDoctypes();
 
       reporter.info(
-        printMessage(
-          `generated Garden documentation types from source for ${highlightMessage(
-            `${docTypes!.length}`
-          )} components`
-        )
+        `generated Garden documentation types from source for ${`${docTypes!.length}`} components`
       );
 
       span.setTag(PLUGIN_NAME, 'caching-docgen');
       await cache.set(componentsCacheKey, docTypes);
     } else {
-      reporter.info(printMessage('loaded Garden component documentation types from cache'));
+      reporter.info('loaded Garden component documentation types from cache');
     }
   } catch (error: unknown) {
     const errorMessage = (error as Error).message as string;
 
     span.log({ error: true, message: errorMessage });
 
-    reporter.panic(printMessage(errorMessage, 'error'), error as Error);
+    reporter.panic(errorMessage, error as Error);
   }
 
   span.finish();

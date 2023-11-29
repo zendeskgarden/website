@@ -205,7 +205,7 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($slug: String) {
     ...SidebarPageFragment
-    comboboxSearchableDont: gardenFigmaAssets(
+    comboboxSearchableDont: gardenFigmaAsset(
       name: { eq: "components-dropdowns-combobox-searchable-dont" }
     ) {
       childFile {
@@ -214,7 +214,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    comboboxHighlightDo: gardenFigmaAssets(
+    comboboxHighlightDo: gardenFigmaAsset(
       name: { eq: "components-dropdowns-combobox-highlight-do" }
     ) {
       childFile {
@@ -223,7 +223,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    comboboxIconPlacementDo: gardenFigmaAssets(
+    comboboxIconPlacementDo: gardenFigmaAsset(
       name: { eq: "components-dropdowns-combobox-icon-placement-do" }
     ) {
       childFile {

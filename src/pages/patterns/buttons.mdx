@@ -280,21 +280,21 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($slug: String) {
     ...SidebarPageFragment
-    buttonsAnatomy: gardenFigmaAssets(name: { eq: "patterns-buttons-anatomy-button-type" }) {
+    buttonsAnatomy: gardenFigmaAsset(name: { eq: "patterns-buttons-anatomy-button-type" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsSizeDo: gardenFigmaAssets(name: { eq: "patterns-buttons-interface-button-size-do" }) {
+    buttonsSizeDo: gardenFigmaAsset(name: { eq: "patterns-buttons-interface-button-size-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    buttonsSizeDont: gardenFigmaAssets(
+    buttonsSizeDont: gardenFigmaAsset(
       name: { eq: "patterns-buttons-interface-button-size-dont" }
     ) {
       childFile {
@@ -303,84 +303,84 @@ export const pageQuery = graphql`
         }
       }
     }
-    buttonsAlignmentDo: gardenFigmaAssets(name: { eq: "patterns-buttons-alignment-do" }) {
+    buttonsAlignmentDo: gardenFigmaAsset(name: { eq: "patterns-buttons-alignment-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsAlignmentDont: gardenFigmaAssets(name: { eq: "patterns-buttons-alignment-dont" }) {
+    buttonsAlignmentDont: gardenFigmaAsset(name: { eq: "patterns-buttons-alignment-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsMediaDo: gardenFigmaAssets(name: { eq: "patterns-buttons-media-do" }) {
+    buttonsMediaDo: gardenFigmaAsset(name: { eq: "patterns-buttons-media-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsMediaDont: gardenFigmaAssets(name: { eq: "patterns-buttons-media-dont" }) {
+    buttonsMediaDont: gardenFigmaAsset(name: { eq: "patterns-buttons-media-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsIconsDo: gardenFigmaAssets(name: { eq: "patterns-buttons-icon-buttons-do" }) {
+    buttonsIconsDo: gardenFigmaAsset(name: { eq: "patterns-buttons-icon-buttons-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsIconsDont: gardenFigmaAssets(name: { eq: "patterns-buttons-icon-buttons-dont" }) {
+    buttonsIconsDont: gardenFigmaAsset(name: { eq: "patterns-buttons-icon-buttons-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsDisabledDo: gardenFigmaAssets(name: { eq: "patterns-buttons-disabled-do" }) {
+    buttonsDisabledDo: gardenFigmaAsset(name: { eq: "patterns-buttons-disabled-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsDisabledDont: gardenFigmaAssets(name: { eq: "patterns-buttons-disabled-dont" }) {
+    buttonsDisabledDont: gardenFigmaAsset(name: { eq: "patterns-buttons-disabled-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsButtonsVsAnchor: gardenFigmaAssets(name: { eq: "patterns-buttons-button-vs-link" }) {
+    buttonsButtonsVsAnchor: gardenFigmaAsset(name: { eq: "patterns-buttons-button-vs-link" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsContentDo: gardenFigmaAssets(name: { eq: "patterns-buttons-content-do" }) {
+    buttonsContentDo: gardenFigmaAsset(name: { eq: "patterns-buttons-content-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsContentDont: gardenFigmaAssets(name: { eq: "patterns-buttons-content-dont" }) {
+    buttonsContentDont: gardenFigmaAsset(name: { eq: "patterns-buttons-content-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsLocalizationArabic: gardenFigmaAssets(
+    buttonsLocalizationArabic: gardenFigmaAsset(
       name: { eq: "patterns-buttons-localization-arabic" }
     ) {
       childFile {

@@ -155,7 +155,7 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($slug: String) {
     ...SidebarPageFragment
-    toggleIconButtonTooltipDo: gardenFigmaAssets(
+    toggleIconButtonTooltipDo: gardenFigmaAsset(
       name: { eq: "components-buttons-toggleiconbutton-tooltip-do" }
     ) {
       childFile {

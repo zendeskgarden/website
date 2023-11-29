@@ -187,7 +187,7 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($slug: String) {
     ...SidebarPageFragment
-    dropdownSelectionDo: gardenFigmaAssets(
+    dropdownSelectionDo: gardenFigmaAsset(
       name: { eq: "components-dropdowns-autocomplete-selection-do" }
     ) {
       childFile {

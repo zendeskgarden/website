@@ -164,7 +164,7 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($slug: String) {
     ...SidebarPageFragment
-    globalAlertClearlyActionable: gardenFigmaAssets(
+    globalAlertClearlyActionable: gardenFigmaAsset(
       name: { eq: "components-notification-global-alert-clearly-actionable" }
     ) {
       childFile {
@@ -173,7 +173,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    globalAlertDismissable: gardenFigmaAssets(
+    globalAlertDismissable: gardenFigmaAsset(
       name: { eq: "components-notification-global-alert-dismissable" }
     ) {
       childFile {
@@ -182,7 +182,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    globalAlertPersistent: gardenFigmaAssets(
+    globalAlertPersistent: gardenFigmaAsset(
       name: { eq: "components-notification-global-alert-persistent" }
     ) {
       childFile {

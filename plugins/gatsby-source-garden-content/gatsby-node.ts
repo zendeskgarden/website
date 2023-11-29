@@ -8,9 +8,7 @@
 import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import { createNodeHelpers } from 'gatsby-node-helpers';
-
 import {
-  printMessage,
   getNewsMetadata,
   getNavigationMetadata,
   getFigmaAssetsMetadata,
@@ -18,13 +16,13 @@ import {
   fetchFigmaFileNodes,
   fetchFigmaImages,
   transformNavigation
-} from './utility';
+} from './utils';
 
 // graphql types
 const TYPE_PREFIX = 'Garden';
 const GARDEN_NEWS_ID = 'News';
 const GARDEN_NAV_ID = 'Navigation';
-const GARDEN_FIGMA_ID = 'FigmaAssets';
+const GARDEN_FIGMA_ID = 'FigmaAsset';
 // identifiers
 const PLUGIN_NAME = 'garden-content';
 const GATSBY_PLUGIN_NAME = `gatsby-source-${PLUGIN_NAME}`;
@@ -48,46 +46,46 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async (
   const span = tracing.startSpan(`${GATSBY_PLUGIN_NAME}:bootstrap`);
 
   try {
-    reporter.info(printMessage('reading and caching content data'));
+    reporter.info('read and cache content data');
 
-    reporter.info(printMessage('loading news content from source'));
+    reporter.info('load news content from source');
     span.setTag(PLUGIN_NAME, 'load-news');
     const { news, hash: newsHash } = getNewsMetadata();
 
     newsCacheKey = [newsCacheKey, newsHash].join('-');
 
     if (!!(await cache.get(newsCacheKey)) === false) {
-      reporter.info(printMessage('caching news content'));
+      reporter.info('cache news content');
       span.setTag(PLUGIN_NAME, 'caching-news');
       await cache.set(newsCacheKey, news);
     }
 
-    reporter.info(printMessage('loading nav content from source'));
+    reporter.info('load nav content from source');
     span.setTag(PLUGIN_NAME, 'load-nav');
     const { hash: navHash, ...nav } = getNavigationMetadata();
 
     navCacheKey = [navCacheKey, navHash].join('-');
 
     if (!!(await cache.get(navCacheKey)) === false) {
-      reporter.info(printMessage('caching nav content'));
+      reporter.info('cache nav content');
       span.setTag(PLUGIN_NAME, 'caching-nav');
       await cache.set(navCacheKey, nav);
     }
 
-    reporter.info(printMessage('loading Figma content dictionary from source'));
+    reporter.info('load Figma content dictionary from source');
     span.setTag(PLUGIN_NAME, 'load-figma-dictionary');
     const { hash: assetsHash, ...figmaDictionary } = getFigmaAssetsMetadata();
 
     figmaDictionaryCacheKey = [figmaDictionaryCacheKey, assetsHash].join('-');
 
     if (!!(await cache.get(figmaDictionaryCacheKey)) === false) {
-      reporter.info(printMessage('caching Figma content dictionary'));
+      reporter.info('cache Figma content dictionary');
       span.setTag(PLUGIN_NAME, 'caching-figma-dictionary');
       await cache.set(figmaDictionaryCacheKey, figmaDictionary);
     }
 
     if (figmaDictionary) {
-      reporter.info(printMessage('loading remote Figma image assets'));
+      reporter.info('load remote Figma image assets');
 
       const figmaApiToken = (config.figmaApiToken as string) || process.env.FIGMA_TOKEN;
       const { fileId, nodeIds, scale } = figmaDictionary;
@@ -104,7 +102,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async (
       figmaAssetsCacheKey = [figmaAssetsCacheKey, fileId, lastModified].join('-');
 
       if (!!(await cache.get(figmaAssetsCacheKey)) === false) {
-        reporter.info(printMessage('fetching Figma image assets from API'));
+        reporter.info('fetch Figma image assets from API');
 
         span.setTag(PLUGIN_NAME, 'fetching-remote-figma-assets-nodes');
         const { nodes } = await fetchFigmaFileNodes({
@@ -130,16 +128,12 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async (
 
           if (!node) {
             reporter.warn(
-              printMessage(
-                `Figma image node ID "${nodeId}" was not found, please check the ID is correct and it is present in the Figma file`
-              )
+              `Figma image node ID "${nodeId}" was not found, please check the ID is correct and it is present in the Figma file`
             );
             // eslint-disable-next-line no-negated-condition
           } else if (!image) {
             reporter.warn(
-              printMessage(
-                `Figma image "${nodeId}" was not found, please check if it was exported properly from the Figma file`
-              )
+              `Figma image "${nodeId}" was not found, please check if it was exported properly from the Figma file`
             );
           } else {
             gatsbyFigmaImages.push({
@@ -153,7 +147,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async (
         span.setTag(PLUGIN_NAME, 'caching-remote-figma-assets-images');
         await cache.set(figmaAssetsCacheKey, gatsbyFigmaImages);
       } else {
-        reporter.info(printMessage('loaded remote Figma images from the cache'));
+        reporter.info('loaded remote Figma images from the cache');
       }
     }
   } catch (error: unknown) {
@@ -161,7 +155,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async (
 
     span.log({ error: true, message: errorMessage });
 
-    reporter.panic(printMessage(errorMessage, 'error'), error as Error);
+    reporter.panic(errorMessage, error as Error);
   }
 
   span.finish();

@@ -8,17 +8,6 @@
 import { cmdDocgen } from '@zendeskgarden/scripts';
 import { join, resolve, sep } from 'path';
 import { readdirSync, lstatSync, readFileSync } from 'fs';
-import chalk from 'chalk';
-
-export function printMessage(message: string, type?: string) {
-  const color = type === 'error' ? chalk.redBright : chalk.greenBright;
-
-  return [color.bold('[GARDEN]'), message].join(': ');
-}
-
-export function highlightMessage(message: string) {
-  return chalk.blueBright.bold(message);
-}
 
 export function getGardenReactComponentsRootPath() {
   return resolve(process.cwd(), 'react-components');

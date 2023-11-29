@@ -136,21 +136,21 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($slug: String) {
     ...SidebarPageFragment
-    copyAnatomy: gardenFigmaAssets(name: { eq: "patterns-copy-anatomy" }) {
+    copyAnatomy: gardenFigmaAsset(name: { eq: "patterns-copy-anatomy" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyLayoutsDefault: gardenFigmaAssets(name: { eq: "patterns-copy-layouts-default" }) {
+    copyLayoutsDefault: gardenFigmaAsset(name: { eq: "patterns-copy-layouts-default" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyLayoutsDefaultNotification: gardenFigmaAssets(
+    copyLayoutsDefaultNotification: gardenFigmaAsset(
       name: { eq: "patterns-copy-layouts-default-notification" }
     ) {
       childFile {
@@ -159,14 +159,14 @@ export const pageQuery = graphql`
         }
       }
     }
-    copyLayoutsMinimal: gardenFigmaAssets(name: { eq: "patterns-copy-layouts-minimal" }) {
+    copyLayoutsMinimal: gardenFigmaAsset(name: { eq: "patterns-copy-layouts-minimal" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyLayoutsMinimalTooltip: gardenFigmaAssets(
+    copyLayoutsMinimalTooltip: gardenFigmaAsset(
       name: { eq: "patterns-copy-layouts-minimal-tooltip" }
     ) {
       childFile {
@@ -175,21 +175,21 @@ export const pageQuery = graphql`
         }
       }
     }
-    copyLayoutsContent: gardenFigmaAssets(name: { eq: "patterns-copy-content" }) {
+    copyLayoutsContent: gardenFigmaAsset(name: { eq: "patterns-copy-content" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyAccessibilityDo: gardenFigmaAssets(name: { eq: "patterns-copy-accessibility-input-do" }) {
+    copyAccessibilityDo: gardenFigmaAsset(name: { eq: "patterns-copy-accessibility-input-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    copyAccessibilityDont: gardenFigmaAssets(
+    copyAccessibilityDont: gardenFigmaAsset(
       name: { eq: "patterns-copy-accessibility-input-dont" }
     ) {
       childFile {
@@ -198,7 +198,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    copyAccessibilityMinimal: gardenFigmaAssets(
+    copyAccessibilityMinimal: gardenFigmaAsset(
       name: { eq: "patterns-copy-accessibility-minimal-focused" }
     ) {
       childFile {
@@ -207,7 +207,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    copyAccessibilityAria: gardenFigmaAssets(
+    copyAccessibilityAria: gardenFigmaAsset(
       name: { eq: "patterns-copy-accessibility-aria-labels" }
     ) {
       childFile {

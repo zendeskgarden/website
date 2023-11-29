@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import type { GatsbyConfig } from 'gatsby';
-import path from 'path';
-import fs from 'fs';
-// import envalid from 'envalid';
 import dotenv from 'dotenv';
+import { cleanEnv, str } from 'envalid';
+import fs from 'fs';
+import path from 'path';
+import { GatsbyConfig } from 'gatsby';
 
 dotenv.config();
-// envalid.cleanEnv(process.env, { FIGMA_TOKEN: envalid.str() });
+cleanEnv(process.env, { FIGMA_TOKEN: str() });
 
 const cwd = process.cwd();
 
@@ -33,6 +33,7 @@ const config: GatsbyConfig = {
       }
     },
     /* generators */
+    // 'gatsby-plugin-netlify',
     'gatsby-plugin-sitemap',
     /* sources */
     {
@@ -74,7 +75,7 @@ const config: GatsbyConfig = {
     /* bundling - file resolution */
     {
       resolve: 'gatsby-plugin-root-import',
-      // correlates to tsconfig.json (compilerOptions.paths.*)
+      // corresponds with tsconfig.json (compilerOptions.paths.*)
       options: {
         components: path.join(cwd, 'src', 'components'),
         icons: path.join(cwd, 'src', 'icons')

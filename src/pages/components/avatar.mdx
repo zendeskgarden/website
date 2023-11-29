@@ -113,14 +113,14 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($slug: String) {
     ...SidebarPageFragment
-    avatarShapeCircle: gardenFigmaAssets(name: { eq: "components-avatar-shape-circle" }) {
+    avatarShapeCircle: gardenFigmaAsset(name: { eq: "components-avatar-shape-circle" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)
         }
       }
     }
-    avatarShapeSquare: gardenFigmaAssets(name: { eq: "components-avatar-shape-square" }) {
+    avatarShapeSquare: gardenFigmaAsset(name: { eq: "components-avatar-shape-square" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)

@@ -9,22 +9,10 @@ import { readFileSync } from 'fs';
 import { resolve, join } from 'path';
 import { BinaryToTextEncoding, createHash } from 'crypto';
 import { parse } from 'yaml';
-import fetch from 'node-fetch';
-import chalk from 'chalk';
-
-export function printMessage(message: string, type?: string) {
-  const color =
-    type === 'error'
-      ? chalk.redBright
-      : type === 'warn'
-      ? chalk.rgb(255, 136, 0)
-      : chalk.greenBright;
-  return [color.bold('[GARDEN]'), message].join(': ');
-}
 
 export function hashFileContent(
   content: string,
-  algorithm: string = 'md5',
+  algorithm = 'md5',
   encoding: BinaryToTextEncoding = 'hex'
 ) {
   return createHash(algorithm).update(content).digest(encoding);
@@ -41,7 +29,7 @@ export function loadYamlFile(pathName: string) {
 
 export function getFigmaAssetsMetadata() {
   const {
-    data: { file: fileId, assets: nodeIds, scale },
+    data: { fileId, nodeIds, scale },
     hash
   } = loadYamlFile('figma/assets.yml');
 

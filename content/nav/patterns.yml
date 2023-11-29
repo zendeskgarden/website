@@ -8,8 +8,12 @@
       id: /patterns/buttons
     - title: Copy
       id: /patterns/copy
+    - title: Drag and drop
+      id: /patterns/drag-and-drop
     - title: Error handling
       id: /patterns/errors
+    - title: Filters
+      id: /patterns/filters
     - title: Loaders
       id: /patterns/loaders
     - title: Rich-text editor
