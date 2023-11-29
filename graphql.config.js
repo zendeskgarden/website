@@ -5,4 +5,5 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+/* eslint-disable-next-line node/no-missing-require */
 module.exports = require('./.cache/typegen/graphql.config.json');

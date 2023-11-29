@@ -6,7 +6,7 @@
  */
 
 import dotenv from 'dotenv';
-import { cleanEnv, str } from 'envalid';
+import {cleanEnv, str} from 'envalid';
 import fs from 'fs';
 import path from 'path';
 import { GatsbyConfig } from 'gatsby';
@@ -33,7 +33,7 @@ const config: GatsbyConfig = {
       }
     },
     /* generators */
-    'gatsby-plugin-netlify',
+    // 'gatsby-plugin-netlify',
     'gatsby-plugin-sitemap',
     /* sources */
     {

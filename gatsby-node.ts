@@ -6,39 +6,45 @@
  */
 
 import path from 'path';
+import { GatsbyNode, Page } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
 import smartquotes from 'smartquotes';
-import readingTime from 'reading-time';
-import { GatsbyNode } from 'gatsby';
+import { IPageContext } from './src/templates/types';
 
-function getGroup(page) {
-  let group = null;
+function getGroup(page: Page) {
+  let retVal = null;
 
-  switch (true) {
-    case page.path.startsWith('/components'):
-      group = 'components';
-      break;
-    case page.path.startsWith('/content'):
-      group = 'content';
-      break;
-    case page.path.startsWith('/design'):
-      group = 'design';
-      break;
-    case page.path.startsWith('/patterns'):
-      group = 'patterns';
-      break;
+  if (page.path.startsWith('/components')) {
+    retVal = 'components';
+  } else if (page.path.startsWith('/content')) {
+    retVal = 'content';
+  } else if (page.path.startsWith('/design')) {
+    retVal = 'design';
+  } else if (page.path.startsWith('/patterns')) {
+    retVal = 'patterns';
   }
 
-  return group;
+  return retVal;
 }
+
+export const createPages: GatsbyNode['createPages'] = ({ actions }) => {
+  const { createRedirect } = actions;
+
+  createRedirect({
+    fromPath: `/components/select-native`,
+    toPath: `/components/select`
+  });
+};
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === 'Mdx') {
-    const { sourceInstanceName } = getNode(node.parent);
+    const { sourceInstanceName } = getNode(node.parent!)!;
 
-    const slug = node.frontmatter.slug || createFilePath({ node, getNode, trailingSlash: false });
+    const slug =
+      (node as unknown as IPageContext).frontmatter.slug ||
+      createFilePath({ node, getNode, trailingSlash: false });
 
     createNodeField({
       name: 'slug',
@@ -53,15 +59,9 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNod
     });
 
     createNodeField({
-      name: `timeToRead`,
-      node,
-      value: readingTime(node.body as string)
-    });
-
-    createNodeField({
       name: `group`,
       node,
-      value: getGroup({ path: slug })
+      value: getGroup({ path: slug, component: '' })
     });
   }
 };
@@ -76,12 +76,14 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = ({ page, actions }) => {
     const pageContext = page.context || {};
 
     if (pageContext.frontmatter) {
-      if (pageContext.frontmatter.description) {
-        pageContext.frontmatter.description = smartquotes(pageContext.frontmatter.description);
+      const frontmatter = pageContext.frontmatter as IPageContext['frontmatter'];
+
+      if (frontmatter.description) {
+        frontmatter.description = smartquotes(frontmatter.description);
       }
 
-      if (pageContext.frontmatter.title) {
-        pageContext.frontmatter.title = smartquotes(pageContext.frontmatter.title);
+      if (frontmatter.title) {
+        frontmatter.title = smartquotes(frontmatter.title);
       }
     }
 
@@ -90,7 +92,7 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = ({ page, actions }) => {
       context: {
         ...pageContext,
         group: getGroup(page),
-        slug: page.path
+        fileAbsolutePath: page.path
       }
     });
   }

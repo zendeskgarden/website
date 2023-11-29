@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-
 import { Provider, Layout } from './src/components';
 
 export const wrapRootElement = ({ props, element }) => <Provider {...props}>{element}</Provider>;
