@@ -133,7 +133,7 @@ import SplitterButtonPositionCode from '!!raw-loader!../../examples/pane/Splitte
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

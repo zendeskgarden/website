@@ -13,7 +13,7 @@ import { SvgSearch } from '../../../examples/design/icons/SvgSearch';
 <SvgSearch data={props.data.svgIcons} inputPlaceholder="Search icons" />
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
     svgIcons: allFile(
       filter: {
@@ -21,7 +21,7 @@ export const pageQuery = graphql`
         relativeDirectory: { eq: "16" }
         name: { glob: "!wordmark-*" }
       }
-      sort: { name: ASC }
+      sort: { fields: name, order: ASC }
     ) {
       totalCount
       edges {

@@ -103,7 +103,7 @@ import TabsVerticalCode from '!!raw-loader!../../examples/tabs/TabsVertical.tsx'
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

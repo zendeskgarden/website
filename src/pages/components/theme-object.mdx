@@ -180,7 +180,7 @@ values are weights used by Garden components.
 ### iconSizes
 
 The icon sizes object corresponds with the small, medium, and large icons
-provided by Garden's [SVG Icon](/design/icons/installation) library.
+provided by Garden's [SVG Icon](/design/icons#installation) library.
 
 ### lineHeights
 
@@ -229,7 +229,7 @@ component size, padding, and margins.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

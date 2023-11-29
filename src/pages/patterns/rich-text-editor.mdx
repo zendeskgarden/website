@@ -214,39 +214,37 @@ Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    rteIntro: gardenFigmaAsset(name: { eq: "patterns-rich-text-editor-intro" }) {
+    rteIntro: figmaAsset(name: { eq: "patterns-rich-text-editor-intro" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    rteAnatomy: gardenFigmaAsset(name: { eq: "patterns-rich-text-editor-anatomy" }) {
+    rteAnatomy: figmaAsset(name: { eq: "patterns-rich-text-editor-anatomy" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    rteExample: gardenFigmaAsset(name: { eq: "patterns-rich-text-editor-example" }) {
+    rteExample: figmaAsset(name: { eq: "patterns-rich-text-editor-example" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    rteToolbarSections: gardenFigmaAsset(
-      name: { eq: "patterns-rich-text-editor-toolbar-sections" }
-    ) {
+    rteToolbarSections: figmaAsset(name: { eq: "patterns-rich-text-editor-toolbar-sections" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    rteToolbarSectionsCollapsedActions: gardenFigmaAsset(
+    rteToolbarSectionsCollapsedActions: figmaAsset(
       name: { eq: "patterns-rich-text-editor-toolbar-sections-collapsed-actions" }
     ) {
       childFile {
@@ -255,7 +253,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteToolbarSectionsKeyboardShortcuts: gardenFigmaAsset(
+    rteToolbarSectionsKeyboardShortcuts: figmaAsset(
       name: { eq: "patterns-rich-text-editor-toolbar-sections-keyboard-shortcuts" }
     ) {
       childFile {
@@ -264,7 +262,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFormattingToolbarLocationStart: gardenFigmaAsset(
+    rteFormattingToolbarLocationStart: figmaAsset(
       name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-start" }
     ) {
       childFile {
@@ -273,7 +271,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFormattingToolbarLocationEnd: gardenFigmaAsset(
+    rteFormattingToolbarLocationEnd: figmaAsset(
       name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-end" }
     ) {
       childFile {
@@ -282,7 +280,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFormattingToolbarLocationFloating: gardenFigmaAsset(
+    rteFormattingToolbarLocationFloating: figmaAsset(
       name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-floating" }
     ) {
       childFile {
@@ -291,7 +289,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFormattingToolbarLocationFloatingOpened: gardenFigmaAsset(
+    rteFormattingToolbarLocationFloatingOpened: figmaAsset(
       name: { eq: "patterns-rich-text-editor-formatting-toolbar-location-floating-opened" }
     ) {
       childFile {
@@ -300,7 +298,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFormattingToolbarSize: gardenFigmaAsset(
+    rteFormattingToolbarSize: figmaAsset(
       name: { eq: "patterns-rich-text-editor-formatting-toolbar-size" }
     ) {
       childFile {
@@ -309,7 +307,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFormattingResponsiveBehavior: gardenFigmaAsset(
+    rteFormattingResponsiveBehavior: figmaAsset(
       name: { eq: "patterns-rich-text-editor-formatting-responsive-behavior" }
     ) {
       childFile {
@@ -318,7 +316,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFormattingResponsiveBehaviorOverflow: gardenFigmaAsset(
+    rteFormattingResponsiveBehaviorOverflow: figmaAsset(
       name: { eq: "patterns-rich-text-editor-formatting-responsive-behavior-overflow" }
     ) {
       childFile {
@@ -327,7 +325,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFormattingResizableTextarea: gardenFigmaAsset(
+    rteFormattingResizableTextarea: figmaAsset(
       name: { eq: "patterns-rich-text-editor-formatting-resizable-textarea" }
     ) {
       childFile {
@@ -336,7 +334,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFormattingResizableTextareaExpanded: gardenFigmaAsset(
+    rteFormattingResizableTextareaExpanded: figmaAsset(
       name: { eq: "patterns-rich-text-editor-formatting-resizable-textarea-expanded" }
     ) {
       childFile {
@@ -345,7 +343,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFormattingResizableTextareaScrollbar: gardenFigmaAsset(
+    rteFormattingResizableTextareaScrollbar: figmaAsset(
       name: { eq: "patterns-rich-text-editor-formatting-resizable-textarea-scrollbar" }
     ) {
       childFile {
@@ -354,16 +352,14 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteStatesDisabled: gardenFigmaAsset(
-      name: { eq: "patterns-rich-text-editor-states-disabled" }
-    ) {
+    rteStatesDisabled: figmaAsset(name: { eq: "patterns-rich-text-editor-states-disabled" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    rteFlowsInsertLinkSelect: gardenFigmaAsset(
+    rteFlowsInsertLinkSelect: figmaAsset(
       name: { eq: "patterns-rich-text-editor-flows-insert-link-select" }
     ) {
       childFile {
@@ -372,7 +368,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFlowsInsertLinkSave: gardenFigmaAsset(
+    rteFlowsInsertLinkSave: figmaAsset(
       name: { eq: "patterns-rich-text-editor-flows-insert-link-save" }
     ) {
       childFile {
@@ -381,7 +377,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFlowsEditLinkSelect: gardenFigmaAsset(
+    rteFlowsEditLinkSelect: figmaAsset(
       name: { eq: "patterns-rich-text-editor-flows-edit-link-select" }
     ) {
       childFile {
@@ -390,7 +386,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteFlowsEditLinkSave: gardenFigmaAsset(
+    rteFlowsEditLinkSave: figmaAsset(
       name: { eq: "patterns-rich-text-editor-flows-edit-link-save" }
     ) {
       childFile {
@@ -399,7 +395,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteAccessibilityManagingFocus: gardenFigmaAsset(
+    rteAccessibilityManagingFocus: figmaAsset(
       name: { eq: "patterns-rich-text-editor-accessibility-managing-focus" }
     ) {
       childFile {

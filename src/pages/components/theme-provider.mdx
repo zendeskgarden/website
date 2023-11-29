@@ -103,7 +103,7 @@ import TargetingCode from '!!raw-loader!../../examples/theme-provider/ThemeProvi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

@@ -112,7 +112,7 @@ An InputGroup provides styles for grouping child inputs and buttons together. Ne
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

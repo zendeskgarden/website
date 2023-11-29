@@ -111,7 +111,7 @@ import SizeCode from '!!raw-loader!../../examples/modal/ModalSize.tsx';
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

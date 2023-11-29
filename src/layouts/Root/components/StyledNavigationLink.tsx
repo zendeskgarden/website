@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import { getColor } from '@zendeskgarden/react-theming';
+import { focusStyles, getColor } from '@zendeskgarden/react-theming';
 
 interface ILink {
-  children: string;
+  children: ReactNode;
   to: string;
   activeClassName?: string;
 }
@@ -42,8 +42,8 @@ export const StyledNavigationLink = styled(Link).attrs(p => ({
   padding: ${p => p.theme.space.base * 1.5}px ${p => p.theme.space.xs};
   color: ${p => p.theme.colors.foreground};
 
-  &:focus,
   &:hover,
+  &:focus,
   &:active {
     text-decoration: none;
     color: inherit;
@@ -53,13 +53,11 @@ export const StyledNavigationLink = styled(Link).attrs(p => ({
     background-color: ${p => getColor('grey', 800, p.theme, 0.1)};
   }
 
-  &[data-garden-focus-visible] {
-    box-shadow: ${p => p.theme.shadows.md(getColor('blue', 400, p.theme, 0.35)!)};
-  }
-
   &:hover {
     background-color: ${p => getColor('grey', 800, p.theme, 0.05)};
   }
+
+  ${props => focusStyles({ theme: props.theme })}
 
   &:active {
     background-color: ${p => getColor('grey', 800, p.theme, 0.2)};

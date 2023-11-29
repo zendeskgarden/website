@@ -1,91 +1,217 @@
 ---
 title: Combobox
-description: Combobox is an input plus a list box that appears beneath it. It searches and filters down options for the user.
-package: '@zendeskgarden/react-dropdowns'
+description: Combobox is an input plus a listbox that appears beneath it. It searches and filters down options, allowing the user to select.
+package: '@zendeskgarden/react-dropdowns.next'
 components:
-  - dropdowns/src/elements/Combobox/Combobox.tsx
-  - dropdowns/src/elements/Dropdown/Dropdown.tsx
-  - dropdowns/src/elements/Fields/Field.tsx
-  - dropdowns/src/elements/Fields/Hint.tsx
-  - dropdowns/src/elements/Menu/Items/Item.tsx
-  - dropdowns/src/elements/Fields/Label.tsx
-  - dropdowns/src/elements/Menu/Menu.tsx
+  - 'dropdowns.next/src/elements/combobox/Combobox.tsx'
+  - 'dropdowns.next/src/elements/combobox/Field.tsx'
+  - 'dropdowns.next/src/elements/combobox/Hint.tsx'
+  - 'dropdowns.next/src/elements/combobox/Label.tsx'
+  - 'dropdowns.next/src/elements/combobox/Message.tsx'
+  - 'dropdowns.next/src/elements/combobox/OptGroup.tsx'
+  - 'dropdowns.next/src/elements/combobox/Option.tsx'
+  - 'dropdowns.next/src/elements/combobox/Tag.tsx'
+subcomponents:
+  - 'dropdowns.next/src/elements/combobox/OptionMeta.tsx'
+  - 'dropdowns.next/src/elements/combobox/TagAvatar.tsx'
 ---
 
 <Usage>
   <Use>
     <ul>
-      <li>To filter down a list of options</li>
-      <li>To quickly find a known option</li>
-      <li>As a search field</li>
+      <li>To filter down a large list of options</li>
+      <li>To make a selection from a list of options</li>
     </ul>
   </Use>
   <Misuse>
     <ul>
       <li>
         <Markdown>
-          To see a list of options in the dropdown without entering text in the input field, use
-          [Autocomplete](/components/autocomplete)
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To make more than one selection, use [Multiselect](/components/multiselect) instead
+          To pick an option from a list on mobile devices, use [Select](/components/select) instead
         </Markdown>
       </li>
     </ul>
   </Misuse>
 </Usage>
 
-As the user types, options appear in the list box that match what the user is typing.
+## How to use it
 
-import ComboboxDefault from '../../examples/dropdowns/combobox/Default.tsx';
-import ComboboxDefaultCode from '!!raw-loader!../../examples/dropdowns/combobox/Default.tsx';
+### Default
 
-<CodeExample code={ComboboxDefaultCode}>
-  <ComboboxDefault />
+By default, the Combobox presents a list of suggested options upon value entry.
+
+import Default from '../../examples/combobox/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/combobox/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
 </CodeExample>
 
-## Customization
+### Autocomplete
+
+In conjunction with user-provided filtering, the `isAutocomplete` prop
+highlights an option for selection.
+
+import Autocomplete from '../../examples/combobox/Autocomplete.tsx';
+import AutocompleteCode from '!!raw-loader!../../examples/combobox/Autocomplete.tsx';
+
+<CodeExample code={AutocompleteCode}>
+  <Autocomplete />
+</CodeExample>
+
+### Disabled
+
+A disabled Combobox prevents user interaction. It doesn't appear in the tab
+order, can't receive focus, and may not be read aloud by a screenreader.
+
+import Disabled from '../../examples/combobox/Disabled.tsx';
+import DisabledCode from '!!raw-loader!../../examples/combobox/Disabled.tsx';
+
+<CodeExample code={DisabledCode}>
+  <Disabled />
+</CodeExample>
+
+### Grouped options
+
+Use grouped options for categorization.
+
+import Grouped from '../../examples/combobox/Grouped.tsx';
+import GroupedCode from '!!raw-loader!../../examples/combobox/Grouped.tsx';
+
+<CodeExample code={GroupedCode}>
+  <Grouped />
+</CodeExample>
+
+### Hidden label
+
+Combobox labels can be hidden.
+
+import Hidden from '../../examples/combobox/Hidden.tsx';
+import HiddenCode from '!!raw-loader!../../examples/combobox/Hidden.tsx';
+
+<CodeExample code={HiddenCode}>
+  <Hidden />
+</CodeExample>
+
+### Hint text
+
+Hint text gives further clarification.
+
+import Hint from '../../examples/combobox/Hint.tsx';
+import HintCode from '!!raw-loader!../../examples/combobox/Hint.tsx';
+
+<CodeExample code={HintCode}>
+  <Hint />
+</CodeExample>
+
+### Media
+
+Media elements add even more context to a Combobox and its options.
+
+import Media from '../../examples/combobox/Media.tsx';
+import MediaCode from '!!raw-loader!../../examples/combobox/Media.tsx';
+
+<CodeExample code={MediaCode}>
+  <Media />
+</CodeExample>
+
+### Multiselect
+
+Use the `isMultiselectable` prop to allow multiple selections.
+
+import Multiselect from '../../examples/combobox/Multiselect.tsx';
+import MultiselectCode from '!!raw-loader!../../examples/combobox/Multiselect.tsx';
+
+<CodeExample code={MultiselectCode}>
+  <Multiselect />
+</CodeExample>
+
+### Multiselect tags
+
+Follow Avatar [guidelines](/components/avatar#how-to-use-it-well) by using
+Option `tagProps` to alter the appearance of multiselect tags.
+
+import MultiselectTags from '../../examples/combobox/MultiselectTags.tsx';
+import MultiselectTagsCode from '!!raw-loader!../../examples/combobox/MultiselectTags.tsx';
+
+<CodeExample code={MultiselectTagsCode}>
+  <MultiselectTags />
+</CodeExample>
+
+### Nested
+
+A Combobox listbox can contain nested levels for additional categorization of options.
+
+import Nested from '../../examples/combobox/Nested.tsx';
+import NestedCode from '!!raw-loader!../../examples/combobox/Nested.tsx';
+
+<CodeExample code={NestedCode}>
+  <Nested />
+</CodeExample>
+
+### Search
+
+Combobox can be used to provide search suggestions.
+
+import Search from '../../examples/combobox/Search.tsx';
+import SearchCode from '!!raw-loader!../../examples/combobox/Search.tsx';
+
+<CodeExample code={SearchCode}>
+  <Search />
+</CodeExample>
+
+### Select only
+
+Add `isEditable={false}` to make Combobox behave like a native `<select>`.
+
+import SelectOnly from '../../examples/combobox/SelectOnly.tsx';
+import SelectOnlyCode from '!!raw-loader!../../examples/combobox/SelectOnly.tsx';
+
+<CodeExample code={SelectOnlyCode}>
+  <SelectOnly />
+</CodeExample>
 
 ### Size
 
-Combobox can be displayed in either default or compact size.
+Combobox can be default or compact in size.
 
-import ComboboxSize from '../../examples/dropdowns/combobox/Size.tsx';
-import ComboboxSizeCode from '!!raw-loader!../../examples/dropdowns/combobox/Size.tsx';
+import Size from '../../examples/combobox/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/combobox/Size.tsx';
 
-<CodeExample code={ComboboxSizeCode}>
-  <ComboboxSize />
+<CodeExample code={SizeCode}>
+  <Size />
 </CodeExample>
 
-### Hidden Label
+### Validation
 
-The label can be hidden.
+Show success, warning, and error validation messages with the Message component.
 
-import ComboboxHidden from '../../examples/dropdowns/combobox/Hidden.tsx';
-import ComboboxHiddenCode from '!!raw-loader!../../examples/dropdowns/combobox/Hidden.tsx';
+import Validation from '../../examples/combobox/Validation.tsx';
+import ValidationCode from '!!raw-loader!../../examples/combobox/Validation.tsx';
 
-<CodeExample code={ComboboxHiddenCode}>
-  <ComboboxHidden />
+<CodeExample code={ValidationCode}>
+  <Validation />
 </CodeExample>
 
-### Selection Logic
+## How to use it well
 
-The combobox can be customized to include selection logic that highlights the first relevant
-result as the user types, allowing the user to press Enter to select the item.
-If this logic is not included, the user must manually select a result from the list.
+### Narrow down options
 
-import ComboboxSelection from '../../examples/dropdowns/combobox/Selection.tsx';
-import ComboboxSelectionCode from '!!raw-loader!../../examples/dropdowns/combobox/Selection.tsx';
+<BestPractice>
+  <Do
+    imageSource={props.data.dropdownSelectionDo.childFile.childImageSharp.gatsbyImageData}
+    imageIsSquare
+  >
+    <p>
+      Combobox is useful for lists that are too long to read in full (for example, company
+      employees) or that accumulate items over time (for example, an inventory).
+    </p>
+  </Do>
+</BestPractice>
 
-<CodeExample code={ComboboxSelectionCode}>
-  <ComboboxSelection />
-</CodeExample>
+### Apply icons consistently
 
-## Usage
-
-<BestPractice rows>
+<BestPractice>
   <Do
     imageIsFreeForm
     imageSource={props.data.comboboxIconPlacementDo.childFile.childImageSharp.gatsbyImageData}
@@ -95,26 +221,6 @@ import ComboboxSelectionCode from '!!raw-loader!../../examples/dropdowns/combobo
       search.
     </p>
   </Do>
-  <Do
-    imageIsFreeForm
-    imageSource={props.data.comboboxHighlightDo.childFile.childImageSharp.gatsbyImageData}
-  >
-    <p>
-      When using Combobox as a search input, automatically highlight the first suggestion in the
-      list box and allow the user to press the Enter key to submit the search.
-    </p>
-  </Do>
-  <Dont
-    imageIsFreeForm
-    imageSource={props.data.comboboxSearchableDont.childFile.childImageSharp.gatsbyImageData}
-  >
-    <p>
-      <Markdown>
-        Use an [Autocomplete](/components/autocomplete) component to create a dropdown that shows a
-        list of options without needing to enter text in the input field.
-      </Markdown>
-    </p>
-  </Dont>
 </BestPractice>
 
 ## Configuration
@@ -126,18 +232,14 @@ import ComboboxSelectionCode from '!!raw-loader!../../examples/dropdowns/combobo
 The Combobox component follows this structure:
 
 ```jsx
-<Dropdown>
-  <Field>
-    <Label />
-    <Hint />
-    <Combobox />
-  </Field>
-  <Menu>
-    <Item />
-    <Item />
+<Field>
+  <Label />
+  <Combobox>
+    <Option />
+    <Option />
     {/* etc. */}
-  </Menu>
-</Dropdown>
+  </Combobox>
+</Field>
 ```
 
 ### Combobox
@@ -147,16 +249,6 @@ The Combobox component follows this structure:
 Nest a Combobox within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="combobox" />
-
-### Dropdown
-
-<Component components={props.data.mdx.components} componentName="dropdown" />
-
-import Dropdowns from '../../fragments/dropdowns.mdx';
-
-<Dropdowns />
-
-<PropSheet components={props.data.mdx.components} componentName="dropdown" />
 
 ### Field
 
@@ -175,15 +267,6 @@ Nest a Hint within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="hint" />
 
-### Item
-
-<Component components={props.data.mdx.components} componentName="item" />
-
-Nest an Item within a [Menu](#menu) component. It requires a `value` prop, which it provides to
-the `onSelect` callback.
-
-<PropSheet components={props.data.mdx.components} componentName="item" />
-
 ### Label
 
 <Component components={props.data.mdx.components} componentName="label" />
@@ -192,38 +275,73 @@ Nest a Label within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="label" />
 
-### Menu
+### Message
 
-<Component components={props.data.mdx.components} componentName="menu" />
+<Component components={props.data.mdx.components} componentName="message" />
 
-A [Menu](/components/menu) manages placement, positioning and layout of the child Item components.
+The Message component applies appropriate icon and styles based on the validation provided. Nest
+it within a [Field](#field) component.
 
-<PropSheet components={props.data.mdx.components} componentName="menu" />
+<PropSheet components={props.data.mdx.components} componentName="message" />
+
+### Option
+
+<Component components={props.data.mdx.components} componentName="option" />
+
+Nest an Option within a [Combobox](#combobox) or [OptGroup](#optgroup) component.
+
+<PropSheet components={props.data.mdx.components} componentName="option" />
+
+#### Option.Meta
+
+<Component components={props.data.mdx.subcomponents} componentName="option.meta" />
+
+Nest Meta within an [Option](#option) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="option.meta" />
+
+### OptGroup
+
+<Component components={props.data.mdx.components} componentName="optgroup" />
+
+Nest an OptGroup within a [Combobox](#combobox) component.
+
+<PropSheet components={props.data.mdx.components} componentName="optgroup" />
+
+### Tag
+
+<Component components={props.data.mdx.components} componentName="tag" />
+
+The Tag is not intended to be used directly. It is used internally by the
+Combobox component to render selected options. Reference the props below for
+overriding [Option](#option) `tagProps`.
+
+<PropSheet components={props.data.mdx.components} componentName="tag" />
+
+#### Tag.Avatar
+
+<Component components={props.data.mdx.subcomponents} componentName="tag.avatar" />
+
+Use Avatar to render `children` of [Option](#option) `tagProps` with an
+associated image.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tag.avatar" />
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    comboboxSearchableDont: gardenFigmaAsset(
-      name: { eq: "components-dropdowns-combobox-searchable-dont" }
+    dropdownSelectionDo: figmaAsset(
+      name: { eq: "components-dropdowns-autocomplete-selection-do" }
     ) {
       childFile {
         childImageSharp {
-          gatsbyImageData(height: 407)
+          gatsbyImageData(height: 200)
         }
       }
     }
-    comboboxHighlightDo: gardenFigmaAsset(
-      name: { eq: "components-dropdowns-combobox-highlight-do" }
-    ) {
-      childFile {
-        childImageSharp {
-          gatsbyImageData(height: 284)
-        }
-      }
-    }
-    comboboxIconPlacementDo: gardenFigmaAsset(
+    comboboxIconPlacementDo: figmaAsset(
       name: { eq: "components-dropdowns-combobox-icon-placement-do" }
     ) {
       childFile {

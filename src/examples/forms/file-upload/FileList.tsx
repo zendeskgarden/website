@@ -14,8 +14,17 @@ import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const handleClick = () => alert('File dismissed via mouse');
 
-const handleKeyDown = (e: React.KeyboardEvent<any>) => {
+const handleFileKeyDown = (e: React.KeyboardEvent<any>) => {
   if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+    e.preventDefault();
+    alert('File dismissed via keyboard');
+  }
+};
+
+const handleCloseKeyDown = (e: React.KeyboardEvent<any>) => {
+  const KEYS = [KEY_CODES.SPACE, KEY_CODES.ENTER, KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
+
+  if (KEYS.includes(e.keyCode)) {
     e.preventDefault();
     alert('File dismissed via keyboard');
   }
@@ -26,37 +35,73 @@ const Example = () => (
     <Col sm={5}>
       <FileList>
         <FileList.Item>
-          <File type="generic" aria-label="Generic file" tabIndex={0} onKeyDown={handleKeyDown}>
+          <File
+            type="generic"
+            aria-label="Generic file, press delete to stop upload"
+            tabIndex={0}
+            onKeyDown={handleFileKeyDown}
+          >
             Garden file
             <Tooltip content="Stop upload">
-              <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
+              <File.Close
+                aria-label="Stop upload"
+                onClick={handleClick}
+                onKeyDown={handleCloseKeyDown}
+              />
             </Tooltip>
             <Progress value={0} aria-hidden="true" />
           </File>
         </FileList.Item>
         <FileList.Item>
-          <File type="document" aria-label="Document file" tabIndex={0} onKeyDown={handleKeyDown}>
+          <File
+            type="document"
+            aria-label="Document file, press delete to stop upload"
+            tabIndex={0}
+            onKeyDown={handleFileKeyDown}
+          >
             Plant ecology.doc
             <Tooltip content="Stop upload">
-              <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
+              <File.Close
+                aria-label="Stop upload"
+                onClick={handleClick}
+                onKeyDown={handleCloseKeyDown}
+              />
             </Tooltip>
             <Progress value={16} aria-label="Uploading Plant ecology.doc" />
           </File>
         </FileList.Item>
         <FileList.Item>
-          <File type="image" aria-label="Image file" tabIndex={0} onKeyDown={handleKeyDown}>
+          <File
+            type="image"
+            aria-label="Image file, press delete to stop upload"
+            tabIndex={0}
+            onKeyDown={handleFileKeyDown}
+          >
             Rose petals.jpg
             <Tooltip content="Stop upload">
-              <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
+              <File.Close
+                aria-label="Stop upload"
+                onClick={handleClick}
+                onKeyDown={handleCloseKeyDown}
+              />
             </Tooltip>
             <Progress value={32} aria-label="Uploading Rose petals.jpg" />
           </File>
         </FileList.Item>
         <FileList.Item>
-          <File type="pdf" aria-label="PDF file" tabIndex={0} onKeyDown={handleKeyDown}>
+          <File
+            type="pdf"
+            aria-label="PDF file, press delete to stop upload"
+            tabIndex={0}
+            onKeyDown={handleFileKeyDown}
+          >
             Basics of gardening.pdf
             <Tooltip content="Stop upload">
-              <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
+              <File.Close
+                aria-label="Stop upload"
+                onClick={handleClick}
+                onKeyDown={handleCloseKeyDown}
+              />
             </Tooltip>
             <Progress value={48} aria-label="Uploading Basics of gardening.pdf" />
           </File>
@@ -64,13 +109,17 @@ const Example = () => (
         <FileList.Item>
           <File
             type="presentation"
-            aria-label="Presentation file"
+            aria-label="Presentation file, press delete to stop upload"
             tabIndex={0}
-            onKeyDown={handleKeyDown}
+            onKeyDown={handleFileKeyDown}
           >
             Presentation bouquets.ppt
             <Tooltip content="Stop upload">
-              <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
+              <File.Close
+                aria-label="Stop upload"
+                onClick={handleClick}
+                onKeyDown={handleCloseKeyDown}
+              />
             </Tooltip>
             <Progress value={64} aria-label="Uploading Presentation bouquets.ppt" />
           </File>
@@ -78,22 +127,35 @@ const Example = () => (
         <FileList.Item>
           <File
             type="spreadsheet"
-            aria-label="Spreadsheet file"
+            aria-label="Spreadsheet file, press delete to stop upload"
             tabIndex={0}
-            onKeyDown={handleKeyDown}
+            onKeyDown={handleFileKeyDown}
           >
             Seed inventory.xlsx
             <Tooltip content="Stop upload">
-              <File.Close aria-label="close" onClick={handleClick} tabIndex={-1} />
+              <File.Close
+                aria-label="Stop upload"
+                onClick={handleClick}
+                onKeyDown={handleCloseKeyDown}
+              />
             </Tooltip>
             <Progress value={80} aria-label="Uploading Seed inventory.xlsx" />
           </File>
         </FileList.Item>
         <FileList.Item>
-          <File type="zip" aria-label="ZIP file" tabIndex={0} onKeyDown={handleKeyDown}>
+          <File
+            type="zip"
+            aria-label="ZIP file, press delete to remove"
+            tabIndex={0}
+            onKeyDown={handleFileKeyDown}
+          >
             Landscape.zip
             <Tooltip content="Remove file">
-              <File.Delete aria-label="delete" onClick={handleClick} tabIndex={-1} />
+              <File.Delete
+                aria-label="Remove file"
+                onClick={handleClick}
+                onKeyDown={handleCloseKeyDown}
+              />
             </Tooltip>
             <Progress value={100} aria-hidden="true" />
           </File>

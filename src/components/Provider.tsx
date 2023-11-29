@@ -8,7 +8,6 @@
 import React, { createRef, FC } from 'react';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ToastProvider } from '@zendeskgarden/react-notifications';
-
 import { MarkdownProvider } from './MarkdownProvider';
 
 const theme = {
@@ -21,10 +20,10 @@ const toastPlacement = {
 };
 
 export const Provider: FC = ({ children }) => {
-  const focusVisibleRef = createRef<HTMLElement>();
+  const focusVisibleRef = createRef<HTMLDivElement>();
 
   return (
-    <ThemeProvider focus={focusVisibleRef} theme={theme}>
+    <ThemeProvider focusVisibleRef={focusVisibleRef} theme={theme}>
       <div
         ref={focusVisibleRef}
         css={`

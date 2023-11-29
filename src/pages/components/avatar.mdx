@@ -88,9 +88,11 @@ user distinguish between the two when scanning a page.
 
 The Avatar component follows this structure:
 
-{/* prettier-ignore */}
+<!-- prettier-ignore -->
 ```jsx
-<Avatar>{/* One of icon, img, or Avatar.Text */}</Avatar>
+<Avatar>
+  {/* One of icon, img, or Avatar.Text */}
+</Avatar>
 ```
 
 ### Avatar
@@ -111,16 +113,16 @@ See [type example](#type).
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    avatarShapeCircle: gardenFigmaAsset(name: { eq: "components-avatar-shape-circle" }) {
+    avatarShapeCircle: figmaAsset(name: { eq: "components-avatar-shape-circle" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)
         }
       }
     }
-    avatarShapeSquare: gardenFigmaAsset(name: { eq: "components-avatar-shape-square" }) {
+    avatarShapeSquare: figmaAsset(name: { eq: "components-avatar-shape-square" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)

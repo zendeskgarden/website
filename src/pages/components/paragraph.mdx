@@ -69,7 +69,7 @@ import SizeCode from '!!raw-loader!../../examples/typography/paragraph/Size.tsx'
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

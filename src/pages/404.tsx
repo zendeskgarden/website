@@ -22,7 +22,7 @@ export const Head = (props: HeadProps) => <SEO title="Not found" {...props} />;
 const NotFoundPage: React.FC = () => {
   const { notFoundImage } = useStaticQuery(graphql`
     {
-      notFoundImage: gardenFigmaAsset(name: { eq: "general-error-404" }) {
+      notFoundImage: figmaAsset(name: { eq: "general-error-404" }) {
         childFile {
           childImageSharp {
             gatsbyImageData(width: 270, height: 270, layout: FIXED)

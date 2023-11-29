@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { HeadProps, graphql } from 'gatsby';
+import { graphql, HeadProps } from 'gatsby';
 import { SEO } from 'components/SEO';
 import RootLayout from 'layouts/Root';
 import HomeLayout from 'layouts/Home';
@@ -28,15 +28,10 @@ export default IndexPage;
  */
 export const SidebarPageFragment = graphql`
   fragment SidebarPageFragment on Query {
-    mdx(fields: { slug: { eq: $slug } }) {
+    mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {
       id
       excerpt
       tableOfContents(maxDepth: 3)
-      fields {
-        timeToRead {
-          minutes
-        }
-      }
       navigation {
         id: url
         title

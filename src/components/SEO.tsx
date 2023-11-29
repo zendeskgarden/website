@@ -8,7 +8,6 @@
 import React, { ReactNode } from 'react';
 import { graphql, useStaticQuery, HeadProps } from 'gatsby';
 import { PALETTE } from '@zendeskgarden/react-theming';
-
 import { IPageContext, IPageData } from '../templates/types';
 
 interface ISEOProps {
@@ -83,34 +82,13 @@ export const SEO = ({
           property: 'og:image:height',
           content: '640'
         },
-        // see: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image
-        {
-          name: 'twitter:site',
-          content: site.siteMetadata.siteUrl
-        },
         {
           name: 'twitter:card',
           content: 'summary_large_image'
         }
-      ]
-        .concat(
-          data.mdx
-            ? [
-                // see: https://community.hubspot.com/t5/Share-Your-Work/Make-your-Slack-previews-better-Add-Reading-Time-Publish-Date/m-p/182219
-                {
-                  name: 'twitter:label1',
-                  content: 'Time to read'
-                },
-                {
-                  name: 'twitter:data1',
-                  content: `${data.mdx.fields.timeToRead.minutes} minutes`
-                }
-              ]
-            : []
-        )
-        .map((props, index) => (
-          <meta key={`head-meta-${index}`} {...props} />
-        ))}
+      ].map((props, index) => (
+        <meta key={`head-meta-${index}`} {...props} />
+      ))}
 
       {[
         { rel: 'mask-icon', href: '/mask-icon.svg', color: PALETTE.kale[700] },

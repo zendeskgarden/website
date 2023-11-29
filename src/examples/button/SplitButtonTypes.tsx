@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
-import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
 
 const Example = () => {
   const [defaultRotated, setDefaultRotated] = useState<boolean>();
@@ -19,39 +19,42 @@ const Example = () => {
       <Col textAlign="center">
         <SplitButton>
           <Button>Harvest</Button>
-          <Dropdown
-            onStateChange={options =>
-              Object.hasOwn(options, 'isOpen') && setDefaultRotated(options.isOpen)
+          <Menu
+            button={props => (
+              <ChevronButton {...props} aria-label="other actions" isRotated={defaultRotated} />
+            )}
+            onChange={changes =>
+              changes.isExpanded !== undefined && setDefaultRotated(changes.isExpanded)
             }
+            placement="bottom-end"
           >
-            <Trigger>
-              <ChevronButton aria-label="other actions" isRotated={defaultRotated} />
-            </Trigger>
-            <Menu placement="bottom-end">
-              <Item value="prune">Prune</Item>
-              <Item value="water">Water</Item>
-              <Item value="fertilize">Fertilize</Item>
-            </Menu>
-          </Dropdown>
+            <Item value="prune">Prune</Item>
+            <Item value="water">Water</Item>
+            <Item value="fertilize">Fertilize</Item>
+          </Menu>
         </SplitButton>
       </Col>
       <Col textAlign="center">
         <SplitButton>
           <Button isPrimary>Harvest</Button>
-          <Dropdown
-            onStateChange={options =>
-              Object.hasOwn(options, 'isOpen') && setPrimaryRotated(options.isOpen)
+          <Menu
+            button={props => (
+              <ChevronButton
+                {...props}
+                aria-label="other actions"
+                isPrimary
+                isRotated={primaryRotated}
+              />
+            )}
+            onChange={changes =>
+              changes.isExpanded !== undefined && setPrimaryRotated(changes.isExpanded)
             }
+            placement="bottom-end"
           >
-            <Trigger>
-              <ChevronButton aria-label="other actions" isPrimary isRotated={primaryRotated} />
-            </Trigger>
-            <Menu placement="bottom-end">
-              <Item value="prune">Prune</Item>
-              <Item value="water">Water</Item>
-              <Item value="fertilize">Fertilize</Item>
-            </Menu>
-          </Dropdown>
+            <Item value="prune">Prune</Item>
+            <Item value="water">Water</Item>
+            <Item value="fertilize">Fertilize</Item>
+          </Menu>
         </SplitButton>
       </Col>
     </Row>

@@ -173,7 +173,7 @@ import NestingCode from '!!raw-loader!../../examples/grid/GridNesting.tsx';
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

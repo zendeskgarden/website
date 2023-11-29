@@ -14,6 +14,11 @@ components:
   - dropdowns/src/elements/Menu/Menu.tsx
 ---
 
+<Alert title="Deprecated" type="warning">
+  Autocomplete does not meet Web Content Accessibility Guidelines (WCAG) requirements. Use
+  [Combobox](/components/combobox) instead.
+</Alert>
+
 <Usage>
   <Use>
     <ul>
@@ -185,9 +190,9 @@ A [Menu](/components/menu) manages placement, positioning and layout of the chil
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    dropdownSelectionDo: gardenFigmaAsset(
+    dropdownSelectionDo: figmaAsset(
       name: { eq: "components-dropdowns-autocomplete-selection-do" }
     ) {
       childFile {

@@ -134,7 +134,7 @@ import TimeWindowCode from '!!raw-loader!../../examples/date-picker/DatepickerTi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

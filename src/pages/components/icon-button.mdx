@@ -122,12 +122,12 @@ import IconButtonTypesCode from '!!raw-loader!../../examples/button/IconButtonTy
 
 The IconButton component follows this structure:
 
-{/* prettier-ignore */}
+<!-- prettier-ignore -->
 ```jsx
-<Tooltip>
-  {' '}
-  {/* recommended */}
-  <IconButton>{/* icon here */}</IconButton>
+<Tooltip> {/* recommended */}
+  <IconButton>
+    {/* icon here */}
+  </IconButton>
 </Tooltip>
 ```
 
@@ -143,11 +143,9 @@ See [default example](#default).
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    iconButtonTooltipDo: gardenFigmaAsset(
-      name: { eq: "components-buttons-iconbutton-tooltip-do" }
-    ) {
+    iconButtonTooltipDo: figmaAsset(name: { eq: "components-buttons-iconbutton-tooltip-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)

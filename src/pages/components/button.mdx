@@ -158,7 +158,7 @@ The StartIcon component appropriately positions its child icon within the button
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

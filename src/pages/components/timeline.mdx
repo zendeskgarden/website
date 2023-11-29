@@ -175,16 +175,16 @@ within an [Item](#timelineitem) component.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    timelineNestingDo: gardenFigmaAsset(name: { eq: "components-timeline-nesting-do" }) {
+    timelineNestingDo: figmaAsset(name: { eq: "components-timeline-nesting-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)
         }
       }
     }
-    timelineCorrectHierarchyDont: gardenFigmaAsset(
+    timelineCorrectHierarchyDont: figmaAsset(
       name: { eq: "components-timeline-correct-hierarchy-dont" }
     ) {
       childFile {
@@ -193,7 +193,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    timelineCorrectHierarchyDo: gardenFigmaAsset(
+    timelineCorrectHierarchyDo: figmaAsset(
       name: { eq: "components-timeline-correct-hierarchy-do" }
     ) {
       childFile {
@@ -202,7 +202,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    timelineInteractiveElementsDont: gardenFigmaAsset(
+    timelineInteractiveElementsDont: figmaAsset(
       name: { eq: "components-timeline-interactive-elements-dont" }
     ) {
       childFile {
@@ -211,7 +211,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    timelineInteractiveElementsDo: gardenFigmaAsset(
+    timelineInteractiveElementsDo: figmaAsset(
       name: { eq: "components-timeline-interactive-elements-do" }
     ) {
       childFile {

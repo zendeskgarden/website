@@ -12,6 +12,7 @@ import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 import { ISidebarSection } from '..';
+import { NavItemTitle } from './NavItemTitle';
 
 const StyledSidebarLink = styled(StyledNavigationLink)`
   display: block;
@@ -63,7 +64,7 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
               to={item.id ? item.id : item.items![0].id!}
               activeClassName={item.id ? undefined : 'active-heading'}
             >
-              {item.title}
+              <NavItemTitle>{item.title}</NavItemTitle>
             </StyledSidebarLink>
             {isExpanded && (
               <ul
@@ -78,7 +79,9 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
                       margin-top: ${p => p.theme.space.xxs};
                     `}
                   >
-                    <StyledSidebarLink to={nestedItem.id!}>{nestedItem.title}</StyledSidebarLink>
+                    <StyledSidebarLink to={nestedItem.id!}>
+                      <NavItemTitle>{nestedItem.title}</NavItemTitle>
+                    </StyledSidebarLink>
                   </li>
                 ))}
               </ul>
@@ -94,10 +97,7 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
       aria-label="Primary"
       css={css`
         position: fixed;
-        top: ${p => p.theme.space.base * 20}px;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        inset: ${p => p.theme.space.base * 20}px 0 0 0;
         background-color: ${p => p.theme.palette.tofu};
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.xxl};
         overflow: scroll;

@@ -45,12 +45,27 @@ are applied must be wrapped in a positioned box (`relative`, `absolute`, or
 
 <PropSheet components={COMPONENTS} componentName="arrowStyles" headerName="Parameter" />
 
+### focusStyles
+
+CSS for Garden standard `box-shadow` focus styling. The hue and shade are used
+to determine the color of the focus ring.
+
+<PropSheet components={COMPONENTS} componentName="focusStyles" headerName="Parameter" />
+
 ### getColor
 
 Get a color for the given hue, shade, and theme. The algorithm returns a
 valid color even if the particular shade doesn't exist in the current theme.
 
 <PropSheet components={COMPONENTS} componentName="getColor" headerName="Parameter" />
+
+### getFocusBoxShadow
+
+Get a CSS `box-shadow` property value for focus state styling. The hue and shade
+are used to determine the color of the focus ring. Use this function when
+[focusStyles](#focusstyles) is not the right fit.
+
+<PropSheet components={COMPONENTS} componentName="getFocusBoxShadow" headerName="Parameter" />
 
 ### getLineHeight
 
@@ -101,6 +116,14 @@ export const StyledCustomComponent = styled.div.attrs({
 
 <PropSheet components={COMPONENTS} componentName="retrieveComponentStyles" headerName="Parameter" />
 
+### useText
+
+A custom React hook that provides default text for `aria-label` or other
+critical attribute strings. If necessary, a development mode console warning
+prompts the consumer to provide customized, translated text.
+
+<PropSheet components={COMPONENTS} componentName="useText" headerName="Parameter" />
+
 ### withTheme
 
 Use this component factory to pass the context theme object to any React
@@ -113,7 +136,7 @@ may be used as a favorable alternative.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

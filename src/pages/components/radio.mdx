@@ -31,7 +31,7 @@ subcomponents:
       </li>
       <li>
         <Markdown>
-          To select from a long list of options, use [Select](/components/select) instead
+          To select from a long list of options, use [Combobox](/components/combobox) instead
         </Markdown>
       </li>
     </ul>
@@ -187,7 +187,7 @@ Nest a Radio within a [Field](#field) component.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

@@ -1,0 +1,632 @@
+---
+title: Drag and drop
+description: >
+  Drag and drop pattern is often used to change the order of items in a list or to move and organize items between lists.
+---
+
+![List of items with one item being dragged to show parts of the item.](figma:patterns-dnd-intro.png)
+
+## Anatomy
+
+[Drag and drop](https://zendeskgarden.github.io/react-components/?path=/story/packages-drag-drop-patterns--drag-and-drop)
+interaction is common in workflows where the user wants to change the order or of items.
+It is also often used to build something by moving items around the screen,
+for example, a layout, report, or dashboard.
+
+![List of items with one item being dragged to show parts of the item.](figma:patterns-dnd-anatomy.png)
+
+1. Draggable grip
+2. Target placeholder as whitespace
+3. Draggable item being dragged
+
+Drag and drop between lists puts more emphasis on dropzones and source placeholders.
+
+![A List containing four draggable items where one has a hover state, with a dropzone on the right side.](figma:patterns-dnd-anatomy-flow-1.png)
+![A list containing four draggable items where one is being dragged toward an active dropzone on the right side.](figma:patterns-dnd-anatomy-flow-2.png)
+![A list with four draggable items where one is being dragged over a highlighted dropzone on the right side.](figma:patterns-dnd-anatomy-flow-3.png)
+![A list containing three draggable items on the left side and one draggable item on the right side.](figma:patterns-dnd-anatomy-flow-4.png)
+
+1. Draggable item
+2. Dropzone
+3. Source placeholder
+4. Dropzone active
+5. Dropzone highlighted
+6. Draggable item released
+
+### Related components
+
+- [Draggable](/components/draggable)
+
+## Formatting and States
+
+### Draggable item
+
+The grip handle and border define the default [Draggable](/components/draggable#default) item.
+Draggable items should have labels that are short and easily identifiable. Sometimes these are
+user-generated so the length may vary. The grip icon provides a visual affordance to communicate
+drag-and-drop. Border communicates the boundaries of a draggable item. Draggable items with
+many interactive elements can restrict movement to the grip handle only.
+
+![Draggable item with default, grabbed, and disabled state comparison.](figma:patterns-dnd-formatting-draggable.png)
+
+1. **Default** state communicates what is draggable
+2. **Grabbed** state communicates the item moving
+3. **Disabled** state communicates a non-interactive item
+
+#### Dragging larger items
+
+Items can include other interactive elements inside them, such as buttons, anchors, or even form elements.
+Nested elements will make the parent element taller and harder to interact with. Instead of making the item transparent,
+transform it into a simpler draggable item while dragging.
+
+<BestPractice>
+  <Do
+    imageIsFreeForm
+    imageSource={
+      props.data.dndFormattingDraggablePreviewDo.childFile.childImageSharp.gatsbyImageData
+    }
+  >
+    <ul>
+      <li>Provide a simpler preview of a draggable item while dragging</li>
+    </ul>
+  </Do>
+  <Dont
+    imageIsFreeForm
+    imageSource={
+      props.data.dndFormattingDraggablePreviewDont.childFile.childImageSharp.gatsbyImageData
+    }
+  >
+    <ul>
+      <li>Don’t make draggable items transparent during dragging</li>
+    </ul>
+  </Dont>
+</BestPractice>
+
+### Placeholders and indicators
+
+Placeholders and indicators are visible during the drag-and-drop interaction. They show where grabbed items can be placed.
+
+#### When to use which
+
+Use empty placeholders for most basic drag and drop interactions, such as reordering
+items within a single list.
+
+![A list containing draggable items with an empty placeholder space where the dragged item will be placed upon release.](figma:patterns-dnd-formatting-placeholder-empty.png)
+
+Use a solid grey placeholder when moving items between many lists, to show where
+the item originated and where it is going.
+
+![A list containing draggable items with a grey placeholder space where the dragged item will be placed upon release.](figma:patterns-dnd-formatting-placeholder-solid.png)
+
+Use target indicators when working with complex layouts where you don’t want to transform
+the layout before releasing the item.
+![A list containing draggable items with a horizontal target indicator
+showing where the dragged item will be placed upon release.](figma:patterns-dnd-formatting-target-indicator.png)
+
+#### Placeholders
+
+[Placeholders](/components/draggable#placeholder) and indicators appear during the drag-and-drop interaction.
+They show where you can place a grabbed item.
+
+![Three lists showing empty space placeholder, a solid grey placeholder, and a disabled state.](figma:patterns-dnd-formatting-placeholders-and-disabled.png)
+
+1. Use **empty space** placeholder to show the source or target destination when reordering items
+2. Use a **solid grey** placeholder to show the source and target destination when moving items between lists
+3. Use a **disabled state** to show that the source item will copy to another list
+
+#### Target indicators
+
+[Target indicators](/components/draggable#indicator) show where dragged items will appear upon release.
+Use them in condensed layouts or when you don't want to transform the list while dragging.
+
+![Two examples showing when vertical and horizontal indicators appear when a draggable item is dragged.](figma:patterns-dnd-formatting-indicator-orientation.png)
+
+1. Use a **vertical indicator** to communicate placement between items in a row direction list (left to right)
+2. Use a **horizontal indicator** to communicate placement between items in a column direction list (top to bottom)
+
+### Dropzones
+
+[Dropzones](/components/draggable#dropzone) are locations on the screen where the item can be moved onto.
+For flat structure lists, the dropzone is usually the list container. In complex workflows, dropzone might
+be another list — flat or nested, or even another item. Dropzones can be communicated in several ways,
+by using dashed borders, labels or a task-oriented context of reordering or building something on the screen.
+
+#### Border treatment
+
+![Three examples showing a dropzone in the default, active, and highlighted state.](figma:patterns-dnd-formatting-dropzone-states.png)
+
+1. Use `1px grey-600` border to show empty **default dropzones**
+2. Use a dashed `1px blue-600` border to show **active dropzones** where grabbed items can be placed
+3. Use solid `2px blue-600` border to communicate a **highlighted dropzone**
+
+#### Text and icons
+
+Dropzones, like good empty states, should explain how to interact with it. Sometimes, the content in
+the dropzone will appear after the user drags the item so only “drop” is mentioned in the content.
+Include the consequence if it’s important for the user to understand what will happen when they drop
+the item in this dropzone. Content, together with supporting icons and colors will make the user
+confident in the end result.
+
+![Three different examples showing a default dropzone, a dropzone with a danger theme applied,
+and a highlighted dropzone.](figma:patterns-dnd-formatting-dropzone-examples.png)
+
+1. **Default dropzone** without icon
+2. **Danger dropzone** with a theme and icon applied
+3. **Highlighted dropzone** with a custom icon
+
+Use icons to reinforce the labels when needed. Hide decorative icons from assistive technologies.
+
+#### Empty and populated dropzones
+
+Use borders and labels to make empty dropzones discoverable. Keep populated dropzones simple by showing only items inside.
+Always provide the label for screen readers, even if it's not visible on the screen.
+
+![An empty dropzone on the left and a group with several draggable items.](figma:patterns-dnd-formatting-dropzone-empty-populated.png)
+
+1. Include content that will explain how to interact with the empty dropzone
+2. Populated dropzones don’t need a supporting call-to-action
+
+#### Dropzones as items
+
+Provide visual affordance when items are both draggable and potential dropzones.
+
+![Example of moving a draggable item and replacing another item with it.](figma:patterns-dnd-formatting-dropzone-replace.png)
+
+1. Item with default styling
+2. Item as an active dropzone with a dashed border
+3. Item as a highlighted dropzone
+
+## Flows
+
+### Reordering a list
+
+This is the most basic example of drag-and-drop. Interaction is discoverable through a grip handle on the item.
+See [draggable tables](/components/table#draggable) for reordering rows.
+
+Once the item is grabbed, empty space proportional to the grabbed item will communicate where the item will
+be placed after release. The dragged item should follow the cursor around the screen without any delay.
+
+Once the item is released on the desired location, the movement is instantaneous. If the item is released
+outside of the dropzone container, it snaps back into its original place.
+
+![Four draggable items each containing a description and an overflow icon with one item having a hover state.](figma:patterns-dnd-flows-reorder-1.png)
+
+---
+
+![Four draggable items each containing a description and an overflow icon with the second item being dragged.](figma:patterns-dnd-flows-reorder-2.png)
+
+---
+
+![Four draggable items each containing a description and an overflow icon with the second item being dragged
+to the third place.](figma:patterns-dnd-flows-reorder-3.png)
+
+---
+
+![Four draggable items each containing a description and an overflow icon in the updated order.](figma:patterns-dnd-flows-reorder-4.png)
+
+### Moving items between multiple lists
+
+Moving items between lists usually happens when there is a need to quickly categorize items into different groups.
+This experience is quite common in a Kanban-like context or in a builder workflow. Use content and styling to
+highlight dropzones that can receive items.
+
+Highlight active dropzones while an item is being dragged. Use highlighted styling to show which dropzone will
+receive the item after release. Use solid grey placeholders to communicate where the interaction originated and
+where it will end up.
+
+Upon release of the item, position it at the end, unless the user specified a place in the list.
+Communicate to the user if the change will be saved immediately or through a page-level save action.
+
+![Three lists with draggable items with a cursor hovering over one item in the first group.](figma:patterns-dnd-flows-multiple-lists-1.png)
+
+---
+
+![Item being dragged from the first list and other lists becoming active.](figma:patterns-dnd-flows-multiple-lists-2.png)
+
+---
+
+![Item being dragged from the first list and another list getting highlighted.](figma:patterns-dnd-flows-multiple-lists-3.png)
+
+---
+
+![Updated list order after item being dropped.](figma:patterns-dnd-flows-multiple-lists-4.png)
+
+### Moving an item onto an item or a list (nesting or replacing)
+
+Drag-and-drop provides a quick way to do several things at once. Change the order and hierarchy of items,
+nest, delete and replace items.
+
+Use target indicators to avoid transforming the list before release. Target indicators help the user
+understand where the item will be placed before they commit to the action by dropping the item.
+
+Use a solid grey placeholder state to communicate where the grabbed item originated. Highlight active dropzones
+that can receive the grabbed item. Show indicators in the place where the grabbed item will appear after the drop.
+
+Show the item instantly in the target location. Item will transform the layout or adapt to the constraints
+of the container. Use text and icons to communicate the intention, such as nesting or replacing.
+
+![Two lists containing items with one item showing a hover state.](figma:patterns-dnd-flows-moving-nesting-1.png)
+
+---
+
+![Dragged item from the left list changes the other dropzone to active.](figma:patterns-dnd-flows-moving-nesting-2.png)
+
+---
+
+![Dragged item highlights the dropzone where it can be placed.](figma:patterns-dnd-flows-moving-nesting-3.png)
+
+---
+
+![Target indicator appearing where the dragged item can be placed.](figma:patterns-dnd-flows-moving-nesting-4.png)
+
+---
+
+![Dragged item highlights the nested item which can be replaced.](figma:patterns-dnd-flows-moving-nesting-5.png)
+
+---
+
+![Updated lists after one item was replaced with another.](figma:patterns-dnd-flows-moving-nesting-6.png)
+
+### Predictable drop behavior and collision algorithms
+
+Collision algorithms allow control over how to detect collisions between draggable items and dropzones.
+Depending on the complexity of the drag and drop experience, some algorithms are preferred over others.
+
+#### Closest center
+
+Use the closest center algorithm to find the closest dropzone whose center is closest to the center
+of the draggable item. This is more forgiving as it allows for dropzone collision without intersection.
+The closest center algorithm is the recommended default for most use cases, like simple sortable lists.
+
+![Example of measure lines between draggable and dropzone in simple list.](figma:patterns-dnd-flows-collision-algorithm-1.png)
+
+#### Closest corner
+
+The closest corner measures all four corners of the draggable item and dropzone and finds the closest one.
+Use the closest corner algorithm when there are many dropzones in the condensed interface.
+This behavior is most aligned with what users would expect.
+
+![Examples of closest corner, showing lines of corners on multiple dropzones.](figma:patterns-dnd-flows-collision-algorithm-2.png)
+
+#### Rectangle Intersection
+
+Use the rectangle intersection algorithm when there needs to be an intersection between an item and a dropzone.
+This algorithm is less forgiving but more precise. Use it in dropzones for destructive actions to prevent mistakes.
+
+![Example of rectangle on danger drop zone.](figma:patterns-dnd-flows-collision-algorithm-3.png)
+
+## Localization & internationalization
+
+### Grip handle location
+
+Place the grip handle on the left side for LTR and on the right for RTL languages.
+The Draggable item component provides automatic language direction support.
+
+### Hidden labels or descriptions
+
+Some labels or descriptions could be hidden or appear only in certain parts of the interaction.
+They support assistive technologies, like screen readers, and need to be localized as well.
+
+## Accessibility
+
+### Keyboard controls
+
+Provide consistent keyboard controls for non-mouse users:
+
+- `Space` key selects the focused item, or releases the item within a different dropzone container
+- `Up` and `Down` arrows keys change the position order of a grabbed item within a single container
+- `Left` and `Right` arrow keys move the grabbed item between different containers on the screen.
+  Swap `Left` and `Right` bindings to match the LTR or RTL direction
+- If the workflow supports Undo and Redo actions, those should work for the drag and drop interaction
+- `Esc` key cancels movement of the grabbed item and returns it to the original position
+
+### Screen readers
+
+Announce all states of the drag-and-drop interaction to screen readers. Ensure items and dropzones
+have distinct labels. Screen readers should communicate focus, selection, change of order,
+or dropzone change if moving between lists.
+
+### Alternative ways to drag-and-drop interaction
+
+Complex workflow might provide alternative ways of moving items around, to supplement the drag and drop behavior.
+Alternative actions, like buttons, might be placed next to the Draggable item to provide a different way of
+moving the item to another list. These situations should be evaluated on a case-by-case basis as they rely
+heavily on the workflow context. What makes sense for one flow, might not make much sense for another.
+
+![Example where each draggable item has an action button next to.](figma:patterns-dnd-accessibility-alternative-1.png)
+
+---
+
+<h2>Feedback</h2>
+
+Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yiFC7)
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($fileAbsolutePath: String) {
+    ...SidebarPageFragment
+    dndIntro: figmaAsset(name: { eq: "patterns-dnd-intro" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 300)
+        }
+      }
+    }
+    dndAnatomy: figmaAsset(name: { eq: "patterns-dnd-anatomy" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 300)
+        }
+      }
+    }
+    dndAnatomyFlow1: figmaAsset(name: { eq: "patterns-dnd-anatomy-flow-1" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 300)
+        }
+      }
+    }
+    dndAnatomyFlow2: figmaAsset(name: { eq: "patterns-dnd-anatomy-flow-1" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 300)
+        }
+      }
+    }
+    dndAnatomyFlow3: figmaAsset(name: { eq: "patterns-dnd-anatomy-flow-1" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 300)
+        }
+      }
+    }
+    dndAnatomyFlow4: figmaAsset(name: { eq: "patterns-dnd-anatomy-flow-1" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 300)
+        }
+      }
+    }
+    dndFormattingDraggable: figmaAsset(name: { eq: "patterns-dnd-formatting-draggable" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 160)
+        }
+      }
+    }
+    dndFormattingDraggablePreviewDo: figmaAsset(
+      name: { eq: "patterns-dnd-formatting-draggable-preview-do" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 540)
+        }
+      }
+    }
+    dndFormattingDraggablePreviewDont: figmaAsset(
+      name: { eq: "patterns-dnd-formatting-draggable-preview-dont" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 540)
+        }
+      }
+    }
+    dndFormattingPlaceholderEmpty: figmaAsset(
+      name: { eq: "patterns-dnd-formatting-placeholder-empty" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 240)
+        }
+      }
+    }
+    dndFormattingPlaceholderSolid: figmaAsset(
+      name: { eq: "patterns-dnd-formatting-placeholder-solid" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 240)
+        }
+      }
+    }
+    dndFormattingTargetIndicator: figmaAsset(
+      name: { eq: "patterns-dnd-formatting-target-indicator" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 240)
+        }
+      }
+    }
+    dndFormattingPlaceholdersAndDisabled: figmaAsset(
+      name: { eq: "patterns-dnd-formatting-placeholders-and-disabled" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 300)
+        }
+      }
+    }
+    dndFormattingTargetIndicatorOrientation: figmaAsset(
+      name: { eq: "patterns-dnd-formatting-indicator-orientation" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 300)
+        }
+      }
+    }
+    dndFormattingDropzoneStates: figmaAsset(
+      name: { eq: "patterns-dnd-formatting-dropzone-states" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 360)
+        }
+      }
+    }
+    dndFormattingDropzoneExamples: figmaAsset(
+      name: { eq: "patterns-dnd-formatting-dropzone-examples" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 240)
+        }
+      }
+    }
+    dndFormattingDropzoneEmptyPopulated: figmaAsset(
+      name: { eq: "patterns-dnd-formatting-dropzone-empty-populated" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    dndFormattingDropzoneReplace: figmaAsset(
+      name: { eq: "patterns-dnd-formatting-dropzone-replace" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 360)
+        }
+      }
+    }
+    dndFlowsReorder1: figmaAsset(name: { eq: "patterns-dnd-flows-reorder-1" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 440)
+        }
+      }
+    }
+    dndFlowsReorder2: figmaAsset(name: { eq: "patterns-dnd-flows-reorder-2" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 440)
+        }
+      }
+    }
+    dndFlowsReorder3: figmaAsset(name: { eq: "patterns-dnd-flows-reorder-3" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 440)
+        }
+      }
+    }
+    dndFlowsReorder4: figmaAsset(name: { eq: "patterns-dnd-flows-reorder-4" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 440)
+        }
+      }
+    }
+    dndFlowsMultipleLists1: figmaAsset(name: { eq: "patterns-dnd-flows-multiple-lists-1" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    dndFlowsMultipleLists2: figmaAsset(name: { eq: "patterns-dnd-flows-multiple-lists-2" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    dndFlowsMultipleLists3: figmaAsset(name: { eq: "patterns-dnd-flows-multiple-lists-3" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    dndFlowsMultipleLists4: figmaAsset(name: { eq: "patterns-dnd-flows-multiple-lists-4" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    dndFlowsMovingNesting1: figmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-1" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    dndFlowsMovingNesting2: figmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-2" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    dndFlowsMovingNesting3: figmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-3" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    dndFlowsMovingNesting4: figmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-4" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    dndFlowsMovingNesting5: figmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-5" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    dndFlowsMovingNesting6: figmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-6" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    dndFlowsCollisionAlgorithm1: figmaAsset(
+      name: { eq: "patterns-dnd-flows-collision-algorithm-1" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 240)
+        }
+      }
+    }
+    dndFlowsCollisionAlgorithm2: figmaAsset(
+      name: { eq: "patterns-dnd-flows-collision-algorithm-2" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 460)
+        }
+      }
+    }
+    dndFlowsCollisionAlgorithm3: figmaAsset(
+      name: { eq: "patterns-dnd-flows-collision-algorithm-3" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 240)
+        }
+      }
+    }
+    dndAccessibilityAlternative1: figmaAsset(
+      name: { eq: "patterns-dnd-accessibility-alternative-1" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 280)
+        }
+      }
+    }
+  }
+`;

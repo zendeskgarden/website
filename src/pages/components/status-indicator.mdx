@@ -77,9 +77,11 @@ import StatusIndicatorSizeCode from '!!raw-loader!../../examples/avatar/StatusIn
 
 The Status indicator component follows this structure:
 
-{/* prettier-ignore */}
+<!-- prettier-ignore -->
 ```jsx
-<StatusIndicator>{/* Status text */}</StatusIndicator>
+<StatusIndicator>
+  {/* Status text */}
+</StatusIndicator>
 ```
 
 ### StatusIndicator
@@ -93,7 +95,7 @@ Provide an `aria-label` to ensure it is accessible.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

@@ -13,6 +13,11 @@ components:
   - dropdowns/src/elements/Multiselect/Multiselect.tsx
 ---
 
+<Alert title="Deprecated" type="warning">
+  Multiselect does not meet Web Content Accessibility Guidelines (WCAG) requirements. Use
+  [Combobox](/components/combobox) instead.
+</Alert>
+
 <Usage>
   <Use>
     <ul>
@@ -152,7 +157,7 @@ but the surrounding field is designed to work with the [Tag](/components/tags) c
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

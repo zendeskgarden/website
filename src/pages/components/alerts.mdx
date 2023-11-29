@@ -87,7 +87,7 @@ import TypeCode from '!!raw-loader!../../examples/notifications/alerts/AlertType
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

@@ -137,72 +137,72 @@ Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    LoadersIntro: gardenFigmaAsset(name: { eq: "patterns-loaders-intro" }) {
+    LoadersIntro: figmaAsset(name: { eq: "patterns-loaders-intro" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    LoadersSkeleton: gardenFigmaAsset(name: { eq: "patterns-loaders-skeleton" }) {
+    LoadersSkeleton: figmaAsset(name: { eq: "patterns-loaders-skeleton" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    LoadersSkeletonDo: gardenFigmaAsset(name: { eq: "patterns-loaders-skeleton-do" }) {
+    LoadersSkeletonDo: figmaAsset(name: { eq: "patterns-loaders-skeleton-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    LoadersSkeletonDont: gardenFigmaAsset(name: { eq: "patterns-loaders-skeleton-dont" }) {
+    LoadersSkeletonDont: figmaAsset(name: { eq: "patterns-loaders-skeleton-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    LoadersSpinner: gardenFigmaAsset(name: { eq: "patterns-loaders-spinner" }) {
+    LoadersSpinner: figmaAsset(name: { eq: "patterns-loaders-spinner" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    LoadersCompletingAction: gardenFigmaAsset(name: { eq: "patterns-loaders-completing-action" }) {
+    LoadersCompletingAction: figmaAsset(name: { eq: "patterns-loaders-completing-action" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    LoadersSearchInputs: gardenFigmaAsset(name: { eq: "patterns-loaders-search-inputs" }) {
+    LoadersSearchInputs: figmaAsset(name: { eq: "patterns-loaders-search-inputs" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    LoadersMenu: gardenFigmaAsset(name: { eq: "patterns-loaders-menu" }) {
+    LoadersMenu: figmaAsset(name: { eq: "patterns-loaders-menu" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    LoadersProgress: gardenFigmaAsset(name: { eq: "patterns-loaders-progress" }) {
+    LoadersProgress: figmaAsset(name: { eq: "patterns-loaders-progress" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    LoadersTyping: gardenFigmaAsset(name: { eq: "patterns-loaders-typing" }) {
+    LoadersTyping: figmaAsset(name: { eq: "patterns-loaders-typing" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)

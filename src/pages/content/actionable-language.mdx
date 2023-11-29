@@ -32,23 +32,65 @@ Use _Assign_ when referring to ownership and responsibility.
 
 ## To turn on and off
 
-### Turn on
+### Activate (_Active_)
 
-Use _Turn on_ when the user is making something active. Follow it with a noun to clarify what is being turned on.
+Use _Activate_ when the user is making something active so it operates on its own.
+Things like triggers, automations, and deletion schedules that the user creates.
+Follow it with a noun to clarify what is being activated. For example, "Activate trigger".
+When something is activated, its status is _Active_.
 
 <BestPractice>
   <Do>
-    <p>Turn on</p>
+    <p>Activate</p>
   </Do>
   <Dont>
     <p>Enable</p>
   </Dont>
 </BestPractice>
 
-### Turn off
+### Deactivate (_Inactive_)
 
-Use _Turn off_ when the user is making something inactive.
+Use _Deactivate_ when the user is making something inactive and therefore,
+stops it from operating on its own. Things like triggers, automations, and deletion schedules
+that the user creates. Follow it with a noun to clarify what is being deactivated.
+For example, “Deactivate trigger”. When something is deactivated, its status is _Inactive_.
+
+<BestPractice>
+  <Do>
+    <p>Deactivate</p>
+  </Do>
+  <Dont>
+    <p>Disable</p>
+  </Dont>
+</BestPractice>
+
+### Turn on (_On_)
+
+Use _Turn on_ when the user is making a feature or function available.
+Follow it with a noun to clarify what is being turned on. For example, “Turn on messaging for your account”.
+When something is turned on, its status is _On_. More often than not, you don't need to say “turn on”
+at the front of every phrase, especially if it's implied like checking a checkbox.
+See if you can say what you mean without it.
+
+<BestPractice>
+  <Do>
+    <p>Turn on</p>
+    <p>Automatically delete PII</p>
+    <p>Turn on access log API</p>
+  </Do>
+  <Dont>
+    <p>Enable</p>
+    <p>Turn on automatic PII deletion</p>
+    <p>Let access log API send me data</p>
+  </Dont>
+</BestPractice>
+
+### Turn off (_Off_)
+
+Use _Turn off_ when the user is making a feature or function unavailable.
+This is to reverse their original decision to turn it on.
 Follow it with a noun to clarify what is being turned off.
+For example, “Turn off Agent Workspace”. When something is turned off, its status is _Off_.
 
 <BestPractice>
   <Do>
@@ -295,7 +337,7 @@ _Learn more_ and help center article titles that can’t be localized.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

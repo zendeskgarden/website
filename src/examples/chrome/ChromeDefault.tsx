@@ -41,7 +41,7 @@ const Example = () => {
   return (
     <Chrome isFluid style={{ height: 500, minWidth: 600 }}>
       <SkipNav targetId="example-main-content">Skip to main content</SkipNav>
-      <Nav>
+      <Nav aria-label="chrome default example">
         <NavItem hasLogo>
           <NavItemIcon>
             <ProductIcon style={{ color: PALETTE.green[400] }} />

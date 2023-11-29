@@ -90,7 +90,7 @@ import ToggleButtonTypesCode from '!!raw-loader!../../examples/button/ToggleButt
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

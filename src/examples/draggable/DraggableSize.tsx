@@ -1,0 +1,37 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Col } from '@zendeskgarden/react-grid';
+import { Draggable } from '@zendeskgarden/react-drag-drop';
+import { mediaQuery } from '@zendeskgarden/react-theming';
+
+const StyledCol = styled(Col)`
+  ${p => mediaQuery('down', 'xs', p.theme)} {
+    margin-top: ${p => p.theme.space.sm};
+  }
+`;
+
+const Example = () => (
+  <Row justifyContent="center">
+    <Col sm={4}>
+      <Draggable>
+        <Draggable.Grip />
+        <Draggable.Content>Raspberry</Draggable.Content>
+      </Draggable>
+    </Col>
+    <StyledCol sm={4}>
+      <Draggable isCompact>
+        <Draggable.Grip />
+        <Draggable.Content>Raspberry</Draggable.Content>
+      </Draggable>
+    </StyledCol>
+  </Row>
+);
+
+export default Example;

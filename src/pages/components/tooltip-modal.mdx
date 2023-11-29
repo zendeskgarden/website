@@ -107,7 +107,7 @@ import PlacementCode from '!!raw-loader!../../examples/tooltip-modal/TooltipModa
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

@@ -74,7 +74,7 @@ Input field.
 
 ## Accessibility
 
-{/* markdownlint-disable no-duplicate-header */}
+<!-- markdownlint-disable no-duplicate-header -->
 
 ### Default
 
@@ -134,23 +134,23 @@ Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
-    copyAnatomy: gardenFigmaAsset(name: { eq: "patterns-copy-anatomy" }) {
+    copyAnatomy: figmaAsset(name: { eq: "patterns-copy-anatomy" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyLayoutsDefault: gardenFigmaAsset(name: { eq: "patterns-copy-layouts-default" }) {
+    copyLayoutsDefault: figmaAsset(name: { eq: "patterns-copy-layouts-default" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyLayoutsDefaultNotification: gardenFigmaAsset(
+    copyLayoutsDefaultNotification: figmaAsset(
       name: { eq: "patterns-copy-layouts-default-notification" }
     ) {
       childFile {
@@ -159,46 +159,42 @@ export const pageQuery = graphql`
         }
       }
     }
-    copyLayoutsMinimal: gardenFigmaAsset(name: { eq: "patterns-copy-layouts-minimal" }) {
+    copyLayoutsMinimal: figmaAsset(name: { eq: "patterns-copy-layouts-minimal" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyLayoutsMinimalTooltip: gardenFigmaAsset(
-      name: { eq: "patterns-copy-layouts-minimal-tooltip" }
-    ) {
+    copyLayoutsMinimalTooltip: figmaAsset(name: { eq: "patterns-copy-layouts-minimal-tooltip" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyLayoutsContent: gardenFigmaAsset(name: { eq: "patterns-copy-content" }) {
+    copyLayoutsContent: figmaAsset(name: { eq: "patterns-copy-content" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyAccessibilityDo: gardenFigmaAsset(name: { eq: "patterns-copy-accessibility-input-do" }) {
+    copyAccessibilityDo: figmaAsset(name: { eq: "patterns-copy-accessibility-input-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    copyAccessibilityDont: gardenFigmaAsset(
-      name: { eq: "patterns-copy-accessibility-input-dont" }
-    ) {
+    copyAccessibilityDont: figmaAsset(name: { eq: "patterns-copy-accessibility-input-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    copyAccessibilityMinimal: gardenFigmaAsset(
+    copyAccessibilityMinimal: figmaAsset(
       name: { eq: "patterns-copy-accessibility-minimal-focused" }
     ) {
       childFile {
@@ -207,9 +203,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    copyAccessibilityAria: gardenFigmaAsset(
-      name: { eq: "patterns-copy-accessibility-aria-labels" }
-    ) {
+    copyAccessibilityAria: figmaAsset(name: { eq: "patterns-copy-accessibility-aria-labels" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)

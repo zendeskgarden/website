@@ -156,7 +156,7 @@ dismissal. Nest it within the [Tag](#tag) component as the last child.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;

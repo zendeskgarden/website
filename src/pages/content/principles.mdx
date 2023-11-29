@@ -42,7 +42,7 @@ App](http://www.hemingwayapp.com/) or [Storytoolz](https://storytoolz.com/readab
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($slug: String) {
+  query ($fileAbsolutePath: String) {
     ...SidebarPageFragment
   }
 `;
