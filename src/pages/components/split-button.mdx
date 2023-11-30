@@ -162,7 +162,7 @@ with the [ChevronButton](#chevronbutton) that shows/hides the secondary actions.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

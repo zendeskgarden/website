@@ -153,9 +153,9 @@ accessible. See [default example](#default).
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    toggleIconButtonTooltipDo: figmaAsset(
+    toggleIconButtonTooltipDo: gardenFigmaAsset(
       name: { eq: "components-buttons-toggleiconbutton-tooltip-do" }
     ) {
       childFile {

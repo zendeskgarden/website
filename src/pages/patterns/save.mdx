@@ -175,16 +175,16 @@ Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    saveAnatomy: figmaAsset(name: { eq: "patterns-save-anatomy-action-footer" }) {
+    saveAnatomy: gardenFigmaAsset(name: { eq: "patterns-save-anatomy-action-footer" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveSuccessNotification: figmaAsset(
+    saveSuccessNotification: gardenFigmaAsset(
       name: { eq: "patterns-save-anatomy-success-notification" }
     ) {
       childFile {
@@ -193,63 +193,63 @@ export const pageQuery = graphql`
         }
       }
     }
-    saveSuccessDo: figmaAsset(name: { eq: "patterns-save-anatomy-success-notification-do" }) {
+    saveSuccessDo: gardenFigmaAsset(name: { eq: "patterns-save-anatomy-success-notification-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    saveSuccessDont: figmaAsset(name: { eq: "patterns-save-anatomy-success-notification-dont" }) {
+    saveSuccessDont: gardenFigmaAsset(name: { eq: "patterns-save-anatomy-success-notification-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    saveErrors: figmaAsset(name: { eq: "patterns-save-errors" }) {
+    saveErrors: gardenFigmaAsset(name: { eq: "patterns-save-errors" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveValidation: figmaAsset(name: { eq: "patterns-save-validation-alert" }) {
+    saveValidation: gardenFigmaAsset(name: { eq: "patterns-save-validation-alert" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveUnsavedChanges: figmaAsset(name: { eq: "patterns-save-unsaved-changes" }) {
+    saveUnsavedChanges: gardenFigmaAsset(name: { eq: "patterns-save-unsaved-changes" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveLocalizationArabic: figmaAsset(name: { eq: "patterns-save-rtl" }) {
+    saveLocalizationArabic: gardenFigmaAsset(name: { eq: "patterns-save-rtl" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveActionFooterFocus: figmaAsset(name: { eq: "patterns-save-action-footer-focus" }) {
+    saveActionFooterFocus: gardenFigmaAsset(name: { eq: "patterns-save-action-footer-focus" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveValidationAlertFocus: figmaAsset(name: { eq: "patterns-save-validation-alert-focus" }) {
+    saveValidationAlertFocus: gardenFigmaAsset(name: { eq: "patterns-save-validation-alert-focus" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    saveUnsavedChangesFocus: figmaAsset(name: { eq: "patterns-save-unsaved-changes-focus" }) {
+    saveUnsavedChangesFocus: gardenFigmaAsset(name: { eq: "patterns-save-unsaved-changes-focus" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)

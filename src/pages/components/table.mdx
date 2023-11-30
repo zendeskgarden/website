@@ -315,7 +315,7 @@ implementation of a sortable table. See [SortableCell example](#sort).
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

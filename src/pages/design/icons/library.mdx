@@ -13,7 +13,7 @@ import { SvgSearch } from '../../../examples/design/icons/SvgSearch';
 <SvgSearch data={props.data.svgIcons} inputPlaceholder="Search icons" />
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
     svgIcons: allFile(
       filter: {

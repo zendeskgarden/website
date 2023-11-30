@@ -124,7 +124,7 @@ import MonospaceCode from '!!raw-loader!../../examples/typography/span/Monospace
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

@@ -33,7 +33,7 @@ const config: GatsbyConfig = {
       }
     },
     /* generators */
-    // 'gatsby-plugin-netlify',
+    'gatsby-plugin-netlify',
     'gatsby-plugin-sitemap',
     /* sources */
     {
@@ -128,11 +128,12 @@ const config: GatsbyConfig = {
         svgoConfig: {
           plugins: [
             {
-              name: 'removeViewBox',
-              active: false
-            },
-            {
-              name: 'cleanupIDs'
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  removeViewBox: false
+                }
+              }
             },
             {
               name: 'addAttributesToSVGElement',

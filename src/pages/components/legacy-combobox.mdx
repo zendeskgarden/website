@@ -208,9 +208,9 @@ A [Menu](/components/menu) manages placement, positioning and layout of the chil
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    comboboxSearchableDont: figmaAsset(
+    comboboxSearchableDont: gardenFigmaAsset(
       name: { eq: "components-dropdowns-combobox-searchable-dont" }
     ) {
       childFile {
@@ -219,14 +219,14 @@ export const pageQuery = graphql`
         }
       }
     }
-    comboboxHighlightDo: figmaAsset(name: { eq: "components-dropdowns-combobox-highlight-do" }) {
+    comboboxHighlightDo: gardenFigmaAsset(name: { eq: "components-dropdowns-combobox-highlight-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 284)
         }
       }
     }
-    comboboxIconPlacementDo: figmaAsset(
+    comboboxIconPlacementDo: gardenFigmaAsset(
       name: { eq: "components-dropdowns-combobox-icon-placement-do" }
     ) {
       childFile {

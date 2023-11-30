@@ -330,9 +330,9 @@ associated image.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    dropdownSelectionDo: figmaAsset(
+    dropdownSelectionDo: gardenFigmaAsset(
       name: { eq: "components-dropdowns-autocomplete-selection-do" }
     ) {
       childFile {
@@ -341,7 +341,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    comboboxIconPlacementDo: figmaAsset(
+    comboboxIconPlacementDo: gardenFigmaAsset(
       name: { eq: "components-dropdowns-combobox-icon-placement-do" }
     ) {
       childFile {

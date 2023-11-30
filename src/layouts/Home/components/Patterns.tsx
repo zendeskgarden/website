@@ -18,7 +18,7 @@ import { HomeLink } from './HomeLink';
 export const Patterns: React.FC = () => {
   const { patternsImage } = useStaticQuery(graphql`
     {
-      patternsImage: figmaAsset(name: { eq: "home-pillars-patterns" }) {
+      patternsImage: gardenFigmaAsset(name: { eq: "home-pillars-patterns" }) {
         childFile {
           childImageSharp {
             gatsbyImageData(width: 808)

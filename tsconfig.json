@@ -17,7 +17,6 @@
     "experimentalDecorators": true,
     "noEmit": true,
     "typeRoots": ["./utils/typings", "./node_modules/@types"],
-    "lib": ["dom", "esnext"]
   },
   "include": ["./src/**/*", "./gatsby-node.ts", "./gatsby-config.ts", "./plugins/**/*"],
   "exclude": ["./react-components"]

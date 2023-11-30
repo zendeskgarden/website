@@ -80,7 +80,7 @@ import SizeCode from '!!raw-loader!../../examples/loaders/progress/ProgressSize.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

@@ -28,7 +28,7 @@ export default IndexPage;
  */
 export const SidebarPageFragment = graphql`
   fragment SidebarPageFragment on Query {
-    mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt
       tableOfContents(maxDepth: 3)

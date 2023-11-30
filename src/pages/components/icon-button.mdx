@@ -143,9 +143,9 @@ See [default example](#default).
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    iconButtonTooltipDo: figmaAsset(name: { eq: "components-buttons-iconbutton-tooltip-do" }) {
+    iconButtonTooltipDo: gardenFigmaAsset(name: { eq: "components-buttons-iconbutton-tooltip-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)

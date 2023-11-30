@@ -167,9 +167,9 @@ Nest the Title within a [GlobalAlert](#globalalert) component.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    globalAlertClearlyActionable: figmaAsset(
+    globalAlertClearlyActionable: gardenFigmaAsset(
       name: { eq: "components-notification-global-alert-clearly-actionable" }
     ) {
       childFile {
@@ -178,7 +178,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    globalAlertDismissable: figmaAsset(
+    globalAlertDismissable: gardenFigmaAsset(
       name: { eq: "components-notification-global-alert-dismissable" }
     ) {
       childFile {
@@ -187,7 +187,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    globalAlertPersistent: figmaAsset(
+    globalAlertPersistent: gardenFigmaAsset(
       name: { eq: "components-notification-global-alert-persistent" }
     ) {
       childFile {

@@ -92,7 +92,7 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = ({ page, actions }) => {
       context: {
         ...pageContext,
         group: getGroup(page),
-        fileAbsolutePath: page.path
+        slug: page.path
       }
     });
   }
