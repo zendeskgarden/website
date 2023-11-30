@@ -116,7 +116,7 @@ import OffsetDefaultCode from '!!raw-loader!../../examples/pagination/OffsetDefa
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

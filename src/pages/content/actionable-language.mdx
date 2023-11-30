@@ -337,7 +337,7 @@ _Learn more_ and help center article titles that can’t be localized.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

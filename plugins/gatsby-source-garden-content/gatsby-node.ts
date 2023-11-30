@@ -46,46 +46,46 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async (
   const span = tracing.startSpan(`${GATSBY_PLUGIN_NAME}:bootstrap`);
 
   try {
-    reporter.info('reading and caching content data');
+    reporter.info('read and cache content data');
 
-    reporter.info('loading news content from source');
+    reporter.info('load news content from source');
     span.setTag(PLUGIN_NAME, 'load-news');
     const { news, hash: newsHash } = getNewsMetadata();
 
     newsCacheKey = [newsCacheKey, newsHash].join('-');
 
     if (!!(await cache.get(newsCacheKey)) === false) {
-      reporter.info('caching news content');
+      reporter.info('cache news content');
       span.setTag(PLUGIN_NAME, 'caching-news');
       await cache.set(newsCacheKey, news);
     }
 
-    reporter.info('loading nav content from source');
+    reporter.info('load nav content from source');
     span.setTag(PLUGIN_NAME, 'load-nav');
     const { hash: navHash, ...nav } = getNavigationMetadata();
 
     navCacheKey = [navCacheKey, navHash].join('-');
 
     if (!!(await cache.get(navCacheKey)) === false) {
-      reporter.info('caching nav content');
+      reporter.info('cache nav content');
       span.setTag(PLUGIN_NAME, 'caching-nav');
       await cache.set(navCacheKey, nav);
     }
 
-    reporter.info('loading Figma content dictionary from source');
+    reporter.info('load Figma content dictionary from source');
     span.setTag(PLUGIN_NAME, 'load-figma-dictionary');
     const { hash: assetsHash, ...figmaDictionary } = getFigmaAssetsMetadata();
 
     figmaDictionaryCacheKey = [figmaDictionaryCacheKey, assetsHash].join('-');
 
     if (!!(await cache.get(figmaDictionaryCacheKey)) === false) {
-      reporter.info('caching Figma content dictionary');
+      reporter.info('cache Figma content dictionary');
       span.setTag(PLUGIN_NAME, 'caching-figma-dictionary');
       await cache.set(figmaDictionaryCacheKey, figmaDictionary);
     }
 
     if (figmaDictionary) {
-      reporter.info('loading remote Figma image assets');
+      reporter.info('load remote Figma image assets');
 
       const figmaApiToken = (config.figmaApiToken as string) || process.env.FIGMA_TOKEN;
       const { fileId, nodeIds, scale } = figmaDictionary;
@@ -102,7 +102,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async (
       figmaAssetsCacheKey = [figmaAssetsCacheKey, fileId, lastModified].join('-');
 
       if (!!(await cache.get(figmaAssetsCacheKey)) === false) {
-        reporter.info('fetching Figma image assets from API');
+        reporter.info('fetch Figma image assets from API');
 
         span.setTag(PLUGIN_NAME, 'fetching-remote-figma-assets-nodes');
         const { nodes } = await fetchFigmaFileNodes({

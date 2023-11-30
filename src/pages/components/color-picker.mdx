@@ -95,7 +95,7 @@ import ColorpickerOpaqueCode from '!!raw-loader!../../examples/color-picker/Colo
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

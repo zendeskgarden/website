@@ -344,58 +344,58 @@ Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    dndIntro: figmaAsset(name: { eq: "patterns-dnd-intro" }) {
+    dndIntro: gardenFigmaAsset(name: { eq: "patterns-dnd-intro" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    dndAnatomy: figmaAsset(name: { eq: "patterns-dnd-anatomy" }) {
+    dndAnatomy: gardenFigmaAsset(name: { eq: "patterns-dnd-anatomy" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    dndAnatomyFlow1: figmaAsset(name: { eq: "patterns-dnd-anatomy-flow-1" }) {
+    dndAnatomyFlow1: gardenFigmaAsset(name: { eq: "patterns-dnd-anatomy-flow-1" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    dndAnatomyFlow2: figmaAsset(name: { eq: "patterns-dnd-anatomy-flow-1" }) {
+    dndAnatomyFlow2: gardenFigmaAsset(name: { eq: "patterns-dnd-anatomy-flow-1" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    dndAnatomyFlow3: figmaAsset(name: { eq: "patterns-dnd-anatomy-flow-1" }) {
+    dndAnatomyFlow3: gardenFigmaAsset(name: { eq: "patterns-dnd-anatomy-flow-1" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    dndAnatomyFlow4: figmaAsset(name: { eq: "patterns-dnd-anatomy-flow-1" }) {
+    dndAnatomyFlow4: gardenFigmaAsset(name: { eq: "patterns-dnd-anatomy-flow-1" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    dndFormattingDraggable: figmaAsset(name: { eq: "patterns-dnd-formatting-draggable" }) {
+    dndFormattingDraggable: gardenFigmaAsset(name: { eq: "patterns-dnd-formatting-draggable" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 160)
         }
       }
     }
-    dndFormattingDraggablePreviewDo: figmaAsset(
+    dndFormattingDraggablePreviewDo: gardenFigmaAsset(
       name: { eq: "patterns-dnd-formatting-draggable-preview-do" }
     ) {
       childFile {
@@ -404,7 +404,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFormattingDraggablePreviewDont: figmaAsset(
+    dndFormattingDraggablePreviewDont: gardenFigmaAsset(
       name: { eq: "patterns-dnd-formatting-draggable-preview-dont" }
     ) {
       childFile {
@@ -413,7 +413,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFormattingPlaceholderEmpty: figmaAsset(
+    dndFormattingPlaceholderEmpty: gardenFigmaAsset(
       name: { eq: "patterns-dnd-formatting-placeholder-empty" }
     ) {
       childFile {
@@ -422,7 +422,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFormattingPlaceholderSolid: figmaAsset(
+    dndFormattingPlaceholderSolid: gardenFigmaAsset(
       name: { eq: "patterns-dnd-formatting-placeholder-solid" }
     ) {
       childFile {
@@ -431,7 +431,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFormattingTargetIndicator: figmaAsset(
+    dndFormattingTargetIndicator: gardenFigmaAsset(
       name: { eq: "patterns-dnd-formatting-target-indicator" }
     ) {
       childFile {
@@ -440,7 +440,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFormattingPlaceholdersAndDisabled: figmaAsset(
+    dndFormattingPlaceholdersAndDisabled: gardenFigmaAsset(
       name: { eq: "patterns-dnd-formatting-placeholders-and-disabled" }
     ) {
       childFile {
@@ -449,7 +449,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFormattingTargetIndicatorOrientation: figmaAsset(
+    dndFormattingTargetIndicatorOrientation: gardenFigmaAsset(
       name: { eq: "patterns-dnd-formatting-indicator-orientation" }
     ) {
       childFile {
@@ -458,7 +458,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFormattingDropzoneStates: figmaAsset(
+    dndFormattingDropzoneStates: gardenFigmaAsset(
       name: { eq: "patterns-dnd-formatting-dropzone-states" }
     ) {
       childFile {
@@ -467,7 +467,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFormattingDropzoneExamples: figmaAsset(
+    dndFormattingDropzoneExamples: gardenFigmaAsset(
       name: { eq: "patterns-dnd-formatting-dropzone-examples" }
     ) {
       childFile {
@@ -476,7 +476,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFormattingDropzoneEmptyPopulated: figmaAsset(
+    dndFormattingDropzoneEmptyPopulated: gardenFigmaAsset(
       name: { eq: "patterns-dnd-formatting-dropzone-empty-populated" }
     ) {
       childFile {
@@ -485,7 +485,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFormattingDropzoneReplace: figmaAsset(
+    dndFormattingDropzoneReplace: gardenFigmaAsset(
       name: { eq: "patterns-dnd-formatting-dropzone-replace" }
     ) {
       childFile {
@@ -494,105 +494,105 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFlowsReorder1: figmaAsset(name: { eq: "patterns-dnd-flows-reorder-1" }) {
+    dndFlowsReorder1: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-reorder-1" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 440)
         }
       }
     }
-    dndFlowsReorder2: figmaAsset(name: { eq: "patterns-dnd-flows-reorder-2" }) {
+    dndFlowsReorder2: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-reorder-2" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 440)
         }
       }
     }
-    dndFlowsReorder3: figmaAsset(name: { eq: "patterns-dnd-flows-reorder-3" }) {
+    dndFlowsReorder3: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-reorder-3" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 440)
         }
       }
     }
-    dndFlowsReorder4: figmaAsset(name: { eq: "patterns-dnd-flows-reorder-4" }) {
+    dndFlowsReorder4: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-reorder-4" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 440)
         }
       }
     }
-    dndFlowsMultipleLists1: figmaAsset(name: { eq: "patterns-dnd-flows-multiple-lists-1" }) {
+    dndFlowsMultipleLists1: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-multiple-lists-1" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 400)
         }
       }
     }
-    dndFlowsMultipleLists2: figmaAsset(name: { eq: "patterns-dnd-flows-multiple-lists-2" }) {
+    dndFlowsMultipleLists2: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-multiple-lists-2" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 400)
         }
       }
     }
-    dndFlowsMultipleLists3: figmaAsset(name: { eq: "patterns-dnd-flows-multiple-lists-3" }) {
+    dndFlowsMultipleLists3: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-multiple-lists-3" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 400)
         }
       }
     }
-    dndFlowsMultipleLists4: figmaAsset(name: { eq: "patterns-dnd-flows-multiple-lists-4" }) {
+    dndFlowsMultipleLists4: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-multiple-lists-4" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 400)
         }
       }
     }
-    dndFlowsMovingNesting1: figmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-1" }) {
+    dndFlowsMovingNesting1: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-1" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 400)
         }
       }
     }
-    dndFlowsMovingNesting2: figmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-2" }) {
+    dndFlowsMovingNesting2: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-2" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 400)
         }
       }
     }
-    dndFlowsMovingNesting3: figmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-3" }) {
+    dndFlowsMovingNesting3: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-3" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 400)
         }
       }
     }
-    dndFlowsMovingNesting4: figmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-4" }) {
+    dndFlowsMovingNesting4: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-4" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 400)
         }
       }
     }
-    dndFlowsMovingNesting5: figmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-5" }) {
+    dndFlowsMovingNesting5: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-5" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 400)
         }
       }
     }
-    dndFlowsMovingNesting6: figmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-6" }) {
+    dndFlowsMovingNesting6: gardenFigmaAsset(name: { eq: "patterns-dnd-flows-moving-nesting-6" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 400)
         }
       }
     }
-    dndFlowsCollisionAlgorithm1: figmaAsset(
+    dndFlowsCollisionAlgorithm1: gardenFigmaAsset(
       name: { eq: "patterns-dnd-flows-collision-algorithm-1" }
     ) {
       childFile {
@@ -601,7 +601,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFlowsCollisionAlgorithm2: figmaAsset(
+    dndFlowsCollisionAlgorithm2: gardenFigmaAsset(
       name: { eq: "patterns-dnd-flows-collision-algorithm-2" }
     ) {
       childFile {
@@ -610,7 +610,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndFlowsCollisionAlgorithm3: figmaAsset(
+    dndFlowsCollisionAlgorithm3: gardenFigmaAsset(
       name: { eq: "patterns-dnd-flows-collision-algorithm-3" }
     ) {
       childFile {
@@ -619,7 +619,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dndAccessibilityAlternative1: figmaAsset(
+    dndAccessibilityAlternative1: gardenFigmaAsset(
       name: { eq: "patterns-dnd-accessibility-alternative-1" }
     ) {
       childFile {

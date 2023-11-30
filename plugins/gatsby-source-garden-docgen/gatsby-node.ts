@@ -39,7 +39,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async ({
     packagesCacheKey = `${packagesCacheKey}-${version}`;
     componentsCacheKey = `${componentsCacheKey}-${version}`;
 
-    reporter.info(`loading documentation types for Garden react components ${`v${version}`}`);
+    reporter.info(`load documentation types for Garden react components ${`v${version}`}`);
 
     // eslint-disable-next-line no-negated-condition
     if (!(await cache.get(packagesCacheKey))) {

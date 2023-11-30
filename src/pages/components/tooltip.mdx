@@ -101,7 +101,7 @@ import TypeCode from '!!raw-loader!../../examples/tooltip/TooltipType.tsx';
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

@@ -45,7 +45,7 @@ import BreadcrumbsDefaultCode from '!!raw-loader!../../examples/breadcrumbs/Brea
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

@@ -6,13 +6,13 @@
  */
 
 import dotenv from 'dotenv';
-import envalid from 'envalid';
+import { cleanEnv, str } from 'envalid';
 import fs from 'fs';
 import path from 'path';
 import { GatsbyConfig } from 'gatsby';
 
 dotenv.config();
-envalid.cleanEnv(process.env, { FIGMA_TOKEN: envalid.str() });
+cleanEnv(process.env, { FIGMA_TOKEN: str() });
 
 const cwd = process.cwd();
 
@@ -128,11 +128,12 @@ const config: GatsbyConfig = {
         svgoConfig: {
           plugins: [
             {
-              name: 'removeViewBox',
-              active: false
-            },
-            {
-              name: 'cleanupIDs'
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  removeViewBox: false
+                }
+              }
             },
             {
               name: 'addAttributesToSVGElement',
