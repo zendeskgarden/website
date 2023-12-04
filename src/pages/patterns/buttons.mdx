@@ -4,6 +4,12 @@ description: >
   A button is an element on a page or view that tells a user what they can do and triggers an action.
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 ## Anatomy
 
 ![Usage of button types](figma:patterns-buttons-anatomy-button-type.png)

@@ -12,6 +12,12 @@ components:
   - dropdowns/src/elements/Menu/Menu.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 <Alert title="Deprecated" type="warning">
   This Combobox does not meet Web Content Accessibility Guidelines (WCAG) requirements. Use the new
   [Combobox](/components/combobox) instead.

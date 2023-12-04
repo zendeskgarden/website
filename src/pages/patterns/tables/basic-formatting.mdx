@@ -4,6 +4,12 @@ description: >
   Tables display sets of related data across rows and columns. Tables make it easier for users to compare and analyze information.
 ---
 
+import { SEO } from '../../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 import BasicFormatting from '../../../examples/table/TableDefault.tsx';
 import BasicFormattingCode from '!!raw-loader!../../../examples/table/TableDefault.tsx';
 

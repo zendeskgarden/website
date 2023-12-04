@@ -4,6 +4,12 @@ description: >
   The principles of language for writing products.
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 <OverviewLinks nav={props.data.mdx.navigation} />
 
 import { graphql } from 'gatsby';

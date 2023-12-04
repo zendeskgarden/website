@@ -18,6 +18,12 @@ components:
   - tables/src/elements/Table.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 <Usage>
   <Use>
     <ul>

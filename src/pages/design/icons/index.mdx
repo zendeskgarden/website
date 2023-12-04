@@ -2,6 +2,12 @@
 title: Icon overview
 ---
 
+import { SEO } from '../../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 import { graphql } from 'gatsby';
 
 import IconShowcase from '../../../examples/design/icons/IconShowcase.tsx';

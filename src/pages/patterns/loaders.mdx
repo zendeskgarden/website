@@ -4,6 +4,12 @@ description: >
   Loaders are used when certain elements or parts of the page could take longer to display.
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 ![Loaders intro](figma:patterns-loaders-intro.png)
 
 ## Overview

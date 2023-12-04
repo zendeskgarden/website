@@ -4,6 +4,12 @@ description: >
   Drag and drop pattern is often used to change the order of items in a list or to move and organize items between lists.
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 ![List of items with one item being dragged to show parts of the item.](figma:patterns-dnd-intro.png)
 
 ## Anatomy

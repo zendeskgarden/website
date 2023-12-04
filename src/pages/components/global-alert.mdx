@@ -12,6 +12,12 @@ subcomponents:
   - notifications/src/elements/global-alert/GlobalAlertTitle.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 <Usage>
   <Use>
     <ul>

@@ -14,6 +14,12 @@ components:
   - dropdowns/src/elements/Menu/Menu.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 <Alert title="Deprecated" type="warning">
   Autocomplete does not meet Web Content Accessibility Guidelines (WCAG) requirements. Use
   [Combobox](/components/combobox) instead.

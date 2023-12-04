@@ -20,6 +20,12 @@ components:
   - dropdowns/src/elements/Trigger/Trigger.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 <Alert title="Deprecated" type="warning">
   This Menu does not meet Web Content Accessibility Guidelines (WCAG) requirements. Use the new
   [Menu](/components/menu) instead.

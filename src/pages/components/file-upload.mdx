@@ -17,6 +17,12 @@ subcomponents:
   - forms/src/elements/file-list/components/Item.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 <Usage>
   <Use>
     <ul>

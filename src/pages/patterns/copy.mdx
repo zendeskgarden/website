@@ -5,6 +5,12 @@ description: >
   the interface. It temporarily stores information that can be retrieved and used within a given flow.
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 ## Anatomy
 
 - Always include the value being copied and the copy action which can be represented as a [Button](/components/button)

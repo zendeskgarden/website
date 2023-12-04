@@ -15,6 +15,12 @@ components:
   - typography/src/elements/XXXL.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 ## How to use it
 
 ### Block quote

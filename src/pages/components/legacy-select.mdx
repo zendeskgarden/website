@@ -13,6 +13,12 @@ components:
   - dropdowns/src/elements/Select/Select.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 <Alert title="Deprecated" type="warning">
   Select does not meet Web Content Accessibility Guidelines (WCAG) requirements. Use
   [Combobox](/components/combobox#select-only) instead.

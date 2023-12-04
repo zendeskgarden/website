@@ -11,6 +11,12 @@ subcomponents:
   - typography/src/elements/lists/UnorderedListItem.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 ## How to use it
 
 ### Default

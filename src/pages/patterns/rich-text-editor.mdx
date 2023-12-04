@@ -4,6 +4,12 @@ description: >
   A rich-text editor lets a user edit and format text using a "what-you-see-is-what-you-get" (WYSIWYG) editing area.
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 ![Rich-text editor](figma:patterns-rich-text-editor-intro.png)
 
 ## Anatomy
