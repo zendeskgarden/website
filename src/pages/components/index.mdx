@@ -4,6 +4,12 @@ description: >
   Development instructions for building effective user interfaces.
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 <OverviewLinks nav={props.data.mdx.navigation} />
 
 import { graphql } from 'gatsby';

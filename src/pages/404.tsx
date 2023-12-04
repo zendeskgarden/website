@@ -17,7 +17,9 @@ import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { XL, LG } from '@zendeskgarden/react-typography';
 import { StyledH1 } from 'components/MarkdownProvider/components/Typography';
 
-export const Head = (props: HeadProps) => <SEO title="Not found" {...props} />;
+export const Head = (props: HeadProps) => (
+  <SEO {...props} pageContext={{ frontmatter: { title: 'Not found' } }} />
+);
 
 const NotFoundPage: React.FC = () => {
   const { notFoundImage } = useStaticQuery(graphql`

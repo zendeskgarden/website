@@ -9,7 +9,7 @@ import path from 'path';
 import { GatsbyNode, Page } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
 import smartquotes from 'smartquotes';
-import { IPageContext } from './src/templates/types';
+import { IPageContext } from './src/components/types';
 
 function getGroup(page: Page) {
   let retVal = null;
@@ -43,7 +43,7 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNod
     const { sourceInstanceName } = getNode(node.parent!)!;
 
     const slug =
-      (node as unknown as IPageContext).frontmatter.slug ||
+      (node as unknown as IPageContext).slug ||
       createFilePath({ node, getNode, trailingSlash: false });
 
     createNodeField({

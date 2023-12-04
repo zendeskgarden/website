@@ -12,12 +12,18 @@ subcomponents:
   - accordions/src/elements/accordion/components/Section.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To organize related information into sections</li>
-      <li>To surface information through progressive disclosure</li>
-    </ul>
+
+    - To organize related information into sections
+    - To surface information through progressive disclosure
+
   </Use>
   <Misuse>
     <ul>

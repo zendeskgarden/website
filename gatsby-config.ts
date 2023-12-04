@@ -10,6 +10,7 @@ import { cleanEnv, str } from 'envalid';
 import fs from 'fs';
 import path from 'path';
 import { GatsbyConfig } from 'gatsby';
+import remarkGfm from 'remark-gfm';
 
 dotenv.config();
 cleanEnv(process.env, { FIGMA_TOKEN: str() });
@@ -87,8 +88,7 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         mdxOptions: {
-          // eslint-disable-next-line node/global-require, @typescript-eslint/no-require-imports
-          remarkPlugins: [require('remark-gfm')]
+          remarkPlugins: [remarkGfm]
         },
         gatsbyRemarkPlugins: [
           // require.resolve('./plugins/gatsby-remark-figma-assets'),

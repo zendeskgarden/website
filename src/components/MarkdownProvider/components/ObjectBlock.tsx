@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { StyledCodeBlock as CodeBlock } from './CodeBlock';
 
 const replacer = (key: string, value: unknown) => {
@@ -22,7 +22,7 @@ const replacer = (key: string, value: unknown) => {
   return retVal;
 };
 
-interface IObjectBlockProps {
+interface IObjectBlockProps extends PropsWithChildren {
   replacementPattern?: string;
   replacementValue?: string;
 }

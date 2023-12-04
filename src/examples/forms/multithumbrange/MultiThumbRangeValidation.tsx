@@ -7,13 +7,13 @@
 
 import React, { useState, useCallback, useMemo } from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
-import { Field, Label, Message, MultiThumbRange } from '@zendeskgarden/react-forms';
+import { Field, IMultiThumbRangeProps, Label, Message, MultiThumbRange } from '@zendeskgarden/react-forms';
 
 type validationTypes = 'success' | 'warning' | 'error';
 
 const Example = () => {
-  const [minVal, setMinVal] = useState();
-  const [maxVal, setMaxVal] = useState();
+  const [minVal, setMinVal] = useState<number>();
+  const [maxVal, setMaxVal] = useState<number>();
   const [validation, setValidation] = useState<validationTypes>('success');
 
   const validationMessage = useMemo(() => {
@@ -26,18 +26,20 @@ const Example = () => {
     return 'Growing slowly';
   }, [validation]);
 
-  const onChange = useCallback(({ minValue, maxValue }) => {
+  const onChange = useCallback<NonNullable<IMultiThumbRangeProps['onChange']>>(({ minValue, maxValue }) => {
     setMinVal(minValue);
     setMaxVal(maxValue);
 
-    const result = maxValue - minValue;
+    if (minValue !== undefined && maxValue !== undefined) {
+      const result = maxValue - minValue;
 
-    if (result >= 70) {
-      setValidation('success');
-    } else if (result >= 30) {
-      setValidation('warning');
-    } else {
-      setValidation('error');
+      if (result >= 70) {
+        setValidation('success');
+      } else if (result >= 30) {
+        setValidation('warning');
+      } else {
+        setValidation('error');
+      }
     }
   }, []);
 

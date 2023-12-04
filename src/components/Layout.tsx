@@ -11,7 +11,7 @@ import RootLayout from 'layouts/Root';
 import { SidebarLayout } from 'layouts/Sidebar';
 import TitledLayout from 'layouts/Titled';
 import { SEO } from './SEO';
-import { IPageData, IPageContext } from '../templates/types';
+import { IPageData, IPageContext } from './types';
 import { GlobalStyles } from './GlobalStyles';
 
 // TODO: remove and add to each page.

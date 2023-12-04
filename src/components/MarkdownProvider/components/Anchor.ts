@@ -34,7 +34,8 @@ export const StyledAnchor = styled(Anchor).attrs(props => ({
       padding: 0 ${p => p.theme.space.sm};
     }
 
-    & > svg {
+    & svg {
+      visibility: visible;
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);

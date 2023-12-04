@@ -9,7 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { UnorderedList, Span } from '@zendeskgarden/react-typography';
 import { getColor } from '@zendeskgarden/react-theming';
-import { IComponentData } from 'src/templates/types';
+import { IComponentData } from '../../../components/types';
 import { StyledAnchor } from './Anchor';
 
 interface IPackage {

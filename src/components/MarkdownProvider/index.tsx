@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { Alert } from './components/Alert';
-import { Code } from '@zendeskgarden/react-typography';
 import { CodeExample } from './components/CodeExample';
 import { StyledCodeBlock as CodeBlock } from './components/CodeBlock';
 import { ColorPalette } from './components/ColorPalette';
@@ -26,9 +25,9 @@ import { OverviewLinks } from './components/OverviewLinks';
  * The CodeBlock component provides it's own `<pre>` tag.
  * This ensures valid DOM nesting.
  */
-const Pre: React.FC = ({ children }) => <>{children}</>; // eslint-disable-line react/jsx-no-useless-fragment
+const Pre: FC<PropsWithChildren> = ({ children }) => <CodeBlock>{children.props.children}</CodeBlock>;
 
-export const MarkdownProvider: React.FC = ({ children }) => (
+export const MarkdownProvider: FC<PropsWithChildren> = ({ children }) => (
   <MDXProvider
     components={{
       /**
@@ -55,9 +54,7 @@ export const MarkdownProvider: React.FC = ({ children }) => (
        * Markdown elements
        */
       ...COMPONENTS,
-      inlineCode: Code,
-      pre: Pre,
-      code: CodeBlock
+      pre: Pre
     }}
   >
     {children}

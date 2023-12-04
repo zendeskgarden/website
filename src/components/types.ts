@@ -24,7 +24,7 @@ export interface IComponentData {
 }
 
 export interface IPageData {
-  mdx: {
+  mdx?: {
     id: string;
     excerpt: any;
     body: any;
@@ -39,9 +39,10 @@ export interface IPageData {
 }
 
 export interface IPageContext {
-  frontmatter: {
+  frontmatter?: {
     title?: string;
     description?: string;
-    slug?: string;
   };
+  slug?: string;
+  group?: string;
 }
