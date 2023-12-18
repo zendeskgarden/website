@@ -184,17 +184,15 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
   const gardenFigmaNode = createNodeFactory(GARDEN_FIGMA_ID);
   const figma = await cache.get(figmaAssetsCacheKey);
 
-  await Promise.all(
-    await figma.map(async (node: any) => {
-      createNode(
-        gardenFigmaNode({
-          ...node,
-          id: createNodeId(node.id),
-          imageUrl: node.imageUrl
-        })
-      );
-    })
-  );
+  figma.forEach((node: any) => {
+    createNode(
+      gardenFigmaNode({
+        ...node,
+        id: createNodeId(node.id),
+        imageUrl: node.imageUrl
+      })
+    );
+  });
 
   // const gardenNavNode = createNodeFactory(GARDEN_NAV_ID);
   const nav = await cache.get(navCacheKey);

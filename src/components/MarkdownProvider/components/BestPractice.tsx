@@ -87,7 +87,8 @@ const StyledTitle = styled(p => <Title {...p} />).attrs(p => ({ forwardedAs: p.t
   color: ${p => getColor(p.hue, 600, p.theme)};
 
   /* stylelint-disable-next-line no-descending-specificity */
-  & + p {
+  & + p,
+  & + ul {
     margin-top: ${p => `${p.theme.space.base * 4}px`};
   }
 

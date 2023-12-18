@@ -16,7 +16,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "noEmit": true,
-    "typeRoots": ["./utils/typings", "./node_modules/@types"],
+    "typeRoots": ["./utils/typings", "./node_modules/@types"]
   },
   "include": ["./gatsby-config.ts", "./gatsby-node.ts", "./plugins/**/*", "./src/**/*"],
   "exclude": ["./react-components"]

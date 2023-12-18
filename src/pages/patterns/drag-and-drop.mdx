@@ -7,7 +7,7 @@ description: >
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 ![List of items with one item being dragged to show parts of the item.](figma:patterns-dnd-intro.png)
@@ -72,9 +72,9 @@ transform it into a simpler draggable item while dragging.
       props.data.dndFormattingDraggablePreviewDo.childFile.childImageSharp.gatsbyImageData
     }
   >
-    <ul>
-      <li>Provide a simpler preview of a draggable item while dragging</li>
-    </ul>
+
+    - Provide a simpler preview of a draggable item while dragging
+
   </Do>
   <Dont
     imageIsFreeForm
@@ -82,9 +82,9 @@ transform it into a simpler draggable item while dragging.
       props.data.dndFormattingDraggablePreviewDont.childFile.childImageSharp.gatsbyImageData
     }
   >
-    <ul>
-      <li>Don’t make draggable items transparent during dragging</li>
-    </ul>
+
+    - Don’t make draggable items transparent during dragging
+
   </Dont>
 </BestPractice>
 

@@ -7,7 +7,7 @@ description: >
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 ## Anatomy
@@ -55,17 +55,17 @@ import ButtonPatternInteractionCode from '!!raw-loader!../../examples/button/But
     imageIsFreeForm
     imageSource={props.data.saveSuccessDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Use transient notifications to confirm saving actions.</li>
-    </ul>
+
+    - Use transient notifications to confirm saving actions
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.saveSuccessDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Do not place actions inside notifications as it is transient and inaccessible.</li>
-    </ul>
+
+    - Do not place actions inside notifications as it is transient and inaccessible
+
   </Dont>
 </BestPractice>
 
@@ -206,7 +206,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    saveSuccessDont: gardenFigmaAsset(name: { eq: "patterns-save-anatomy-success-notification-dont" }) {
+    saveSuccessDont: gardenFigmaAsset(
+      name: { eq: "patterns-save-anatomy-success-notification-dont" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
@@ -248,7 +250,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    saveValidationAlertFocus: gardenFigmaAsset(name: { eq: "patterns-save-validation-alert-focus" }) {
+    saveValidationAlertFocus: gardenFigmaAsset(
+      name: { eq: "patterns-save-validation-alert-focus" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)

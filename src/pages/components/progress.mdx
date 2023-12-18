@@ -10,28 +10,20 @@ components:
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 <Usage>
   <Use>
-    <ul>
-      <li>To communicate the amount of time left when downloading or uploading content</li>
-    </ul>
+
+    - To communicate the amount of time left when downloading or uploading content
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          When the loading time is unknown, use a [Spinner](/components/spinner) instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          When loading page content, use a [Skeleton](/components/skeleton) loader instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - When the loading time is unknown, use a [Spinner](/components/spinner) instead
+    - When loading page content, use a [Skeleton](/components/skeleton) loader instead
+
   </Misuse>
 </Usage>
 

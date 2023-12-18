@@ -13,33 +13,21 @@ components:
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 <Usage>
   <Use>
-    <ul>
-      <li>
-        To let users select from multiple parallel actions. Actions are parallel when each
-        represents a path forward for the user and none cancel the action.
-      </li>
-      <li>To reduce visual complexity when there are multiple actions a user can take</li>
-    </ul>
+
+    - To let users select from multiple parallel actions. Actions are parallel when each represents a path forward for the user and none cancel the action.
+    - To reduce visual complexity when there are multiple actions a user can take
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To provide a way to navigate between pages, use [Anchor](/components/anchor) instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To provide a way to choose between primary and secondary actions, use two different
-          [Buttons](/components/button) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To provide a way to navigate between pages, use [Anchor](/components/anchor) instead
+    - To provide a way to choose between primary and secondary actions, use two different [Buttons](/components/button) instead
+
   </Misuse>
 </Usage>
 

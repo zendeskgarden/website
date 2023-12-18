@@ -18,24 +18,19 @@ subcomponents:
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 <Usage>
   <Use>
-    <ul>
-      <li>To display additional information that aids the primary view</li>
-    </ul>
+
+    - To display additional information that aids the primary view
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          For an experience where the primary view is obscured to display supplementary information
-          or actions, use a [Drawer](/components/drawer)
-        </Markdown>
-      </li>
-    </ul>
+
+    - For an experience where the primary view is obscured to display supplementary information or actions, use a [Drawer](/components/drawer)
+
   </Misuse>
 </Usage>
 

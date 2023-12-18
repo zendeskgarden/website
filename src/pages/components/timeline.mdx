@@ -14,25 +14,20 @@ subcomponents:
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 <Usage>
   <Use>
-    <ul>
-      <li>To track an issue over time</li>
-      <li>To show events associated with an item</li>
-    </ul>
+
+    - To track an issue over time
+    - To show events associated with an item
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To guide users through a step by step process, use a [Stepper](/components/stepper)
-          instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To guide users through a step by step process, use a [Stepper](/components/stepper) instead
+
   </Misuse>
 </Usage>
 
@@ -90,7 +85,7 @@ Components such as links, buttons, and images can be nested in each Timeline ite
 
 <BestPractice>
   <Do imageSource={props.data.timelineNestingDo.childFile.childImageSharp.gatsbyImageData}>
-    <p>Do include images and other nested content if appropriate.</p>
+    Do include images and other nested content if appropriate.
   </Do>
 </BestPractice>
 
@@ -102,14 +97,14 @@ Creating a visual affordance for a link or action is preferred to making the ent
   <Do
     imageSource={props.data.timelineInteractiveElementsDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <p>Create explicit visual affordances for interactive items.</p>
+    Create explicit visual affordances for interactive items.
   </Do>
   <Dont
     imageSource={
       props.data.timelineInteractiveElementsDont.childFile.childImageSharp.gatsbyImageData
     }
   >
-    <p>Don’t rely on hover states to show that items are interactive.</p>
+    Don’t rely on hover states to show that items are interactive.
   </Dont>
 </BestPractice>
 
@@ -119,12 +114,12 @@ Item content can be replaced with any text style. Make sure to use appropriate h
 
 <BestPractice>
   <Do imageSource={props.data.timelineCorrectHierarchyDo.childFile.childImageSharp.gatsbyImageData}>
-    <p>Use balanced and appropriate typographic hierarchy.</p>
+    Use balanced and appropriate typographic hierarchy.
   </Do>
   <Dont
     imageSource={props.data.timelineCorrectHierarchyDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <p>Don’t mix up typographic hierarchy when customizing item content.</p>
+    Don’t mix up typographic hierarchy when customizing item content.
   </Dont>
 </BestPractice>
 

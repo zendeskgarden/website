@@ -17,7 +17,7 @@ components:
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 <Alert title="Deprecated" type="warning">
@@ -27,19 +27,15 @@ export function Head(props) {
 
 <Usage>
   <Use>
-    <ul>
-      <li>To filter down a large list of options</li>
-      <li>To quickly find a known option</li>
-    </ul>
+
+    - To filter down a large list of options
+    - To quickly find a known option
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To make more than one selection, use [Multiselect](/components/multiselect) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To make more than one selection, use [Multiselect](/components/multiselect) instead
+
   </Misuse>
 </Usage>
 
@@ -98,10 +94,8 @@ import SizeCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Size.ts
     imageSource={props.data.dropdownSelectionDo.childFile.childImageSharp.gatsbyImageData}
     imageIsSquare
   >
-    <p>
-      Autocomplete is useful for lists that are too long to read in full (for example, company
-      employees) or that accumulate items over time (for example, an inventory).
-    </p>
+    Autocomplete is useful for lists that are too long to read in full (for example, company
+    employees) or that accumulate items over time (for example, an inventory).
   </Do>
 </BestPractice>
 

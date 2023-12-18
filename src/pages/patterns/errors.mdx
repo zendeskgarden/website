@@ -7,7 +7,7 @@ description: >
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 {/* markdownlint-disable no-duplicate-header */}
@@ -146,17 +146,17 @@ Live validation should be used sparingly (i.e. severe errors, passwords, emails)
     imageIsFreeForm
     imageSource={props.data.FormsValidateDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Show error validation after the user has tried submitting the form.</li>
-    </ul>
+
+    - Show error validation after the user has tried submitting the form
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.FormsValidateDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Do not use live validation.</li>
-    </ul>
+
+    - Do not use live validation
+
   </Dont>
 </BestPractice>
 
@@ -169,17 +169,17 @@ Keep incorrect values that users have entered to help them avoid making the same
     imageIsFreeForm
     imageSource={props.data.FormsKeepDataDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Keep invalid data to let users understand what to correct.</li>
-    </ul>
+
+    - Keep invalid data to let users understand what to correct
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.FormsKeepDataDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Do not clear invalid data.</li>
-    </ul>
+
+    - Do not clear invalid data
+
   </Dont>
 </BestPractice>
 
@@ -224,7 +224,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    GlobalAlertDisconnect: gardenFigmaAsset(name: { eq: "patterns-error-global-alert-disconnect" }) {
+    GlobalAlertDisconnect: gardenFigmaAsset(
+      name: { eq: "patterns-error-global-alert-disconnect" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)

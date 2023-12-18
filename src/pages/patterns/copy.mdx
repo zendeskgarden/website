@@ -8,7 +8,7 @@ description: >
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 ## Anatomy
@@ -90,18 +90,18 @@ Input field.
     imageSource={props.data.copyAccessibilityDo.childFile.childImageSharp.gatsbyImageData}
     alt="Input group with a read-only Input field"
   >
-    <ul>
-      <li>Use the read-only Input field in forms.</li>
-    </ul>
+
+    - Use the read-only Input field in forms
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.copyAccessibilityDont.childFile.childImageSharp.gatsbyImageData}
     alt="Input group with a disabled Input field"
   >
-    <ul>
-      <li>Don’t use the disabled Input field.</li>
-    </ul>
+
+    - Don’t use the disabled Input field
+
   </Dont>
 </BestPractice>
 
@@ -172,7 +172,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    copyLayoutsMinimalTooltip: gardenFigmaAsset(name: { eq: "patterns-copy-layouts-minimal-tooltip" }) {
+    copyLayoutsMinimalTooltip: gardenFigmaAsset(
+      name: { eq: "patterns-copy-layouts-minimal-tooltip" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
@@ -193,7 +195,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    copyAccessibilityDont: gardenFigmaAsset(name: { eq: "patterns-copy-accessibility-input-dont" }) {
+    copyAccessibilityDont: gardenFigmaAsset(
+      name: { eq: "patterns-copy-accessibility-input-dont" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
@@ -209,7 +213,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    copyAccessibilityAria: gardenFigmaAsset(name: { eq: "patterns-copy-accessibility-aria-labels" }) {
+    copyAccessibilityAria: gardenFigmaAsset(
+      name: { eq: "patterns-copy-accessibility-aria-labels" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)

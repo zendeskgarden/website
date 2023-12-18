@@ -14,31 +14,21 @@ components:
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 <Usage>
   <Use>
-    <ul>
-      <li>To let users compare options from a list and select all, any, or none of those items</li>
-      <li>To turn a single option on or off</li>
-    </ul>
+
+    - To let users compare options from a list and select all, any, or none of those items
+    - To turn a single option on or off
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To give the user a mutually exclusive choice, use the [Radio](/components/radio) component
-          instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To let users activate an option that takes effect immediately, use a
-          [Toggle](/components/toggle) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To give the user a mutually exclusive choice, use the [Radio](/components/radio) component instead
+    - To let users activate an option that takes effect immediately, use a [Toggle](/components/toggle) instead
+
   </Misuse>
 </Usage>
 
@@ -129,22 +119,14 @@ import ValidationCode from '!!raw-loader!../../examples/forms/checkbox/Validatio
 
 <BestPractice>
   <Do imageSource={props.data.checkboxSelectionDo.childFile.childImageSharp.gatsbyImageData}>
-    <p>
-      <Markdown>
-        Use to turn a standalone setting on and off, as a favorable alternative to a
-        [Toggle](/components/toggle).
-      </Markdown>
-    </p>
+    Use to turn a standalone setting on and off, as a favorable alternative to a
+    [Toggle](/components/toggle).
   </Do>
   <Dont
     imageSource={props.data.checkboxStandaloneOptionDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <p>
-      <Markdown>
-        Don't use to select exactly one option from a set of two or more. Use
-        [Radios](/components/radio) instead.
-      </Markdown>
-    </p>
+    Don't use to select exactly one option from a set of two or more. Use
+    [Radios](/components/radio) instead.
   </Dont>
 </BestPractice>
 

@@ -23,7 +23,7 @@ components:
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 <Alert title="Deprecated" type="warning">
@@ -33,25 +33,16 @@ export function Head(props) {
 
 <Usage>
   <Use>
-    <ul>
-      <li>To let users see and choose one thing from a list of items</li>
-    </ul>
+
+    - To let users see and choose one thing from a list of items
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To let users see and choose one thing from a list of parallel actions, use in combination
-          with a [Split button](/components/split-button)
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>To help users navigate, use [Anchors](/components/anchor) instead</Markdown>
-      </li>
-      <li>
-        <Markdown>To move between views, use [Tabs](/components/tabs) instead</Markdown>
-      </li>
-    </ul>
+
+    - To let users see and choose one thing from a list of parallel actions, use in combination with a [Split button](/components/split-button)
+    - To help users navigate, use [Anchors](/components/anchor) instead
+    - To move between views, use [Tabs](/components/tabs) instead
+
   </Misuse>
 </Usage>
 

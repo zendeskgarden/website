@@ -12,40 +12,23 @@ components:
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 <Usage>
   <Use>
-    <ul>
-      <li>
-        Skeleton is the default loader, used whenever the system can predict the format of the
-        loading content
-      </li>
-      <li>To progressively load different parts of a page</li>
-      <li>To avoid large layout shifts</li>
-    </ul>
+
+    - Skeleton is the default loader, used whenever the system can predict the format of the loading content
+    - To progressively load different parts of a page
+    - To avoid large layout shifts
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          When the system doesn’t have control over the content that is loading, use a
-          [Spinner](/components/spinner) instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To indicate that a component (like a button or search input) is busy, use
-          [Dots](/components/dots) instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To communicate a typing status, use [Inline](/components/inline) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - When the system doesn’t have control over the content that is loading, use a [Spinner](/components/spinner) instead
+    - To indicate that a component (like a button or search input) is busy, use [Dots](/components/dots) instead
+    - To communicate a typing status, use [Inline](/components/inline) instead
+
   </Misuse>
 </Usage>
 

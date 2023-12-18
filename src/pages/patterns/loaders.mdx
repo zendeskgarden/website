@@ -7,7 +7,7 @@ description: >
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 ![Loaders intro](figma:patterns-loaders-intro.png)
@@ -52,18 +52,18 @@ Use [light skeleton loaders](/components/skeleton#light) on dark backgrounds.
     imageSource={props.data.LoadersSkeletonDo.childFile.childImageSharp.gatsbyImageData}
     alt="A few skeleton loaders to orient the user"
   >
-    <ul>
-      <li>Show a skeleton loader to orient the user.</li>
-    </ul>
+
+    - Show a skeleton loader to orient the user
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.LoadersSkeletonDont.childFile.childImageSharp.gatsbyImageData}
     alt="Too many skeleton loaders"
   >
-    <ul>
-      <li>Avoid mapping every line with a skeleton loader.</li>
-    </ul>
+
+    - Avoid mapping every line with a skeleton loader
+
   </Dont>
 </BestPractice>
 

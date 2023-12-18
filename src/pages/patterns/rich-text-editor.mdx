@@ -7,7 +7,7 @@ description: >
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 ![Rich-text editor](figma:patterns-rich-text-editor-intro.png)
@@ -243,7 +243,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    rteToolbarSections: gardenFigmaAsset(name: { eq: "patterns-rich-text-editor-toolbar-sections" }) {
+    rteToolbarSections: gardenFigmaAsset(
+      name: { eq: "patterns-rich-text-editor-toolbar-sections" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)

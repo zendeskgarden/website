@@ -11,25 +11,20 @@ components:
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 <Usage>
   <Use>
-    <ul>
-      <li>To simplify the appearance of repeated or persistent actions on a page</li>
-      <li>To enable action in a toolbar</li>
-    </ul>
+
+    - To simplify the appearance of repeated or persistent actions on a page
+    - To enable action in a toolbar
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To enable primary and secondary actions on a page, use a [Button](/components/button)
-          instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To enable primary and secondary actions on a page, use a [Button](/components/button) instead
+
   </Misuse>
 </Usage>
 
@@ -111,12 +106,8 @@ import IconButtonTypesCode from '!!raw-loader!../../examples/button/IconButtonTy
     imageSource={props.data.iconButtonTooltipDo.childFile.childImageSharp.gatsbyImageData}
     imageIsSquare
   >
-    <p>
-      <Markdown>
-        Include a [Tooltip](/components/tooltip) to help any users who may be unfamiliar with the
-        icon.
-      </Markdown>
-    </p>
+    Include a [Tooltip](/components/tooltip) to help any users who may be unfamiliar with the
+    icon.
   </Do>
 </BestPractice>
 
@@ -151,7 +142,9 @@ import { graphql } from 'gatsby';
 export const pageQuery = graphql`
   query ($slug: String) {
     ...SidebarPageFragment
-    iconButtonTooltipDo: gardenFigmaAsset(name: { eq: "components-buttons-iconbutton-tooltip-do" }) {
+    iconButtonTooltipDo: gardenFigmaAsset(
+      name: { eq: "components-buttons-iconbutton-tooltip-do" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)

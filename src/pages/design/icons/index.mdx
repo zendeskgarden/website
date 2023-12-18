@@ -5,7 +5,7 @@ title: Icon overview
 import { SEO } from '../../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 import { graphql } from 'gatsby';
@@ -41,13 +41,13 @@ In certain instances where 16px icons will break the line height or will not fit
 
 <BestPractice>
   <Do imageSource={props.data.defaultIconSize.childFile.childImageSharp.gatsbyImageData}>
-    <p>16px is the default icon size. Use 16px icons where possible.</p>
+    16px is the default icon size. Use 16px icons where possible.
   </Do>
 </BestPractice>
 
 <BestPractice>
   <Do imageSource={props.data.smallerIconSize.childFile.childImageSharp.gatsbyImageData}>
-    <p>Use 12px icons for compact spaces where 16px icons can’t fit.</p>
+    Use 12px icons for compact spaces where 16px icons can’t fit.
   </Do>
 </BestPractice>
 
@@ -57,13 +57,13 @@ In certain instances where 16px icons will break the line height or will not fit
 
 <BestPractice>
   <Do imageSource={props.data.illustrationIconSize.childFile.childImageSharp.gatsbyImageData}>
-    <p>Use 32px icons for illustration.</p>
+    Use 32px icons for illustration.
   </Do>
 </BestPractice>
 
 <BestPractice>
   <Dont imageSource={props.data.uiIconSize.childFile.childImageSharp.gatsbyImageData}>
-    <p>Don’t use 32px icons for interactions.</p>
+    Don’t use 32px icons for interactions.
   </Dont>
 </BestPractice>
 
@@ -73,7 +73,7 @@ In certain instances where 16px icons will break the line height or will not fit
 
 <BestPractice>
   <Do imageSource={props.data.tooltipLabelIcon.childFile.childImageSharp.gatsbyImageData}>
-    <p>Use tooltips to clearly label interactive icons for accessibility.</p>
+    Use tooltips to clearly label interactive icons for accessibility.
   </Do>
 </BestPractice>
 

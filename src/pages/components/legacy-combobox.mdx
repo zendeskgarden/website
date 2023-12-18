@@ -15,7 +15,7 @@ components:
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 <Alert title="Deprecated" type="warning">
@@ -25,26 +25,17 @@ export function Head(props) {
 
 <Usage>
   <Use>
-    <ul>
-      <li>To filter down a list of options</li>
-      <li>To quickly find a known option</li>
-      <li>As a search field</li>
-    </ul>
+
+    - To filter down a list of options
+    - To quickly find a known option
+    - As a search field
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To see a list of options in the dropdown without entering text in the input field, use
-          [Autocomplete](/components/autocomplete)
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To make more than one selection, use [Multiselect](/components/multiselect) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To see a list of options in the dropdown without entering text in the input field, use [Autocomplete](/components/autocomplete)
+    - To make more than one selection, use [Multiselect](/components/multiselect) instead
+
   </Misuse>
 </Usage>
 
@@ -101,30 +92,22 @@ import ComboboxSelectionCode from '!!raw-loader!../../examples/dropdowns/combobo
     imageIsFreeForm
     imageSource={props.data.comboboxIconPlacementDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <p>
-      Always place the magnifying glass icon at the start of the input when using the Combobox for
-      search.
-    </p>
+    Always place the magnifying glass icon at the start of the input when using the Combobox for
+    search.
   </Do>
   <Do
     imageIsFreeForm
     imageSource={props.data.comboboxHighlightDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <p>
-      When using Combobox as a search input, automatically highlight the first suggestion in the
-      list box and allow the user to press the Enter key to submit the search.
-    </p>
+    When using Combobox as a search input, automatically highlight the first suggestion in the
+    list box and allow the user to press the Enter key to submit the search.
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.comboboxSearchableDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <p>
-      <Markdown>
-        Use an [Autocomplete](/components/autocomplete) component to create a dropdown that shows a
-        list of options without needing to enter text in the input field.
-      </Markdown>
-    </p>
+    Use an [Autocomplete](/components/autocomplete) component to create a dropdown that shows a
+    list of options without needing to enter text in the input field.
   </Dont>
 </BestPractice>
 
@@ -225,7 +208,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    comboboxHighlightDo: gardenFigmaAsset(name: { eq: "components-dropdowns-combobox-highlight-do" }) {
+    comboboxHighlightDo: gardenFigmaAsset(
+      name: { eq: "components-dropdowns-combobox-highlight-do" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 284)

@@ -7,7 +7,7 @@ description: >
 import { SEO } from '../../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 import BasicFormatting from '../../../examples/table/TableDefault.tsx';
@@ -51,14 +51,14 @@ import TableSizeCode from '!!raw-loader!../../../examples/table/TableSize.tsx';
 
 <BestPractice>
   <Do imageSource={props.data.tablesRowHeightsDo.childFile.childImageSharp.gatsbyImageData}>
-    <ul>
-      <li>Use a larger header row height compared to the body rows.</li>
-    </ul>
+
+    - Use a larger header row height compared to the body rows
+
   </Do>
   <Dont imageSource={props.data.tablesRowHeightsDont.childFile.childImageSharp.gatsbyImageData}>
-    <ul>
-      <li>Don’t use the same heights for header rows and body rows.</li>
-    </ul>
+
+    - Don’t use the same heights for header rows and body rows
+
   </Dont>
 </BestPractice>
 
@@ -79,13 +79,13 @@ with some exceptions for quantitative data.
 
 ![Cell Alignment](figma:patterns-tables-basic-formatting-cell-alignment.png)
 
-| <b>Cell content</b>                                                                                         | <b>Alignment</b> |
-| ----------------------------------------------------------------------------------------------------------- | ---------------- |
-| 1. Text                                                                                                     | Left align       |
-| 2. Categorical data that uses numbers (for example, [dates](/content/grammar#date-and-time), phone numbers) | Left align       |
-| 3. Quantitative data                                                                                        | Right align      |
-| 4. [Tags](/components/tags) or [Avatars](/components/avatar)                                                | Left align       |
-| 5. Icons                                                                                                    | Center align     |
+| Cell content                                                                                                | Alignment    |
+| ----------------------------------------------------------------------------------------------------------- | -------------|
+| 1. Text                                                                                                     | Left align   |
+| 2. Categorical data that uses numbers (for example, [dates](/content/grammar#date-and-time), phone numbers) | Left align   |
+| 3. Quantitative data                                                                                        | Right align  |
+| 4. [Tags](/components/tags) or [Avatars](/components/avatar)                                                | Left align   |
+| 5. Icons                                                                                                    | Center align |
 
 ### Avatars, icons, and tags
 
@@ -406,7 +406,7 @@ Follow our [date and time formatting](/content/grammar#date-and-time) guidelines
 
 ![Row and cell states](figma:patterns-tables-basic-formatting-row-cell-states.png)
 
-| <b>Row/cell state</b>   | <b>Additional guidance</b>                                                      |
+| Row/cell state          | Additional guidance                                                             |
 | ----------------------- | ------------------------------------------------------------------------------- |
 | 1. Empty cell           | Cells with no values should be left blank. Do not use a hyphen, en, or em dash. |
 | 2. Hover                |                                                                                 |

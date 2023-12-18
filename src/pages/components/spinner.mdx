@@ -11,29 +11,20 @@ components:
 import { SEO } from '../../components';
 
 export function Head(props) {
-  return <SEO {...props} />
+  return <SEO {...props} />;
 }
 
 <Usage>
   <Use>
-    <ul>
-      <li>When the content to be loaded is unknown or unpredictable</li>
-    </ul>
+
+    - When the content to be loaded is unknown or unpredictable
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          When page content is easily estimated, use a [Skeleton](/components/skeleton) instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To indicate a loading state within a component (like menus, inputs, or buttons) use
-          [Dots](/components/dots) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - When page content is easily estimated, use a [Skeleton](/components/skeleton) instead
+    - To indicate a loading state within a component (like menus, inputs, or buttons) use [Dots](/components/dots) instead
+
   </Misuse>
 </Usage>
 
