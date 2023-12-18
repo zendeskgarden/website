@@ -194,7 +194,6 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
     );
   });
 
-  // const gardenNavNode = createNodeFactory(GARDEN_NAV_ID);
   const nav = await cache.get(navCacheKey);
 
   transformNavigation(nav, { createNodeId }).forEach(group => {

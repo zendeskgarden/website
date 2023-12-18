@@ -11,6 +11,7 @@ import fs from 'fs';
 import path from 'path';
 import { GatsbyConfig } from 'gatsby';
 import remarkGfm from 'remark-gfm';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 dotenv.config();
 cleanEnv(process.env, { FIGMA_TOKEN: str() });
@@ -91,7 +92,7 @@ const config: GatsbyConfig = {
           remarkPlugins: [remarkGfm]
         },
         gatsbyRemarkPlugins: [
-          // require.resolve('./plugins/gatsby-remark-figma-assets'),
+          'gatsby-remark-figma-assets',
           'gatsby-remark-smartypants',
           {
             resolve: 'gatsby-remark-images',
@@ -99,7 +100,8 @@ const config: GatsbyConfig = {
               maxWidth: 1000,
               linkImagesToOriginal: false,
               disableBgImageOnAlpha: true,
-              quality: 100
+              quality: 100,
+              wrapperStyle: `margin-bottom: ${DEFAULT_THEME.space.base * 5}px;`
             }
           },
           {
