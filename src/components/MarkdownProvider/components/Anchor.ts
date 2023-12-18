@@ -35,10 +35,10 @@ export const StyledAnchor = styled(Anchor).attrs(props => ({
     }
 
     & svg {
-      visibility: visible;
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
+      visibility: visible;
     }
   }
 `;

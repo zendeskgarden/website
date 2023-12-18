@@ -11,7 +11,7 @@
     "lint": "npm run lint:js && npm run lint:css && npm run lint:md",
     "lint:css": "stylelint 'src/**/*.{js,ts,tsx}'",
     "lint:js": "eslint ./ --ext js,ts,tsx --max-warnings 0",
-    "lint:md": "markdownlint ./*.md {content,src}/**/*.{md,mdx}",
+    "lint:md": "markdownlint ./*.md {content,src}/**/*.{md,mdx} --ignore src/fragments/*",
     "prepare": "git submodule update --depth 1 --init && npm run build",
     "start": "gatsby develop --open",
     "test": "prettier-package-json --list-different && npm run -- format:all --check && npm run lint && npm exec tsc",

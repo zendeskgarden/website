@@ -78,12 +78,14 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = ({ page, actions }) => {
     if (pageContext.frontmatter) {
       const frontmatter = pageContext.frontmatter as IPageContext['frontmatter'];
 
-      if (frontmatter.description) {
-        frontmatter.description = smartquotes(frontmatter.description);
-      }
+      if (frontmatter) {
+        if (frontmatter.description) {
+          frontmatter.description = smartquotes(frontmatter.description);
+        }
 
-      if (frontmatter.title) {
-        frontmatter.title = smartquotes(frontmatter.title);
+        if (frontmatter.title) {
+          frontmatter.title = smartquotes(frontmatter.title);
+        }
       }
     }
 
