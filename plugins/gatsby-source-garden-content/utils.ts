@@ -121,9 +121,9 @@ export async function fetchFigmaImages({
   return { images };
 }
 
-export function transformNavigation(nav, { createNodeId } = {}) {
+export function transformNavigation(nav: any, { createNodeId }: { createNodeId: any }) {
   return Object.entries(nav).map(([group, entries]) => {
-    function transformNavEntry(node, parent) {
+    function transformNavEntry(node: any, parent: any = null) {
       if (group) {
         node.group = group;
       }
@@ -144,8 +144,8 @@ export function transformNavigation(nav, { createNodeId } = {}) {
       }
 
       if (node.items && node.items.length > 0) {
-        node.items = node.items.map(child => transformNavEntry(child, node));
-        node.children = node.items.map(child => child.id);
+        node.items = node.items.map((child: any) => transformNavEntry(child, node));
+        node.children = node.items.map((child: any) => child.id);
       }
 
       return {
@@ -160,6 +160,6 @@ export function transformNavigation(nav, { createNodeId } = {}) {
       };
     }
 
-    return entries.map(entry => transformNavEntry(entry));
+    return (entries as any[]).map((entry: any) => transformNavEntry(entry));
   });
 }

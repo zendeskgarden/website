@@ -28,6 +28,7 @@ export interface IPageData {
     id: string;
     excerpt: any;
     body: any;
+    navigation: any;
     tableOfContents: IHeading;
     package?: {
       version: string;

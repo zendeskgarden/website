@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren, ReactNode } from 'react';
 import styled from 'styled-components';
 import { math } from 'polished';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
@@ -97,7 +97,7 @@ const StyledTitle = styled(p => <Title {...p} />).attrs(p => ({ forwardedAs: p.t
   }
 `;
 
-interface ICaptionProps {
+interface ICaptionProps extends PropsWithChildren {
   hue: string;
   title: string;
   icon: ReactNode;
@@ -175,7 +175,7 @@ export const Caution: React.FC<ISectionProps> = props => (
   <Section {...props} title="Caution" hue="warningHue" icon={<AlertErrorStrokeIcon />} />
 );
 
-interface IBestPracticesProps {
+interface IBestPracticesProps extends PropsWithChildren {
   rows?: boolean;
 }
 

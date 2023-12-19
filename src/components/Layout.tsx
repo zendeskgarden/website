@@ -10,19 +10,9 @@ import { PageProps } from 'gatsby';
 import RootLayout from 'layouts/Root';
 import { SidebarLayout } from 'layouts/Sidebar';
 import TitledLayout from 'layouts/Titled';
-import { SEO } from './SEO';
 import { IPageData, IPageContext } from './types';
 import { GlobalStyles } from './GlobalStyles';
-
-// TODO: remove and add to each page.
-export const Head = ({ pageContext, ...props }: { pageContext: IPageContext }) => (
-  <SEO
-    {...props}
-    // TODO: change to use group for title suffix
-    title={`${pageContext.frontmatter.title} / Components`}
-    description={pageContext.frontmatter.description}
-  />
-);
+import { IHeading } from 'layouts/Titled/components/TOC';
 
 export const Layout: React.FC<PageProps<IPageData, IPageContext>> = ({
   data,
@@ -31,8 +21,14 @@ export const Layout: React.FC<PageProps<IPageData, IPageContext>> = ({
 }) => {
   if (!pageContext || !pageContext.slug) return children;
 
-  const navigation = (data || {}).mdx ? data.mdx.navigation : [];
-  const toc = (data || {}).mdx ? data.mdx.tableOfContents.items : [];
+  let navigation = [];
+  let toc: IHeading[] = [];
+
+  if (data && data.mdx) {
+    navigation = data.mdx.navigation || [];
+    toc = data.mdx.tableOfContents.items || [];
+  }
+
   const frontmatter = pageContext.frontmatter || {};
 
   return (

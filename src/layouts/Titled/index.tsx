@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { css } from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
@@ -13,11 +13,13 @@ import { Subtitle } from './components/Subtitle';
 import { TOCBlock, TOC, IHeading } from './components/TOC';
 import { StyledH1, StyledHr } from 'components/MarkdownProvider/components/Typography';
 
-const TitledLayout: React.FC<{
+interface ITitledLayoutProps extends PropsWithChildren {
   title: React.ReactNode;
   subtitle?: React.ReactNode;
   toc?: IHeading[];
-}> = ({ children, title, subtitle, toc }) => (
+}
+
+const TitledLayout: React.FC<ITitledLayoutProps> = ({ children, title, subtitle, toc }) => (
   <Grid>
     <Row>
       <Col

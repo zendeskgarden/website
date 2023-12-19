@@ -8,12 +8,12 @@
 import React, { useCallback, useState } from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
-import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns.next';
 
 const Example = () => {
   const [rotated, setRotated] = useState<boolean>();
 
-  const handleChange = useCallback(changes => {
+  const handleChange = useCallback<NonNullable<IMenuProps['onChange']>>(changes => {
     changes.isExpanded !== undefined && setRotated(changes.isExpanded);
   }, []);
 

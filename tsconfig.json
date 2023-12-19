@@ -18,6 +18,12 @@
     "noEmit": true,
     "typeRoots": ["./utils/typings", "./node_modules/@types"]
   },
-  "include": ["./gatsby-config.ts", "./gatsby-node.ts", "./plugins/**/*", "./src/**/*"],
+  "include": [
+    "./gatsby-config.ts",
+    "./gatsby-node.ts",
+    "./plugins/**/*",
+    "./src/**/*",
+    "./utils/typings/svg.d.ts"
+  ],
   "exclude": ["./react-components"]
 }

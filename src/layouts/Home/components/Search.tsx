@@ -8,14 +8,14 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { css, ThemeProps, DefaultTheme } from 'styled-components';
+import { css, ThemeProps } from 'styled-components';
 import { getLineHeight, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { LG, XXXL } from '@zendeskgarden/react-typography';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SearchInput } from 'layouts/Root/components/SearchInput';
 
-const headerStyling = (p: ThemeProps<DefaultTheme>) => {
+const headerStyling = (p: ThemeProps<any>) => {
   const fontSize = `${p.theme.space.base * 12}px`;
 
   return css`

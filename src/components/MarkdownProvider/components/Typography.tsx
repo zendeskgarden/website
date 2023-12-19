@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css, ThemeProps } from 'styled-components';
 import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
 import {
   XXXL,
@@ -19,7 +19,7 @@ import {
 } from '@zendeskgarden/react-typography';
 import { StyledAnchor } from './Anchor';
 
-const headerStyles = (p: ThemeProps<DefaultTheme>) => {
+const headerStyles = (p: ThemeProps<any>) => {
   return css`
     margin-bottom: ${p.theme.space.sm};
     color: ${getColor('chromeHue', 700, p.theme)};

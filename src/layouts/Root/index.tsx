@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { css } from 'styled-components';
 import { SkipNav } from '@zendeskgarden/react-chrome';
 import Footer from './components/Footer';
 import Header, { headerBoxShadow, headerHeight } from './components/Header';
 
-interface IRootLayoutProps {
+interface IRootLayoutProps extends PropsWithChildren {
   hasSkipNav?: boolean;
   path?: string;
 }

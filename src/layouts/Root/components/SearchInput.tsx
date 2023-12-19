@@ -6,13 +6,13 @@
  */
 
 import React, { HTMLAttributes, useEffect } from 'react';
-import { css, DefaultTheme, ThemeProps } from 'styled-components';
+import { css, ThemeProps } from 'styled-components';
 import { math } from 'polished';
 import { getColor, mediaQuery, menuStyles } from '@zendeskgarden/react-theming';
 import { MediaInput } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 
-const searchStyles = (props: ThemeProps<DefaultTheme>) => {
+const searchStyles = (props: ThemeProps<any>) => {
   const theme = props.theme;
   const positionTop = math(`${theme.space.base * 3.5} + ${theme.borderWidths.sm}`);
   const positionLeft = math(`${theme.space.base * -9} - ${theme.borderWidths.sm}`);
