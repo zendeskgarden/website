@@ -29,8 +29,8 @@ const html = `
 `;
 
 const index = `
-import * as React from 'react';
-import { render } from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { DEFAULT_THEME, ThemeProvider } from '@zendeskgarden/react-theming';
 import Example from './Example';
 
@@ -38,14 +38,16 @@ import Example from './Example';
 import '@zendeskgarden/css-bedrock';
 
 const rootElement = document.getElementById('root');
+const root = ReactDOM.createRoot(rootElement);
 
-render(
-  <div style={{ padding: DEFAULT_THEME.space.md }}>
-    <ThemeProvider>
-      <Example />
-    </ThemeProvider>
-  </div>,
-  rootElement
+root.render(
+  <React.StrictMode>
+    <div style={{ padding: DEFAULT_THEME.space.md }}>
+      <ThemeProvider>
+        <Example />
+      </ThemeProvider>
+    </div>
+  </React.StrictMode>
 );
 `;
 
@@ -56,15 +58,15 @@ const packageJson = `
     "dom-helpers": "latest",
     "react-beautiful-dnd": "latest",
     "react-scripts": "latest",
-    "react": "^17.x",
-    "react-dom": "^17.x",
-    "styled-components": "latest",
+    "react": "^18.x",
+    "react-dom": "^18.x",
+    "styled-components": "^5.1.0",
     "lodash.debounce": "latest",
     "react-dropzone": "latest",
     "react-window": "latest",
     "use-resize-observer": "latest",
-    "@dnd-kit/core": "6.x",
-    "@zendeskgarden/container-utilities": "^1.0.0",
+    "@dnd-kit/core": "latest",
+    "@zendeskgarden/container-utilities": "^1.x",
     "@zendeskgarden/css-bedrock": "^8.x",
     "@zendeskgarden/react-accordions": "^8.x",
     "@zendeskgarden/react-avatars": "^8.x",
