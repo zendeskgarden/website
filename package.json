@@ -86,7 +86,7 @@
     "gatsby-plugin-mdx": "5.12.3",
     "gatsby-plugin-netlify": "5.1.1",
     "gatsby-plugin-root-import": "2.0.9",
-    "gatsby-plugin-sharp": "5.12.3",
+    "gatsby-plugin-sharp": "5.13.0",
     "gatsby-plugin-sitemap": "6.13.0",
     "gatsby-plugin-styled-components": "6.13.0",
     "gatsby-plugin-svgr": "3.0.0-beta.0",
