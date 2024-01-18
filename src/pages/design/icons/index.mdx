@@ -2,6 +2,12 @@
 title: Icon overview
 ---
 
+import { SEO } from '../../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 import { graphql } from 'gatsby';
 
 import IconShowcase from '../../../examples/design/icons/IconShowcase.tsx';
@@ -35,13 +41,13 @@ In certain instances where 16px icons will break the line height or will not fit
 
 <BestPractice>
   <Do imageSource={props.data.defaultIconSize.childFile.childImageSharp.gatsbyImageData}>
-    <p>16px is the default icon size. Use 16px icons where possible.</p>
+    16px is the default icon size. Use 16px icons where possible.
   </Do>
 </BestPractice>
 
 <BestPractice>
   <Do imageSource={props.data.smallerIconSize.childFile.childImageSharp.gatsbyImageData}>
-    <p>Use 12px icons for compact spaces where 16px icons can’t fit.</p>
+    Use 12px icons for compact spaces where 16px icons can’t fit.
   </Do>
 </BestPractice>
 
@@ -51,13 +57,13 @@ In certain instances where 16px icons will break the line height or will not fit
 
 <BestPractice>
   <Do imageSource={props.data.illustrationIconSize.childFile.childImageSharp.gatsbyImageData}>
-    <p>Use 32px icons for illustration.</p>
+    Use 32px icons for illustration.
   </Do>
 </BestPractice>
 
 <BestPractice>
   <Dont imageSource={props.data.uiIconSize.childFile.childImageSharp.gatsbyImageData}>
-    <p>Don’t use 32px icons for interactions.</p>
+    Don’t use 32px icons for interactions.
   </Dont>
 </BestPractice>
 
@@ -67,7 +73,7 @@ In certain instances where 16px icons will break the line height or will not fit
 
 <BestPractice>
   <Do imageSource={props.data.tooltipLabelIcon.childFile.childImageSharp.gatsbyImageData}>
-    <p>Use tooltips to clearly label interactive icons for accessibility.</p>
+    Use tooltips to clearly label interactive icons for accessibility.
   </Do>
 </BestPractice>
 
@@ -77,37 +83,37 @@ View the [zendeskgarden/svg-icons](https://github.com/zendeskgarden/svg-icons#re
 repository for implementation instructions.
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    defaultIconSize: figmaAsset(name: { eq: "design-icons-16px-do" }) {
+    defaultIconSize: gardenFigmaAsset(name: { eq: "design-icons-16px-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)
         }
       }
     }
-    smallerIconSize: figmaAsset(name: { eq: "design-icons-12px-do" }) {
+    smallerIconSize: gardenFigmaAsset(name: { eq: "design-icons-12px-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)
         }
       }
     }
-    illustrationIconSize: figmaAsset(name: { eq: "design-icons-32px-do" }) {
+    illustrationIconSize: gardenFigmaAsset(name: { eq: "design-icons-32px-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)
         }
       }
     }
-    uiIconSize: figmaAsset(name: { eq: "design-icons-32px-dont" }) {
+    uiIconSize: gardenFigmaAsset(name: { eq: "design-icons-32px-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)
         }
       }
     }
-    tooltipLabelIcon: figmaAsset(name: { eq: "design-icons-tooltips-do" }) {
+    tooltipLabelIcon: gardenFigmaAsset(name: { eq: "design-icons-tooltips-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 200)

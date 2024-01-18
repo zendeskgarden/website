@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { createElement, Fragment, ReactElement, ReactNode } from 'react';
+import React, { createElement, Fragment, PropsWithChildren, ReactElement, ReactNode } from 'react';
 import { remark } from 'remark';
 import remark2react from 'remark-react';
 import VFile from 'vfile';
@@ -54,7 +54,7 @@ const PROCESSOR = remark().use(remark2react, {
   remarkReactComponents: COMPONENTS,
   createElement,
   Fragment
-});
+} as any);
 
 interface IMarkdown extends VFile.VFile {
   result: ReactElement;
@@ -66,4 +66,4 @@ const toMarkdown = (node: ReactNode) => {
   return element.props.children;
 };
 
-export const Markdown: React.FC = ({ children }) => <>{toMarkdown(children)}</>;
+export const Markdown: React.FC<PropsWithChildren> = ({ children }) => <>{toMarkdown(children)}</>;

@@ -15,21 +15,22 @@ subcomponents:
   - chrome/src/elements/sheet/components/Close.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To display additional information that aids the primary view</li>
-    </ul>
+
+    - To display additional information that aids the primary view
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          For an experience where the primary view is obscured to display supplementary information
-          or actions, use a [Drawer](/components/drawer)
-        </Markdown>
-      </li>
-    </ul>
+
+    - For an experience where the primary view is obscured to display supplementary information or actions, use a [Drawer](/components/drawer)
+
   </Misuse>
 </Usage>
 
@@ -96,7 +97,7 @@ import SheetSizeCode from '!!raw-loader!../../examples/chrome/SheetSize.tsx';
 
 The Sheet component follows this structure:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```jsx
 <Sheet>
   <Sheet.Header>
@@ -194,7 +195,7 @@ Nest a Close button within a [Sheet](#sheet) component as the last child for con
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

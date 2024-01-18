@@ -8,22 +8,23 @@ components:
   - forms/src/elements/input-group/InputGroup.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To let users select data in a field</li>
-      <li>To let users copy data in a field</li>
-    </ul>
+
+    - To let users select data in a field
+    - To let users copy data in a field
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To submit a form, separate your [Buttons](/components/button) from your
-          [Inputs](/components/input).
-        </Markdown>
-      </li>
-    </ul>
+
+    - To submit a form, separate your [Buttons](/components/button) from your [Inputs](/components/input)
+
   </Misuse>
 </Usage>
 
@@ -112,7 +113,7 @@ An InputGroup provides styles for grouping child inputs and buttons together. Ne
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

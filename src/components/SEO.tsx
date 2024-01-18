@@ -5,21 +5,27 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React, { ReactNode } from 'react';
+import { graphql, useStaticQuery, HeadProps } from 'gatsby';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { IPageContext, IPageData } from './types';
 
-/* eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires */
-const { PALETTE } = require('@zendeskgarden/react-theming');
-
-const SEO: React.FC<{
-  description?: string;
-  lang?: string;
-  meta?: HTMLMetaElement[];
+interface ISEOProps {
   title?: string;
-}> = ({ description, lang, meta, title }) => {
+  description?: string;
+  children?: ReactNode;
+}
+
+export const SEO = ({
+  title,
+  description,
+  pageContext,
+  children
+}: HeadProps<IPageData, IPageContext> & ISEOProps): JSX.Element => {
+  const { frontmatter = {} } = pageContext;
+
   const { site } = useStaticQuery(graphql`
-    query {
+    query PageMetadata {
       site {
         siteMetadata {
           title
@@ -30,23 +36,35 @@ const SEO: React.FC<{
     }
   `);
 
-  const metaDescription = description || site.siteMetadata.description;
+  const getTitle = () => {
+    let retVal = title;
+
+    if (!retVal && frontmatter.title) {
+      if (pageContext.group) {
+        const pillar = pageContext.group.charAt(0).toUpperCase() + pageContext.group.slice(1);
+
+        retVal = `${frontmatter.title} / ${pillar} / ${site.siteMetadata.title}`;
+      } else {
+        retVal = `${frontmatter.title} / ${site.siteMetadata.title}`;
+      }
+    } else {
+      retVal = site.siteMetadata.title;
+    }
+
+    return retVal;
+  };
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang
-      }}
-      title={title || site.siteMetadata.title}
-      titleTemplate={title ? `%s / ${site.siteMetadata.title}` : undefined}
-      meta={[
+    <>
+      <title>{getTitle()}</title>
+      {[
         {
           name: 'application-name',
           content: site.siteMetadata.title
         },
         {
           name: 'description',
-          content: metaDescription
+          content: description || frontmatter.description || site.siteMetadata.description
         },
         {
           name: 'msapplication-config',
@@ -66,7 +84,7 @@ const SEO: React.FC<{
         },
         {
           property: 'og:image:alt',
-          content: 'Zendesk Garden'
+          content: site.siteMetadata.title
         },
         {
           property: 'og:image:width',
@@ -77,23 +95,22 @@ const SEO: React.FC<{
           content: '640'
         },
         {
-          property: 'twitter:card',
+          name: 'twitter:card',
           content: 'summary_large_image'
         }
-      ].concat(meta!)}
-      link={[
+      ].map((props, index) => (
+        <meta key={`head-meta-${index}`} {...props} />
+      ))}
+
+      {[
         { rel: 'mask-icon', href: '/mask-icon.svg', color: PALETTE.kale[700] },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
         { rel: 'shortcut icon', href: '/favicon.ico' }
-      ]}
-    />
+      ].map((props, index) => (
+        <link key={`head-link-${index}`} {...props} />
+      ))}
+
+      {children}
+    </>
   );
 };
-
-SEO.defaultProps = {
-  lang: 'en',
-  meta: [],
-  description: ''
-};
-
-export default SEO;

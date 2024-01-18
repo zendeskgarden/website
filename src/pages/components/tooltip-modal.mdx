@@ -14,22 +14,23 @@ subcomponents:
   - modals/src/elements/TooltipModal/Title.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To enable user action within a tooltip</li>
-      <li>To provide a focus loop when actions need to be inside a tooltip</li>
-    </ul>
+
+    - To enable user action within a tooltip
+    - To provide a focus loop when actions need to be inside a tooltip
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To reveal read-only helpful information about an element on hover, use a
-          [Tooltip](/components/tooltip)
-        </Markdown>
-      </li>
-    </ul>
+
+    - To reveal read-only helpful information about an element on hover, use a [Tooltip](/components/tooltip)
+
   </Misuse>
 </Usage>
 
@@ -107,7 +108,7 @@ import PlacementCode from '!!raw-loader!../../examples/tooltip-modal/TooltipModa
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

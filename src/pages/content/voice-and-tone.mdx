@@ -5,6 +5,12 @@ description: >
   Zendesk looks like, and voice and tone to shape what Zendesk sounds like.
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 ## How to sound like Zendesk
 
 Our product is an extension of our brand and we want it to feel like Zendesk. We use visual design
@@ -97,7 +103,7 @@ brand tones.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

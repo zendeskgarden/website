@@ -14,27 +14,24 @@ subcomponents:
   - forms/src/elements/common/Legend.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>For choices or options that can't occur at the same time</li>
-      <li>To indicate that two or more options are mutually exclusive</li>
-    </ul>
+
+    - For choices or options that can't occur at the same time
+    - To indicate that two or more options are mutually exclusive
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          If the user can choose more than one option at once, use a
-          [Checkbox](/components/checkbox) instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To select from a long list of options, use [Combobox](/components/combobox) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - If the user can choose more than one option at once, use a [Checkbox](/components/checkbox) instead
+    - To select from a long list of options, use [Combobox](/components/combobox) instead
+
   </Misuse>
 </Usage>
 
@@ -187,7 +184,7 @@ Nest a Radio within a [Field](#field) component.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

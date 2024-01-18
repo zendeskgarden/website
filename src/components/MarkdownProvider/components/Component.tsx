@@ -8,7 +8,7 @@
 import React from 'react';
 import { MD, Span } from '@zendeskgarden/react-typography';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { IComponentData } from 'src/templates/types';
+import { IComponentData } from '../../../components/types';
 import { StyledParagraph as Paragraph } from './Typography';
 import { Markdown } from './Markdown';
 

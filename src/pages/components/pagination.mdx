@@ -13,11 +13,17 @@ subcomponents:
   - pagination/src/elements/CursorPagination/components/Previous.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To divide large amounts of data into manageable chunks</li>
-    </ul>
+
+    - To divide large amounts of data into manageable chunks
+
   </Use>
 </Usage>
 
@@ -116,7 +122,7 @@ import OffsetDefaultCode from '!!raw-loader!../../examples/pagination/OffsetDefa
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

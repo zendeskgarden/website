@@ -17,12 +17,18 @@ subcomponents:
   - forms/src/elements/file-list/components/Item.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To let users attach a file or image to something else</li>
-      <li>To let users add images to their avatars</li>
-    </ul>
+
+    - To let users attach a file or image to something else
+    - To let users add images to their avatars
+
   </Use>
 </Usage>
 
@@ -194,7 +200,7 @@ Nest the Label within a [Field](#field) component.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

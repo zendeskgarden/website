@@ -108,7 +108,7 @@ const FileItem: React.FC<{ name: string; onRemove: () => void }> = memo(({ name,
 const Example = () => {
   const [files, setFiles] = useState<string[]>([]);
 
-  const removeFile = useCallback(
+  const removeFile = useCallback<(index: number) => void>(
     fileIndex => {
       setFiles(files.filter((_, index) => index !== fileIndex));
     },

@@ -7,8 +7,8 @@
 
 import React from 'react';
 import { css } from 'styled-components';
-import SEO from 'components/SEO';
-import { useStaticQuery, graphql } from 'gatsby';
+import { SEO } from 'components/SEO';
+import { useStaticQuery, graphql, HeadProps } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import RootLayout from 'layouts/Root';
 import MaxWidthLayout from 'layouts/MaxWidth';
@@ -17,10 +17,14 @@ import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { XL, LG } from '@zendeskgarden/react-typography';
 import { StyledH1 } from 'components/MarkdownProvider/components/Typography';
 
+export const Head = (props: HeadProps) => (
+  <SEO {...props} pageContext={{ frontmatter: { title: 'Not found' } }} />
+);
+
 const NotFoundPage: React.FC = () => {
   const { notFoundImage } = useStaticQuery(graphql`
     {
-      notFoundImage: figmaAsset(name: { eq: "general-error-404" }) {
+      notFoundImage: gardenFigmaAsset(name: { eq: "general-error-404" }) {
         childFile {
           childImageSharp {
             gatsbyImageData(width: 270, height: 270, layout: FIXED)
@@ -32,7 +36,6 @@ const NotFoundPage: React.FC = () => {
 
   return (
     <RootLayout>
-      <SEO title="Not found" />
       <MaxWidthLayout>
         <Grid
           css={css`

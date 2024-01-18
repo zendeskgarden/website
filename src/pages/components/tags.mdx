@@ -10,22 +10,24 @@ subcomponents:
   - tags/src/elements/Close.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To add metadata to an element such as category, attribute, or property</li>
-      <li>To communicate status</li>
-      <li>To represent parameters of a filter</li>
-    </ul>
+
+    - To add metadata to an element such as category, attribute, or property
+    - To communicate status
+    - To represent parameters of a filter
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To prompt an action by the user, use a [Button](/components/button) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To prompt an action by the user, use a [Button](/components/button) instead
+
   </Misuse>
 </Usage>
 
@@ -156,7 +158,7 @@ dismissal. Nest it within the [Tag](#tag) component as the last child.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

@@ -16,21 +16,23 @@ subcomponents:
   - 'dropdowns.next/src/elements/combobox/TagAvatar.tsx'
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To filter down a large list of options</li>
-      <li>To make a selection from a list of options</li>
-    </ul>
+
+    - To filter down a large list of options
+    - To make a selection from a list of options
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To pick an option from a list on mobile devices, use [Select](/components/select) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To pick an option from a list on mobile devices, use [Select](/components/select) instead
+
   </Misuse>
 </Usage>
 
@@ -202,10 +204,10 @@ import ValidationCode from '!!raw-loader!../../examples/combobox/Validation.tsx'
     imageSource={props.data.dropdownSelectionDo.childFile.childImageSharp.gatsbyImageData}
     imageIsSquare
   >
-    <p>
-      Combobox is useful for lists that are too long to read in full (for example, company
-      employees) or that accumulate items over time (for example, an inventory).
-    </p>
+
+    Combobox is useful for lists that are too long to read in full (for example, company
+    employees) or that accumulate items over time (for example, an inventory).
+
   </Do>
 </BestPractice>
 
@@ -216,10 +218,10 @@ import ValidationCode from '!!raw-loader!../../examples/combobox/Validation.tsx'
     imageIsFreeForm
     imageSource={props.data.comboboxIconPlacementDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <p>
-      Always place the magnifying glass icon at the start of the input when using the Combobox for
-      search.
-    </p>
+
+    Always place the magnifying glass icon at the start of the input when using the Combobox for
+    search.
+
   </Do>
 </BestPractice>
 
@@ -330,9 +332,9 @@ associated image.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    dropdownSelectionDo: figmaAsset(
+    dropdownSelectionDo: gardenFigmaAsset(
       name: { eq: "components-dropdowns-autocomplete-selection-do" }
     ) {
       childFile {
@@ -341,7 +343,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    comboboxIconPlacementDo: figmaAsset(
+    comboboxIconPlacementDo: gardenFigmaAsset(
       name: { eq: "components-dropdowns-combobox-icon-placement-do" }
     ) {
       childFile {

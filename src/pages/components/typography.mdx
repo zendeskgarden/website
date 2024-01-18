@@ -15,6 +15,12 @@ components:
   - typography/src/elements/XXXL.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 ## How to use it
 
 ### Block quote
@@ -120,7 +126,7 @@ import TypeScaleCode from '!!raw-loader!../../examples/typography/TypeScale.tsx'
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

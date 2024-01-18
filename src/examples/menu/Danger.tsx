@@ -8,10 +8,10 @@
 import React, { useCallback } from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
-import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns.next';
 
 const Example = () => {
-  const handleChange = useCallback(changes => {
+  const handleChange = useCallback<NonNullable<IMenuProps['onChange']>>(changes => {
     changes.value && alert(`You chose ${changes.value}`);
   }, []);
 

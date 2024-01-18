@@ -13,14 +13,18 @@ subcomponents:
   - modals/src/elements/DrawerModal/Header.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>
-        To display information or actions that are supplementary to the screen’s primary content
-      </li>
-      <li>To display a list of actions that affect the screen’s content, such as filtering data</li>
-    </ul>
+
+    - To display information or actions that are supplementary to the screen’s primary content
+    - To display a list of actions that affect the screen’s content, such as filtering data
+
   </Use>
 </Usage>
 
@@ -84,7 +88,7 @@ import DefaultCode from '!!raw-loader!../../examples/drawer/DrawerDefault.tsx';
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

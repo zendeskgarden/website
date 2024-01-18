@@ -13,21 +13,23 @@ components:
   - modals/src/elements/Modal.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To interrupt users with a dialog that requests information or an action</li>
-    </ul>
+
+    - To interrupt users with a dialog that requests information or an action
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To provide users with information that doesn't require interruption, use a Notification
-          instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To provide users with information that doesn't require interruption, use a
+    [Notification](/components/notifications) instead
+
   </Misuse>
 </Usage>
 
@@ -111,7 +113,7 @@ import SizeCode from '!!raw-loader!../../examples/modal/ModalSize.tsx';
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

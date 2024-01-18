@@ -4,14 +4,18 @@ description: >
   Additional context for how to use components.
 ---
 
-import links from '../../nav/patterns.yml';
+import { SEO } from '../../components';
 
-<OverviewLinks nav={links} />
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
+<OverviewLinks nav={props.data.mdx.navigation} />
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

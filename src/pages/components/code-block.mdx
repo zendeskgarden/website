@@ -8,22 +8,24 @@ components:
   - typography/src/elements/CodeBlock.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To display read-only text with code formatting</li>
-      <li>To display code snippets for users to copy</li>
-    </ul>
+
+    - To display read-only text with code formatting
+    - To display code snippets for users to copy
+
   </Use>
   <Misuse>
-    <ul>
-      <li>For editing code</li>
-      <li>
-        <Markdown>
-          For simple, single-line usage, use the [Code](/components/code) component
-        </Markdown>
-      </li>
-    </ul>
+
+    - For editing code
+    - For simple, single-line usage, use the [Code](/components/code) component
+
   </Misuse>
 </Usage>
 
@@ -122,7 +124,7 @@ import DiffCode from '!!raw-loader!../../examples/typography/code-block/Diff.tsx
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

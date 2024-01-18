@@ -14,11 +14,17 @@ subcomponents:
   - grid/src/elements/pane/components/SplitterButton.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To make a structured layout resizable, expandable, or collapsible</li>
-    </ul>
+
+    - To make a structured layout resizable, expandable, or collapsible
+
   </Use>
 </Usage>
 
@@ -133,7 +139,7 @@ import SplitterButtonPositionCode from '!!raw-loader!../../examples/pane/Splitte
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

@@ -14,6 +14,12 @@ components:
   - dropdowns/src/elements/Menu/Menu.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Alert title="Deprecated" type="warning">
   Autocomplete does not meet Web Content Accessibility Guidelines (WCAG) requirements. Use
   [Combobox](/components/combobox) instead.
@@ -21,19 +27,15 @@ components:
 
 <Usage>
   <Use>
-    <ul>
-      <li>To filter down a large list of options</li>
-      <li>To quickly find a known option</li>
-    </ul>
+
+    - To filter down a large list of options
+    - To quickly find a known option
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To make more than one selection, use [Multiselect](/components/multiselect) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To make more than one selection, use [Multiselect](/components/multiselect) instead
+
   </Misuse>
 </Usage>
 
@@ -92,10 +94,8 @@ import SizeCode from '!!raw-loader!../../examples/dropdowns/autocomplete/Size.ts
     imageSource={props.data.dropdownSelectionDo.childFile.childImageSharp.gatsbyImageData}
     imageIsSquare
   >
-    <p>
-      Autocomplete is useful for lists that are too long to read in full (for example, company
-      employees) or that accumulate items over time (for example, an inventory).
-    </p>
+    Autocomplete is useful for lists that are too long to read in full (for example, company
+    employees) or that accumulate items over time (for example, an inventory).
   </Do>
 </BestPractice>
 
@@ -190,9 +190,9 @@ A [Menu](/components/menu) manages placement, positioning and layout of the chil
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    dropdownSelectionDo: figmaAsset(
+    dropdownSelectionDo: gardenFigmaAsset(
       name: { eq: "components-dropdowns-autocomplete-selection-do" }
     ) {
       childFile {

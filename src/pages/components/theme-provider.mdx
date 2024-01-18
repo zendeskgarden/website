@@ -8,17 +8,18 @@ components:
   - theming/src/elements/ThemeProvider.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>
-        <Markdown>
-          As the root component of the Garden DOM, where it provides global context for
-          [RTL](/components/theme-object#rtl) layout
-        </Markdown>
-      </li>
-      <li>As a nested wrapper for a subset of components that require themed styling</li>
-    </ul>
+
+    - As the root component of the Garden DOM, where it provides global context for [RTL](/components/theme-object#rtl) layout
+    - As a nested wrapper for a subset of components that require themed styling
+
   </Use>
 </Usage>
 
@@ -103,7 +104,7 @@ import TargetingCode from '!!raw-loader!../../examples/theme-provider/ThemeProvi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

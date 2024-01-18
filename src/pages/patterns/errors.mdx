@@ -4,7 +4,11 @@ description: >
   Error messages let users know that a problem has occurred and what to do about it.
 ---
 
-<!-- markdownlint-disable no-duplicate-header -->
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
 
 Examples of errors include:
 
@@ -140,17 +144,17 @@ Live validation should be used sparingly (i.e. severe errors, passwords, emails)
     imageIsFreeForm
     imageSource={props.data.FormsValidateDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Show error validation after the user has tried submitting the form.</li>
-    </ul>
+
+    - Show error validation after the user has tried submitting the form
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.FormsValidateDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Do not use live validation.</li>
-    </ul>
+
+    - Do not use live validation
+
   </Dont>
 </BestPractice>
 
@@ -163,17 +167,17 @@ Keep incorrect values that users have entered to help them avoid making the same
     imageIsFreeForm
     imageSource={props.data.FormsKeepDataDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Keep invalid data to let users understand what to correct.</li>
-    </ul>
+
+    - Keep invalid data to let users understand what to correct
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.FormsKeepDataDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Do not clear invalid data.</li>
-    </ul>
+
+    - Do not clear invalid data
+
   </Dont>
 </BestPractice>
 
@@ -202,65 +206,67 @@ Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    GlobalAlertAnatomy: figmaAsset(name: { eq: "patterns-error-global-alert-anatomy" }) {
+    GlobalAlertAnatomy: gardenFigmaAsset(name: { eq: "patterns-error-global-alert-anatomy" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    GlobalAlertLayout: figmaAsset(name: { eq: "patterns-error-global-alert-layout" }) {
+    GlobalAlertLayout: gardenFigmaAsset(name: { eq: "patterns-error-global-alert-layout" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    GlobalAlertDisconnect: figmaAsset(name: { eq: "patterns-error-global-alert-disconnect" }) {
+    GlobalAlertDisconnect: gardenFigmaAsset(
+      name: { eq: "patterns-error-global-alert-disconnect" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    AlertAnatomy: figmaAsset(name: { eq: "patterns-error-alert-anatomy" }) {
+    AlertAnatomy: gardenFigmaAsset(name: { eq: "patterns-error-alert-anatomy" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    AlertLayout: figmaAsset(name: { eq: "patterns-error-alert-layout" }) {
+    AlertLayout: gardenFigmaAsset(name: { eq: "patterns-error-alert-layout" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    AlertLayoutMultiple: figmaAsset(name: { eq: "patterns-error-alert-layout-multiple" }) {
+    AlertLayoutMultiple: gardenFigmaAsset(name: { eq: "patterns-error-alert-layout-multiple" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    NotificationAnatomy: figmaAsset(name: { eq: "patterns-error-notification-anatomy" }) {
+    NotificationAnatomy: gardenFigmaAsset(name: { eq: "patterns-error-notification-anatomy" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    NotificationLayout: figmaAsset(name: { eq: "patterns-error-notification-layout" }) {
+    NotificationLayout: gardenFigmaAsset(name: { eq: "patterns-error-notification-layout" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    NotificationFailedUpload: figmaAsset(
+    NotificationFailedUpload: gardenFigmaAsset(
       name: { eq: "patterns-error-notification-failed-upload" }
     ) {
       childFile {
@@ -269,42 +275,42 @@ export const pageQuery = graphql`
         }
       }
     }
-    FormsAnatomy: figmaAsset(name: { eq: "patterns-error-forms-anatomy" }) {
+    FormsAnatomy: gardenFigmaAsset(name: { eq: "patterns-error-forms-anatomy" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    FormsLayout: figmaAsset(name: { eq: "patterns-error-forms-layout-multiple" }) {
+    FormsLayout: gardenFigmaAsset(name: { eq: "patterns-error-forms-layout-multiple" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    FormsValidateDo: figmaAsset(name: { eq: "patterns-error-forms-validate-do" }) {
+    FormsValidateDo: gardenFigmaAsset(name: { eq: "patterns-error-forms-validate-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    FormsValidateDont: figmaAsset(name: { eq: "patterns-error-forms-validate-dont" }) {
+    FormsValidateDont: gardenFigmaAsset(name: { eq: "patterns-error-forms-validate-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    FormsKeepDataDo: figmaAsset(name: { eq: "patterns-error-forms-keep-data-do" }) {
+    FormsKeepDataDo: gardenFigmaAsset(name: { eq: "patterns-error-forms-keep-data-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    FormsKeepDataDont: figmaAsset(name: { eq: "patterns-error-forms-keep-data-dont" }) {
+    FormsKeepDataDont: gardenFigmaAsset(name: { eq: "patterns-error-forms-keep-data-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)

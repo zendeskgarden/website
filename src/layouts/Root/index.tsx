@@ -5,27 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { createGlobalStyle, css } from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { css } from 'styled-components';
 import { SkipNav } from '@zendeskgarden/react-chrome';
 import Footer from './components/Footer';
 import Header, { headerBoxShadow, headerHeight } from './components/Header';
 
-/**
- * Global styling
- */
-import '@zendeskgarden/css-bedrock/dist/index.css';
-
-/**
- * Ensure Gatsby wrapping nodes are full height
- */
-const GlobalStyling = createGlobalStyle`
-  * {
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
-`;
-
-interface IRootLayoutProps {
+interface IRootLayoutProps extends PropsWithChildren {
   hasSkipNav?: boolean;
   path?: string;
 }
@@ -39,7 +25,6 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav, path }) 
         min-height: 100vh;
       `}
     >
-      <GlobalStyling />
       {hasSkipNav && (
         <SkipNav
           targetId="main-content"

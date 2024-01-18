@@ -8,21 +8,22 @@ components:
   - colorpickers/src/elements/ColorSwatchDialog/index.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To let users change, update, or add predefined colors</li>
-    </ul>
+
+    - To let users change, update, or add predefined colors
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          For more finite control over color selection, use the [Color
-          picker](/components/color-picker)
-        </Markdown>
-      </li>
-    </ul>
+
+    - For more finite control over color selection, use the [Color picker](/components/color-picker)
+
   </Misuse>
 </Usage>
 
@@ -78,7 +79,7 @@ import ColorSwatchDialogCode from '!!raw-loader!../../examples/color-swatch/Colo
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 import { Table, Row, Cell, Head, HeaderCell, HeaderRow, Body } from '@zendeskgarden/react-tables';
@@ -35,7 +35,7 @@ const DraggableContainer = styled.div`
   }
 `;
 
-interface IDraggableCellProps {
+interface IDraggableCellProps extends PropsWithChildren {
   isDragOccurring?: boolean;
 }
 

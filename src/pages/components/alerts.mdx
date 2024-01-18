@@ -10,21 +10,23 @@ components:
   - notifications/src/elements/content/Title.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>For urgent feedback</li>
-      <li>For contextual communication inline with page content</li>
-    </ul>
+
+    - For urgent feedback
+    - For contextual communication inline with page content
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          For a passive system update, use a [Notification](/components/notifications) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - For a passive system update, use a [Notification](/components/notifications) instead
+
   </Misuse>
 </Usage>
 
@@ -87,7 +89,7 @@ import TypeCode from '!!raw-loader!../../examples/notifications/alerts/AlertType
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React, { PropsWithChildren, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
@@ -50,7 +50,11 @@ const StyledMobileNavButton = styled.button`
   }
 `;
 
-export const SidebarLayout: React.FC<{ sidebar: ISidebarSection[] }> = ({ children, sidebar }) => {
+interface ISidebarLayoutProps extends PropsWithChildren {
+  sidebar: ISidebarSection[];
+}
+
+export const SidebarLayout: React.FC<ISidebarLayoutProps> = ({ children, sidebar }) => {
   const [isMobileSidebarExpanded, setIsMobileSidebarExpanded] = useState(false);
 
   return (

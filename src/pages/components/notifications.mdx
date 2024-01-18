@@ -11,21 +11,22 @@ components:
   - notifications/src/elements/toaster/ToastProvider.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>For a passive status update about user or system activity</li>
-    </ul>
+
+    - For a passive status update about user or system activity
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          For contextual feedback that may require action or decision, use an
-          [Alert](/components/alerts) instead.
-        </Markdown>
-      </li>
-    </ul>
+
+    - For contextual feedback that may require action or decision, use an [Alert](/components/alerts) instead
+
   </Misuse>
 </Usage>
 
@@ -105,7 +106,7 @@ import TypeCode from '!!raw-loader!../../examples/notifications/notifications/No
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

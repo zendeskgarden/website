@@ -11,6 +11,12 @@ subcomponents:
   - typography/src/elements/lists/UnorderedListItem.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 ## How to use it
 
 ### Default
@@ -79,7 +85,7 @@ import SizeCode from '!!raw-loader!../../examples/typography/lists/Size.tsx';
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

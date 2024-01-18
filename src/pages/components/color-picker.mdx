@@ -8,12 +8,18 @@ components:
   - colorpickers/src/elements/ColorpickerDialog/index.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To let users change or update brand colors</li>
-      <li>To let users configure chart colors</li>
-    </ul>
+
+    - To let users change or update brand colors
+    - To let users configure chart colors
+
   </Use>
 </Usage>
 
@@ -95,7 +101,7 @@ import ColorpickerOpaqueCode from '!!raw-loader!../../examples/color-picker/Colo
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

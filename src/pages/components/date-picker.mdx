@@ -12,12 +12,18 @@ subcomponents:
   - datepickers/src/elements/DatepickerRange/components/Start.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To select a single date, use a Date picker</li>
-      <li>To select a start and an end date, use a Date picker range</li>
-    </ul>
+
+    - To select a single date, use a Date picker
+    - To select a start and an end date, use a Date picker range
+
   </Use>
 </Usage>
 
@@ -134,7 +140,7 @@ import TimeWindowCode from '!!raw-loader!../../examples/date-picker/DatepickerTi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

@@ -4,6 +4,12 @@ description: >
   Description will be here
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 Garden website release documentation
 
 - [Version 7](https://606fa12ea4f2996a9cfd97aa--zendeskgarden.netlify.app/)
@@ -12,7 +18,7 @@ Garden website release documentation
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

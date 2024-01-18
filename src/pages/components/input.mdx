@@ -13,14 +13,18 @@ components:
   - forms/src/elements/common/Message.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To let the user enter data into a field</li>
-      <li>
-        <Markdown>To enter multiline text, use a [Textarea](/components/textarea)</Markdown>
-      </li>
-    </ul>
+
+    - To let the user enter data into a field
+    - To enter multiline text, use a [Textarea](/components/textarea)
+
   </Use>
 </Usage>
 
@@ -239,7 +243,7 @@ it within a [Field](#field) component.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

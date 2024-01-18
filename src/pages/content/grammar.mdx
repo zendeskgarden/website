@@ -2,6 +2,12 @@
 title: Grammar
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 ## Acronyms and abbreviations
 
 Acronyms are like inside jokes. If you aren’t in the know they don’t make sense. Use acronyms to
@@ -18,12 +24,14 @@ bold for headings, and not in the description.
 
 <BestPractice>
   <Do>
-    <p>
-      Click on <b>Settings</b> in Admin Center
-    </p>
+
+    Click on **Settings** in Admin Center
+
   </Do>
   <Dont>
-    <p>Click on “Settings” in Admin Center</p>
+
+    Click on “Settings” in Admin Center
+
   </Dont>
 </BestPractice>
 
@@ -51,10 +59,10 @@ while.”
 | --------------------------------------------------- | ----------------------------- |
 | Less than a minute ago today.                       | < 1 minute ago                |
 | More than a minute and less than an hour ago today. | 43 minutes ago<br/>43 min ago |
-| More than an hour ago today.                        | Today at {time}               |
-| On the previous calendar date.                      | Yesterday at {time}           |
-| Before yesterday and in the current calendar year.  | {date} at {time}              |
-| Any time before the current year.                   | {date} at {time}              |
+| More than an hour ago today.                        | Today at \{time\}             |
+| On the previous calendar date.                      | Yesterday at \{time\}         |
+| Before yesterday and in the current calendar year.  | \{date\} at \{time\}          |
+| Any time before the current year.                   | \{date\} at \{time\}          |
 
 ## Emoji
 
@@ -74,7 +82,9 @@ person (“you”), or “they” and “their.”​
 
 <BestPractice>
   <Do>
-    <p>If the end user isn’t online, they will get an email instead.</p>
+
+    If the end user isn’t online, they will get an email instead.
+
   </Do>
 </BestPractice>
 
@@ -85,10 +95,14 @@ speech.
 
 <BestPractice>
   <Do>
-    <p>You don’t have access</p>
+
+    You don’t have access
+
   </Do>
   <Dont>
-    <p>Access denied</p>
+
+    Access denied
+
   </Dont>
 </BestPractice>
 
@@ -98,10 +112,14 @@ Don’t put words in our users' mouths. They can speak for themselves. Avoid usi
 
 <BestPractice>
   <Do>
-    <p>Skip</p>
+
+    Skip
+
   </Do>
   <Dont>
-    <p>Remind me later</p>
+
+    Remind me later
+
   </Dont>
 </BestPractice>
 
@@ -112,10 +130,14 @@ a message, for example, "We're the UX Research team and we want your feedback."
 
 <BestPractice>
   <Do>
-    <p>Check your inbox for an email confirmation</p>
+
+    Check your inbox for an email confirmation
+
   </Do>
   <Dont>
-    <p>We'll send you an email confirmation</p>
+
+    We'll send you an email confirmation
+
   </Dont>
 </BestPractice>
 
@@ -126,10 +148,14 @@ display both cases at once.
 
 <BestPractice>
   <Do>
-    <p>Add user</p>
+
+    Add user
+
   </Do>
   <Dont>
-    <p>Add user(s)</p>
+
+    Add user(s)
+
   </Dont>
 </BestPractice>
 
@@ -140,25 +166,25 @@ per component. Don’t move from past to present tense—we’re not time travel
 
 <BestPractice>
   <Do>
-    <ul>
-      <li>Message sent</li>
-      <li>Chat ended</li>
-      <li>Chat will end</li>
-    </ul>
+
+    - Message sent
+    - Chat ended
+    - Chat will end
+
   </Do>
   <Dont>
-    <ul>
-      <li>Message has been sent</li>
-      <li>Chat has ended</li>
-      <li>Chat will have ended</li>
-    </ul>
+
+    - Message has been sent
+    - Chat has ended
+    - Chat will have ended
+
   </Dont>
 </BestPractice>
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

@@ -28,11 +28,17 @@ components:
   - chrome/src/elements/subnav/SubNavItemText.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To give Zendesk products a consistent dashboard and navigation experience</li>
-    </ul>
+
+    - To give Zendesk products a consistent dashboard and navigation experience
+
   </Use>
 </Usage>
 
@@ -225,7 +231,7 @@ Chrome uses [26px sized icons](/design/icons/chrome-icons) made specifically for
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

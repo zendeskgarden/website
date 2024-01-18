@@ -12,34 +12,25 @@ subcomponents:
   - 'dropdowns.next/src/elements/menu/ItemMeta.tsx'
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To let users see and choose one thing from a list of items</li>
-      <li>To limit user selection within groups of items</li>
-    </ul>
+
+    - To let users see and choose one thing from a list of items
+    - To limit user selection within groups of items
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To let users type or select options in a form, use [Combobox](/components/combobox)
-          instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>To help users navigate, use [Anchors](/components/anchor) instead</Markdown>
-      </li>
-      <li>
-        <Markdown>To move between views, use [Tabs](/components/tabs) instead</Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To let users see and choose one thing from a list of parallel actions, use in combination
-          with a [Split button](/components/split-button)
-        </Markdown>
-      </li>
-    </ul>
+
+    - To let users type or select options in a form, use [Combobox](/components/combobox) instead
+    - To move between views, use [Tabs](/components/tabs) instead
+    - To let users see and choose one thing from a list of parallel actions, use in combination with a [Split button](/components/split-button)
+
   </Misuse>
 </Usage>
 
@@ -228,7 +219,7 @@ A semantic separator between Item components.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

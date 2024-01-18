@@ -12,21 +12,23 @@ subcomponents:
   - typography/src/elements/span/StartIcon.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To apply styles to short strings of text</li>
-      <li>To include icons inline with text</li>
-    </ul>
+
+    - To apply styles to short strings of text
+    - To include icons inline with text
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To style an entire block of text, use [Paragraph](/components/paragraph) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To style an entire block of text, use [Paragraph](/components/paragraph) instead
+
   </Misuse>
 </Usage>
 
@@ -124,7 +126,7 @@ import MonospaceCode from '!!raw-loader!../../examples/typography/span/Monospace
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

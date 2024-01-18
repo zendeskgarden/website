@@ -7,31 +7,27 @@ components:
   - theming/src/elements/palette/index.ts
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To reference brand colors specific to Zendesk products</li>
-      <li>
-        <Markdown>To directly access `hue[shade]` color hex values</Markdown>
-      </li>
-    </ul>
+
+    - To reference brand colors specific to Zendesk products
+    - To directly access `hue[shade]` color hex values
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To style custom components with Garden, access the palette through the
-          [`theme.palette`](/components/theme-object#palette) API instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To extend Garden with reusable components that respond to theming, use the
-          [`getColor`](/components/utilities#getcolor) utility with the
-          [`theme.colors`](/components/theme-object#colors) API instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To style custom components with Garden, access the palette through the
+    [`theme.palette`](/components/theme-object#palette) API instead
+    - To extend Garden with reusable components that respond to theming, use the
+    [`getColor`](/components/utilities#getcolor) utility with the
+    [`theme.colors`](/components/theme-object#colors) API instead
+
   </Misuse>
 </Usage>
 
@@ -52,7 +48,7 @@ import { PALETTE } from '@zendeskgarden/react-theming';
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

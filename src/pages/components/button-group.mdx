@@ -8,25 +8,26 @@ components:
   - buttons/src/elements/ButtonGroup.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Alert title="Deprecated" type="warning">
   Garden does not presently recommend the use of Button groups
 </Alert>
 
 <Usage>
   <Use>
-    <ul>
-      <li>To make a selection from a set of options</li>
-    </ul>
+
+    - To make a selection from a set of options
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To organize related content and controls within a single page, use
-          [Tabs](/components/tabs) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To organize related content and controls within a single page, use [Tabs](/components/tabs) instead
+
   </Misuse>
 </Usage>
 
@@ -79,7 +80,7 @@ This is a legacy component. Garden does not presently recommend the use of Butto
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

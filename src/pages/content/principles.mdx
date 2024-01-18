@@ -5,6 +5,12 @@ description: >
   designers design with words to create experiences that are clear, consistent, and inclusive.
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 | Be clear                                                                        | Be consistent                                                            | Be inclusive                                                                      |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
 | Clear language helps people feel safe about their actions in a user experience. | Consistent language lowers the friction of learning and navigating a UI. | Inclusive language makes an experience usable for the broadest possible audience. |
@@ -42,7 +48,7 @@ App](http://www.hemingwayapp.com/) or [Storytoolz](https://storytoolz.com/readab
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

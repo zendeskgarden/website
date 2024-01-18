@@ -4,6 +4,12 @@ description: >
   A button is an element on a page or view that tells a user what they can do and triggers an action.
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 ## Anatomy
 
 ![Usage of button types](figma:patterns-buttons-anatomy-button-type.png)
@@ -28,17 +34,17 @@ help communicate the types of actions available and their priority in the proces
     imageIsFreeForm
     imageSource={props.data.buttonsSizeDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Use same size buttons and inputs in the same flow.</li>
-    </ul>
+
+    - Use same size buttons and inputs in the same flow
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.buttonsSizeDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Avoid mixing and matching button and input sizes.</li>
-    </ul>
+
+    - Avoid mixing and matching button and input sizes
+
   </Dont>
 </BestPractice>
 
@@ -52,17 +58,17 @@ the primary button should always be placed at the end.
     imageIsFreeForm
     imageSource={props.data.buttonsAlignmentDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Ensure the primary button is placed at the end of the set of actions.</li>
-    </ul>
+
+    - Ensure the primary button is placed at the end of the set of actions
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.buttonsAlignmentDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Avoid placing primary buttons at the start of action groupings.</li>
-    </ul>
+
+    - Avoid placing primary buttons at the start of action groupings
+
   </Dont>
 </BestPractice>
 
@@ -78,17 +84,17 @@ to provide additional context. Only use icons when necessary.
     imageIsFreeForm
     imageSource={props.data.buttonsMediaDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Use task-specific verbs for button labels.</li>
-    </ul>
+
+    - Use task-specific verbs for button labels
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.buttonsMediaDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Do not use iconography in addition to labels when buttons are grouped.</li>
-    </ul>
+
+    - Do not use iconography in addition to labels when buttons are grouped
+
   </Dont>
 </BestPractice>
 
@@ -101,22 +107,17 @@ Where possible, avoid using [Icon buttons](/components/icon-button) over [Button
     imageIsFreeForm
     imageSource={props.data.buttonsIconsDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>
-        Use buttons with labels to maximise inclusivity when using primary or secondary actions.
-      </li>
-    </ul>
+
+    - Use buttons with labels to maximise inclusivity when using primary or secondary actions
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.buttonsIconsDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>
-        Avoid using icon buttons as primary or secondary actions where possible as their meaning can
-        be open to interpretation.
-      </li>
-    </ul>
+
+    - Avoid using icon buttons as primary or secondary actions where possible as their meaning can be open to interpretation
+
   </Dont>
 </BestPractice>
 
@@ -150,18 +151,18 @@ It can be frustrating if a user doesn’t know what mistake they made and how to
     imageIsFreeForm
     imageSource={props.data.buttonsDisabledDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Always keep buttons interactive</li>
-      <li>Add contextual, in-line error notifications that set people up for success</li>
-    </ul>
+
+    - Always keep buttons interactive
+    - Add contextual, in-line error notifications that set people up for success
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.buttonsDisabledDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Do not disable a button with no clear direction on how to move forward</li>
-    </ul>
+
+    - Do not disable a button with no clear direction on how to move forward
+
   </Dont>
 </BestPractice>
 
@@ -185,23 +186,23 @@ The phrase repetition confirms the action that will take place.
     imageIsFreeForm
     imageSource={props.data.buttonsContentDo.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Write labels as verbs</li>
-      <li>Communicate a single action per button</li>
-      <li>Use sentence case</li>
-      <li>Consider longer languages. Use 1-4 words and a maximum of 20 characters</li>
-    </ul>
+
+    - Write labels as verbs
+    - Communicate a single action per button
+    - Use sentence case
+    - Consider longer languages. Use 1-4 words and a maximum of 20 characters
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.buttonsContentDont.childFile.childImageSharp.gatsbyImageData}
   >
-    <ul>
-      <li>Avoid CTAs that lack context like "Yes," "No," or "Maybe"</li>
-      <li>Avoid calling out more than one action</li>
-      <li>Avoid ALL CAPS</li>
-      <li>Avoid articles, pronouns, and punctuation</li>
-    </ul>
+
+    - Avoid CTAs that lack context like "Yes," "No," or "Maybe"
+    - Avoid calling out more than one action
+    - Avoid ALL CAPS
+    - Avoid articles, pronouns, and punctuation
+
   </Dont>
 </BestPractice>
 
@@ -241,8 +242,6 @@ information about the user interface.
 [Toggle buttons](/components/toggle-button) utilize the `aria-pressed` attribute indicating the current "pressed" state.
 The attribute must be set to “false” when the button hasn’t been pressed, and then change to “true,” once it has.
 
-<!-- markdownlint-disable no-duplicate-header -->
-
 #### Icon buttons
 
 [Icon buttons](/components/icon-button) utilize the `aria-label` attribute to provide an accessible text label
@@ -278,107 +277,109 @@ Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    buttonsAnatomy: figmaAsset(name: { eq: "patterns-buttons-anatomy-button-type" }) {
+    buttonsAnatomy: gardenFigmaAsset(name: { eq: "patterns-buttons-anatomy-button-type" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsSizeDo: figmaAsset(name: { eq: "patterns-buttons-interface-button-size-do" }) {
+    buttonsSizeDo: gardenFigmaAsset(name: { eq: "patterns-buttons-interface-button-size-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    buttonsSizeDont: figmaAsset(name: { eq: "patterns-buttons-interface-button-size-dont" }) {
+    buttonsSizeDont: gardenFigmaAsset(name: { eq: "patterns-buttons-interface-button-size-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    buttonsAlignmentDo: figmaAsset(name: { eq: "patterns-buttons-alignment-do" }) {
+    buttonsAlignmentDo: gardenFigmaAsset(name: { eq: "patterns-buttons-alignment-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsAlignmentDont: figmaAsset(name: { eq: "patterns-buttons-alignment-dont" }) {
+    buttonsAlignmentDont: gardenFigmaAsset(name: { eq: "patterns-buttons-alignment-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsMediaDo: figmaAsset(name: { eq: "patterns-buttons-media-do" }) {
+    buttonsMediaDo: gardenFigmaAsset(name: { eq: "patterns-buttons-media-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsMediaDont: figmaAsset(name: { eq: "patterns-buttons-media-dont" }) {
+    buttonsMediaDont: gardenFigmaAsset(name: { eq: "patterns-buttons-media-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsIconsDo: figmaAsset(name: { eq: "patterns-buttons-icon-buttons-do" }) {
+    buttonsIconsDo: gardenFigmaAsset(name: { eq: "patterns-buttons-icon-buttons-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsIconsDont: figmaAsset(name: { eq: "patterns-buttons-icon-buttons-dont" }) {
+    buttonsIconsDont: gardenFigmaAsset(name: { eq: "patterns-buttons-icon-buttons-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsDisabledDo: figmaAsset(name: { eq: "patterns-buttons-disabled-do" }) {
+    buttonsDisabledDo: gardenFigmaAsset(name: { eq: "patterns-buttons-disabled-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsDisabledDont: figmaAsset(name: { eq: "patterns-buttons-disabled-dont" }) {
+    buttonsDisabledDont: gardenFigmaAsset(name: { eq: "patterns-buttons-disabled-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsButtonsVsAnchor: figmaAsset(name: { eq: "patterns-buttons-button-vs-link" }) {
+    buttonsButtonsVsAnchor: gardenFigmaAsset(name: { eq: "patterns-buttons-button-vs-link" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsContentDo: figmaAsset(name: { eq: "patterns-buttons-content-do" }) {
+    buttonsContentDo: gardenFigmaAsset(name: { eq: "patterns-buttons-content-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsContentDont: figmaAsset(name: { eq: "patterns-buttons-content-dont" }) {
+    buttonsContentDont: gardenFigmaAsset(name: { eq: "patterns-buttons-content-dont" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    buttonsLocalizationArabic: figmaAsset(name: { eq: "patterns-buttons-localization-arabic" }) {
+    buttonsLocalizationArabic: gardenFigmaAsset(
+      name: { eq: "patterns-buttons-localization-arabic" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)

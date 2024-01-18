@@ -12,35 +12,25 @@ subcomponents:
   - forms/src/elements/tiles/components/Tile.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>
-        <Markdown>
-          Like [Radios](/components/radio), Tiles are for choices that can't occur at the same time
-        </Markdown>
-      </li>
-    </ul>
+
+    - Like [Radios](/components/radio), Tiles are for choices that can't occur at the same time
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To choose more than one option at once, use a [Checkbox](/components/checkbox) instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To select from a long list of options, use a [Combobox](/components/combobox)
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>To define an action, use a [Button](/components/button) instead</Markdown>
-      </li>
-      <li>
-        <Markdown>For navigation, use an [Anchor](/components/anchor) instead</Markdown>
-      </li>
-    </ul>
+
+    - To choose more than one option at once, use a [Checkbox](/components/checkbox) instead
+    - To select from a long list of options, use a [Combobox](/components/combobox)
+    - To define an action, use a [Button](/components/button) instead
+    - For navigation, use an [Anchor](/components/anchor) instead
+
   </Misuse>
 </Usage>
 
@@ -130,7 +120,7 @@ import LayoutCode from '!!raw-loader!../../examples/forms/tiles/TilesLayout.tsx'
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

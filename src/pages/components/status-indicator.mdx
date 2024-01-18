@@ -8,18 +8,22 @@ components:
   - avatars/src/elements/StatusIndicator.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To display contextual information for a user's current status</li>
-    </ul>
+
+    - To display contextual information for a user's current status
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>To communicate all other statuses, use a [Tag](/components/tags)</Markdown>
-      </li>
-    </ul>
+
+    - To communicate all other statuses, use a [Tag](/components/tags)
+
   </Misuse>
 </Usage>
 
@@ -77,7 +81,7 @@ import StatusIndicatorSizeCode from '!!raw-loader!../../examples/avatar/StatusIn
 
 The Status indicator component follows this structure:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```jsx
 <StatusIndicator>
   {/* Status text */}
@@ -95,7 +99,7 @@ Provide an `aria-label` to ensure it is accessible.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

@@ -9,30 +9,26 @@ components:
   - buttons/src/elements/ToggleIconButton.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To see or compare the results of a settings change</li>
-      <li>To cause an immediate effect, such as making text bold</li>
-      <li>To simplify the appearance of repeated or persistent actions on a page</li>
-      <li>To enable action in a toolbar</li>
-    </ul>
+
+    - To see or compare the results of a settings change
+    - To cause an immediate effect, such as making text bold
+    - To simplify the appearance of repeated or persistent actions on a page
+    - To enable action in a toolbar
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To let users select from a list of settings, use [Checkboxes](/components/checkbox)
-          instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To include an icon and a label, use a [Button](/components/button#media) with a start or
-          end icon
-        </Markdown>
-      </li>
-    </ul>
+
+    - To let users select from a list of settings, use [Checkboxes](/components/checkbox) instead
+    - To include an icon and a label, use a [Button](/components/button#media) with a start or end icon
+
   </Misuse>
 </Usage>
 
@@ -115,12 +111,10 @@ import ToggleIconButtonTypesCode from '!!raw-loader!../../examples/button/Toggle
     imageSource={props.data.toggleIconButtonTooltipDo.childFile.childImageSharp.gatsbyImageData}
     imageIsSquare
   >
-    <p>
-      <Markdown>
-        Include a [Tooltip](/components/tooltip) to help any users who may be unfamiliar with the
-        icon.
-      </Markdown>
-    </p>
+
+    Include a [Tooltip](/components/tooltip) to help any users who may be unfamiliar with the
+    icon.
+
   </Do>
 </BestPractice>
 
@@ -132,7 +126,7 @@ import ToggleIconButtonTypesCode from '!!raw-loader!../../examples/button/Toggle
 
 The ToggleIconButton component follows this structure:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```jsx
 <Tooltip> {/* recommended */}
   <ToggleIconButton>
@@ -153,9 +147,9 @@ accessible. See [default example](#default).
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    toggleIconButtonTooltipDo: figmaAsset(
+    toggleIconButtonTooltipDo: gardenFigmaAsset(
       name: { eq: "components-buttons-toggleiconbutton-tooltip-do" }
     ) {
       childFile {

@@ -11,27 +11,24 @@ components:
   - tabs/src/elements/Tabs.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To filter information into easily parsable views</li>
-      <li>To organize related content and controls within a single page</li>
-    </ul>
+
+    - To filter information into easily parsable views
+    - To organize related content and controls within a single page
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To guide users through a task list, use a [Stepper](/components/stepper) instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          As a secondary navigation bar that spans multiple pages. Use [Anchors](/components/anchor)
-          instead.
-        </Markdown>
-      </li>
-    </ul>
+
+    - To guide users through a task list, use a [Stepper](/components/stepper) instead
+    - As a secondary navigation bar that spans multiple pages. Use [Anchors](/components/anchor) instead.
+
   </Misuse>
 </Usage>
 
@@ -103,7 +100,7 @@ import TabsVerticalCode from '!!raw-loader!../../examples/tabs/TabsVertical.tsx'
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

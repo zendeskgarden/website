@@ -11,22 +11,23 @@ components:
   - forms/src/elements/Select.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To select from a list on mobile devices</li>
-      <li>To make a selection in performance-constrained environments</li>
-    </ul>
+
+    - To select from a list on mobile devices
+    - To make a selection in performance-constrained environments
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To make selection from a list in Zendesk products, use [Combobox](/components/combobox)
-          instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To make selection from a list in Zendesk products, use [Combobox](/components/combobox) instead
+
   </Misuse>
 </Usage>
 
@@ -165,7 +166,7 @@ The Select component applies state and accessibility attributes to its children.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

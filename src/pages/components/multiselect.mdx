@@ -13,6 +13,12 @@ components:
   - dropdowns/src/elements/Multiselect/Multiselect.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Alert title="Deprecated" type="warning">
   Multiselect does not meet Web Content Accessibility Guidelines (WCAG) requirements. Use
   [Combobox](/components/combobox) instead.
@@ -20,10 +26,10 @@ components:
 
 <Usage>
   <Use>
-    <ul>
-      <li>To choose multiple items from a list of options</li>
-      <li>To filter through a set of data by typing</li>
-    </ul>
+
+    - To choose multiple items from a list of options
+    - To filter through a set of data by typing
+
   </Use>
 </Usage>
 
@@ -157,7 +163,7 @@ but the surrounding field is designed to work with the [Tag](/components/tags) c
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

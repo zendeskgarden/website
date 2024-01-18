@@ -1,6 +1,7 @@
 .env
 node_modules
 public
+src/gatsby-types.d.ts
 yarn.lock
 *.log
 .cache/

@@ -6,12 +6,12 @@
  */
 
 import React, { useContext } from 'react';
-import styled, { css, DefaultTheme, ThemeContext, ThemeProps } from 'styled-components';
+import styled, { css, ThemeContext, ThemeProps } from 'styled-components';
 import { math } from 'polished';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { PALETTE, ThemeProvider, mediaQuery } from '@zendeskgarden/react-theming';
 
-const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<DefaultTheme>) => {
+const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<any>) => {
   let retVal;
 
   if (component === 'flower') {
@@ -43,10 +43,7 @@ const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<Def
   return retVal;
 };
 
-const sizeStyles = (
-  component: 'flower' | 'leaf' | 'plant' | 'pot',
-  props: ThemeProps<DefaultTheme>
-) => {
+const sizeStyles = (component: 'flower' | 'leaf' | 'plant' | 'pot', props: ThemeProps<any>) => {
   let retVal;
 
   if (component === 'flower') {
@@ -189,7 +186,7 @@ const StyledCol = styled(Col)`
 
 /* Each Garden example is wrapped by a <ThemeProvider> */
 const Example = () => {
-  const sizeTheme = (parentTheme: DefaultTheme) => ({
+  const sizeTheme = (parentTheme: any) => ({
     ...parentTheme,
     borderRadii: {
       ...parentTheme.borderRadii,
@@ -201,7 +198,7 @@ const Example = () => {
     }
   });
 
-  const shapeTheme = (parentTheme: DefaultTheme) => ({
+  const shapeTheme = (parentTheme: any) => ({
     ...parentTheme,
     borderRadii: {
       ...parentTheme.borderRadii,
@@ -209,7 +206,7 @@ const Example = () => {
     }
   });
 
-  const colorTheme = (parentTheme: DefaultTheme) => ({
+  const colorTheme = (parentTheme: any) => ({
     ...parentTheme,
     palette: {
       ...parentTheme.palette,

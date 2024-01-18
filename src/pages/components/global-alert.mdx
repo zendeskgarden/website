@@ -12,23 +12,25 @@ subcomponents:
   - notifications/src/elements/global-alert/GlobalAlertTitle.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>Announce new versions of products</li>
-      <li>Inform users of trial status</li>
-      <li>Let users know they are in an editing mode</li>
-      <li>Communicate system maintenance or disconnection from servers</li>
-    </ul>
+
+    - Announce new versions of products
+    - Inform users of trial status
+    - Let users know they are in an editing mode
+    - Communicate system maintenance or disconnection from servers
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          For more contextual feedback about an action or task, use an [Alert](/components/alerts)
-        </Markdown>
-      </li>
-    </ul>
+
+    - For more contextual feedback about an action or task, use an [Alert](/components/alerts)
+
   </Misuse>
 </Usage>
 
@@ -68,7 +70,7 @@ Provide one button to address the issue, and an optional way to “learn more”
   <Do
     imageSource={props.data.globalAlertClearlyActionable.childFile.childImageSharp.gatsbyImageData}
   >
-    <p>Global alerts should have one clear action</p>
+    Global alerts should have one clear action
   </Do>
 </BestPractice>
 
@@ -78,7 +80,7 @@ Allow users to close the Global alert if it does not impede the use of the produ
 
 <BestPractice>
   <Do imageSource={props.data.globalAlertDismissable.childFile.childImageSharp.gatsbyImageData}>
-    <p>Passive, informational messages should be dismissible</p>
+    Passive, informational messages should be dismissible
   </Do>
 </BestPractice>
 
@@ -89,10 +91,8 @@ by the user or dismissed automatically when the issue is resolved.
 
 <BestPractice>
   <Do imageSource={props.data.globalAlertPersistent.childFile.childImageSharp.gatsbyImageData}>
-    <p>
-      Global alerts are always visible until the issue has been resolved or the alert is manually
-      dismissed by the user
-    </p>
+    Global alerts are always visible until the issue has been resolved or the alert is manually
+    dismissed by the user
   </Do>
 </BestPractice>
 
@@ -104,7 +104,7 @@ by the user or dismissed automatically when the issue is resolved.
 
 The Global alert component follows this structure:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```jsx
 <GlobalAlert>
   <GlobalAlert.Content>
@@ -167,9 +167,9 @@ Nest the Title within a [GlobalAlert](#globalalert) component.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    globalAlertClearlyActionable: figmaAsset(
+    globalAlertClearlyActionable: gardenFigmaAsset(
       name: { eq: "components-notification-global-alert-clearly-actionable" }
     ) {
       childFile {
@@ -178,7 +178,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    globalAlertDismissable: figmaAsset(
+    globalAlertDismissable: gardenFigmaAsset(
       name: { eq: "components-notification-global-alert-dismissable" }
     ) {
       childFile {
@@ -187,7 +187,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    globalAlertPersistent: figmaAsset(
+    globalAlertPersistent: gardenFigmaAsset(
       name: { eq: "components-notification-global-alert-persistent" }
     ) {
       childFile {

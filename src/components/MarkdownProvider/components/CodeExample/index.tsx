@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo, PropsWithChildren } from 'react';
 import { math, rgba } from 'polished';
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ThemeProvider, DEFAULT_THEME, getColor, PALETTE } from '@zendeskgarden/react-theming';
 import { Close, Notification, Title, useToast } from '@zendeskgarden/react-notifications';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -36,7 +36,11 @@ const PaletteIconButton = React.forwardRef(
   )
 );
 
-export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
+interface ICodeExampleProps extends PropsWithChildren {
+  code: string;
+}
+
+export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => {
   const [isRtl, setIsRtl] = useState(false);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const [color, setColor] = useState<string | IColor>(PALETTE.blue[600]);
@@ -44,7 +48,7 @@ export const CodeExample: React.FC<{ code: string }> = ({ children, code }) => {
   const { addToast } = useToast();
   const COPYRIGHT_REGEXP = /\/\*\*\n\s\*\sCopyright[\s\S]*\*\/\n\n/gmu;
 
-  const exampleTheme = useMemo<DefaultTheme>(() => {
+  const exampleTheme = useMemo<any>(() => {
     let primaryHue;
 
     if (

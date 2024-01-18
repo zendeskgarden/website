@@ -11,31 +11,24 @@ components:
   - forms/src/elements/Range.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To choose a number within a range with minimum and maximum values</li>
-    </ul>
+
+    - To choose a number within a range with minimum and maximum values
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          If the choices aren’t in a continuous range, use a [Menu](/components/menu) instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To compare between several options, use a [Radio](/components/radio) instead
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>
-          To define a range of values, use a [Multi-thumb range](/components/multi-thumb-range)
-          instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - If the choices aren’t in a continuous range, use a [Menu](/components/menu) instead
+    - To compare between several options, use a [Radio](/components/radio) instead
+    - To define a range of values, use a [Multi-thumb range](/components/multi-thumb-range) instead
+
   </Misuse>
 </Usage>
 
@@ -158,7 +151,7 @@ Nest a Range within a [Field](#field) component.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

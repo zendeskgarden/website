@@ -5,6 +5,12 @@ description: >
   the interface. It temporarily stores information that can be retrieved and used within a given flow.
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 ## Anatomy
 
 - Always include the value being copied and the copy action which can be represented as a [Button](/components/button)
@@ -74,8 +80,6 @@ Input field.
 
 ## Accessibility
 
-<!-- markdownlint-disable no-duplicate-header -->
-
 ### Default
 
 <BestPractice>
@@ -84,18 +88,18 @@ Input field.
     imageSource={props.data.copyAccessibilityDo.childFile.childImageSharp.gatsbyImageData}
     alt="Input group with a read-only Input field"
   >
-    <ul>
-      <li>Use the read-only Input field in forms.</li>
-    </ul>
+
+    - Use the read-only Input field in forms
+
   </Do>
   <Dont
     imageIsFreeForm
     imageSource={props.data.copyAccessibilityDont.childFile.childImageSharp.gatsbyImageData}
     alt="Input group with a disabled Input field"
   >
-    <ul>
-      <li>Don’t use the disabled Input field.</li>
-    </ul>
+
+    - Don’t use the disabled Input field
+
   </Dont>
 </BestPractice>
 
@@ -134,23 +138,23 @@ Help improve this page. [Give us your feedback](https://forms.gle/VFD799SvNfs2yi
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
-    copyAnatomy: figmaAsset(name: { eq: "patterns-copy-anatomy" }) {
+    copyAnatomy: gardenFigmaAsset(name: { eq: "patterns-copy-anatomy" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyLayoutsDefault: figmaAsset(name: { eq: "patterns-copy-layouts-default" }) {
+    copyLayoutsDefault: gardenFigmaAsset(name: { eq: "patterns-copy-layouts-default" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyLayoutsDefaultNotification: figmaAsset(
+    copyLayoutsDefaultNotification: gardenFigmaAsset(
       name: { eq: "patterns-copy-layouts-default-notification" }
     ) {
       childFile {
@@ -159,42 +163,46 @@ export const pageQuery = graphql`
         }
       }
     }
-    copyLayoutsMinimal: figmaAsset(name: { eq: "patterns-copy-layouts-minimal" }) {
+    copyLayoutsMinimal: gardenFigmaAsset(name: { eq: "patterns-copy-layouts-minimal" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyLayoutsMinimalTooltip: figmaAsset(name: { eq: "patterns-copy-layouts-minimal-tooltip" }) {
+    copyLayoutsMinimalTooltip: gardenFigmaAsset(
+      name: { eq: "patterns-copy-layouts-minimal-tooltip" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyLayoutsContent: figmaAsset(name: { eq: "patterns-copy-content" }) {
+    copyLayoutsContent: gardenFigmaAsset(name: { eq: "patterns-copy-content" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)
         }
       }
     }
-    copyAccessibilityDo: figmaAsset(name: { eq: "patterns-copy-accessibility-input-do" }) {
+    copyAccessibilityDo: gardenFigmaAsset(name: { eq: "patterns-copy-accessibility-input-do" }) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    copyAccessibilityDont: figmaAsset(name: { eq: "patterns-copy-accessibility-input-dont" }) {
+    copyAccessibilityDont: gardenFigmaAsset(
+      name: { eq: "patterns-copy-accessibility-input-dont" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 300)
         }
       }
     }
-    copyAccessibilityMinimal: figmaAsset(
+    copyAccessibilityMinimal: gardenFigmaAsset(
       name: { eq: "patterns-copy-accessibility-minimal-focused" }
     ) {
       childFile {
@@ -203,7 +211,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    copyAccessibilityAria: figmaAsset(name: { eq: "patterns-copy-accessibility-aria-labels" }) {
+    copyAccessibilityAria: gardenFigmaAsset(
+      name: { eq: "patterns-copy-accessibility-aria-labels" }
+    ) {
       childFile {
         childImageSharp {
           gatsbyImageData(height: 480)

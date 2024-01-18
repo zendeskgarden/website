@@ -7,27 +7,24 @@ components:
   - theming/src/elements/theme/index.ts
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>
-        <Markdown>
-          To extend as the theming baseline for a customized [Theme
-          provider](/components/theme-provider)
-        </Markdown>
-      </li>
-    </ul>
+
+    - To extend as the theming baseline for a customized [Theme provider](/components/theme-provider)
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To reference component styling values, use the context `theme`
-          [API](/components/theme-provider#themeprovider) or `withTheme`
-          [utility](/components/utilities#withtheme) instead
-        </Markdown>
-      </li>
-    </ul>
+
+    - To reference component styling values, use the context `theme`
+    [API](/components/theme-provider#themeprovider) or `withTheme`
+    [utility](/components/utilities#withtheme) instead
+
   </Misuse>
 </Usage>
 
@@ -229,7 +226,7 @@ component size, padding, and margins.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

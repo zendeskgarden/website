@@ -9,29 +9,24 @@ components:
   - notifications/src/elements/Well.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>To group related content</li>
-    </ul>
+
+    - To group related content
+
   </Use>
   <Misuse>
-    <ul>
-      <li>
-        <Markdown>
-          To expand and collapse content, use an [Accordion](/components/accordion)
-        </Markdown>
-      </li>
-      <li>
-        <Markdown>For validation messages, use an [Alert](/components/alerts)</Markdown>
-      </li>
-      <li>
-        <Markdown>
-          For growl-style notifications that float above the page content, use a
-          [Notification](/components/notifications)
-        </Markdown>
-      </li>
-    </ul>
+
+    - To expand and collapse content, use an [Accordion](/components/accordion)
+    - For validation messages, use an [Alert](/components/alerts)
+    - For growl-style notifications that float above the page content, use a [Notification](/components/notifications)
+
   </Misuse>
 </Usage>
 
@@ -108,7 +103,7 @@ import RecessedCode from '!!raw-loader!../../examples/notifications/well/WellRec
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

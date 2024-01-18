@@ -5,4 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { wrapRootElement } from './utils/gatsby-theme';
+import React from 'react';
+import { Provider, Layout } from './src/components';
+
+export const wrapRootElement = ({ props, element }) => <Provider {...props}>{element}</Provider>;
+
+export const wrapPageElement = ({ props, element }) => <Layout {...props}>{element}</Layout>;

@@ -11,11 +11,17 @@ subcomponents:
   - accordions/src/elements/stepper/components/Step.tsx
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 <Usage>
   <Use>
-    <ul>
-      <li>For multi-step flows that must be completed in order</li>
-    </ul>
+
+    - For multi-step flows that must be completed in order
+
   </Use>
 </Usage>
 
@@ -72,11 +78,7 @@ The Stepper component follows this structure:
 </Stepper>
 ```
 
-<!-- markdownlint-disable no-emphasis-as-heading -->
-
 **Stepper orientation**
-
-<!-- markdownlint-enable no-emphasis-as-heading -->
 
 - Define the content for a vertical stepper using the `Stepper.Content` for each step
 - Render the content for a horizontal stepper externally. See [layout example](#layout) for details.
@@ -115,7 +117,7 @@ Wrap each step's [Label](#stepperlabel) and corresponding [Content](#steppercont
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;

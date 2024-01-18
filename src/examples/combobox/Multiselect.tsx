@@ -39,7 +39,7 @@ const OPTIONS = [
 const Example = () => {
   const [options, setOptions] = useState(OPTIONS);
 
-  const handleChange: IComboboxProps['onChange'] = useCallback(({ inputValue }) => {
+  const handleChange = useCallback<NonNullable<IComboboxProps['onChange']>>(({ inputValue }) => {
     if (inputValue !== undefined) {
       if (inputValue === '') {
         setOptions(OPTIONS);

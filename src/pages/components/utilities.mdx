@@ -14,6 +14,12 @@ components:
   - theming/src/utils/withTheme.ts
 ---
 
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
 ## How to use them
 
 ### Menu and arrow styles
@@ -136,7 +142,7 @@ may be used as a favorable alternative.
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  query ($fileAbsolutePath: String) {
+  query ($slug: String) {
     ...SidebarPageFragment
   }
 `;
