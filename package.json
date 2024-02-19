@@ -35,7 +35,7 @@
     "@types/styled-components": "5.1.29",
     "@typescript-eslint/eslint-plugin": "6.9.1",
     "@typescript-eslint/parser": "6.9.1",
-    "@zendeskgarden/container-utilities": "1.0.12",
+    "@zendeskgarden/container-utilities": "2.0.0",
     "@zendeskgarden/css-bedrock": "9.1.1",
     "@zendeskgarden/eslint-config": "34.0.0",
     "@zendeskgarden/react-accordions": "8.73.3",
