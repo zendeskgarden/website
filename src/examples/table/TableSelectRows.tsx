@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import { Field, Checkbox, Label } from '@zendeskgarden/react-forms';
 
 interface IRowData {
@@ -84,7 +84,7 @@ const Example = () => {
                   <Checkbox
                     checked={row.selected}
                     onKeyDown={e => {
-                      if (e.keyCode === KEY_CODES.SHIFT) {
+                      if (e.key === KEYS.SHIFT) {
                         setShiftEnabled(true);
                       }
                     }}

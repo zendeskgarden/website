@@ -8,7 +8,7 @@
 import React, { useCallback, useState, memo } from 'react';
 import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import {
   Field,
   Label,
@@ -53,16 +53,16 @@ const FileItem: React.FC<{ name: string; onRemove: () => void }> = memo(({ name,
   }, []);
 
   const handleFileKeyDown = (e: React.KeyboardEvent<any>) => {
-    if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+    if (e.key === KEYS.DELETE || e.key === KEYS.BACKSPACE) {
       e.preventDefault();
       onRemove();
     }
   };
 
   const handleCloseKeyDown = (e: React.KeyboardEvent<any>) => {
-    const KEYS = [KEY_CODES.SPACE, KEY_CODES.ENTER, KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
+    const keys = [KEYS.SPACE, KEYS.ENTER, KEYS.DELETE, KEYS.BACKSPACE];
 
-    if (KEYS.includes(e.keyCode)) {
+    if (keys.includes(e.key)) {
       e.preventDefault();
       alert('File dismissed via keyboard');
     }

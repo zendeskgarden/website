@@ -9,22 +9,22 @@ import React from 'react';
 import { FileList, File } from '@zendeskgarden/react-forms';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { Row, Col } from '@zendeskgarden/react-grid';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const handleClick = () => alert('File dismissed via mouse');
 
 const handleFileKeyDown = (e: React.KeyboardEvent<any>) => {
-  if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+  if (e.key === KEYS.DELETE || e.key === KEYS.BACKSPACE) {
     e.preventDefault();
     alert('File dismissed via keyboard');
   }
 };
 
 const handleCloseKeyDown = (e: React.KeyboardEvent<any>) => {
-  const KEYS = [KEY_CODES.SPACE, KEY_CODES.ENTER, KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
+  const keys = [KEYS.SPACE, KEYS.ENTER, KEYS.DELETE, KEYS.BACKSPACE];
 
-  if (KEYS.includes(e.keyCode)) {
+  if (keys.includes(e.key)) {
     e.preventDefault();
     alert('File dismissed via keyboard');
   }
