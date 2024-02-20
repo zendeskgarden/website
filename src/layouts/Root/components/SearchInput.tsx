@@ -168,7 +168,11 @@ declare global {
   }
 }
 
-export const SearchInput = React.forwardRef<HTMLInputElement, HTMLAttributes<HTMLInputElement>>(
+interface ISearchInputProps extends HTMLAttributes<HTMLInputElement> {
+  placeholder?: string;
+}
+
+export const SearchInput = React.forwardRef<HTMLInputElement, ISearchInputProps>(
   ({ id, ...props }, ref) => {
     useEffect(() => {
       if (typeof window !== 'undefined' /* not SSR */ && window.docsearch) {
