@@ -8,7 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Field, Label, Input, FileUpload, FileList, File } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
@@ -32,16 +32,16 @@ const Example = () => {
   const handleClick = () => alert('File dismissed via mouse');
 
   const handleFileKeyDown = (e: React.KeyboardEvent<any>) => {
-    if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
+    if (e.key === KEYS.DELETE || e.key === KEYS.BACKSPACE) {
       e.preventDefault();
       alert('File dismissed via keyboard');
     }
   };
 
   const handleCloseKeyDown = (e: React.KeyboardEvent<any>) => {
-    const KEYS = [KEY_CODES.SPACE, KEY_CODES.ENTER, KEY_CODES.DELETE, KEY_CODES.BACKSPACE];
+    const keys = [KEYS.SPACE, KEYS.ENTER, KEYS.DELETE, KEYS.BACKSPACE];
 
-    if (KEYS.includes(e.keyCode)) {
+    if (keys.includes(e.key)) {
       e.preventDefault();
       alert('File dismissed via keyboard');
     }

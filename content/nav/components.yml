@@ -48,12 +48,12 @@
           title: Toggle icon button
     - title: Chrome
       id: /components/chrome
-    - title: Date picker
-      id: /components/date-picker
     - title: Color picker
       id: /components/color-picker
     - title: Color swatch
       id: /components/color-swatch
+    - title: Date picker
+      id: /components/date-picker
     - title: Draggable
       id: /components/draggable
     - title: Drawer
