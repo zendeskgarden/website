@@ -5,7 +5,7 @@
   "first-line-h1": false,
   "first-header-h1": false,
   "no-duplicate-header": false,
-  "no-emphasis-as-header": false,
+  "no-emphasis-as-heading": false,
   "no-inline-html": false,
   "no-space-in-code": false,
   "no-space-in-emphasis": false,
