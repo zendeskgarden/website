@@ -51,7 +51,7 @@ jobs:
     <<: *executor
     steps:
       - *attach_workspace
-      - run: utils/deploy.js
+      - run: utils/deploy.mjs
 
 workflows:
   main:

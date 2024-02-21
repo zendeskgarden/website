@@ -28,11 +28,11 @@ export async function generateGardenReactDoctypes() {
 
   const components = await cmdDocgen({ paths: elementsGlobPath });
 
-  return components!.map(component => ({
+  return components.map(component => ({
     ...component,
     id: component.file,
     path: component.file.replace(pacakgesTrailingPath, ''),
-    subcomponents: components!
+    subcomponents: components
       .filter(({ name }) => name.startsWith(`${component.name}.`))
       .map(({ name }) => name),
     packageName: `@zendeskgarden/react-${
