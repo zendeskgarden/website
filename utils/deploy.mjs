@@ -17,8 +17,8 @@ import {
   netlifyBandwidth,
   netlifyDeploy
 } from '@zendeskgarden/scripts';
-import { resolve } from 'path';
-// const path = require('path');
+import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
 
 envalid.cleanEnv(process.env, {
   GITHUB_TOKEN: envalid.str(),
@@ -28,7 +28,8 @@ envalid.cleanEnv(process.env, {
 
 (async () => {
   try {
-    const dir = resolve(__dirname, '..', 'public');
+    const currentDir = dirname(fileURLToPath(import.meta.url));
+    const dir = resolve(currentDir, '..', 'public');
     const branch = await githubBranch();
     const production = branch === 'main';
     const available = production ? Infinity : (await netlifyBandwidth()).available;
