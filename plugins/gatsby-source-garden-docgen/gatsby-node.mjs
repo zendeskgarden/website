@@ -5,13 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { GatsbyNode } from 'gatsby';
 import { createNodeHelpers } from 'gatsby-node-helpers';
 import {
   getGardenReactVersion,
   generateGardenReactDoctypes,
   generateGardenReactPackages
-} from './utils';
+} from './utils.mjs';
 
 // graphql types
 const TYPE_PREFIX = 'Garden';
@@ -25,11 +24,7 @@ const CACHE_PREFIX = `cache-${PLUGIN_NAME}`;
 let packagesCacheKey = `${CACHE_PREFIX}-packages`;
 let componentsCacheKey = `${CACHE_PREFIX}-components`;
 
-export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async ({
-  tracing,
-  reporter,
-  cache
-}) => {
+export const onPreBootstrap = async ({ tracing, reporter, cache }) => {
   const span = tracing.startSpan(`${GATSBY_PLUGIN_NAME}:bootstrap`);
 
   try {
@@ -47,7 +42,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async ({
       const packages = await generateGardenReactPackages();
 
       reporter.info(
-        `loaded Garden package information from source for ${`${packages!.length}`} packages`
+        `loaded Garden package information from source for ${`${packages.length}`} packages`
       );
 
       span.setTag(PLUGIN_NAME, 'caching-packages');
@@ -62,7 +57,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async ({
       const docTypes = await generateGardenReactDoctypes();
 
       reporter.info(
-        `generated Garden documentation types from source for ${`${docTypes!.length}`} components`
+        `generated Garden documentation types from source for ${`${docTypes.length}`} components`
       );
 
       span.setTag(PLUGIN_NAME, 'caching-docgen');
@@ -70,23 +65,18 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async ({
     } else {
       reporter.info('loaded Garden component documentation types from cache');
     }
-  } catch (error: unknown) {
-    const errorMessage = (error as Error).message as string;
+  } catch (error) {
+    const errorMessage = error.message;
 
     span.log({ error: true, message: errorMessage });
 
-    reporter.panic(errorMessage, error as Error);
+    reporter.panic(errorMessage, error);
   }
 
   span.finish();
 };
 
-export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
-  cache,
-  actions,
-  createNodeId,
-  createContentDigest
-}) => {
+export const sourceNodes = async ({ cache, actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions;
   const { createNodeFactory } = createNodeHelpers({
     typePrefix: TYPE_PREFIX,
@@ -97,19 +87,15 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
   const packages = await cache.get(packagesCacheKey);
   const gardenPackageNode = createNodeFactory(GARDEN_REACT_COMPONENT_PACKAGE_ID);
 
-  await Promise.all(packages.map((node: any) => createNode(gardenPackageNode(node))));
+  await Promise.all(packages.map(node => createNode(gardenPackageNode(node))));
 
   const components = await cache.get(componentsCacheKey);
   const gardenComponentNode = createNodeFactory(GARDEN_REACT_COMPONENT_ID);
 
-  await Promise.all(components.map((node: any) => createNode(gardenComponentNode(node))));
+  await Promise.all(components.map(node => createNode(gardenComponentNode(node))));
 };
 
-export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({
-  actions,
-  createNodeId,
-  createContentDigest
-}) => {
+export const createSchemaCustomization = ({ actions, createNodeId, createContentDigest }) => {
   const { createTypes } = actions;
 
   const { createTypeName } = createNodeHelpers({
