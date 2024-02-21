@@ -7,9 +7,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const envalid = require('envalid');
-const garden = require('@zendeskgarden/scripts');
-const path = require('path');
+import envalid from 'envalid';
+import {
+  cmdDu,
+  githubBranch,
+  githubCommit,
+  githubDeploy,
+  githubRepository,
+  netlifyBandwidth,
+  netlifyDeploy
+} from '@zendeskgarden/scripts';
+import { resolve } from 'path';
+// const path = require('path');
 
 envalid.cleanEnv(process.env, {
   GITHUB_TOKEN: envalid.str(),
@@ -19,19 +28,19 @@ envalid.cleanEnv(process.env, {
 
 (async () => {
   try {
-    const dir = path.resolve(__dirname, '..', 'public');
-    const branch = await garden.githubBranch();
+    const dir = resolve(__dirname, '..', 'public');
+    const branch = await githubBranch();
     const production = branch === 'main';
-    const available = production ? Infinity : (await garden.netlifyBandwidth()).available;
-    const usage = production ? 0 : await garden.cmdDu(dir);
+    const available = production ? Infinity : (await netlifyBandwidth()).available;
+    const usage = production ? 0 : await cmdDu(dir);
     let url;
 
     if (available > usage) {
-      const repository = await garden.githubRepository();
-      const commit = await garden.githubCommit();
+      const repository = await githubRepository();
+      const commit = await githubCommit();
       const message = `https://github.com/${repository.owner}/${repository.repo}/commit/${commit}`;
       const command = async () => {
-        const result = await garden.netlifyDeploy({
+        const result = await netlifyDeploy({
           dir,
           production,
           message
@@ -40,7 +49,7 @@ envalid.cleanEnv(process.env, {
         return result;
       };
 
-      url = await garden.githubDeploy({ command, production });
+      url = await githubDeploy({ command, production });
     } else {
       throw new Error(
         `Insufficient Netlify bandwidth: ${available} bytes available, ${usage} bytes required.`
