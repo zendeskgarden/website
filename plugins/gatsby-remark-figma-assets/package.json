@@ -1,5 +1,6 @@
 {
   "private": true,
   "name": "gatsby-remark-figma-assets",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "main": "index.mjs"
 }

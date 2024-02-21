@@ -5,16 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const path = require(`path`);
-const visit = require(`unist-util-visit`);
-const cheerio = require(`cheerio`);
+import { relative } from 'path';
+import { visit } from 'unist-util-visit';
+import { load } from 'cheerio';
 
 /**
  * This plugin allows markdown images to support referencing Figma assets.
  *
  * `[Alt text](figma:{LAYER_NAME}-{FORMAT}.{EXTENSION})`
  */
-module.exports = ({ files, markdownNode, markdownAST, getNode }) => {
+const plugin = ({ files, markdownNode, markdownAST, getNode }) => {
   const retrieveFigmaUrl = imageUrl => {
     /**
      * Only transform images that match the figma template
@@ -36,7 +36,7 @@ module.exports = ({ files, markdownNode, markdownAST, getNode }) => {
 
     const parentDirectory = getNode(markdownNode.parent).dir;
 
-    return path.relative(parentDirectory, matchingFileNode.absolutePath);
+    return relative(parentDirectory, matchingFileNode.absolutePath);
   };
 
   /**
@@ -54,7 +54,7 @@ module.exports = ({ files, markdownNode, markdownAST, getNode }) => {
       return;
     }
 
-    const $ = cheerio.load(node.value);
+    const $ = load(node.value);
     const images = $('img');
 
     if (images.length === 0) {
@@ -78,3 +78,5 @@ module.exports = ({ files, markdownNode, markdownAST, getNode }) => {
 
   return markdownAST;
 };
+
+export default plugin;
