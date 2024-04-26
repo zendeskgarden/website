@@ -78,6 +78,7 @@ const packageJson = `
     "@zendeskgarden/react-drag-drop": "^8.x",
     "@zendeskgarden/react-dropdowns": "^8.x",
     "@zendeskgarden/react-dropdowns.next": "^8.x",
+    "@zendeskgarden/react-forms": "^8.x",
     "@zendeskgarden/react-grid": "^8.x",
     "@zendeskgarden/react-loaders": "^8.x",
     "@zendeskgarden/react-modals": "^8.x",
