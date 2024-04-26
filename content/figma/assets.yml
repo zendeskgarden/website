@@ -166,10 +166,10 @@ nodeIds:
   - '1322:35878' # patterns-save-action-footer-focus
   - '1311:34444' # patterns-save-anatomy-action-footer
   - '1311:34883' # patterns-save-anatomy-success-notification
-  - '1311:35077' # patterns-save-anatomy-success-notification-do
-  - '1311:35064' # patterns-save-anatomy-success-notification-dont
+  - '2495:2225' # patterns-save-anatomy-success-notification-do
+  - '2495:2212' # patterns-save-anatomy-success-notification-dont
   - '1321:35012' # patterns-save-errors
-  - '1322:35712' # patterns-save-rtl
+  - '2495:2069' # patterns-save-rtl
   - '1322:35434' # patterns-save-unsaved-changes
   - '1321:35220' # patterns-save-validation-alert
   - '1322:36040' # patterns-save-validation-alert-focus
