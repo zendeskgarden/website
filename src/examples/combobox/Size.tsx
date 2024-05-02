@@ -9,7 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Col, Row } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Label, Option } from '@zendeskgarden/react-dropdowns.next';
+import { Combobox, Field, Label, Option } from '@zendeskgarden/react-dropdowns';
 
 const StyledCol = styled(Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {

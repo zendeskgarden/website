@@ -7,7 +7,7 @@
 
 import React, { useCallback } from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
-import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns';
 
 const Example = () => {
   const handleChange = useCallback<NonNullable<IMenuProps['onChange']>>(changes => {

@@ -15,7 +15,7 @@ import {
   IComboboxProps,
   Label,
   Option
-} from '@zendeskgarden/react-dropdowns.next';
+} from '@zendeskgarden/react-dropdowns';
 
 const OPTIONS = [
   'Asparagus',

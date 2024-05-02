@@ -76,7 +76,6 @@ const packageJson = `
     "@zendeskgarden/react-colorpickers": "^8.x",
     "@zendeskgarden/react-datepickers": "^8.x",
     "@zendeskgarden/react-drag-drop": "^8.x",
-    "@zendeskgarden/react-dropdowns": "^8.x",
     "@zendeskgarden/react-dropdowns.next": "^8.x",
     "@zendeskgarden/react-forms": "^8.x",
     "@zendeskgarden/react-grid": "^8.x",

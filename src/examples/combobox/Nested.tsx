@@ -16,7 +16,7 @@ import {
   Label,
   OptGroup,
   Option
-} from '@zendeskgarden/react-dropdowns.next';
+} from '@zendeskgarden/react-dropdowns';
 
 interface IOption extends IOptionProps {
   value: string;

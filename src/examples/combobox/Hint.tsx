@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Hint, Label, Option } from '@zendeskgarden/react-dropdowns.next';
+import { Combobox, Field, Hint, Label, Option } from '@zendeskgarden/react-dropdowns';
 
 const Example = () => (
   <Row justifyContent="center">

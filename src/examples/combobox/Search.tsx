@@ -8,13 +8,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import debounce from 'lodash.debounce';
 import { Col, Row } from '@zendeskgarden/react-grid';
-import {
-  Combobox,
-  Field,
-  IComboboxProps,
-  Label,
-  Option
-} from '@zendeskgarden/react-dropdowns.next';
+import { Combobox, Field, IComboboxProps, Label, Option } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as SearchIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 
 const OPTIONS = [

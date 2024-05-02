@@ -9,8 +9,7 @@ import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { hideVisually } from 'polished';
 import { Col, Row } from '@zendeskgarden/react-grid';
-import { Menu, Item, IItemProps } from '@zendeskgarden/react-dropdowns.next';
-import { Separator } from '@zendeskgarden/react-dropdowns';
+import { Menu, Item, Separator, IItemProps } from '@zendeskgarden/react-dropdowns';
 
 export const BASE_ITEMS: IItemProps[] = [
   { value: 'Orange' },

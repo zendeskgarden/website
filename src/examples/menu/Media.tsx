@@ -7,7 +7,7 @@
 
 import React, { useCallback } from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
-import { Menu, Item, ItemGroup, Separator, IMenuProps } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item, ItemGroup, Separator, IMenuProps } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => {

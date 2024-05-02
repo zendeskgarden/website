@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { Field, Label, InputGroup, Input } from '@zendeskgarden/react-forms';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Row, Col } from '@zendeskgarden/react-grid';
-import { Menu, Item, ISelectedItem, ItemGroup } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item, ISelectedItem, ItemGroup } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as ChevronDownStroke } from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 const StyledInputGroup = styled(InputGroup)`

@@ -7,7 +7,7 @@
 
 import React, { useCallback, useState } from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
-import { Menu, Item, ItemGroup, ISelectedItem } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item, ItemGroup, ISelectedItem } from '@zendeskgarden/react-dropdowns';
 
 const Example = () => {
   const [expanded, setExpanded] = useState<boolean>(false);

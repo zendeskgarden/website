@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Label, Option } from '@zendeskgarden/react-dropdowns.next';
+import { Combobox, Field, Label, Option } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { ReactComponent as SearchIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import styled from 'styled-components';
