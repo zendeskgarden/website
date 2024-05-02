@@ -14,102 +14,49 @@ import { ReactComponent as EmailIcon } from '@zendeskgarden/svg-icons/src/26/ema
 import { ReactComponent as SettingsIcon } from '@zendeskgarden/svg-icons/src/26/settings-fill.svg';
 import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import {
-  Body,
-  Chrome,
-  CollapsibleSubNavItem,
-  Content,
-  Header,
-  Main,
-  Nav,
-  NavItem,
-  NavItemIcon,
-  NavItemText,
-  SubNav,
-  SubNavItem,
-  SubNavItemText,
-  SkipNav
-} from '@zendeskgarden/react-chrome';
+import { Body, Chrome, Content, Header, Main, Nav, SkipNav } from '@zendeskgarden/react-chrome';
 
 const Example = () => {
   const [nav, setNav] = useState('nav-1');
-  const [subNav, setSubNav] = useState('item-1');
-  const [collapsed, setCollapsed] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const [showSubNav, setShowSubNav] = useState(false);
 
   return (
     <Chrome isFluid style={{ height: 500, minWidth: 600 }} hue={PALETTE.blue[800]}>
       <SkipNav targetId="example-navigation-main-content">Skip to main content</SkipNav>
       <Nav isExpanded={expanded} aria-label="chrome navigation example nav">
-        <NavItem hasLogo>
-          <NavItemIcon>
+        <Nav.Item hasLogo>
+          <Nav.ItemIcon>
             <ProductIcon style={{ color: PALETTE.green[400] }} />
-          </NavItemIcon>
-          <NavItemText>Zendesk Garden</NavItemText>
-        </NavItem>
-        <NavItem isCurrent={nav === 'nav-1'} onClick={() => setNav('nav-1')}>
-          <NavItemIcon>
-            <HomeIcon />
-          </NavItemIcon>
-          <NavItemText>Home</NavItemText>
-        </NavItem>
-        <NavItem isCurrent={nav === 'nav-2'} onClick={() => setNav('nav-2')}>
-          <NavItemIcon>
-            <EmailIcon />
-          </NavItemIcon>
-          <NavItemText>Email</NavItemText>
-        </NavItem>
-        <NavItem isCurrent={nav === 'nav-3'} onClick={() => setNav('nav-3')}>
-          <NavItemIcon>
-            <SettingsIcon />
-          </NavItemIcon>
-          <NavItemText>Settings</NavItemText>
-        </NavItem>
-        <NavItem hasBrandmark title="Zendesk">
-          <NavItemIcon>
+          </Nav.ItemIcon>
+          <Nav.ItemText>Zendesk Garden</Nav.ItemText>
+        </Nav.Item>
+        <Nav.List>
+          <Nav.Item isCurrent={nav === 'nav-1'} onClick={() => setNav('nav-1')}>
+            <Nav.ItemIcon>
+              <HomeIcon />
+            </Nav.ItemIcon>
+            <Nav.ItemText>Home</Nav.ItemText>
+          </Nav.Item>
+          <Nav.Item isCurrent={nav === 'nav-2'} onClick={() => setNav('nav-2')}>
+            <Nav.ItemIcon>
+              <EmailIcon />
+            </Nav.ItemIcon>
+            <Nav.ItemText>Email</Nav.ItemText>
+          </Nav.Item>
+          <Nav.Item isCurrent={nav === 'nav-3'} onClick={() => setNav('nav-3')}>
+            <Nav.ItemIcon>
+              <SettingsIcon />
+            </Nav.ItemIcon>
+            <Nav.ItemText>Settings</Nav.ItemText>
+          </Nav.Item>
+        </Nav.List>
+        <Nav.Item hasBrandmark title="Zendesk">
+          <Nav.ItemIcon>
             <ZendeskIcon />
-          </NavItemIcon>
-          <NavItemText>Zendesk</NavItemText>
-        </NavItem>
+          </Nav.ItemIcon>
+          <Nav.ItemText>Zendesk</Nav.ItemText>
+        </Nav.Item>
       </Nav>
-      {showSubNav && (
-        <SubNav aria-label="chrome navigation example subnav">
-          <SubNavItem isCurrent={subNav === 'item-1'} onClick={() => setSubNav('item-1')}>
-            <SubNavItemText>Subnav 1</SubNavItemText>
-          </SubNavItem>
-          <SubNavItem isCurrent={subNav === 'item-2'} onClick={() => setSubNav('item-2')}>
-            <SubNavItemText>Subnav 2</SubNavItemText>
-          </SubNavItem>
-          <CollapsibleSubNavItem
-            header="Collapsible Item"
-            onChange={setCollapsed}
-            isExpanded={collapsed}
-          >
-            <SubNavItem
-              isCurrent={subNav === 'collapsed-item-1'}
-              onClick={() => setSubNav('collapsed-item-1')}
-            >
-              <SubNavItemText>Item 1</SubNavItemText>
-            </SubNavItem>
-            <SubNavItem
-              isCurrent={subNav === 'collapsed-item-2'}
-              onClick={() => setSubNav('collapsed-item-2')}
-            >
-              <SubNavItemText>Item 2</SubNavItemText>
-            </SubNavItem>
-            <SubNavItem
-              isCurrent={subNav === 'collapsed-item-3'}
-              onClick={() => setSubNav('collapsed-item-3')}
-            >
-              <SubNavItemText>Item 3</SubNavItemText>
-            </SubNavItem>
-          </CollapsibleSubNavItem>
-          <SubNavItem isCurrent={subNav === 'item-3'} onClick={() => setSubNav('item-3')}>
-            <SubNavItemText>Subnav 3</SubNavItemText>
-          </SubNavItem>
-        </SubNav>
-      )}
       <Body>
         <Header />
         <Content id="example-navigation-main-content">
@@ -119,14 +66,6 @@ const Example = () => {
                 <Field>
                   <Toggle onChange={() => setExpanded(!expanded)}>
                     <Label>Show expanded</Label>
-                  </Toggle>
-                </Field>
-              </Col>
-              <div style={{ width: '100%', height: '12px' }} />
-              <Col>
-                <Field>
-                  <Toggle onChange={() => setShowSubNav(!showSubNav)}>
-                    <Label>Show subnav</Label>
                   </Toggle>
                 </Field>
               </Col>
