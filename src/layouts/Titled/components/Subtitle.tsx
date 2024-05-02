@@ -6,11 +6,11 @@
  */
 
 import styled from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 import { LG } from '@zendeskgarden/react-typography';
 
 export const Subtitle = styled(LG).attrs({ tag: 'p' })`
   max-width: 540px;
-  color: ${p => getColor('neutralHue', 600, p.theme)};
+  color: ${p => getColorV8('neutralHue', 600, p.theme)};
   font-size: ${p => p.theme.space.base * 4}px;
 `;

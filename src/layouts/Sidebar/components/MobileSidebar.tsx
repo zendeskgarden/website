@@ -8,7 +8,7 @@
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useLocation } from '@reach/router';
-import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 import { ISidebarSection } from '..';
@@ -44,7 +44,7 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
       >
         <StyledSectionHeader
           css={css`
-            color: ${p => getColor('kale', 600, p.theme)};
+            color: ${p => getColorV8('kale', 600, p.theme)};
           `}
         >
           {section.title}

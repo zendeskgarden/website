@@ -11,11 +11,11 @@ import { MD } from '@zendeskgarden/react-typography';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { ReactComponent as LeafStrokeIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { ReactComponent as LeafFillIcon } from '@zendeskgarden/svg-icons/src/16/leaf-fill.svg';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 
 const StyledCol = styled(Col)`
   text-align: center;
-  color: ${p => getColor('neutralHue', 600, p.theme)};
+  color: ${p => getColorV8('neutralHue', 600, p.theme)};
 `;
 
 const Example = () => {

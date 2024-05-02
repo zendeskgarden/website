@@ -8,12 +8,12 @@
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 
 const StyledCaption = styled.figcaption`
   margin-bottom: ${props => props.theme.space.md};
   text-align: center;
-  color: ${props => getColor('neutralHue', 600, props.theme)};
+  color: ${props => getColorV8('neutralHue', 600, props.theme)};
 `;
 
 interface IImageFigure {
@@ -31,7 +31,7 @@ export const ImageFigure: React.FC<IImageFigure> = props => {
         alt={props.imageAlt}
         image={props.imageSource}
         style={{
-          border: `${theme.borders.sm} ${getColor('neutralHue', 300, theme)}`,
+          border: `${theme.borders.sm} ${getColorV8('neutralHue', 300, theme)}`,
           marginBottom: theme.space.xs,
           borderRadius: theme.borderRadii.md
         }}
