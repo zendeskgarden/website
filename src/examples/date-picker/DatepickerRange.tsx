@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { DatepickerRange } from '@zendeskgarden/react-datepickers';
+import { DatePickerRange } from '@zendeskgarden/react-datepickers';
 import { Field, Label, Input, Message } from '@zendeskgarden/react-forms';
 import { compareAsc, addDays } from 'date-fns';
 import { Row, Col } from '@zendeskgarden/react-grid';
@@ -26,7 +26,7 @@ const Example = () => {
   const isInvalid = () => compareAsc(startValue, endValue) === 1;
 
   return (
-    <DatepickerRange
+    <DatePickerRange
       startValue={startValue}
       endValue={endValue}
       onChange={changes => {
@@ -41,17 +41,17 @@ const Example = () => {
             <Col>
               <Field>
                 <Label>Start</Label>
-                <DatepickerRange.Start>
+                <DatePickerRange.Start>
                   <Input isCompact={isCompact} />
-                </DatepickerRange.Start>
+                </DatePickerRange.Start>
               </Field>
             </Col>
             <Col>
               <Field>
                 <Label>End</Label>
-                <DatepickerRange.End>
+                <DatePickerRange.End>
                   <Input isCompact={isCompact} validation={isInvalid() ? 'error' : undefined} />
-                </DatepickerRange.End>
+                </DatePickerRange.End>
                 {isInvalid() && (
                   <Message validation="error">End date must occur after the start date</Message>
                 )}
@@ -60,12 +60,12 @@ const Example = () => {
           </Row>
           <StyledRow>
             <Col>
-              <DatepickerRange.Calendar />
+              <DatePickerRange.Calendar />
             </Col>
           </StyledRow>
         </Col>
       </Row>
-    </DatepickerRange>
+    </DatePickerRange>
   );
 };
 

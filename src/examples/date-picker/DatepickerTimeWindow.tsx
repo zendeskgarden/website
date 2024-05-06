@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Datepicker } from '@zendeskgarden/react-datepickers';
+import { DatePicker } from '@zendeskgarden/react-datepickers';
 import { Field, Label, Input, Message } from '@zendeskgarden/react-forms';
 import { isBefore, isAfter, subDays, addDays } from 'date-fns';
 import { Row, Col } from '@zendeskgarden/react-grid';
@@ -25,9 +25,9 @@ const Example = () => {
       <Col sm={5}>
         <Field>
           <Label>Select a date</Label>
-          <Datepicker value={value} onChange={setValue} minValue={minValue} maxValue={maxValue}>
+          <DatePicker value={value} onChange={setValue} minValue={minValue} maxValue={maxValue}>
             <Input validation={isInvalid() ? 'error' : undefined} />
-          </Datepicker>
+          </DatePicker>
           {isInvalid() && (
             <Message validation="error" style={{ marginTop: '8px' }}>
               You must choose a date within the next 7 days.

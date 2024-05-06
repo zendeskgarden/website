@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Datepicker } from '@zendeskgarden/react-datepickers';
+import { DatePicker } from '@zendeskgarden/react-datepickers';
 import { Field, Label, Input } from '@zendeskgarden/react-forms';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
@@ -18,9 +18,9 @@ const Example = () => {
       <Col sm={5}>
         <Field>
           <Label>Select a date</Label>
-          <Datepicker value={state} onChange={setState}>
+          <DatePicker value={state} onChange={setState}>
             <Input />
-          </Datepicker>
+          </DatePicker>
         </Field>
       </Col>
     </Row>

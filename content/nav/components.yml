@@ -18,8 +18,6 @@
           title: Theme object
         - id: /components/theme-provider
           title: Theme provider
-        - id: /components/utilities
-          title: Utilities
     - id: /components/versions
       title: Versions
 - title: Components
