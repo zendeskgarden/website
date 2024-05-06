@@ -47,7 +47,7 @@ const matrix = convertToMatrix(colors, 7);
 const Example = () => (
   <Row justifyContent="center">
     <Col size="auto">
-      <ColorSwatch colors={matrix} />
+      <ColorSwatch name="color-swatch-default" colors={matrix} />
     </Col>
   </Row>
 );
