@@ -11,12 +11,12 @@ import { math } from 'polished';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Well, Title } from '@zendeskgarden/react-notifications';
 import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   margin-top: ${p => p.theme.space.lg};
   margin-bottom: ${p => p.theme.space.xxl};
 
@@ -26,7 +26,7 @@ const StyledRow = styled(Row)`
   }
 `;
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     &:not(:first-child) {
       margin-top: ${p => `${p.theme.space.base * 6}px`};

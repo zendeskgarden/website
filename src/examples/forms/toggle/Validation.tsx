@@ -7,7 +7,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Field, Label, Toggle, Message } from '@zendeskgarden/react-forms';
 
 const StyledField = styled(Field)`
@@ -16,8 +16,8 @@ const StyledField = styled(Field)`
 
 const Example = () => {
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <Field>
           <Toggle>
             <Label>Show tulips</Label>
@@ -36,8 +36,8 @@ const Example = () => {
             <Message validation="error">There are no roses available</Message>
           </Toggle>
         </StyledField>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

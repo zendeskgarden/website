@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import { DatePicker } from '@zendeskgarden/react-datepickers';
 import { Field, Label, Input, Message } from '@zendeskgarden/react-forms';
 import { isBefore, isAfter, subDays, addDays } from 'date-fns';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [value, setValue] = useState(new Date());
@@ -21,8 +21,8 @@ const Example = () => {
   };
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
           <Label>Select a date</Label>
           <DatePicker value={value} onChange={setValue} minValue={minValue} maxValue={maxValue}>
@@ -34,8 +34,8 @@ const Example = () => {
             </Message>
           )}
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

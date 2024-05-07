@@ -8,7 +8,7 @@
 import React from 'react';
 import { FileList, File } from '@zendeskgarden/react-forms';
 import { Progress } from '@zendeskgarden/react-loaders';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 
@@ -31,8 +31,8 @@ const handleCloseKeyDown = (e: React.KeyboardEvent<any>) => {
 };
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <FileList>
         <FileList.Item>
           <File
@@ -161,8 +161,8 @@ const Example = () => (
           </File>
         </FileList.Item>
       </FileList>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

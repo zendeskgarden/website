@@ -6,19 +6,19 @@
  */
 
 import React from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Skeleton } from '@zendeskgarden/react-loaders';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <Skeleton height="48px" />
       <Skeleton height="24px" width="80%" />
       <Skeleton height="16px" width="90%" />
       <Skeleton height="16px" width="85%" />
       <Skeleton height="16px" width="75%" />
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

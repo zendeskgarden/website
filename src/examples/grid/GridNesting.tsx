@@ -7,25 +7,25 @@
 
 import React from 'react';
 import { MD } from '@zendeskgarden/react-typography';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
   <Grid debug>
-    <Row>
-      <Col sm={9}>
+    <Grid.Row>
+      <Grid.Col sm={9}>
         <MD>
           Level 1: Col[sm=9]
-          <Row>
-            <Col size={8} sm={6}>
+          <Grid.Row>
+            <Grid.Col size={8} sm={6}>
               <MD>Level 2: Col[size=8][sm=6]</MD>
-            </Col>
-            <Col size={4} sm={6}>
+            </Grid.Col>
+            <Grid.Col size={4} sm={6}>
               <MD>Level 2: Col[size=4][sm=6]</MD>
-            </Col>
-          </Row>
+            </Grid.Col>
+          </Grid.Row>
         </MD>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   </Grid>
 );
 

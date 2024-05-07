@@ -13,7 +13,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import RootLayout from 'layouts/Root';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { XL, LG } from '@zendeskgarden/react-typography';
 import { StyledH1 } from 'components/MarkdownProvider/components/Typography';
 
@@ -48,8 +48,8 @@ const NotFoundPage: React.FC = () => {
             }
           `}
         >
-          <Row justifyContent="center">
-            <Col sm="auto">
+          <Grid.Row justifyContent="center">
+            <Grid.Col sm="auto">
               <GatsbyImage
                 image={notFoundImage.childFile.childImageSharp.gatsbyImageData}
                 alt=""
@@ -62,8 +62,8 @@ const NotFoundPage: React.FC = () => {
                 `}
                 imgStyle={{ maxWidth: '100%', maxHeight: '100%' }}
               />
-            </Col>
-            <Col sm={5}>
+            </Grid.Col>
+            <Grid.Col sm={5}>
               <div
                 css={css`
                   margin-left: ${p => p.theme.space.base * 12}px;
@@ -114,8 +114,8 @@ const NotFoundPage: React.FC = () => {
                   more of Garden.
                 </XL>
               </div>
-            </Col>
-          </Row>
+            </Grid.Col>
+          </Grid.Row>
         </Grid>
       </MaxWidthLayout>
     </RootLayout>

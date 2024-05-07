@@ -10,11 +10,11 @@ import styled from 'styled-components';
 import { DatePickerRange } from '@zendeskgarden/react-datepickers';
 import { Field, Label, Input, Message } from '@zendeskgarden/react-forms';
 import { compareAsc, addDays } from 'date-fns';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const isCompact = false;
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   margin-top: ${p => p.theme.space[isCompact ? 'sm' : 'md']};
 `;
 
@@ -35,18 +35,18 @@ const Example = () => {
       }}
       isCompact={isCompact}
     >
-      <Row justifyContent="center" style={{ minWidth: calendarRangeWidth }}>
-        <Col style={{ maxWidth: calendarRangeWidth }}>
-          <Row>
-            <Col>
+      <Grid.Row justifyContent="center" style={{ minWidth: calendarRangeWidth }}>
+        <Grid.Col style={{ maxWidth: calendarRangeWidth }}>
+          <Grid.Row>
+            <Grid.Col>
               <Field>
                 <Label>Start</Label>
                 <DatePickerRange.Start>
                   <Input isCompact={isCompact} />
                 </DatePickerRange.Start>
               </Field>
-            </Col>
-            <Col>
+            </Grid.Col>
+            <Grid.Col>
               <Field>
                 <Label>End</Label>
                 <DatePickerRange.End>
@@ -56,15 +56,15 @@ const Example = () => {
                   <Message validation="error">End date must occur after the start date</Message>
                 )}
               </Field>
-            </Col>
-          </Row>
+            </Grid.Col>
+          </Grid.Row>
           <StyledRow>
-            <Col>
+            <Grid.Col>
               <DatePickerRange.Calendar />
-            </Col>
+            </Grid.Col>
           </StyledRow>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </DatePickerRange>
   );
 };

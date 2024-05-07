@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { PALETTE, getColorV8 } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Draggable } from '@zendeskgarden/react-drag-drop';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -23,8 +23,8 @@ const StyledDecorator = styled.div`
 `;
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={7}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={7}>
       <Draggable isCompact>
         <Draggable.Grip />
         <StyledDecorator>
@@ -42,8 +42,8 @@ const Example = () => (
           </IconButton>
         </Tooltip>
       </Draggable>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

@@ -8,22 +8,22 @@
 import React, { useState } from 'react';
 import { DatePicker } from '@zendeskgarden/react-datepickers';
 import { Field, Label, Input } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [state, setState] = useState(new Date());
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
           <Label>Select a date</Label>
           <DatePicker value={state} onChange={setState}>
             <Input />
           </DatePicker>
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

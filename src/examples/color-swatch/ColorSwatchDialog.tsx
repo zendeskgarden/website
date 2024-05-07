@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { convertToMatrix } from '@zendeskgarden/container-utilities';
 import { PALETTE } from '@zendeskgarden/react-theming';
 
@@ -56,8 +56,8 @@ const Example = () => {
   };
 
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <ColorSwatchDialog
           name="color-swatch-dialog"
           colors={matrix}
@@ -65,8 +65,8 @@ const Example = () => {
           selectedRowIndex={selectedRowIndex}
           selectedColIndex={selectedColIndex}
         />
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

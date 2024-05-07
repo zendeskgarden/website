@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ToggleButton } from '@zendeskgarden/react-buttons';
 
 const Example = () => {
@@ -15,8 +15,8 @@ const Example = () => {
   const [largePressed, setLargePressed] = useState(false);
 
   return (
-    <Row alignItems="center">
-      <Col textAlign="center">
+    <Grid.Row alignItems="center">
+      <Grid.Col textAlign="center">
         <ToggleButton
           isPressed={smallPressed}
           onClick={() => setSmallPressed(!smallPressed)}
@@ -24,8 +24,8 @@ const Example = () => {
         >
           Small
         </ToggleButton>
-      </Col>
-      <Col textAlign="center">
+      </Grid.Col>
+      <Grid.Col textAlign="center">
         <ToggleButton
           isPressed={mediumPressed}
           onClick={() => setMediumPressed(!mediumPressed)}
@@ -33,8 +33,8 @@ const Example = () => {
         >
           Default
         </ToggleButton>
-      </Col>
-      <Col textAlign="center">
+      </Grid.Col>
+      <Grid.Col textAlign="center">
         <ToggleButton
           isPressed={largePressed}
           onClick={() => setLargePressed(!largePressed)}
@@ -42,8 +42,8 @@ const Example = () => {
         >
           Large
         </ToggleButton>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

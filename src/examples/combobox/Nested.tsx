@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import {
   Combobox,
   Field,
@@ -90,8 +90,8 @@ const Example = () => {
   };
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
           <Label>Fruit</Label>
           <Combobox isEditable={false} onChange={handleChange} {...state}>
@@ -108,8 +108,8 @@ const Example = () => {
             )}
           </Combobox>
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

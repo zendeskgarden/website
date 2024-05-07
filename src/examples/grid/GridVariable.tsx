@@ -7,32 +7,32 @@
 
 import React from 'react';
 import { MD } from '@zendeskgarden/react-typography';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
   <Grid debug>
-    <Row justifyContentMd="center">
-      <Col xs lg={2}>
+    <Grid.Row justifyContentMd="center">
+      <Grid.Col xs lg={2}>
         <MD>1 of 3</MD>
-      </Col>
-      <Col md="auto">
+      </Grid.Col>
+      <Grid.Col md="auto">
         <MD>Variable width content</MD>
-      </Col>
-      <Col xs lg={2}>
+      </Grid.Col>
+      <Grid.Col xs lg={2}>
         <MD>3 of 3</MD>
-      </Col>
-    </Row>
-    <Row justifyContent="center">
-      <Col>
+      </Grid.Col>
+    </Grid.Row>
+    <Grid.Row justifyContent="center">
+      <Grid.Col>
         <MD>1 of 3</MD>
-      </Col>
-      <Col md="auto">
+      </Grid.Col>
+      <Grid.Col md="auto">
         <MD>Variable width content</MD>
-      </Col>
-      <Col xs lg={2}>
+      </Grid.Col>
+      <Grid.Col xs lg={2}>
         <MD>3 of 3</MD>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   </Grid>
 );
 

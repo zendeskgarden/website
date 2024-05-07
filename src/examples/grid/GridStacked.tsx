@@ -7,29 +7,29 @@
 
 import React from 'react';
 import { MD } from '@zendeskgarden/react-typography';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
   <Grid debug>
-    <Row>
-      <Col sm={8}>
+    <Grid.Row>
+      <Grid.Col sm={8}>
         <MD>Col[sm=8]</MD>
-      </Col>
-      <Col sm={4}>
+      </Grid.Col>
+      <Grid.Col sm={4}>
         <MD>Col[sm=4]</MD>
-      </Col>
-    </Row>
-    <Row>
-      <Col sm>
+      </Grid.Col>
+    </Grid.Row>
+    <Grid.Row>
+      <Grid.Col sm>
         <MD>Col[sm]</MD>
-      </Col>
-      <Col sm>
+      </Grid.Col>
+      <Grid.Col sm>
         <MD>Col[sm]</MD>
-      </Col>
-      <Col sm>
+      </Grid.Col>
+      <Grid.Col sm>
         <MD>Col[sm]</MD>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   </Grid>
 );
 

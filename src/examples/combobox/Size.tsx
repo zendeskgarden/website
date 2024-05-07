@@ -8,23 +8,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Col, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Combobox, Field, Label, Option } from '@zendeskgarden/react-dropdowns';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   margin-top: ${p => p.theme.space.md};
 `;
 
 const Example = () => (
   <>
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
           <Label>Tree</Label>
           <Combobox>
@@ -33,7 +33,7 @@ const Example = () => (
             <Option value="Sequoia" isSelected />
           </Combobox>
         </Field>
-      </Col>
+      </Grid.Col>
       <StyledCol sm={5}>
         <Field>
           <Label>Tree</Label>
@@ -44,9 +44,9 @@ const Example = () => (
           </Combobox>
         </Field>
       </StyledCol>
-    </Row>
+    </Grid.Row>
     <StyledRow justifyContent="center">
-      <Col sm={5}>
+      <Grid.Col sm={5}>
         <Field>
           <Label>Trees</Label>
           <Combobox isMultiselectable maxHeight="76px">
@@ -55,7 +55,7 @@ const Example = () => (
             <Option value="Sequoia" isSelected />
           </Combobox>
         </Field>
-      </Col>
+      </Grid.Col>
       <StyledCol sm={5}>
         <Field>
           <Label>Trees</Label>

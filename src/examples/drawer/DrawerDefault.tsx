@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Col, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Paragraph } from '@zendeskgarden/react-typography';
 import { DrawerModal } from '@zendeskgarden/react-modals';
 
@@ -17,8 +17,8 @@ const Example = () => {
   const close = () => setIsOpen(false);
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <Button onClick={open}>Open Drawer</Button>
         <DrawerModal isOpen={isOpen} onClose={close}>
           <DrawerModal.Header tag="h2">Tending a garden</DrawerModal.Header>
@@ -71,8 +71,8 @@ const Example = () => {
           </DrawerModal.Footer>
           <DrawerModal.Close />
         </DrawerModal>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

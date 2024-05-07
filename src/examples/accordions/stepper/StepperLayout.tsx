@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Stepper } from '@zendeskgarden/react-accordions';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const StyledButtons = styled.div`
   margin-top: ${p => p.theme.space.sm};
@@ -59,8 +59,8 @@ const Example = () => {
   ];
 
   return (
-    <Row justifyContent="center">
-      <Col sm={10} textAlign="center">
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={10} textAlign="center">
         <Stepper activeIndex={currentStep} isHorizontal>
           <Stepper.Step key="step-1">
             <Stepper.Label>Choose a good location</Stepper.Label>
@@ -81,8 +81,8 @@ const Example = () => {
               </StyledContainer>
             )
         )}
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

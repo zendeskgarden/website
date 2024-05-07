@@ -20,7 +20,7 @@ import {
   File
 } from '@zendeskgarden/react-forms';
 import { Progress } from '@zendeskgarden/react-loaders';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const StyledFileUpload = styled(FileUpload)`
@@ -132,8 +132,8 @@ const Example = () => {
   });
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
           <Label>Upload a photo of your ailing cactus</Label>
           <Hint>Include the entire plant in your photo</Hint>
@@ -155,8 +155,8 @@ const Example = () => {
             </FileList>
           )}
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

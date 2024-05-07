@@ -8,7 +8,7 @@
 import React, { useContext } from 'react';
 import styled, { css, ThemeContext, ThemeProps } from 'styled-components';
 import { math } from 'polished';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { PALETTE, ThemeProvider, mediaQuery } from '@zendeskgarden/react-theming';
 
 const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<any>) => {
@@ -178,7 +178,7 @@ const FlowerPot = () => {
   );
 };
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
@@ -216,11 +216,11 @@ const Example = () => {
   });
 
   return (
-    <Row>
+    <Grid.Row>
       <ThemeProvider focusVisibleRef={null} theme={sizeTheme as any}>
-        <Col>
+        <Grid.Col>
           <FlowerPot />
-        </Col>
+        </Grid.Col>
         <ThemeProvider focusVisibleRef={null} theme={colorTheme as any}>
           <StyledCol>
             <FlowerPot />
@@ -232,7 +232,7 @@ const Example = () => {
           </ThemeProvider>
         </ThemeProvider>
       </ThemeProvider>
-    </Row>
+    </Grid.Row>
   );
 };
 

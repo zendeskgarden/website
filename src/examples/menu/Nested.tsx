@@ -8,7 +8,7 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { hideVisually } from 'polished';
-import { Col, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Menu, Item, Separator, IItemProps } from '@zendeskgarden/react-dropdowns';
 
 export const BASE_ITEMS: IItemProps[] = [
@@ -47,8 +47,8 @@ const Example = () => {
   );
 
   return (
-    <Row justifyContent="center">
-      <Col textAlign="center">
+    <Grid.Row justifyContent="center">
+      <Grid.Col textAlign="center">
         <Menu button="Fruits" onChange={handleChange}>
           {items.map(item =>
             item.value === 'separator' ? (
@@ -64,8 +64,8 @@ const Example = () => {
             )
           )}
         </Menu>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

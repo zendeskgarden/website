@@ -8,14 +8,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { rgba, parseToRgb, toColorString } from 'polished';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ColorPickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const validHex = /^#(?:(?:[0-9A-F]{6}(?:[0-9A-F]{2})?)|(?:[0-9A-F]{3})(?:[0-9A-F]?))$/iu;
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   flex-grow: 0;
 `;
 
@@ -55,7 +55,7 @@ const Example = () => {
   const [color, setColor] = useState<string | IColor>(rgba(DEFAULT_THEME.palette.blue[600], 0.6));
 
   return (
-    <Row justifyContent="center">
+    <Grid.Row justifyContent="center">
       <StyledCol>
         <Field>
           <Label>Favorite color</Label>
@@ -84,7 +84,7 @@ const Example = () => {
           </InputGroup>
         </Field>
       </StyledCol>
-    </Row>
+    </Grid.Row>
   );
 };
 

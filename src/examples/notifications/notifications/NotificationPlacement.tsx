@@ -15,10 +15,10 @@ import {
   ToastProvider,
   useToast
 } from '@zendeskgarden/react-notifications';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   & + & {
     margin-top: ${p => p.theme.space.md};
   }
@@ -48,38 +48,38 @@ const Toasts = () => {
   return (
     <>
       <StyledRow>
-        <Col size="4">
+        <Grid.Col size="4">
           <Button onClick={handleClick('top-start')} isStretched>
             top-start
           </Button>
-        </Col>
-        <Col size="4">
+        </Grid.Col>
+        <Grid.Col size="4">
           <Button onClick={handleClick('top')} isStretched>
             top
           </Button>
-        </Col>
-        <Col size="4">
+        </Grid.Col>
+        <Grid.Col size="4">
           <Button onClick={handleClick('top-end')} isStretched>
             top-end
           </Button>
-        </Col>
+        </Grid.Col>
       </StyledRow>
       <StyledRow>
-        <Col size="4">
+        <Grid.Col size="4">
           <Button onClick={handleClick('bottom-start')} isStretched>
             bottom-start
           </Button>
-        </Col>
-        <Col size="4">
+        </Grid.Col>
+        <Grid.Col size="4">
           <Button onClick={handleClick('bottom')} isStretched>
             bottom
           </Button>
-        </Col>
-        <Col size="4">
+        </Grid.Col>
+        <Grid.Col size="4">
           <Button onClick={handleClick('bottom-end')} isStretched>
             bottom-end
           </Button>
-        </Col>
+        </Grid.Col>
       </StyledRow>
     </>
   );

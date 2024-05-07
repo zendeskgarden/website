@@ -6,12 +6,12 @@
  */
 
 import React from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Combobox, Field, Label, OptGroup, Option } from '@zendeskgarden/react-dropdowns';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <Field>
         <Label>Fruits and vegetables</Label>
         <Combobox>
@@ -27,8 +27,8 @@ const Example = () => (
           </OptGroup>
         </Combobox>
       </Field>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;
