@@ -9,6 +9,7 @@ import { readFileSync } from 'fs';
 import { resolve, join } from 'path';
 import { BinaryToTextEncoding, createHash } from 'crypto';
 import { parse } from 'yaml';
+import { chunk } from 'lodash';
 
 export function hashFileContent(
   content: string,
@@ -113,10 +114,20 @@ export async function fetchFigmaImages({
   nodeIds: string[];
   scale: number;
 }) {
-  const idsParam = nodeIds.join(',');
-  const { images } = await fetchFigmaAPI(`images/${fileId}?ids=${idsParam}&scale=${scale}`, {
-    figmaApiToken
-  });
+  const chunks = chunk(nodeIds, 40);
+  let images: Record<string, string> = {};
+
+  for await (const value of chunks) {
+    const idsParam = value.join(',');
+    const { images: _images } = await fetchFigmaAPI(
+      `images/${fileId}?ids=${idsParam}&scale=${scale}`,
+      {
+        figmaApiToken
+      }
+    );
+
+    images = { ...images, ..._images };
+  }
 
   return { images };
 }
