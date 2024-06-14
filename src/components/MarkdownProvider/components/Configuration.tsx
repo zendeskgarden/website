@@ -15,7 +15,6 @@ import { StyledAnchor } from './Anchor';
 interface IPackage {
   version: string;
   name: string;
-  packageName: string;
 }
 
 const StyledUnorderedList = styled(UnorderedList)`
@@ -56,12 +55,12 @@ export const Configuration: React.FC<{
       {reactPackage.version}
       <StyledDot>•</StyledDot>
       <StyledAnchor
-        href={`https://github.com/zendeskgarden/react-components/tree/main/packages/${reactPackage.packageName.replace('@zendeskgarden/react-', '')}`}
+        href={`https://github.com/zendeskgarden/react-components/tree/main/packages/${reactPackage.name.replace('@zendeskgarden/react-', '')}`}
       >
         View source
       </StyledAnchor>
       <StyledDot>•</StyledDot>
-      <StyledAnchor href={`https://www.npmjs.com/package/${reactPackage.packageName}`}>
+      <StyledAnchor href={`https://www.npmjs.com/package/${reactPackage.name}`}>
         View on npm
       </StyledAnchor>
     </StyledListItem>

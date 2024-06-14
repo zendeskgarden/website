@@ -48,7 +48,6 @@ export const SidebarPageFragment = graphql`
         version
         name
         description
-        packageName: name
       }
       components: reactComponents {
         name
