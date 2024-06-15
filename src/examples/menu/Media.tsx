@@ -6,8 +6,8 @@
  */
 
 import React, { useCallback } from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
-import { Menu, Item, ItemGroup, Separator, IMenuProps } from '@zendeskgarden/react-dropdowns.next';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Menu, Item, ItemGroup, Separator, IMenuProps } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => {
@@ -16,8 +16,8 @@ const Example = () => {
   }, []);
 
   return (
-    <Row justifyContent="center">
-      <Col textAlign="center">
+    <Grid.Row justifyContent="center">
+      <Grid.Col textAlign="center">
         <Menu button="Menu" onChange={handleChange}>
           <ItemGroup icon={<LeafIcon />} legend="Plants">
             <Item icon={<LeafIcon />} value="cactus">
@@ -34,8 +34,8 @@ const Example = () => {
             Add plant
           </Item>
         </Menu>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

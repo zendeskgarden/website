@@ -7,14 +7,14 @@
 
 import React, { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 import { XXL, LG } from '@zendeskgarden/react-typography';
 
 export const StyledSectionHeader = styled.div`
   text-transform: uppercase;
   line-height: ${p => p.theme.lineHeights.sm};
   letter-spacing: 0.5px;
-  color: ${p => getColor('neutralHue', 600, p.theme)};
+  color: ${p => getColorV8('neutralHue', 600, p.theme)};
   font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.semibold};
 `;
@@ -46,7 +46,7 @@ export const SectionCallout: React.FC<
     <LG
       tag="p"
       css={css`
-        color: ${p => getColor('grey', 700, p.theme)};
+        color: ${p => getColorV8('grey', 700, p.theme)};
       `}
     >
       {description}

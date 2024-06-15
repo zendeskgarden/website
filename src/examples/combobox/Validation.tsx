@@ -8,18 +8,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Col, Row } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Label, Message, Option } from '@zendeskgarden/react-dropdowns.next';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Combobox, Field, Label, Message, Option } from '@zendeskgarden/react-dropdowns';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm>
       <Field>
         <Label>Plant</Label>
         <Combobox validation="success">
@@ -27,7 +27,7 @@ const Example = () => (
         </Combobox>
         <Message validation="success">Cactus is available</Message>
       </Field>
-    </Col>
+    </Grid.Col>
     <StyledCol>
       <Field>
         <Label>Plant</Label>
@@ -46,7 +46,7 @@ const Example = () => (
         <Message validation="error">Cactus is currently unavailable</Message>
       </Field>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;

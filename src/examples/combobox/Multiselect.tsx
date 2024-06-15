@@ -7,7 +7,7 @@
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import debounce from 'lodash.debounce';
-import { Col, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import {
   Combobox,
   Field,
@@ -15,7 +15,7 @@ import {
   IComboboxProps,
   Label,
   Option
-} from '@zendeskgarden/react-dropdowns.next';
+} from '@zendeskgarden/react-dropdowns';
 
 const OPTIONS = [
   'Asparagus',
@@ -58,8 +58,8 @@ const Example = () => {
   }, [debounceHandleChange]);
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
           <Label>Seeds</Label>
           <Hint>Plan your vegetable garden</Hint>
@@ -76,8 +76,8 @@ const Example = () => {
             )}
           </Combobox>
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

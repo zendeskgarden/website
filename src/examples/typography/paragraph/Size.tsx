@@ -9,17 +9,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Paragraph, SM, MD, LG } from '@zendeskgarden/react-typography';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.xl};
   }
 `;
 
 const Example = () => (
-  <Row>
-    <Col sm={4}>
+  <Grid.Row>
+    <Grid.Col sm={4}>
       <Paragraph size="small">
         <SM tag="span">
           &lt;SM&gt;Lotus root spinach fennel kombu maize bamboo shoot green bean swiss chard
@@ -37,7 +37,7 @@ const Example = () => (
           Cordn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
         </SM>
       </Paragraph>
-    </Col>
+    </Grid.Col>
     <StyledCol sm={4}>
       <Paragraph size="medium">
         <MD tag="span">
@@ -76,7 +76,7 @@ const Example = () => (
         </LG>
       </Paragraph>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;

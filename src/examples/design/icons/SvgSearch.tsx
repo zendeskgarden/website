@@ -6,7 +6,7 @@
  */
 
 import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import debounce from 'lodash/debounce';
 import type { DebouncedFunc } from 'lodash';
 import { Field, MediaInput, Label } from '@zendeskgarden/react-forms';
@@ -30,11 +30,11 @@ const StyledSvgWrapper = styled.div<{ isAnswerBot?: boolean }>`
   color: ${p => p.isAnswerBot && '#d6eef1'};
 `;
 
-const StyledCol = styled(Col).attrs({ forwardedAs: 'li' })`
+const StyledCol = styled(Grid.Col).attrs({ forwardedAs: 'li' })`
   margin-bottom: ${p => p.theme.space.lg};
 `;
 
-const StyledRow = styled(Row).attrs({ forwardedAs: 'ul' })`
+const StyledRow = styled(Grid.Row).attrs({ forwardedAs: 'ul' })`
   /* stylelint-disable-next-line no-empty-source */
 `;
 
@@ -115,8 +115,8 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, inputPlaceholder, s
   return (
     <div>
       {searchEnabled && (
-        <Row>
-          <Col size={8}>
+        <Grid.Row>
+          <Grid.Col size={8}>
             <Field
               css={css`
                 margin-bottom: ${p => p.theme.space.lg};
@@ -129,8 +129,8 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, inputPlaceholder, s
                 onChange={onInputChange}
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
       )}
       <Grid>
         <StyledRow>{icons}</StyledRow>

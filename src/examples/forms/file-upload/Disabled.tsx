@@ -7,11 +7,11 @@
 
 import React from 'react';
 import { Field, Label, FileUpload, FileList, File } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <Field>
         <Label>Upload a photo of your ailing cactus</Label>
         <FileUpload disabled>Choose a file or drag and drop here</FileUpload>
@@ -21,8 +21,8 @@ const Example = () => (
           </FileList.Item>
         </FileList>
       </Field>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

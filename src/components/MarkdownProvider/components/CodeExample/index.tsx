@@ -8,11 +8,11 @@
 import React, { useRef, useState, useMemo, PropsWithChildren } from 'react';
 import { math, rgba } from 'polished';
 import styled, { css } from 'styled-components';
-import { ThemeProvider, DEFAULT_THEME, getColor, PALETTE } from '@zendeskgarden/react-theming';
+import { ThemeProvider, DEFAULT_THEME, getColorV8, PALETTE } from '@zendeskgarden/react-theming';
 import { Close, Notification, Title, useToast } from '@zendeskgarden/react-notifications';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { CodeBlock } from '@zendeskgarden/react-typography';
-import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
+import { ColorPickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import { IconButton, ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as MarkupStroke } from '@zendeskgarden/svg-icons/src/16/markup-stroke.svg';
 import { ReactComponent as CopyStroke } from '@zendeskgarden/svg-icons/src/16/copy-stroke.svg';
@@ -85,7 +85,7 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
     <div
       css={css`
         margin-bottom: ${p => p.theme.space.xl};
-        border: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+        border: ${p => p.theme.borders.sm} ${p => getColorV8('grey', 300, p.theme)};
         border-radius: ${p => p.theme.borderRadii.md};
       `}
     >
@@ -103,10 +103,10 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
         css={css`
           display: flex;
           justify-content: flex-end;
-          border-top: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+          border-top: ${p => p.theme.borders.sm} ${p => getColorV8('grey', 300, p.theme)};
           border-bottom-left-radius: ${p => p.theme.borderRadii.md};
           border-bottom-right-radius: ${p => p.theme.borderRadii.md};
-          background-color: ${p => getColor('grey', 100, p.theme)};
+          background-color: ${p => getColorV8('grey', 100, p.theme)};
           padding: ${p => p.theme.space.xxs} ${p => p.theme.space.sm};
         `}
       >
@@ -120,7 +120,7 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
             <DirectionRtlStroke />
           </ToggleIconButton>
         </Tooltip>
-        <ColorpickerDialog color={color} onChange={setColor}>
+        <ColorPickerDialog color={color} onChange={setColor}>
           <PaletteIconButton>
             {exampleTheme.colors.primaryHue === DEFAULT_THEME.colors.primaryHue ? (
               <PaletteStroke />
@@ -128,7 +128,7 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
               <PaletteFill style={{ color: exampleTheme.colors.primaryHue }} />
             )}
           </PaletteIconButton>
-        </ColorpickerDialog>
+        </ColorPickerDialog>
         <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_blank">
           <input type="hidden" name="parameters" value={parameters} />
           <input type="hidden" name="query" value="module=src/Example.tsx" />

@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as PaletteIcon } from '@zendeskgarden/svg-icons/src/16/palette-fill.svg';
@@ -70,38 +70,31 @@ const PaletteIconButton = React.forwardRef(
 
 const Example = () => {
   const [color, setColor] = useState(matrix[SELECTED_ROW_INDEX][SELECTED_COL_INDEX].value);
-  const [rowIndex, setRowIndex] = useState(SELECTED_ROW_INDEX);
-  const [colIndex, setColIndex] = useState(SELECTED_COL_INDEX);
   const [selectedRowIndex, setSelectedRowIndex] = useState(SELECTED_ROW_INDEX);
   const [selectedColIndex, setSelectedColIndex] = useState(SELECTED_COL_INDEX);
 
-  const onChange = (rowIdx: number, colIdx: number) => {
-    setRowIndex(rowIdx);
-    setColIndex(colIdx);
-  };
+  const onSelect = (rowIdx: number | null, colIdx: number | null) => {
+    if (typeof rowIdx !== 'number' || typeof colIdx !== 'number') return;
 
-  const onSelect = (rowIdx: number, colIdx: number) => {
     setSelectedRowIndex(rowIdx);
     setSelectedColIndex(colIdx);
     setColor(matrix[rowIdx][colIdx].value);
   };
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <ColorSwatchDialog
+          name="color-swatch-custom-trigger"
           colors={matrix}
-          onChange={onChange}
           onSelect={onSelect}
-          rowIndex={rowIndex}
-          colIndex={colIndex}
           selectedRowIndex={selectedRowIndex}
           selectedColIndex={selectedColIndex}
         >
           <PaletteIconButton iconColor={color} />
         </ColorSwatchDialog>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

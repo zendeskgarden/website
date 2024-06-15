@@ -9,7 +9,7 @@ import React, { useState, useCallback, useEffect, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import throttle from 'lodash/throttle';
 import { math } from 'polished';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 import { StyledHr } from 'components/MarkdownProvider/components/Typography';
@@ -64,7 +64,7 @@ const StyledAnchor = styled(Anchor)<{ isCurrent: boolean }>`
   &::before {
     position: absolute;
     left: -${p => math(`(${p.theme.space.xxs} + 1px)`)};
-    border-left: ${p => p.isCurrent && `${p.theme.borders.sm} ${getColor('grey', 800, p.theme)}`};
+    border-left: ${p => p.isCurrent && `${p.theme.borders.sm} ${getColorV8('grey', 800, p.theme)}`};
     height: 100%;
     content: '';
   }
@@ -149,7 +149,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
       </StyledSectionHeader>
       <ul
         css={css`
-          border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
+          border-left: ${p => p.theme.borders.sm} ${p => getColorV8('grey', 200, p.theme)};
         `}
       >
         {data.map(heading => (

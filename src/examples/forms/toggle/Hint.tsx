@@ -6,20 +6,20 @@
  */
 
 import React from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Field, Label, Hint, Toggle } from '@zendeskgarden/react-forms';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col size="auto">
+  <Grid.Row justifyContent="center">
+    <Grid.Col size="auto">
       <Field>
         <Toggle>
           <Label>Show flowers</Label>
           <Hint>Display flowers on this page</Hint>
         </Toggle>
       </Field>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

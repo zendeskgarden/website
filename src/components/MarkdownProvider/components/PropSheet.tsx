@@ -7,7 +7,7 @@
 
 import React, { ReactElement } from 'react';
 import { css } from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 import { SM, MD, Ellipsis, Code } from '@zendeskgarden/react-typography';
 import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
 import { IComponentData } from '../../../components/types';
@@ -83,7 +83,7 @@ export const PropSheet: React.FC<{
                       <MD
                         isMonospace
                         css={css`
-                          color: ${p => getColor('neutralHue', 700, p.theme)};
+                          color: ${p => getColorV8('neutralHue', 700, p.theme)};
                         `}
                       >
                         <Ellipsis>{name}</Ellipsis>
@@ -95,7 +95,7 @@ export const PropSheet: React.FC<{
                         isMonospace
                         css={css`
                           word-break: break-word;
-                          color: ${p => getColor('red', 700, p.theme)};
+                          color: ${p => getColorV8('red', 700, p.theme)};
                         `}
                       >
                         {type}

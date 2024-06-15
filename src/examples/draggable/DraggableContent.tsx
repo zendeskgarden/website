@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import { PALETTE, getColor } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { PALETTE, getColorV8 } from '@zendeskgarden/react-theming';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Draggable } from '@zendeskgarden/react-drag-drop';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -18,13 +18,13 @@ import styled from 'styled-components';
 
 const StyledDecorator = styled.div`
   display: flex;
-  color: ${p => getColor('neutralHue', 600, p.theme)};
+  color: ${p => getColorV8('neutralHue', 600, p.theme)};
   padding-inline-end: ${p => p.theme.space.xs};
 `;
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={7}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={7}>
       <Draggable isCompact>
         <Draggable.Grip />
         <StyledDecorator>
@@ -42,8 +42,8 @@ const Example = () => (
           </IconButton>
         </Tooltip>
       </Draggable>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

@@ -7,8 +7,8 @@
 
 import React, { useState } from 'react';
 import { rgba } from 'polished';
-import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { ColorPickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as PaletteIcon } from '@zendeskgarden/svg-icons/src/16/palette-fill.svg';
@@ -40,13 +40,13 @@ const Example = () => {
       : `rgba(${color.red}, ${color.green}, ${color.blue}, ${color.alpha / 100})`;
 
   return (
-    <Row>
-      <Col textAlign="center">
-        <ColorpickerDialog color={color} onChange={setColor}>
+    <Grid.Row>
+      <Grid.Col textAlign="center">
+        <ColorPickerDialog color={color} onChange={setColor}>
           <PaletteIconButton iconColor={iconColor} />
-        </ColorpickerDialog>
-      </Col>
-    </Row>
+        </ColorPickerDialog>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

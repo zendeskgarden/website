@@ -8,7 +8,7 @@
 import React, { useState, HTMLAttributes, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
-import { getColor, mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
+import { getColorV8, mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
@@ -23,7 +23,7 @@ export const headerBoxShadow = (theme: any) =>
   theme.shadows.lg(
     `${theme.space.base * 4}px`,
     `${theme.space.base * 6}px`,
-    getColor('neutralHue', 800, theme, 0.05)!
+    getColorV8('neutralHue', 800, theme, 0.05)!
   );
 
 export const headerHeight = (theme: any) => theme.space.base * 20;

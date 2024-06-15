@@ -8,14 +8,14 @@
 import React, { useState } from 'react';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Modal, Header, Body, Footer, FooterItem, Close } from '@zendeskgarden/react-modals';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <Button onClick={() => setVisible(true)}>Open modal</Button>
         {visible && (
           <Modal onClose={() => setVisible(false)}>
@@ -40,8 +40,8 @@ const Example = () => {
             <Close aria-label="Close modal" />
           </Modal>
         )}
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

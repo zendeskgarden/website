@@ -8,11 +8,11 @@
 import React from 'react';
 import { Stepper } from '@zendeskgarden/react-accordions';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/12/leaf-stroke.svg';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={10}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={10}>
       <Stepper isHorizontal>
         <Stepper.Step key="step-1">
           <Stepper.Label icon={<LeafIcon />}>Make good use of your location</Stepper.Label>
@@ -24,8 +24,8 @@ const Example = () => (
           <Stepper.Label icon={<LeafIcon />}>Buy great seeds</Stepper.Label>
         </Stepper.Step>
       </Stepper>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

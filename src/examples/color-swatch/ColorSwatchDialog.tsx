@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { convertToMatrix } from '@zendeskgarden/container-utilities';
 import { PALETTE } from '@zendeskgarden/react-theming';
 
@@ -45,33 +45,28 @@ const colors = [
 const matrix = convertToMatrix(colors, 7);
 
 const Example = () => {
-  const [rowIndex, setRowIndex] = useState(0);
-  const [colIndex, setColIndex] = useState(4);
   const [selectedRowIndex, setSelectedRowIndex] = useState(0);
   const [selectedColIndex, setSelectedColIndex] = useState(4);
-  const onChange = (rowIdx: number, colIdx: number) => {
-    setRowIndex(rowIdx);
-    setColIndex(colIdx);
-  };
-  const onSelect = (rowIdx: number, colIdx: number) => {
+
+  const onSelect = (rowIdx: number | null, colIdx: number | null) => {
+    if (typeof rowIdx !== 'number' || typeof colIdx !== 'number') return;
+
     setSelectedRowIndex(rowIdx);
     setSelectedColIndex(colIdx);
   };
 
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <ColorSwatchDialog
+          name="color-swatch-dialog"
           colors={matrix}
-          onChange={onChange}
           onSelect={onSelect}
-          rowIndex={rowIndex}
-          colIndex={colIndex}
           selectedRowIndex={selectedRowIndex}
           selectedColIndex={selectedColIndex}
         />
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

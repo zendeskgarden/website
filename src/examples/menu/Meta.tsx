@@ -6,8 +6,8 @@
  */
 
 import React, { useCallback } from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
-import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns.next';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns';
 
 const Example = () => {
   const handleChange = useCallback<NonNullable<IMenuProps['onChange']>>(changes => {
@@ -15,8 +15,8 @@ const Example = () => {
   }, []);
 
   return (
-    <Row justifyContent="center">
-      <Col textAlign="center">
+    <Grid.Row justifyContent="center">
+      <Grid.Col textAlign="center">
         <Menu button="Harvest" onChange={handleChange}>
           <Item value="avocado">
             Avocado <Item.Meta>27 available</Item.Meta>
@@ -28,8 +28,8 @@ const Example = () => {
             Beet <Item.Meta>11 available</Item.Meta>
           </Item>
         </Menu>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

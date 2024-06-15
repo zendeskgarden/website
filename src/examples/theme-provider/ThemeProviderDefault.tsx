@@ -8,7 +8,7 @@
 import React, { useContext } from 'react';
 import styled, { css, ThemeContext, ThemeProps } from 'styled-components';
 import { math } from 'polished';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<any>) => {
   let retVal;
@@ -180,11 +180,11 @@ const FlowerPot = () => {
 /* Each Garden example is wrapped by a <ThemeProvider> */
 const Example = () => {
   return (
-    <Row>
-      <Col>
+    <Grid.Row>
+      <Grid.Col>
         <FlowerPot />
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

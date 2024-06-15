@@ -6,8 +6,8 @@
  */
 
 import React, { useCallback, useState } from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
-import { Menu, Item, ItemGroup, ISelectedItem } from '@zendeskgarden/react-dropdowns.next';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Menu, Item, ItemGroup, ISelectedItem } from '@zendeskgarden/react-dropdowns';
 
 const Example = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
@@ -32,8 +32,8 @@ const Example = () => {
   );
 
   return (
-    <Row justifyContent="center">
-      <Col textAlign="center">
+    <Grid.Row justifyContent="center">
+      <Grid.Col textAlign="center">
         <Menu button="Choose produce" onChange={handleChange} isExpanded={expanded}>
           <ItemGroup legend="Select vegetables" type="checkbox">
             <Item value="asparagus">Asparagus</Item>
@@ -54,8 +54,8 @@ const Example = () => {
             </Item>
           </ItemGroup>
         </Menu>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

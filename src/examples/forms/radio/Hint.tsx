@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Field, Label, Radio, Hint } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const StyledField = styled(Field)`
   margin-top: ${p => p.theme.space.xs};
@@ -18,8 +18,8 @@ const Example = () => {
   const [radioValue, setRadioValue] = useState('annual');
 
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <div role="group" aria-label="Choose a plant lifecycle">
           <Field>
             <Radio
@@ -44,8 +44,8 @@ const Example = () => {
             </Radio>
           </StyledField>
         </div>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

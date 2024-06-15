@@ -8,18 +8,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { OrderedList, UnorderedList } from '@zendeskgarden/react-typography';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.md};
   }
 `;
 
 const Example = () => (
-  <Row>
-    <Col>
+  <Grid.Row>
+    <Grid.Col>
       <OrderedList>
         <OrderedList.Item>
           Gumbo beet greens
@@ -39,7 +39,7 @@ const Example = () => (
         <OrderedList.Item>Grape kakadu plum</OrderedList.Item>
         <OrderedList.Item>Water spinach arugula</OrderedList.Item>
       </OrderedList>
-    </Col>
+    </Grid.Col>
     <StyledCol>
       <UnorderedList>
         <UnorderedList.Item>
@@ -61,7 +61,7 @@ const Example = () => (
         <UnorderedList.Item>Water spinach arugula</UnorderedList.Item>
       </UnorderedList>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;

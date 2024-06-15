@@ -6,21 +6,21 @@
  */
 
 import React from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Dots } from '@zendeskgarden/react-loaders';
 
 const Example = () => (
-  <Row alignItems="center">
-    <Col textAlign="center">
+  <Grid.Row alignItems="center">
+    <Grid.Col textAlign="center">
       <Dots size={32} />
-    </Col>
-    <Col textAlign="center">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
       <Dots size={48} />
-    </Col>
-    <Col textAlign="center">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
       <Dots size={64} />
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

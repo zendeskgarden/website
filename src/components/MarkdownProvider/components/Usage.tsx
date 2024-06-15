@@ -7,29 +7,29 @@
 
 import React, { PropsWithChildren } from 'react';
 import { css } from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { StyledH4 as Title } from './Typography';
 
 export const Use: React.FC<PropsWithChildren> = props => (
-  <Col sm>
+  <Grid.Col sm>
     <Title tag="div">Used for this</Title>
     {props.children}
-  </Col>
+  </Grid.Col>
 );
 
 export const Misuse: React.FC<PropsWithChildren> = props => (
-  <Col sm>
+  <Grid.Col sm>
     <Title tag="div">Not for this</Title>
     {props.children}
-  </Col>
+  </Grid.Col>
 );
 
 export const Usage: React.FC<PropsWithChildren> = props => (
-  <Row
+  <Grid.Row
     css={css`
       margin-bottom: ${p => p.theme.space.base * 7}px;
     `}
   >
     {props.children}
-  </Row>
+  </Grid.Row>
 );

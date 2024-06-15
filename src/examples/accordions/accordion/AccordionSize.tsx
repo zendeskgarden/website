@@ -7,14 +7,14 @@
 
 import React, { useState } from 'react';
 import { Accordion } from '@zendeskgarden/react-accordions';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [expandedSections, setExpandedSections] = useState<number[]>([]);
 
   return (
-    <Row justifyContent="center">
-      <Col sm={10}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={10}>
         <Accordion
           isCompact
           level={4}
@@ -56,8 +56,8 @@ const Example = () => {
             </Accordion.Panel>
           </Accordion.Section>
         </Accordion>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

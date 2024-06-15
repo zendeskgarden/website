@@ -6,26 +6,26 @@
  */
 
 import React from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { OrderedList, UnorderedList } from '@zendeskgarden/react-typography';
 
 const Example = () => (
-  <Row>
-    <Col>
+  <Grid.Row>
+    <Grid.Col>
       <OrderedList>
         <OrderedList.Item>Plant</OrderedList.Item>
         <OrderedList.Item>Water</OrderedList.Item>
         <OrderedList.Item>Harvest</OrderedList.Item>
       </OrderedList>
-    </Col>
-    <Col>
+    </Grid.Col>
+    <Grid.Col>
       <UnorderedList>
         <UnorderedList.Item>Garden trowel</UnorderedList.Item>
         <UnorderedList.Item>Pruning shears</UnorderedList.Item>
         <UnorderedList.Item>Hand cultivator</UnorderedList.Item>
       </UnorderedList>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

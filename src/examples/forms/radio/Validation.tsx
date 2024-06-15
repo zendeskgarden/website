@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Fieldset, Field, Label, Radio, Message } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const cyclce: Record<string, any> = {
   annual: {
@@ -28,8 +28,8 @@ const Example = () => {
   const [radioValue, setRadioValue] = useState('annual');
 
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <Fieldset>
           <Fieldset.Legend>Choose a growth type</Fieldset.Legend>
           <Field>
@@ -66,8 +66,8 @@ const Example = () => {
             </Message>
           </Field>
         </Fieldset>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

@@ -8,19 +8,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Tiles } from '@zendeskgarden/react-forms';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;
 
 const Example = () => (
-  <Row>
-    <Col sm={6}>
+  <Grid.Row>
+    <Grid.Col sm={6}>
       <Tiles name="example-centered" aria-label="Layout Tiles component example">
         <Tiles.Tile value="leaf-centered">
           <Tiles.Icon>
@@ -32,7 +32,7 @@ const Example = () => (
           </Tiles.Description>
         </Tiles.Tile>
       </Tiles>
-    </Col>
+    </Grid.Col>
     <StyledCol sm={6}>
       <Tiles name="example" aria-label="Tiles component example" isCentered={false}>
         <Tiles.Tile value="leaf">
@@ -46,7 +46,7 @@ const Example = () => (
         </Tiles.Tile>
       </Tiles>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;

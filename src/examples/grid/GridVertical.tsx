@@ -7,43 +7,43 @@
 
 import React from 'react';
 import { MD } from '@zendeskgarden/react-typography';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
   <Grid debug>
-    <Row alignItems="start" style={{ minHeight: '5em' }}>
-      <Col>
+    <Grid.Row alignItems="start" style={{ minHeight: '5em' }}>
+      <Grid.Col>
         <MD>One of three columns</MD>
-      </Col>
-      <Col>
+      </Grid.Col>
+      <Grid.Col>
         <MD>One of three columns</MD>
-      </Col>
-      <Col>
+      </Grid.Col>
+      <Grid.Col>
         <MD>One of three columns</MD>
-      </Col>
-    </Row>
-    <Row alignItems="center" style={{ minHeight: '5em' }}>
-      <Col>
+      </Grid.Col>
+    </Grid.Row>
+    <Grid.Row alignItems="center" style={{ minHeight: '5em' }}>
+      <Grid.Col>
         <MD>One of three columns</MD>
-      </Col>
-      <Col>
+      </Grid.Col>
+      <Grid.Col>
         <MD>One of three columns</MD>
-      </Col>
-      <Col>
+      </Grid.Col>
+      <Grid.Col>
         <MD>One of three columns</MD>
-      </Col>
-    </Row>
-    <Row alignItems="end" style={{ minHeight: '5em' }}>
-      <Col>
+      </Grid.Col>
+    </Grid.Row>
+    <Grid.Row alignItems="end" style={{ minHeight: '5em' }}>
+      <Grid.Col>
         <MD>One of three columns</MD>
-      </Col>
-      <Col>
+      </Grid.Col>
+      <Grid.Col>
         <MD>One of three columns</MD>
-      </Col>
-      <Col>
+      </Grid.Col>
+      <Grid.Col>
         <MD>One of three columns</MD>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   </Grid>
 );
 

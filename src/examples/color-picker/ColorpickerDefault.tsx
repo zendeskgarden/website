@@ -6,16 +6,16 @@
  */
 
 import React from 'react';
-import { Colorpicker } from '@zendeskgarden/react-colorpickers';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { ColorPicker } from '@zendeskgarden/react-colorpickers';
+import { Grid } from '@zendeskgarden/react-grid';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col size="auto">
-      <Colorpicker defaultColor={DEFAULT_THEME.palette.blue[600]} />
-    </Col>
-  </Row>
+  <Grid.Row justifyContent="center">
+    <Grid.Col size="auto">
+      <ColorPicker defaultColor={DEFAULT_THEME.palette.blue[600]} />
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

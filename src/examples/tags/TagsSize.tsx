@@ -7,26 +7,26 @@
 
 import React from 'react';
 import { Tag } from '@zendeskgarden/react-tags';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row alignItems="center">
-    <Col textAlign="center">
+  <Grid.Row alignItems="center">
+    <Grid.Col textAlign="center">
       <Tag size="small">
         <span>Moss</span>
       </Tag>
-    </Col>
-    <Col textAlign="center">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
       <Tag size="medium">
         <span>Algae</span>
       </Tag>
-    </Col>
-    <Col textAlign="center">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
       <Tag size="large">
         <span>Conifer</span>
       </Tag>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

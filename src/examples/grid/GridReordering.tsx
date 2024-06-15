@@ -7,32 +7,32 @@
 
 import React from 'react';
 import { MD } from '@zendeskgarden/react-typography';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
   <Grid debug>
-    <Row>
-      <Col>
+    <Grid.Row>
+      <Grid.Col>
         <MD>First, but unordered</MD>
-      </Col>
-      <Col order="12">
+      </Grid.Col>
+      <Grid.Col order="12">
         <MD>Second, but last</MD>
-      </Col>
-      <Col order="1">
+      </Grid.Col>
+      <Grid.Col order="1">
         <MD>Third, but first</MD>
-      </Col>
-    </Row>
-    <Row>
-      <Col order="last">
+      </Grid.Col>
+    </Grid.Row>
+    <Grid.Row>
+      <Grid.Col order="last">
         <MD>First, but last</MD>
-      </Col>
-      <Col>
+      </Grid.Col>
+      <Grid.Col>
         <MD>Second, but unordered</MD>
-      </Col>
-      <Col order="first">
+      </Grid.Col>
+      <Grid.Col order="first">
         <MD>Third, but first</MD>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   </Grid>
 );
 

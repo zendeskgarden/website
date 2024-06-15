@@ -6,21 +6,21 @@
  */
 
 import React from 'react';
-import { ColorpickerDialog } from '@zendeskgarden/react-colorpickers';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { ColorPickerDialog } from '@zendeskgarden/react-colorpickers';
+import { Grid } from '@zendeskgarden/react-grid';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const Example = () => (
-  <Row>
-    <Col textAlign="center">
-      <ColorpickerDialog
+  <Grid.Row>
+    <Grid.Col textAlign="center">
+      <ColorPickerDialog
         defaultColor={DEFAULT_THEME.palette.blue[600]}
         buttonProps={{
           'aria-label': 'choose your favorite color'
         }}
       />
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;
