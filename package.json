@@ -77,7 +77,7 @@
     "eslint-plugin-notice": "0.9.10",
     "eslint-plugin-react": "7.34.1",
     "eslint-plugin-react-hooks": "4.6.1",
-    "execa": "8.0.1",
+    "execa": "9.3.0",
     "gatsby": "5.13.4",
     "gatsby-node-helpers": "1.2.1",
     "gatsby-plugin-google-gtag": "5.13.1",
