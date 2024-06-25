@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { readFileSync } from 'fs';
-import { resolve, join } from 'path';
-import { BinaryToTextEncoding, createHash } from 'crypto';
+import { readFileSync } from 'node:fs';
+import { resolve, join } from 'node:path';
+import { BinaryToTextEncoding, createHash } from 'node:crypto';
 import { parse } from 'yaml';
 import { chunk } from 'lodash';
 
@@ -63,6 +63,7 @@ export async function fetchFigmaAPI(apiPath: string, { figmaApiToken }: { figmaA
     'X-FIGMA-TOKEN': figmaApiToken
   };
 
+  // eslint-disable-next-line n/no-unsupported-features/node-builtins
   const response = await fetch(`${baseUrl}/${apiPath}`, { headers });
 
   if (response.status !== 200) {
