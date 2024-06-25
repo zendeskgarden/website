@@ -46,7 +46,6 @@ export default [
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-unused-vars': ['error'],
       'react/jsx-no-leaked-render': 'off',
       'react/prop-types': 'off'
     }
@@ -57,13 +56,7 @@ export default [
       'no-alert': 'off',
       'jsx-a11y/img-redundant-alt': 'off',
       'react/no-unstable-nested-components': 'off',
-      'n/no-unsupported-features/es-builtins': [
-        'error',
-        {
-          version: '>=20.0.0',
-          ignores: []
-        }
-      ]
+      'n/no-unsupported-features/es-builtins': ['error', { version: '>=20.0.0' }]
     }
   }
 ];
