@@ -37,7 +37,7 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
       >
         {section.title}
       </StyledSectionHeader>
-      {section.items && (
+      {!!section.items && (
         <ul
           css={`
             & > li:first-child {
@@ -61,7 +61,7 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
                 >
                   <NavItemTitle>{item.title}</NavItemTitle>
                 </StyledSidebarLink>
-                {isExpanded && (
+                {!!isExpanded && (
                   <ul
                     css={css`
                       padding-left: ${p => p.theme.space.sm};

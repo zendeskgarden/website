@@ -73,7 +73,7 @@ const Example = () => {
           <NavItemText>Zendesk</NavItemText>
         </NavItem>
       </Nav>
-      {showSubNav && (
+      {!!showSubNav && (
         <SubNav aria-label="chrome navigation example subnav">
           <SubNavItem isCurrent={subNav === 'item-1'} onClick={() => setSubNav('item-1')}>
             <SubNavItemText>Subnav 1</SubNavItemText>

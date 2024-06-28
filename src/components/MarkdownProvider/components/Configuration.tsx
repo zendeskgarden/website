@@ -75,7 +75,7 @@ export const Configuration: React.FC<{
         {reactPackage.name !== '@zendeskgarden/react-theming' && ' @zendeskgarden/react-theming'}
       </StyledMono>
     </StyledListItem>
-    {components && (
+    {!!components && (
       <StyledListItem>
         <StyledListItemLabel isBold>Import</StyledListItemLabel>
         <StyledMono>

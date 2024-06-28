@@ -19,7 +19,7 @@ const Example = () => {
         <Button onClick={() => setVisible(true)} isDanger>
           Open danger modal
         </Button>
-        {visible && (
+        {!!visible && (
           <Modal onClose={() => setVisible(false)}>
             <Header tag="h2" isDanger>
               Remove plant food from your garden

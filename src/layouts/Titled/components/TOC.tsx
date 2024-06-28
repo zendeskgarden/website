@@ -30,7 +30,7 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
       {data.map(heading => (
         <li key={heading.url}>
           <Anchor href={heading.url}>{heading.title}</Anchor>
-          {heading.items && (
+          {!!heading.items && (
             <ul
               css={css`
                 margin-left: ${p => p.theme.space.md};
@@ -163,7 +163,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
             >
               {heading.title}
             </StyledAnchor>
-            {heading.items && (
+            {!!heading.items && (
               <ul>
                 {heading.items.map(subHeading => (
                   <li key={subHeading.url}>

@@ -119,7 +119,7 @@ export const PropSheet: React.FC<{
                       >
                         <Markdown>{prop.description}</Markdown>
                       </MD>
-                      {prop.params && Object.keys(prop.params).length > 0 && (
+                      {!!prop.params && Object.keys(prop.params).length > 0 && (
                         <>
                           <SM
                             isBold
@@ -142,7 +142,7 @@ export const PropSheet: React.FC<{
                           ))}
                         </>
                       )}
-                      {prop.returns && (
+                      {!!prop.returns && (
                         <SM
                           css={css`
                             margin-top: ${p => p.theme.space.xs};
