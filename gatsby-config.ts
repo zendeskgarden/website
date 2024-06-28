@@ -7,8 +7,8 @@
 
 import dotenv from 'dotenv';
 import { cleanEnv, str } from 'envalid';
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import { GatsbyConfig } from 'gatsby';
 import remarkGfm from 'remark-gfm';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';

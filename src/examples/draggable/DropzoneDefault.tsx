@@ -34,13 +34,12 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import { MD } from '@zendeskgarden/react-typography';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 
-type IColumns = Record<string, IColumnItem[]>;
-
 interface IColumnItem {
   id: string;
   value: string;
 }
 
+type IColumns = Record<string, IColumnItem[]>;
 interface IDraggableItemProps extends IDraggableProps {
   value: string;
   isOverlay?: boolean;

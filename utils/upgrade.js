@@ -8,7 +8,7 @@
  */
 
 const { readFile } = require('node:fs/promises');
-const resolve = require('path').resolve;
+const resolve = require('node:path').resolve;
 
 (async () => {
   const { execa } = await import('execa');
