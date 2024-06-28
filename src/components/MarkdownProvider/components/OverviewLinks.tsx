@@ -29,7 +29,7 @@ export const OverviewLinks: React.FC<{ nav: ISidebarSection[] }> = ({ nav }) => 
           <LG isBold tag="h2">
             {section.title}
           </LG>
-          {section.items && (
+          {!!section.items && (
             <StyledUnorderedList>
               {section.items?.map(group => {
                 if (group.items && group.items.length > 0) {

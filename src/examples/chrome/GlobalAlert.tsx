@@ -39,7 +39,7 @@ const Example = () => {
 
   return (
     <div style={{ minWidth: 600 }}>
-      {showGlobalAlert && (
+      {!!showGlobalAlert && (
         <GlobalAlert type="info" ref={ref}>
           <GlobalAlert.Content>
             <GlobalAlert.Title>Info</GlobalAlert.Title>

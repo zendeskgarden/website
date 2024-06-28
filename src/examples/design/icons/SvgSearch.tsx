@@ -114,7 +114,7 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, inputPlaceholder, s
 
   return (
     <div>
-      {searchEnabled && (
+      {!!searchEnabled && (
         <Row>
           <Col size={8}>
             <Field

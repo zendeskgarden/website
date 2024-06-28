@@ -75,7 +75,7 @@ const Example = () => {
         <Field>
           <Checkbox
             onChange={onParentChange}
-            checked={light && pest}
+            checked={!!light && pest}
             indeterminate={!light && !pest ? false : !light || !pest}
           >
             <Label>Outdoor readiness</Label>

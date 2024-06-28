@@ -248,7 +248,7 @@ const Header: React.FC = () => {
             }}
           />
           {!isSearchVisible && <Logo />}
-          {isSearchVisible && <MobileSearch ref={inputRef} />}
+          {!!isSearchVisible && <MobileSearch ref={inputRef} />}
           <MobileNavButton
             icon={<OverflowVerticalStroke />}
             label="Global navigation"
@@ -265,7 +265,7 @@ const Header: React.FC = () => {
         </MaxWidthLayout>
       </StyledHeader>
 
-      {isNavigationVisible && <MobileNav />}
+      {!!isNavigationVisible && <MobileNav />}
     </>
   );
 };

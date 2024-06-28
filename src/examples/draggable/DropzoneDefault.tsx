@@ -212,7 +212,7 @@ const DroppableColumn = ({ items, isActive, isHighlighted }: IDroppableColumnPro
           ))}
         </DraggableList>
       )}
-      {message && <Dropzone.Message>{message}</Dropzone.Message>}
+      {!!message && <Dropzone.Message>{message}</Dropzone.Message>}
     </StyledDropzone>
   );
 };
@@ -304,7 +304,7 @@ const Example = () => {
           />
         </StyledCol>
         <DragOverlay>
-          {activeItem && (
+          {!!activeItem && (
             <StyledDraggableOverlay>
               <DraggableItem
                 ref={overlayRef}

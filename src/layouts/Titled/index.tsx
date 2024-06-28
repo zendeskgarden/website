@@ -32,13 +32,13 @@ const TitledLayout: React.FC<ITitledLayoutProps> = ({ children, title, subtitle,
           }
         `}
       >
-        {toc && <TOC data={toc} />}
+        {!!toc && <TOC data={toc} />}
       </Col>
       <Col lg={12} xl={9} order={1}>
         <StyledH1>{title}</StyledH1>
-        {subtitle && <Subtitle>{subtitle}</Subtitle>}
+        {!!subtitle && <Subtitle>{subtitle}</Subtitle>}
         <StyledHr />
-        {toc && (
+        {!!toc && (
           <TOCBlock
             data={toc}
             css={css`

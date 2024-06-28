@@ -107,7 +107,7 @@ export const ColorPalette: React.FC<{ hues: string[] }> = ({ hues }) => {
             <Col sm>
               <Hue hue={hue1} />
             </Col>
-            {hue1 !== 'product' && <StyledCol sm>{hue2 && <Hue hue={hue2} />}</StyledCol>}
+            {hue1 !== 'product' && <StyledCol sm>{!!hue2 && <Hue hue={hue2} />}</StyledCol>}
           </StyledRow>
         );
       })}
