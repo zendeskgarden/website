@@ -6,7 +6,7 @@
  */
 
 import React, { ButtonHTMLAttributes } from 'react';
-import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import {
   Body,
@@ -28,35 +28,15 @@ const TooltipOverflowButton = React.forwardRef(
 );
 
 const OverflowMenu = () => (
-  <Dropdown>
-    <Trigger>
-      <TooltipOverflowButton aria-label="Row actions" />
-    </Trigger>
-    <Menu
-      placement="bottom-end"
-      popperModifiers={{
-        preventOverflow: {
-          boundariesElement: 'viewport'
-        },
-        flip: {
-          enabled: false
-        },
-        offset: {
-          fn: data => {
-            /**
-             * Ensure correct placement relative to trigger
-             **/
-            data.offsets.popper.top -= 2;
-
-            return data;
-          }
-        }
-      }}
-    >
-      <Item value="item-1">Edit</Item>
-      <Item value="item-2">Delete</Item>
-    </Menu>
-  </Dropdown>
+  <Menu
+    button={props => <TooltipOverflowButton aria-label="Row actions" {...props} />}
+    placement="bottom-end"
+  >
+    <Item value="item-1">Edit</Item>
+    <Item value="item-2" type="danger">
+      Delete
+    </Item>
+  </Menu>
 );
 
 const Example = () => (
