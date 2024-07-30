@@ -10,8 +10,8 @@ import styled from 'styled-components';
 import { math } from 'polished';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Well, Title } from '@zendeskgarden/react-notifications';
-import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 import { Row, Col } from '@zendeskgarden/react-grid';
+import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
@@ -61,7 +61,7 @@ const StyledCaption = styled(p => <Well isRecessed {...p} />).attrs<IStyledCapti
   border-top: ${p => `${p.theme.borders.md} ${getColorV8(p.hue, 500, p.theme)}`};
   border-radius: 0;
   padding-bottom: ${p => p.theme.space.base * 7}px;
-  color: ${p => p.theme.colors.foreground};
+  color: ${({ theme }) => getColor({ variable: 'foreground.default', theme })};
 
   & > ul {
     list-style-type: none;

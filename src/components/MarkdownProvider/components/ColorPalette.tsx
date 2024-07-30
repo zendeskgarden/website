@@ -8,7 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { readableColor } from 'polished';
-import { mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
 import { Row, Col } from '@zendeskgarden/react-grid';
 
 const StyledColorHex = styled.figcaption`
@@ -26,7 +26,12 @@ const StyledColorSwatch = styled.figure<{ color: string }>`
   align-items: center;
   background-color: ${p => p.color};
   padding: ${p => p.theme.space.sm};
-  color: ${p => readableColor(p.color, p.theme.colors.foreground, p.theme.colors.background)};
+  color: ${p =>
+    readableColor(
+      p.color,
+      getColor({ theme: p.theme, variable: 'foreground.default' }),
+      getColor({ theme: p.theme, variable: 'background.default' })
+    )};
 `;
 
 const StyledColorTitle = styled.b`

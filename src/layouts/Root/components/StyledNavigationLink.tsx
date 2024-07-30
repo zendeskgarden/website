@@ -9,7 +9,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import { focusStyles, getColorV8 } from '@zendeskgarden/react-theming';
+import { focusStyles, getColor, getColorV8 } from '@zendeskgarden/react-theming';
 
 interface ILink {
   children: ReactNode;
@@ -40,7 +40,7 @@ export const StyledNavigationLink = styled(Link).attrs(p => ({
 }))`
   border-radius: ${p => p.theme.borderRadii.md};
   padding: ${p => p.theme.space.base * 1.5}px ${p => p.theme.space.xs};
-  color: ${p => p.theme.colors.foreground};
+  color: ${({ theme }) => getColor({ variable: 'foreground.default', theme })};
 
   &:hover,
   &:focus,
