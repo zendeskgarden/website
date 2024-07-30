@@ -23,7 +23,7 @@
     "./gatsby-node.ts",
     "./plugins/**/*",
     "./src/**/*",
-    "./utils/typings/svg.d.ts"
+    "./utils/typings/*.d.ts"
   ],
   "exclude": ["./react-components"]
 }

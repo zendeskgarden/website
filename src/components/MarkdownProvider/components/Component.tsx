@@ -21,7 +21,7 @@ export const Component: React.FC<{
 
   return (
     <>
-      {component.extends && (
+      {!!component.extends && (
         <Paragraph>
           Extends{' '}
           <MD isMonospace tag="span">
@@ -29,7 +29,7 @@ export const Component: React.FC<{
           </MD>
         </Paragraph>
       )}
-      {isDescribed && (
+      {!!isDescribed && (
         <Paragraph>
           <Markdown>{component.description}</Markdown>
         </Paragraph>

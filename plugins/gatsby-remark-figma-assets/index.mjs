@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { relative } from 'path';
+import { relative } from 'node:path';
 import { visit } from 'unist-util-visit';
 import { load } from 'cheerio';
 

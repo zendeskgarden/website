@@ -242,7 +242,7 @@ const Example = () => {
           <DroppableColumn isActive={!!activeId} isHighlighted={dropzoneIsHighlighted} />
         </StyledCol>
         <DragOverlay>
-          {activeItem && (
+          {!!activeItem && (
             <StyledDraggableOverlay>
               <DraggableItem
                 ref={overlayRef}

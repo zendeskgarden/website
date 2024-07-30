@@ -171,7 +171,7 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
           </ToggleIconButton>
         </Tooltip>
       </div>
-      {isCodeVisible && <StyledCodeBlock>{code.replace(COPYRIGHT_REGEXP, '')}</StyledCodeBlock>}
+      {!!isCodeVisible && <StyledCodeBlock>{code.replace(COPYRIGHT_REGEXP, '')}</StyledCodeBlock>}
     </div>
   );
 };

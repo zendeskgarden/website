@@ -25,7 +25,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav, path }) 
         min-height: 100vh;
       `}
     >
-      {hasSkipNav && (
+      {!!hasSkipNav && (
         <SkipNav
           targetId="main-content"
           zIndex={2}

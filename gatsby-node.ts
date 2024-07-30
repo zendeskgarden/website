@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import path from 'path';
+import path from 'node:path';
 import { GatsbyNode, Page } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
 import smartquotes from 'smartquotes';

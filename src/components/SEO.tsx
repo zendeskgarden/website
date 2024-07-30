@@ -21,7 +21,7 @@ export const SEO = ({
   description,
   pageContext,
   children
-}: HeadProps<IPageData, IPageContext> & ISEOProps): JSX.Element => {
+}: HeadProps<IPageData, IPageContext> & ISEOProps): React.JSX.Element => {
   const { frontmatter = {} } = pageContext;
 
   const { site } = useStaticQuery(graphql`

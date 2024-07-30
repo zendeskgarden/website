@@ -6,7 +6,6 @@ query {
     version
     name
     description
-    packageName
   }
   components: gardenReactComponent {
     name

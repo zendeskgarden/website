@@ -66,7 +66,7 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
             >
               <NavItemTitle>{item.title}</NavItemTitle>
             </StyledSidebarLink>
-            {isExpanded && (
+            {!!isExpanded && (
               <ul
                 css={css`
                   padding-left: ${p => p.theme.space.sm};

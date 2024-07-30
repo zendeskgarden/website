@@ -6,8 +6,8 @@
  */
 
 import { cmdDocgen } from '@zendeskgarden/scripts';
-import { join, resolve, sep } from 'path';
-import { readdirSync, lstatSync, readFileSync } from 'fs';
+import { join, resolve, sep } from 'node:path';
+import { readdirSync, lstatSync, readFileSync } from 'node:fs';
 
 export function getGardenReactComponentsRootPath() {
   return resolve(process.cwd(), 'react-components');

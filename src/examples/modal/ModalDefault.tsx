@@ -17,7 +17,7 @@ const Example = () => {
     <Grid.Row>
       <Grid.Col textAlign="center">
         <Button onClick={() => setVisible(true)}>Open modal</Button>
-        {visible && (
+        {!!visible && (
           <Modal onClose={() => setVisible(false)}>
             <Header tag="h2">Do you need plant food?</Header>
             <Body>
