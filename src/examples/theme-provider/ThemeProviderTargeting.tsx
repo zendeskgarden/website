@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { css, DefaultTheme } from 'styled-components';
 import { Tabs, TabList, Tab, TabPanel } from '@zendeskgarden/react-tabs';
-import { getColor, ThemeProvider } from '@zendeskgarden/react-theming';
+import { getColorV8, ThemeProvider } from '@zendeskgarden/react-theming';
 
 /* Each Garden example is wrapped by a <ThemeProvider> */
 const Example = () => {
@@ -25,7 +25,7 @@ const Example = () => {
         margin-top: ${p => p.theme.space.md};
         margin-bottom: 0;
         border-top: ${p => p.theme.borderWidths.sm} ${p => p.theme.borderStyles.solid}
-          ${p => getColor('neutralHue', 300, p.theme)};
+          ${p => getColorV8('neutralHue', 300, p.theme)};
         border-bottom: none;
       `
     }

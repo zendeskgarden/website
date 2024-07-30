@@ -8,7 +8,7 @@
 import React from 'react';
 import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
 import { Paragraph } from '@zendeskgarden/react-typography';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
 const rowData = Array.from(Array(10)).map((row, index) => ({
@@ -19,7 +19,7 @@ const rowData = Array.from(Array(10)).map((row, index) => ({
 }));
 
 const StyledHeaderCell = styled(HeaderCell)`
-  box-shadow: inset 0 -1px 0 ${props => getColor('neutralHue', 300, props.theme)};
+  box-shadow: inset 0 -1px 0 ${props => getColorV8('neutralHue', 300, props.theme)};
 `;
 
 const StyledHeaderRow = styled(HeaderRow)`

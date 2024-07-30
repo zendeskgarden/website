@@ -8,7 +8,7 @@
 import React, { useRef, useState, useMemo, PropsWithChildren } from 'react';
 import { math, rgba } from 'polished';
 import styled, { css } from 'styled-components';
-import { ThemeProvider, DEFAULT_THEME, getColor, PALETTE } from '@zendeskgarden/react-theming';
+import { ThemeProvider, DEFAULT_THEME, getColorV8, PALETTE } from '@zendeskgarden/react-theming';
 import { Close, Notification, Title, useToast } from '@zendeskgarden/react-notifications';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { CodeBlock } from '@zendeskgarden/react-typography';
@@ -85,7 +85,7 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
     <div
       css={css`
         margin-bottom: ${p => p.theme.space.xl};
-        border: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+        border: ${p => p.theme.borders.sm} ${p => getColorV8('grey', 300, p.theme)};
         border-radius: ${p => p.theme.borderRadii.md};
       `}
     >
@@ -103,10 +103,10 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
         css={css`
           display: flex;
           justify-content: flex-end;
-          border-top: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+          border-top: ${p => p.theme.borders.sm} ${p => getColorV8('grey', 300, p.theme)};
           border-bottom-left-radius: ${p => p.theme.borderRadii.md};
           border-bottom-right-radius: ${p => p.theme.borderRadii.md};
-          background-color: ${p => getColor('grey', 100, p.theme)};
+          background-color: ${p => getColorV8('grey', 100, p.theme)};
           padding: ${p => p.theme.space.xxs} ${p => p.theme.space.sm};
         `}
       >

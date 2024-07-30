@@ -12,7 +12,7 @@ import { useStaticQuery, graphql, HeadProps } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import RootLayout from 'layouts/Root';
 import MaxWidthLayout from 'layouts/MaxWidth';
-import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { XL, LG } from '@zendeskgarden/react-typography';
 import { StyledH1 } from 'components/MarkdownProvider/components/Typography';
@@ -78,7 +78,7 @@ const NotFoundPage: React.FC = () => {
                     margin-top: ${p => p.theme.space.md};
                     margin-bottom: ${p => p.theme.space.xs};
                     text-transform: uppercase;
-                    color: ${p => getColor('neutralHue', 600, p.theme)};
+                    color: ${p => getColorV8('neutralHue', 600, p.theme)};
                     font-size: ${p => p.theme.space.base * 4}px;
 
                     ${p => mediaQuery('down', 'xs', p.theme)} {
@@ -102,7 +102,7 @@ const NotFoundPage: React.FC = () => {
                 </StyledH1>
                 <XL
                   css={css`
-                    color: ${p => getColor('neutralHue', 600, p.theme)};
+                    color: ${p => getColorV8('neutralHue', 600, p.theme)};
 
                     ${p => mediaQuery('down', 'xs', p.theme)} {
                       line-height: ${p => p.theme.lineHeights.md};

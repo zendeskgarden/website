@@ -9,7 +9,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import { focusStyles, getColor } from '@zendeskgarden/react-theming';
+import { focusStyles, getColorV8 } from '@zendeskgarden/react-theming';
 
 interface ILink {
   children: ReactNode;
@@ -50,16 +50,16 @@ export const StyledNavigationLink = styled(Link).attrs(p => ({
   }
 
   &.is-current {
-    background-color: ${p => getColor('grey', 800, p.theme, 0.1)};
+    background-color: ${p => getColorV8('grey', 800, p.theme, 0.1)};
   }
 
   &:hover {
-    background-color: ${p => getColor('grey', 800, p.theme, 0.05)};
+    background-color: ${p => getColorV8('grey', 800, p.theme, 0.05)};
   }
 
   ${props => focusStyles({ theme: props.theme })}
 
   &:active {
-    background-color: ${p => getColor('grey', 800, p.theme, 0.2)};
+    background-color: ${p => getColorV8('grey', 800, p.theme, 0.2)};
   }
 `;

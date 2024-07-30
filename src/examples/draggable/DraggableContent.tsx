@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { PALETTE, getColor } from '@zendeskgarden/react-theming';
+import { PALETTE, getColorV8 } from '@zendeskgarden/react-theming';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Draggable } from '@zendeskgarden/react-drag-drop';
 import { IconButton } from '@zendeskgarden/react-buttons';
@@ -18,7 +18,7 @@ import styled from 'styled-components';
 
 const StyledDecorator = styled.div`
   display: flex;
-  color: ${p => getColor('neutralHue', 600, p.theme)};
+  color: ${p => getColorV8('neutralHue', 600, p.theme)};
   padding-inline-end: ${p => p.theme.space.xs};
 `;
 
