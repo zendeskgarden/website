@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, useMemo, PropsWithChildren } from 'react';
+import React, { useState, useMemo, PropsWithChildren } from 'react';
 import { math, rgba } from 'polished';
 import styled, { css } from 'styled-components';
 import { ThemeProvider, DEFAULT_THEME, getColorV8, PALETTE } from '@zendeskgarden/react-theming';
@@ -44,7 +44,6 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
   const [isRtl, setIsRtl] = useState(false);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const [color, setColor] = useState<string | IColor>(PALETTE.blue[600]);
-  const focusVisibleRef = useRef(null);
   const { addToast } = useToast();
   const COPYRIGHT_REGEXP = /\/\*\*\n\s\*\sCopyright[\s\S]*\*\/\n\n/gmu;
 
@@ -89,7 +88,7 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
         border-radius: ${p => p.theme.borderRadii.md};
       `}
     >
-      <ThemeProvider theme={exampleTheme} focusVisibleRef={focusVisibleRef}>
+      <ThemeProvider theme={exampleTheme}>
         <div
           css={css`
             padding: ${p => p.theme.space.md};
