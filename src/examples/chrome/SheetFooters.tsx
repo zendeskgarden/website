@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { Sheet } from '@zendeskgarden/react-chrome';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Anchor, Button } from '@zendeskgarden/react-buttons';
-import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 
 const StyledCol = styled(Col)`
   height: 480px;
@@ -28,7 +28,7 @@ const StyledSheet = styled(Sheet)`
   border: ${props => props.theme.borderWidths.sm} dashed;
   ${props => (props.theme.rtl ? 'border-right' : 'border-left')}: ${props =>
     props.theme.borderWidths.sm} solid;
-  border-color: ${props => getColor('neutralHue', 400, props.theme)};
+  border-color: ${props => getColorV8('neutralHue', 400, props.theme)};
 `;
 
 const StyledSheetFooterItem = styled(Sheet.FooterItem)`

@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as ArrowIcon } from '@zendeskgarden/svg-icons/src/16/arrow-left-stroke.svg';
-import { arrowStyles, getColor, menuStyles } from '@zendeskgarden/react-theming';
+import { arrowStyles, getColorV8, menuStyles } from '@zendeskgarden/react-theming';
 
 type ARROW_POSITION =
   | 'top'
@@ -41,7 +41,7 @@ const StyledMenu = styled.div<{
 
   & > div {
     background-clip: content-box;
-    background-color: ${p => getColor('neutralHue', 100, p.theme)};
+    background-color: ${p => getColorV8('neutralHue', 100, p.theme)};
     padding: ${p => p.theme.space.xs};
     height: 100%;
   }

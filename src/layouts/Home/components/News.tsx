@@ -8,7 +8,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-import { SELECTOR_FOCUS_VISIBLE, getColor } from '@zendeskgarden/react-theming';
+import { SELECTOR_FOCUS_VISIBLE, getColorV8 } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { XXL } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
@@ -16,11 +16,11 @@ import MaxWidthLayout from 'layouts/MaxWidth';
 
 const StyledNewsAnchor = styled(Anchor)`
   ${SELECTOR_FOCUS_VISIBLE} {
-    color: ${p => getColor('primaryHue', 700, p.theme)};
+    color: ${p => getColorV8('primaryHue', 700, p.theme)};
   }
 
   &:active {
-    color: ${p => getColor('primaryHue', 800, p.theme)};
+    color: ${p => getColorV8('primaryHue', 800, p.theme)};
   }
 `;
 
@@ -48,7 +48,7 @@ export const News: React.FC = () => {
     <div
       css={css`
         position: relative;
-        background-color: ${p => getColor('grey', 200, p.theme)};
+        background-color: ${p => getColorV8('grey', 200, p.theme)};
       `}
     >
       <MaxWidthLayout>
@@ -82,7 +82,7 @@ export const News: React.FC = () => {
                       </StyledNewsAnchor>
                       <p
                         css={css`
-                          color: ${p => getColor('grey', 700, p.theme)};
+                          color: ${p => getColorV8('grey', 700, p.theme)};
                         `}
                       >
                         Article by{' '}

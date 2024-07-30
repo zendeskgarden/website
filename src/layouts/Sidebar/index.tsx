@@ -8,7 +8,7 @@
 import React, { PropsWithChildren, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
-import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 import { ReactComponent as OverflowStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
@@ -32,7 +32,7 @@ const StyledMobileNavButton = styled.button`
   /* stylelint-disable-next-line color-function-notation */
   border: ${p => p.theme.borders.sm} ${p => rgba(p.theme.palette.white as string, 0.2)};
   border-radius: 100px;
-  background-color: ${p => getColor('kale', 800, p.theme)};
+  background-color: ${p => getColorV8('kale', 800, p.theme)};
   padding: ${p => p.theme.space.xs};
   color: ${p => p.theme.colors.background};
 
