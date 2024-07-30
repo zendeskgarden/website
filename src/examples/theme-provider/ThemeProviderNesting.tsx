@@ -217,15 +217,15 @@ const Example = () => {
 
   return (
     <Row>
-      <ThemeProvider focusVisibleRef={null} theme={sizeTheme as any}>
+      <ThemeProvider theme={sizeTheme as any}>
         <Col>
           <FlowerPot />
         </Col>
-        <ThemeProvider focusVisibleRef={null} theme={colorTheme as any}>
+        <ThemeProvider theme={colorTheme as any}>
           <StyledCol>
             <FlowerPot />
           </StyledCol>
-          <ThemeProvider focusVisibleRef={null} theme={shapeTheme as any}>
+          <ThemeProvider theme={shapeTheme as any}>
             <StyledCol>
               <FlowerPot />
             </StyledCol>

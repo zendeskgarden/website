@@ -32,7 +32,7 @@ import {
 } from '@zendeskgarden/react-drag-drop';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { MD } from '@zendeskgarden/react-typography';
-import { mediaQuery } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 
 interface IColumnItem {
   id: string;
@@ -166,7 +166,7 @@ const StyledDraggable = styled(DraggableItem)`
   cursor: default;
 
   &:hover {
-    background-color: ${p => p.theme.colors.background};
+    background-color: ${({ theme }) => getColor({ variable: 'background.default', theme })};
   }
 `;
 
