@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Paragraph } from '@zendeskgarden/react-typography';
-import { DrawerModal } from '@zendeskgarden/react-modals';
+import { Drawer } from '@zendeskgarden/react-modals';
 
 const Example = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,9 +20,9 @@ const Example = () => {
     <Grid.Row>
       <Grid.Col textAlign="center">
         <Button onClick={open}>Open Drawer</Button>
-        <DrawerModal isOpen={isOpen} onClose={close}>
-          <DrawerModal.Header tag="h2">Tending a garden</DrawerModal.Header>
-          <DrawerModal.Body>
+        <Drawer isOpen={isOpen} onClose={close}>
+          <Drawer.Header tag="h2">Tending a garden</Drawer.Header>
+          <Drawer.Body>
             <Paragraph>
               Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi
               amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.
@@ -56,21 +56,21 @@ const Example = () => {
               bean desert raisin spring onion chicory bunya nuts. Sea lettuce water spinach gram
               fava bean leek dandelion silver beet eggplant bush.
             </Paragraph>
-          </DrawerModal.Body>
-          <DrawerModal.Footer>
-            <DrawerModal.FooterItem>
+          </Drawer.Body>
+          <Drawer.Footer>
+            <Drawer.FooterItem>
               <Button isBasic onClick={close}>
                 Cancel
               </Button>
-            </DrawerModal.FooterItem>
-            <DrawerModal.FooterItem>
+            </Drawer.FooterItem>
+            <Drawer.FooterItem>
               <Button isPrimary onClick={close}>
                 Confirm
               </Button>
-            </DrawerModal.FooterItem>
-          </DrawerModal.Footer>
-          <DrawerModal.Close />
-        </DrawerModal>
+            </Drawer.FooterItem>
+          </Drawer.Footer>
+          <Drawer.Close />
+        </Drawer>
       </Grid.Col>
     </Grid.Row>
   );
