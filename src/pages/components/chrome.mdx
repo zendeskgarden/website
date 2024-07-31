@@ -7,7 +7,6 @@ package: '@zendeskgarden/react-chrome'
 components:
   - chrome/src/elements/body/Body.tsx
   - chrome/src/elements/Chrome.tsx
-  - chrome/src/elements/subnav/CollapsibleSubNavItem.tsx
   - chrome/src/elements/body/Content.tsx
   - chrome/src/elements/footer/Footer.tsx
   - chrome/src/elements/footer/FooterItem.tsx
@@ -23,9 +22,6 @@ components:
   - chrome/src/elements/nav/NavItemText.tsx
   - chrome/src/elements/body/Sidebar.tsx
   - chrome/src/elements/SkipNav.tsx
-  - chrome/src/elements/subnav/SubNav.tsx
-  - chrome/src/elements/subnav/SubNavItem.tsx
-  - chrome/src/elements/subnav/SubNavItemText.tsx
 ---
 
 import { SEO } from '../../components';
@@ -114,12 +110,6 @@ Chrome uses [26px sized icons](/design/icons/chrome-icons) made specifically for
 
 <PropSheet components={props.data.mdx.components} componentName="chrome" />
 
-### CollapsibleSubNavItem
-
-<Component components={props.data.mdx.components} componentName="collapsibleSubNavItem" />
-
-<PropSheet components={props.data.mdx.components} componentName="collapsibleSubNavItem" />
-
 ### Content
 
 <Component components={props.data.mdx.components} componentName="content" />
@@ -198,35 +188,11 @@ Chrome uses [26px sized icons](/design/icons/chrome-icons) made specifically for
 
 <PropSheet components={props.data.mdx.components} componentName="navItemText" />
 
-### Sidebar
-
-<Component components={props.data.mdx.components} componentName="sidebar" />
-
-<PropSheet components={props.data.mdx.components} componentName="sidebar" />
-
 ### SkipNav
 
 <Component components={props.data.mdx.components} componentName="skipNav" />
 
 <PropSheet components={props.data.mdx.components} componentName="skipNav" />
-
-### SubNav
-
-<Component components={props.data.mdx.components} componentName="subNav" />
-
-<PropSheet components={props.data.mdx.components} componentName="subNav" />
-
-### SubNavItem
-
-<Component components={props.data.mdx.components} componentName="subNavItem" />
-
-<PropSheet components={props.data.mdx.components} componentName="subNavItem" />
-
-### SubNavItemText
-
-<Component components={props.data.mdx.components} componentName="subNavItemText" />
-
-<PropSheet components={props.data.mdx.components} componentName="subNavItemText" />
 
 import { graphql } from 'gatsby';
 
