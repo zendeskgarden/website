@@ -8,7 +8,7 @@
 import React, { useState, HTMLAttributes, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
-import { getColorV8, mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
+import { getColor, getColorV8, mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
@@ -47,7 +47,7 @@ const StyledHeader = styled.header.attrs({ role: 'banner' })`
   height: ${p => headerHeight(p.theme)}px;
 
   &[data-show-navigation='true'] {
-    border-bottom-color: ${p => p.theme.palette.white};
+    border-bottom-color: ${({ theme }) => getColor({ hue: 'white', theme })};
   }
 
   ${p => mediaQuery('down', 'sm', p.theme)} {

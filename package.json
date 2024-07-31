@@ -54,7 +54,7 @@
     "@zendeskgarden/react-tables": "8.76.3",
     "@zendeskgarden/react-tabs": "8.76.3",
     "@zendeskgarden/react-tags": "8.76.3",
-    "@zendeskgarden/react-theming": "8.76.3",
+    "@zendeskgarden/react-theming": "9.0.0-next.19",
     "@zendeskgarden/react-tooltips": "8.76.3",
     "@zendeskgarden/react-typography": "8.76.3",
     "@zendeskgarden/scripts": "2.4.0",

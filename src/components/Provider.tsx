@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { createRef, FC, PropsWithChildren } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ToastProvider } from '@zendeskgarden/react-notifications';
 import { MarkdownProvider } from './MarkdownProvider';
@@ -20,12 +20,9 @@ const toastPlacement = {
 };
 
 export const Provider: FC<PropsWithChildren> = ({ children }) => {
-  const focusVisibleRef = createRef<HTMLDivElement>();
-
   return (
-    <ThemeProvider focusVisibleRef={focusVisibleRef} theme={theme}>
+    <ThemeProvider theme={theme}>
       <div
-        ref={focusVisibleRef}
         css={`
           width: 100%;
           height: 100%;

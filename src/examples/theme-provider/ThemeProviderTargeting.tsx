@@ -32,7 +32,7 @@ const Example = () => {
   });
 
   return (
-    <ThemeProvider focusVisibleRef={null} theme={theme as any}>
+    <ThemeProvider theme={theme as any}>
       <Tabs selectedItem={selectedTab} onChange={setSelectedTab}>
         <TabPanel item="tab-1">
           Elms are deciduous and semi-deciduous trees comprising the flowering plant genus Ulmus in

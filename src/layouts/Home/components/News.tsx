@@ -8,7 +8,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-import { SELECTOR_FOCUS_VISIBLE, getColorV8 } from '@zendeskgarden/react-theming';
+import { SELECTOR_FOCUS_VISIBLE, getColor, getColorV8 } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 import { XXL } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
@@ -74,7 +74,8 @@ export const News: React.FC = () => {
                       <StyledNewsAnchor
                         href={edge.node.url}
                         css={css`
-                          color: ${p => p.theme.colors.foreground};
+                          color: ${({ theme }) =>
+                            getColor({ variable: 'foreground.default', theme })};
                           font-weight: ${p => p.theme.fontWeights.semibold};
                         `}
                       >

@@ -36,7 +36,7 @@ const Example = () => {
   });
 
   return (
-    <ThemeProvider focusVisibleRef={null} theme={theme as any}>
+    <ThemeProvider theme={theme as any}>
       <Row>
         <Col textAlign="center">
           <Button isDanger>Default</Button>
