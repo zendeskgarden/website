@@ -155,6 +155,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
         {data.map(heading => (
           <li key={heading.url}>
             <StyledAnchor
+              isUnderlined={false}
               href={heading.url}
               isCurrent={activeHeadingUrl === heading.url}
               css={css`
@@ -168,6 +169,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
                 {heading.items.map(subHeading => (
                   <li key={subHeading.url}>
                     <StyledAnchor
+                      isUnderlined={false}
                       href={subHeading.url}
                       isCurrent={activeHeadingUrl === subHeading.url}
                       css={css`

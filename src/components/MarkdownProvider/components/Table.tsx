@@ -7,7 +7,7 @@
 
 import React, { createContext, useContext } from 'react';
 import styled from 'styled-components';
-import { Table, Head, Body, Row, HeaderRow, HeaderCell, Cell } from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
 
 const TableHeadContext = createContext(false);
 
@@ -15,14 +15,14 @@ export const StyledTable = styled(Table).attrs({ isReadOnly: true })`
   margin-bottom: ${p => p.theme.space.xl};
 `;
 
-export const TBody = Body;
-export const TH = HeaderCell;
-export const TD = Cell;
+export const TBody = Table.Body;
+export const TH = Table.HeaderCell;
+export const TD = Table.Cell;
 
 export const THead: React.FC = props => {
   return (
     <TableHeadContext.Provider value>
-      <Head {...props} />
+      <Table.Head {...props} />
     </TableHeadContext.Provider>
   );
 };
@@ -35,8 +35,8 @@ export const TR: React.FC = props => {
   const isWithinHead = useContext(TableHeadContext);
 
   if (isWithinHead) {
-    return <HeaderRow {...props} />;
+    return <Table.HeaderRow {...props} />;
   }
 
-  return <Row {...props} />;
+  return <Table.Row {...props} />;
 };

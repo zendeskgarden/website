@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { rgba, parseToRgb, toColorString } from 'polished';
 import { Row, Col } from '@zendeskgarden/react-grid';
-import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
+import { ColorPickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
@@ -70,7 +70,7 @@ const Example = () => {
                 }
               }}
             />
-            <ColorpickerDialog
+            <ColorPickerDialog
               focusInset
               color={color}
               onChange={selectedColor => {
