@@ -70,17 +70,12 @@ const PaletteIconButton = React.forwardRef(
 
 const Example = () => {
   const [color, setColor] = useState(matrix[SELECTED_ROW_INDEX][SELECTED_COL_INDEX].value);
-  const [rowIndex, setRowIndex] = useState(SELECTED_ROW_INDEX);
-  const [colIndex, setColIndex] = useState(SELECTED_COL_INDEX);
   const [selectedRowIndex, setSelectedRowIndex] = useState(SELECTED_ROW_INDEX);
   const [selectedColIndex, setSelectedColIndex] = useState(SELECTED_COL_INDEX);
 
-  const onChange = (rowIdx: number, colIdx: number) => {
-    setRowIndex(rowIdx);
-    setColIndex(colIdx);
-  };
+  const onSelect = (rowIdx: number | null, colIdx: number | null) => {
+    if (typeof rowIdx !== 'number' || typeof colIdx !== 'number') return;
 
-  const onSelect = (rowIdx: number, colIdx: number) => {
     setSelectedRowIndex(rowIdx);
     setSelectedColIndex(colIdx);
     setColor(matrix[rowIdx][colIdx].value);
@@ -90,11 +85,9 @@ const Example = () => {
     <Row>
       <Col textAlign="center">
         <ColorSwatchDialog
+          name="color-swatch-custom-trigger"
           colors={matrix}
-          onChange={onChange}
           onSelect={onSelect}
-          rowIndex={rowIndex}
-          colIndex={colIndex}
           selectedRowIndex={selectedRowIndex}
           selectedColIndex={selectedColIndex}
         >

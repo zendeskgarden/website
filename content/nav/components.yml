@@ -36,8 +36,6 @@
           title: Anchor
         - id: /components/button
           title: Button
-        - id: /components/button-group
-          title: Button group [deprecated]
         - id: /components/icon-button
           title: Icon button
         - id: /components/split-button
@@ -82,8 +80,6 @@
           title: Input
         - id: /components/input-group
           title: Input group
-        - id: /components/multi-thumb-range
-          title: Multi-thumb range [deprecated]
         - id: /components/radio
           title: Radio
         - id: /components/range

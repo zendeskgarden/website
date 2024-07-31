@@ -45,15 +45,11 @@ const colors = [
 const matrix = convertToMatrix(colors, 7);
 
 const Example = () => {
-  const [rowIndex, setRowIndex] = useState(0);
-  const [colIndex, setColIndex] = useState(4);
   const [selectedRowIndex, setSelectedRowIndex] = useState(0);
   const [selectedColIndex, setSelectedColIndex] = useState(4);
-  const onChange = (rowIdx: number, colIdx: number) => {
-    setRowIndex(rowIdx);
-    setColIndex(colIdx);
-  };
-  const onSelect = (rowIdx: number, colIdx: number) => {
+  const onSelect = (rowIdx: number | null, colIdx: number | null) => {
+    if (typeof rowIdx !== 'number' || typeof colIdx !== 'number') return;
+
     setSelectedRowIndex(rowIdx);
     setSelectedColIndex(colIdx);
   };
@@ -62,11 +58,9 @@ const Example = () => {
     <Row justifyContent="center">
       <Col size="auto">
         <ColorSwatchDialog
+          name="color-swatch-dialog"
           colors={matrix}
-          onChange={onChange}
           onSelect={onSelect}
-          rowIndex={rowIndex}
-          colIndex={colIndex}
           selectedRowIndex={selectedRowIndex}
           selectedColIndex={selectedColIndex}
         />

@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { rgba } from 'polished';
-import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
+import { ColorPickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { IconButton } from '@zendeskgarden/react-buttons';
@@ -42,9 +42,9 @@ const Example = () => {
   return (
     <Row>
       <Col textAlign="center">
-        <ColorpickerDialog color={color} onChange={setColor}>
+        <ColorPickerDialog color={color} onChange={setColor}>
           <PaletteIconButton iconColor={iconColor} />
-        </ColorpickerDialog>
+        </ColorPickerDialog>
       </Col>
     </Row>
   );

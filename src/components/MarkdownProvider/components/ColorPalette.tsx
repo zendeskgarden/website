@@ -9,7 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { readableColor } from 'polished';
 import { getColor, mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const StyledColorHex = styled.figcaption`
   margin-left: auto;
@@ -40,13 +40,13 @@ const StyledColorTitle = styled.b`
   font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.md};
   }
 `;
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   & + & {
     margin-top: ${p => p.theme.space.md};
   }
@@ -109,9 +109,9 @@ export const ColorPalette: React.FC<{ hues: string[] }> = ({ hues }) => {
 
         return (
           <StyledRow key={index}>
-            <Col sm>
+            <Grid.Col sm>
               <Hue hue={hue1} />
-            </Col>
+            </Grid.Col>
             {hue1 !== 'product' && <StyledCol sm>{!!hue2 && <Hue hue={hue2} />}</StyledCol>}
           </StyledRow>
         );
