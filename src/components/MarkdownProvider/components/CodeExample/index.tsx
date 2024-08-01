@@ -119,7 +119,7 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
             <DirectionRtlStroke />
           </ToggleIconButton>
         </Tooltip>
-        <ColorPickerDialog color={color} onChange={setColor}>
+        <ColorPickerDialog color={color} onChange={setColor} placement="bottom-end">
           <PaletteIconButton>
             {exampleTheme.colors.primaryHue === DEFAULT_THEME.colors.primaryHue ? (
               <PaletteStroke />
