@@ -29,7 +29,9 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
     <ul>
       {data.map(heading => (
         <li key={heading.url}>
-          <Anchor href={heading.url}>{heading.title}</Anchor>
+          <Anchor isUnderlined={false} href={heading.url}>
+            {heading.title}
+          </Anchor>
           {!!heading.items && (
             <ul
               css={css`
@@ -38,7 +40,9 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
             >
               {heading.items!.map(subHeading => (
                 <li key={subHeading.url}>
-                  <Anchor href={subHeading.url}>{subHeading.title}</Anchor>
+                  <Anchor isUnderlined={false} href={subHeading.url}>
+                    {subHeading.title}
+                  </Anchor>
                 </li>
               ))}
             </ul>
