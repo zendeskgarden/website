@@ -8,7 +8,7 @@
 import React, { useReducer } from 'react';
 import styled from 'styled-components';
 import { Field, Label, Checkbox } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 interface ISelectLight {
   type: 'light';
@@ -70,8 +70,8 @@ const Example = () => {
   };
 
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <Field>
           <Checkbox
             onChange={onParentChange}
@@ -93,8 +93,8 @@ const Example = () => {
             </Checkbox>
           </Field>
         </StyledGroup>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

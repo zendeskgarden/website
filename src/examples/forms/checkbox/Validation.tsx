@@ -8,15 +8,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Field, Label, Message, Checkbox } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const StyledField = styled(Field)`
   margin-top: ${p => p.theme.space.xs};
 `;
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col size="auto">
+  <Grid.Row justifyContent="center">
+    <Grid.Col size="auto">
       <Field>
         <Checkbox defaultChecked>
           <Label>Pest resistant</Label>
@@ -35,8 +35,8 @@ const Example = () => (
         </Checkbox>
         <Message validation="error">Not appropriate for greenhouse</Message>
       </StyledField>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

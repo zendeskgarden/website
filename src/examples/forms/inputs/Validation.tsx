@@ -7,25 +7,25 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Field, Label, Input, Message } from '@zendeskgarden/react-forms';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;
 
 const Example = () => (
-  <Row>
-    <Col sm={4}>
+  <Grid.Row>
+    <Grid.Col sm={4}>
       <Field>
         <Label>Plant</Label>
         <Input validation="success" />
         <Message validation="success">A cactus is a beautiful plant</Message>
       </Field>
-    </Col>
+    </Grid.Col>
     <StyledCol sm={4}>
       <Field>
         <Label>Plant</Label>
@@ -40,7 +40,7 @@ const Example = () => (
         <Message validation="error">A cactus belongs in the desert</Message>
       </Field>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;

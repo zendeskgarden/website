@@ -8,13 +8,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Tiles } from '@zendeskgarden/react-forms';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { ReactComponent as ImageIcon } from '@zendeskgarden/svg-icons/src/16/file-image-stroke.svg';
 import { ReactComponent as PresentationIcon } from '@zendeskgarden/svg-icons/src/16/file-presentation-stroke.svg';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
@@ -22,8 +22,8 @@ const StyledCol = styled(Col)`
 
 const Example = () => (
   <Tiles name="example" aria-label="Description Tiles component example">
-    <Row>
-      <Col sm={4}>
+    <Grid.Row>
+      <Grid.Col sm={4}>
         <Tiles.Tile value="leaf">
           <Tiles.Icon>
             <LeafIcon />
@@ -33,7 +33,7 @@ const Example = () => (
             Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
           </Tiles.Description>
         </Tiles.Tile>
-      </Col>
+      </Grid.Col>
       <StyledCol sm={4}>
         <Tiles.Tile value="image">
           <Tiles.Icon>
@@ -56,7 +56,7 @@ const Example = () => (
           </Tiles.Description>
         </Tiles.Tile>
       </StyledCol>
-    </Row>
+    </Grid.Row>
   </Tiles>
 );
 

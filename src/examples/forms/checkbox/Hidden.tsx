@@ -7,11 +7,11 @@
 
 import React from 'react';
 import { Field, Label, Checkbox } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col size="auto">
+  <Grid.Row justifyContent="center">
+    <Grid.Col size="auto">
       <Field>
         <Checkbox defaultChecked>
           <Label hidden>Accessibly hidden label one</Label>
@@ -22,8 +22,8 @@ const Example = () => (
           <Label hidden>Accessibly hidden label two</Label>
         </Checkbox>
       </Field>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

@@ -6,12 +6,12 @@
  */
 
 import React from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Field, Label, Select } from '@zendeskgarden/react-forms';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <Field>
         <Label hidden>Accessibly hidden label</Label>
         <Select>
@@ -23,8 +23,8 @@ const Example = () => (
           <option>Rubber tree</option>
         </Select>
       </Field>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

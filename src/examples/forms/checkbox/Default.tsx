@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Field, Label, Checkbox, Fieldset } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [pest, setPest] = useState(true);
@@ -15,8 +15,8 @@ const Example = () => {
   const [drought, setDrought] = useState(false);
 
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <Fieldset>
           <Fieldset.Legend>Plant preference</Fieldset.Legend>
           <Field>
@@ -35,8 +35,8 @@ const Example = () => {
             </Checkbox>
           </Field>
         </Fieldset>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 
