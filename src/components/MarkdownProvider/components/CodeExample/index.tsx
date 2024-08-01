@@ -43,7 +43,7 @@ interface ICodeExampleProps extends PropsWithChildren {
 export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => {
   const [isRtl, setIsRtl] = useState(false);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
-  const [color, setColor] = useState<string | IColor>(PALETTE.blue[600]);
+  const [color, setColor] = useState<string | IColor>(PALETTE.blue[700]);
   const { addToast } = useToast();
   const COPYRIGHT_REGEXP = /\/\*\*\n\s\*\sCopyright[\s\S]*\*\/\n\n/gmu;
 
@@ -52,7 +52,7 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
 
     if (
       typeof color === 'string' ||
-      (color.hex.toLowerCase() === PALETTE.blue[600] && color.alpha === 100)
+      (color.hex.toLowerCase() === PALETTE.blue[700] && color.alpha === 100)
     ) {
       primaryHue = DEFAULT_THEME.colors.primaryHue;
     } else {
@@ -119,7 +119,7 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
             <DirectionRtlStroke />
           </ToggleIconButton>
         </Tooltip>
-        <ColorPickerDialog color={color} onChange={setColor}>
+        <ColorPickerDialog color={color} onChange={setColor} placement="bottom-end">
           <PaletteIconButton>
             {exampleTheme.colors.primaryHue === DEFAULT_THEME.colors.primaryHue ? (
               <PaletteStroke />
