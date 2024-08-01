@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
 import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
 
@@ -15,8 +15,8 @@ const Example = () => {
   const [primaryRotated, setPrimaryRotated] = useState<boolean>();
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <SplitButton>
           <Button>Harvest</Button>
           <Menu
@@ -33,8 +33,8 @@ const Example = () => {
             <Item value="fertilize">Fertilize</Item>
           </Menu>
         </SplitButton>
-      </Col>
-      <Col textAlign="center">
+      </Grid.Col>
+      <Grid.Col textAlign="center">
         <SplitButton>
           <Button isPrimary>Harvest</Button>
           <Menu
@@ -56,8 +56,8 @@ const Example = () => {
             <Item value="fertilize">Fertilize</Item>
           </Menu>
         </SplitButton>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

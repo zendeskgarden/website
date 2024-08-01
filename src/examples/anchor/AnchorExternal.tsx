@@ -7,16 +7,16 @@
 
 import React from 'react';
 import { Anchor } from '@zendeskgarden/react-buttons';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row>
-    <Col textAlign="center">
+  <Grid.Row>
+    <Grid.Col textAlign="center">
       <Anchor isExternal href="https://garden.zendesk.com/" target="_blank">
         Learn about weed identification
       </Anchor>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

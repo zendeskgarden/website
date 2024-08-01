@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as Icon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -17,8 +17,8 @@ const Example = () => {
   const [largePressed, setLargePressed] = useState(true);
 
   return (
-    <Row alignItems="center">
-      <Col textAlign="center">
+    <Grid.Row alignItems="center">
+      <Grid.Col textAlign="center">
         <Tooltip content="Small leaf">
           <ToggleIconButton
             aria-label="small leaf"
@@ -29,8 +29,8 @@ const Example = () => {
             <Icon />
           </ToggleIconButton>
         </Tooltip>
-      </Col>
-      <Col textAlign="center">
+      </Grid.Col>
+      <Grid.Col textAlign="center">
         <Tooltip content="Medium leaf">
           <ToggleIconButton
             aria-label="medium leaf"
@@ -41,8 +41,8 @@ const Example = () => {
             <Icon />
           </ToggleIconButton>
         </Tooltip>
-      </Col>
-      <Col textAlign="center">
+      </Grid.Col>
+      <Grid.Col textAlign="center">
         <Tooltip content="Large leaf">
           <ToggleIconButton
             aria-label="large leaf"
@@ -53,8 +53,8 @@ const Example = () => {
             <Icon />
           </ToggleIconButton>
         </Tooltip>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 
