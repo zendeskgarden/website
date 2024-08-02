@@ -8,7 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Timeline } from '@zendeskgarden/react-accordions';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Span } from '@zendeskgarden/react-typography';
 import { ReactComponent as LocationIcon } from '@zendeskgarden/svg-icons/src/12/location-stroke.svg';
 import { ReactComponent as RearrangeIcon } from '@zendeskgarden/svg-icons/src/12/rearrange-stroke.svg';
@@ -20,8 +20,8 @@ export const StyledSpan = styled(Span).attrs({ isBold: true })`
 `;
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm="auto">
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm="auto">
       <Timeline>
         <Timeline.Item icon={<LeafIcon />}>
           <Timeline.Content>
@@ -48,8 +48,8 @@ const Example = () => (
           </Timeline.Content>
         </Timeline.Item>
       </Timeline>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;
