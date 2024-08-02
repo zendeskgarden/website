@@ -7,17 +7,17 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { MD, XXL } from '@zendeskgarden/react-typography';
 import { Skeleton } from '@zendeskgarden/react-loaders';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   background-color: ${p => p.theme.palette.kale[600]};
   padding: ${p => p.theme.space.md};
 `;
 
 const Example = () => (
-  <Row justifyContent="center">
+  <Grid.Row justifyContent="center">
     <StyledCol sm={5}>
       <XXL>
         <Skeleton isLight />
@@ -28,7 +28,7 @@ const Example = () => (
         <Skeleton isLight />
       </MD>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;
