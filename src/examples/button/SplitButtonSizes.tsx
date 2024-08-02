@@ -7,12 +7,12 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
 import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
@@ -24,8 +24,8 @@ const Example = () => {
   const [largeRotated, setLargeRotated] = useState<boolean>();
 
   return (
-    <Row alignItems="center">
-      <Col textAlign="center" sm>
+    <Grid.Row alignItems="center">
+      <Grid.Col textAlign="center" sm>
         <SplitButton>
           <Button size="small">Harvest</Button>
           <Menu
@@ -48,7 +48,7 @@ const Example = () => {
             <Item value="fertilize">Fertilize</Item>
           </Menu>
         </SplitButton>
-      </Col>
+      </Grid.Col>
       <StyledCol textAlign="center" sm>
         <SplitButton>
           <Button size="medium">Harvest</Button>
@@ -97,7 +97,7 @@ const Example = () => {
           </Menu>
         </SplitButton>
       </StyledCol>
-    </Row>
+    </Grid.Row>
   );
 };
 

@@ -7,14 +7,14 @@
 
 import React from 'react';
 import { Anchor } from '@zendeskgarden/react-buttons';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row>
-    <Col textAlign="center">
+  <Grid>
+    <Grid.Col textAlign="center">
       <Anchor href="#default">Enter the Garden</Anchor>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid>
 );
 
 export default Example;
