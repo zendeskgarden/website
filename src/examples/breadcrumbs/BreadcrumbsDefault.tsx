@@ -9,18 +9,18 @@ import React from 'react';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { Span } from '@zendeskgarden/react-typography';
 import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col size="auto">
+  <Grid.Row justifyContent="center">
+    <Grid.Col size="auto">
       <Breadcrumb>
         <Anchor href="#">Flowers</Anchor>
         <Anchor href="#">Roses</Anchor>
         <Span>Floribunda</Span>
       </Breadcrumb>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;
