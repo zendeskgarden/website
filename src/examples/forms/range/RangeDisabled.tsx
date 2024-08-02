@@ -6,18 +6,18 @@
  */
 
 import React from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
-import { Field, Label, Range } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Field, Range } from '@zendeskgarden/react-forms';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <Field>
-        <Label>Flowers</Label>
+        <Field.Label>Flowers</Field.Label>
         <Range step={10} disabled />
       </Field>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

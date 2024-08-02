@@ -6,15 +6,15 @@
  */
 
 import React, { useState } from 'react';
-import { Field, Label, Radio } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Field, Radio } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [radioValue, setRadioValue] = useState('one');
 
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <div role="group" aria-label="Choose an option">
           <Field>
             <Radio
@@ -23,7 +23,7 @@ const Example = () => {
               checked={radioValue === 'one'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label hidden>Accessibly hidden label one</Label>
+              <Field.Label hidden>Accessibly hidden label one</Field.Label>
             </Radio>
           </Field>
           <Field>
@@ -33,12 +33,12 @@ const Example = () => {
               checked={radioValue === 'two'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label hidden>Accessibly hidden label two</Label>
+              <Field.Label hidden>Accessibly hidden label two</Field.Label>
             </Radio>
           </Field>
         </div>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

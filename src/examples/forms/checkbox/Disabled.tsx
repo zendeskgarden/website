@@ -6,24 +6,24 @@
  */
 
 import React from 'react';
-import { Field, Label, Checkbox } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Field, Checkbox } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col size="auto">
+  <Grid.Row justifyContent="center">
+    <Grid.Col size="auto">
       <Field>
         <Checkbox defaultChecked disabled>
-          <Label>Needs indirect light</Label>
+          <Field.Label>Needs indirect light</Field.Label>
         </Checkbox>
       </Field>
       <Field>
         <Checkbox disabled>
-          <Label>Prefers moist soil</Label>
+          <Field.Label>Prefers moist soil</Field.Label>
         </Checkbox>
       </Field>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

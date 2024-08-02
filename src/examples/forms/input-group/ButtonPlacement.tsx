@@ -7,9 +7,9 @@
 
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { Field, Label, InputGroup, Input } from '@zendeskgarden/react-forms';
+import { Field, InputGroup, Input } from '@zendeskgarden/react-forms';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Menu, Item, ISelectedItem, ItemGroup } from '@zendeskgarden/react-dropdowns.next';
 import { ReactComponent as ChevronDownStroke } from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
@@ -42,10 +42,10 @@ const Example = () => {
   );
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
-          <Label>Plant name generator</Label>
+          <Field.Label>Plant name generator</Field.Label>
           <StyledInputGroup>
             <Menu
               button={props => (
@@ -68,8 +68,8 @@ const Example = () => {
             <Input defaultValue="Bergamot" />
           </StyledInputGroup>
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

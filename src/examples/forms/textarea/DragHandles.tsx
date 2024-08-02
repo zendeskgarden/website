@@ -6,18 +6,18 @@
  */
 
 import React from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
-import { Field, Label, Textarea } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Field, Textarea } from '@zendeskgarden/react-forms';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <Field>
-        <Label>Ivy</Label>
+        <Field.Label>Ivy</Field.Label>
         <Textarea isResizable />
       </Field>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

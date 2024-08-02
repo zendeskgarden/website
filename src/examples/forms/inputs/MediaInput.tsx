@@ -6,20 +6,20 @@
  */
 
 import React from 'react';
-import { Field, Label, MediaInput } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Field, MediaInput } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as StartIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { ReactComponent as EndIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <Field>
-        <Label>Prune</Label>
+        <Field.Label>Prune</Field.Label>
         <MediaInput start={<StartIcon />} end={<EndIcon />} />
       </Field>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

@@ -6,8 +6,8 @@
  */
 
 import React, { useState } from 'react';
-import { Fieldset, Field, Label, Radio, Message } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Fieldset, Field, Radio } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const cyclce: Record<string, any> = {
   annual: {
@@ -28,8 +28,8 @@ const Example = () => {
   const [radioValue, setRadioValue] = useState('annual');
 
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <Fieldset>
           <Fieldset.Legend>Choose a growth type</Fieldset.Legend>
           <Field>
@@ -39,7 +39,7 @@ const Example = () => {
               checked={radioValue === 'annual'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label isRegular>Annual</Label>
+              <Field.Label isRegular>Annual</Field.Label>
             </Radio>
           </Field>
           <Field>
@@ -49,7 +49,7 @@ const Example = () => {
               checked={radioValue === 'perennial'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label isRegular>Perennial</Label>
+              <Field.Label isRegular>Perennial</Field.Label>
             </Radio>
           </Field>
           <Field>
@@ -59,15 +59,15 @@ const Example = () => {
               checked={radioValue === 'biennial'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label isRegular>Biennial</Label>
+              <Field.Label isRegular>Biennial</Field.Label>
             </Radio>
-            <Message validation={cyclce[radioValue].validation}>
+            <Field.Message validation={cyclce[radioValue].validation}>
               {cyclce[radioValue].message}
-            </Message>
+            </Field.Message>
           </Field>
         </Fieldset>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

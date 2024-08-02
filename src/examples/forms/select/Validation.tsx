@@ -7,46 +7,46 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Field, Label, Message, Select } from '@zendeskgarden/react-forms';
+import { Field, Select } from '@zendeskgarden/react-forms';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;
 
 const Example = () => (
-  <Row>
-    <Col sm={4}>
+  <Grid.Row>
+    <Grid.Col sm={4}>
       <Field>
-        <Label>Plant</Label>
+        <Field.Label>Plant</Field.Label>
         <Select validation="success">
           <option>Cactus</option>
         </Select>
-        <Message validation="success">A cactus is a beautiful plant</Message>
+        <Field.Message validation="success">A cactus is a beautiful plant</Field.Message>
       </Field>
-    </Col>
+    </Grid.Col>
     <StyledCol sm={4}>
       <Field>
-        <Label>Plant</Label>
+        <Field.Label>Plant</Field.Label>
         <Select validation="warning">
           <option>Cactus</option>
         </Select>
-        <Message validation="warning">A cactus has thorns</Message>
+        <Field.Message validation="warning">A cactus has thorns</Field.Message>
       </Field>
     </StyledCol>
     <StyledCol sm={4}>
       <Field>
-        <Label>Plant</Label>
+        <Field.Label>Plant</Field.Label>
         <Select validation="error">
           <option>Cactus</option>
         </Select>
-        <Message validation="error">A cactus belongs in the desert</Message>
+        <Field.Message validation="error">A cactus belongs in the desert</Field.Message>
       </Field>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;

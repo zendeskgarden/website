@@ -6,15 +6,15 @@
  */
 
 import React, { useState } from 'react';
-import { Field, Label, Radio } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Field, Radio } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [radioValue, setRadioValue] = useState('annual');
 
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <div role="group" aria-label="Choose a plant lifecycle">
           <Field>
             <Radio
@@ -23,7 +23,7 @@ const Example = () => {
               checked={radioValue === 'annual'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label>Annual</Label>
+              <Field.Label>Annual</Field.Label>
             </Radio>
           </Field>
           <Field>
@@ -33,12 +33,12 @@ const Example = () => {
               checked={radioValue === 'perennial'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label>Perennial</Label>
+              <Field.Label>Perennial</Field.Label>
             </Radio>
           </Field>
         </div>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 
