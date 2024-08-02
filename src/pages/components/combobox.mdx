@@ -276,6 +276,26 @@ const OPTIONS = [
 </Combobox>
 ```
 
+If wrapping subcomponents `OptGroup` or `Option`, ensure the prop signature matches the contained components:
+
+```jsx
+const OptionComponent = (props) => (
+  <Option {...props} />
+)
+
+const OptGroupComponent = (props) => (
+  <OptGroup {...props} />
+)
+
+<Combobox>
+  <OptGroupComponent label="Flowers">
+    <OptionComponent value="Violet" />
+    <OptionComponent value="Sunflower" />
+    <OptionComponent value="Daisy" />
+  </OptGroupComponent>
+</Combobox>
+```
+
 ### Combobox
 
 <Component components={props.data.mdx.components} componentName="combobox" />

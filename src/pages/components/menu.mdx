@@ -207,6 +207,26 @@ const ITEMS = [
 </Menu>
 ```
 
+If wrapping subcomponents `ItemGroup` or `Item`, ensure the prop signature matches the contained components:
+
+```jsx
+const ItemComponent = (props) => (
+  <Item {...props} />
+)
+
+const ItemGroupComponent = (props) => (
+  <ItemGroup {...props} />
+)
+
+<Menu>
+  <ItemGroupComponent legend="Flowers">
+    <ItemComponent value="Violet" />
+    <ItemComponent value="Sunflower" />
+    <ItemComponent value="Daisy" />
+  </ItemGroupComponent>
+</Menu>
+```
+
 ### Menu
 
 <Component components={props.data.mdx.components} componentName="menu" />
