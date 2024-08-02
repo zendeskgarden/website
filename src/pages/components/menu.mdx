@@ -171,7 +171,39 @@ The Menu component follows this structure:
 <Menu>
   <Item />
   <Item />
+  <ItemGroup>
+    <Item />
+  </ItemGroup>
   {/* etc. */}
+</Menu>
+```
+
+When authoring a `Menu`, prefer either a vanilla function and/or `Array.map` to generate items:
+
+```jsx
+const ITEMS = [
+  { value: 'Sunflower' },
+  {
+    legend: 'More flowers',
+    items: [
+      { value: 'Violet' },
+      { value: 'Daisy' },
+    ]
+  }
+]
+
+<Menu>
+  {ITEMS.map(item =>
+    item.items ? (
+      <ItemGroup key={item.legend} legend={item.legend}>
+        {item.items.map(groupItem => (
+          <Item key={groupItem.value} {...groupItem} />
+        ))}
+      </ItemGroup>
+    ) : (
+      <Item key={item.value} {...item} />
+    )
+  )}
 </Menu>
 ```
 

@@ -239,9 +239,41 @@ The Combobox component follows this structure:
   <Combobox>
     <Option />
     <Option />
+    <OptGroup>
+      <Option />
+    </OptGroup>
     {/* etc. */}
   </Combobox>
 </Field>
+```
+
+When authoring a `Combobox`, prefer either a vanilla function and/or `Array.map` to generate options:
+
+```jsx
+const OPTIONS = [
+  { value: 'Sunflower' },
+  {
+    label: 'More flowers',
+    options: [
+      { value: 'Violet' },
+      { value: 'Daisy' },
+    ]
+  }
+]
+
+<Combobox>
+  {OPTIONS.map(option =>
+    option.options ? (
+      <OptGroup key={option.label} label={option.label}>
+        {option.options.map(groupOption => (
+          <Option key={groupOption.value} {...groupOption} />
+        ))}
+      </OptGroup>
+    ) : (
+      <Option key={option.value} {...option} />
+    )
+  )}
+</Combobox>
 ```
 
 ### Combobox
