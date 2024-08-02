@@ -8,7 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Field, Label, Toggle, Message } from '@zendeskgarden/react-forms';
+import { Field, Toggle } from '@zendeskgarden/react-forms';
 
 const StyledField = styled(Field)`
   margin-top: ${p => p.theme.space.xs};
@@ -20,20 +20,22 @@ const Example = () => {
       <Grid.Col size="auto">
         <Field>
           <Toggle>
-            <Label>Show tulips</Label>
-            <Message validation="success">Tulips are blooming</Message>
+            <Field.Label>Show tulips</Field.Label>
+            <Field.Message validation="success">Tulips are blooming</Field.Message>
           </Toggle>
         </Field>
         <StyledField>
           <Toggle>
-            <Label>Show marigolds</Label>
-            <Message validation="warning">It&apos;s not the right reason for marigolds</Message>
+            <Field.Label>Show marigolds</Field.Label>
+            <Field.Message validation="warning">
+              It&apos;s not the right reason for marigolds
+            </Field.Message>
           </Toggle>
         </StyledField>
         <StyledField>
           <Toggle>
-            <Label>Show roses</Label>
-            <Message validation="error">There are no roses available</Message>
+            <Field.Label>Show roses</Field.Label>
+            <Field.Message validation="error">There are no roses available</Field.Message>
           </Toggle>
         </StyledField>
       </Grid.Col>

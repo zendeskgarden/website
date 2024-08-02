@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Field, Label, Input } from '@zendeskgarden/react-forms';
+import { Field, Input } from '@zendeskgarden/react-forms';
 import styled from 'styled-components';
 import { Grid } from '@zendeskgarden/react-grid';
 

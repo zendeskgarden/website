@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import { Field, Label, FileUpload, FileList, File } from '@zendeskgarden/react-forms';
+import { Field, FileUpload, FileList, File } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col sm={5}>
       <Field>
-        <Label>Upload a photo of your ailing cactus</Label>
+        <Field.Label>Upload a photo of your ailing cactus</Field.Label>
         <FileUpload disabled>Choose a file or drag and drop here</FileUpload>
         <FileList>
           <FileList.Item>

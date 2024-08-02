@@ -9,7 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Field, Label, Input, Message } from '@zendeskgarden/react-forms';
+import { Field, Input } from '@zendeskgarden/react-forms';
 
 const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
@@ -21,23 +21,23 @@ const Example = () => (
   <Grid.Row>
     <Grid.Col sm={4}>
       <Field>
-        <Label>Plant</Label>
+        <Field.Label>Plant</Field.Label>
         <Input validation="success" />
-        <Message validation="success">A cactus is a beautiful plant</Message>
+        <Field.Message validation="success">A cactus is a beautiful plant</Field.Message>
       </Field>
     </Grid.Col>
     <StyledCol sm={4}>
       <Field>
-        <Label>Plant</Label>
+        <Field.Label>Plant</Field.Label>
         <Input validation="warning" />
-        <Message validation="warning">A cactus has thorns</Message>
+        <Field.Message validation="warning">A cactus has thorns</Field.Message>
       </Field>
     </StyledCol>
     <StyledCol sm={4}>
       <Field>
-        <Label>Plant</Label>
+        <Field.Label>Plant</Field.Label>
         <Input validation="error" />
-        <Message validation="error">A cactus belongs in the desert</Message>
+        <Field.Message validation="error">A cactus belongs in the desert</Field.Message>
       </Field>
     </StyledCol>
   </Grid.Row>

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Field, Label, InputGroup, Input } from '@zendeskgarden/react-forms';
+import { Field, InputGroup, Input } from '@zendeskgarden/react-forms';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
 
@@ -14,7 +14,7 @@ const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col sm={5}>
       <Field>
-        <Label>Invoice number</Label>
+        <Field.Label>Invoice number</Field.Label>
         <InputGroup>
           <Input value="GDN10136H74NK-0011" readOnly />
           <Button focusInset isNeutral>

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Field, Label, InputGroup, Input } from '@zendeskgarden/react-forms';
+import { Field, InputGroup, Input } from '@zendeskgarden/react-forms';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
 
@@ -14,7 +14,7 @@ const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col sm={5}>
       <Field>
-        <Label>Plant name generator</Label>
+        <Field.Label>Plant name generator</Field.Label>
         <InputGroup>
           <Input disabled />
           <Button disabled isNeutral>

@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Field, Label, Radio, Hint } from '@zendeskgarden/react-forms';
+import { Field, Radio } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
 
 const StyledField = styled(Field)`
@@ -28,8 +28,8 @@ const Example = () => {
               checked={radioValue === 'annual'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label>Annual</Label>
-              <Hint>Completes its life cycle with growing season</Hint>
+              <Field.Label>Annual</Field.Label>
+              <Field.Hint>Completes its life cycle with growing season</Field.Hint>
             </Radio>
           </Field>
           <StyledField>
@@ -39,8 +39,8 @@ const Example = () => {
               checked={radioValue === 'perennial'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label>Perennial</Label>
-              <Hint>Lives more than two years</Hint>
+              <Field.Label>Perennial</Field.Label>
+              <Field.Hint>Lives more than two years</Field.Hint>
             </Radio>
           </StyledField>
         </div>

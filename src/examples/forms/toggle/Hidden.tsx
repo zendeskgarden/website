@@ -7,14 +7,14 @@
 
 import React from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Field, Label, Toggle } from '@zendeskgarden/react-forms';
+import { Field, Toggle } from '@zendeskgarden/react-forms';
 
 const Example = () => (
   <Grid.Row>
     <Grid.Col textAlign="center">
       <Field>
         <Toggle>
-          <Label hidden>Accessibly hidden label</Label>
+          <Field.Label hidden>Accessibly hidden label</Field.Label>
         </Toggle>
       </Field>
     </Grid.Col>

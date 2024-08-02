@@ -7,15 +7,15 @@
 
 import React from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Field, Label, Hint, Toggle } from '@zendeskgarden/react-forms';
+import { Field, Toggle } from '@zendeskgarden/react-forms';
 
 const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col size="auto">
       <Field>
         <Toggle>
-          <Label>Show flowers</Label>
-          <Hint>Display flowers on this page</Hint>
+          <Field.Label>Show flowers</Field.Label>
+          <Field.Hint>Display flowers on this page</Field.Hint>
         </Toggle>
       </Field>
     </Grid.Col>

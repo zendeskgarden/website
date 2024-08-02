@@ -6,15 +6,15 @@
  */
 
 import React from 'react';
-import { Field, Label, Hint, Select } from '@zendeskgarden/react-forms';
+import { Field, Select } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col sm={5}>
       <Field>
-        <Label>Plant</Label>
-        <Hint>Choose your favorite plant</Hint>
+        <Field.Label>Plant</Field.Label>
+        <Field.Hint>Choose your favorite plant</Field.Hint>
         <Select>
           <option>Orchid</option>
           <option>Cactus</option>

@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import { Field, Label, FauxInput } from '@zendeskgarden/react-forms';
+import { Field, FauxInput } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col sm={5}>
       <Field>
-        <Label>Soil</Label>
+        <Field.Label>Soil</Field.Label>
         <FauxInput>Loam</FauxInput>
       </Field>
     </Grid.Col>

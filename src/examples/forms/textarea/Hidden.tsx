@@ -7,13 +7,13 @@
 
 import React from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Field, Label, Textarea } from '@zendeskgarden/react-forms';
+import { Field, Textarea } from '@zendeskgarden/react-forms';
 
 const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col sm={5}>
       <Field>
-        <Label hidden>Accessibly hidden label</Label>
+        <Field.Label hidden>Accessibly hidden label</Field.Label>
         <Textarea />
       </Field>
     </Grid.Col>

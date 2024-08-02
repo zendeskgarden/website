@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Field, Label, Range, Message } from '@zendeskgarden/react-forms';
+import { Field, Range } from '@zendeskgarden/react-forms';
 
 type validationTypes = 'success' | 'warning' | 'error';
 
@@ -36,9 +36,9 @@ const Example = () => {
     <Grid.Row justifyContent="center">
       <Grid.Col sm={5}>
         <Field>
-          <Label>Flowers</Label>
+          <Field.Label>Flowers</Field.Label>
           <Range step={1} onChange={onChange} />
-          <Message validation={validation}>{messages[validation]}</Message>
+          <Field.Message validation={validation}>{messages[validation]}</Field.Message>
         </Field>
       </Grid.Col>
     </Grid.Row>

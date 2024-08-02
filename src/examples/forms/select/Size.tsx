@@ -9,7 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Field, Label, Select } from '@zendeskgarden/react-forms';
+import { Field, Select } from '@zendeskgarden/react-forms';
 
 const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
@@ -21,7 +21,7 @@ const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col sm={5}>
       <Field>
-        <Label>Plant</Label>
+        <Field.Label>Plant</Field.Label>
         <Select>
           <option>Succulent</option>
           <option>Orchid</option>
@@ -31,7 +31,7 @@ const Example = () => (
     </Grid.Col>
     <StyledCol sm={5}>
       <Field>
-        <Label>Plant</Label>
+        <Field.Label>Plant</Field.Label>
         <Select isCompact>
           <option>Succulent</option>
           <option>Orchid</option>

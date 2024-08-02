@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Field, Label, Input, FileUpload, FileList, File } from '@zendeskgarden/react-forms';
+import { Field, Input, FileUpload, FileList, File } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 
@@ -51,7 +51,7 @@ const Example = () => {
     <Grid.Row justifyContent="center">
       <Grid.Col sm={5}>
         <Field>
-          <Label>Upload a photo of your ailing cactus</Label>
+          <Field.Label>Upload a photo of your ailing cactus</Field.Label>
           <StyledFileUpload {...getRootProps()} isDragging={isDragActive}>
             {isDragActive ? (
               <span>Drop files here</span>
@@ -100,7 +100,7 @@ const Example = () => {
       </Grid.Col>
       <StyledCol sm={5}>
         <Field>
-          <Label>Upload a photo of your ailing cactus</Label>
+          <Field.Label>Upload a photo of your ailing cactus</Field.Label>
           <StyledFileUpload {...getRootProps()} isDragging={isDragActive} isCompact>
             {isDragActive ? (
               <span>Drop files here</span>

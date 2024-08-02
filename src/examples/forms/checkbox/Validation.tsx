@@ -7,7 +7,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Field, Label, Message, Checkbox } from '@zendeskgarden/react-forms';
+import { Field, Checkbox } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
 
 const StyledField = styled(Field)`
@@ -19,21 +19,21 @@ const Example = () => (
     <Grid.Col size="auto">
       <Field>
         <Checkbox defaultChecked>
-          <Label>Pest resistant</Label>
+          <Field.Label>Pest resistant</Field.Label>
         </Checkbox>
-        <Message validation="success">Safe for outdoor beds</Message>
+        <Field.Message validation="success">Safe for outdoor beds</Field.Message>
       </Field>
       <StyledField>
         <Checkbox>
-          <Label>Needs direct light</Label>
+          <Field.Label>Needs direct light</Field.Label>
         </Checkbox>
-        <Message validation="warning">Requires 4 hours of sun per day</Message>
+        <Field.Message validation="warning">Requires 4 hours of sun per day</Field.Message>
       </StyledField>
       <StyledField>
         <Checkbox>
-          <Label>Drought-tolerant</Label>
+          <Field.Label>Drought-tolerant</Field.Label>
         </Checkbox>
-        <Message validation="error">Not appropriate for greenhouse</Message>
+        <Field.Message validation="error">Not appropriate for greenhouse</Field.Message>
       </StyledField>
     </Grid.Col>
   </Grid.Row>

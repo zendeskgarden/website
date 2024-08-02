@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Field, Label, Range, Hint } from '@zendeskgarden/react-forms';
+import { Field, Range } from '@zendeskgarden/react-forms';
 
 const Example = () => {
   const [rangeValue, setRangeValue] = useState('50');
@@ -16,8 +16,8 @@ const Example = () => {
     <Grid.Row justifyContent="center">
       <Grid.Col sm={5}>
         <Field>
-          <Label>Flowers</Label>
-          <Hint>Plant {rangeValue} flowers</Hint>
+          <Field.Label>Flowers</Field.Label>
+          <Field.Hint>Plant {rangeValue} flowers</Field.Hint>
           <Range step={10} onChange={e => setRangeValue(e.target.value)} />
         </Field>
       </Grid.Col>

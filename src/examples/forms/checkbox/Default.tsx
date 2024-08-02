@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Field, Label, Checkbox, Fieldset } from '@zendeskgarden/react-forms';
+import { Field, Checkbox, Fieldset } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
@@ -21,17 +21,17 @@ const Example = () => {
           <Fieldset.Legend>Plant preference</Fieldset.Legend>
           <Field>
             <Checkbox checked={pest} onChange={() => setPest(!pest)}>
-              <Label>Pest resistant</Label>
+              <Field.Label>Pest resistant</Field.Label>
             </Checkbox>
           </Field>
           <Field>
             <Checkbox checked={light} onChange={() => setLight(!light)}>
-              <Label>Needs direct light</Label>
+              <Field.Label>Needs direct light</Field.Label>
             </Checkbox>
           </Field>
           <Field>
             <Checkbox checked={drought} onChange={() => setDrought(!drought)}>
-              <Label>Drought-tolerant</Label>
+              <Field.Label>Drought-tolerant</Field.Label>
             </Checkbox>
           </Field>
         </Fieldset>

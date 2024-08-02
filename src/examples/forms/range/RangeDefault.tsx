@@ -7,13 +7,13 @@
 
 import React from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Field, Label, Range } from '@zendeskgarden/react-forms';
+import { Field, Range } from '@zendeskgarden/react-forms';
 
 const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col sm={5}>
       <Field>
-        <Label>Flowers</Label>
+        <Field.Label>Flowers</Field.Label>
         <Range step={10} />
       </Field>
     </Grid.Col>

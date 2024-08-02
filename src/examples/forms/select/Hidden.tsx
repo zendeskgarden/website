@@ -7,13 +7,13 @@
 
 import React from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Field, Label, Select } from '@zendeskgarden/react-forms';
+import { Field, Select } from '@zendeskgarden/react-forms';
 
 const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col sm={5}>
       <Field>
-        <Label hidden>Accessibly hidden label</Label>
+        <Field.Label hidden>Accessibly hidden label</Field.Label>
         <Select>
           <option disabled hidden selected>
             Choose a houseplant

@@ -9,7 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
+import { Field, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { Button } from '@zendeskgarden/react-buttons';
 
 const StyledCol = styled(Grid.Col)`
@@ -22,7 +22,7 @@ const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col sm={5}>
       <Field>
-        <Label>Plant name generator</Label>
+        <Field.Label>Plant name generator</Field.Label>
         <InputGroup>
           <Input defaultValue="Sheepberry" />
           <Button focusInset isNeutral>
@@ -33,7 +33,7 @@ const Example = () => (
     </Grid.Col>
     <StyledCol sm={5}>
       <Field>
-        <Label>Plant name generator</Label>
+        <Field.Label>Plant name generator</Field.Label>
         <InputGroup isCompact>
           <Input isCompact defaultValue="Sheepberry" />
           <Button size="small" focusInset isNeutral>

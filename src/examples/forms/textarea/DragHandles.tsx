@@ -7,13 +7,13 @@
 
 import React from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Field, Label, Textarea } from '@zendeskgarden/react-forms';
+import { Field, Textarea } from '@zendeskgarden/react-forms';
 
 const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col sm={5}>
       <Field>
-        <Label>Ivy</Label>
+        <Field.Label>Ivy</Field.Label>
         <Textarea isResizable />
       </Field>
     </Grid.Col>

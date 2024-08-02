@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Field, Label, Checkbox } from '@zendeskgarden/react-forms';
+import { Field, Checkbox } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
@@ -14,12 +14,12 @@ const Example = () => (
     <Grid.Col size="auto">
       <Field>
         <Checkbox defaultChecked disabled>
-          <Label>Needs indirect light</Label>
+          <Field.Label>Needs indirect light</Field.Label>
         </Checkbox>
       </Field>
       <Field>
         <Checkbox disabled>
-          <Label>Prefers moist soil</Label>
+          <Field.Label>Prefers moist soil</Field.Label>
         </Checkbox>
       </Field>
     </Grid.Col>

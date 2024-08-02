@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Field, Label, Radio } from '@zendeskgarden/react-forms';
+import { Field, Radio } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
@@ -23,7 +23,7 @@ const Example = () => {
               checked={radioValue === 'annual'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label>Annual</Label>
+              <Field.Label>Annual</Field.Label>
             </Radio>
           </Field>
           <Field>
@@ -33,7 +33,7 @@ const Example = () => {
               checked={radioValue === 'perennial'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label>Perennial</Label>
+              <Field.Label>Perennial</Field.Label>
             </Radio>
           </Field>
         </div>

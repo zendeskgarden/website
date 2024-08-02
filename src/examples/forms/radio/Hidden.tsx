@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Field, Label, Radio } from '@zendeskgarden/react-forms';
+import { Field, Radio } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
@@ -23,7 +23,7 @@ const Example = () => {
               checked={radioValue === 'one'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label hidden>Accessibly hidden label one</Label>
+              <Field.Label hidden>Accessibly hidden label one</Field.Label>
             </Radio>
           </Field>
           <Field>
@@ -33,7 +33,7 @@ const Example = () => {
               checked={radioValue === 'two'}
               onChange={event => setRadioValue(event.target.value)}
             >
-              <Label hidden>Accessibly hidden label two</Label>
+              <Field.Label hidden>Accessibly hidden label two</Field.Label>
             </Radio>
           </Field>
         </div>

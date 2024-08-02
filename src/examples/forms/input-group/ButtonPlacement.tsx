@@ -7,7 +7,7 @@
 
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { Field, Label, InputGroup, Input } from '@zendeskgarden/react-forms';
+import { Field, InputGroup, Input } from '@zendeskgarden/react-forms';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Menu, Item, ISelectedItem, ItemGroup } from '@zendeskgarden/react-dropdowns';
@@ -45,7 +45,7 @@ const Example = () => {
     <Grid.Row justifyContent="center">
       <Grid.Col sm={5}>
         <Field>
-          <Label>Plant name generator</Label>
+          <Field.Label>Plant name generator</Field.Label>
           <StyledInputGroup>
             <Menu
               button={props => (
