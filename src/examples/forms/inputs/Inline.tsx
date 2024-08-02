@@ -15,7 +15,7 @@ const StyledField = styled(Field)`
   align-items: center;
 `;
 
-const StyledLabel = styled(Label)`
+const StyledLabel = styled(Field.Label)`
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.sm};
 `;
 
