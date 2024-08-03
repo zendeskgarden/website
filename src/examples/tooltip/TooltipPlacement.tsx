@@ -6,12 +6,11 @@
  */
 
 import React from 'react';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
-import { GARDEN_PLACEMENT } from '@zendeskgarden/react-dropdowns';
+import { Tooltip, ITooltipProps } from '@zendeskgarden/react-tooltips';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 
-const PLACEMENTS: Record<string, GARDEN_PLACEMENT> = {
+const PLACEMENTS: Record<string, ITooltipProps['placement']> = {
   auto: 'auto',
   top: 'top',
   topStart: 'top-start',
