@@ -56,7 +56,7 @@
       id: /components/draggable
     - title: Drawer
       id: /components/drawer
-    - title: Dropdowns
+    - title: Dropdowns [deprecated]
       items:
         - id: /components/autocomplete
           title: Autocomplete [deprecated]
