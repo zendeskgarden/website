@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Dropdown, Field, Menu, Item, Select, Label } from '@zendeskgarden/react-dropdowns';
+import { Dropdown, Field, Menu, Item, Select, Label } from '@zendeskgarden/react-dropdowns.legacy';
 
 const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {

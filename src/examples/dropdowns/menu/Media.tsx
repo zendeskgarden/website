@@ -20,7 +20,7 @@ import {
   MediaItem,
   MediaBody,
   MediaFigure
-} from '@zendeskgarden/react-dropdowns';
+} from '@zendeskgarden/react-dropdowns.legacy';
 import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as ChevronIcon } from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';

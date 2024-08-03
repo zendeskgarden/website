@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Dropdown, Field, Menu, Item, Select, Label } from '@zendeskgarden/react-dropdowns';
+import { Dropdown, Field, Menu, Item, Select, Label } from '@zendeskgarden/react-dropdowns.legacy';
 import { Grid } from '@zendeskgarden/react-grid';
 
 interface IItem {

@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Dropdown, Menu, Item, ItemMeta, Trigger } from '@zendeskgarden/react-dropdowns';
+import { Dropdown, Menu, Item, ItemMeta, Trigger } from '@zendeskgarden/react-dropdowns.legacy';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as ChevronIcon } from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';

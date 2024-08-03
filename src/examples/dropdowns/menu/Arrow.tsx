@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns';
+import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns.legacy';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';

@@ -6,7 +6,14 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Dropdown, Multiselect, Field, Menu, Item, Label } from '@zendeskgarden/react-dropdowns';
+import {
+  Dropdown,
+  Multiselect,
+  Field,
+  Menu,
+  Item,
+  Label
+} from '@zendeskgarden/react-dropdowns.legacy';
 import { Tag } from '@zendeskgarden/react-tags';
 import debounce from 'lodash.debounce';
 

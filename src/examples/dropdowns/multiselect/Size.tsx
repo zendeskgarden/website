@@ -7,7 +7,14 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { Dropdown, Multiselect, Field, Menu, Item, Label } from '@zendeskgarden/react-dropdowns';
+import {
+  Dropdown,
+  Multiselect,
+  Field,
+  Menu,
+  Item,
+  Label
+} from '@zendeskgarden/react-dropdowns.legacy';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Tag } from '@zendeskgarden/react-tags';

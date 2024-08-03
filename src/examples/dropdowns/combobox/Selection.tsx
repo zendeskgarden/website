@@ -7,7 +7,14 @@
 
 import React, { useMemo, useState, useEffect } from 'react';
 import debounce from 'lodash.debounce';
-import { Item, Menu, Label, Field, Dropdown, Combobox } from '@zendeskgarden/react-dropdowns';
+import {
+  Item,
+  Menu,
+  Label,
+  Field,
+  Dropdown,
+  Combobox
+} from '@zendeskgarden/react-dropdowns.legacy';
 import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as SearchIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 
