@@ -8,7 +8,7 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import debounce from 'lodash.debounce';
 import { Item, Menu, Label, Field, Dropdown, Combobox } from '@zendeskgarden/react-dropdowns';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as SearchIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 
 const options = [
@@ -76,8 +76,8 @@ const Example = () => {
   };
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Dropdown
           inputValue={inputValue}
           onSelect={item => setInputValue(item)}
@@ -90,8 +90,8 @@ const Example = () => {
           </Field>
           <Menu>{renderOptions()}</Menu>
         </Dropdown>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

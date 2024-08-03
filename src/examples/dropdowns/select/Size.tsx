@@ -7,11 +7,11 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { Dropdown, Field, Menu, Item, Select, Label } from '@zendeskgarden/react-dropdowns';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
@@ -33,8 +33,8 @@ const Example = () => {
   const [selectedCompactItem, setSelectedCompactItem] = useState(items[0]);
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Dropdown
           selectedItem={selectedDefaultItem}
           onSelect={setSelectedDefaultItem}
@@ -52,7 +52,7 @@ const Example = () => {
             ))}
           </Menu>
         </Dropdown>
-      </Col>
+      </Grid.Col>
       <StyledCol sm={5}>
         <Dropdown
           selectedItem={selectedCompactItem}
@@ -72,7 +72,7 @@ const Example = () => {
           </Menu>
         </Dropdown>
       </StyledCol>
-    </Row>
+    </Grid.Row>
   );
 };
 

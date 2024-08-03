@@ -8,12 +8,12 @@
 import React from 'react';
 import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns';
 import { IconButton } from '@zendeskgarden/react-buttons';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => (
-  <Row>
-    <Col textAlign="center">
+  <Grid.Row>
+    <Grid.Col textAlign="center">
       <Dropdown onSelect={item => alert(`You planted a ${item}`)}>
         <Trigger>
           <IconButton aria-label="plant">
@@ -26,8 +26,8 @@ const Example = () => (
           <Item value="honeysuckle">Honeysuckle</Item>
         </Menu>
       </Dropdown>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

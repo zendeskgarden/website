@@ -8,15 +8,15 @@
 import React, { useState } from 'react';
 import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as ChevronIcon } from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 const Example = () => {
   const [rotated, setRotated] = useState<boolean | undefined>();
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <Dropdown
           onSelect={item => alert(`You planted a ${item}`)}
           onStateChange={options => Object.hasOwn(options, 'isOpen') && setRotated(options.isOpen)}
@@ -37,8 +37,8 @@ const Example = () => {
             <Item value="crimini">Crimini</Item>
           </Menu>
         </Dropdown>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

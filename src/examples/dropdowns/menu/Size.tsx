@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as ChevronIcon } from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 const Example = () => {
@@ -16,8 +16,8 @@ const Example = () => {
   const [compactRotated, setCompactRotated] = useState<boolean | undefined>();
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <Dropdown
           onSelect={item => alert(`You planted a ${item}`)}
           onStateChange={options =>
@@ -38,8 +38,8 @@ const Example = () => {
             <Item value="onion">Onion</Item>
           </Menu>
         </Dropdown>
-      </Col>
-      <Col textAlign="center">
+      </Grid.Col>
+      <Grid.Col textAlign="center">
         <Dropdown
           onSelect={item => alert(`You planted a ${item}`)}
           onStateChange={options =>
@@ -60,8 +60,8 @@ const Example = () => {
             <Item value="succulent">Pearl onion</Item>
           </Menu>
         </Dropdown>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

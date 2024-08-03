@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { Dropdown, Menu, Item, Trigger, GARDEN_PLACEMENT } from '@zendeskgarden/react-dropdowns';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as ChevronIcon } from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 const PLACEMENTS: Record<string, GARDEN_PLACEMENT> = {
@@ -31,8 +31,8 @@ const Example = () => {
   const [rotated, setRotated] = useState<boolean | undefined>();
 
   return (
-    <Row style={{ margin: 140 }}>
-      <Col textAlign="center">
+    <Grid.Row style={{ margin: 140 }}>
+      <Grid.Col textAlign="center">
         <Dropdown
           onSelect={item => alert(`You planted a ${item}`)}
           onStateChange={options => Object.hasOwn(options, 'isOpen') && setRotated(options.isOpen)}
@@ -51,8 +51,8 @@ const Example = () => {
             <Item value="honeysuckle">Honeysuckle</Item>
           </Menu>
         </Dropdown>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

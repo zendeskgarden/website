@@ -9,7 +9,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Dropdown, Multiselect, Field, Menu, Item, Label } from '@zendeskgarden/react-dropdowns';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Tag } from '@zendeskgarden/react-tags';
 import debounce from 'lodash.debounce';
 
@@ -31,7 +31,7 @@ const options = [
   'Zucchini'
 ];
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
@@ -85,8 +85,8 @@ const Example = () => {
   };
 
   return (
-    <Row>
-      <Col>
+    <Grid.Row>
+      <Grid.Col>
         <Dropdown
           inputValue={inputValue}
           selectedItems={selectedItems}
@@ -107,7 +107,7 @@ const Example = () => {
           </Field>
           <Menu>{renderOptions()}</Menu>
         </Dropdown>
-      </Col>
+      </Grid.Col>
       <StyledCol>
         <Dropdown
           inputValue={compactInputValue}
@@ -131,7 +131,7 @@ const Example = () => {
           <Menu isCompact>{renderOptions()}</Menu>
         </Dropdown>
       </StyledCol>
-    </Row>
+    </Grid.Row>
   );
 };
 

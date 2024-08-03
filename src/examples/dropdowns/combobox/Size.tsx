@@ -9,11 +9,11 @@ import React, { useMemo, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import debounce from 'lodash.debounce';
 import { Item, Hint, Menu, Label, Field, Dropdown, Combobox } from '@zendeskgarden/react-dropdowns';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { ReactComponent as SearchIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
@@ -95,8 +95,8 @@ const Example = () => {
   };
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Dropdown
           inputValue={inputValue}
           onSelect={item => setInputValue(item)}
@@ -110,7 +110,7 @@ const Example = () => {
           </Field>
           <Menu>{renderOptions(matchingOptions)}</Menu>
         </Dropdown>
-      </Col>
+      </Grid.Col>
       <StyledCol sm={5}>
         <Dropdown
           inputValue={compactInputValue}
@@ -126,7 +126,7 @@ const Example = () => {
           <Menu isCompact>{renderOptions(compactMatchingOptions)}</Menu>
         </Dropdown>
       </StyledCol>
-    </Row>
+    </Grid.Row>
   );
 };
 

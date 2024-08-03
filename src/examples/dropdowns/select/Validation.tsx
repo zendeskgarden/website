@@ -7,7 +7,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import {
   Dropdown,
@@ -19,15 +19,15 @@ import {
   Message
 } from '@zendeskgarden/react-dropdowns';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;
 
 const Example = () => (
-  <Row>
-    <Col sm>
+  <Grid.Row>
+    <Grid.Col sm>
       <Dropdown selectedItem="success">
         <Field>
           <Label>Plant</Label>
@@ -38,7 +38,7 @@ const Example = () => (
           <Item disabled>Mock dropdown with no selection logic</Item>
         </Menu>
       </Dropdown>
-    </Col>
+    </Grid.Col>
     <StyledCol sm>
       <Dropdown selectedItem="warning">
         <Field>
@@ -63,7 +63,7 @@ const Example = () => (
         </Menu>
       </Dropdown>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;

@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Dropdown, Field, Menu, Item, Select, Label } from '@zendeskgarden/react-dropdowns';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 interface IItem {
   label: string;
@@ -24,8 +24,8 @@ const Example = () => {
   const [selectedItem, setSelectedItem] = useState(items[0]);
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Dropdown
           selectedItem={selectedItem}
           onSelect={setSelectedItem}
@@ -43,8 +43,8 @@ const Example = () => {
             ))}
           </Menu>
         </Dropdown>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

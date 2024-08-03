@@ -7,19 +7,19 @@
 
 import React from 'react';
 import { Dropdown, Field, Select, Label } from '@zendeskgarden/react-dropdowns';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <Dropdown>
         <Field>
           <Label>Plant</Label>
           <Select disabled>Cactus</Select>
         </Field>
       </Dropdown>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

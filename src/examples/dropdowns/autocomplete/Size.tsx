@@ -17,10 +17,10 @@ import {
   Dropdown,
   Autocomplete
 } from '@zendeskgarden/react-dropdowns';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
@@ -69,8 +69,8 @@ const Example = () => {
   }, [inputValue]);
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Dropdown
           inputValue={inputValue}
           selectedItem={selectedItem}
@@ -95,7 +95,7 @@ const Example = () => {
             )}
           </Menu>
         </Dropdown>
-      </Col>
+      </Grid.Col>
       <StyledCol sm={5}>
         <Dropdown
           inputValue={compactInputValue}
@@ -122,7 +122,7 @@ const Example = () => {
           </Menu>
         </Dropdown>
       </StyledCol>
-    </Row>
+    </Grid.Row>
   );
 };
 
