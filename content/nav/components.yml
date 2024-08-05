@@ -56,18 +56,6 @@
       id: /components/draggable
     - title: Drawer
       id: /components/drawer
-    - title: Dropdowns
-      items:
-        - id: /components/autocomplete
-          title: Autocomplete [deprecated]
-        - id: /components/legacy-combobox
-          title: Combobox [deprecated]
-        - id: /components/legacy-menu
-          title: Menu [deprecated]
-        - id: /components/multiselect
-          title: Multiselect [deprecated]
-        - id: /components/legacy-select
-          title: Select [deprecated]
     - title: Forms
       items:
         - id: /components/checkbox
