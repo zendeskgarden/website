@@ -61,7 +61,7 @@
         - id: /components/checkbox
           title: Checkbox
         - id: /components/combobox
-          title: Combobox [new]
+          title: Combobox
         - id: /components/file-upload
           title: File upload
         - id: /components/input
@@ -92,7 +92,7 @@
           title: Skeleton
         - id: /components/spinner
           title: Spinner
-    - title: Menu [new]
+    - title: Menu
       id: /components/menu
     - title: Modal
       id: /components/modal
