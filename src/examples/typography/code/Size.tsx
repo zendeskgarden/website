@@ -8,27 +8,27 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Code } from '@zendeskgarden/react-typography';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;
 
 const Example = () => (
-  <Row alignItems="center">
-    <Col sm={4} textAlign="center">
+  <Grid.Row alignItems="center">
+    <Grid.Col sm={4} textAlign="center">
       <Code size="small">Veggies es bonus</Code>
-    </Col>
+    </Grid.Col>
     <StyledCol sm={4} textAlign="center">
       <Code size="medium">Veggies es bonus</Code>
     </StyledCol>
     <StyledCol sm={4} textAlign="center">
       <Code size="large">Veggies es bonus</Code>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;
