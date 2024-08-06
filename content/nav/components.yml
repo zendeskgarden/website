@@ -56,24 +56,12 @@
       id: /components/draggable
     - title: Drawer
       id: /components/drawer
-    - title: Dropdowns
-      items:
-        - id: /components/autocomplete
-          title: Autocomplete [deprecated]
-        - id: /components/legacy-combobox
-          title: Combobox [deprecated]
-        - id: /components/legacy-menu
-          title: Menu [deprecated]
-        - id: /components/multiselect
-          title: Multiselect [deprecated]
-        - id: /components/legacy-select
-          title: Select [deprecated]
     - title: Forms
       items:
         - id: /components/checkbox
           title: Checkbox
         - id: /components/combobox
-          title: Combobox [new]
+          title: Combobox
         - id: /components/file-upload
           title: File upload
         - id: /components/input
@@ -104,7 +92,7 @@
           title: Skeleton
         - id: /components/spinner
           title: Spinner
-    - title: Menu [new]
+    - title: Menu
       id: /components/menu
     - title: Modal
       id: /components/modal
