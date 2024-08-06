@@ -178,7 +178,7 @@ The Menu component follows this structure:
 </Menu>
 ```
 
-When authoring a `Menu`, prefer either a vanilla function and/or `Array.map` to generate items:
+Use `Array.map` to iterate over items.
 
 ```jsx
 const ITEMS = [
@@ -207,7 +207,7 @@ const ITEMS = [
 </Menu>
 ```
 
-If wrapping subcomponents `ItemGroup` or `Item`, ensure the prop signature matches the contained components:
+Match `Item` and `ItemGroup` prop signatures when using wrapper components.
 
 ```jsx
 const ItemComponent = (props) => (

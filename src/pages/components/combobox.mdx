@@ -247,7 +247,7 @@ The Combobox component follows this structure:
 </Field>
 ```
 
-When authoring a `Combobox`, prefer either a vanilla function and/or `Array.map` to generate options:
+Use `Array.map` to iterate over options.
 
 ```jsx
 const OPTIONS = [
@@ -276,7 +276,7 @@ const OPTIONS = [
 </Combobox>
 ```
 
-If wrapping subcomponents `OptGroup` or `Option`, ensure the prop signature matches the contained components:
+Match `Option` and `OptGroup` prop signatures when using wrapper components.
 
 ```jsx
 const OptionComponent = (props) => (
