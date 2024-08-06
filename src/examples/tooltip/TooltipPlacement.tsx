@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Tooltip, ITooltipProps } from '@zendeskgarden/react-tooltips';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 
 const PLACEMENTS: Record<string, ITooltipProps['placement']> = {
@@ -27,13 +27,13 @@ const PLACEMENTS: Record<string, ITooltipProps['placement']> = {
 };
 
 const Example = () => (
-  <Row style={{ margin: 80 }}>
-    <Col textAlign="center">
+  <Grid.Row style={{ margin: 80 }}>
+    <Grid.Col textAlign="center">
       <Tooltip placement={PLACEMENTS.topStart} content="Eat, drink, and be rosemary">
         <Button isBasic>Hover for a tooltip</Button>
       </Tooltip>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;
