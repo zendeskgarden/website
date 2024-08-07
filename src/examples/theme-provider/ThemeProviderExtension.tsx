@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { DefaultTheme } from 'styled-components';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
@@ -23,7 +24,7 @@ const deepOrange = {
 
 /* Each Garden example is wrapped by a <ThemeProvider> */
 const Example = () => {
-  const theme = (parentTheme: any) => ({
+  const theme = (parentTheme: DefaultTheme) => ({
     ...parentTheme,
     palette: {
       ...parentTheme.palette,
@@ -36,7 +37,7 @@ const Example = () => {
   });
 
   return (
-    <ThemeProvider theme={theme as any}>
+    <ThemeProvider theme={theme}>
       <Row>
         <Col textAlign="center">
           <Button isDanger>Default</Button>

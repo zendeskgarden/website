@@ -12,7 +12,7 @@ import type { DebouncedFunc } from 'lodash';
 import { Field, MediaInput, Label } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { Code, XL } from '@zendeskgarden/react-typography';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 import styled, { css } from 'styled-components';
 
 const StyledIconWrapper = styled.div`
@@ -26,7 +26,7 @@ const StyledSvgWrapper = styled.div<{ isAnswerBot?: boolean }>`
   display: flex;
   align-items: center;
   margin: 0 0 ${p => p.theme.space.sm};
-  fill: ${p => p.isAnswerBot && PALETTE.kale[700]};
+  fill: ${p => p.isAnswerBot && getColorV8('kale', 700, p.theme)};
   color: ${p => p.isAnswerBot && '#d6eef1'};
 `;
 

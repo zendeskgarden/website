@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { MD, Span } from '@zendeskgarden/react-typography';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE_V8 } from '@zendeskgarden/react-theming';
 import { IComponentData } from '../../../components/types';
 import { StyledParagraph as Paragraph } from './Typography';
 import { Markdown } from './Markdown';
@@ -25,7 +25,7 @@ export const Component: React.FC<{
         <Paragraph>
           Extends{' '}
           <MD isMonospace tag="span">
-            <Span hue={PALETTE.grey[700]}>{component.extends}</Span>
+            <Span hue={PALETTE_V8.grey[700]}>{component.extends}</Span>
           </MD>
         </Paragraph>
       )}
