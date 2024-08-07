@@ -239,9 +239,61 @@ The Combobox component follows this structure:
   <Combobox>
     <Option />
     <Option />
+    <OptGroup>
+      <Option />
+    </OptGroup>
     {/* etc. */}
   </Combobox>
 </Field>
+```
+
+Use `Array.map` to iterate over options.
+
+```jsx
+const OPTIONS = [
+  { value: 'Sunflower' },
+  {
+    label: 'More flowers',
+    options: [
+      { value: 'Violet' },
+      { value: 'Daisy' },
+    ]
+  }
+]
+
+<Combobox>
+  {OPTIONS.map(option =>
+    option.options ? (
+      <OptGroup key={option.label} label={option.label}>
+        {option.options.map(groupOption => (
+          <Option key={groupOption.value} {...groupOption} />
+        ))}
+      </OptGroup>
+    ) : (
+      <Option key={option.value} {...option} />
+    )
+  )}
+</Combobox>
+```
+
+Match `Option` and `OptGroup` prop signatures when using wrapper components.
+
+```jsx
+const OptionComponent = forwardRef((props, ref) => (
+  <Option {...props} ref={ref} />
+))
+
+const OptGroupComponent = forwardRef((props, ref) => (
+  <OptGroup {...props} ref={ref} />
+))
+
+<Combobox>
+  <OptGroupComponent label="Flowers">
+    <OptionComponent value="Violet" />
+    <OptionComponent value="Sunflower" />
+    <OptionComponent value="Daisy" />
+  </OptGroupComponent>
+</Combobox>
 ```
 
 ### Combobox
