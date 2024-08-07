@@ -74,11 +74,11 @@ const Example = () => {
   const [selectedColIndex, setSelectedColIndex] = useState(SELECTED_COL_INDEX);
 
   const onSelect = (rowIdx: number | null, colIdx: number | null) => {
-    if (typeof rowIdx !== 'number' || typeof colIdx !== 'number') return;
-
-    setSelectedRowIndex(rowIdx);
-    setSelectedColIndex(colIdx);
-    setColor(matrix[rowIdx][colIdx].value);
+    if (typeof rowIdx === 'number' && typeof colIdx === 'number') {
+      setSelectedRowIndex(rowIdx);
+      setSelectedColIndex(colIdx);
+      setColor(matrix[rowIdx][colIdx].value);
+    }
   };
 
   return (

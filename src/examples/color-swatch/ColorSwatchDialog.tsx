@@ -48,10 +48,10 @@ const Example = () => {
   const [selectedRowIndex, setSelectedRowIndex] = useState(0);
   const [selectedColIndex, setSelectedColIndex] = useState(4);
   const onSelect = (rowIdx: number | null, colIdx: number | null) => {
-    if (typeof rowIdx !== 'number' || typeof colIdx !== 'number') return;
-
-    setSelectedRowIndex(rowIdx);
-    setSelectedColIndex(colIdx);
+    if (typeof rowIdx === 'number' && typeof colIdx === 'number') {
+      setSelectedRowIndex(rowIdx);
+      setSelectedColIndex(colIdx);
+    }
   };
 
   return (
