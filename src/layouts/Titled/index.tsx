@@ -8,7 +8,7 @@
 import React, { PropsWithChildren } from 'react';
 import { css } from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Subtitle } from './components/Subtitle';
 import { TOCBlock, TOC, IHeading } from './components/TOC';
 import { StyledH1, StyledHr } from 'components/MarkdownProvider/components/Typography';
@@ -21,8 +21,8 @@ interface ITitledLayoutProps extends PropsWithChildren {
 
 const TitledLayout: React.FC<ITitledLayoutProps> = ({ children, title, subtitle, toc }) => (
   <Grid>
-    <Row>
-      <Col
+    <Grid.Row>
+      <Grid.Col
         lg={12}
         xl={3}
         order={2}
@@ -33,8 +33,8 @@ const TitledLayout: React.FC<ITitledLayoutProps> = ({ children, title, subtitle,
         `}
       >
         {!!toc && <TOC data={toc} />}
-      </Col>
-      <Col lg={12} xl={9} order={1}>
+      </Grid.Col>
+      <Grid.Col lg={12} xl={9} order={1}>
         <StyledH1>{title}</StyledH1>
         {!!subtitle && <Subtitle>{subtitle}</Subtitle>}
         <StyledHr />
@@ -49,8 +49,8 @@ const TitledLayout: React.FC<ITitledLayoutProps> = ({ children, title, subtitle,
           />
         )}
         {children}
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   </Grid>
 );
 

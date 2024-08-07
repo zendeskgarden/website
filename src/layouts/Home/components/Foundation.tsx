@@ -8,7 +8,7 @@
 import React, { SVGAttributes } from 'react';
 import { css } from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { LG } from '@zendeskgarden/react-typography';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SectionCallout, StyledSectionHeader } from './SectionCallout';
@@ -76,8 +76,8 @@ export const Foundation: React.FC = () => (
         margin-bottom: ${p => p.theme.space.base * 20}px;
       `}
     >
-      <Row>
-        <Col
+      <Grid.Row>
+        <Grid.Col
           sm={12}
           lg={4}
           css={css`
@@ -96,10 +96,10 @@ export const Foundation: React.FC = () => (
               }
             `}
           />
-        </Col>
-        <Col sm={12} lg={8}>
-          <Row>
-            <Col
+        </Grid.Col>
+        <Grid.Col sm={12} lg={8}>
+          <Grid.Row>
+            <Grid.Col
               xs={12}
               sm={6}
               lg={4}
@@ -113,8 +113,8 @@ export const Foundation: React.FC = () => (
                 url="/content"
                 Icon={ContentIcon}
               />
-            </Col>
-            <Col
+            </Grid.Col>
+            <Grid.Col
               xs={12}
               sm={6}
               lg={4}
@@ -128,8 +128,8 @@ export const Foundation: React.FC = () => (
                 url="/design"
                 Icon={DesignIcon}
               />
-            </Col>
-            <Col
+            </Grid.Col>
+            <Grid.Col
               xs={12}
               sm={6}
               lg={4}
@@ -143,10 +143,10 @@ export const Foundation: React.FC = () => (
                 url="/components"
                 Icon={ComponentsIcon}
               />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+            </Grid.Col>
+          </Grid.Row>
+        </Grid.Col>
+      </Grid.Row>
     </Grid>
   </MaxWidthLayout>
 );
