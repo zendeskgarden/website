@@ -6,9 +6,9 @@
  */
 
 import React, { useCallback } from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
-import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns';
 
 const Example = () => {
   const handleChange = useCallback<NonNullable<IMenuProps['onChange']>>(changes => {
@@ -16,8 +16,8 @@ const Example = () => {
   }, []);
 
   return (
-    <Row justifyContent="center">
-      <Col textAlign="center">
+    <Grid.Row justifyContent="center">
+      <Grid.Col textAlign="center">
         <Menu button="Uproot" onChange={handleChange} buttonProps={{ isDanger: true }}>
           <Item type="danger" value="acacia">
             Acacia
@@ -33,8 +33,8 @@ const Example = () => {
             Candytuft
           </Item>
         </Menu>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 
