@@ -9,7 +9,7 @@ import React, { ReactElement } from 'react';
 import { css } from 'styled-components';
 import { getColorV8 } from '@zendeskgarden/react-theming';
 import { SM, MD, Ellipsis, Code } from '@zendeskgarden/react-typography';
-import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
 import { IComponentData } from '../../../components/types';
 import { Tag } from '@zendeskgarden/react-tags';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -40,15 +40,15 @@ export const PropSheet: React.FC<{
               min-width: 700px;
             `}
           >
-            <Head>
-              <HeaderRow>
-                <HeaderCell>{headerName}</HeaderCell>
-                <HeaderCell>Type</HeaderCell>
-                <HeaderCell>Default</HeaderCell>
-                <HeaderCell>Description</HeaderCell>
-              </HeaderRow>
-            </Head>
-            <Body>
+            <Table.Head>
+              <Table.HeaderRow>
+                <Table.HeaderCell>{headerName}</Table.HeaderCell>
+                <Table.HeaderCell>Type</Table.HeaderCell>
+                <Table.HeaderCell>Default</Table.HeaderCell>
+                <Table.HeaderCell>Description</Table.HeaderCell>
+              </Table.HeaderRow>
+            </Table.Head>
+            <Table.Body>
               {Object.keys(component.props).map(name => {
                 const prop = component.props[name];
                 let defaultValue: string | ReactElement = prop.defaultValue || '–';
@@ -78,8 +78,8 @@ export const PropSheet: React.FC<{
                   );
 
                 return (
-                  <Row key={`${component.name}-${name}`}>
-                    <Cell>
+                  <Table.Row key={`${component.name}-${name}`}>
+                    <Table.Cell>
                       <MD
                         isMonospace
                         css={css`
@@ -88,8 +88,8 @@ export const PropSheet: React.FC<{
                       >
                         <Ellipsis>{name}</Ellipsis>
                       </MD>
-                    </Cell>
-                    <Cell>
+                    </Table.Cell>
+                    <Table.Cell>
                       <MD
                         tag="span"
                         isMonospace
@@ -100,8 +100,8 @@ export const PropSheet: React.FC<{
                       >
                         {type}
                       </MD>
-                    </Cell>
-                    <Cell>
+                    </Table.Cell>
+                    <Table.Cell>
                       <MD isMonospace={defaultMonospace}>
                         {prop.type === 'DefaultTheme' ? (
                           <Markdown>[DEFAULT_THEME](/components/theme-object)</Markdown>
@@ -109,8 +109,8 @@ export const PropSheet: React.FC<{
                           defaultValue
                         )}
                       </MD>
-                    </Cell>
-                    <Cell>
+                    </Table.Cell>
+                    <Table.Cell>
                       <MD
                         tag="span"
                         css={`
@@ -151,11 +151,11 @@ export const PropSheet: React.FC<{
                           <b>Returns</b> <Markdown>{prop.returns}</Markdown>
                         </SM>
                       )}
-                    </Cell>
-                  </Row>
+                    </Table.Cell>
+                  </Table.Row>
                 );
               })}
-            </Body>
+            </Table.Body>
           </Table>
         </div>
       )}
