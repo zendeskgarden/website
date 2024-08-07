@@ -279,13 +279,13 @@ const OPTIONS = [
 Match `Option` and `OptGroup` prop signatures when using wrapper components.
 
 ```jsx
-const OptionComponent = (props) => (
-  <Option {...props} />
-)
+const OptionComponent = forwardRef((props, ref) => (
+  <Option {...props} ref={ref} />
+))
 
-const OptGroupComponent = (props) => (
-  <OptGroup {...props} />
-)
+const OptGroupComponent = forwardRef((props, ref) => (
+  <OptGroup {...props} ref={ref} />
+))
 
 <Combobox>
   <OptGroupComponent label="Flowers">
