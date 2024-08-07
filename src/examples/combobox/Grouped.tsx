@@ -15,12 +15,12 @@ const Example = () => (
       <Field>
         <Field.Label>Fruits and vegetables</Field.Label>
         <Combobox>
-          <OptGroup label="Fruits">
+          <OptGroup legend="Fruits">
             <Option value="Apple" />
             <Option value="Banana" />
             <Option value="Cherry" />
           </OptGroup>
-          <OptGroup label="Vegetables">
+          <OptGroup legend="Vegetables">
             <Option value="Asparagus" />
             <Option value="Broccoli" />
             <Option value="Cauliflower" />
