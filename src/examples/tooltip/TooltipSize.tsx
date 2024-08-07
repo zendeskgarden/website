@@ -6,40 +6,40 @@
  */
 
 import React from 'react';
-import { Tooltip, Title, Paragraph } from '@zendeskgarden/react-tooltips';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 
 const Example = () => (
-  <Row>
-    <Col textAlign="center">
+  <Grid.Row>
+    <Grid.Col textAlign="center">
       <Tooltip size="small" content="Eat, drink, and be rosemary" placement="top-start">
         <Button size="small">Small</Button>
       </Tooltip>
-    </Col>
-    <Col textAlign="center">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
       <Tooltip size="medium" content="I want to start gardening, but I haven’t botany plants.">
         <Button size="medium">Medium</Button>
       </Tooltip>
-    </Col>
-    <Col textAlign="center">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
       <Tooltip
         type="light"
         size="large"
         content={
           <>
-            <Title>Words of wisdom</Title>
-            <Paragraph>
+            <Tooltip.Title>Words of wisdom</Tooltip.Title>
+            <Tooltip.Paragraph>
               I was offered a job as a gardener, but I didn’t take it because the celery was too
               low.
-            </Paragraph>
+            </Tooltip.Paragraph>
           </>
         }
       >
         <Button size="large">Large</Button>
       </Tooltip>
-    </Col>
-    <Col textAlign="center">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
       <Tooltip
         type="light"
         size="extra-large"
@@ -47,18 +47,18 @@ const Example = () => (
         zIndex={1}
         content={
           <>
-            <Title>Garden advice</Title>
-            <Paragraph>
+            <Tooltip.Title>Garden advice</Tooltip.Title>
+            <Tooltip.Paragraph>
               I asked the staff at my local garden center what to grow in my garden. They gave me
               some sage advice.
-            </Paragraph>
+            </Tooltip.Paragraph>
           </>
         }
       >
         <Button size="large">Extra large</Button>
       </Tooltip>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

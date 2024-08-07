@@ -63,14 +63,6 @@ const config: GatsbyConfig = {
       },
       __key: 'pages'
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: `fragments`,
-        path: path.join(cwd, 'src', 'fragments')
-      },
-      __key: 'fragments'
-    },
     /* sources - local/remote data */
     'gatsby-source-garden-content',
     'gatsby-source-garden-docgen',
