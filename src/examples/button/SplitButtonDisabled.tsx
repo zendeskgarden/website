@@ -8,7 +8,7 @@
 import React, { useCallback, useState } from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
-import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns';
 
 const Example = () => {
   const [rotated, setRotated] = useState<boolean>();

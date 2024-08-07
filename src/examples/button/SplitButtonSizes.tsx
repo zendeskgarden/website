@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
-import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 
 const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
