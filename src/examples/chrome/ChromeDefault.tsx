@@ -44,7 +44,7 @@ const Example = () => {
       <Nav aria-label="chrome default example">
         <NavItem hasLogo>
           <NavItemIcon>
-            <ProductIcon style={{ color: PALETTE.green[400] }} />
+            <ProductIcon style={{ color: PALETTE.green[500] }} />
           </NavItemIcon>
           <NavItemText>Zendesk Garden</NavItemText>
         </NavItem>

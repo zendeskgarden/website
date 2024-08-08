@@ -13,13 +13,13 @@ import { Inline } from '@zendeskgarden/react-loaders';
 const Example = () => (
   <Grid.Row>
     <Grid.Col textAlign="center">
-      <Inline size={32} color={PALETTE.grey[600]} />
+      <Inline size={32} color={PALETTE.grey[700]} />
     </Grid.Col>
     <Grid.Col textAlign="center">
-      <Inline size={32} color={PALETTE.blue[600]} />
+      <Inline size={32} color={PALETTE.blue[700]} />
     </Grid.Col>
     <Grid.Col textAlign="center">
-      <Inline size={32} color={PALETTE.green[600]} />
+      <Inline size={32} color={PALETTE.green[700]} />
     </Grid.Col>
   </Grid.Row>
 );

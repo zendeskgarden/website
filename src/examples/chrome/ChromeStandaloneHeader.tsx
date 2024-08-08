@@ -26,7 +26,7 @@ const Example = () => (
       <Header isStandalone>
         <HeaderItem hasLogo>
           <HeaderItemIcon>
-            <ProductIcon style={{ color: PALETTE.green[400] }} />
+            <ProductIcon style={{ color: PALETTE.green[500] }} />
           </HeaderItemIcon>
           <HeaderItemText>Zendesk Garden</HeaderItemText>
         </HeaderItem>

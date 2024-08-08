@@ -100,7 +100,7 @@ const components = [
     }
   },
   {
-    name: 'getColorV8',
+    name: 'getColor',
     props: {
       hue: {
         required: true,
