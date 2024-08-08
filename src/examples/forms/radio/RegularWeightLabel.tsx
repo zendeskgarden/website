@@ -21,7 +21,9 @@ const Example = () => {
               name="weight-example"
               value="annual"
               checked={radioValue === 'annual'}
-              onChange={event => setRadioValue(event.target.value)}
+              onChange={event => {
+                setRadioValue(event.target.value);
+              }}
             >
               <Field.Label isRegular>Annual</Field.Label>
             </Radio>
@@ -31,7 +33,9 @@ const Example = () => {
               name="weight-example"
               value="perennial"
               checked={radioValue === 'perennial'}
-              onChange={event => setRadioValue(event.target.value)}
+              onChange={event => {
+                setRadioValue(event.target.value);
+              }}
             >
               <Field.Label isRegular>Perennial</Field.Label>
             </Radio>

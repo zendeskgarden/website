@@ -15,7 +15,13 @@ const Example = () => {
   return (
     <Grid.Row>
       <Grid.Col textAlign="center">
-        <ToggleButton disabled isPressed={pressed} onClick={() => setPressed(!pressed)}>
+        <ToggleButton
+          disabled
+          isPressed={pressed}
+          onClick={() => {
+            setPressed(!pressed);
+          }}
+        >
           Disabled
         </ToggleButton>
       </Grid.Col>

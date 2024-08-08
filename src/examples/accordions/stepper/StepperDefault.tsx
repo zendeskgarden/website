@@ -26,8 +26,12 @@ const StyledButtons = styled.div`
 const Example = () => {
   const [step, setStep] = useState(0);
 
-  const onNext = () => setStep(step + 1);
-  const onBack = () => setStep(step - 1);
+  const onNext = () => {
+    setStep(step + 1);
+  };
+  const onBack = () => {
+    setStep(step - 1);
+  };
 
   return (
     <Stepper activeIndex={step}>

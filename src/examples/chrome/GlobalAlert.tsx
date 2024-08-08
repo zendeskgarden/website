@@ -47,7 +47,9 @@ const Example = () => {
           </GlobalAlert.Content>
           <GlobalAlert.Close
             aria-label="Close Global Alert"
-            onClick={() => setShowGlobalAlert(false)}
+            onClick={() => {
+              setShowGlobalAlert(false);
+            }}
           />
         </GlobalAlert>
       )}
@@ -60,19 +62,34 @@ const Example = () => {
             </NavItemIcon>
             <NavItemText>Zendesk Garden</NavItemText>
           </NavItem>
-          <NavItem isCurrent={nav === 'nav-1'} onClick={() => setNav('nav-1')}>
+          <NavItem
+            isCurrent={nav === 'nav-1'}
+            onClick={() => {
+              setNav('nav-1');
+            }}
+          >
             <NavItemIcon>
               <HomeIcon />
             </NavItemIcon>
             <NavItemText>Home</NavItemText>
           </NavItem>
-          <NavItem isCurrent={nav === 'nav-2'} onClick={() => setNav('nav-2')}>
+          <NavItem
+            isCurrent={nav === 'nav-2'}
+            onClick={() => {
+              setNav('nav-2');
+            }}
+          >
             <NavItemIcon>
               <EmailIcon />
             </NavItemIcon>
             <NavItemText>Email</NavItemText>
           </NavItem>
-          <NavItem isCurrent={nav === 'nav-3'} onClick={() => setNav('nav-3')}>
+          <NavItem
+            isCurrent={nav === 'nav-3'}
+            onClick={() => {
+              setNav('nav-3');
+            }}
+          >
             <NavItemIcon>
               <SettingsIcon />
             </NavItemIcon>
@@ -95,7 +112,12 @@ const Example = () => {
               <Button isBasic>Cancel</Button>
             </FooterItem>
             <FooterItem>
-              <Button isPrimary onClick={() => setShowGlobalAlert(true)}>
+              <Button
+                isPrimary
+                onClick={() => {
+                  setShowGlobalAlert(true);
+                }}
+              >
                 Save
               </Button>
             </FooterItem>

@@ -54,6 +54,8 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async (
 
     newsCacheKey = [newsCacheKey, newsHash].join('-');
 
+    /* eslint-disable @typescript-eslint/no-unnecessary-boolean-literal-compare */
+
     if (!!(await cache.get(newsCacheKey)) === false) {
       reporter.info('cache news content');
       span.setTag(PLUGIN_NAME, 'caching-news');
@@ -151,7 +153,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async (
       }
     }
   } catch (error: unknown) {
-    const errorMessage = (error as Error).message as string;
+    const errorMessage = (error as Error).message;
 
     span.log({ error: true, message: errorMessage });
 
@@ -178,7 +180,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
   const news = await cache.get(newsCacheKey);
 
   await Promise.all(
-    news.map((node: any, id: number) => createNode(gardenNewsNode({ id, ...node })))
+    news.map(async (node: any, id: number) => createNode(gardenNewsNode({ id, ...node })))
   );
 
   const gardenFigmaNode = createNodeFactory(GARDEN_FIGMA_ID);

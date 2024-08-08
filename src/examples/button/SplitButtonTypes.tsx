@@ -23,9 +23,9 @@ const Example = () => {
             button={props => (
               <ChevronButton {...props} aria-label="other actions" isRotated={defaultRotated} />
             )}
-            onChange={changes =>
-              changes.isExpanded !== undefined && setDefaultRotated(changes.isExpanded)
-            }
+            onChange={changes => {
+              changes.isExpanded !== undefined && setDefaultRotated(changes.isExpanded);
+            }}
             placement="bottom-end"
           >
             <Item value="prune">Prune</Item>
@@ -46,9 +46,9 @@ const Example = () => {
                 isRotated={primaryRotated}
               />
             )}
-            onChange={changes =>
-              changes.isExpanded !== undefined && setPrimaryRotated(changes.isExpanded)
-            }
+            onChange={changes => {
+              changes.isExpanded !== undefined && setPrimaryRotated(changes.isExpanded);
+            }}
             placement="bottom-end"
           >
             <Item value="prune">Prune</Item>

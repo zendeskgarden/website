@@ -17,9 +17,20 @@ const Example = () => {
   return (
     <Row>
       <Col textAlign="center">
-        <Button onClick={() => setVisible(true)}>Open large modal</Button>
+        <Button
+          onClick={() => {
+            setVisible(true);
+          }}
+        >
+          Open large modal
+        </Button>
         {!!visible && (
-          <Modal isLarge onClose={() => setVisible(false)}>
+          <Modal
+            isLarge
+            onClose={() => {
+              setVisible(false);
+            }}
+          >
             <Header tag="h2">Do you need plant food?</Header>
             <Body>
               <Paragraph>
@@ -49,12 +60,22 @@ const Example = () => {
             </Body>
             <Footer>
               <FooterItem>
-                <Button onClick={() => setVisible(false)} isBasic>
+                <Button
+                  onClick={() => {
+                    setVisible(false);
+                  }}
+                  isBasic
+                >
                   Cancel
                 </Button>
               </FooterItem>
               <FooterItem>
-                <Button isPrimary onClick={() => setVisible(false)}>
+                <Button
+                  isPrimary
+                  onClick={() => {
+                    setVisible(false);
+                  }}
+                >
                   Add plant food
                 </Button>
               </FooterItem>

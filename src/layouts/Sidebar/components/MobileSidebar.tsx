@@ -61,7 +61,7 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
             `}
           >
             <StyledSidebarLink
-              to={item.id ? item.id : item.items![0].id!}
+              to={item.id ? item.id : item.items![0].id}
               activeClassName={item.id ? undefined : 'active-heading'}
             >
               <NavItemTitle>{item.title}</NavItemTitle>
@@ -79,7 +79,7 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
                       margin-top: ${p => p.theme.space.xxs};
                     `}
                   >
-                    <StyledSidebarLink to={nestedItem.id!}>
+                    <StyledSidebarLink to={nestedItem.id}>
                       <NavItemTitle>{nestedItem.title}</NavItemTitle>
                     </StyledSidebarLink>
                   </li>

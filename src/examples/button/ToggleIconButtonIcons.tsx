@@ -22,7 +22,9 @@ const Example = () => {
           <ToggleIconButton
             aria-label="leaf"
             isPressed={pressed}
-            onClick={() => setPressed(!pressed)}
+            onClick={() => {
+              setPressed(!pressed);
+            }}
           >
             <svg focusable="false">
               <FillIcon style={{ opacity: pressed ? 1 : 0 }} />

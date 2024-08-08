@@ -26,7 +26,9 @@ const Example = () => {
               name="hint-example"
               value="annual"
               checked={radioValue === 'annual'}
-              onChange={event => setRadioValue(event.target.value)}
+              onChange={event => {
+                setRadioValue(event.target.value);
+              }}
             >
               <Field.Label>Annual</Field.Label>
               <Field.Hint>Completes its life cycle with growing season</Field.Hint>
@@ -37,7 +39,9 @@ const Example = () => {
               name="hint-example"
               value="perennial"
               checked={radioValue === 'perennial'}
-              onChange={event => setRadioValue(event.target.value)}
+              onChange={event => {
+                setRadioValue(event.target.value);
+              }}
             >
               <Field.Label>Perennial</Field.Label>
               <Field.Hint>Lives more than two years</Field.Hint>

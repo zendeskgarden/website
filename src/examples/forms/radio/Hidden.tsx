@@ -21,7 +21,9 @@ const Example = () => {
               name="hidden-example"
               value="one"
               checked={radioValue === 'one'}
-              onChange={event => setRadioValue(event.target.value)}
+              onChange={event => {
+                setRadioValue(event.target.value);
+              }}
             >
               <Field.Label hidden>Accessibly hidden label one</Field.Label>
             </Radio>
@@ -31,7 +33,9 @@ const Example = () => {
               name="hidden-example"
               value="two"
               checked={radioValue === 'two'}
-              onChange={event => setRadioValue(event.target.value)}
+              onChange={event => {
+                setRadioValue(event.target.value);
+              }}
             >
               <Field.Label hidden>Accessibly hidden label two</Field.Label>
             </Radio>

@@ -17,14 +17,21 @@ const Example = () => {
   return (
     <Grid.Row alignItems="center">
       <Grid.Col textAlign="center">
-        <ToggleButton isPressed={defaultPressed} onClick={() => setDefaultPressed(!defaultPressed)}>
+        <ToggleButton
+          isPressed={defaultPressed}
+          onClick={() => {
+            setDefaultPressed(!defaultPressed);
+          }}
+        >
           Default
         </ToggleButton>
       </Grid.Col>
       <Grid.Col textAlign="center">
         <ToggleButton
           isPressed={primaryPressed}
-          onClick={() => setPrimaryPressed(!primaryPressed)}
+          onClick={() => {
+            setPrimaryPressed(!primaryPressed);
+          }}
           isPrimary
         >
           Primary
@@ -33,7 +40,9 @@ const Example = () => {
       <Grid.Col textAlign="center">
         <ToggleButton
           isPressed={basicPressed}
-          onClick={() => setBasicPressed(!basicPressed)}
+          onClick={() => {
+            setBasicPressed(!basicPressed);
+          }}
           isBasic
         >
           Basic

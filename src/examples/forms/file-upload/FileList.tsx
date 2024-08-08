@@ -12,7 +12,9 @@ import { Grid } from '@zendeskgarden/react-grid';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 
-const handleClick = () => alert('File dismissed via mouse');
+const handleClick = () => {
+  alert('File dismissed via mouse');
+};
 
 const handleFileKeyDown = (e: React.KeyboardEvent<any>) => {
   if (e.key === KEYS.DELETE || e.key === KEYS.BACKSPACE) {

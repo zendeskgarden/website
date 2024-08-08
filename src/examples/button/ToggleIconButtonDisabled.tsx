@@ -20,7 +20,9 @@ const Example = () => {
           aria-label="disabled leaf"
           disabled
           isPressed={pressed}
-          onClick={() => setPressed(!pressed)}
+          onClick={() => {
+            setPressed(!pressed);
+          }}
         >
           <Icon />
         </ToggleIconButton>

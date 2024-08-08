@@ -11,6 +11,6 @@ import { IGardenTheme } from '@zendeskgarden/react-theming';
 declare module 'styled-components' {
   export type Hue = Record<number | string, string> | string;
 
-  /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
+  /* eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/naming-convention */
   export interface DefaultTheme extends IGardenTheme {}
 }

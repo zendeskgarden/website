@@ -35,7 +35,9 @@ const Example = () => (
         <Tooltip content="Remove tag">
           <Tag.Close
             aria-label="Remove tag"
-            onClick={() => alert('Tag dismissed via mouse')}
+            onClick={() => {
+              alert('Tag dismissed via mouse');
+            }}
             onKeyDown={handleCloseKeyDown}
           />
         </Tooltip>

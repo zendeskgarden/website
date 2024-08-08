@@ -38,7 +38,7 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
                 margin-left: ${p => p.theme.space.md};
               `}
             >
-              {heading.items!.map(subHeading => (
+              {heading.items.map(subHeading => (
                 <li key={subHeading.url}>
                   <Anchor isUnderlined={false} href={subHeading.url}>
                     {subHeading.title}

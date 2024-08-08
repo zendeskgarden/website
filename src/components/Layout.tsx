@@ -19,12 +19,12 @@ export const Layout: React.FC<PageProps<IPageData, IPageContext>> = ({
   pageContext,
   children
 }) => {
-  if (!pageContext || !pageContext.slug) return children;
+  if (!pageContext?.slug) return children;
 
   let navigation = [];
   let toc: IHeading[] = [];
 
-  if (data && data.mdx) {
+  if (data?.mdx) {
     navigation = data.mdx.navigation || [];
     toc = data.mdx.tableOfContents.items || [];
   }

@@ -48,19 +48,34 @@ const Example = () => {
           </NavItemIcon>
           <NavItemText>Zendesk Garden</NavItemText>
         </NavItem>
-        <NavItem isCurrent={nav === 'nav-1'} onClick={() => setNav('nav-1')}>
+        <NavItem
+          isCurrent={nav === 'nav-1'}
+          onClick={() => {
+            setNav('nav-1');
+          }}
+        >
           <NavItemIcon>
             <HomeIcon />
           </NavItemIcon>
           <NavItemText>Home</NavItemText>
         </NavItem>
-        <NavItem isCurrent={nav === 'nav-2'} onClick={() => setNav('nav-2')}>
+        <NavItem
+          isCurrent={nav === 'nav-2'}
+          onClick={() => {
+            setNav('nav-2');
+          }}
+        >
           <NavItemIcon>
             <EmailIcon />
           </NavItemIcon>
           <NavItemText>Email</NavItemText>
         </NavItem>
-        <NavItem isCurrent={nav === 'nav-3'} onClick={() => setNav('nav-3')}>
+        <NavItem
+          isCurrent={nav === 'nav-3'}
+          onClick={() => {
+            setNav('nav-3');
+          }}
+        >
           <NavItemIcon>
             <SettingsIcon />
           </NavItemIcon>
@@ -75,10 +90,20 @@ const Example = () => {
       </Nav>
       {!!showSubNav && (
         <SubNav aria-label="chrome navigation example subnav">
-          <SubNavItem isCurrent={subNav === 'item-1'} onClick={() => setSubNav('item-1')}>
+          <SubNavItem
+            isCurrent={subNav === 'item-1'}
+            onClick={() => {
+              setSubNav('item-1');
+            }}
+          >
             <SubNavItemText>Subnav 1</SubNavItemText>
           </SubNavItem>
-          <SubNavItem isCurrent={subNav === 'item-2'} onClick={() => setSubNav('item-2')}>
+          <SubNavItem
+            isCurrent={subNav === 'item-2'}
+            onClick={() => {
+              setSubNav('item-2');
+            }}
+          >
             <SubNavItemText>Subnav 2</SubNavItemText>
           </SubNavItem>
           <CollapsibleSubNavItem
@@ -88,24 +113,35 @@ const Example = () => {
           >
             <SubNavItem
               isCurrent={subNav === 'collapsed-item-1'}
-              onClick={() => setSubNav('collapsed-item-1')}
+              onClick={() => {
+                setSubNav('collapsed-item-1');
+              }}
             >
               <SubNavItemText>Item 1</SubNavItemText>
             </SubNavItem>
             <SubNavItem
               isCurrent={subNav === 'collapsed-item-2'}
-              onClick={() => setSubNav('collapsed-item-2')}
+              onClick={() => {
+                setSubNav('collapsed-item-2');
+              }}
             >
               <SubNavItemText>Item 2</SubNavItemText>
             </SubNavItem>
             <SubNavItem
               isCurrent={subNav === 'collapsed-item-3'}
-              onClick={() => setSubNav('collapsed-item-3')}
+              onClick={() => {
+                setSubNav('collapsed-item-3');
+              }}
             >
               <SubNavItemText>Item 3</SubNavItemText>
             </SubNavItem>
           </CollapsibleSubNavItem>
-          <SubNavItem isCurrent={subNav === 'item-3'} onClick={() => setSubNav('item-3')}>
+          <SubNavItem
+            isCurrent={subNav === 'item-3'}
+            onClick={() => {
+              setSubNav('item-3');
+            }}
+          >
             <SubNavItemText>Subnav 3</SubNavItemText>
           </SubNavItem>
         </SubNav>
@@ -117,7 +153,11 @@ const Example = () => {
             <Row>
               <Col>
                 <Field>
-                  <Toggle onChange={() => setExpanded(!expanded)}>
+                  <Toggle
+                    onChange={() => {
+                      setExpanded(!expanded);
+                    }}
+                  >
                     <Label>Show expanded</Label>
                   </Toggle>
                 </Field>
@@ -125,7 +165,11 @@ const Example = () => {
               <div style={{ width: '100%', height: '12px' }} />
               <Col>
                 <Field>
-                  <Toggle onChange={() => setShowSubNav(!showSubNav)}>
+                  <Toggle
+                    onChange={() => {
+                      setShowSubNav(!showSubNav);
+                    }}
+                  >
                     <Label>Show subnav</Label>
                   </Toggle>
                 </Field>

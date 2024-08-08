@@ -27,7 +27,9 @@ const Example = () => {
         </Button>
         <TooltipModal
           referenceElement={referenceElement}
-          onClose={() => setReferenceElement(null)}
+          onClose={() => {
+            setReferenceElement(null);
+          }}
           placement="top"
         >
           <TooltipModal.Title tag="h2">Tooltip modal header</TooltipModal.Title>

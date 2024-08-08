@@ -29,7 +29,9 @@ const Example = () => {
     accept: { 'image/*': ['.jpeg', '.png', '.gif'] }
   });
 
-  const handleClick = () => alert('File dismissed via mouse');
+  const handleClick = () => {
+    alert('File dismissed via mouse');
+  };
 
   const handleFileKeyDown = (e: React.KeyboardEvent<any>) => {
     if (e.key === KEYS.DELETE || e.key === KEYS.BACKSPACE) {

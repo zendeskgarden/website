@@ -23,7 +23,9 @@ const Example = () => {
           <ToggleIconButton
             aria-label="default leaf"
             isPressed={defaultPressed}
-            onClick={() => setDefaultPressed(!defaultPressed)}
+            onClick={() => {
+              setDefaultPressed(!defaultPressed);
+            }}
           >
             <Icon />
           </ToggleIconButton>
@@ -34,7 +36,9 @@ const Example = () => {
           <ToggleIconButton
             aria-label="primary leaf"
             isPressed={primaryPressed}
-            onClick={() => setPrimaryPressed(!primaryPressed)}
+            onClick={() => {
+              setPrimaryPressed(!primaryPressed);
+            }}
             isPrimary
           >
             <Icon />
@@ -46,7 +50,9 @@ const Example = () => {
           <ToggleIconButton
             aria-label="basic leaf"
             isPressed={basicPressed}
-            onClick={() => setBasicPressed(!basicPressed)}
+            onClick={() => {
+              setBasicPressed(!basicPressed);
+            }}
             isBasic={false}
           >
             <Icon />

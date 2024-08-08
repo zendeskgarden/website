@@ -31,8 +31,12 @@ const StyledContainer = styled.div`
 const Example = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
-  const onNext = () => setCurrentStep(currentStep + 1);
-  const onBack = () => setCurrentStep(currentStep - 1);
+  const onNext = () => {
+    setCurrentStep(currentStep + 1);
+  };
+  const onBack = () => {
+    setCurrentStep(currentStep - 1);
+  };
 
   const allSteps = [
     {

@@ -64,7 +64,9 @@ const Example = () => {
     <>
       <TooltipModal
         referenceElement={referenceElement}
-        onClose={() => setReferenceElement(null)}
+        onClose={() => {
+          setReferenceElement(null);
+        }}
         placement={placement as any}
         popperModifiers={[
           {

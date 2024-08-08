@@ -19,7 +19,9 @@ const Example = () => {
       <Grid.Col textAlign="center">
         <ToggleButton
           isPressed={smallPressed}
-          onClick={() => setSmallPressed(!smallPressed)}
+          onClick={() => {
+            setSmallPressed(!smallPressed);
+          }}
           size="small"
         >
           Small
@@ -28,7 +30,9 @@ const Example = () => {
       <Grid.Col textAlign="center">
         <ToggleButton
           isPressed={mediumPressed}
-          onClick={() => setMediumPressed(!mediumPressed)}
+          onClick={() => {
+            setMediumPressed(!mediumPressed);
+          }}
           size="medium"
         >
           Default
@@ -37,7 +41,9 @@ const Example = () => {
       <Grid.Col textAlign="center">
         <ToggleButton
           isPressed={largePressed}
-          onClick={() => setLargePressed(!largePressed)}
+          onClick={() => {
+            setLargePressed(!largePressed);
+          }}
           size="large"
         >
           Large

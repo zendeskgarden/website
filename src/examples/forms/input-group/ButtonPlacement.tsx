@@ -34,7 +34,7 @@ const Example = () => {
         setRotated(isExpanded);
       }
 
-      if (selectedItems !== undefined && selectedItems[0]) {
+      if (selectedItems?.[0]) {
         setSelectedItem(selectedItems[0]);
       }
     },

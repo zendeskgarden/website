@@ -59,23 +59,22 @@ export const PropSheet: React.FC<{
                   defaultMonospace = false;
                 }
 
-                const type =
-                  prop.type.indexOf('=>') === -1 ? (
-                    prop.type
-                  ) : (
-                    <Tooltip
-                      css={`
-                        max-width: 460px;
-                      `}
-                      type="light"
-                      size="small"
-                      placement="top-start"
-                      zIndex={100}
-                      content={<CodeBlock size="small">{prop.type}</CodeBlock>}
-                    >
-                      <Button isLink>func</Button>
-                    </Tooltip>
-                  );
+                const type = prop.type.includes('=>') ? (
+                  <Tooltip
+                    css={`
+                      max-width: 460px;
+                    `}
+                    type="light"
+                    size="small"
+                    placement="top-start"
+                    zIndex={100}
+                    content={<CodeBlock size="small">{prop.type}</CodeBlock>}
+                  >
+                    <Button isLink>func</Button>
+                  </Tooltip>
+                ) : (
+                  prop.type
+                );
 
                 return (
                   <Table.Row key={`${component.name}-${name}`}>
