@@ -14,17 +14,17 @@ import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]}>
+      <Avatar backgroundColor={PALETTE.grey[700]}>
         <UserIcon role="img" aria-label="icon avatar" />
       </Avatar>
     </Col>
     <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]}>
+      <Avatar backgroundColor={PALETTE.grey[700]}>
         <img alt="image avatar" src="https://garden.zendesk.com/components/avatar/user.png" />
       </Avatar>
     </Col>
     <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]}>
+      <Avatar backgroundColor={PALETTE.grey[700]}>
         <Avatar.Text>ZD</Avatar.Text>
       </Avatar>
     </Col>

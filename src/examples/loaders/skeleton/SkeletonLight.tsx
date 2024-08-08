@@ -7,12 +7,13 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import { getColor } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
 import { MD, XXL } from '@zendeskgarden/react-typography';
 import { Skeleton } from '@zendeskgarden/react-loaders';
 
 const StyledCol = styled(Grid.Col)`
-  background-color: ${p => p.theme.palette.kale[600]};
+  background-color: ${p => getColor({ theme: p.theme, hue: 'chromeHue', shade: 800 })};
   padding: ${p => p.theme.space.md};
 `;
 

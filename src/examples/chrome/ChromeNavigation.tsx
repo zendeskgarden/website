@@ -39,12 +39,12 @@ const Example = () => {
   const [showSubNav, setShowSubNav] = useState(false);
 
   return (
-    <Chrome isFluid style={{ height: 500, minWidth: 600 }} hue={PALETTE.blue[800]}>
+    <Chrome isFluid style={{ height: 500, minWidth: 600 }} hue={PALETTE.blue[900]}>
       <SkipNav targetId="example-navigation-main-content">Skip to main content</SkipNav>
       <Nav isExpanded={expanded} aria-label="chrome navigation example nav">
         <NavItem hasLogo>
           <NavItemIcon>
-            <ProductIcon style={{ color: PALETTE.green[400] }} />
+            <ProductIcon style={{ color: PALETTE.green[500] }} />
           </NavItemIcon>
           <NavItemText>Zendesk Garden</NavItemText>
         </NavItem>

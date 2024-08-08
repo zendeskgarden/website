@@ -6,23 +6,23 @@
  */
 
 import React from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Hint, Label, Option } from '@zendeskgarden/react-dropdowns.next';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Combobox, Field, Option } from '@zendeskgarden/react-dropdowns';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <Field>
-        <Label>Plant</Label>
-        <Hint>Choose your favorite plant</Hint>
+        <Field.Label>Plant</Field.Label>
+        <Field.Hint>Choose your favorite plant</Field.Hint>
         <Combobox>
           <Option value="Cactus" />
           <Option value="Orchid" />
           <Option value="Succulent" isSelected />
         </Combobox>
       </Field>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

@@ -6,7 +6,7 @@
  */
 
 import React, { ButtonHTMLAttributes } from 'react';
-import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import {
   Body,
