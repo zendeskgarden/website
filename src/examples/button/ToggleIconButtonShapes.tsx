@@ -24,7 +24,9 @@ const Example = () => {
             aria-label="round leaf"
             isBasic={false}
             isPressed={roundPressed}
-            onClick={() => setRoundPressed(!roundPressed)}
+            onClick={() => {
+              setRoundPressed(!roundPressed);
+            }}
           >
             <RoundIcon />
           </ToggleIconButton>
@@ -37,7 +39,9 @@ const Example = () => {
             isBasic={false}
             isPill={false}
             isPressed={squarePressed}
-            onClick={() => setSquarePressed(!squarePressed)}
+            onClick={() => {
+              setSquarePressed(!squarePressed);
+            }}
           >
             <SquareIcon />
           </ToggleIconButton>

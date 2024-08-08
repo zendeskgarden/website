@@ -47,7 +47,9 @@ const Example = () => {
   const debounceHandleChange = useMemo(() => debounce(handleChange, 300), [handleChange]);
 
   useEffect(() => {
-    return () => debounceHandleChange.cancel();
+    return () => {
+      debounceHandleChange.cancel();
+    };
   }, [debounceHandleChange]);
 
   return (

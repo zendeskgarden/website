@@ -141,7 +141,13 @@ const Example = () => {
           ) : (
             <FileList>
               {files.map((file, index) => (
-                <FileItem key={file} name={file} onRemove={() => removeFile(index)} />
+                <FileItem
+                  key={file}
+                  name={file}
+                  onRemove={() => {
+                    removeFile(index);
+                  }}
+                />
               ))}
             </FileList>
           )}

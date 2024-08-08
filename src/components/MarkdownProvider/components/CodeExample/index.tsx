@@ -148,7 +148,9 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
       >
         <Tooltip content={`Toggle ${parentTheme.colors.base === 'light' ? 'dark' : 'light'} mode`}>
           <ToggleIconButton
-            onClick={() => setIsModeToggled(!isModeToggled)}
+            onClick={() => {
+              setIsModeToggled(!isModeToggled);
+            }}
             isPressed={isModeToggled}
             isPill={false}
             focusInset
@@ -167,7 +169,9 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
         </ColorPickerDialog>
         <Tooltip content="Toggle RTL">
           <ToggleIconButton
-            onClick={() => setIsRtl(!isRtl)}
+            onClick={() => {
+              setIsRtl(!isRtl);
+            }}
             isPressed={isRtl}
             isPill={false}
             focusInset
@@ -205,7 +209,9 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
         </Tooltip>
         <Tooltip content="View code">
           <ToggleIconButton
-            onClick={() => setIsCodeVisible(!isCodeVisible)}
+            onClick={() => {
+              setIsCodeVisible(!isCodeVisible);
+            }}
             isPressed={isCodeVisible}
             isPill={false}
             focusInset

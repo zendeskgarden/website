@@ -16,9 +16,19 @@ const Example = () => {
   return (
     <Row>
       <Col textAlign="center">
-        <Button onClick={() => setVisible(true)}>Open modal</Button>
+        <Button
+          onClick={() => {
+            setVisible(true);
+          }}
+        >
+          Open modal
+        </Button>
         {!!visible && (
-          <Modal onClose={() => setVisible(false)}>
+          <Modal
+            onClose={() => {
+              setVisible(false);
+            }}
+          >
             <Header tag="h2">Do you need plant food?</Header>
             <Body>
               To boost your plants chances of success, use a combination of top-quality soil and the
@@ -27,12 +37,22 @@ const Example = () => {
             </Body>
             <Footer>
               <FooterItem>
-                <Button onClick={() => setVisible(false)} isBasic>
+                <Button
+                  onClick={() => {
+                    setVisible(false);
+                  }}
+                  isBasic
+                >
                   Cancel
                 </Button>
               </FooterItem>
               <FooterItem>
-                <Button isPrimary onClick={() => setVisible(false)}>
+                <Button
+                  isPrimary
+                  onClick={() => {
+                    setVisible(false);
+                  }}
+                >
                   Add plant food
                 </Button>
               </FooterItem>

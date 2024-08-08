@@ -23,7 +23,9 @@ const Example = () => {
           <ToggleIconButton
             aria-label="small leaf"
             isPressed={smallPressed}
-            onClick={() => setSmallPressed(!smallPressed)}
+            onClick={() => {
+              setSmallPressed(!smallPressed);
+            }}
             size="small"
           >
             <Icon />
@@ -35,7 +37,9 @@ const Example = () => {
           <ToggleIconButton
             aria-label="medium leaf"
             isPressed={mediumPressed}
-            onClick={() => setMediumPressed(!mediumPressed)}
+            onClick={() => {
+              setMediumPressed(!mediumPressed);
+            }}
             size="medium"
           >
             <Icon />
@@ -47,7 +51,9 @@ const Example = () => {
           <ToggleIconButton
             aria-label="large leaf"
             isPressed={largePressed}
-            onClick={() => setLargePressed(!largePressed)}
+            onClick={() => {
+              setLargePressed(!largePressed);
+            }}
             size="large"
           >
             <Icon />

@@ -48,19 +48,34 @@ const Example = () => {
           </NavItemIcon>
           <NavItemText>Zendesk Garden</NavItemText>
         </NavItem>
-        <NavItem isCurrent={nav === 'nav-1'} onClick={() => setNav('nav-1')}>
+        <NavItem
+          isCurrent={nav === 'nav-1'}
+          onClick={() => {
+            setNav('nav-1');
+          }}
+        >
           <NavItemIcon>
             <HomeIcon />
           </NavItemIcon>
           <NavItemText>Home</NavItemText>
         </NavItem>
-        <NavItem isCurrent={nav === 'nav-2'} onClick={() => setNav('nav-2')}>
+        <NavItem
+          isCurrent={nav === 'nav-2'}
+          onClick={() => {
+            setNav('nav-2');
+          }}
+        >
           <NavItemIcon>
             <EmailIcon />
           </NavItemIcon>
           <NavItemText>Email</NavItemText>
         </NavItem>
-        <NavItem isCurrent={nav === 'nav-3'} onClick={() => setNav('nav-3')}>
+        <NavItem
+          isCurrent={nav === 'nav-3'}
+          onClick={() => {
+            setNav('nav-3');
+          }}
+        >
           <NavItemIcon>
             <SettingsIcon />
           </NavItemIcon>

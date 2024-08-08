@@ -37,7 +37,9 @@ const Example = () => {
               name="validation-example"
               value="annual"
               checked={radioValue === 'annual'}
-              onChange={event => setRadioValue(event.target.value)}
+              onChange={event => {
+                setRadioValue(event.target.value);
+              }}
             >
               <Field.Label isRegular>Annual</Field.Label>
             </Radio>
@@ -47,7 +49,9 @@ const Example = () => {
               name="validation-example"
               value="perennial"
               checked={radioValue === 'perennial'}
-              onChange={event => setRadioValue(event.target.value)}
+              onChange={event => {
+                setRadioValue(event.target.value);
+              }}
             >
               <Field.Label isRegular>Perennial</Field.Label>
             </Radio>
@@ -57,7 +61,9 @@ const Example = () => {
               name="validation-example"
               value="biennial"
               checked={radioValue === 'biennial'}
-              onChange={event => setRadioValue(event.target.value)}
+              onChange={event => {
+                setRadioValue(event.target.value);
+              }}
             >
               <Field.Label isRegular>Biennial</Field.Label>
             </Radio>

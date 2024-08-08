@@ -21,7 +21,9 @@ const Example = () => {
           <ToggleIconButton
             aria-label="leaf"
             isPressed={pressed}
-            onClick={() => setPressed(!pressed)}
+            onClick={() => {
+              setPressed(!pressed);
+            }}
           >
             <Icon />
           </ToggleIconButton>

@@ -18,7 +18,12 @@ const Example = () => {
         <Field>
           <Field.Label>Flowers</Field.Label>
           <Field.Hint>Plant {rangeValue} flowers</Field.Hint>
-          <Range step={10} onChange={e => setRangeValue(e.target.value)} />
+          <Range
+            step={10}
+            onChange={e => {
+              setRangeValue(e.target.value);
+            }}
+          />
         </Field>
       </Grid.Col>
     </Grid.Row>

@@ -60,13 +60,17 @@ const Example = () => {
 
       <CursorPagination aria-label="Cursor pagination">
         <CursorPagination.Previous
-          onClick={() => setCurrentPage(currentPage - 1)}
+          onClick={() => {
+            setCurrentPage(currentPage - 1);
+          }}
           disabled={currentPage === 1}
         >
           Previous
         </CursorPagination.Previous>
         <CursorPagination.Next
-          onClick={() => setCurrentPage(currentPage + 1)}
+          onClick={() => {
+            setCurrentPage(currentPage + 1);
+          }}
           disabled={currentPage === pageSize}
         >
           Next

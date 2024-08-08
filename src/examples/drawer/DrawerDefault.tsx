@@ -13,8 +13,12 @@ import { DrawerModal } from '@zendeskgarden/react-modals';
 
 const Example = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const open = () => setIsOpen(true);
-  const close = () => setIsOpen(false);
+  const open = () => {
+    setIsOpen(true);
+  };
+  const close = () => {
+    setIsOpen(false);
+  };
 
   return (
     <Row>
