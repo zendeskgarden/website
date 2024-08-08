@@ -9,7 +9,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
 import { SELECTOR_FOCUS_VISIBLE, getColor, getColorV8 } from '@zendeskgarden/react-theming';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { XXL } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import MaxWidthLayout from 'layouts/MaxWidth';
@@ -53,18 +53,18 @@ export const News: React.FC = () => {
     >
       <MaxWidthLayout>
         <Grid gutters="lg">
-          <Row>
-            <Col
+          <Grid.Row>
+            <Grid.Col
               css={css`
                 padding-top: ${p => p.theme.space.xxl};
                 padding-bottom: ${p => p.theme.space.xxl};
               `}
             >
               <StyledSectionHeader>News and Articles</StyledSectionHeader>
-              <Row>
+              <Grid.Row>
                 {allGardenNews.edges.map((edge: any, index: number) => {
                   return (
-                    <Col
+                    <Grid.Col
                       key={`${edge.node.url}-${index}`}
                       sm={4}
                       css={css`
@@ -91,12 +91,12 @@ export const News: React.FC = () => {
                           {edge.node.author}
                         </StyledNewsAnchor>
                       </p>
-                    </Col>
+                    </Grid.Col>
                   );
                 })}
-              </Row>
-            </Col>
-          </Row>
+              </Grid.Row>
+            </Grid.Col>
+          </Grid.Row>
         </Grid>
       </MaxWidthLayout>
     </div>

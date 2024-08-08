@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { css, ThemeProps } from 'styled-components';
 import { getLineHeight, mediaQuery } from '@zendeskgarden/react-theming';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { LG, XXXL } from '@zendeskgarden/react-typography';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SearchInput } from 'layouts/Root/components/SearchInput';
@@ -53,8 +53,8 @@ export const Search: React.FC = () => {
     >
       <MaxWidthLayout>
         <Grid gutters="lg">
-          <Row alignItems="center">
-            <Col
+          <Grid.Row alignItems="center">
+            <Grid.Col
               md={6}
               order={1}
               orderMd={0}
@@ -81,8 +81,8 @@ export const Search: React.FC = () => {
                   maxHeight: '100%'
                 }}
               />
-            </Col>
-            <Col
+            </Grid.Col>
+            <Grid.Col
               md={6}
               css={css`
                 ${p => mediaQuery('down', 'md', p.theme)} {
@@ -122,8 +122,8 @@ export const Search: React.FC = () => {
                   <SearchInput id="algolia-docsearch-home" placeholder="how to use the stepper" />
                 </div>
               </div>
-            </Col>
-          </Row>
+            </Grid.Col>
+          </Grid.Row>
         </Grid>
       </MaxWidthLayout>
     </div>
