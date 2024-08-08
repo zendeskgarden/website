@@ -8,35 +8,35 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Col, Row } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Label, Option } from '@zendeskgarden/react-dropdowns.next';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Combobox, Field, Option } from '@zendeskgarden/react-dropdowns';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   margin-top: ${p => p.theme.space.md};
 `;
 
 const Example = () => (
   <>
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
-          <Label>Tree</Label>
+          <Field.Label>Tree</Field.Label>
           <Combobox>
             <Option value="Douglas fir" />
             <Option value="Redwood" />
             <Option value="Sequoia" isSelected />
           </Combobox>
         </Field>
-      </Col>
+      </Grid.Col>
       <StyledCol sm={5}>
         <Field>
-          <Label>Tree</Label>
+          <Field.Label>Tree</Field.Label>
           <Combobox isCompact>
             <Option value="Crape myrtle" isSelected />
             <Option value="Hydrangea" />
@@ -44,21 +44,21 @@ const Example = () => (
           </Combobox>
         </Field>
       </StyledCol>
-    </Row>
+    </Grid.Row>
     <StyledRow justifyContent="center">
-      <Col sm={5}>
+      <Grid.Col sm={5}>
         <Field>
-          <Label>Trees</Label>
+          <Field.Label>Trees</Field.Label>
           <Combobox isMultiselectable maxHeight="76px">
             <Option value="Douglas fir" isSelected />
             <Option value="Redwood" isSelected />
             <Option value="Sequoia" isSelected />
           </Combobox>
         </Field>
-      </Col>
+      </Grid.Col>
       <StyledCol sm={5}>
         <Field>
-          <Label>Trees</Label>
+          <Field.Label>Trees</Field.Label>
           <Combobox isCompact isMultiselectable maxHeight="64px">
             <Option value="Crape myrtle" isSelected />
             <Option value="Hydrangea" isSelected />

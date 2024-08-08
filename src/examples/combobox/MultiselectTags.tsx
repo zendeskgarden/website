@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Label, Option, Tag } from '@zendeskgarden/react-dropdowns.next';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Combobox, Field, Option, Tag } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as AvatarIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const OPTIONS = [
@@ -47,10 +47,10 @@ const Example = () => {
   };
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
-          <Label>Horticulturalists</Label>
+          <Field.Label>Horticulturalists</Field.Label>
           <Combobox isMultiselectable maxHeight="auto">
             {OPTIONS.map(option => (
               <Option
@@ -66,8 +66,8 @@ const Example = () => {
             ))}
           </Combobox>
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Combobox, Field, Option } from '@zendeskgarden/react-dropdowns';
 import { getColor } from '@zendeskgarden/react-theming';
-import { Combobox, Field, Label, Option } from '@zendeskgarden/react-dropdowns.next';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { ReactComponent as SearchIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import styled from 'styled-components';
@@ -50,10 +50,10 @@ const Value = ({ children }: { children: string }) => (
 );
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <Field>
-        <Label>Veggies</Label>
+        <Field.Label>Veggies</Field.Label>
         <Combobox
           startIcon={<SearchIcon />}
           endIcon={<LeafIcon />}
@@ -70,8 +70,8 @@ const Example = () => (
           ))}
         </Combobox>
       </Field>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

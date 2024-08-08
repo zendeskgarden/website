@@ -6,29 +6,29 @@
  */
 
 import React from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Label, OptGroup, Option } from '@zendeskgarden/react-dropdowns.next';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Combobox, Field, OptGroup, Option } from '@zendeskgarden/react-dropdowns';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <Field>
-        <Label>Fruits and vegetables</Label>
+        <Field.Label>Fruits and vegetables</Field.Label>
         <Combobox>
-          <OptGroup label="Fruits">
+          <OptGroup legend="Fruits">
             <Option value="Apple" />
             <Option value="Banana" />
             <Option value="Cherry" />
           </OptGroup>
-          <OptGroup label="Vegetables">
+          <OptGroup legend="Vegetables">
             <Option value="Asparagus" />
             <Option value="Broccoli" />
             <Option value="Cauliflower" />
           </OptGroup>
         </Combobox>
       </Field>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

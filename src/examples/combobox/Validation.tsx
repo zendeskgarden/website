@@ -8,45 +8,45 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Col, Row } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Label, Message, Option } from '@zendeskgarden/react-dropdowns.next';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Combobox, Field, Option } from '@zendeskgarden/react-dropdowns';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm>
       <Field>
-        <Label>Plant</Label>
+        <Field.Label>Plant</Field.Label>
         <Combobox validation="success">
           <Option value="Cactus" isDisabled isSelected />
         </Combobox>
-        <Message validation="success">Cactus is available</Message>
+        <Field.Message validation="success">Cactus is available</Field.Message>
       </Field>
-    </Col>
+    </Grid.Col>
     <StyledCol>
       <Field>
-        <Label>Plant</Label>
+        <Field.Label>Plant</Field.Label>
         <Combobox validation="warning">
           <Option value="Cactus" isDisabled isSelected />
         </Combobox>
-        <Message validation="warning">Only 2 left in inventory</Message>
+        <Field.Message validation="warning">Only 2 left in inventory</Field.Message>
       </Field>
     </StyledCol>
     <StyledCol>
       <Field>
-        <Label>Plant</Label>
+        <Field.Label>Plant</Field.Label>
         <Combobox validation="error">
           <Option value="Cactus" isDisabled isSelected />
         </Combobox>
-        <Message validation="error">Cactus is currently unavailable</Message>
+        <Field.Message validation="error">Cactus is currently unavailable</Field.Message>
       </Field>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;

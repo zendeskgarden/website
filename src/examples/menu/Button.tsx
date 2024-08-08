@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => {
@@ -17,8 +17,8 @@ const Example = () => {
   };
 
   return (
-    <Row justifyContent="center">
-      <Col textAlign="center">
+    <Grid.Row justifyContent="center">
+      <Grid.Col textAlign="center">
         <Menu
           button={props => (
             <Button {...props} isPrimary>
@@ -34,8 +34,8 @@ const Example = () => {
           <Item value="petunia">Petunia</Item>
           <Item value="lily">Lily</Item>
         </Menu>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 
