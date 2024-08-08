@@ -8,6 +8,7 @@
 import React from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Combobox, Field, Option } from '@zendeskgarden/react-dropdowns';
+import { getColor } from '@zendeskgarden/react-theming';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { ReactComponent as SearchIcon } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import styled from 'styled-components';
@@ -19,7 +20,7 @@ const StyledEmoji = styled.span`
   justify-content: center;
   margin-top: -${p => p.theme.space.base / 2}px;
   border-radius: 50%;
-  background-color: ${p => p.theme.palette.green[200]};
+  background-color: ${p => getColor({ theme: p.theme, hue: 'green', shade: 300 })};
   width: ${p => p.theme.space.base * 6}px;
   height: ${p => p.theme.space.base * 6}px;
 `;

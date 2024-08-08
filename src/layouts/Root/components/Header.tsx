@@ -8,7 +8,7 @@
 import React, { useState, HTMLAttributes, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
-import { getColor, getColorV8, mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
+import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
@@ -80,14 +80,14 @@ const Logo: React.FC = () => (
           css={css`
             width: ${p => p.theme.iconSizes.lg};
             height: ${p => p.theme.iconSizes.lg};
-            color: ${PALETTE.green[400]};
+            color: ${p => getColorV8('green', 400, p.theme)};
           `}
         />
         <GardenWordmark
           css={css`
             margin-left: ${p => p.theme.space.xs};
             height: ${p => p.theme.iconSizes.lg};
-            color: ${PALETTE.kale[700]};
+            color: ${p => getColorV8('kale', 700, p.theme)};
 
             ${p => mediaQuery('down', 'sm', p.theme)} {
               display: none;

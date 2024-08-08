@@ -22,7 +22,7 @@ interface IAlertProps extends IGardenAlertProps {
 
 export const Alert = ({ children, title, ...props }: IAlertProps) => (
   <StyledAlert {...props}>
-    {!!title && <StyledAlert.Title>{title}</StyledAlert.Title>}
-    <StyledAlert.Paragraph>{children}</StyledAlert.Paragraph>
+    {!!title && <GardenAlert.Title>{title}</GardenAlert.Title>}
+    <GardenAlert.Paragraph>{children}</GardenAlert.Paragraph>
   </StyledAlert>
 );

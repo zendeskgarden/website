@@ -30,7 +30,8 @@ const StyledColorSwatch = styled.figure<{ color: string }>`
     readableColor(
       p.color,
       getColor({ theme: p.theme, variable: 'foreground.default' }),
-      getColor({ theme: p.theme, variable: 'background.default' })
+      getColor({ theme: p.theme, variable: 'background.default' }),
+      false /* strict */
     )};
 `;
 

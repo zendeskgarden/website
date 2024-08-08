@@ -13,13 +13,13 @@ import { Dots } from '@zendeskgarden/react-loaders';
 const Example = () => (
   <Grid.Row>
     <Grid.Col textAlign="center">
-      <Dots size={32} color={PALETTE.grey[600]} />
+      <Dots size={32} color={PALETTE.grey[700]} />
     </Grid.Col>
     <Grid.Col textAlign="center">
-      <Dots size={32} color={PALETTE.blue[600]} />
+      <Dots size={32} color={PALETTE.blue[700]} />
     </Grid.Col>
     <Grid.Col textAlign="center">
-      <Dots size={32} color={PALETTE.green[600]} />
+      <Dots size={32} color={PALETTE.green[700]} />
     </Grid.Col>
   </Grid.Row>
 );

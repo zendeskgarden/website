@@ -15,12 +15,12 @@ import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user
 const Example = () => (
   <Row>
     <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]} size="medium">
+      <Avatar backgroundColor={PALETTE.grey[700]} size="medium">
         <UserIcon role="img" aria-label="User" />
       </Avatar>
     </Col>
     <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.kale[700]} size="medium" isSystem>
+      <Avatar backgroundColor={PALETTE.kale[900]} size="medium" isSystem>
         <ZendeskIcon role="img" aria-label="Zendesk" />
       </Avatar>
     </Col>

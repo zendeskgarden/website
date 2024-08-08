@@ -14,27 +14,27 @@ import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user
 const Example = () => (
   <Row alignItems="center">
     <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]} size="extraextrasmall">
+      <Avatar backgroundColor={PALETTE.grey[700]} size="extraextrasmall">
         <UserIcon role="img" aria-label="extra extra small user avatar" />
       </Avatar>
     </Col>
     <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]} size="extrasmall">
+      <Avatar backgroundColor={PALETTE.grey[700]} size="extrasmall">
         <UserIcon role="img" aria-label="extra small user avatar" />
       </Avatar>
     </Col>
     <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]} size="small">
+      <Avatar backgroundColor={PALETTE.grey[700]} size="small">
         <UserIcon role="img" aria-label="small user avatar" />
       </Avatar>
     </Col>
     <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]} size="medium">
+      <Avatar backgroundColor={PALETTE.grey[700]} size="medium">
         <UserIcon role="img" aria-label="medium user avatar" />
       </Avatar>
     </Col>
     <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]} size="large">
+      <Avatar backgroundColor={PALETTE.grey[700]} size="large">
         <UserIcon role="img" aria-label="large user avatar" />
       </Avatar>
     </Col>
