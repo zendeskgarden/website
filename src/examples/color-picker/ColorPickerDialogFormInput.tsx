@@ -37,7 +37,7 @@ const toHex = (selectedColor: IColor) => {
   }
 
   if (colorHex.length === 4) {
-    if (alphaHex.charAt(0) === alphaHex.charAt(1)) {
+    if (alphaHex.startsWith(alphaHex.charAt(1))) {
       alphaHex = alphaHex.charAt(0);
     } else {
       colorHex = `#${colorHex.charAt(1)}${colorHex.charAt(1)}${colorHex.charAt(2)}${colorHex.charAt(
