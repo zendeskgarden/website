@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { PALETTE, getColorV8 } from '@zendeskgarden/react-theming';
+import { PALETTE, getColor } from '@zendeskgarden/react-theming';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Draggable } from '@zendeskgarden/react-drag-drop';
 import { IconButton } from '@zendeskgarden/react-buttons';
@@ -18,7 +18,7 @@ import styled from 'styled-components';
 
 const StyledDecorator = styled.div`
   display: flex;
-  color: ${p => getColorV8('neutralHue', 600, p.theme)};
+  color: ${p => getColor({ theme: p.theme, hue: 'neutralHue', shade: 700 })};
   padding-inline-end: ${p => p.theme.space.xs};
 `;
 
@@ -34,7 +34,7 @@ const Example = () => (
           <Span isBold tag="div">
             Citrus
           </Span>
-          <Span hue={PALETTE.grey[600]}>Oranges, mandarins, limes, and the like</Span>
+          <Span hue={PALETTE.grey[700]}>Oranges, mandarins, limes, and the like</Span>
         </Draggable.Content>
         <Tooltip content="More options">
           <IconButton aria-label="More options">

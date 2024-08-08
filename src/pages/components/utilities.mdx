@@ -6,7 +6,7 @@ description: >
 package: '@zendeskgarden/react-theming'
 components:
   - theming/src/utils/arrowStyles.ts
-  - theming/src/utils/getColorV8.ts
+  - theming/src/utils/getColor.ts
   - theming/src/utils/getLineHeight.ts
   - theming/src/utils/mediaQuery.ts
   - theming/src/utils/menuStyles.ts
@@ -58,12 +58,12 @@ to determine the color of the focus ring.
 
 <PropSheet components={COMPONENTS} componentName="focusStyles" headerName="Parameter" />
 
-### getColorV8
+### getColor
 
 Get a color for the given hue, shade, and theme. The algorithm returns a
 valid color even if the particular shade doesn't exist in the current theme.
 
-<PropSheet components={COMPONENTS} componentName="getColorV8" headerName="Parameter" />
+<PropSheet components={COMPONENTS} componentName="getColor" headerName="Parameter" />
 
 ### getFocusBoxShadow
 

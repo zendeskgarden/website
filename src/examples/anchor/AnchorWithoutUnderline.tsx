@@ -16,8 +16,8 @@ const StyledListItem = styled(UnorderedList.Item)`
 `;
 
 const Example = () => (
-  <Grid.Row>
-    <Grid.Col textAlign="center">
+  <Grid.Row justifyContent="center">
+    <Grid.Col size="auto">
       <UnorderedList>
         <StyledListItem>
           <Anchor isUnderlined={false} href="#asparagus">

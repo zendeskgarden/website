@@ -8,13 +8,13 @@
 import React from 'react';
 import { ColorPickerDialog } from '@zendeskgarden/react-colorpickers';
 import { Row, Col } from '@zendeskgarden/react-grid';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 
 const Example = () => (
   <Row>
     <Col textAlign="center">
       <ColorPickerDialog
-        defaultColor={DEFAULT_THEME.palette.blue[600]}
+        defaultColor={PALETTE.blue[700]}
         buttonProps={{
           'aria-label': 'choose your favorite color'
         }}
