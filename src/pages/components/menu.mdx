@@ -210,13 +210,13 @@ const ITEMS = [
 Match `Item` and `ItemGroup` prop signatures when using wrapper components.
 
 ```jsx
-const ItemComponent = (props) => (
-  <Item {...props} />
-)
+const ItemComponent = forwardRef((props, ref) => (
+  <Item {...props} ref={ref} />
+))
 
-const ItemGroupComponent = (props) => (
-  <ItemGroup {...props} />
-)
+const ItemGroupComponent = forwardRef((props, ref) => (
+  <ItemGroup {...props} ref={ref} />
+))
 
 <Menu>
   <ItemGroupComponent legend="Flowers">
