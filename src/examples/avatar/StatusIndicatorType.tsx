@@ -7,23 +7,23 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { StatusIndicator } from '@zendeskgarden/react-avatars';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;
 
 const Example = () => (
-  <Row alignItems="center">
-    <Col textAlign="center" sm>
+  <Grid.Row alignItems="center">
+    <Grid.Col textAlign="center" sm>
       <StatusIndicator type="available" aria-label="status: available">
         Available
       </StatusIndicator>
-    </Col>
+    </Grid.Col>
     <StyledCol textAlign="center" sm>
       <StatusIndicator type="away" aria-label="status: away">
         Away
@@ -39,7 +39,7 @@ const Example = () => (
         Offline
       </StatusIndicator>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;
