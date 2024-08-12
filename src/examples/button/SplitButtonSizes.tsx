@@ -37,9 +37,9 @@ const Example = () => {
                 isRotated={smallRotated}
               />
             )}
-            onChange={changes =>
-              changes.isExpanded !== undefined && setSmallRotated(changes.isExpanded)
-            }
+            onChange={changes => {
+              changes.isExpanded !== undefined && setSmallRotated(changes.isExpanded);
+            }}
             placement="bottom-end"
             zIndex={10000}
           >
@@ -61,9 +61,9 @@ const Example = () => {
                 isRotated={mediumRotated}
               />
             )}
-            onChange={changes =>
-              changes.isExpanded !== undefined && setMediumRotated(changes.isExpanded)
-            }
+            onChange={changes => {
+              changes.isExpanded !== undefined && setMediumRotated(changes.isExpanded);
+            }}
             placement="bottom-end"
             zIndex={10000}
           >
@@ -85,9 +85,9 @@ const Example = () => {
                 isRotated={largeRotated}
               />
             )}
-            onChange={changes =>
-              changes.isExpanded !== undefined && setLargeRotated(changes.isExpanded)
-            }
+            onChange={changes => {
+              changes.isExpanded !== undefined && setLargeRotated(changes.isExpanded);
+            }}
             placement="bottom-end"
             zIndex={10000}
           >

@@ -45,7 +45,9 @@ const Example = () => {
           <StyledField>
             <Toggle
               checked={isSheetOpen}
-              onChange={() => setIsSheetOpen(!isSheetOpen)}
+              onChange={() => {
+                setIsSheetOpen(!isSheetOpen);
+              }}
               aria-controls={sheetId}
             >
               <Label>Show Sheet</Label>
@@ -86,13 +88,22 @@ const Example = () => {
               <Button>Action</Button>
             </Sheet.FooterItem>
             <Sheet.FooterItem>
-              <Button isPrimary onClick={() => setIsSheetOpen(false)}>
+              <Button
+                isPrimary
+                onClick={() => {
+                  setIsSheetOpen(false);
+                }}
+              >
                 Close
               </Button>
             </Sheet.FooterItem>
           </Sheet.Footer>
 
-          <Sheet.Close onClick={() => setIsSheetOpen(false)} />
+          <Sheet.Close
+            onClick={() => {
+              setIsSheetOpen(false);
+            }}
+          />
         </StyledSheet>
       </StyledRow>
     </Grid>

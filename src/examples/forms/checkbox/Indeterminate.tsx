@@ -83,12 +83,22 @@ const Example = () => {
         </Field>
         <StyledGroup>
           <Field>
-            <Checkbox checked={pest} onChange={() => dispatch({ type: 'pest' })}>
+            <Checkbox
+              checked={pest}
+              onChange={() => {
+                dispatch({ type: 'pest' });
+              }}
+            >
               <Field.Label isRegular>Pest resistant</Field.Label>
             </Checkbox>
           </Field>
           <Field>
-            <Checkbox checked={light} onChange={() => dispatch({ type: 'light' })}>
+            <Checkbox
+              checked={light}
+              onChange={() => {
+                dispatch({ type: 'light' });
+              }}
+            >
               <Field.Label isRegular>Needs direct light</Field.Label>
             </Checkbox>
           </Field>

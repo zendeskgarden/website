@@ -99,7 +99,9 @@ export const SidebarLayout: React.FC<ISidebarLayoutProps> = ({ children, sidebar
           </div>
           {!!isMobileSidebarExpanded && <MobileSidebar sidebar={sidebar} />}
           <StyledMobileNavButton
-            onClick={() => setIsMobileSidebarExpanded(!isMobileSidebarExpanded)}
+            onClick={() => {
+              setIsMobileSidebarExpanded(!isMobileSidebarExpanded);
+            }}
           >
             {isMobileSidebarExpanded ? <CloseStroke /> : <OverflowStroke />}
           </StyledMobileNavButton>

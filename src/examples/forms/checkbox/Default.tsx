@@ -20,17 +20,32 @@ const Example = () => {
         <Fieldset>
           <Fieldset.Legend>Plant preference</Fieldset.Legend>
           <Field>
-            <Checkbox checked={pest} onChange={() => setPest(!pest)}>
+            <Checkbox
+              checked={pest}
+              onChange={() => {
+                setPest(!pest);
+              }}
+            >
               <Field.Label>Pest resistant</Field.Label>
             </Checkbox>
           </Field>
           <Field>
-            <Checkbox checked={light} onChange={() => setLight(!light)}>
+            <Checkbox
+              checked={light}
+              onChange={() => {
+                setLight(!light);
+              }}
+            >
               <Field.Label>Needs direct light</Field.Label>
             </Checkbox>
           </Field>
           <Field>
-            <Checkbox checked={drought} onChange={() => setDrought(!drought)}>
+            <Checkbox
+              checked={drought}
+              onChange={() => {
+                setDrought(!drought);
+              }}
+            >
               <Field.Label>Drought-tolerant</Field.Label>
             </Checkbox>
           </Field>

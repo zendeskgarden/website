@@ -47,7 +47,12 @@ const Example = () => {
             <StyledFieldset.Legend>Sheet size</StyledFieldset.Legend>
             {[col4, col6, px380, px480].map(sampleSize => (
               <Field key={`sizes-${sampleSize.label.replace(' ', '-')}`}>
-                <Radio checked={size === sampleSize} onChange={() => setSize(sampleSize)}>
+                <Radio
+                  checked={size === sampleSize}
+                  onChange={() => {
+                    setSize(sampleSize);
+                  }}
+                >
                   <Label>{sampleSize.label}</Label>
                 </Radio>
               </Field>
