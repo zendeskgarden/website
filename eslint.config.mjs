@@ -5,14 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { fixupPluginRules } from '@eslint/compat';
 import prettierConfig from 'eslint-config-prettier';
 import config from '@zendeskgarden/eslint-config';
 import noticePlugin from '@zendeskgarden/eslint-config/plugins/notice.js';
 import reactPlugin from '@zendeskgarden/eslint-config/plugins/react.js';
 import typeScriptPlugin from '@zendeskgarden/eslint-config/plugins/typescript.js';
 import typeScriptTypeCheckedPlugin from '@zendeskgarden/eslint-config/plugins/typescript-type-checked.js';
-import deprecationPlugin from 'eslint-plugin-deprecation';
 
 export default [
   ...config,
@@ -43,11 +41,6 @@ export default [
     files: ['**/*.ts', '**/*.tsx'],
     ...typeScriptPlugin,
     ...typeScriptTypeCheckedPlugin,
-    plugins: {
-      ...typeScriptPlugin.plugins,
-      ...typeScriptTypeCheckedPlugin.plugins,
-      deprecation: fixupPluginRules(deprecationPlugin)
-    },
     rules: {
       ...typeScriptPlugin.rules,
       ...typeScriptTypeCheckedPlugin.rules,
@@ -63,7 +56,7 @@ export default [
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/strict-boolean-expressions': 'off',
       '@typescript-eslint/unbound-method': 'off',
-      // 'deprecation/deprecation': 'warn', // TODO: enable for production
+      'deprecation/deprecation': 'off', // TODO: enable for production
       'react/prop-types': 'off'
     }
   },
