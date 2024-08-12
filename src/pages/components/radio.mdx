@@ -6,12 +6,12 @@ package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/common/Field.tsx
   - forms/src/elements/common/Fieldset.tsx
-  - forms/src/elements/common/Hint.tsx
-  - forms/src/elements/common/Label.tsx
-  - forms/src/elements/common/Message.tsx
   - forms/src/elements/Radio.tsx
 subcomponents:
+  - forms/src/elements/common/Hint.tsx
+  - forms/src/elements/common/Label.tsx
   - forms/src/elements/common/Legend.tsx
+  - forms/src/elements/common/Message.tsx
 ---
 
 import { SEO } from '../../components';
@@ -115,8 +115,8 @@ The Radio component follows this structure:
 ```jsx
 <Field>
   <Radio>
-    <Label />
-    <Hint />
+    <Field.Label />
+    <Field.Hint />
   </Radio>
   <Message />
 </Field>
@@ -127,9 +127,34 @@ The Radio component follows this structure:
 <Component components={props.data.mdx.components} componentName="field" />
 
 A Field provides accessibility attributes to its child [Radio](#radio) field by associating it
-with the corresponding [Label](#label) and [Hint](#hint).
+with the corresponding [Field.Label](#fieldlabel) and [Field.Hint](#fieldhint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
+
+#### Field.Hint
+
+<Component components={props.data.mdx.subcomponents} componentName="field.hint" />
+
+Nest the Hint within the [Radio](#radio) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.hint" />
+
+#### Field.Label
+
+<Component components={props.data.mdx.subcomponents} componentName="field.label" />
+
+Nest the Label within the [Radio](#radio) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.label" />
+
+#### Field.Message
+
+<Component components={props.data.mdx.subcomponents} componentName="field.message" />
+
+The Message component applies appropriate icon and styles based on the validation provided. Nest
+it within a [Field](#field) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.message" />
 
 ### Fieldset
 
@@ -147,31 +172,6 @@ components and a [Legend](#fieldsetlegend) together within a Fieldset component.
 Nest a Legend within a [Fieldset](#fieldset) component.
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="fieldset.legend" />
-
-### Hint
-
-<Component components={props.data.mdx.components} componentName="hint" />
-
-Nest the Hint within the [Radio](#radio) component.
-
-<PropSheet components={props.data.mdx.components} componentName="hint" />
-
-### Label
-
-<Component components={props.data.mdx.components} componentName="label" />
-
-Nest the Label within the [Radio](#radio) component.
-
-<PropSheet components={props.data.mdx.components} componentName="label" />
-
-### Message
-
-<Component components={props.data.mdx.components} componentName="message" />
-
-The Message component applies appropriate icon and styles based on the validation provided. Nest
-it within a [Field](#field) component.
-
-<PropSheet components={props.data.mdx.components} componentName="message" />
 
 ### Radio
 

@@ -5,6 +5,8 @@ description: >
   to compare and analyze information.
 package: '@zendeskgarden/react-tables'
 components:
+  - tables/src/elements/Table.tsx
+subcomponents:
   - tables/src/elements/Body.tsx
   - tables/src/elements/Caption.tsx
   - tables/src/elements/Cell.tsx
@@ -15,7 +17,6 @@ components:
   - tables/src/elements/OverflowButton.tsx
   - tables/src/elements/Row.tsx
   - tables/src/elements/SortableCell.tsx
-  - tables/src/elements/Table.tsx
 ---
 
 import { SEO } from '../../components';
@@ -201,25 +202,25 @@ The Table component follows this structure:
 ```jsx
 <Table>
   <Caption />
-  <Head>
-    <HeaderRow>
-      <HeaderCell />
-      <HeaderCell />
-      <SortableCell /> {/* Optional */}
+  <Table.Head>
+    <Table.HeaderRow>
+      <Table.HeaderCell />
+      <Table.HeaderCell />
+      <Table.SortableCell /> {/* Optional */}
       {/* etc. */}
     </HeaderRow>
-  </Head>
-  <Body>
-    <GroupRow> {/* Optional */}
-      <Cell />
-    </GroupRow>
-    <Row>
-      <Cell />
-      <Cell />
+  </Table.Head>
+  <Table.Body>
+    <Table.GroupRow> {/* Optional */}
+      <Table.Cell />
+    </Table.GroupRow>
+    <Table.Row>
+      <Table.Cell />
+      <Table.Cell />
       {/* etc. */}
-    </Row>
+    </Table.Row>
     {/* etc. */}
-  </Body>
+  </Table.Body>
 </Table>
 ```
 
@@ -228,84 +229,84 @@ The Table component follows this structure:
 - Follow the [MDN Table Accessibility
   Practices](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced#Tables_for_visually_impaired_users)
   guidelines to ensure the table data is accessible to screen-readers
-- Use the [SortableCell](#sortablecell) component in a sortable table to ensure
+- Use the [Table.SortableCell](#tablesortablecell) component in a sortable table to ensure
   that the header is interactive and accessible. See [SortableCell
   example](#sort).
-
-### Body
-
-<Component components={props.data.mdx.components} componentName="body" />
-
-<PropSheet components={props.data.mdx.components} componentName="body" />
-
-### Caption
-
-<Component components={props.data.mdx.components} componentName="caption" />
-
-<PropSheet components={props.data.mdx.components} componentName="caption" />
-
-### Cell
-
-<Component components={props.data.mdx.components} componentName="cell" />
-
-<PropSheet components={props.data.mdx.components} componentName="cell" />
-
-### GroupRow
-
-<Component components={props.data.mdx.components} componentName="groupRow" />
-
-The GroupRow component provides styles to show a title row for a group of rows. Nest it within the
-[Body](#body) component. See [GroupRow example](#grouped-rows).
-
-<PropSheet components={props.data.mdx.components} componentName="groupRow" />
-
-### Head
-
-<Component components={props.data.mdx.components} componentName="head" />
-
-<PropSheet components={props.data.mdx.components} componentName="head" />
-
-### HeaderCell
-
-<Component components={props.data.mdx.components} componentName="headerCell" />
-
-<PropSheet components={props.data.mdx.components} componentName="headerCell" />
-
-### HeaderRow
-
-<Component components={props.data.mdx.components} componentName="headerRow" />
-
-<PropSheet components={props.data.mdx.components} componentName="headerRow" />
-
-### OverflowButton
-
-<Component components={props.data.mdx.components} componentName="overflowButton" />
-
-The OverflowButton component enables implementation of an overflow menu in a [Cell](#cell). Nest it
-within a [Tooltip](/components/tooltip) and provide an `aria-label` to ensure it is accessible. See [OverflowButton example](#overflow).
-
-<PropSheet components={props.data.mdx.components} componentName="overflowButton" />
-
-### Row
-
-<Component components={props.data.mdx.components} componentName="row" />
-
-<PropSheet components={props.data.mdx.components} componentName="row" />
-
-### SortableCell
-
-<Component components={props.data.mdx.components} componentName="sortableCell" />
-
-A SortableCell displays an interactive header cell with accesssibility attributes applied to enable
-implementation of a sortable table. See [SortableCell example](#sort).
-
-<PropSheet components={props.data.mdx.components} componentName="sortableCell" />
 
 ### Table
 
 <Component components={props.data.mdx.components} componentName="table" />
 
 <PropSheet components={props.data.mdx.components} componentName="table" />
+
+#### Table.Body
+
+<Component components={props.data.mdx.subcomponents} componentName="table.body" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="table.body" />
+
+#### Table.Caption
+
+<Component components={props.data.mdx.subcomponents} componentName="table.caption" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="table.caption" />
+
+#### Table.Cell
+
+<Component components={props.data.mdx.subcomponents} componentName="table.cell" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="table.cell" />
+
+#### Table.GroupRow
+
+<Component components={props.data.mdx.subcomponents} componentName="table.groupRow" />
+
+The GroupRow component provides styles to show a title row for a group of rows. Nest it within the
+[Table.Body](#tablebody) component. See [GroupRow example](#grouped-rows).
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="table.groupRow" />
+
+#### Table.Head
+
+<Component components={props.data.mdx.subcomponents} componentName="table.head" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="table.head" />
+
+#### Table.HeaderCell
+
+<Component components={props.data.mdx.subcomponents} componentName="table.headerCell" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="table.headerCell" />
+
+#### Table.HeaderRow
+
+<Component components={props.data.mdx.subcomponents} componentName="table.headerRow" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="table.headerRow" />
+
+#### Table.OverflowButton
+
+<Component components={props.data.mdx.subcomponents} componentName="table.overflowButton" />
+
+The OverflowButton component enables implementation of an overflow menu in a [Table.Cell](#tablecell). Nest it
+within a [Tooltip](/components/tooltip) and provide an `aria-label` to ensure it is accessible. See [OverflowButton example](#overflow).
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="table.overflowButton" />
+
+#### Table.Row
+
+<Component components={props.data.mdx.subcomponents} componentName="table.row" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="table.row" />
+
+#### Table.SortableCell
+
+<Component components={props.data.mdx.subcomponents} componentName="table.sortableCell" />
+
+A SortableCell displays an interactive header cell with accesssibility attributes applied to enable
+implementation of a sortable table. See [SortableCell example](#sort).
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="table.sortableCell" />
 
 import { graphql } from 'gatsby';
 

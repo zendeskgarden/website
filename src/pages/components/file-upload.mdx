@@ -8,10 +8,10 @@ components:
   - forms/src/elements/file-list/components/File.tsx
   - forms/src/elements/file-list/FileList.tsx
   - forms/src/elements/FileUpload.tsx
-  - forms/src/elements/common/Hint.tsx
   - forms/src/elements/Input.tsx
-  - forms/src/elements/common/Label.tsx
 subcomponents:
+  - forms/src/elements/common/Hint.tsx
+  - forms/src/elements/common/Label.tsx
   - forms/src/elements/file-list/components/Close.tsx
   - forms/src/elements/file-list/components/Delete.tsx
   - forms/src/elements/file-list/components/Item.tsx
@@ -101,8 +101,8 @@ The FileUpload component follows this structure:
 
 ```jsx
 <Field>
-  <Label />
-  <Hint />
+  <Field.Label />
+  <Field.Hint />
   <FileUpload>
     <Input />
   </FileUpload>
@@ -123,9 +123,25 @@ The FileUpload component follows this structure:
 <Component components={props.data.mdx.components} componentName="field" />
 
 A Field provides accessibility attributes to its child [FileUpload](#fileupload) field by associating it
-with the corresponding [Label](#label) and [Hint](#hint).
+with the corresponding [Field.Label](#fieldlabel) and [Field.Hint](#fieldhint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
+
+#### Field.Hint
+
+<Component components={props.data.mdx.subcomponents} componentName="field.hint" />
+
+Nest the Hint within a [Field](#field) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.hint" />
+
+#### Field.Label
+
+<Component components={props.data.mdx.subcomponents} componentName="field.label" />
+
+Nest the Label within a [Field](#field) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.label" />
 
 ### File
 
@@ -173,14 +189,6 @@ The FileUpload component works together with a library like
 
 <PropSheet components={props.data.mdx.components} componentName="fileUpload" />
 
-### Hint
-
-<Component components={props.data.mdx.components} componentName="hint" />
-
-Nest the Hint within a [Field](#field) component.
-
-<PropSheet components={props.data.mdx.components} componentName="hint" />
-
 ### Input
 
 <Component components={props.data.mdx.components} componentName="input" />
@@ -188,14 +196,6 @@ Nest the Hint within a [Field](#field) component.
 Nest the Input within the [FileUpload](#fileupload) component. See [default example](#default) usage.
 
 <PropSheet components={props.data.mdx.components} componentName="input" />
-
-### Label
-
-<Component components={props.data.mdx.components} componentName="label" />
-
-Nest the Label within a [Field](#field) component.
-
-<PropSheet components={props.data.mdx.components} componentName="label" />
 
 import { graphql } from 'gatsby';
 
