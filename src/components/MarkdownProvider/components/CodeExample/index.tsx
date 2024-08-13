@@ -128,6 +128,7 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
             border-top-right-radius: ${props => math(`${props.theme.borderRadii.md} - 1px`)};
             background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
             padding: ${p => p.theme.space.md};
+            color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
             direction: ${p => p.theme.rtl && 'rtl'};
           `}
         >
