@@ -8,11 +8,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Datepicker } from '@zendeskgarden/react-datepickers';
-import { Field, Label, Input } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { DatePicker } from '@zendeskgarden/react-datepickers';
+import { Field, Input } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
@@ -22,24 +22,24 @@ const Example = () => {
   const [state, setState] = useState(new Date());
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
-          <Label>Default</Label>
-          <Datepicker value={state} onChange={setState}>
+          <Field.Label>Default</Field.Label>
+          <DatePicker value={state} onChange={setState}>
             <Input />
-          </Datepicker>
+          </DatePicker>
         </Field>
-      </Col>
+      </Grid.Col>
       <StyledCol sm={5}>
         <Field>
-          <Label>Compact</Label>
-          <Datepicker value={state} onChange={setState} isCompact>
+          <Field.Label>Compact</Field.Label>
+          <DatePicker value={state} onChange={setState} isCompact>
             <Input isCompact />
-          </Datepicker>
+          </DatePicker>
         </Field>
       </StyledCol>
-    </Row>
+    </Grid.Row>
   );
 };
 
