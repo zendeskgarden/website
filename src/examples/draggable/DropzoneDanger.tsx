@@ -105,7 +105,6 @@ const announcements: Announcements = {
 };
 
 const StyledHeading = styled(MD)`
-  transition: color 0.2s ease-in-out;
   margin-bottom: ${p => p.theme.space.xs};
   color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
 `;
