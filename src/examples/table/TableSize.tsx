@@ -7,16 +7,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import {
-  Body,
-  Caption,
-  Cell,
-  Head,
-  HeaderCell,
-  HeaderRow,
-  Row,
-  Table
-} from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
 import { LG } from '@zendeskgarden/react-typography';
 
 const StyledContainer = styled.div`
@@ -28,125 +19,125 @@ const Example = () => (
   <div style={{ overflowX: 'auto' }}>
     <StyledContainer>
       <Table size="small">
-        <Caption>
+        <Table.Caption>
           <LG>Small</LG>
-        </Caption>
-        <Head>
-          <HeaderRow>
-            <HeaderCell>Fruit</HeaderCell>
-            <HeaderCell>Sun exposure</HeaderCell>
-            <HeaderCell>Soil type</HeaderCell>
-          </HeaderRow>
-        </Head>
-        <Body>
-          <Row>
-            <Cell>Raspberries</Cell>
-            <Cell>Partial shade</Cell>
-            <Cell>Moist and slightly acidic</Cell>
-          </Row>
-          <Row>
-            <Cell>Strawberries</Cell>
-            <Cell>Full sun</Cell>
-            <Cell>Medium moisture</Cell>
-          </Row>
-          <Row>
-            <Cell>Grapes</Cell>
-            <Cell>Full sun</Cell>
-            <Cell>Rich and well draining</Cell>
-          </Row>
-          <Row>
-            <Cell>Cherries</Cell>
-            <Cell>Partial sun</Cell>
-            <Cell>Rich and well draining</Cell>
-          </Row>
-          <Row>
-            <Cell>Tomatoes</Cell>
-            <Cell>Partial shade</Cell>
-            <Cell>Well draining</Cell>
-          </Row>
-        </Body>
+        </Table.Caption>
+        <Table.Head>
+          <Table.HeaderRow>
+            <Table.HeaderCell>Fruit</Table.HeaderCell>
+            <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+            <Table.HeaderCell>Soil type</Table.HeaderCell>
+          </Table.HeaderRow>
+        </Table.Head>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Raspberries</Table.Cell>
+            <Table.Cell>Partial shade</Table.Cell>
+            <Table.Cell>Moist and slightly acidic</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Strawberries</Table.Cell>
+            <Table.Cell>Full sun</Table.Cell>
+            <Table.Cell>Medium moisture</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Grapes</Table.Cell>
+            <Table.Cell>Full sun</Table.Cell>
+            <Table.Cell>Rich and well draining</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Cherries</Table.Cell>
+            <Table.Cell>Partial sun</Table.Cell>
+            <Table.Cell>Rich and well draining</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Tomatoes</Table.Cell>
+            <Table.Cell>Partial shade</Table.Cell>
+            <Table.Cell>Well draining</Table.Cell>
+          </Table.Row>
+        </Table.Body>
       </Table>
     </StyledContainer>
     <StyledContainer>
       <Table size="medium">
-        <Caption>
+        <Table.Caption>
           <LG>Medium</LG>
-        </Caption>
-        <Head>
-          <HeaderRow>
-            <HeaderCell>Fruit</HeaderCell>
-            <HeaderCell>Sun exposure</HeaderCell>
-            <HeaderCell>Soil type</HeaderCell>
-          </HeaderRow>
-        </Head>
-        <Body>
-          <Row>
-            <Cell>Raspberries</Cell>
-            <Cell>Partial shade</Cell>
-            <Cell>Moist and slightly acidic</Cell>
-          </Row>
-          <Row>
-            <Cell>Strawberries</Cell>
-            <Cell>Full sun</Cell>
-            <Cell>Medium moisture</Cell>
-          </Row>
-          <Row>
-            <Cell>Grapes</Cell>
-            <Cell>Full sun</Cell>
-            <Cell>Rich and well draining</Cell>
-          </Row>
-          <Row>
-            <Cell>Cherries</Cell>
-            <Cell>Partial sun</Cell>
-            <Cell>Rich and well draining</Cell>
-          </Row>
-          <Row>
-            <Cell>Tomatoes</Cell>
-            <Cell>Partial shade</Cell>
-            <Cell>Well draining</Cell>
-          </Row>
-        </Body>
+        </Table.Caption>
+        <Table.Head>
+          <Table.HeaderRow>
+            <Table.HeaderCell>Fruit</Table.HeaderCell>
+            <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+            <Table.HeaderCell>Soil type</Table.HeaderCell>
+          </Table.HeaderRow>
+        </Table.Head>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Raspberries</Table.Cell>
+            <Table.Cell>Partial shade</Table.Cell>
+            <Table.Cell>Moist and slightly acidic</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Strawberries</Table.Cell>
+            <Table.Cell>Full sun</Table.Cell>
+            <Table.Cell>Medium moisture</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Grapes</Table.Cell>
+            <Table.Cell>Full sun</Table.Cell>
+            <Table.Cell>Rich and well draining</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Cherries</Table.Cell>
+            <Table.Cell>Partial sun</Table.Cell>
+            <Table.Cell>Rich and well draining</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Tomatoes</Table.Cell>
+            <Table.Cell>Partial shade</Table.Cell>
+            <Table.Cell>Well draining</Table.Cell>
+          </Table.Row>
+        </Table.Body>
       </Table>
     </StyledContainer>
     <StyledContainer>
       <Table size="large">
-        <Caption>
+        <Table.Caption>
           <LG>Large</LG>
-        </Caption>
-        <Head>
-          <HeaderRow>
-            <HeaderCell>Fruit</HeaderCell>
-            <HeaderCell>Sun exposure</HeaderCell>
-            <HeaderCell>Soil type</HeaderCell>
-          </HeaderRow>
-        </Head>
-        <Body>
-          <Row>
-            <Cell>Raspberries</Cell>
-            <Cell>Partial shade</Cell>
-            <Cell>Moist and slightly acidic</Cell>
-          </Row>
-          <Row>
-            <Cell>Strawberries</Cell>
-            <Cell>Full sun</Cell>
-            <Cell>Medium moisture</Cell>
-          </Row>
-          <Row>
-            <Cell>Grapes</Cell>
-            <Cell>Full sun</Cell>
-            <Cell>Rich and well draining</Cell>
-          </Row>
-          <Row>
-            <Cell>Cherries</Cell>
-            <Cell>Partial sun</Cell>
-            <Cell>Rich and well draining</Cell>
-          </Row>
-          <Row>
-            <Cell>Tomatoes</Cell>
-            <Cell>Partial shade</Cell>
-            <Cell>Well draining</Cell>
-          </Row>
-        </Body>
+        </Table.Caption>
+        <Table.Head>
+          <Table.HeaderRow>
+            <Table.HeaderCell>Fruit</Table.HeaderCell>
+            <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+            <Table.HeaderCell>Soil type</Table.HeaderCell>
+          </Table.HeaderRow>
+        </Table.Head>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Raspberries</Table.Cell>
+            <Table.Cell>Partial shade</Table.Cell>
+            <Table.Cell>Moist and slightly acidic</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Strawberries</Table.Cell>
+            <Table.Cell>Full sun</Table.Cell>
+            <Table.Cell>Medium moisture</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Grapes</Table.Cell>
+            <Table.Cell>Full sun</Table.Cell>
+            <Table.Cell>Rich and well draining</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Cherries</Table.Cell>
+            <Table.Cell>Partial sun</Table.Cell>
+            <Table.Cell>Rich and well draining</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Tomatoes</Table.Cell>
+            <Table.Cell>Partial shade</Table.Cell>
+            <Table.Cell>Well draining</Table.Cell>
+          </Table.Row>
+        </Table.Body>
       </Table>
     </StyledContainer>
   </div>

@@ -6,9 +6,9 @@
  */
 
 import React, { useState } from 'react';
-import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
 import { KEYS } from '@zendeskgarden/container-utilities';
-import { Field, Checkbox, Label } from '@zendeskgarden/react-forms';
+import { Field, Checkbox } from '@zendeskgarden/react-forms';
 
 interface IRowData {
   id: string;
@@ -48,9 +48,9 @@ const Example = () => {
   return (
     <div style={{ overflowX: 'auto' }}>
       <Table style={{ minWidth: 500 }}>
-        <Head>
-          <HeaderRow>
-            <HeaderCell isMinimum>
+        <Table.Head>
+          <Table.HeaderRow>
+            <Table.HeaderCell isMinimum>
               <Field>
                 <Checkbox
                   indeterminate={isSelectAllIndeterminate(data)}
@@ -67,19 +67,19 @@ const Example = () => {
                     }
                   }}
                 >
-                  <Label hidden>Select all tickets</Label>
+                  <Field.Label hidden>Select all tickets</Field.Label>
                 </Checkbox>
               </Field>
-            </HeaderCell>
-            <HeaderCell>Fruit</HeaderCell>
-            <HeaderCell>Sun exposure</HeaderCell>
-            <HeaderCell>Soil type</HeaderCell>
-          </HeaderRow>
-        </Head>
-        <Body>
+            </Table.HeaderCell>
+            <Table.HeaderCell>Fruit</Table.HeaderCell>
+            <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+            <Table.HeaderCell>Soil type</Table.HeaderCell>
+          </Table.HeaderRow>
+        </Table.Head>
+        <Table.Body>
           {data.map((row, index) => (
-            <Row key={row.id} isSelected={row.selected}>
-              <Cell isMinimum>
+            <Table.Row key={row.id} isSelected={row.selected}>
+              <Table.Cell isMinimum>
                 <Field>
                   <Checkbox
                     checked={row.selected}
@@ -120,16 +120,16 @@ const Example = () => {
                       setFocusedRowIndex(index);
                     }}
                   >
-                    <Label hidden>Select ticket for {row.fruit}</Label>
+                    <Field.Label hidden>Select ticket for {row.fruit}</Field.Label>
                   </Checkbox>
                 </Field>
-              </Cell>
-              <Cell>{row.fruit}</Cell>
-              <Cell>{row.sun}</Cell>
-              <Cell>{row.soil}</Cell>
-            </Row>
+              </Table.Cell>
+              <Table.Cell>{row.fruit}</Table.Cell>
+              <Table.Cell>{row.sun}</Table.Cell>
+              <Table.Cell>{row.soil}</Table.Cell>
+            </Table.Row>
           ))}
-        </Body>
+        </Table.Body>
       </Table>
     </div>
   );

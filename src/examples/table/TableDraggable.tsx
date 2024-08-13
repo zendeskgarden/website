@@ -8,11 +8,11 @@
 import React, { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
-import { Table, Row, Cell, Head, HeaderCell, HeaderRow, Body } from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
 import { ReactComponent as GripIcon } from '@zendeskgarden/svg-icons/src/12/grip.svg';
 import { getColorV8 } from '@zendeskgarden/react-theming';
 
-const DraggableRow = styled(Row)<{ isDraggingOver: boolean }>`
+const DraggableRow = styled(Table.Row)<{ isDraggingOver: boolean }>`
   ${props =>
     props.isDraggingOver
       ? `
@@ -104,7 +104,7 @@ class DraggableCell extends React.Component<IDraggableCellProps> {
   }
 
   render() {
-    return <Cell ref={this.setRef}>{this.props.children}</Cell>;
+    return <Table.Cell ref={this.setRef}>{this.props.children}</Table.Cell>;
   }
 }
 
@@ -186,20 +186,20 @@ const Example = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Table>
-        <Head>
-          <HeaderRow>
-            <HeaderCell isMinimum hidden>
+        <Table.Head>
+          <Table.HeaderRow>
+            <Table.HeaderCell isMinimum hidden>
               Draggable grip
-            </HeaderCell>
-            <HeaderCell>Fruit</HeaderCell>
-            <HeaderCell>Sun exposure</HeaderCell>
-            <HeaderCell>Soil</HeaderCell>
-          </HeaderRow>
-        </Head>
+            </Table.HeaderCell>
+            <Table.HeaderCell>Fruit</Table.HeaderCell>
+            <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+            <Table.HeaderCell>Soil</Table.HeaderCell>
+          </Table.HeaderRow>
+        </Table.Head>
         <Droppable droppableId="droppable">
           {(droppableProps, droppableSnapshot) => {
             return (
-              <Body ref={droppableProps.innerRef}>
+              <Table.Body ref={droppableProps.innerRef}>
                 {items.map((item, index) => (
                   <Draggable key={item.id} draggableId={item.id} index={index}>
                     {(provided, snapshot) => (
@@ -236,7 +236,7 @@ const Example = () => {
                   </Draggable>
                 ))}
                 {droppableProps.placeholder}
-              </Body>
+              </Table.Body>
             );
           }}
         </Droppable>

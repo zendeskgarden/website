@@ -6,54 +6,54 @@
  */
 
 import React from 'react';
-import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
 import { Skeleton } from '@zendeskgarden/react-loaders';
 
 const Example = () => (
   <div style={{ overflowX: 'auto' }}>
     <Table style={{ minWidth: 500 }}>
-      <Head>
-        <HeaderRow>
-          <HeaderCell>Fruit</HeaderCell>
-          <HeaderCell>Sun exposure</HeaderCell>
-          <HeaderCell>Soil</HeaderCell>
-        </HeaderRow>
-      </Head>
-      <Body>
-        <Row>
-          <Cell>
+      <Table.Head>
+        <Table.HeaderRow>
+          <Table.HeaderCell>Fruit</Table.HeaderCell>
+          <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+          <Table.HeaderCell>Soil</Table.HeaderCell>
+        </Table.HeaderRow>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>
             <Skeleton />
-          </Cell>
-          <Cell>
+          </Table.Cell>
+          <Table.Cell>
             <Skeleton />
-          </Cell>
-          <Cell>
+          </Table.Cell>
+          <Table.Cell>
             <Skeleton />
-          </Cell>
-        </Row>
-        <Row>
-          <Cell>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
             <Skeleton />
-          </Cell>
-          <Cell>
+          </Table.Cell>
+          <Table.Cell>
             <Skeleton />
-          </Cell>
-          <Cell>
+          </Table.Cell>
+          <Table.Cell>
             <Skeleton />
-          </Cell>
-        </Row>
-        <Row>
-          <Cell>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
             <Skeleton />
-          </Cell>
-          <Cell>
+          </Table.Cell>
+          <Table.Cell>
             <Skeleton />
-          </Cell>
-          <Cell>
+          </Table.Cell>
+          <Table.Cell>
             <Skeleton />
-          </Cell>
-        </Row>
-      </Body>
+          </Table.Cell>
+        </Table.Row>
+      </Table.Body>
     </Table>
   </div>
 );
