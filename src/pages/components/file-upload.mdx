@@ -12,6 +12,7 @@ components:
 subcomponents:
   - forms/src/elements/common/Hint.tsx
   - forms/src/elements/common/Label.tsx
+  - forms/src/elements/common/Message.tsx
   - forms/src/elements/file-list/components/Close.tsx
   - forms/src/elements/file-list/components/Delete.tsx
   - forms/src/elements/file-list/components/Item.tsx
@@ -142,6 +143,13 @@ Nest the Hint within a [Field](#field) component.
 Nest the Label within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="field.label" />
+
+#### Field.Message
+
+<Component components={props.data.mdx.subcomponents} componentName="field.message" />
+
+The Message component applies appropriate icon and styles based on the validation provided. Nest
+it within a [Field](#field) component.
 
 ### File
 
