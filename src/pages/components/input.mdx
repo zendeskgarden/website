@@ -6,10 +6,11 @@ package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/faux-input/FauxInput.tsx
   - forms/src/elements/common/Field.tsx
-  - forms/src/elements/common/Hint.tsx
   - forms/src/elements/Input.tsx
-  - forms/src/elements/common/Label.tsx
   - forms/src/elements/MediaInput.tsx
+subcomponents:
+  - forms/src/elements/common/Hint.tsx
+  - forms/src/elements/common/Label.tsx
   - forms/src/elements/common/Message.tsx
 ---
 
@@ -176,10 +177,10 @@ The Input component follows this structure:
 
 ```jsx
 <Field>
-  <Label />
-  <Hint />
+  <Field.Label />
+  <Field.Hint />
   <Input />
-  <Message />
+  <Field.Message />
 </Field>
 ```
 
@@ -196,17 +197,34 @@ Nest a FauxInput within a [Field](#field) component.
 <Component components={props.data.mdx.components} componentName="field" />
 
 A Field provides accessibility attributes to its child [Input](#input) field by associating it
-with the corresponding [Label](#label) and [Hint](#hint).
+with the corresponding [Field.Label](#fieldlabel) and [Field.Hint](#fieldhint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
-### Hint
+#### Field.Hint
 
-<Component components={props.data.mdx.components} componentName="hint" />
+<Component components={props.data.mdx.subcomponents} componentName="field.hint" />
 
 Nest the Hint within a [Field](#field) component.
 
-<PropSheet components={props.data.mdx.components} componentName="hint" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.hint" />
+
+#### Field.Label
+
+<Component components={props.data.mdx.subcomponents} componentName="field.label" />
+
+Nest the Label within a [Field](#field) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.label" />
+
+#### Field.Message
+
+<Component components={props.data.mdx.subcomponents} componentName="field.message" />
+
+The Message component applies appropriate icon and styles based on the validation provided. Nest
+it within a [Field](#field) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.message" />
 
 ### Input
 
@@ -216,14 +234,6 @@ Nest an Input within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="input" />
 
-### Label
-
-<Component components={props.data.mdx.components} componentName="label" />
-
-Nest the Label within a [Field](#field) component.
-
-<PropSheet components={props.data.mdx.components} componentName="label" />
-
 ### MediaInput
 
 <Component components={props.data.mdx.components} componentName="mediaInput" />
@@ -232,15 +242,6 @@ A MediaInput displays provided media elements at the start and/or end of the inp
 it within a [Field](#field) component.
 
 <PropSheet components={props.data.mdx.components} componentName="mediaInput" />
-
-### Message
-
-<Component components={props.data.mdx.components} componentName="message" />
-
-The Message component applies appropriate icon and styles based on the validation provided. Nest
-it within a [Field](#field) component.
-
-<PropSheet components={props.data.mdx.components} componentName="message" />
 
 import { graphql } from 'gatsby';
 

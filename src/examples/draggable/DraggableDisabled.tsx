@@ -6,18 +6,18 @@
  */
 
 import React from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
-import { Draggable } from '@zendeskgarden/react-drag-drop';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Draggable } from '@zendeskgarden/react-draggable';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={4}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={4}>
       <Draggable isDisabled>
         <Draggable.Grip />
         <Draggable.Content>Pear</Draggable.Content>
       </Draggable>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

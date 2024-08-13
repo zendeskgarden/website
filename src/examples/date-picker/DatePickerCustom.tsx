@@ -6,9 +6,9 @@
  */
 
 import React, { useState } from 'react';
-import { Datepicker } from '@zendeskgarden/react-datepickers';
-import { Field, Label, Input } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { DatePicker } from '@zendeskgarden/react-datepickers';
+import { Field, Input } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [state, setState] = useState(new Date());
@@ -20,20 +20,20 @@ const Example = () => {
   });
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
-          <Label>Select a date</Label>
-          <Datepicker
+          <Field.Label>Select a date</Field.Label>
+          <DatePicker
             value={state}
             onChange={setState}
             formatDate={date => dateFormatter.format(date)}
           >
             <Input />
-          </Datepicker>
+          </DatePicker>
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

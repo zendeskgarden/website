@@ -4,8 +4,9 @@ description: >
   The Grid component is a framework for building modular layouts.
 package: '@zendeskgarden/react-grid'
 components:
-  - grid/src/elements/Col.tsx
   - grid/src/elements/Grid.tsx
+subcomponents:
+  - grid/src/elements/Col.tsx
   - grid/src/elements/Row.tsx
 ---
 
@@ -158,23 +159,23 @@ import NestingCode from '!!raw-loader!../../examples/grid/GridNesting.tsx';
 
 ## API
 
-### Col
-
-<Component components={props.data.mdx.components} componentName="col" />
-
-<PropSheet components={props.data.mdx.components} componentName="col" />
-
 ### Grid
 
 <Component components={props.data.mdx.components} componentName="grid" />
 
 <PropSheet components={props.data.mdx.components} componentName="grid" />
 
-### Row
+#### Grid.Col
 
-<Component components={props.data.mdx.components} componentName="row" />
+<Component components={props.data.mdx.subcomponents} componentName="grid.col" />
 
-<PropSheet components={props.data.mdx.components} componentName="row" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="grid.col" />
+
+#### Grid.Row
+
+<Component components={props.data.mdx.subcomponents} componentName="grid.row" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="grid.row" />
 
 import { graphql } from 'gatsby';
 
