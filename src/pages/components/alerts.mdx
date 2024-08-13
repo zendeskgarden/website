@@ -4,10 +4,11 @@ description: >
   An Alert provides urgent contextual feedback in response to user action or system activity.
 package: '@zendeskgarden/react-notifications'
 components:
-  - notifications/src/elements/Alert.tsx
-  - notifications/src/elements/content/Close.tsx
-  - notifications/src/elements/content/Paragraph.tsx
-  - notifications/src/elements/content/Title.tsx
+  - notifications/src/elements/alert/Alert.tsx
+subcomponents:
+  - notifications/src/elements/alert/Close.tsx
+  - notifications/src/elements/alert/Paragraph.tsx
+  - notifications/src/elements/alert/Title.tsx
 ---
 
 import { SEO } from '../../components';
@@ -68,23 +69,23 @@ import TypeCode from '!!raw-loader!../../examples/notifications/alerts/AlertType
 
 <PropSheet components={props.data.mdx.components} componentName="alert" />
 
-### Close
+#### Alert.Close
 
-<Component components={props.data.mdx.components} componentName="close" />
+<Component components={props.data.mdx.subcomponents} componentName="alert.close" />
 
-<PropSheet components={props.data.mdx.components} componentName="close" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="alert.close" />
 
-### Paragraph
+#### Alert.Paragraph
 
-<Component components={props.data.mdx.components} componentName="paragraph" />
+<Component components={props.data.mdx.subcomponents} componentName="alert.paragraph" />
 
-<PropSheet components={props.data.mdx.components} componentName="paragraph" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="alert.paragraph" />
 
-### Title
+#### Alert.Title
 
-<Component components={props.data.mdx.components} componentName="title" />
+<Component components={props.data.mdx.subcomponents} componentName="alert.title" />
 
-<PropSheet components={props.data.mdx.components} componentName="title" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="alert.title" />
 
 import { graphql } from 'gatsby';
 

@@ -5,8 +5,11 @@ description: >
 package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/common/Field.tsx
-  - forms/src/elements/common/Label.tsx
   - forms/src/elements/Textarea.tsx
+subcomponents:
+  - forms/src/elements/common/Hint.tsx
+  - forms/src/elements/common/Label.tsx
+  - forms/src/elements/common/Message.tsx
 ---
 
 import { SEO } from '../../components';
@@ -79,7 +82,7 @@ The Textarea component follows this structure:
 
 ```jsx
 <Field>
-  <Label />
+  <Field.Label />
   <Textarea />
 </Field>
 ```
@@ -88,18 +91,35 @@ The Textarea component follows this structure:
 
 <Component components={props.data.mdx.components} componentName="field" />
 
-A Field provides accessibility attributes to its child [Textarea](#textarea) field by associating it
-with the corresponding [Label](#label) and [Hint](/components/input#hint).
+A Field provides accessibility attributes to its child [Textarea](#textarea) field by
+associating it with the corresponding [Field.Label](#fieldlabel) and [Field.Hint](#fieldhint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
-### Label
+#### Field.Hint
 
-<Component components={props.data.mdx.components} componentName="label" />
+<Component components={props.data.mdx.subcomponents} componentName="field.hint" />
 
-Nest the Label within a [Field](#field) component.
+Nest a Hint within a [Field](#field) component.
 
-<PropSheet components={props.data.mdx.components} componentName="label" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.hint" />
+
+#### Field.Label
+
+<Component components={props.data.mdx.subcomponents} componentName="field.label" />
+
+Nest a Label within a [Field](#field) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.label" />
+
+#### Field.Message
+
+<Component components={props.data.mdx.subcomponents} componentName="field.message" />
+
+The Message component applies appropriate icon and styles based on the validation provided. Nest
+it within a [Field](#field) component.
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.message" />
 
 ### Textarea
 

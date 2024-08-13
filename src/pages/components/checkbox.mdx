@@ -6,6 +6,7 @@ package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/Checkbox.tsx
   - forms/src/elements/common/Field.tsx
+subcomponents:
   - forms/src/elements/common/Hint.tsx
   - forms/src/elements/common/Label.tsx
   - forms/src/elements/common/Message.tsx
@@ -141,10 +142,10 @@ The Checkbox component follows this structure:
 ```jsx
 <Field>
   <Checkbox>
-    <Label />
-    <Hint />
+    <Field.Label />
+    <Field.Hint />
   </Checkbox>
-  <Message />
+  <Field.Message />
 </Field>
 ```
 
@@ -161,34 +162,34 @@ Nest a Checkbox within a [Field](#field) component.
 <Component components={props.data.mdx.components} componentName="field" />
 
 A Field provides accessibility attributes to its child [Checkbox](#checkbox) field by associating it
-with the corresponding [Label](#label) and [Hint](#hint).
+with the corresponding [Field.Label](#fieldlabel) and [Field.Hint](#fieldhint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
-### Hint
+#### Field.Hint
 
-<Component components={props.data.mdx.components} componentName="hint" />
+<Component components={props.data.mdx.subcomponents} componentName="field.hint" />
 
 Nest the Hint within the [Checkbox](#checkbox) component.
 
-<PropSheet components={props.data.mdx.components} componentName="hint" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.hint" />
 
-### Label
+#### Field.Label
 
-<Component components={props.data.mdx.components} componentName="label" />
+<Component components={props.data.mdx.subcomponents} componentName="field.label" />
 
 Nest the Label within the [Checkbox](#checkbox) component.
 
-<PropSheet components={props.data.mdx.components} componentName="label" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.label" />
 
-### Message
+#### Field.Message
 
-<Component components={props.data.mdx.components} componentName="message" />
+<Component components={props.data.mdx.subcomponents} componentName="field.message" />
 
 The Message component applies appropriate icon and styles based on the validation provided. Nest
 it within a [Field](#field) component.
 
-<PropSheet components={props.data.mdx.components} componentName="message" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.message" />
 
 import { graphql } from 'gatsby';
 
