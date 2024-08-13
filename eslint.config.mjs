@@ -56,7 +56,6 @@ export default [
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/strict-boolean-expressions': 'off',
       '@typescript-eslint/unbound-method': 'off',
-      'deprecation/deprecation': 'off', // TODO: enable for production
       'react/prop-types': 'off'
     }
   },
