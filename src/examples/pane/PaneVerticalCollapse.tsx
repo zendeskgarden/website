@@ -9,7 +9,7 @@ import React from 'react';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import useResizeObserver from 'use-resize-observer';
 import { XL, Paragraph } from '@zendeskgarden/react-typography';
-import { getColorV8 } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
 const StyledParagraph = styled(Paragraph)`
@@ -21,8 +21,10 @@ const StyledPaneContent = styled(Pane.Content)`
 `;
 
 const StyledPane = styled(Pane)<{ isSecondary?: boolean }>`
+  background-color: ${p =>
+    p.isSecondary && getColor({ variable: 'background.subtle', theme: p.theme })};
   padding: ${p => p.theme.space.base * 6}px;
-  ${p => p.isSecondary && `background-color: ${getColorV8('neutralHue', 100, p.theme)}`};
+  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
 `;
 
 const Example = () => {

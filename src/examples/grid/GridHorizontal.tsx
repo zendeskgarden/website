@@ -7,50 +7,50 @@
 
 import React from 'react';
 import { MD } from '@zendeskgarden/react-typography';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
   <Grid debug>
-    <Row justifyContent="start">
-      <Col size={4}>
+    <Grid.Row justifyContent="start">
+      <Grid.Col size={4}>
         <MD>One of two columns</MD>
-      </Col>
-      <Col size={4}>
+      </Grid.Col>
+      <Grid.Col size={4}>
         <MD>One of two columns</MD>
-      </Col>
-    </Row>
-    <Row justifyContent="center">
-      <Col size={4}>
+      </Grid.Col>
+    </Grid.Row>
+    <Grid.Row justifyContent="center">
+      <Grid.Col size={4}>
         <MD>One of two columns</MD>
-      </Col>
-      <Col size={4}>
+      </Grid.Col>
+      <Grid.Col size={4}>
         <MD>One of two columns</MD>
-      </Col>
-    </Row>
-    <Row justifyContent="end">
-      <Col size={4}>
+      </Grid.Col>
+    </Grid.Row>
+    <Grid.Row justifyContent="end">
+      <Grid.Col size={4}>
         <MD>One of two columns</MD>
-      </Col>
-      <Col size={4}>
+      </Grid.Col>
+      <Grid.Col size={4}>
         <MD>One of two columns</MD>
-      </Col>
-    </Row>
-    <Row justifyContent="around">
-      <Col size={4}>
+      </Grid.Col>
+    </Grid.Row>
+    <Grid.Row justifyContent="around">
+      <Grid.Col size={4}>
         <MD>One of two columns</MD>
-      </Col>
-      <Col size={4}>
+      </Grid.Col>
+      <Grid.Col size={4}>
         <MD>One of two columns</MD>
-      </Col>
-    </Row>
-    <Row justifyContent="between">
-      <Col size={4}>
+      </Grid.Col>
+    </Grid.Row>
+    <Grid.Row justifyContent="between">
+      <Grid.Col size={4}>
         <MD>One of two columns</MD>
-      </Col>
-      <Col size={4}>
+      </Grid.Col>
+      <Grid.Col size={4}>
         <MD>One of two columns</MD>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   </Grid>
 );
 
