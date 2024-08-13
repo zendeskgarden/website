@@ -6,11 +6,17 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
+import { getColor } from '@zendeskgarden/react-theming';
 import { MD } from '@zendeskgarden/react-typography';
 import { Grid } from '@zendeskgarden/react-grid';
 
+const StyledGrid = styled(Grid)`
+  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
+`;
+
 const Example = () => (
-  <Grid debug>
+  <StyledGrid debug>
     <Grid.Row>
       <Grid.Col>
         <MD>First, but unordered</MD>
@@ -33,7 +39,7 @@ const Example = () => (
         <MD>Third, but first</MD>
       </Grid.Col>
     </Grid.Row>
-  </Grid>
+  </StyledGrid>
 );
 
 export default Example;
