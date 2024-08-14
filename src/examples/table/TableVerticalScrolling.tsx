@@ -8,7 +8,7 @@
 import React from 'react';
 import { Table } from '@zendeskgarden/react-tables';
 import { Paragraph } from '@zendeskgarden/react-typography';
-import { getColor, getColorV8 } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
 const rowData = Array.from(Array(10)).map((row, index) => ({
@@ -17,10 +17,6 @@ const rowData = Array.from(Array(10)).map((row, index) => ({
   sun: 'Full sun',
   soil: 'Well draining'
 }));
-
-const StyledHeaderCell = styled(Table.HeaderCell)`
-  box-shadow: inset 0 -1px 0 ${props => getColorV8('neutralHue', 300, props.theme)};
-`;
 
 const StyledHeaderRow = styled(Table.HeaderRow)`
   border-bottom: none;
@@ -41,9 +37,9 @@ const Example = () => (
     <Table style={{ minWidth: 500 }}>
       <StyledHead>
         <StyledHeaderRow>
-          <StyledHeaderCell>Fruit</StyledHeaderCell>
-          <StyledHeaderCell>Sun exposure</StyledHeaderCell>
-          <StyledHeaderCell>Soil</StyledHeaderCell>
+          <Table.HeaderCell>Fruit</Table.HeaderCell>
+          <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+          <Table.HeaderCell>Soil</Table.HeaderCell>
         </StyledHeaderRow>
       </StyledHead>
       <Table.Body>
