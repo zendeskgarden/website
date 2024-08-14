@@ -7,16 +7,16 @@
 
 import React from 'react';
 import { StatusIndicator } from '@zendeskgarden/react-avatars';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row>
-    <Col textAlign="center">
+  <Grid.Row>
+    <Grid.Col textAlign="center">
       <StatusIndicator type="offline" aria-label="status: offline">
         Offline
       </StatusIndicator>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

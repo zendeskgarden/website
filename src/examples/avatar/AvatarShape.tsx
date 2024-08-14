@@ -8,23 +8,23 @@
 import React from 'react';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const Example = () => (
-  <Row>
-    <Col textAlign="center">
+  <Grid.Row>
+    <Grid.Col textAlign="center">
       <Avatar backgroundColor={PALETTE.grey[700]} size="medium">
         <UserIcon role="img" aria-label="User" />
       </Avatar>
-    </Col>
-    <Col textAlign="center">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
       <Avatar backgroundColor={PALETTE.kale[900]} size="medium" isSystem>
         <ZendeskIcon role="img" aria-label="Zendesk" />
       </Avatar>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;
