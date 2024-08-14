@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { getColor } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
 import { MD } from '@zendeskgarden/react-typography';
 import { Draggable, DraggableList } from '@zendeskgarden/react-draggable';
@@ -22,7 +21,6 @@ const items = [
 
 const StyledHeading = styled(MD)`
   margin-bottom: ${p => p.theme.space.xs};
-  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
 `;
 
 const Example = () => (
