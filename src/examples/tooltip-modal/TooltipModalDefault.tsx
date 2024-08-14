@@ -7,7 +7,7 @@
 
 import React, { useState, useRef } from 'react';
 import { TooltipModal } from '@zendeskgarden/react-modals';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 
 const Example = () => {
@@ -15,8 +15,8 @@ const Example = () => {
   const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>();
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <Button
           ref={buttonRef}
           onClick={() => {
@@ -40,8 +40,8 @@ const Example = () => {
           </TooltipModal.Body>
           <TooltipModal.Close aria-label="Close" />
         </TooltipModal>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

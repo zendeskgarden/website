@@ -7,15 +7,15 @@
 
 import React, { useState } from 'react';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Modal, Header, Body, Footer, FooterItem, Close } from '@zendeskgarden/react-modals';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Modal } from '@zendeskgarden/react-modals';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <Button
           onClick={() => {
             setVisible(true);
@@ -29,14 +29,14 @@ const Example = () => {
               setVisible(false);
             }}
           >
-            <Header tag="h2">Do you need plant food?</Header>
-            <Body>
+            <Modal.Header tag="h2">Do you need plant food?</Modal.Header>
+            <Modal.Body>
               To boost your plants chances of success, use a combination of top-quality soil and the
               right plant food. Try growing in containers filled with plant food, which can help
               protect plants from over-watering.
-            </Body>
-            <Footer>
-              <FooterItem>
+            </Modal.Body>
+            <Modal.Footer>
+              <Modal.FooterItem>
                 <Button
                   onClick={() => {
                     setVisible(false);
@@ -45,8 +45,8 @@ const Example = () => {
                 >
                   Cancel
                 </Button>
-              </FooterItem>
-              <FooterItem>
+              </Modal.FooterItem>
+              <Modal.FooterItem>
                 <Button
                   isPrimary
                   onClick={() => {
@@ -55,13 +55,13 @@ const Example = () => {
                 >
                   Add plant food
                 </Button>
-              </FooterItem>
-            </Footer>
-            <Close aria-label="Close modal" />
+              </Modal.FooterItem>
+            </Modal.Footer>
+            <Modal.Close aria-label="Close modal" />
           </Modal>
         )}
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 
