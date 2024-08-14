@@ -7,7 +7,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Notification, Title, Close } from '@zendeskgarden/react-notifications';
+import { Notification } from '@zendeskgarden/react-notifications';
 
 const StyledSpacer = styled.div`
   height: ${p => p.theme.space.md};
@@ -16,27 +16,27 @@ const StyledSpacer = styled.div`
 const Example = () => (
   <>
     <Notification type="info">
-      <Title>Info</Title>
+      <Notification.Title>Info</Notification.Title>
       Turnip greens yarrow ricebean cauliflower sea lettuce kohlrabi amaranth water
-      <Close aria-label="Close Info Notification" />
+      <Notification.Close aria-label="Close Info Notification" />
     </Notification>
     <StyledSpacer />
     <Notification type="warning">
-      <Title>Warning</Title>
+      <Notification.Title>Warning</Notification.Title>
       Corn amaranth salsify bunya nuts nori azuki bean potato bell pepper artichoke
-      <Close aria-label="Close Warning Notification" />
+      <Notification.Close aria-label="Close Warning Notification" />
     </Notification>
     <StyledSpacer />
     <Notification type="error">
-      <Title>Error</Title>
+      <Notification.Title>Error</Notification.Title>
       Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic
-      <Close aria-label="Close Error Notification" />
+      <Notification.Close aria-label="Close Error Notification" />
     </Notification>
     <StyledSpacer />
     <Notification type="success">
-      <Title>Success</Title>
+      <Notification.Title>Success</Notification.Title>
       Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke
-      <Close aria-label="Close Success Notification" />
+      <Notification.Close aria-label="Close Success Notification" />
     </Notification>
   </>
 );
