@@ -10,7 +10,6 @@ import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import useResizeObserver from 'use-resize-observer';
 import { XL, Paragraph } from '@zendeskgarden/react-typography';
 import styled from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
 
 const StyledParagraph = styled(Paragraph)`
   margin-top: ${p => p.theme.space.xs};
@@ -19,7 +18,6 @@ const StyledParagraph = styled(Paragraph)`
 const StyledPaneContent = styled(Pane.Content)`
   padding: ${p => p.theme.space.base * 6}px ${p => p.theme.space.base * 6}px
     ${p => p.theme.space.base * 4}px;
-  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
 `;
 
 const Example = () => {

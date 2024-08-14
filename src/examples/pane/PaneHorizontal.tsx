@@ -17,7 +17,6 @@ const StyledPaneContent = styled(Pane.Content)<{ isSecondary?: boolean }>`
     p.isSecondary && getColor({ variable: 'background.subtle', theme: p.theme })};
   padding: ${p => p.theme.space.base * 6}px ${p => p.theme.space.base * 6}px
     ${p => p.theme.space.base * 4}px;
-  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
 `;
 
 const StyledParagraph = styled(Paragraph)`

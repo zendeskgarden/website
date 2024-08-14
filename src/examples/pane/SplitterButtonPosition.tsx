@@ -19,7 +19,6 @@ const StyledDiv = styled.div`
 const StyledXXL = styled(XXL)`
   margin-bottom: ${p => p.theme.space.base * 6}px;
   text-transform: capitalize;
-  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
 `;
 
 const StyledParagraph = styled(Paragraph)`
@@ -28,7 +27,6 @@ const StyledParagraph = styled(Paragraph)`
 
 const StyledPaneContent = styled(Pane.Content)`
   height: 180px;
-  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
 `;
 
 const StyledPanesContainer = styled.div`

@@ -25,7 +25,6 @@ const StyledParagraph = styled(Paragraph)`
 const StyledPane = styled(Pane)<{ isSecondary?: boolean }>`
   background-color: ${p =>
     p.isSecondary && getColor({ variable: 'background.subtle', theme: p.theme })};
-  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
 `;
 
 const Example = () => {

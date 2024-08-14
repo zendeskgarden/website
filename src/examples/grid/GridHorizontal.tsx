@@ -6,17 +6,11 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
 import { MD } from '@zendeskgarden/react-typography';
 import { Grid } from '@zendeskgarden/react-grid';
 
-const StyledGrid = styled(Grid)`
-  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
-`;
-
 const Example = () => (
-  <StyledGrid debug>
+  <Grid debug>
     <Grid.Row justifyContent="start">
       <Grid.Col size={4}>
         <MD>One of two columns</MD>
@@ -57,7 +51,7 @@ const Example = () => (
         <MD>One of two columns</MD>
       </Grid.Col>
     </Grid.Row>
-  </StyledGrid>
+  </Grid>
 );
 
 export default Example;

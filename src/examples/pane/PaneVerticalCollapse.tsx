@@ -24,7 +24,6 @@ const StyledPane = styled(Pane)<{ isSecondary?: boolean }>`
   background-color: ${p =>
     p.isSecondary && getColor({ variable: 'background.subtle', theme: p.theme })};
   padding: ${p => p.theme.space.base * 6}px;
-  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
 `;
 
 const Example = () => {
