@@ -6,12 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { OffsetPagination } from '@zendeskgarden/react-pagination';
-
-const StyledSpacer = styled.div`
-  height: ${p => p.theme.space.xl};
-`;
 
 const Example = () => {
   const [page, setPage] = useState(10);
@@ -19,9 +14,13 @@ const Example = () => {
   return (
     <nav aria-label="pagination example padding">
       <OffsetPagination totalPages={20} pagePadding={0} currentPage={page} onChange={setPage} />
-
-      <StyledSpacer />
-      <OffsetPagination totalPages={20} pagePadding={2} currentPage={page} onChange={setPage} />
+      <OffsetPagination
+        totalPages={20}
+        pagePadding={2}
+        currentPage={page}
+        onChange={setPage}
+        style={{ marginTop: '16px' }}
+      />
     </nav>
   );
 };
