@@ -6,20 +6,20 @@
  */
 
 import React from 'react';
-import { Well, Title, Paragraph } from '@zendeskgarden/react-notifications';
+import { Well } from '@zendeskgarden/react-notifications';
 
 const Example = () => (
   <Well>
-    <Title>What is a Garden?</Title>
-    <Paragraph>
+    <Well.Title>What is a Garden?</Well.Title>
+    <Well.Paragraph>
       Turnip greens yarrow endive cauliflower sea lettuce kohlrabi amaranth water. Corn amaranth
       salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
-    </Paragraph>
-    <Paragraph>
+    </Well.Paragraph>
+    <Well.Paragraph>
       Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic. Corn
       amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke. Turnip
       greens yarrow endive cauliflower sea lettuce kohlrabi amaranth water.
-    </Paragraph>
+    </Well.Paragraph>
   </Well>
 );
 
