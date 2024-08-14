@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 import { Table } from '@zendeskgarden/react-tables';
 import { ReactComponent as GripIcon } from '@zendeskgarden/svg-icons/src/12/grip.svg';
-import { getColorV8 } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 
 const DraggableRow = styled(Table.Row)<{ isDraggingOver: boolean }>`
   ${props =>
@@ -24,11 +24,7 @@ const DraggableRow = styled(Table.Row)<{ isDraggingOver: boolean }>`
 `;
 
 const DraggableContainer = styled.div`
-  color: ${props => getColorV8('primaryHue', 600, props.theme)};
-
-  &:hover {
-    color: ${props => getColorV8('primaryHue', 700, props.theme)};
-  }
+  color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
 
   &:focus {
     outline: none;

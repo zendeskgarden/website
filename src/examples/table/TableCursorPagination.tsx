@@ -10,6 +10,11 @@ import styled from 'styled-components';
 import { Table } from '@zendeskgarden/react-tables';
 import { CursorPagination } from '@zendeskgarden/react-pagination';
 
+const StyledContainer = styled.div`
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
+
 const StyledTable = styled(Table)`
   margin-bottom: ${p => p.theme.space.md};
   min-width: 500px;
@@ -40,7 +45,7 @@ const Example = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   return (
-    <div style={{ overflowX: 'auto' }}>
+    <StyledContainer>
       <StyledTable>
         <Table.Head>
           <Table.HeaderRow>
@@ -75,7 +80,7 @@ const Example = () => {
           Next
         </CursorPagination.Next>
       </CursorPagination>
-    </div>
+    </StyledContainer>
   );
 };
 

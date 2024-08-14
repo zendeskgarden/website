@@ -7,6 +7,14 @@
 
 import React from 'react';
 import { Table } from '@zendeskgarden/react-tables';
+import styled from 'styled-components';
+
+const StyledContainer = styled.div`
+  overflow-x: auto;
+  max-height: 500px;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
+
 interface IRow {
   index: number;
   fruit: string;
@@ -22,7 +30,7 @@ const rowData: IRow[] = Array.from(Array(100)).map((row, index) => ({
 }));
 
 const Example = () => (
-  <div style={{ maxHeight: 500, overflow: 'auto' }}>
+  <StyledContainer>
     <Table style={{ minWidth: 500 }}>
       <Table.Head isSticky>
         <Table.HeaderRow>
@@ -41,7 +49,7 @@ const Example = () => (
         ))}
       </Table.Body>
     </Table>
-  </div>
+  </StyledContainer>
 );
 
 export default Example;

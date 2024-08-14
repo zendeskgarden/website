@@ -6,11 +6,17 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { Table } from '@zendeskgarden/react-tables';
 import { Skeleton } from '@zendeskgarden/react-loaders';
 
+const StyledContainer = styled.div`
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
+
 const Example = () => (
-  <div style={{ overflowX: 'auto' }}>
+  <StyledContainer>
     <Table style={{ minWidth: 500 }}>
       <Table.Head>
         <Table.HeaderRow>
@@ -55,7 +61,7 @@ const Example = () => (
         </Table.Row>
       </Table.Body>
     </Table>
-  </div>
+  </StyledContainer>
 );
 
 export default Example;

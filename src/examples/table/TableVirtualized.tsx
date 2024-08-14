@@ -35,6 +35,7 @@ const rowData: IRow[] = Array.from(Array(100000)).map((row, index) => ({
 const ScrollableTable = styled(Table).attrs({ role: 'presentation' })`
   /* stylelint-disable-next-line */
   display: block !important;
+  color-scheme: only ${p => p.theme.colors.base};
 `;
 
 const ScrollableHead = styled(Table.Head)`

@@ -6,7 +6,13 @@
  */
 
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { Table } from '@zendeskgarden/react-tables';
+
+const StyledContainer = styled.div`
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
 
 interface IRowData {
   id: string;
@@ -60,7 +66,7 @@ const Example = () => {
   const [typeSort, setTypeSort] = useState<Direction>();
 
   return (
-    <div style={{ overflowX: 'auto' }}>
+    <StyledContainer>
       <Table style={{ minWidth: 500 }}>
         <Table.Head>
           <Table.HeaderRow>
@@ -109,7 +115,7 @@ const Example = () => {
           ))}
         </Table.Body>
       </Table>
-    </div>
+    </StyledContainer>
   );
 };
 

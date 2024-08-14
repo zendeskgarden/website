@@ -18,6 +18,12 @@ const rowData = Array.from(Array(10)).map((row, index) => ({
   soil: 'Well draining'
 }));
 
+const StyledContainer = styled.div`
+  max-height: 400px;
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
+
 const StyledHeaderRow = styled(Table.HeaderRow)`
   border-bottom: none;
 `;
@@ -33,7 +39,7 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 const Example = () => (
-  <div style={{ overflowX: 'auto', maxHeight: '400px' }}>
+  <StyledContainer>
     <Table style={{ minWidth: 500 }}>
       <StyledHead>
         <StyledHeaderRow>
@@ -64,7 +70,7 @@ const Example = () => (
       chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko
       chicory celtuce parsley jícama.
     </StyledParagraph>
-  </div>
+  </StyledContainer>
 );
 
 export default Example;

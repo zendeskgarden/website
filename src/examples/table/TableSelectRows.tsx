@@ -6,10 +6,15 @@
  */
 
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { Table } from '@zendeskgarden/react-tables';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { Field, Checkbox } from '@zendeskgarden/react-forms';
 
+const StyledContainer = styled.div`
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
 interface IRowData {
   id: string;
   fruit: string;
@@ -46,7 +51,7 @@ const Example = () => {
   const [focusedRowIndex, setFocusedRowIndex] = useState<number | undefined>(undefined);
 
   return (
-    <div style={{ overflowX: 'auto' }}>
+    <StyledContainer>
       <Table style={{ minWidth: 500 }}>
         <Table.Head>
           <Table.HeaderRow>
@@ -131,7 +136,7 @@ const Example = () => {
           ))}
         </Table.Body>
       </Table>
-    </div>
+    </StyledContainer>
   );
 };
 

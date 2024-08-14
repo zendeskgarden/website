@@ -6,7 +6,13 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { Table } from '@zendeskgarden/react-tables';
+
+const StyledContainer = styled.div`
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
 
 interface IRow {
   index: number;
@@ -23,7 +29,7 @@ const rowData: IRow[] = Array.from(Array(10)).map((row, index) => ({
 }));
 
 const Example = () => (
-  <div style={{ overflowX: 'auto' }}>
+  <StyledContainer>
     <Table style={{ minWidth: 500 }}>
       <Table.Head>
         <Table.HeaderRow>
@@ -42,7 +48,7 @@ const Example = () => (
         ))}
       </Table.Body>
     </Table>
-  </div>
+  </StyledContainer>
 );
 
 export default Example;

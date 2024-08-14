@@ -15,6 +15,11 @@ const StyledTable = styled(Table)`
   min-width: 500px;
 `;
 
+const StyledContainer = styled.div`
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
+
 interface IRow {
   fruit: string;
   sun: string;
@@ -40,7 +45,7 @@ const Example = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   return (
-    <div style={{ overflowX: 'auto' }}>
+    <StyledContainer>
       <StyledTable>
         <Table.Head>
           <Table.HeaderRow>
@@ -64,7 +69,7 @@ const Example = () => {
           onChange={setCurrentPage}
         />
       </nav>
-    </div>
+    </StyledContainer>
   );
 };
 

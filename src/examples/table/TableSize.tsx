@@ -13,10 +13,17 @@ import { LG } from '@zendeskgarden/react-typography';
 const StyledContainer = styled.div`
   margin-bottom: ${p => p.theme.space.xl};
   min-width: 500px;
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
+
+const StyledOverflowContainer = styled.div`
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
 `;
 
 const Example = () => (
-  <div style={{ overflowX: 'auto' }}>
+  <StyledOverflowContainer>
     <StyledContainer>
       <Table size="small">
         <Table.Caption>
@@ -140,7 +147,7 @@ const Example = () => (
         </Table.Body>
       </Table>
     </StyledContainer>
-  </div>
+  </StyledOverflowContainer>
 );
 
 export default Example;
