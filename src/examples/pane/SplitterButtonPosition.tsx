@@ -10,7 +10,7 @@ import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import useResizeObserver from 'use-resize-observer';
 import { XL, XXL, Paragraph } from '@zendeskgarden/react-typography';
 import styled from 'styled-components';
-import { getColorV8 } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 
 const StyledDiv = styled.div`
   padding: ${p => p.theme.space.base * 6}px;
@@ -31,7 +31,7 @@ const StyledPaneContent = styled(Pane.Content)`
 
 const StyledPanesContainer = styled.div`
   & > :first-child {
-    background-color: ${p => getColorV8('neutralHue', 100, p.theme)};
+    background-color: ${p => getColor({ variable: 'background.subtle', theme: p.theme })};
   }
 
   &:not(:last-child) {

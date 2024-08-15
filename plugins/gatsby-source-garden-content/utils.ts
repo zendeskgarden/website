@@ -115,7 +115,7 @@ export async function fetchFigmaImages({
   nodeIds: string[];
   scale: number;
 }) {
-  const chunks = chunk(nodeIds, 40);
+  const chunks = chunk(nodeIds, 20);
   let images: Record<string, string> = {};
 
   for await (const value of chunks) {

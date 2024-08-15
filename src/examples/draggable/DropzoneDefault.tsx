@@ -123,7 +123,6 @@ const getAnnouncements = (count: number): Announcements => ({
 
 const StyledHeading = styled(MD)`
   margin-bottom: ${p => p.theme.space.xs};
-  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
 `;
 
 const StyledDropzone = styled(Dropzone)`

@@ -32,7 +32,7 @@ import {
 } from '@zendeskgarden/react-draggable';
 import { Grid } from '@zendeskgarden/react-grid';
 import { MD } from '@zendeskgarden/react-typography';
-import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import { mediaQuery } from '@zendeskgarden/react-theming';
 
 interface IColumnItem {
   id: string;
@@ -106,7 +106,6 @@ const announcements: Announcements = {
 
 const StyledHeading = styled(MD)`
   margin-bottom: ${p => p.theme.space.xs};
-  color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
 `;
 
 const StyledDropzone = styled(Dropzone)`

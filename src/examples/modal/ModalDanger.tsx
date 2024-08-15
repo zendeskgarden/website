@@ -7,15 +7,15 @@
 
 import React, { useState } from 'react';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Modal, Header, Body, Footer, FooterItem, Close } from '@zendeskgarden/react-modals';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Modal } from '@zendeskgarden/react-modals';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <Button
           onClick={() => {
             setVisible(true);
@@ -30,15 +30,15 @@ const Example = () => {
               setVisible(false);
             }}
           >
-            <Header tag="h2" isDanger>
+            <Modal.Header tag="h2" isDanger>
               Remove plant food from your garden
-            </Header>
-            <Body>
+            </Modal.Header>
+            <Modal.Body>
               Plant food helps gardens grow. Removing plant food negatively affects the plant
               health.
-            </Body>
-            <Footer>
-              <FooterItem>
+            </Modal.Body>
+            <Modal.Footer>
+              <Modal.FooterItem>
                 <Button
                   onClick={() => {
                     setVisible(false);
@@ -47,8 +47,8 @@ const Example = () => {
                 >
                   Cancel
                 </Button>
-              </FooterItem>
-              <FooterItem>
+              </Modal.FooterItem>
+              <Modal.FooterItem>
                 <Button
                   isPrimary
                   isDanger
@@ -58,13 +58,13 @@ const Example = () => {
                 >
                   Remove plant food
                 </Button>
-              </FooterItem>
-            </Footer>
-            <Close aria-label="Close modal" />
+              </Modal.FooterItem>
+            </Modal.Footer>
+            <Modal.Close aria-label="Close modal" />
           </Modal>
         )}
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

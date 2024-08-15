@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Table } from '@zendeskgarden/react-tables';
-import { Pagination } from '@zendeskgarden/react-pagination';
+import { OffsetPagination } from '@zendeskgarden/react-pagination';
 
 const StyledTable = styled(Table)`
   margin-bottom: ${p => p.theme.space.md};
@@ -63,7 +63,7 @@ const Example = () => {
         </Table.Body>
       </StyledTable>
       <nav aria-label="table example pagination">
-        <Pagination
+        <OffsetPagination
           totalPages={rowData.length / pageSize}
           currentPage={currentPage}
           onChange={setCurrentPage}

@@ -171,7 +171,59 @@ The Menu component follows this structure:
 <Menu>
   <Item />
   <Item />
+  <ItemGroup>
+    <Item />
+  </ItemGroup>
   {/* etc. */}
+</Menu>
+```
+
+Use `Array.map` to iterate over items.
+
+```jsx
+const ITEMS = [
+  { value: 'Sunflower' },
+  {
+    legend: 'More flowers',
+    items: [
+      { value: 'Violet' },
+      { value: 'Daisy' },
+    ]
+  }
+]
+
+<Menu>
+  {ITEMS.map(item =>
+    item.items ? (
+      <ItemGroup key={item.legend} legend={item.legend}>
+        {item.items.map(groupItem => (
+          <Item key={groupItem.value} {...groupItem} />
+        ))}
+      </ItemGroup>
+    ) : (
+      <Item key={item.value} {...item} />
+    )
+  )}
+</Menu>
+```
+
+Match `Item` and `ItemGroup` prop signatures when using wrapper components.
+
+```jsx
+const ItemComponent = forwardRef((props, ref) => (
+  <Item {...props} ref={ref} />
+))
+
+const ItemGroupComponent = forwardRef((props, ref) => (
+  <ItemGroup {...props} ref={ref} />
+))
+
+<Menu>
+  <ItemGroupComponent legend="Flowers">
+    <ItemComponent value="Violet" />
+    <ItemComponent value="Sunflower" />
+    <ItemComponent value="Daisy" />
+  </ItemGroupComponent>
 </Menu>
 ```
 

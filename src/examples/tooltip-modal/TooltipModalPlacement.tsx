@@ -8,11 +8,11 @@
 import React, { useState, useRef, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
 import { TooltipModal } from '@zendeskgarden/react-modals';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Span, SM } from '@zendeskgarden/react-typography';
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   & + & {
     margin-top: ${p => p.theme.space.xs};
   }
@@ -68,20 +68,6 @@ const Example = () => {
           setReferenceElement(null);
         }}
         placement={placement as any}
-        popperModifiers={[
-          {
-            name: 'flip',
-            options: {
-              boundary: 'viewport'
-            }
-          },
-          {
-            name: 'preventOverflow',
-            options: {
-              boundary: 'viewport'
-            }
-          }
-        ]}
       >
         <TooltipModal.Title tag="h2">Tooltip modal header</TooltipModal.Title>
         <TooltipModal.Body>
@@ -135,85 +121,85 @@ const Example = () => {
         </TooltipModal.Footer>
         <TooltipModal.Close aria-label="Close" />
       </TooltipModal>
-      <Row justifyContent="center" style={{ minWidth: 400 }}>
-        <Col md={7}>
+      <Grid.Row justifyContent="center" style={{ minWidth: 400 }}>
+        <Grid.Col md={7}>
           <StyledRow>
-            <Col textAlign="end">
+            <Grid.Col textAlign="end">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 top-start
               </Button>
-            </Col>
-            <Col textAlign="center">
+            </Grid.Col>
+            <Grid.Col textAlign="center">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 top
               </Button>
-            </Col>
-            <Col textAlign="start">
+            </Grid.Col>
+            <Grid.Col textAlign="start">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 top-end
               </Button>
-            </Col>
+            </Grid.Col>
           </StyledRow>
           <StyledRow>
-            <Col textAlign="start">
+            <Grid.Col textAlign="start">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 start-top
               </Button>
-            </Col>
-            <Col textAlign="end">
+            </Grid.Col>
+            <Grid.Col textAlign="end">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 end-top
               </Button>
-            </Col>
+            </Grid.Col>
           </StyledRow>
           <StyledRow>
-            <Col textAlign="start">
+            <Grid.Col textAlign="start">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 start
               </Button>
-            </Col>
-            <Col textAlign="center">
+            </Grid.Col>
+            <Grid.Col textAlign="center">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 auto
               </Button>
-            </Col>
-            <Col textAlign="end">
+            </Grid.Col>
+            <Grid.Col textAlign="end">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 end
               </Button>
-            </Col>
+            </Grid.Col>
           </StyledRow>
           <StyledRow>
-            <Col textAlign="start">
+            <Grid.Col textAlign="start">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 start-bottom
               </Button>
-            </Col>
-            <Col textAlign="end">
+            </Grid.Col>
+            <Grid.Col textAlign="end">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 end-bottom
               </Button>
-            </Col>
+            </Grid.Col>
           </StyledRow>
           <StyledRow>
-            <Col textAlign="end">
+            <Grid.Col textAlign="end">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 bottom-start
               </Button>
-            </Col>
-            <Col textAlign="center">
+            </Grid.Col>
+            <Grid.Col textAlign="center">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 bottom
               </Button>
-            </Col>
-            <Col textAlign="start">
+            </Grid.Col>
+            <Grid.Col textAlign="start">
               <Button size="small" ref={storeRef} onClick={onClick}>
                 bottom-end
               </Button>
-            </Col>
+            </Grid.Col>
           </StyledRow>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </>
   );
 };
