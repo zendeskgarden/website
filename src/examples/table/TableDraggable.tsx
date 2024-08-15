@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useEffect, useState } from 'react';
-import styled from 'styled-components';
+import React, { useCallback, useState } from 'react';
+import styled, { useTheme } from 'styled-components';
 import { Table } from '@zendeskgarden/react-tables';
-import { ReactComponent as GripIcon } from '@zendeskgarden/svg-icons/src/12/grip.svg';
 import { getColor } from '@zendeskgarden/react-theming';
+import { ReactComponent as GripIcon } from '@zendeskgarden/svg-icons/src/12/grip.svg';
 import {
   DndContext,
   closestCenter,
@@ -77,7 +77,8 @@ const defaultItems: IItem[] = [
 ];
 
 const SortableRow = ({ item }: { item: IItem }) => {
-  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
+  const theme = useTheme();
+  const { attributes, isDragging, listeners, setNodeRef, transform, transition } = useSortable({
     id: item.id
   });
 
@@ -86,11 +87,23 @@ const SortableRow = ({ item }: { item: IItem }) => {
       ref={setNodeRef}
       style={{
         transform: CSS.Transform.toString(transform),
-        transition
+        transition,
+        backgroundColor: isDragging
+          ? getColor({
+              variable: 'background.primaryEmphasis',
+              transparency: theme.opacity[300],
+              dark: { offset: -100 },
+              theme
+            })
+          : undefined
       }}
     >
       <Table.Cell>
-        <DraggableContainer {...attributes} {...listeners}>
+        <DraggableContainer
+          {...attributes}
+          {...listeners}
+          style={isDragging ? { cursor: 'grabbing' } : undefined}
+        >
           <GripIcon />
         </DraggableContainer>
       </Table.Cell>
@@ -103,7 +116,6 @@ const SortableRow = ({ item }: { item: IItem }) => {
 
 const Example: React.FC = () => {
   const [items, setItems] = useState(defaultItems);
-  const [recentDragId, setRecentDragId] = useState<string>();
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -111,14 +123,6 @@ const Example: React.FC = () => {
       coordinateGetter: sortableKeyboardCoordinates
     })
   );
-
-  useEffect(() => {
-    if (recentDragId) {
-      const draggable = document.getElementById(recentDragId);
-
-      draggable && draggable.focus();
-    }
-  }, [recentDragId]);
 
   const handleDragEnd = useCallback((event: DragEndEvent) => {
     const { active, over } = event;
@@ -128,8 +132,6 @@ const Example: React.FC = () => {
         const oldIndex = prevItems.findIndex(item => item.id === active.id);
         const newIndex = prevItems.findIndex(item => item.id === over?.id);
         const newItems = arrayMove(prevItems, oldIndex, newIndex);
-
-        setRecentDragId(active.id as string);
 
         return newItems;
       });
