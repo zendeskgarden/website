@@ -5,105 +5,37 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 import { Table } from '@zendeskgarden/react-tables';
 import { ReactComponent as GripIcon } from '@zendeskgarden/svg-icons/src/12/grip.svg';
 import { getColor } from '@zendeskgarden/react-theming';
-
-const DraggableRow = styled(Table.Row)<{ isDraggingOver: boolean }>`
-  ${props =>
-    props.isDraggingOver
-      ? `
-  :hover {
-    background-color: inherit !important;
-  }
-`
-      : ''}
-`;
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+  verticalListSortingStrategy
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 
 const DraggableContainer = styled.div`
+  cursor: grab;
   color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
 
   &:focus {
     outline: none;
   }
 `;
-
-interface IDraggableCellProps extends PropsWithChildren {
-  isDragOccurring?: boolean;
-}
-
-class DraggableCell extends React.Component<IDraggableCellProps> {
-  ref: HTMLTableCellElement | null = null;
-
-  constructor(args: any) {
-    super(args);
-
-    this.setRef = this.setRef.bind(this);
-  }
-
-  getSnapshotBeforeUpdate(prevProps: IDraggableCellProps) {
-    if (!this.ref) {
-      return null;
-    }
-
-    const isDragStarting = this.props.isDragOccurring && !prevProps.isDragOccurring;
-
-    if (!isDragStarting) {
-      return null;
-    }
-
-    const { width, height } = this.ref.getBoundingClientRect();
-
-    const snapshot = {
-      width,
-      height
-    };
-
-    return snapshot;
-  }
-
-  componentDidUpdate(prevProps: IDraggableCellProps, prevState: any, snapshot: any) {
-    const ref = this.ref;
-
-    if (!ref) {
-      return;
-    }
-
-    if (snapshot) {
-      if (ref.style.width === snapshot.width) {
-        return;
-      }
-
-      ref.style.width = `${snapshot.width}px`;
-      ref.style.height = `${snapshot.height}px`;
-
-      return;
-    }
-
-    if (this.props.isDragOccurring) {
-      return;
-    }
-
-    if (ref.style.width === null) {
-      return;
-    }
-
-    ref.style.removeProperty('height');
-    ref.style.removeProperty('width');
-  }
-
-  setRef(ref: HTMLTableCellElement | null) {
-    this.ref = ref;
-  }
-
-  render() {
-    return <Table.Cell ref={this.setRef}>{this.props.children}</Table.Cell>;
-  }
-}
-
 interface IItem {
   id: string;
   name: string;
@@ -144,18 +76,41 @@ const defaultItems: IItem[] = [
   }
 ];
 
-const reorderItems = (list: IItem[], startIndex: number, endIndex: number) => {
-  const result = Array.from(list);
-  const [removed] = result.splice(startIndex, 1);
+const SortableRow = ({ item }: { item: IItem }) => {
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
+    id: item.id
+  });
 
-  result.splice(endIndex, 0, removed);
-
-  return result;
+  return (
+    <Table.Row
+      ref={setNodeRef}
+      style={{
+        transform: CSS.Transform.toString(transform),
+        transition
+      }}
+    >
+      <Table.Cell>
+        <DraggableContainer {...attributes} {...listeners}>
+          <GripIcon />
+        </DraggableContainer>
+      </Table.Cell>
+      <Table.Cell>{item.name}</Table.Cell>
+      <Table.Cell>{item.exposure}</Table.Cell>
+      <Table.Cell>{item.soil}</Table.Cell>
+    </Table.Row>
+  );
 };
 
-const Example = () => {
+const Example: React.FC = () => {
   const [items, setItems] = useState(defaultItems);
   const [recentDragId, setRecentDragId] = useState<string>();
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates
+    })
+  );
 
   useEffect(() => {
     if (recentDragId) {
@@ -165,22 +120,24 @@ const Example = () => {
     }
   }, [recentDragId]);
 
-  const onDragEnd = useCallback(
-    (result: DropResult) => {
-      if (!result.destination) {
-        return;
-      }
+  const handleDragEnd = useCallback((event: DragEndEvent) => {
+    const { active, over } = event;
 
-      const newItems = reorderItems(items, result.source.index, result.destination.index);
+    if (active.id !== over?.id) {
+      setItems(prevItems => {
+        const oldIndex = prevItems.findIndex(item => item.id === active.id);
+        const newIndex = prevItems.findIndex(item => item.id === over?.id);
+        const newItems = arrayMove(prevItems, oldIndex, newIndex);
 
-      setItems(newItems);
-      setRecentDragId(result.draggableId);
-    },
-    [items]
-  );
+        setRecentDragId(active.id as string);
+
+        return newItems;
+      });
+    }
+  }, []);
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
+    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
       <Table>
         <Table.Head>
           <Table.HeaderRow>
@@ -192,52 +149,15 @@ const Example = () => {
             <Table.HeaderCell>Soil</Table.HeaderCell>
           </Table.HeaderRow>
         </Table.Head>
-        <Droppable droppableId="droppable">
-          {(droppableProps, droppableSnapshot) => {
-            return (
-              <Table.Body ref={droppableProps.innerRef}>
-                {items.map((item, index) => (
-                  <Draggable key={item.id} draggableId={item.id} index={index}>
-                    {(provided, snapshot) => (
-                      <DraggableRow
-                        ref={provided.innerRef}
-                        isDraggingOver={droppableSnapshot.isDraggingOver}
-                        isHovered={snapshot.isDragging}
-                        isFocused={
-                          droppableSnapshot.isDraggingOver ? snapshot.isDragging : undefined
-                        }
-                        {...provided.draggableProps.style}
-                        {...provided.draggableProps}
-                      >
-                        <DraggableCell isDragOccurring={snapshot.isDragging}>
-                          <DraggableContainer
-                            id={item.id}
-                            aria-label={item.name}
-                            {...provided.dragHandleProps}
-                          >
-                            <GripIcon />
-                          </DraggableContainer>
-                        </DraggableCell>
-                        <DraggableCell isDragOccurring={snapshot.isDragging}>
-                          {item.name}
-                        </DraggableCell>
-                        <DraggableCell isDragOccurring={snapshot.isDragging}>
-                          {item.exposure}
-                        </DraggableCell>
-                        <DraggableCell isDragOccurring={snapshot.isDragging}>
-                          {item.soil}
-                        </DraggableCell>
-                      </DraggableRow>
-                    )}
-                  </Draggable>
-                ))}
-                {droppableProps.placeholder}
-              </Table.Body>
-            );
-          }}
-        </Droppable>
+        <Table.Body>
+          <SortableContext items={items} strategy={verticalListSortingStrategy}>
+            {items.map(item => (
+              <SortableRow key={item.id} item={item} />
+            ))}
+          </SortableContext>
+        </Table.Body>
       </Table>
-    </DragDropContext>
+    </DndContext>
   );
 };
 
