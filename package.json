@@ -47,7 +47,7 @@
     "@zendeskgarden/react-forms": "9.0.0-next.21",
     "@zendeskgarden/react-grid": "9.0.0-next.21",
     "@zendeskgarden/react-loaders": "9.0.0-next.21",
-    "@zendeskgarden/react-modals": "8.76.3",
+    "@zendeskgarden/react-modals": "9.0.0-next.21",
     "@zendeskgarden/react-notifications": "9.0.0-next.21",
     "@zendeskgarden/react-pagination": "9.0.0-next.21",
     "@zendeskgarden/react-tables": "9.0.0-next.21",
