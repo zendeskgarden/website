@@ -6,15 +6,15 @@
  */
 
 import React, { useState } from 'react';
-import { Pagination } from '@zendeskgarden/react-pagination';
+import { OffsetPagination } from '@zendeskgarden/react-pagination';
 
 const Example = () => {
   const [page, setPage] = useState(10);
 
   return (
     <nav aria-label="pagination example padding">
-      <Pagination totalPages={20} pagePadding={0} currentPage={page} onChange={setPage} />
-      <Pagination
+      <OffsetPagination totalPages={20} pagePadding={0} currentPage={page} onChange={setPage} />
+      <OffsetPagination
         totalPages={20}
         pagePadding={2}
         currentPage={page}

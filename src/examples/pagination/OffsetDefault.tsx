@@ -6,14 +6,14 @@
  */
 
 import React, { useState } from 'react';
-import { Pagination } from '@zendeskgarden/react-pagination';
+import { OffsetPagination } from '@zendeskgarden/react-pagination';
 
 const Example = () => {
   const [page, setPage] = useState(1);
 
   return (
     <nav aria-label="pagination example offset">
-      <Pagination totalPages={6} currentPage={page} onChange={setPage} />
+      <OffsetPagination totalPages={6} currentPage={page} onChange={setPage} />
     </nav>
   );
 };
