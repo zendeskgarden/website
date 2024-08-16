@@ -28,14 +28,6 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
-const DraggableContainer = styled.div`
-  color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
-
-  &:focus {
-    outline: none;
-  }
-`;
-
 interface IItem {
   id: string;
   name: string;
@@ -75,6 +67,14 @@ const defaultItems: IItem[] = [
     soil: 'Well draining'
   }
 ];
+
+const DraggableContainer = styled.div`
+  color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
+
+  &:focus {
+    outline: none;
+  }
+`;
 
 const SortableRow = ({ item }: { item: IItem }) => {
   const theme = useTheme();
