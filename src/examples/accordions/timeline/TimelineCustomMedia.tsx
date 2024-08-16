@@ -26,25 +26,25 @@ const Example = () => (
         <Timeline.Item icon={<LeafIcon />}>
           <Timeline.Content>
             <StyledSpan>Planted seed</StyledSpan>
-            <Span hue="grey">Today 9:00 AM</Span>
+            <Span hue="foreground.subtle">Today 9:00 AM</Span>
           </Timeline.Content>
         </Timeline.Item>
         <Timeline.Item icon={<CartIcon />}>
           <Timeline.Content>
             <StyledSpan>Purchased seed</StyledSpan>
-            <Span hue="grey">Feb 08, 9:05 AM</Span>
+            <Span hue="foreground.subtle">Feb 08, 9:05 AM</Span>
           </Timeline.Content>
         </Timeline.Item>
         <Timeline.Item icon={<RearrangeIcon />}>
           <Timeline.Content>
             <StyledSpan>Arranged layout of garden</StyledSpan>
-            <Span hue="grey">Jan 21, 9:13 AM</Span>
+            <Span hue="foreground.subtle">Jan 21, 9:13 AM</Span>
           </Timeline.Content>
         </Timeline.Item>
         <Timeline.Item icon={<LocationIcon />}>
           <Timeline.Content>
             <StyledSpan>Chose a gardening location</StyledSpan>
-            <Span hue="grey">Jan 21, 9:21 AM </Span>
+            <Span hue="foreground.subtle">Jan 21, 9:21 AM </Span>
           </Timeline.Content>
         </Timeline.Item>
       </Timeline>

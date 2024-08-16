@@ -77,7 +77,7 @@ const Example = () => {
         </TooltipModal.Body>
         <TooltipModal.Footer>
           <SM style={{ flexGrow: 1 }}>
-            <Span hue="grey">{currentStep} of 13</Span>
+            <Span hue="foreground.subtle">{currentStep} of 13</Span>
           </SM>
           <TooltipModal.FooterItem>
             {currentStep > 1 && (
