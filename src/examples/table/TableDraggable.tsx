@@ -29,13 +29,13 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 
 const DraggableContainer = styled.div`
-  cursor: grab;
   color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
 
   &:focus {
     outline: none;
   }
 `;
+
 interface IItem {
   id: string;
   name: string;
@@ -78,7 +78,15 @@ const defaultItems: IItem[] = [
 
 const SortableRow = ({ item }: { item: IItem }) => {
   const theme = useTheme();
-  const { attributes, isDragging, listeners, setNodeRef, transform, transition } = useSortable({
+  const {
+    attributes,
+    isDragging,
+    listeners,
+    setActivatorNodeRef,
+    setNodeRef,
+    transform,
+    transition
+  } = useSortable({
     id: item.id
   });
 
@@ -98,12 +106,8 @@ const SortableRow = ({ item }: { item: IItem }) => {
           : undefined
       }}
     >
-      <Table.Cell>
-        <DraggableContainer
-          {...attributes}
-          {...listeners}
-          style={isDragging ? { cursor: 'grabbing' } : undefined}
-        >
+      <Table.Cell style={{ cursor: isDragging ? 'grabbing' : 'grab' }}>
+        <DraggableContainer ref={setActivatorNodeRef} {...attributes} {...listeners}>
           <GripIcon />
         </DraggableContainer>
       </Table.Cell>
