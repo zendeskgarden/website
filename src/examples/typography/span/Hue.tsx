@@ -19,9 +19,9 @@ const Example = () => (
       <MD tag="span">
         Water spinach arugula pea tatsoi aubergine spring onion bush tomato kale radicchio turnip
         chicory salsify pea sprouts fava bean.{' '}
-        <Span hue="fuschia">Dandelion zucchini burdock yarrow chickpea dandelion</Span> sorrel
-        courgette turnip greens tigernut soybean radish artichoke wattle seed endive groundnut
-        broccoli arugula.
+        <Span hue="foreground.primary">Dandelion zucchini burdock yarrow chickpea dandelion</Span>{' '}
+        sorrel courgette turnip greens tigernut soybean radish artichoke wattle seed endive
+        groundnut broccoli arugula.
       </MD>
     </Paragraph>
   </>

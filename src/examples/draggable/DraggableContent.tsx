@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { PALETTE, getColor } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Draggable } from '@zendeskgarden/react-draggable';
 import { IconButton } from '@zendeskgarden/react-buttons';
@@ -16,9 +15,8 @@ import { ReactComponent as PuzzleIcon } from '@zendeskgarden/svg-icons/src/16/pu
 import { ReactComponent as OverflowIcon } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import styled from 'styled-components';
 
-const StyledDecorator = styled.div`
+const StyledDecorator = styled(Span)`
   display: flex;
-  color: ${p => getColor({ theme: p.theme, hue: 'neutralHue', shade: 700 })};
   padding-inline-end: ${p => p.theme.space.xs};
 `;
 
@@ -27,14 +25,14 @@ const Example = () => (
     <Grid.Col sm={7}>
       <Draggable isCompact>
         <Draggable.Grip />
-        <StyledDecorator>
+        <StyledDecorator hue="foreground.subtle">
           <PuzzleIcon />
         </StyledDecorator>
         <Draggable.Content>
           <Span isBold tag="div">
             Citrus
           </Span>
-          <Span hue={PALETTE.grey[700]}>Oranges, mandarins, limes, and the like</Span>
+          <Span hue="foreground.subtle">Oranges, mandarins, limes, and the like</Span>
         </Draggable.Content>
         <Tooltip content="More options">
           <IconButton aria-label="More options">
