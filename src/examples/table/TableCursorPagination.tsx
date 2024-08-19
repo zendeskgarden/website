@@ -7,8 +7,13 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
 import { CursorPagination } from '@zendeskgarden/react-pagination';
+
+const StyledContainer = styled.div`
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
 
 const StyledTable = styled(Table)`
   margin-bottom: ${p => p.theme.space.md};
@@ -28,11 +33,11 @@ const rowData: IRow[] = Array.from(Array(100)).map((row, index) => ({
 }));
 
 const createRow = (row: IRow, index: number) => (
-  <Row key={index}>
-    <Cell>{row.fruit}</Cell>
-    <Cell>{row.sun}</Cell>
-    <Cell>{row.soil}</Cell>
-  </Row>
+  <Table.Row key={index}>
+    <Table.Cell>{row.fruit}</Table.Cell>
+    <Table.Cell>{row.sun}</Table.Cell>
+    <Table.Cell>{row.soil}</Table.Cell>
+  </Table.Row>
 );
 
 const Example = () => {
@@ -40,24 +45,23 @@ const Example = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   return (
-    <div style={{ overflowX: 'auto' }}>
+    <StyledContainer>
       <StyledTable>
-        <Head>
-          <HeaderRow>
-            <HeaderCell>Fruit</HeaderCell>
-            <HeaderCell>Sun exposure</HeaderCell>
-            <HeaderCell>Soil type</HeaderCell>
-          </HeaderRow>
-        </Head>
-        <Body>
+        <Table.Head>
+          <Table.HeaderRow>
+            <Table.HeaderCell>Fruit</Table.HeaderCell>
+            <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+            <Table.HeaderCell>Soil type</Table.HeaderCell>
+          </Table.HeaderRow>
+        </Table.Head>
+        <Table.Body>
           {currentPage === 1
             ? rowData.slice(currentPage - 1, pageSize).map(createRow)
             : rowData
                 .slice(currentPage * pageSize - pageSize, currentPage * pageSize)
                 .map(createRow)}
-        </Body>
+        </Table.Body>
       </StyledTable>
-
       <CursorPagination aria-label="Cursor pagination">
         <CursorPagination.Previous
           onClick={() => {
@@ -76,7 +80,7 @@ const Example = () => {
           Next
         </CursorPagination.Next>
       </CursorPagination>
-    </div>
+    </StyledContainer>
   );
 };
 

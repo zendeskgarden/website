@@ -9,11 +9,11 @@ import React from 'react';
 import styled from 'styled-components';
 import getScrollbarSize from 'dom-helpers/scrollbarSize';
 import { FixedSizeList } from 'react-window';
-import { Table, Head, HeaderRow, HeaderCell, Body, Row, Cell } from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
 
 const SCROLLBAR_SIZE = getScrollbarSize();
 
-const StyledSpacerCell = styled(HeaderCell)`
+const StyledSpacerCell = styled(Table.HeaderCell)`
   padding: 0;
   width: ${SCROLLBAR_SIZE}px;
 `;
@@ -35,35 +35,36 @@ const rowData: IRow[] = Array.from(Array(100000)).map((row, index) => ({
 const ScrollableTable = styled(Table).attrs({ role: 'presentation' })`
   /* stylelint-disable-next-line */
   display: block !important;
+  color-scheme: only ${p => p.theme.colors.base};
 `;
 
-const ScrollableHead = styled(Head)`
+const ScrollableHead = styled(Table.Head)`
   display: block;
 `;
 
-const ScrollableHeaderRow = styled(HeaderRow).attrs({ role: 'row' })`
+const ScrollableHeaderRow = styled(Table.HeaderRow).attrs({ role: 'row' })`
   /* stylelint-disable-next-line */
   display: table !important;
   width: 100%;
   table-layout: fixed;
 `;
 
-const ScrollableHeaderCell = styled(HeaderCell).attrs({ role: 'columnheader' })`
+const ScrollableHeaderCell = styled(Table.HeaderCell).attrs({ role: 'columnheader' })`
   /* stylelint-disable-next-line no-empty-source */
 `;
 
-const ScrollableBody = styled(Body)`
+const ScrollableBody = styled(Table.Body)`
   /* stylelint-disable-next-line declaration-no-important */
   display: block !important;
 `;
 
-const ScrollableRow = styled(Row).attrs({ role: 'row' })`
+const ScrollableRow = styled(Table.Row).attrs({ role: 'row' })`
   /* stylelint-disable-next-line declaration-no-important */
   display: table !important;
   table-layout: fixed;
 `;
 
-const ScrollableCell = styled(Cell).attrs({ role: 'cell' })`
+const ScrollableCell = styled(Table.Cell).attrs({ role: 'cell' })`
   /* stylelint-disable-next-line no-empty-source */
 `;
 

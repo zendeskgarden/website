@@ -56,7 +56,6 @@ const packageJson = `
   "dependencies": {
     "date-fns": "latest",
     "dom-helpers": "latest",
-    "react-beautiful-dnd": "latest",
     "react-scripts": "latest",
     "react": "^18.x",
     "react-dom": "^18.x",
@@ -66,6 +65,7 @@ const packageJson = `
     "react-window": "latest",
     "use-resize-observer": "latest",
     "@dnd-kit/core": "latest",
+    "@dnd-kit/sortable": "latest",
     "@zendeskgarden/container-utilities": "^1.x",
     "@zendeskgarden/css-bedrock": "^8.x",
     "@zendeskgarden/react-accordions": "next",
