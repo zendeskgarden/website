@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as PaletteIcon } from '@zendeskgarden/svg-icons/src/16/palette-fill.svg';
@@ -82,8 +82,8 @@ const Example = () => {
   };
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <ColorSwatchDialog
           name="color-swatch-custom-trigger"
           colors={matrix}
@@ -93,8 +93,8 @@ const Example = () => {
         >
           <PaletteIconButton iconColor={color} />
         </ColorSwatchDialog>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

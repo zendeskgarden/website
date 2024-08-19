@@ -8,14 +8,14 @@
 import React from 'react';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ColorPicker } from '@zendeskgarden/react-colorpickers';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col size="auto">
+  <Grid.Row justifyContent="center">
+    <Grid.Col size="auto">
       <ColorPicker defaultColor={PALETTE.blue[700]} isOpaque />
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

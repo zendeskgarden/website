@@ -9,13 +9,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { rgba, parseToRgb, toColorString } from 'polished';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ColorPickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
-import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
+import { Field, Input, InputGroup } from '@zendeskgarden/react-forms';
 
 const validHex = /^#(?:(?:[0-9A-F]{6}(?:[0-9A-F]{2})?)|(?:[0-9A-F]{3})(?:[0-9A-F]?))$/iu;
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   flex-grow: 0;
 `;
 
@@ -55,10 +55,10 @@ const Example = () => {
   const [color, setColor] = useState<string | IColor>(rgba(PALETTE.blue[700], 0.6));
 
   return (
-    <Row justifyContent="center">
+    <Grid.Row justifyContent="center">
       <StyledCol>
         <Field>
-          <Label>Favorite color</Label>
+          <Field.Label>Favorite color</Field.Label>
           <InputGroup style={{ zIndex: 1 }}>
             <StyledInput
               maxLength={9}
@@ -84,7 +84,7 @@ const Example = () => {
           </InputGroup>
         </Field>
       </StyledCol>
-    </Row>
+    </Grid.Row>
   );
 };
 

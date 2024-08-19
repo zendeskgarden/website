@@ -7,20 +7,20 @@
 
 import React from 'react';
 import { ColorPickerDialog } from '@zendeskgarden/react-colorpickers';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { PALETTE } from '@zendeskgarden/react-theming';
 
 const Example = () => (
-  <Row>
-    <Col textAlign="center">
+  <Grid.Row>
+    <Grid.Col textAlign="center">
       <ColorPickerDialog
         defaultColor={PALETTE.blue[700]}
         buttonProps={{
           'aria-label': 'choose your favorite color'
         }}
       />
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;
