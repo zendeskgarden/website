@@ -6,8 +6,8 @@
  */
 
 import React, { useState } from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
-import { Toggle, Label, Field } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Toggle, Field } from '@zendeskgarden/react-forms';
 import { ReactComponent as ProductIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as HomeIcon } from '@zendeskgarden/svg-icons/src/26/home-fill.svg';
 import { ReactComponent as EmailIcon } from '@zendeskgarden/svg-icons/src/26/email-fill.svg';
@@ -75,31 +75,31 @@ const Example = () => {
         <Header />
         <Content id="example-navigation-main-content">
           <Main style={{ padding: 28 }}>
-            <Row>
-              <Col>
+            <Grid.Row>
+              <Grid.Col>
                 <Field>
                   <Toggle
                     onChange={() => {
                       setExpanded(!expanded);
                     }}
                   >
-                    <Label>Show expanded</Label>
+                    <Field.Label>Show expanded</Field.Label>
                   </Toggle>
                 </Field>
-              </Col>
+              </Grid.Col>
               <div style={{ width: '100%', height: '12px' }} />
-              <Col>
+              <Grid.Col>
                 <Field>
                   <Toggle
                     onChange={() => {
                       setShowSubNav(!showSubNav);
                     }}
                   >
-                    <Label>Show subnav</Label>
+                    <Field.Label>Show subnav</Field.Label>
                   </Toggle>
                 </Field>
-              </Col>
-            </Row>
+              </Grid.Col>
+            </Grid.Row>
           </Main>
         </Content>
       </Body>

@@ -8,16 +8,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Sheet } from '@zendeskgarden/react-chrome';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Fieldset, Field, Radio, Label } from '@zendeskgarden/react-forms';
+import { Fieldset, Field, Radio } from '@zendeskgarden/react-forms';
 import { getColorV8 } from '@zendeskgarden/react-theming';
 
 const StyledFieldset = styled(Fieldset)`
   margin: ${props => props.theme.space.md};
 `;
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   border: ${props => props.theme.borderWidths.sm} dashed;
   border-color: ${props => getColorV8('neutralHue', 400, props.theme)};
   overflow: auto;
@@ -41,8 +41,8 @@ const Example = () => {
 
   return (
     <Grid gutters={false}>
-      <Row>
-        <Col>
+      <Grid.Row>
+        <Grid.Col>
           <StyledFieldset>
             <StyledFieldset.Legend>Sheet size</StyledFieldset.Legend>
             {[col4, col6, px380, px480].map(sampleSize => (
@@ -53,16 +53,15 @@ const Example = () => {
                     setSize(sampleSize);
                   }}
                 >
-                  <Label>{sampleSize.label}</Label>
+                  <Field.Label>{sampleSize.label}</Field.Label>
                 </Radio>
               </Field>
             ))}
           </StyledFieldset>
-        </Col>
-      </Row>
-
+        </Grid.Col>
+      </Grid.Row>
       <StyledRow justifyContent="end">
-        <Col size={size.cols}>
+        <Grid.Col size={size.cols}>
           <Sheet isOpen isAnimated={false} size={size.sheet}>
             <Sheet.Header>
               <Sheet.Title>Garden</Sheet.Title>
@@ -92,7 +91,7 @@ const Example = () => {
               </StyledSheetFooterItem>
             </Sheet.Footer>
           </Sheet>
-        </Col>
+        </Grid.Col>
       </StyledRow>
     </Grid>
   );

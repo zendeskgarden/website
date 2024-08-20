@@ -8,16 +8,16 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { Sheet } from '@zendeskgarden/react-chrome';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Field, Toggle, Label } from '@zendeskgarden/react-forms';
+import { Field, Toggle } from '@zendeskgarden/react-forms';
 import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 
 const StyledField = styled(Field)`
   margin: ${props => props.theme.space.md};
 `;
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   border: ${props => props.theme.borderWidths.sm} dashed;
   border-color: ${props => getColorV8('neutralHue', 400, props.theme)};
 `;
@@ -44,16 +44,15 @@ const Example = () => {
 
   return (
     <Grid gutters={false}>
-      <Row>
-        <Col>
+      <Grid.Row>
+        <Grid.Col>
           <StyledField>
             <Toggle checked={placement === 'start'} onChange={toggleSheetPlacement}>
-              <Label>Place at start of container</Label>
+              <Field.Label>Place at start of container</Field.Label>
             </Toggle>
           </StyledField>
-        </Col>
-      </Row>
-
+        </Grid.Col>
+      </Grid.Row>
       <StyledRow justifyContent={placement}>
         <StyledSheet isOpen placement={placement}>
           <Sheet.Header>
