@@ -6,14 +6,7 @@
  */
 
 import React from 'react';
-import {
-  Chrome,
-  Body,
-  Header,
-  HeaderItem,
-  HeaderItemIcon,
-  HeaderItemText
-} from '@zendeskgarden/react-chrome';
+import { Chrome, Body, Header } from '@zendeskgarden/react-chrome';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ReactComponent as ProductIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as HelpIcon } from '@zendeskgarden/svg-icons/src/16/lifesaver-stroke.svg';
@@ -24,30 +17,30 @@ const Example = () => (
   <Chrome isFluid style={{ height: 80 }}>
     <Body>
       <Header isStandalone>
-        <HeaderItem hasLogo>
-          <HeaderItemIcon>
+        <Header.Item hasLogo>
+          <Header.ItemIcon>
             <ProductIcon style={{ color: PALETTE.green[500] }} />
-          </HeaderItemIcon>
-          <HeaderItemText>Zendesk Garden</HeaderItemText>
-        </HeaderItem>
-        <HeaderItem>
-          <HeaderItemIcon>
+          </Header.ItemIcon>
+          <Header.ItemText>Zendesk Garden</Header.ItemText>
+        </Header.Item>
+        <Header.Item>
+          <Header.ItemIcon>
             <HelpIcon />
-          </HeaderItemIcon>
-          <HeaderItemText>Help Center</HeaderItemText>
-        </HeaderItem>
-        <HeaderItem>
-          <HeaderItemIcon>
+          </Header.ItemIcon>
+          <Header.ItemText>Help Center</Header.ItemText>
+        </Header.Item>
+        <Header.Item>
+          <Header.ItemIcon>
             <MenuTrayIcon />
-          </HeaderItemIcon>
-          <HeaderItemText isClipped>Products</HeaderItemText>
-        </HeaderItem>
-        <HeaderItem isRound>
-          <HeaderItemIcon>
+          </Header.ItemIcon>
+          <Header.ItemText isClipped>Products</Header.ItemText>
+        </Header.Item>
+        <Header.Item isRound>
+          <Header.ItemIcon>
             <PersonIcon />
-          </HeaderItemIcon>
-          <HeaderItemText isClipped>User</HeaderItemText>
-        </HeaderItem>
+          </Header.ItemIcon>
+          <Header.ItemText isClipped>User</Header.ItemText>
+        </Header.Item>
       </Header>
     </Body>
   </Chrome>

@@ -18,13 +18,9 @@ import {
   Chrome,
   Content,
   Footer,
-  FooterItem,
   Header,
   Main,
   Nav,
-  NavItem,
-  NavItemIcon,
-  NavItemText,
   SkipNav
 } from '@zendeskgarden/react-chrome';
 import { GlobalAlert } from '@zendeskgarden/react-notifications';
@@ -56,62 +52,62 @@ const Example = () => {
       <Chrome isFluid style={{ height: showGlobalAlert ? HEIGHT - height : HEIGHT }}>
         <SkipNav targetId="example-global-alert-main-content">Skip to main content</SkipNav>
         <Nav aria-label="chrome example nav">
-          <NavItem hasLogo>
-            <NavItemIcon>
+          <Nav.Item hasLogo>
+            <Nav.ItemIcon>
               <ProductIcon style={{ color: PALETTE.green[500] }} />
-            </NavItemIcon>
-            <NavItemText>Zendesk Garden</NavItemText>
-          </NavItem>
-          <NavItem
+            </Nav.ItemIcon>
+            <Nav.ItemText>Zendesk Garden</Nav.ItemText>
+          </Nav.Item>
+          <Nav.Item
             isCurrent={nav === 'nav-1'}
             onClick={() => {
               setNav('nav-1');
             }}
           >
-            <NavItemIcon>
+            <Nav.ItemIcon>
               <HomeIcon />
-            </NavItemIcon>
-            <NavItemText>Home</NavItemText>
-          </NavItem>
-          <NavItem
+            </Nav.ItemIcon>
+            <Nav.ItemText>Home</Nav.ItemText>
+          </Nav.Item>
+          <Nav.Item
             isCurrent={nav === 'nav-2'}
             onClick={() => {
               setNav('nav-2');
             }}
           >
-            <NavItemIcon>
+            <Nav.ItemIcon>
               <EmailIcon />
-            </NavItemIcon>
-            <NavItemText>Email</NavItemText>
-          </NavItem>
-          <NavItem
+            </Nav.ItemIcon>
+            <Nav.ItemText>Email</Nav.ItemText>
+          </Nav.Item>
+          <Nav.Item
             isCurrent={nav === 'nav-3'}
             onClick={() => {
               setNav('nav-3');
             }}
           >
-            <NavItemIcon>
+            <Nav.ItemIcon>
               <SettingsIcon />
-            </NavItemIcon>
-            <NavItemText>Settings</NavItemText>
-          </NavItem>
-          <NavItem hasBrandmark title="Zendesk">
-            <NavItemIcon>
+            </Nav.ItemIcon>
+            <Nav.ItemText>Settings</Nav.ItemText>
+          </Nav.Item>
+          <Nav.Item hasBrandmark title="Zendesk">
+            <Nav.ItemIcon>
               <ZendeskIcon />
-            </NavItemIcon>
-            <NavItemText>Zendesk</NavItemText>
-          </NavItem>
+            </Nav.ItemIcon>
+            <Nav.ItemText>Zendesk</Nav.ItemText>
+          </Nav.Item>
         </Nav>
-        <Body hasFooter>
+        <Body>
           <Header />
           <Content id="example-global-alert-main-content">
             <Main style={{ padding: 28 }} />
           </Content>
           <Footer>
-            <FooterItem>
+            <Footer.Item>
               <Button isBasic>Cancel</Button>
-            </FooterItem>
-            <FooterItem>
+            </Footer.Item>
+            <Footer.Item>
               <Button
                 isPrimary
                 onClick={() => {
@@ -120,7 +116,7 @@ const Example = () => {
               >
                 Save
               </Button>
-            </FooterItem>
+            </Footer.Item>
           </Footer>
         </Body>
       </Chrome>
