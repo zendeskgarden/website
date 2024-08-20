@@ -22,16 +22,8 @@ import {
   Content,
   Main,
   Header,
-  HeaderItem,
-  HeaderItemIcon,
-  HeaderItemText,
   Footer,
-  FooterItem,
   Nav,
-  NavItem,
-  NavItemIcon,
-  NavItemText,
-  Sidebar,
   SkipNav
 } from '@zendeskgarden/react-chrome';
 
@@ -42,88 +34,82 @@ const Example = () => {
     <Chrome isFluid style={{ height: 500, minWidth: 600 }}>
       <SkipNav targetId="example-main-content">Skip to main content</SkipNav>
       <Nav aria-label="chrome default example">
-        <NavItem hasLogo>
-          <NavItemIcon>
+        <Nav.Item hasLogo>
+          <Nav.ItemIcon>
             <ProductIcon style={{ color: PALETTE.green[500] }} />
-          </NavItemIcon>
-          <NavItemText>Zendesk Garden</NavItemText>
-        </NavItem>
-        <NavItem
-          isCurrent={nav === 'nav-1'}
-          onClick={() => {
-            setNav('nav-1');
-          }}
-        >
-          <NavItemIcon>
-            <HomeIcon />
-          </NavItemIcon>
-          <NavItemText>Home</NavItemText>
-        </NavItem>
-        <NavItem
-          isCurrent={nav === 'nav-2'}
-          onClick={() => {
-            setNav('nav-2');
-          }}
-        >
-          <NavItemIcon>
-            <EmailIcon />
-          </NavItemIcon>
-          <NavItemText>Email</NavItemText>
-        </NavItem>
-        <NavItem
-          isCurrent={nav === 'nav-3'}
-          onClick={() => {
-            setNav('nav-3');
-          }}
-        >
-          <NavItemIcon>
-            <SettingsIcon />
-          </NavItemIcon>
-          <NavItemText>Settings</NavItemText>
-        </NavItem>
-        <NavItem hasBrandmark title="Zendesk">
-          <NavItemIcon>
+          </Nav.ItemIcon>
+          <Nav.ItemText>Zendesk Garden</Nav.ItemText>
+        </Nav.Item>
+        <Nav.List>
+          <Nav.Item
+            isCurrent={nav === 'nav-1'}
+            onClick={() => {
+              setNav('nav-1');
+            }}
+          >
+            <Nav.ItemIcon>
+              <HomeIcon />
+            </Nav.ItemIcon>
+            <Nav.ItemText>Home</Nav.ItemText>
+          </Nav.Item>
+          <Nav.Item
+            isCurrent={nav === 'nav-2'}
+            onClick={() => {
+              setNav('nav-2');
+            }}
+          >
+            <Nav.ItemIcon>
+              <EmailIcon />
+            </Nav.ItemIcon>
+            <Nav.ItemText>Email</Nav.ItemText>
+          </Nav.Item>
+          <Nav.Item
+            isCurrent={nav === 'nav-3'}
+            onClick={() => {
+              setNav('nav-3');
+            }}
+          >
+            <Nav.ItemIcon>
+              <SettingsIcon />
+            </Nav.ItemIcon>
+            <Nav.ItemText>Settings</Nav.ItemText>
+          </Nav.Item>
+        </Nav.List>
+        <Nav.Item hasBrandmark title="Zendesk">
+          <Nav.ItemIcon>
             <ZendeskIcon />
-          </NavItemIcon>
-          <NavItemText>Zendesk</NavItemText>
-        </NavItem>
+          </Nav.ItemIcon>
+          <Nav.ItemText>Zendesk</Nav.ItemText>
+        </Nav.Item>
       </Nav>
-      <Body hasFooter>
+      <Body>
         <Header>
-          <HeaderItem>
-            <HeaderItemIcon>
+          <Header.Item>
+            <Header.ItemIcon>
               <MenuTrayIcon />
-            </HeaderItemIcon>
-            <HeaderItemText isClipped>Products</HeaderItemText>
-          </HeaderItem>
-          <HeaderItem isRound>
-            <HeaderItemIcon>
+            </Header.ItemIcon>
+            <Header.ItemText isClipped>Products</Header.ItemText>
+          </Header.Item>
+          <Header.Item isRound>
+            <Header.ItemIcon>
               <PersonIcon />
-            </HeaderItemIcon>
-            <HeaderItemText isClipped>User</HeaderItemText>
-          </HeaderItem>
+            </Header.ItemIcon>
+            <Header.ItemText isClipped>User</Header.ItemText>
+          </Header.Item>
         </Header>
         <Content id="example-main-content">
           <Main style={{ padding: 28 }}>
             <XXL tag="h1">Main Content</XXL>
             <MD>Beetroot water spinach okra water chestnut ricebean pea catsear.</MD>
           </Main>
-          <Sidebar style={{ padding: 28 }}>
-            <XXL tag="h2">Example Sidebar</XXL>
-            <MD>
-              Beetroot water spinach okra water chestnut ricebean pea catsear courgette summer
-              purslane. Water spinach arugula pea tatsoi aubergine spring onion bush tomato kale
-              radicchio turnip chicory salsify pea sprouts fava bean.
-            </MD>
-          </Sidebar>
         </Content>
         <Footer>
-          <FooterItem>
+          <Footer.Item>
             <Button isBasic>Cancel</Button>
-          </FooterItem>
-          <FooterItem>
+          </Footer.Item>
+          <Footer.Item>
             <Button isPrimary>Save</Button>
-          </FooterItem>
+          </Footer.Item>
         </Footer>
       </Body>
     </Chrome>

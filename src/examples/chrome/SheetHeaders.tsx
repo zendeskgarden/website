@@ -8,10 +8,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Sheet } from '@zendeskgarden/react-chrome';
-import { Row, Col } from '@zendeskgarden/react-grid';
-import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
+import { Grid } from '@zendeskgarden/react-grid';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   height: 480px;
 
   ${props => mediaQuery('down', 'sm', props.theme)} {
@@ -27,11 +27,11 @@ const StyledSheet = styled(Sheet)`
   border: ${props => props.theme.borderWidths.sm} dashed;
   ${props => (props.theme.rtl ? 'border-right' : 'border-left')}: ${props =>
     props.theme.borderWidths.sm} solid;
-  border-color: ${props => getColorV8('neutralHue', 400, props.theme)};
+  border-color: ${({ theme }) => getColor({ theme, variable: 'border.default' })};
 `;
 
 const Example = () => (
-  <Row>
+  <Grid.Row>
     <StyledCol md>
       <StyledSheet isOpen size="100%">
         <Sheet.Close />
@@ -56,7 +56,7 @@ const Example = () => (
         <Sheet.Close />
       </StyledSheet>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;
