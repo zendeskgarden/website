@@ -40,39 +40,41 @@ const Example = () => {
           </Nav.ItemIcon>
           <Nav.ItemText>Zendesk Garden</Nav.ItemText>
         </Nav.Item>
-        <Nav.Item
-          isCurrent={nav === 'nav-1'}
-          onClick={() => {
-            setNav('nav-1');
-          }}
-        >
-          <Nav.ItemIcon>
-            <HomeIcon />
-          </Nav.ItemIcon>
-          <Nav.ItemText>Home</Nav.ItemText>
-        </Nav.Item>
-        <Nav.Item
-          isCurrent={nav === 'nav-2'}
-          onClick={() => {
-            setNav('nav-2');
-          }}
-        >
-          <Nav.ItemIcon>
-            <EmailIcon />
-          </Nav.ItemIcon>
-          <Nav.ItemText>Email</Nav.ItemText>
-        </Nav.Item>
-        <Nav.Item
-          isCurrent={nav === 'nav-3'}
-          onClick={() => {
-            setNav('nav-3');
-          }}
-        >
-          <Nav.ItemIcon>
-            <SettingsIcon />
-          </Nav.ItemIcon>
-          <Nav.ItemText>Settings</Nav.ItemText>
-        </Nav.Item>
+        <Nav.List>
+          <Nav.Item
+            isCurrent={nav === 'nav-1'}
+            onClick={() => {
+              setNav('nav-1');
+            }}
+          >
+            <Nav.ItemIcon>
+              <HomeIcon />
+            </Nav.ItemIcon>
+            <Nav.ItemText>Home</Nav.ItemText>
+          </Nav.Item>
+          <Nav.Item
+            isCurrent={nav === 'nav-2'}
+            onClick={() => {
+              setNav('nav-2');
+            }}
+          >
+            <Nav.ItemIcon>
+              <EmailIcon />
+            </Nav.ItemIcon>
+            <Nav.ItemText>Email</Nav.ItemText>
+          </Nav.Item>
+          <Nav.Item
+            isCurrent={nav === 'nav-3'}
+            onClick={() => {
+              setNav('nav-3');
+            }}
+          >
+            <Nav.ItemIcon>
+              <SettingsIcon />
+            </Nav.ItemIcon>
+            <Nav.ItemText>Settings</Nav.ItemText>
+          </Nav.Item>
+        </Nav.List>
         <Nav.Item hasBrandmark title="Zendesk">
           <Nav.ItemIcon>
             <ZendeskIcon />

@@ -19,7 +19,6 @@ import { Body, Chrome, Content, Header, Main, Nav, SkipNav } from '@zendeskgarde
 const Example = () => {
   const [nav, setNav] = useState('nav-1');
   const [expanded, setExpanded] = useState(false);
-  const [showSubNav, setShowSubNav] = useState(false);
 
   return (
     <Chrome isFluid style={{ height: 500, minWidth: 600 }} hue={PALETTE.blue[900]}>
@@ -31,39 +30,41 @@ const Example = () => {
           </Nav.ItemIcon>
           <Nav.ItemText>Zendesk Garden</Nav.ItemText>
         </Nav.Item>
-        <Nav.Item
-          isCurrent={nav === 'nav-1'}
-          onClick={() => {
-            setNav('nav-1');
-          }}
-        >
-          <Nav.ItemIcon>
-            <HomeIcon />
-          </Nav.ItemIcon>
-          <Nav.ItemText>Home</Nav.ItemText>
-        </Nav.Item>
-        <Nav.Item
-          isCurrent={nav === 'nav-2'}
-          onClick={() => {
-            setNav('nav-2');
-          }}
-        >
-          <Nav.ItemIcon>
-            <EmailIcon />
-          </Nav.ItemIcon>
-          <Nav.ItemText>Email</Nav.ItemText>
-        </Nav.Item>
-        <Nav.Item
-          isCurrent={nav === 'nav-3'}
-          onClick={() => {
-            setNav('nav-3');
-          }}
-        >
-          <Nav.ItemIcon>
-            <SettingsIcon />
-          </Nav.ItemIcon>
-          <Nav.ItemText>Settings</Nav.ItemText>
-        </Nav.Item>
+        <Nav.List>
+          <Nav.Item
+            isCurrent={nav === 'nav-1'}
+            onClick={() => {
+              setNav('nav-1');
+            }}
+          >
+            <Nav.ItemIcon>
+              <HomeIcon />
+            </Nav.ItemIcon>
+            <Nav.ItemText>Home</Nav.ItemText>
+          </Nav.Item>
+          <Nav.Item
+            isCurrent={nav === 'nav-2'}
+            onClick={() => {
+              setNav('nav-2');
+            }}
+          >
+            <Nav.ItemIcon>
+              <EmailIcon />
+            </Nav.ItemIcon>
+            <Nav.ItemText>Email</Nav.ItemText>
+          </Nav.Item>
+          <Nav.Item
+            isCurrent={nav === 'nav-3'}
+            onClick={() => {
+              setNav('nav-3');
+            }}
+          >
+            <Nav.ItemIcon>
+              <SettingsIcon />
+            </Nav.ItemIcon>
+            <Nav.ItemText>Settings</Nav.ItemText>
+          </Nav.Item>
+        </Nav.List>
         <Nav.Item hasBrandmark title="Zendesk">
           <Nav.ItemIcon>
             <ZendeskIcon />
@@ -84,18 +85,6 @@ const Example = () => {
                     }}
                   >
                     <Field.Label>Show expanded</Field.Label>
-                  </Toggle>
-                </Field>
-              </Grid.Col>
-              <div style={{ width: '100%', height: '12px' }} />
-              <Grid.Col>
-                <Field>
-                  <Toggle
-                    onChange={() => {
-                      setShowSubNav(!showSubNav);
-                    }}
-                  >
-                    <Field.Label>Show subnav</Field.Label>
                   </Toggle>
                 </Field>
               </Grid.Col>
