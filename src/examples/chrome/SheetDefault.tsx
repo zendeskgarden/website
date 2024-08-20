@@ -11,7 +11,7 @@ import { Sheet } from '@zendeskgarden/react-chrome';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Field, Toggle } from '@zendeskgarden/react-forms';
-import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 
 const StyledField = styled(Field)`
   margin: ${props => props.theme.space.md};
@@ -19,7 +19,7 @@ const StyledField = styled(Field)`
 
 const StyledRow = styled(Grid.Row)`
   border: ${props => props.theme.borderWidths.sm} dashed;
-  border-color: ${props => getColorV8('neutralHue', 400, props.theme)};
+  border-color: ${({ theme }) => getColor({ theme, variable: 'border.default' })};
 `;
 
 const StyledSheet = styled(Sheet)`

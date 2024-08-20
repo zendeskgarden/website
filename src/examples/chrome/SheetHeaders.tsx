@@ -9,7 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Sheet } from '@zendeskgarden/react-chrome';
 import { Grid } from '@zendeskgarden/react-grid';
-import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 
 const StyledCol = styled(Grid.Col)`
   height: 480px;
@@ -27,7 +27,7 @@ const StyledSheet = styled(Sheet)`
   border: ${props => props.theme.borderWidths.sm} dashed;
   ${props => (props.theme.rtl ? 'border-right' : 'border-left')}: ${props =>
     props.theme.borderWidths.sm} solid;
-  border-color: ${props => getColorV8('neutralHue', 400, props.theme)};
+  border-color: ${({ theme }) => getColor({ theme, variable: 'border.default' })};
 `;
 
 const Example = () => (
