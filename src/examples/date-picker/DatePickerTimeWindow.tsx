@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { DatePicker } from '@zendeskgarden/react-datepickers';
-import { Field, Input, Message } from '@zendeskgarden/react-forms';
+import { Field, Input } from '@zendeskgarden/react-forms';
 import { isBefore, isAfter, subDays, addDays } from 'date-fns';
 import { Grid } from '@zendeskgarden/react-grid';
 
@@ -29,9 +29,9 @@ const Example = () => {
             <Input validation={isInvalid() ? 'error' : undefined} />
           </DatePicker>
           {isInvalid() && (
-            <Message validation="error" style={{ marginTop: '8px' }}>
+            <Field.Message validation="error" style={{ marginTop: '8px' }}>
               You must choose a date within the next 7 days.
-            </Message>
+            </Field.Message>
           )}
         </Field>
       </Grid.Col>
