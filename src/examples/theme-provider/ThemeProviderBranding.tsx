@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { DefaultTheme } from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 
@@ -27,17 +27,17 @@ const Example = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Row>
-        <Col textAlign="center">
+      <Grid.Row>
+        <Grid.Col textAlign="center">
           <Button>Default</Button>
-        </Col>
-        <Col textAlign="center">
+        </Grid.Col>
+        <Grid.Col textAlign="center">
           <Button isPrimary>Primary</Button>
-        </Col>
-        <Col textAlign="center">
+        </Grid.Col>
+        <Grid.Col textAlign="center">
           <Button isBasic>Basic</Button>
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </ThemeProvider>
   );
 };

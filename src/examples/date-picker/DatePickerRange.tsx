@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { DatePickerRange } from '@zendeskgarden/react-datepickers';
-import { Field, Input, Message } from '@zendeskgarden/react-forms';
+import { Field, Input } from '@zendeskgarden/react-forms';
 import { compareAsc, addDays } from 'date-fns';
 import { Grid } from '@zendeskgarden/react-grid';
 
@@ -53,7 +53,9 @@ const Example = () => {
                   <Input isCompact={isCompact} validation={isInvalid() ? 'error' : undefined} />
                 </DatePickerRange.End>
                 {isInvalid() && (
-                  <Message validation="error">End date must occur after the start date</Message>
+                  <Field.Message validation="error">
+                    End date must occur after the start date
+                  </Field.Message>
                 )}
               </Field>
             </Grid.Col>
