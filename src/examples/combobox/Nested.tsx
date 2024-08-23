@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
 import {
   Combobox,
@@ -89,12 +89,25 @@ const Example = () => {
     }
   };
 
+  const renderHiddenSelectedOption = useCallback(() => {
+    if (state.selectionValue !== null) {
+      const _options = options === SUB_OPTIONS ? (options[1] as IOptGroup).options : options;
+
+      if (!_options.find(option => option.value === state.selectionValue)) {
+        return <Option isHidden value={state.selectionValue} />;
+      }
+    }
+
+    return null;
+  }, [options, state.selectionValue]);
+
   return (
     <Row justifyContent="center">
       <Col sm={5}>
         <Field>
           <Label>Fruit</Label>
           <Combobox isEditable={false} onChange={handleChange} {...state}>
+            {renderHiddenSelectedOption()}
             {options.map((option, index) =>
               'options' in option ? (
                 <OptGroup key={index} aria-label={option['aria-label']}>
