@@ -74,7 +74,11 @@ const Icon = (edge: ISvgNodeProps) => {
   );
 };
 
-export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, inputPlaceholder, searchEnabled }) => {
+export const SvgSearch: React.FC<ISvgSearchProps> = ({
+  data,
+  inputPlaceholder,
+  searchEnabled = true
+}) => {
   const [inputValue, setInputValue] = useState('');
   const debounceRef = useRef<DebouncedFunc<ChangeHandler>>();
 
@@ -144,8 +148,4 @@ export const SvgSearch: React.FC<ISvgSearchProps> = ({ data, inputPlaceholder, s
       </Grid>
     </div>
   );
-};
-
-SvgSearch.defaultProps = {
-  searchEnabled: true
 };

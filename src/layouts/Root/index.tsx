@@ -16,7 +16,7 @@ interface IRootLayoutProps extends PropsWithChildren {
   path?: string;
 }
 
-const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav, path }) => {
+const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, path }) => {
   return (
     <div
       css={`
@@ -49,10 +49,6 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav, path }) 
       <Footer path={path} />
     </div>
   );
-};
-
-RootLayout.defaultProps = {
-  hasSkipNav: true
 };
 
 export default RootLayout;

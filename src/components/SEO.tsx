@@ -7,7 +7,7 @@
 
 import React, { ReactNode } from 'react';
 import { graphql, useStaticQuery, HeadProps } from 'gatsby';
-import { PALETTE_V8 } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { IPageContext, IPageData } from './types';
 
 interface ISEOProps {
@@ -103,7 +103,7 @@ export const SEO = ({
       ))}
 
       {[
-        { rel: 'mask-icon', href: '/mask-icon.svg', color: PALETTE_V8.kale[700] },
+        { rel: 'mask-icon', href: '/mask-icon.svg', color: PALETTE.kale[900] },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
         { rel: 'shortcut icon', href: '/favicon.ico' }
       ].map((props, index) => (
