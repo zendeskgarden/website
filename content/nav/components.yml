@@ -26,14 +26,14 @@
   items:
     - title: Accordion
       id: /components/accordion
+    - title: Anchor
+      id: /components/anchor
     - title: Avatar
       id: /components/avatar
     - title: Breadcrumbs
       id: /components/breadcrumbs
     - title: Buttons
       items:
-        - id: /components/anchor
-          title: Anchor
         - id: /components/button
           title: Button
         - id: /components/icon-button
@@ -46,6 +46,8 @@
           title: Toggle icon button
     - title: Chrome
       id: /components/chrome
+    - title: Code block
+      id: /components/code-block
     - title: Color picker
       id: /components/color-picker
     - title: Color swatch
@@ -132,8 +134,6 @@
       items:
         - title: Code
           id: /components/code
-        - title: Code block
-          id: /components/code-block
         - title: Lists
           id: /components/lists
         - title: Paragraph
