@@ -128,8 +128,8 @@
       id: /components/timeline
     - title: Tooltip
       id: /components/tooltip
-    - title: Tooltip modal
-      id: /components/tooltip-modal
+    - title: Tooltip dialog
+      id: /components/tooltip-dialog
     - title: Typography
       items:
         - title: Code

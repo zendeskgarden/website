@@ -7,7 +7,7 @@
 
 import React, { useState, useRef, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
-import { TooltipModal } from '@zendeskgarden/react-modals';
+import { TooltipDialog } from '@zendeskgarden/react-modals';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Span, SM } from '@zendeskgarden/react-typography';
@@ -62,24 +62,24 @@ const Example = () => {
 
   return (
     <>
-      <TooltipModal
+      <TooltipDialog
         referenceElement={referenceElement}
         onClose={() => {
           setReferenceElement(null);
         }}
         placement={placement as any}
       >
-        <TooltipModal.Title tag="h2">Tooltip modal header</TooltipModal.Title>
-        <TooltipModal.Body>
+        <TooltipDialog.Title tag="h2">Tooltip dialog header</TooltipDialog.Title>
+        <TooltipDialog.Body>
           Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea
           sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut
           pea peanut soko zucchini.
-        </TooltipModal.Body>
-        <TooltipModal.Footer>
+        </TooltipDialog.Body>
+        <TooltipDialog.Footer>
           <SM style={{ flexGrow: 1 }}>
             <Span hue="foreground.subtle">{currentStep} of 13</Span>
           </SM>
-          <TooltipModal.FooterItem>
+          <TooltipDialog.FooterItem>
             {currentStep > 1 && (
               <Button
                 size="small"
@@ -96,8 +96,8 @@ const Example = () => {
                 Previous
               </Button>
             )}
-          </TooltipModal.FooterItem>
-          <TooltipModal.FooterItem>
+          </TooltipDialog.FooterItem>
+          <TooltipDialog.FooterItem>
             <Button
               size="small"
               isPrimary
@@ -117,10 +117,10 @@ const Example = () => {
             >
               {currentStep === 13 ? 'Finish' : 'Next'}
             </Button>
-          </TooltipModal.FooterItem>
-        </TooltipModal.Footer>
-        <TooltipModal.Close aria-label="Close" />
-      </TooltipModal>
+          </TooltipDialog.FooterItem>
+        </TooltipDialog.Footer>
+        <TooltipDialog.Close aria-label="Close" />
+      </TooltipDialog>
       <Grid.Row justifyContent="center" style={{ minWidth: 400 }}>
         <Grid.Col md={7}>
           <StyledRow>
