@@ -115,7 +115,7 @@ const MobileSearch = React.forwardRef<HTMLInputElement, HTMLAttributes<HTMLDivEl
       `}
       {...props}
     >
-      <SearchInput id="algolia-docsearch-mobile" placeholder="Search…" ref={ref} />
+      <SearchInput id="algolia-docsearch-mobile" placeholder="Search" ref={ref} />
     </div>
   )
 );
@@ -209,7 +209,7 @@ const DesktopNav: React.FC = () => (
       <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
     </StyledDesktopNavItem>
     <StyledDesktopNavItem>
-      <SearchInput id="algolia-docsearch" placeholder="Search…" />
+      <SearchInput id="algolia-docsearch" placeholder="Search" />
     </StyledDesktopNavItem>
   </nav>
 );

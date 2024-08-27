@@ -21,7 +21,7 @@ export const PropSheet: React.FC<{
   components: IComponentData[];
   componentName: string;
   headerName?: string;
-}> = ({ components, componentName, headerName }) => {
+}> = ({ components, componentName, headerName = 'Prop name' }) => {
   const component = components.find(c => c.name.toLowerCase() === componentName.toLowerCase())!;
 
   return (
@@ -160,8 +160,4 @@ export const PropSheet: React.FC<{
       )}
     </>
   );
-};
-
-PropSheet.defaultProps = {
-  headerName: 'Prop name'
 };

@@ -6,7 +6,7 @@
  */
 
 import React, { useState, useRef } from 'react';
-import { TooltipModal } from '@zendeskgarden/react-modals';
+import { TooltipDialog } from '@zendeskgarden/react-modals';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 
@@ -23,23 +23,23 @@ const Example = () => {
             setReferenceElement(buttonRef.current);
           }}
         >
-          Tooltip modal
+          Tooltip dialog
         </Button>
-        <TooltipModal
+        <TooltipDialog
           referenceElement={referenceElement}
           onClose={() => {
             setReferenceElement(null);
           }}
           placement="top"
         >
-          <TooltipModal.Title tag="h2">Tooltip modal header</TooltipModal.Title>
-          <TooltipModal.Body>
+          <TooltipDialog.Title tag="h2">Tooltip dialog header</TooltipDialog.Title>
+          <TooltipDialog.Body>
             Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea
             sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber
             earthnut pea peanut soko zucchini.
-          </TooltipModal.Body>
-          <TooltipModal.Close aria-label="Close" />
-        </TooltipModal>
+          </TooltipDialog.Body>
+          <TooltipDialog.Close aria-label="Close" />
+        </TooltipDialog>
       </Grid.Col>
     </Grid.Row>
   );

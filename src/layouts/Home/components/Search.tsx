@@ -119,7 +119,7 @@ export const Search: React.FC = () => {
                     }
                   `}
                 >
-                  <SearchInput id="algolia-docsearch-home" placeholder="how to use the stepper" />
+                  <SearchInput id="algolia-docsearch-home" placeholder="how to use the combobox" />
                 </div>
               </div>
             </Grid.Col>
