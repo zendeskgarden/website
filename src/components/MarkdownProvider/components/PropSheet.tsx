@@ -51,7 +51,7 @@ export const PropSheet: React.FC<{
             <Table.Body>
               {Object.keys(component.props).map(name => {
                 const prop = component.props[name];
-                let defaultValue: string | ReactElement = prop.defaultValue || '–';
+                let defaultValue: string | ReactElement = prop.defaultValue;
                 let defaultMonospace = true;
 
                 if (prop.required && !prop.defaultValue) {
@@ -101,7 +101,12 @@ export const PropSheet: React.FC<{
                       </MD>
                     </Table.Cell>
                     <Table.Cell>
-                      <MD isMonospace={defaultMonospace}>
+                      <MD
+                        isMonospace={defaultMonospace}
+                        css={css`
+                          word-break: break-word;
+                        `}
+                      >
                         {prop.type === 'DefaultTheme' ? (
                           <Markdown>[DEFAULT_THEME](/components/theme-object)</Markdown>
                         ) : (
