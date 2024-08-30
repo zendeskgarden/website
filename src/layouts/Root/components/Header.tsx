@@ -10,11 +10,17 @@ import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
+import { IMenuProps, Item, ItemGroup, Menu } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+// TODO replace with sun/moon icons when available
+import { ReactComponent as LightIcon } from '@zendeskgarden/svg-icons/src/16/circle-stroke.svg';
+import { ReactComponent as DarkIcon } from '@zendeskgarden/svg-icons/src/16/circle-fill.svg';
+import { ReactComponent as SystemIcon } from '@zendeskgarden/svg-icons/src/16/monitor-stroke.svg';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/26/wordmark-garden.svg';
+import { ColorScheme, useColorSchemeContext } from 'components/useColorSchemeContext';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SearchInput } from './SearchInput';
 import { StyledNavigationLink } from './StyledNavigationLink';
@@ -182,37 +188,72 @@ const MobileNav: React.FC = () => {
   );
 };
 
-const DesktopNav: React.FC = () => (
-  <nav
-    role="navigation"
-    aria-label="Global"
-    css={css`
-      display: flex;
-      flex-grow: 1;
-      justify-content: flex-end;
+const DesktopNav: React.FC = () => {
+  const { colorScheme, setColorScheme } = useColorSchemeContext();
 
-      ${p => mediaQuery('down', 'sm', p.theme)} {
-        display: none;
-      }
-    `}
-  >
-    <StyledDesktopNavItem>
-      <StyledDesktopNavLink to="/content">Content</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
-      <StyledDesktopNavLink to="/design">Design</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
-      <StyledDesktopNavLink to="/components">Components</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
-      <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
-      <SearchInput id="algolia-docsearch" placeholder="Search" />
-    </StyledDesktopNavItem>
-  </nav>
-);
+  const handleColorSchemeChange: IMenuProps['onChange'] = changes => {
+    if (changes.value) {
+      setTimeout(() => {
+        setColorScheme(changes.value as ColorScheme);
+      });
+    }
+  };
+
+  return (
+    <nav
+      role="navigation"
+      aria-label="Global"
+      css={css`
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-end;
+
+        ${p => mediaQuery('down', 'sm', p.theme)} {
+          display: none;
+        }
+      `}
+    >
+      <StyledDesktopNavItem>
+        <StyledDesktopNavLink to="/content">Content</StyledDesktopNavLink>
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <StyledDesktopNavLink to="/design">Design</StyledDesktopNavLink>
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <StyledDesktopNavLink to="/components">Components</StyledDesktopNavLink>
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <SearchInput id="algolia-docsearch" placeholder="Search" />
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <Menu
+          button={props => (
+            <IconButton {...props}>
+              <LightIcon />
+            </IconButton>
+          )}
+          onChange={handleColorSchemeChange}
+          placement="bottom-end"
+        >
+          <ItemGroup aria-label="Switch theme" type="radio">
+            <Item icon={<LightIcon />} isSelected={colorScheme === 'light'} value="light">
+              Light
+            </Item>
+            <Item icon={<DarkIcon />} isSelected={colorScheme === 'dark'} value="dark">
+              Dark
+            </Item>
+            <Item icon={<SystemIcon />} isSelected={colorScheme === 'system'} value="system">
+              System
+            </Item>
+          </ItemGroup>
+        </Menu>
+      </StyledDesktopNavItem>
+    </nav>
+  );
+};
 
 const Header: React.FC = () => {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
