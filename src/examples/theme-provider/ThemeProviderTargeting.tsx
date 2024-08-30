@@ -17,9 +17,8 @@ const Example = () => {
     ...parentTheme,
     components: {
       'tabs.tab': css`
-        border-top: ${p => p.theme.borderStyles.solid} transparent;
         border-bottom: none;
-        border-width: ${p => p.theme.borderWidths.md};
+        border-top-style: ${p => p.theme.borderStyles.solid};
       `,
       'tabs.tablist': css`
         margin-top: ${p => p.theme.space.md};
