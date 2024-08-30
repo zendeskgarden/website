@@ -9,7 +9,7 @@ import React, { useState, useCallback, useEffect, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import throttle from 'lodash/throttle';
 import { math } from 'polished';
-import { getColorV8 } from '@zendeskgarden/react-theming';
+import { getColor, getColorV8 } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 import { StyledHr } from 'components/MarkdownProvider/components/Typography';
@@ -152,7 +152,8 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
       </StyledSectionHeader>
       <ul
         css={css`
-          border-left: ${p => p.theme.borders.sm} ${p => getColorV8('grey', 200, p.theme)};
+          border-left: ${p => p.theme.borders.sm}
+            ${p => getColor({ theme: p.theme, variable: 'border.subtle' })};
         `}
       >
         {data.map(heading => (

@@ -42,7 +42,8 @@ const StyledFigure = styled.figure`
 `;
 
 const StyledImgContainer = styled.div`
-  border: ${p => `${p.theme.borders.sm} ${getColorV8('neutralHue', 300, p.theme)}`};
+  border: ${p =>
+    `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'border.default' })}`};
   border-bottom: none;
   border-top-left-radius: ${p => p.theme.borderRadii.md};
   border-top-right-radius: ${p => p.theme.borderRadii.md};

@@ -29,8 +29,8 @@ const StyledColorSwatch = styled.figure<{ color: string }>`
   color: ${p =>
     readableColor(
       p.color,
-      getColor({ theme: p.theme, variable: 'foreground.default' }),
-      getColor({ theme: p.theme, variable: 'background.default' }),
+      getColor({ theme: p.theme, hue: 'neutralHue', shade: 900 }),
+      getColor({ theme: p.theme, hue: 'white' }),
       false /* strict */
     )};
 `;

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, HTMLAttributes, useRef, useEffect } from 'react';
+import React, { useState, HTMLAttributes, useRef, useEffect, ChangeEventHandler } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
@@ -24,6 +24,7 @@ import { ColorScheme, useColorSchemeContext } from 'components/useColorSchemeCon
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SearchInput } from './SearchInput';
 import { StyledNavigationLink } from './StyledNavigationLink';
+import { Field, Select } from '@zendeskgarden/react-forms';
 
 export const headerBoxShadow = (theme: any) =>
   theme.shadows.lg(
@@ -49,6 +50,7 @@ const StyledDesktopNavLink = styled(StyledNavigationLink).attrs({ partiallyActiv
 const StyledHeader = styled.header.attrs({ role: 'banner' })`
   z-index: 1;
   box-shadow: ${p => headerBoxShadow(p.theme)};
+  background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
   padding: 0 ${p => p.theme.space.base * 4}px;
   height: ${p => headerHeight(p.theme)}px;
 
@@ -162,6 +164,14 @@ const StyledMobileNavLink = styled(StyledNavigationLink).attrs({ partiallyActive
 `;
 
 const MobileNav: React.FC = () => {
+  const { colorScheme, setColorScheme } = useColorSchemeContext();
+
+  const handleColorSchemeChange: ChangeEventHandler<HTMLSelectElement> = event => {
+    setTimeout(() => {
+      setColorScheme(event.target.value as ColorScheme);
+    });
+  };
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
@@ -184,6 +194,19 @@ const MobileNav: React.FC = () => {
       <StyledMobileNavLink to="/design">Design</StyledMobileNavLink>
       <StyledMobileNavLink to="/components">Components</StyledMobileNavLink>
       <StyledMobileNavLink to="/patterns">Patterns</StyledMobileNavLink>
+      <Field
+        css={css`
+          margin-top: ${p => p.theme.space.base * 2}px;
+          padding: ${p => p.theme.space.base * 1.5}px ${p => p.theme.space.xs};
+        `}
+      >
+        <Field.Label isRegular>Switch themes</Field.Label>
+        <Select defaultValue={colorScheme} onChange={handleColorSchemeChange}>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="system">System</option>
+        </Select>
+      </Field>
     </div>
   );
 };
