@@ -10,7 +10,8 @@ import { IGardenTheme } from '@zendeskgarden/react-theming';
 import { ColorScheme } from './useColorSchemeContext';
 
 export const useColorScheme = (initialState: ColorScheme | undefined) => {
-  const mediaQuery = matchMedia('(prefers-color-scheme: dark)');
+  const matchMedia = typeof window === 'undefined' ? null : window.matchMedia;
+  const mediaQuery = matchMedia?.('(prefers-color-scheme: dark)');
 
   const getState = useCallback(
     (_state: ColorScheme | undefined) => {
@@ -18,14 +19,14 @@ export const useColorScheme = (initialState: ColorScheme | undefined) => {
       let colorScheme: IGardenTheme['colors']['base'];
 
       if (isSystem) {
-        colorScheme = mediaQuery.matches ? 'dark' : 'light';
+        colorScheme = mediaQuery?.matches ? 'dark' : 'light';
       } else {
         colorScheme = _state;
       }
 
       return { isSystem, colorScheme };
     },
-    [mediaQuery.matches]
+    [mediaQuery?.matches]
   );
 
   const [state, setState] = useState<{
@@ -39,10 +40,10 @@ export const useColorScheme = (initialState: ColorScheme | undefined) => {
       state.isSystem && setState(getState(undefined));
     };
 
-    mediaQuery.addEventListener('change', eventListener);
+    mediaQuery?.addEventListener('change', eventListener);
 
     return () => {
-      mediaQuery.removeEventListener('change', eventListener);
+      mediaQuery?.removeEventListener('change', eventListener);
     };
   }, [mediaQuery, state.isSystem, getState]);
 

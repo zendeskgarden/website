@@ -22,7 +22,8 @@ const toastPlacement = {
 };
 
 export const Provider: FC<PropsWithChildren> = ({ children }) => {
-  const localColorScheme = (localStorage.getItem('colorScheme') as ColorScheme) || undefined;
+  const localStorage = typeof window === 'undefined' ? null : window.localStorage;
+  const localColorScheme = (localStorage?.getItem('colorScheme') as ColorScheme) || undefined;
   const { isSystem, colorScheme, setColorScheme } = useColorScheme(localColorScheme);
 
   const contextValue = useMemo(
@@ -31,8 +32,8 @@ export const Provider: FC<PropsWithChildren> = ({ children }) => {
   );
 
   useEffect(() => {
-    localStorage.setItem('colorScheme', contextValue.colorScheme);
-  }, [contextValue.colorScheme]);
+    localStorage?.setItem('colorScheme', contextValue.colorScheme);
+  }, [contextValue.colorScheme, localStorage]);
 
   const theme = { ...WEBSITE_THEME, colors: { ...WEBSITE_THEME.colors, base: colorScheme } };
 
