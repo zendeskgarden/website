@@ -9,13 +9,19 @@ import React, { useContext } from 'react';
 import styled, { css, DefaultTheme, ThemeContext, ThemeProps } from 'styled-components';
 import { math } from 'polished';
 import { Grid } from '@zendeskgarden/react-grid';
-import { PALETTE, ThemeProvider, mediaQuery } from '@zendeskgarden/react-theming';
+import {
+  IGardenTheme,
+  PALETTE,
+  ThemeProvider,
+  getColor,
+  mediaQuery
+} from '@zendeskgarden/react-theming';
 
-const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<DefaultTheme>) => {
+const colorStyles = (component: 'flower' | 'leaf' | 'pot', { theme }: ThemeProps<DefaultTheme>) => {
   let retVal;
 
   if (component === 'flower') {
-    const color = props.theme.palette.lemon[400];
+    const color = getColor({ theme, hue: 'lemon', light: { shade: 300 }, dark: { shade: 200 } });
 
     retVal = css`
       background-color: ${color};
@@ -26,12 +32,15 @@ const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<Def
       }
     `;
   } else if (component === 'leaf') {
+    const color = getColor({ theme, hue: 'green', light: { shade: 500 }, dark: { shade: 400 } });
+
     retVal = css`
-      background-color: ${props.theme.palette.green[400]};
+      background-color: ${color};
     `;
   } else if (component === 'pot') {
-    const backgroundColor = props.theme.palette.pink['M600' as any];
-    const foregroundColor = props.theme.palette.pink['M400' as any];
+    const options = { theme, hue: 'pink' };
+    const backgroundColor = getColor({ ...options, light: { shade: 700 }, dark: { shade: 600 } });
+    const foregroundColor = getColor({ ...options, light: { shade: 600 }, dark: { shade: 700 } });
 
     retVal = css`
       background-color: ${backgroundColor};
@@ -45,13 +54,13 @@ const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<Def
 
 const sizeStyles = (
   component: 'flower' | 'leaf' | 'plant' | 'pot',
-  props: ThemeProps<DefaultTheme>
+  { theme }: ThemeProps<DefaultTheme>
 ) => {
   let retVal;
 
   if (component === 'flower') {
-    const borderRadius = math(`${props.theme.borderRadii.md} * 5px`);
-    const size = props.theme.space.base * 10;
+    const borderRadius = math(`${theme.borderRadii.md} * 5px`);
+    const size = theme.space.base * 10;
     const width = size * 3;
 
     retVal = css`
@@ -72,35 +81,35 @@ const sizeStyles = (
       }
     `;
   } else if (component === 'leaf') {
-    const size = props.theme.space.base * 10;
+    const size = theme.space.base * 10;
 
     retVal = css`
-      border-radius: 80% ${props.theme.borderRadii.md};
+      border-radius: 80% ${theme.borderRadii.md};
       width: ${size}px;
       height: ${size}px;
     `;
   } else if (component === 'plant') {
-    const marginBottom = props.theme.space.base * 5;
-    const top = props.theme.space.base * 6;
-    const position = props.theme.space.base * 10;
+    const marginBottom = theme.space.base * 5;
+    const top = theme.space.base * 6;
+    const position = theme.space.base * 10;
 
     retVal = css`
       margin-bottom: ${marginBottom}px;
 
       & > :first-child {
         top: ${top}px;
-        ${props.theme.rtl ? 'right' : 'left'}: ${position}px;
+        ${theme.rtl ? 'right' : 'left'}: ${position}px;
       }
 
       & > :last-child {
         top: ${top}px;
-        ${props.theme.rtl ? 'left' : 'right'}: ${position}px;
+        ${theme.rtl ? 'left' : 'right'}: ${position}px;
       }
     `;
   } else if (component === 'pot') {
-    const backgroundSize = props.theme.space.base * 6;
-    const borderRadius = math(`${props.theme.borderRadii.md} * 3px`);
-    const size = props.theme.space.base * 24;
+    const backgroundSize = theme.space.base * 6;
+    const borderRadius = math(`${theme.borderRadii.md} * 3px`);
+    const size = theme.space.base * 24;
 
     retVal = css`
       border-radius: ${borderRadius} ${borderRadius} ${math(`${borderRadius} * 2`)}
@@ -189,7 +198,7 @@ const StyledCol = styled(Grid.Col)`
 
 /* Each Garden example is wrapped by a <ThemeProvider> */
 const Example = () => {
-  const sizeTheme = (parentTheme: DefaultTheme) => ({
+  const sizeTheme = (parentTheme: IGardenTheme) => ({
     ...parentTheme,
     borderRadii: {
       ...parentTheme.borderRadii,
@@ -201,7 +210,7 @@ const Example = () => {
     }
   });
 
-  const shapeTheme = (parentTheme: DefaultTheme) => ({
+  const shapeTheme = (parentTheme: IGardenTheme) => ({
     ...parentTheme,
     borderRadii: {
       ...parentTheme.borderRadii,
@@ -209,7 +218,7 @@ const Example = () => {
     }
   });
 
-  const colorTheme = (parentTheme: DefaultTheme) => ({
+  const colorTheme = (parentTheme: IGardenTheme) => ({
     ...parentTheme,
     palette: {
       ...parentTheme.palette,

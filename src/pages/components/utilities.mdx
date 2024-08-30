@@ -58,18 +58,47 @@ to determine the color of the focus ring.
 
 <PropSheet components={COMPONENTS} componentName="focusStyles" headerName="Parameter" />
 
+### getCheckeredBackground
+
+Generate CSS for a checkered background image.
+
+<PropSheet components={COMPONENTS} componentName="getCheckeredBackground" headerName="Parameter" />
+
 ### getColor
 
-Get a color for the given hue, shade, and theme. The algorithm returns a
-valid color even if the particular shade doesn't exist in the current theme.
+Get a color value from the theme. Variable lookup takes precedence, followed by
+`dark` and `light` object values. If none of these are provided, `hue`, `shade`,
+`offset`, and `transparency` are used as fallbacks to determine the color. A
+particularly effective use of `getColor` might look something like the following
+example.
+
+```jsx
+import styled from 'styled-components';
+import { getColor } from '@zendeskgarden/react-theming';
+
+const options = { variable: 'background.primaryEmphasis' };
+const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
+const offset200 = { dark: { offset: -200 }, light: { offset: 200 } };
+
+export const StyledCustomComponent = styled.div`
+  background-color: ${props => getColor({ theme: props.theme, ...options })};
+
+  :hover {
+    background-color: ${props => getColor({ theme: props.theme, ...options, ...offset100 })};
+  }
+
+  :active {
+    background-color: ${props => getColor({ theme: props.theme, ...options, ...offset200 })};
+  }
+`;
+```
 
 <PropSheet components={COMPONENTS} componentName="getColor" headerName="Parameter" />
 
 ### getFocusBoxShadow
 
-Get a CSS `box-shadow` property value for focus state styling. The hue and shade
-are used to determine the color of the focus ring. Use this function when
-[focusStyles](#focusstyles) is not the right fit.
+Get a CSS `box-shadow` property value for focus state styling. Use this function
+when [focusStyles](#focusstyles) is not the right fit.
 
 <PropSheet components={COMPONENTS} componentName="getFocusBoxShadow" headerName="Parameter" />
 
@@ -129,15 +158,6 @@ critical attribute strings. If necessary, a development mode console warning
 prompts the consumer to provide customized, translated text.
 
 <PropSheet components={COMPONENTS} componentName="useText" headerName="Parameter" />
-
-### withTheme
-
-Use this component factory to pass the context theme object to any React
-component. The React `useContext`
-[hook](https://styled-components.com/docs/advanced#via-usecontext-react-hook)
-may be used as a favorable alternative.
-
-<PropSheet components={COMPONENTS} componentName="withTheme" headerName="Parameter" />
 
 import { graphql } from 'gatsby';
 

@@ -6,26 +6,25 @@
  */
 
 import React, { useState } from 'react';
-import { css, DefaultTheme } from 'styled-components';
+import { css } from 'styled-components';
 import { Tabs } from '@zendeskgarden/react-tabs';
-import { getColorV8, ThemeProvider } from '@zendeskgarden/react-theming';
+import { getColor, IGardenTheme, ThemeProvider } from '@zendeskgarden/react-theming';
 
 /* Each Garden example is wrapped by a <ThemeProvider> */
 const Example = () => {
   const [selectedTab, setSelectedTab] = useState('tab-1');
-  const theme = (parentTheme: DefaultTheme) => ({
+  const theme = (parentTheme: IGardenTheme) => ({
     ...parentTheme,
     components: {
       'tabs.tab': css`
-        border-top: ${p => p.theme.borderStyles.solid} transparent;
         border-bottom: none;
-        border-width: ${p => p.theme.borderWidths.md};
+        border-top-style: ${p => p.theme.borderStyles.solid};
       `,
       'tabs.tablist': css`
         margin-top: ${p => p.theme.space.md};
         margin-bottom: 0;
         border-top: ${p => p.theme.borderWidths.sm} ${p => p.theme.borderStyles.solid}
-          ${p => getColorV8('neutralHue', 300, p.theme)};
+          ${p => getColor({ theme: p.theme, variable: 'border.default' })};
         border-bottom: none;
       `
     }

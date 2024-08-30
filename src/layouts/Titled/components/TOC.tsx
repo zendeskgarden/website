@@ -62,7 +62,6 @@ const StyledAnchor = styled(Anchor)<{ isCurrent: boolean }>`
       space: { xxs }
     }
   }) => `${xxs} 0 ${xxs} ${xxs}`};
-  overflow: visible;
   text-align: left;
 
   &::before {
