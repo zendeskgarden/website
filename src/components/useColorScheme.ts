@@ -9,12 +9,11 @@ import { useCallback, useEffect, useState } from 'react';
 import { IGardenTheme } from '@zendeskgarden/react-theming';
 import { ColorScheme } from './useColorSchemeContext';
 
-export const useColorScheme = (initialState: ColorScheme | undefined) => {
-  const matchMedia = typeof window === 'undefined' ? null : window.matchMedia;
-  const mediaQuery = matchMedia?.('(prefers-color-scheme: dark)');
+export const useColorScheme = (initialState?: ColorScheme) => {
+  const [mediaQuery, setMediaQuery] = useState<MediaQueryList>();
 
   const getState = useCallback(
-    (_state: ColorScheme | undefined) => {
+    (_state?: ColorScheme) => {
       const isSystem = _state === 'system' || _state === undefined;
       let colorScheme: IGardenTheme['colors']['base'];
 
@@ -34,10 +33,21 @@ export const useColorScheme = (initialState: ColorScheme | undefined) => {
     colorScheme: IGardenTheme['colors']['base'];
   }>(getState(initialState));
 
+  useEffect(
+    () => {
+      if (mediaQuery === undefined) {
+        setMediaQuery(window.matchMedia('(prefers-color-scheme: dark)'));
+      }
+    },
+    /* eslint-disable-line react-hooks/exhaustive-deps */ [
+      /* mediaQuery */
+    ]
+  );
+
   useEffect(() => {
+    // Listen for changes to the system color scheme
     const eventListener = () => {
-      // Listen for changes to the system color scheme
-      state.isSystem && setState(getState(undefined));
+      state.isSystem && setState(getState());
     };
 
     mediaQuery?.addEventListener('change', eventListener);
