@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { FC, PropsWithChildren, useEffect, useMemo } from 'react';
+import React, { FC, PropsWithChildren, useMemo } from 'react';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ToastProvider } from '@zendeskgarden/react-notifications';
 import { MarkdownProvider } from './MarkdownProvider';
@@ -22,22 +22,16 @@ const toastPlacement = {
 };
 
 export const Provider: FC<PropsWithChildren> = ({ children }) => {
-  const localStorage = typeof window === 'undefined' ? null : window.localStorage;
-  const localColorScheme = (localStorage?.getItem('colorScheme') as ColorScheme) || undefined;
-  const { isSystem, colorScheme, setColorScheme } = useColorScheme(localColorScheme);
+  const { isSystem, colorScheme, setColorScheme } = useColorScheme();
 
   const contextValue = useMemo(
     () => ({ colorScheme: (isSystem ? 'system' : colorScheme) as ColorScheme, setColorScheme }),
     [isSystem, colorScheme, setColorScheme]
   );
 
-  useEffect(() => {
-    localStorage?.setItem('colorScheme', contextValue.colorScheme);
-  }, [contextValue.colorScheme, localStorage]);
-
   const theme = { ...WEBSITE_THEME, colors: { ...WEBSITE_THEME.colors, base: colorScheme } };
 
-  return (
+  return typeof window === 'undefined' ? null /* prevent color scheme flash */ : (
     <ColorSchemeContext.Provider value={contextValue}>
       <ThemeProvider theme={theme}>
         <div
