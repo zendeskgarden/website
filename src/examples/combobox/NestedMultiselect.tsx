@@ -6,8 +6,6 @@
  */
 
 import React, { useCallback, useEffect, useState } from 'react';
-import { useTheme } from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
 import { Col, Row } from '@zendeskgarden/react-grid';
 import {
   Combobox,
@@ -21,7 +19,6 @@ import {
   Option,
   OptionValue
 } from '@zendeskgarden/react-dropdowns.next';
-import { ReactComponent as SelectionIcon } from '@zendeskgarden/svg-icons/src/16/record-stroke.svg';
 
 interface IOption extends IOptionProps {
   value: string;
@@ -131,33 +128,6 @@ const Example = () => {
     setState(_state);
   };
 
-  const theme = useTheme();
-
-  const renderOptionIcon = useCallback(
-    (value: string) => {
-      let retVal;
-
-      if (value in SUB_OPTIONS) {
-        const option = SUB_OPTIONS[value].find(_option => 'options' in _option);
-
-        if (option) {
-          const values: OptionValue[] = option.options.map(subOption => subOption.value);
-
-          if (state.selectionValue.some(selectionValue => values.includes(selectionValue))) {
-            const color = getColor('neutralHue', 600, theme);
-
-            retVal = (
-              <SelectionIcon aria-label="Contains selection(s)" role="img" style={{ color }} />
-            );
-          }
-        }
-      }
-
-      return retVal;
-    },
-    [state.selectionValue, theme]
-  );
-
   const renderHiddenSelectedOptions = useCallback(() => {
     const values = options.reduce<OptionValue[]>((_values, option) => {
       if ('options' in option) {
@@ -198,15 +168,11 @@ const Example = () => {
               'options' in option ? (
                 <OptGroup key={index} aria-label={option['aria-label']} label={option.label}>
                   {option.options.map(subOption => (
-                    <Option
-                      key={subOption.value}
-                      icon={renderOptionIcon(subOption.value)}
-                      {...subOption}
-                    />
+                    <Option key={subOption.value} {...subOption} />
                   ))}
                 </OptGroup>
               ) : (
-                <Option key={option.value} icon={renderOptionIcon(option.value)} {...option} />
+                <Option key={option.value} {...option} />
               )
             )}
           </Combobox>
