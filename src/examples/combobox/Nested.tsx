@@ -29,36 +29,16 @@ interface IOptGroup extends IOptGroupProps {
 type Options = (IOption | IOptGroup)[];
 
 const OPTIONS: Options = [
-  {
-    value: 'Apple'
-  },
-  {
-    value: 'Berry',
-    type: 'next'
-  },
-  {
-    value: 'Orange'
-  }
+  { value: 'Apple' },
+  { value: 'Berry', type: 'next' },
+  { value: 'Orange' }
 ];
 
 const SUB_OPTIONS: Options = [
-  {
-    value: 'Fruits',
-    type: 'previous'
-  },
+  { value: 'Fruits', type: 'previous' },
   {
     'aria-label': 'Berries',
-    options: [
-      {
-        value: 'Strawberry'
-      },
-      {
-        value: 'Loganberry'
-      },
-      {
-        value: 'Boysenberry'
-      }
-    ]
+    options: [{ value: 'Strawberry' }, { value: 'Loganberry' }, { value: 'Boysenberry' }]
   }
 ];
 
