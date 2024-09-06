@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Col, Row } from '@zendeskgarden/react-grid';
 import {
   Combobox,
@@ -80,6 +80,19 @@ const Example = () => {
 
     return null;
   }, [options, state.selectionValue]);
+
+  useEffect(() => {
+    // Reset options on listbox collapse
+    let timeout: NodeJS.Timeout;
+
+    if (!state.isExpanded) {
+      timeout = setTimeout(() => {
+        setOptions(OPTIONS);
+      }, 200 /* match listbox opacity transition */);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [state.isExpanded]);
 
   return (
     <Row justifyContent="center">

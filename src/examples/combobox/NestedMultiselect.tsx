@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTheme } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Col, Row } from '@zendeskgarden/react-grid';
@@ -172,6 +172,19 @@ const Example = () => {
 
     return missingValues.map(value => <Option key={value as string} isHidden value={value} />);
   }, [options, state.selectionValue]);
+
+  useEffect(() => {
+    // Reset options on listbox collapse
+    let timeout: NodeJS.Timeout;
+
+    if (!state.isExpanded) {
+      timeout = setTimeout(() => {
+        setOptions(OPTIONS);
+      }, 200 /* match listbox opacity transition */);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [state.isExpanded]);
 
   return (
     <Row justifyContent="center">
