@@ -7,6 +7,7 @@
 
 import React, { PropsWithChildren } from 'react';
 import { css } from 'styled-components';
+import { getColor } from '@zendeskgarden/react-theming';
 import { SkipNav } from '@zendeskgarden/react-chrome';
 import Footer from './components/Footer';
 import Header, { headerBoxShadow, headerHeight } from './components/Header';
@@ -19,10 +20,11 @@ interface IRootLayoutProps extends PropsWithChildren {
 const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, path }) => {
   return (
     <div
-      css={`
+      css={css`
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
       `}
     >
       {!!hasSkipNav && (

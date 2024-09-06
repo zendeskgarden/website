@@ -8,7 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { UnorderedList, Span } from '@zendeskgarden/react-typography';
-import { getColorV8 } from '@zendeskgarden/react-theming';
+import { getColor, getColorV8 } from '@zendeskgarden/react-theming';
 import { IComponentData } from '../../../components/types';
 import { StyledAnchor } from './Anchor';
 
@@ -19,7 +19,8 @@ interface IPackage {
 
 const StyledUnorderedList = styled(UnorderedList)`
   margin: 0 0 ${p => p.theme.space.xl};
-  border-bottom: ${p => `${p.theme.borders.sm} ${getColorV8('grey', 200, p.theme)}`};
+  border-bottom: ${p =>
+    `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'border.subtle' })}`};
   list-style: none;
 `;
 
@@ -27,7 +28,8 @@ const StyledListItem = styled(UnorderedList.Item)`
   display: flex;
   align-items: baseline;
   margin: ${p => p.theme.space.base * 2.5}px 0;
-  border-top: ${p => `${p.theme.borders.sm} ${getColorV8('grey', 200, p.theme)}`};
+  border-top: ${p =>
+    `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'border.subtle' })}`};
   /* stylelint-disable-next-line declaration-no-important */
   padding-top: ${p => p.theme.space.base * 2.5}px !important;
 `;

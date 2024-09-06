@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps } from 'styled-components';
-import { getColorV8, getLineHeight } from '@zendeskgarden/react-theming';
+import { getColor, getColorV8, getLineHeight } from '@zendeskgarden/react-theming';
 import {
   XXXL,
   XXL,
@@ -79,7 +79,8 @@ export const StyledBlockquote = styled(Blockquote)`
 
 export const StyledHr = styled.hr`
   margin: ${p => p.theme.space.md} 0;
-  border-top: ${p => p.theme.borders.sm} ${p => getColorV8('grey', 200, p.theme)};
+  border-top: ${p => p.theme.borders.sm}
+    ${p => getColor({ theme: p.theme, variable: 'border.subtle' })};
 `;
 
 export const StyledParagraph = styled(Paragraph)`
