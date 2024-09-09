@@ -110,6 +110,7 @@ const config: GatsbyConfig = {
         ]
       }
     },
+    'gatsby-plugin-catch-links',
     /* images */
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
