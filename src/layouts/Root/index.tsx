@@ -7,10 +7,10 @@
 
 import React, { PropsWithChildren } from 'react';
 import { css } from 'styled-components';
+import { getColor } from '@zendeskgarden/react-theming';
 import { SkipNav } from '@zendeskgarden/react-chrome';
 import Footer from './components/Footer';
 import Header, { headerBoxShadow, headerHeight } from './components/Header';
-import { getColor } from '@zendeskgarden/react-theming';
 
 interface IRootLayoutProps extends PropsWithChildren {
   hasSkipNav?: boolean;

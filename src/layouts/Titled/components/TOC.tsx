@@ -9,7 +9,7 @@ import React, { useState, useCallback, useEffect, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import throttle from 'lodash/throttle';
 import { math } from 'polished';
-import { getColor, getColorV8 } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 import { StyledHr } from 'components/MarkdownProvider/components/Typography';
@@ -57,17 +57,20 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
 const StyledAnchor = styled(Anchor)<{ isCurrent: boolean }>`
   display: block;
   position: relative;
+  transition: none;
   margin: ${({
     theme: {
       space: { xxs }
     }
-  }) => `${xxs} 0 ${xxs} ${xxs}`};
+  }) => `${xxs} 0 ${xxs} 0`};
   text-align: left;
 
   &::before {
     position: absolute;
-    left: -${p => math(`(${p.theme.space.xxs} + 1px)`)};
-    border-left: ${p => p.isCurrent && `${p.theme.borders.sm} ${getColorV8('grey', 800, p.theme)}`};
+    left: 0;
+    border-left: ${p =>
+      p.isCurrent &&
+      `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'foreground.default' })}`};
     height: 100%;
     content: '';
   }
@@ -157,13 +160,18 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
         `}
       >
         {data.map(heading => (
-          <li key={heading.url}>
+          <li
+            key={heading.url}
+            css={css`
+              margin-left: -${p => p.theme.borderWidths.sm};
+            `}
+          >
             <StyledAnchor
               isUnderlined={false}
               href={heading.url}
               isCurrent={activeHeadingUrl === heading.url}
               css={css`
-                padding-left: ${p => p.theme.space.md};
+                padding-left: ${p => p.theme.space.base * 6}px;
               `}
             >
               {heading.title}
@@ -177,7 +185,7 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
                       href={subHeading.url}
                       isCurrent={activeHeadingUrl === subHeading.url}
                       css={css`
-                        padding-left: ${p => p.theme.space.lg};
+                        padding-left: ${p => p.theme.space.base * 9}px;
                       `}
                     >
                       {subHeading.title}

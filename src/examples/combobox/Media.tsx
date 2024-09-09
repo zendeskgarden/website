@@ -20,7 +20,8 @@ const StyledEmoji = styled.span`
   justify-content: center;
   margin-top: -${p => p.theme.space.base / 2}px;
   border-radius: 50%;
-  background-color: ${p => getColor({ theme: p.theme, hue: 'green', shade: 300 })};
+  background-color: ${p =>
+    getColor({ theme: p.theme, hue: 'green', light: { shade: 300 }, dark: { shade: 900 } })};
   width: ${p => p.theme.space.base * 6}px;
   height: ${p => p.theme.space.base * 6}px;
 `;
