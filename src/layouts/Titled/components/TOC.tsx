@@ -57,6 +57,7 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
 const StyledAnchor = styled(Anchor)<{ isCurrent: boolean }>`
   display: block;
   position: relative;
+  transition: none;
   margin: ${({
     theme: {
       space: { xxs }

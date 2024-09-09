@@ -12,7 +12,6 @@ import { MarkdownProvider } from './MarkdownProvider';
 
 const theme = {
   ...DEFAULT_THEME,
-  colors: { ...DEFAULT_THEME.colors, base: 'dark' },
   palette: { ...DEFAULT_THEME.palette, tofu: '#F6F4F4', oatMilk: '#EDE0CF' }
 };
 
