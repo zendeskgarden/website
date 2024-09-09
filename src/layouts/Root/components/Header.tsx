@@ -43,6 +43,7 @@ const StyledDesktopNavLink = styled(StyledNavigationLink).attrs({ partiallyActiv
 const StyledHeader = styled.header.attrs({ role: 'banner' })`
   z-index: 1;
   box-shadow: ${p => headerBoxShadow(p.theme)};
+  background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
   padding: 0 ${p => p.theme.space.base * 4}px;
   height: ${p => headerHeight(p.theme)}px;
 
