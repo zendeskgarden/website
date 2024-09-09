@@ -41,7 +41,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, p
       )}
       <Header />
       <main
-        css={css`
+        css={`
           flex-grow: 1;
           flex-shrink: 1;
         `}
