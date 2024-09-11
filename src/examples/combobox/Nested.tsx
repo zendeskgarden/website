@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
 import {
   Combobox,
@@ -28,36 +28,16 @@ interface IOptGroup extends IOptGroupProps {
 type Options = (IOption | IOptGroup)[];
 
 const OPTIONS: Options = [
-  {
-    value: 'Apple'
-  },
-  {
-    value: 'Berry',
-    type: 'next'
-  },
-  {
-    value: 'Orange'
-  }
+  { value: 'Apple' },
+  { value: 'Berry', type: 'next' },
+  { value: 'Orange' }
 ];
 
 const SUB_OPTIONS: Options = [
-  {
-    value: 'Fruits',
-    type: 'previous'
-  },
+  { value: 'Fruits', type: 'previous' },
   {
     'aria-label': 'Berries',
-    options: [
-      {
-        value: 'Strawberry'
-      },
-      {
-        value: 'Loganberry'
-      },
-      {
-        value: 'Boysenberry'
-      }
-    ]
+    options: [{ value: 'Strawberry' }, { value: 'Loganberry' }, { value: 'Boysenberry' }]
   }
 ];
 
@@ -88,12 +68,38 @@ const Example = () => {
     }
   };
 
+  const renderHiddenSelectedOption = useCallback(() => {
+    if (state.selectionValue !== null) {
+      const _options = options === SUB_OPTIONS ? (options[1] as IOptGroup).options : options;
+
+      if (!_options.find(option => option.value === state.selectionValue)) {
+        return <Option isHidden value={state.selectionValue} />;
+      }
+    }
+
+    return null;
+  }, [options, state.selectionValue]);
+
+  useEffect(() => {
+    // Reset options on listbox collapse
+    let timeout: NodeJS.Timeout;
+
+    if (!state.isExpanded) {
+      timeout = setTimeout(() => {
+        setOptions(OPTIONS);
+      }, 200 /* match listbox opacity transition */);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [state.isExpanded]);
+
   return (
     <Grid.Row justifyContent="center">
       <Grid.Col sm={5}>
         <Field>
           <Field.Label>Fruit</Field.Label>
           <Combobox isEditable={false} onChange={handleChange} {...state}>
+            {renderHiddenSelectedOption()}
             {options.map((option, index) =>
               'options' in option ? (
                 <OptGroup key={index} aria-label={option['aria-label']}>
