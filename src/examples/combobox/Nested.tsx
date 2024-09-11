@@ -14,18 +14,15 @@ import {
   IOptGroupProps,
   IOptionProps,
   OptGroup,
-  Option
+  Option,
+  OptionValue
 } from '@zendeskgarden/react-dropdowns';
 
-interface IOption extends IOptionProps {
-  value: string;
-}
-
 interface IOptGroup extends IOptGroupProps {
-  options: IOption[];
+  options: IOptionProps[];
 }
 
-type Options = (IOption | IOptGroup)[];
+type Options = (IOptionProps | IOptGroup)[];
 
 const OPTIONS: Options = [
   { value: 'Apple' },
@@ -73,7 +70,7 @@ const Example = () => {
       const _options = options === SUB_OPTIONS ? (options[1] as IOptGroup).options : options;
 
       if (!_options.find(option => option.value === state.selectionValue)) {
-        return <Option isHidden value={state.selectionValue} />;
+        return <Option isHidden value={state.selectionValue as OptionValue} />;
       }
     }
 
@@ -90,7 +87,9 @@ const Example = () => {
       }, 200 /* match listbox opacity transition */);
     }
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [state.isExpanded]);
 
   return (
