@@ -107,7 +107,7 @@ const Example = () => {
     const selectionValue = Array.isArray(changes.selectionValue) ? changes.selectionValue : [];
     const _state = {
       activeIndex: changes.activeIndex === undefined ? state.activeIndex : changes.activeIndex,
-      inputValue: changes.inputValue || state.inputValue,
+      inputValue: changes.inputValue === undefined ? state.inputValue : changes.inputValue,
       isExpanded: changes.isExpanded === undefined ? state.isExpanded : changes.isExpanded,
       selectionValue: changes.selectionValue === undefined ? state.selectionValue : selectionValue
     };
