@@ -14,9 +14,8 @@ import { IMenuProps, Item, ItemGroup, Menu } from '@zendeskgarden/react-dropdown
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
-// TODO replace with sun/moon icons when available
-import { ReactComponent as LightIcon } from '@zendeskgarden/svg-icons/src/16/circle-stroke.svg';
-import { ReactComponent as DarkIcon } from '@zendeskgarden/svg-icons/src/16/circle-fill.svg';
+import { ReactComponent as LightIcon } from '@zendeskgarden/svg-icons/src/16/sun-stroke.svg';
+import { ReactComponent as DarkIcon } from '@zendeskgarden/svg-icons/src/16/moon-fill.svg';
 import { ReactComponent as SystemIcon } from '@zendeskgarden/svg-icons/src/16/monitor-stroke.svg';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/26/wordmark-garden.svg';
