@@ -16,8 +16,10 @@ const StyledParagraph = styled(Paragraph)`
   margin-top: ${p => p.theme.space.xs};
 `;
 
+const HEIGHT = '180px';
+
 const StyledPaneContent = styled(Pane.Content)`
-  height: 180px;
+  height: ${HEIGHT};
 `;
 
 const StyledPane = styled(Pane)<{ isSecondary?: boolean }>`
@@ -43,7 +45,7 @@ const Example = () => {
           <div
             style={{
               width,
-              height: '100%',
+              height: HEIGHT,
               display: 'grid',
               gridTemplateColumns: getGridTemplateColumns()
             }}
