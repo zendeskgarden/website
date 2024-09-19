@@ -7,12 +7,18 @@
 
 import React from 'react';
 import { Provider, Layout } from './src/components';
+import __html from '!!raw-loader!./utils/color-mode.js';
 
 export const wrapRootElement = ({ props, element }) => <Provider {...props}>{element}</Provider>;
 
 export const wrapPageElement = ({ props, element }) => <Layout {...props}>{element}</Layout>;
 
-export const onRenderBody = ({ setHtmlAttributes, setHeadComponents, setPostBodyComponents }) => {
+export const onRenderBody = ({
+  setHtmlAttributes,
+  setHeadComponents,
+  setPreBodyComponents,
+  setPostBodyComponents
+}) => {
   setHtmlAttributes({ lang: 'en' });
 
   const version = 2;
@@ -24,6 +30,9 @@ export const onRenderBody = ({ setHtmlAttributes, setHeadComponents, setPostBody
       href={`https://cdn.jsdelivr.net/npm/docsearch.js@${version}/dist/cdn/docsearch.min.css`}
     />
   ]);
+
+  /* eslint-disable-next-line react/no-danger */
+  setPreBodyComponents([<script key="color-mode-js" dangerouslySetInnerHTML={{ __html }} />]);
 
   setPostBodyComponents([
     <script
