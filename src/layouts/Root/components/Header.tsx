@@ -6,7 +6,7 @@
  */
 
 import React, { useState, HTMLAttributes, useRef, useEffect, ChangeEventHandler } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, useTheme } from 'styled-components';
 import { Link } from 'gatsby';
 import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
@@ -15,7 +15,7 @@ import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/
 import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as LightIcon } from '@zendeskgarden/svg-icons/src/16/sun-stroke.svg';
-import { ReactComponent as DarkIcon } from '@zendeskgarden/svg-icons/src/16/moon-fill.svg';
+import { ReactComponent as DarkIcon } from '@zendeskgarden/svg-icons/src/16/moon-stroke.svg';
 import { ReactComponent as SystemIcon } from '@zendeskgarden/svg-icons/src/16/monitor-stroke.svg';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/26/wordmark-garden.svg';
@@ -211,6 +211,8 @@ const MobileNav: React.FC = () => {
 const DesktopNav: React.FC = () => {
   const { colorScheme, setColorScheme } = useColorSchemeContext();
 
+  const theme = useTheme();
+
   const handleColorSchemeChange: IMenuProps['onChange'] = changes => {
     if (changes.value) {
       setTimeout(() => {
@@ -252,7 +254,7 @@ const DesktopNav: React.FC = () => {
         <Menu
           button={props => (
             <IconButton {...props}>
-              <LightIcon />
+              {theme.colors.base === 'dark' ? <DarkIcon /> : <LightIcon />}
             </IconButton>
           )}
           onChange={handleColorSchemeChange}
