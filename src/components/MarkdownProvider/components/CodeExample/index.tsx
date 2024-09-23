@@ -21,11 +21,10 @@ import { ReactComponent as PaletteStroke } from '@zendeskgarden/svg-icons/src/16
 import { ReactComponent as PaletteFill } from '@zendeskgarden/svg-icons/src/16/palette-fill.svg';
 import { ReactComponent as DirectionRtlStroke } from '@zendeskgarden/svg-icons/src/16/direction-rtl-stroke.svg';
 import { ReactComponent as DirectionRtlFill } from '@zendeskgarden/svg-icons/src/16/direction-rtl-fill.svg';
-// TODO replace with sun/moon icons when available
-import { ReactComponent as LightStroke } from '@zendeskgarden/svg-icons/src/16/circle-stroke.svg';
-import { ReactComponent as LightFill } from '@zendeskgarden/svg-icons/src/16/circle-fill.svg';
-import { ReactComponent as DarkStroke } from '@zendeskgarden/svg-icons/src/16/circle-full-stroke.svg';
-import { ReactComponent as DarkFill } from '@zendeskgarden/svg-icons/src/16/circle-full-fill.svg';
+import { ReactComponent as LightStroke } from '@zendeskgarden/svg-icons/src/16/sun-stroke.svg';
+import { ReactComponent as LightFill } from '@zendeskgarden/svg-icons/src/16/sun-fill.svg';
+import { ReactComponent as DarkStroke } from '@zendeskgarden/svg-icons/src/16/moon-stroke.svg';
+import { ReactComponent as DarkFill } from '@zendeskgarden/svg-icons/src/16/moon-fill.svg';
 import { ReactComponent as CodeSandboxIcon } from './assets/codesandbox-icon.svg';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
 import { copyToClipboard } from './utils/copyToClipboard';
