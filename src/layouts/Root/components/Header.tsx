@@ -166,9 +166,7 @@ const MobileNav: React.FC = () => {
   const { colorScheme, setColorScheme } = useColorSchemeContext();
 
   const handleColorSchemeChange: ChangeEventHandler<HTMLSelectElement> = event => {
-    setTimeout(() => {
-      setColorScheme(event.target.value as ColorScheme);
-    });
+    setColorScheme(event.target.value as ColorScheme);
   };
 
   useEffect(() => {
@@ -200,7 +198,7 @@ const MobileNav: React.FC = () => {
         `}
       >
         <Field.Label isRegular>Switch themes</Field.Label>
-        <Select defaultValue={colorScheme} onChange={handleColorSchemeChange}>
+        <Select value={colorScheme} onChange={handleColorSchemeChange}>
           <option value="light">Light</option>
           <option value="dark">Dark</option>
           <option value="system">System</option>
@@ -259,15 +257,16 @@ const DesktopNav: React.FC = () => {
           )}
           onChange={handleColorSchemeChange}
           placement="bottom-end"
+          selectedItems={[{ value: colorScheme }]}
         >
           <ItemGroup aria-label="Switch theme" type="radio">
-            <Item icon={<LightIcon />} isSelected={colorScheme === 'light'} value="light">
+            <Item icon={<LightIcon />} value="light">
               Light
             </Item>
-            <Item icon={<DarkIcon />} isSelected={colorScheme === 'dark'} value="dark">
+            <Item icon={<DarkIcon />} value="dark">
               Dark
             </Item>
-            <Item icon={<SystemIcon />} isSelected={colorScheme === 'system'} value="system">
+            <Item icon={<SystemIcon />} value="system">
               System
             </Item>
           </ItemGroup>
