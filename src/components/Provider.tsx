@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { FC, PropsWithChildren, useMemo } from 'react';
+import React, { FC, PropsWithChildren, useMemo, useRef } from 'react';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ToastProvider } from '@zendeskgarden/react-notifications';
 import { MarkdownProvider } from './MarkdownProvider';
@@ -22,16 +22,23 @@ const toastPlacement = {
 };
 
 export const Provider: FC<PropsWithChildren> = ({ children }) => {
-  const { isSystem, colorScheme, setColorScheme } = useColorScheme();
-
-  const contextValue = useMemo(
-    () => ({ colorScheme: (isSystem ? 'system' : colorScheme) as ColorScheme, setColorScheme }),
-    [isSystem, colorScheme, setColorScheme]
+  const localStorage = useRef(typeof window === 'undefined' ? undefined : window.localStorage);
+  const { isSystem, colorScheme, setColorScheme } = useColorScheme(
+    localStorage.current?.getItem('color-scheme') as ColorScheme
   );
-
   const theme = { ...WEBSITE_THEME, colors: { ...WEBSITE_THEME.colors, base: colorScheme } };
 
-  return typeof window === 'undefined' ? null /* prevent color scheme flash */ : (
+  const contextValue = useMemo(() => {
+    const _colorScheme = isSystem ? 'system' : (colorScheme as ColorScheme);
+    const _setColorScheme = (value: ColorScheme) => {
+      setColorScheme(value);
+      localStorage.current?.setItem('color-scheme', value);
+    };
+
+    return { colorScheme: _colorScheme, setColorScheme: _setColorScheme };
+  }, [isSystem, colorScheme, setColorScheme]);
+
+  return (
     <ColorSchemeContext.Provider value={contextValue}>
       <ThemeProvider theme={theme}>
         <div

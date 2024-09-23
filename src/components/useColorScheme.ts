@@ -6,17 +6,12 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import { useLocalStorage } from 'react-use';
 import { IGardenTheme } from '@zendeskgarden/react-theming';
 import { ColorScheme } from './useColorSchemeContext';
 
 export const useColorScheme = (initialState?: ColorScheme) => {
   const mediaQuery = useRef<MediaQueryList | undefined>(
     typeof window === 'undefined' ? undefined : window.matchMedia('(prefers-color-scheme: dark)')
-  );
-  const [localColorScheme, setLocalColorScheme] = useLocalStorage<ColorScheme>(
-    'color-scheme',
-    initialState
   );
 
   const getState = (_state?: ColorScheme) => {
@@ -35,7 +30,7 @@ export const useColorScheme = (initialState?: ColorScheme) => {
   const [state, setState] = useState<{
     isSystem: boolean;
     colorScheme: IGardenTheme['colors']['base'];
-  }>(getState(localColorScheme));
+  }>(getState(initialState));
 
   useEffect(() => {
     // Listen for changes to the system color scheme
@@ -61,7 +56,6 @@ export const useColorScheme = (initialState?: ColorScheme) => {
     colorScheme: state.colorScheme,
     setColorScheme: (colorScheme: ColorScheme) => {
       setState(getState(colorScheme));
-      setLocalColorScheme(colorScheme);
     }
   };
 };

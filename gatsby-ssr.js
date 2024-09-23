@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Provider, Layout } from './src/components';
-import __html from '!!raw-loader!./utils/color-mode.js';
+import __html from '!!raw-loader!./utils/color-scheme.js';
 
 export const wrapRootElement = ({ props, element }) => <Provider {...props}>{element}</Provider>;
 
@@ -32,7 +32,7 @@ export const onRenderBody = ({
   ]);
 
   /* eslint-disable-next-line react/no-danger */
-  setPreBodyComponents([<script key="color-mode-js" dangerouslySetInnerHTML={{ __html }} />]);
+  setPreBodyComponents([<script key="color-scheme-js" dangerouslySetInnerHTML={{ __html }} />]);
 
   setPostBodyComponents([
     <script
