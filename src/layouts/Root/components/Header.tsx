@@ -198,7 +198,7 @@ const MobileNav: React.FC = () => {
         `}
       >
         <Field.Label isRegular>Switch themes</Field.Label>
-        <Select value={colorScheme} onChange={handleColorSchemeChange}>
+        <Select defaultValue="system" value={colorScheme} onChange={handleColorSchemeChange}>
           <option value="light">Light</option>
           <option value="dark">Dark</option>
           <option value="system">System</option>
