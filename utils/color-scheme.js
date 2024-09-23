@@ -8,7 +8,7 @@
 (() => {
   const colorScheme = window.localStorage.getItem('color-scheme');
 
-  if (colorScheme === null) {
+  if (!['dark', 'light', 'system'].includes(colorScheme)) {
     window.localStorage.setItem('color-scheme', 'system');
   }
 })();

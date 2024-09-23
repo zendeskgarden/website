@@ -268,7 +268,7 @@ const DesktopNav: React.FC = () => {
             <Item icon={<DarkIcon />} value="dark">
               Dark
             </Item>
-            <Item icon={<SystemIcon />} value="system">
+            <Item icon={<SystemIcon />} isSelected value="system">
               System
             </Item>
           </ItemGroup>
