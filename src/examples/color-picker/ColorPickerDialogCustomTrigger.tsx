@@ -42,7 +42,7 @@ const Example = () => {
   return (
     <Grid.Row>
       <Grid.Col textAlign="center">
-        <ColorPickerDialog color={color} onChange={setColor}>
+        <ColorPickerDialog color={color} hasArrow onChange={setColor}>
           <PaletteIconButton iconColor={iconColor} />
         </ColorPickerDialog>
       </Grid.Col>

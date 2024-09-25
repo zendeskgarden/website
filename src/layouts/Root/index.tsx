@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, useEffect, useLayoutEffect, useState } from 'react';
 import { css } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
+import { GlobalAlert } from '@zendeskgarden/react-notifications';
+import { Anchor } from '@zendeskgarden/react-buttons';
 import { SkipNav } from '@zendeskgarden/react-chrome';
 import Footer from './components/Footer';
 import Header, { headerBoxShadow, headerHeight } from './components/Header';
-import { GlobalAlert } from '@zendeskgarden/react-notifications';
-import { Anchor } from '@zendeskgarden/react-buttons';
 
 interface IRootLayoutProps extends PropsWithChildren {
   hasSkipNav?: boolean;
@@ -20,7 +20,25 @@ interface IRootLayoutProps extends PropsWithChildren {
 }
 
 const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, path }) => {
-  return (
+  const [isGlobalAlertVisible, setIsGlobalAlertVisible] = useState(true);
+
+  useLayoutEffect(() => {
+    // Initial global alert render
+    const hidden =
+      new Date() > new Date('2025-01-01T00:00:00Z') ||
+      window.localStorage.getItem('global-alert-v9') === 'hidden';
+
+    setIsGlobalAlertVisible(!hidden);
+  }, []);
+
+  useEffect(() => {
+    // Handle user dismissed global alert
+    if (!isGlobalAlertVisible) {
+      window.localStorage.setItem('global-alert-v9', 'hidden');
+    }
+  }, [isGlobalAlertVisible]);
+
+  return typeof window === 'undefined' ? null /* prevent global alert flash */ : (
     <div
       css={css`
         display: flex;
@@ -29,14 +47,21 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, p
         color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
       `}
     >
-      <GlobalAlert type="info">
-        <GlobalAlert.Content>
-          <GlobalAlert.Title>Garden 9 is now available</GlobalAlert.Title>
-          The website has been updated to the latest version.{' '}
-          <Anchor href="/components/versions">Here are previous versions</Anchor>
-        </GlobalAlert.Content>
-        <GlobalAlert.Close />
-      </GlobalAlert>
+      {!!isGlobalAlertVisible && (
+        <GlobalAlert type="info">
+          <GlobalAlert.Content>
+            <GlobalAlert.Title>Garden 9 is now available.</GlobalAlert.Title>
+            The website has been updated to the latest major version.{' '}
+            <Anchor href="/components/versions">View previous versions</Anchor>
+          </GlobalAlert.Content>
+          <GlobalAlert.Close
+            aria-label="Close v9 alert"
+            onClick={() => {
+              setIsGlobalAlertVisible(false);
+            }}
+          />
+        </GlobalAlert>
+      )}
       {!!hasSkipNav && (
         <SkipNav
           targetId="main-content"
