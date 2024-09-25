@@ -55,6 +55,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, p
             <Anchor href="/components/versions">View previous versions</Anchor>
           </GlobalAlert.Content>
           <GlobalAlert.Close
+            aria-label="Close v9 alert"
             onClick={() => {
               setIsGlobalAlertVisible(false);
             }}
