@@ -11,6 +11,8 @@ import { getColor } from '@zendeskgarden/react-theming';
 import { SkipNav } from '@zendeskgarden/react-chrome';
 import Footer from './components/Footer';
 import Header, { headerBoxShadow, headerHeight } from './components/Header';
+import { GlobalAlert } from '@zendeskgarden/react-notifications';
+import { Anchor } from '@zendeskgarden/react-buttons';
 
 interface IRootLayoutProps extends PropsWithChildren {
   hasSkipNav?: boolean;
@@ -27,6 +29,14 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, p
         color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
       `}
     >
+      <GlobalAlert type="info">
+        <GlobalAlert.Content>
+          <GlobalAlert.Title>Garden 9 is now available</GlobalAlert.Title>
+          The website has been updated to the latest version.{' '}
+          <Anchor href="/components/versions">Here are previous versions</Anchor>
+        </GlobalAlert.Content>
+        <GlobalAlert.Close />
+      </GlobalAlert>
       {!!hasSkipNav && (
         <SkipNav
           targetId="main-content"
