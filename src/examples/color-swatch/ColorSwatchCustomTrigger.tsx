@@ -87,6 +87,7 @@ const Example = () => {
         <ColorSwatchDialog
           name="color-swatch-custom-trigger"
           colors={matrix}
+          hasArrow
           onSelect={onSelect}
           selectedRowIndex={selectedRowIndex}
           selectedColIndex={selectedColIndex}

@@ -15,8 +15,12 @@ const Example = () => (
   <Grid.Row justifyContent="center">
     <Grid.Col size="auto">
       <Breadcrumb>
-        <Anchor href="#">Flowers</Anchor>
-        <Anchor href="#">Roses</Anchor>
+        <Anchor href="#" isUnderlined={false}>
+          Flowers
+        </Anchor>
+        <Anchor href="#" isUnderlined={false}>
+          Roses
+        </Anchor>
         <Span>Floribunda</Span>
       </Breadcrumb>
     </Grid.Col>
