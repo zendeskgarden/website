@@ -6,9 +6,14 @@
  */
 
 import React, { useCallback, useState } from 'react';
+import styled from 'styled-components';
 import { Grid } from '@zendeskgarden/react-grid';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
 import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns';
+
+const StyledItem = styled(Item)`
+  overflow-wrap: break-word;
+`;
 
 const Example = () => {
   const [rotated, setRotated] = useState<boolean>();
@@ -29,9 +34,9 @@ const Example = () => {
             onChange={handleChange}
             placement="bottom-end"
           >
-            <Item value="prune">Prune</Item>
-            <Item value="water">Water</Item>
-            <Item value="fertilize">Fertilize</Item>
+            <StyledItem value="prune">Prune</StyledItem>
+            <StyledItem value="water">Water</StyledItem>
+            <StyledItem value="fertilize">Fertilize</StyledItem>
           </Menu>
         </SplitButton>
       </Grid.Col>
