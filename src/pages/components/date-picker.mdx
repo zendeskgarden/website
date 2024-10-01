@@ -4,12 +4,12 @@ description: >
   A Date picker lets users select a date by showing them a calendar. It works in combination with a text input.
 package: '@zendeskgarden/react-datepickers'
 components:
-  - datepickers/src/elements/Datepicker/Datepicker.tsx
-  - datepickers/src/elements/DatepickerRange/DatepickerRange.tsx
+  - datepickers/src/elements/DatePicker/DatePicker.tsx
+  - datepickers/src/elements/DatePickerRange/DatePickerRange.tsx
 subcomponents:
-  - datepickers/src/elements/DatepickerRange/components/Calendar.tsx
-  - datepickers/src/elements/DatepickerRange/components/End.tsx
-  - datepickers/src/elements/DatepickerRange/components/Start.tsx
+  - datepickers/src/elements/DatePickerRange/components/Calendar.tsx
+  - datepickers/src/elements/DatePickerRange/components/End.tsx
+  - datepickers/src/elements/DatePickerRange/components/Start.tsx
 ---
 
 import { SEO } from '../../components';
@@ -33,8 +33,8 @@ export function Head(props) {
 
 The typical usage of a Date picker component.
 
-import Default from '../../examples/date-picker/DatepickerDefault.tsx';
-import DefaultCode from '!!raw-loader!../../examples/date-picker/DatepickerDefault.tsx';
+import Default from '../../examples/date-picker/DatePickerDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/date-picker/DatePickerDefault.tsx';
 
 <CodeExample code={DefaultCode}>
   <Default />
@@ -46,8 +46,8 @@ Dates are formatted using the
 [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat)
 utility. For other formats, consider using a library like [date-fns](https://date-fns.org/).
 
-import Custom from '../../examples/date-picker/DatepickerCustom.tsx';
-import CustomCode from '!!raw-loader!../../examples/date-picker/DatepickerCustom.tsx';
+import Custom from '../../examples/date-picker/DatePickerCustom.tsx';
+import CustomCode from '!!raw-loader!../../examples/date-picker/DatePickerCustom.tsx';
 
 <CodeExample code={CustomCode}>
   <Custom />
@@ -58,8 +58,8 @@ import CustomCode from '!!raw-loader!../../examples/date-picker/DatepickerCustom
 Date range picker works in combination with two text inputs. It displays a
 calendar that lets users choose a start and end date.
 
-import Range from '../../examples/date-picker/DatepickerRange.tsx';
-import RangeCode from '!!raw-loader!../../examples/date-picker/DatepickerRange.tsx';
+import Range from '../../examples/date-picker/DatePickerRange.tsx';
+import RangeCode from '!!raw-loader!../../examples/date-picker/DatePickerRange.tsx';
 
 <CodeExample code={RangeCode}>
   <Range />
@@ -72,8 +72,8 @@ Dates are localized using the
 utility. For other formats, use `customParseDate` prop, and formatting libraries
 like [date-fns](https://date-fns.org/) or [momentjs](https://momentjs.com/).
 
-import Localization from '../../examples/date-picker/DatepickerLocalization.tsx';
-import LocalizationCode from '!!raw-loader!../../examples/date-picker/DatepickerLocalization.tsx';
+import Localization from '../../examples/date-picker/DatePickerLocalization.tsx';
+import LocalizationCode from '!!raw-loader!../../examples/date-picker/DatePickerLocalization.tsx';
 
 <CodeExample code={LocalizationCode}>
   <Localization />
@@ -83,8 +83,8 @@ import LocalizationCode from '!!raw-loader!../../examples/date-picker/Datepicker
 
 Date picker can be default or compact.
 
-import Size from '../../examples/date-picker/DatepickerSize.tsx';
-import SizeCode from '!!raw-loader!../../examples/date-picker/DatepickerSize.tsx';
+import Size from '../../examples/date-picker/DatePickerSize.tsx';
+import SizeCode from '!!raw-loader!../../examples/date-picker/DatePickerSize.tsx';
 
 <CodeExample code={SizeCode}>
   <Size />
@@ -94,8 +94,8 @@ import SizeCode from '!!raw-loader!../../examples/date-picker/DatepickerSize.tsx
 
 Options before and after a certain date can be disabled, limiting users to a specific time window.
 
-import TimeWindow from '../../examples/date-picker/DatepickerTimeWindow.tsx';
-import TimeWindowCode from '!!raw-loader!../../examples/date-picker/DatepickerTimeWindow.tsx';
+import TimeWindow from '../../examples/date-picker/DatePickerTimeWindow.tsx';
+import TimeWindowCode from '!!raw-loader!../../examples/date-picker/DatePickerTimeWindow.tsx';
 
 <CodeExample code={TimeWindowCode}>
   <TimeWindow />
@@ -107,35 +107,35 @@ import TimeWindowCode from '!!raw-loader!../../examples/date-picker/DatepickerTi
 
 ## API
 
-### Datepicker
+### DatePicker
 
-<Component components={props.data.mdx.components} componentName="datepicker" />
+<Component components={props.data.mdx.components} componentName="datePicker" />
 
-<PropSheet components={props.data.mdx.components} componentName="datepicker" />
+<PropSheet components={props.data.mdx.components} componentName="datePicker" />
 
-### DatepickerRange
+### DatePickerRange
 
-<Component components={props.data.mdx.components} componentName="datepickerRange" />
+<Component components={props.data.mdx.components} componentName="datePickerRange" />
 
-<PropSheet components={props.data.mdx.components} componentName="datepickerRange" />
+<PropSheet components={props.data.mdx.components} componentName="datePickerRange" />
 
-#### DatepickerRange.Calendar
+#### DatePickerRange.Calendar
 
-<Component components={props.data.mdx.subcomponents} componentName="datepickerRange.calendar" />
+<Component components={props.data.mdx.subcomponents} componentName="datePickerRange.calendar" />
 
-<PropSheet components={props.data.mdx.subcomponents} componentName="datepickerRange.calendar" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="datePickerRange.calendar" />
 
-#### DatepickerRange.End
+#### DatePickerRange.End
 
-<Component components={props.data.mdx.subcomponents} componentName="datepickerRange.end" />
+<Component components={props.data.mdx.subcomponents} componentName="datePickerRange.end" />
 
-<PropSheet components={props.data.mdx.subcomponents} componentName="datepickerRange.end" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="datePickerRange.end" />
 
-#### DatepickerRange.Start
+#### DatePickerRange.Start
 
-<Component components={props.data.mdx.subcomponents} componentName="datepickerRange.start" />
+<Component components={props.data.mdx.subcomponents} componentName="datePickerRange.start" />
 
-<PropSheet components={props.data.mdx.subcomponents} componentName="datepickerRange.start" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="datePickerRange.start" />
 
 import { graphql } from 'gatsby';
 

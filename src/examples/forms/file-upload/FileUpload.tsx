@@ -9,18 +9,9 @@ import React, { useCallback, useState, memo } from 'react';
 import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
 import { KEYS } from '@zendeskgarden/container-utilities';
-import {
-  Field,
-  Label,
-  Hint,
-  Input,
-  FileUpload,
-  Message,
-  FileList,
-  File
-} from '@zendeskgarden/react-forms';
+import { Field, Input, FileUpload, FileList, File } from '@zendeskgarden/react-forms';
 import { Progress } from '@zendeskgarden/react-loaders';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const StyledFileUpload = styled(FileUpload)`
@@ -132,11 +123,11 @@ const Example = () => {
   });
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
-          <Label>Upload a photo of your ailing cactus</Label>
-          <Hint>Include the entire plant in your photo</Hint>
+          <Field.Label>Upload a photo of your ailing cactus</Field.Label>
+          <Field.Hint>Include the entire plant in your photo</Field.Hint>
           <StyledFileUpload {...getRootProps()} isDragging={isDragActive}>
             {isDragActive ? (
               <span>Drop files here</span>
@@ -146,17 +137,23 @@ const Example = () => {
             <Input {...getInputProps()} />
           </StyledFileUpload>
           {files.length === 0 ? (
-            <Message>Acceptable formats are JPG, PNG, and GIF</Message>
+            <Field.Message>Acceptable formats are JPG, PNG, and GIF</Field.Message>
           ) : (
             <FileList>
               {files.map((file, index) => (
-                <FileItem key={file} name={file} onRemove={() => removeFile(index)} />
+                <FileItem
+                  key={file}
+                  name={file}
+                  onRemove={() => {
+                    removeFile(index);
+                  }}
+                />
               ))}
             </FileList>
           )}
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

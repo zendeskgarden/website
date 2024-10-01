@@ -23,7 +23,8 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 const StyledPane = styled(Pane)<{ isSecondary?: boolean }>`
-  ${p => p.isSecondary && `background-color: ${getColor('neutralHue', 100, p.theme)}`};
+  background-color: ${p =>
+    p.isSecondary && getColor({ variable: 'background.subtle', theme: p.theme })};
 `;
 
 const Example = () => {

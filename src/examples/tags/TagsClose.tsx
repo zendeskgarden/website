@@ -8,7 +8,7 @@
 import React from 'react';
 import { Tag } from '@zendeskgarden/react-tags';
 import { KEYS } from '@zendeskgarden/container-utilities';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const handleTagKeyDown = (e: React.KeyboardEvent<any>) => {
@@ -28,20 +28,22 @@ const handleCloseKeyDown = (e: React.KeyboardEvent<any>) => {
 };
 
 const Example = () => (
-  <Row>
-    <Col textAlign="center">
+  <Grid.Row>
+    <Grid.Col textAlign="center">
       <Tag tabIndex={0} aria-label="Algae, press delete to remove" onKeyDown={handleTagKeyDown}>
         <span>Algae</span>
         <Tooltip content="Remove tag">
           <Tag.Close
             aria-label="Remove tag"
-            onClick={() => alert('Tag dismissed via mouse')}
+            onClick={() => {
+              alert('Tag dismissed via mouse');
+            }}
             onKeyDown={handleCloseKeyDown}
           />
         </Tooltip>
       </Tag>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

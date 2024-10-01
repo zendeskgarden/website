@@ -6,60 +6,57 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { XL } from '@zendeskgarden/react-typography';
-import {
-  Body,
-  Caption,
-  Cell,
-  Head,
-  HeaderCell,
-  HeaderRow,
-  Row,
-  Table
-} from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
+
+const StyledContainer = styled.div`
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
 
 const Example = () => (
-  <div style={{ overflowX: 'auto' }}>
+  <StyledContainer>
     <Table style={{ minWidth: 500 }}>
-      <Caption>
+      <Table.Caption>
         <XL>Garden details</XL>
-      </Caption>
-      <Head>
-        <HeaderRow>
-          <HeaderCell>Fruit</HeaderCell>
-          <HeaderCell>Sun exposure</HeaderCell>
-          <HeaderCell>Soil</HeaderCell>
-        </HeaderRow>
-      </Head>
-      <Body>
-        <Row>
-          <Cell>Raspberries</Cell>
-          <Cell>Partial shade</Cell>
-          <Cell>Moist and slightly acidic</Cell>
-        </Row>
-        <Row>
-          <Cell>Strawberries</Cell>
-          <Cell>Full sun</Cell>
-          <Cell>Medium moisture</Cell>
-        </Row>
-        <Row>
-          <Cell>Grapes</Cell>
-          <Cell>Full sun</Cell>
-          <Cell>Rich and well draining</Cell>
-        </Row>
-        <Row>
-          <Cell>Cherries</Cell>
-          <Cell>Partial sun</Cell>
-          <Cell>Rich and well draining</Cell>
-        </Row>
-        <Row>
-          <Cell>Tomatoes</Cell>
-          <Cell>Partial shade</Cell>
-          <Cell>Well draining</Cell>
-        </Row>
-      </Body>
+      </Table.Caption>
+      <Table.Head>
+        <Table.HeaderRow>
+          <Table.HeaderCell>Fruit</Table.HeaderCell>
+          <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+          <Table.HeaderCell>Soil</Table.HeaderCell>
+        </Table.HeaderRow>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>Raspberries</Table.Cell>
+          <Table.Cell>Partial shade</Table.Cell>
+          <Table.Cell>Moist and slightly acidic</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Strawberries</Table.Cell>
+          <Table.Cell>Full sun</Table.Cell>
+          <Table.Cell>Medium moisture</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Grapes</Table.Cell>
+          <Table.Cell>Full sun</Table.Cell>
+          <Table.Cell>Rich and well draining</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Cherries</Table.Cell>
+          <Table.Cell>Partial sun</Table.Cell>
+          <Table.Cell>Rich and well draining</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Tomatoes</Table.Cell>
+          <Table.Cell>Partial shade</Table.Cell>
+          <Table.Cell>Well draining</Table.Cell>
+        </Table.Row>
+      </Table.Body>
     </Table>
-  </div>
+  </StyledContainer>
 );
 
 export default Example;

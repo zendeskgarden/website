@@ -4,9 +4,10 @@ description: >
   A Well is a container that groups related content.
 package: '@zendeskgarden/react-notifications'
 components:
-  - notifications/src/elements/content/Paragraph.tsx
-  - notifications/src/elements/content/Title.tsx
-  - notifications/src/elements/Well.tsx
+  - notifications/src/elements/well/Well.tsx
+subcomponents:
+  - notifications/src/elements/well/Paragraph.tsx
+  - notifications/src/elements/well/Title.tsx
 ---
 
 import { SEO } from '../../components';
@@ -82,23 +83,23 @@ import RecessedCode from '!!raw-loader!../../examples/notifications/well/WellRec
 
 ## API
 
-### Paragraph
-
-<Component components={props.data.mdx.components} componentName="paragraph" />
-
-<PropSheet components={props.data.mdx.components} componentName="paragraph" />
-
-### Title
-
-<Component components={props.data.mdx.components} componentName="title" />
-
-<PropSheet components={props.data.mdx.components} componentName="title" />
-
 ### Well
 
 <Component components={props.data.mdx.components} componentName="well" />
 
 <PropSheet components={props.data.mdx.components} componentName="well" />
+
+#### Well.Paragraph
+
+<Component components={props.data.mdx.subcomponents} componentName="well.paragraph" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="well.paragraph" />
+
+#### Well.Title
+
+<Component components={props.data.mdx.subcomponents} componentName="well.title" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="well.title" />
 
 import { graphql } from 'gatsby';
 

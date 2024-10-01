@@ -26,18 +26,16 @@
   items:
     - title: Accordion
       id: /components/accordion
+    - title: Anchor
+      id: /components/anchor
     - title: Avatar
       id: /components/avatar
     - title: Breadcrumbs
       id: /components/breadcrumbs
     - title: Buttons
       items:
-        - id: /components/anchor
-          title: Anchor
         - id: /components/button
           title: Button
-        - id: /components/button-group
-          title: Button group [deprecated]
         - id: /components/icon-button
           title: Icon button
         - id: /components/split-button
@@ -48,6 +46,8 @@
           title: Toggle icon button
     - title: Chrome
       id: /components/chrome
+    - title: Code block
+      id: /components/code-block
     - title: Color picker
       id: /components/color-picker
     - title: Color swatch
@@ -58,32 +58,18 @@
       id: /components/draggable
     - title: Drawer
       id: /components/drawer
-    - title: Dropdowns
-      items:
-        - id: /components/autocomplete
-          title: Autocomplete [deprecated]
-        - id: /components/legacy-combobox
-          title: Combobox [deprecated]
-        - id: /components/legacy-menu
-          title: Menu [deprecated]
-        - id: /components/multiselect
-          title: Multiselect [deprecated]
-        - id: /components/legacy-select
-          title: Select [deprecated]
     - title: Forms
       items:
         - id: /components/checkbox
           title: Checkbox
         - id: /components/combobox
-          title: Combobox [new]
+          title: Combobox
         - id: /components/file-upload
           title: File upload
         - id: /components/input
           title: Input
         - id: /components/input-group
           title: Input group
-        - id: /components/multi-thumb-range
-          title: Multi-thumb range [deprecated]
         - id: /components/radio
           title: Radio
         - id: /components/range
@@ -108,7 +94,7 @@
           title: Skeleton
         - id: /components/spinner
           title: Spinner
-    - title: Menu [new]
+    - title: Menu
       id: /components/menu
     - title: Modal
       id: /components/modal
@@ -142,14 +128,12 @@
       id: /components/timeline
     - title: Tooltip
       id: /components/tooltip
-    - title: Tooltip modal
-      id: /components/tooltip-modal
+    - title: Tooltip dialog
+      id: /components/tooltip-dialog
     - title: Typography
       items:
         - title: Code
           id: /components/code
-        - title: Code block
-          id: /components/code-block
         - title: Lists
           id: /components/lists
         - title: Paragraph

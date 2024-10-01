@@ -7,30 +7,30 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Field, Label, Hint, Checkbox } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Field, Checkbox } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const StyledField = styled(Field)`
   margin-top: ${p => p.theme.space.xs};
 `;
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col size="auto">
+  <Grid.Row justifyContent="center">
+    <Grid.Col size="auto">
       <Field>
         <Checkbox defaultChecked>
-          <Label>Pest resistant</Label>
-          <Hint>Has natural resistance to bugs and animals</Hint>
+          <Field.Label>Pest resistant</Field.Label>
+          <Field.Hint>Has natural resistance to bugs and animals</Field.Hint>
         </Checkbox>
       </Field>
       <StyledField>
         <Checkbox>
-          <Label>Needs direct light</Label>
-          <Hint>Thrives in warm temperatures with lots of sun</Hint>
+          <Field.Label>Needs direct light</Field.Label>
+          <Field.Hint>Thrives in warm temperatures with lots of sun</Field.Hint>
         </Checkbox>
       </StyledField>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

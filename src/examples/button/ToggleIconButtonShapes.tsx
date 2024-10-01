@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as RoundIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { ReactComponent as SquareIcon } from '@zendeskgarden/svg-icons/src/16/bold-stroke.svg';
@@ -17,33 +17,37 @@ const Example = () => {
   const [squarePressed, setSquarePressed] = useState(false);
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <Tooltip content="Round leaf">
           <ToggleIconButton
             aria-label="round leaf"
             isBasic={false}
             isPressed={roundPressed}
-            onClick={() => setRoundPressed(!roundPressed)}
+            onClick={() => {
+              setRoundPressed(!roundPressed);
+            }}
           >
             <RoundIcon />
           </ToggleIconButton>
         </Tooltip>
-      </Col>
-      <Col textAlign="center">
+      </Grid.Col>
+      <Grid.Col textAlign="center">
         <Tooltip content="Square bold">
           <ToggleIconButton
             aria-label="square bold"
             isBasic={false}
             isPill={false}
             isPressed={squarePressed}
-            onClick={() => setSquarePressed(!squarePressed)}
+            onClick={() => {
+              setSquarePressed(!squarePressed);
+            }}
           >
             <SquareIcon />
           </ToggleIconButton>
         </Tooltip>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

@@ -7,21 +7,32 @@
 
 import React, { useState } from 'react';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Modal, Header, Body, Footer, FooterItem, Close } from '@zendeskgarden/react-modals';
+import { Modal } from '@zendeskgarden/react-modals';
 import { Paragraph } from '@zendeskgarden/react-typography';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <Row>
-      <Col textAlign="center">
-        <Button onClick={() => setVisible(true)}>Open large modal</Button>
+    <Grid.Row>
+      <Grid.Col textAlign="center">
+        <Button
+          onClick={() => {
+            setVisible(true);
+          }}
+        >
+          Open large modal
+        </Button>
         {!!visible && (
-          <Modal isLarge onClose={() => setVisible(false)}>
-            <Header tag="h2">Do you need plant food?</Header>
-            <Body>
+          <Modal
+            isLarge
+            onClose={() => {
+              setVisible(false);
+            }}
+          >
+            <Modal.Header tag="h2">Do you need plant food?</Modal.Header>
+            <Modal.Body>
               <Paragraph>
                 Plant nutrition is the study of the chemical elements and compounds necessary for
                 plant growth, plant metabolism and their external supply. In its absence the plant
@@ -46,24 +57,34 @@ const Example = () => {
                 vigorous growth and increase or sustain yield. This is done because, even with
                 adequate water and light, nutrient deficiency can limit growth and crop yield.
               </Paragraph>
-            </Body>
-            <Footer>
-              <FooterItem>
-                <Button onClick={() => setVisible(false)} isBasic>
+            </Modal.Body>
+            <Modal.Footer>
+              <Modal.FooterItem>
+                <Button
+                  onClick={() => {
+                    setVisible(false);
+                  }}
+                  isBasic
+                >
                   Cancel
                 </Button>
-              </FooterItem>
-              <FooterItem>
-                <Button isPrimary onClick={() => setVisible(false)}>
+              </Modal.FooterItem>
+              <Modal.FooterItem>
+                <Button
+                  isPrimary
+                  onClick={() => {
+                    setVisible(false);
+                  }}
+                >
                   Add plant food
                 </Button>
-              </FooterItem>
-            </Footer>
-            <Close aria-label="Close modal" />
+              </Modal.FooterItem>
+            </Modal.Footer>
+            <Modal.Close aria-label="Close modal" />
           </Modal>
         )}
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

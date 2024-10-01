@@ -28,6 +28,11 @@ const components = [
         description:
           'Tweaks arrow positioning by adjusting with a positive (in) or negative (out) CSS dimension'
       },
+      '[options.shift]': {
+        type: 'string',
+        defaultValue: "'0'",
+        description: 'Shifts arrow positioning along the edge of the base element'
+      },
       '[options.animationModifier]': {
         type: 'string',
         description:
@@ -42,18 +47,13 @@ const components = [
         required: true,
         type: 'DefaultTheme',
         defaultValue: 'DEFAULT_THEME',
-        description: 'Provides values used to resolve the desired color'
+        description: 'Provides values used to resolve the desired colors'
       },
-      '[options.hue]': {
-        type: 'Object | string',
-        defaultValue: "'primaryHue'",
+      '[options.color]': {
+        type: 'Object',
+        defaultValue: "{ variable: 'border.primaryEmphasis' }",
         description:
-          'Provides a theme object [palette](/components/theme-object#palette) hue or [color](/components/theme-object#colors) key, or any valid CSS color notation'
-      },
-      '[options.shade]': {
-        type: 'number',
-        defaultValue: 600,
-        description: 'Selects a shade for the given `hue`'
+          'Provides an object with [getColor](#getcolor) parameters used to determine the focus ring color'
       },
       '[options.shadowWidth]': {
         type: 'string',
@@ -61,20 +61,15 @@ const components = [
         description:
           'Provides a theme object [shadowWidth](/components/theme-object#shadowwidths) key for the cumulative width of the `box-shadow`'
       },
-      '[options.spacerHue]': {
-        type: 'Object | string',
-        defaultValue: "'background'",
+      '[options.spacerColor]': {
+        type: 'Object',
+        defaultValue: "{ variable: 'background.default' }",
         description:
-          'Provides a theme object [palette](/components/theme-object#palette) hue or [color](/components/theme-object#colors) key, or any valid CSS color notation'
-      },
-      '[options.spacerShade]': {
-        type: 'number',
-        defaultValue: 600,
-        description: 'Selects a shade for the given `spacerHue`'
+          'Provides an object with [getColor](#getcolor) parameters used to determine the spacer color'
       },
       '[options.spacerWidth]': {
         type: 'string',
-        defaultValue: "'sm'",
+        defaultValue: "'xs'",
         description:
           'Provides a theme object [shadowWidth](/components/theme-object#shadowwidths) for the white spacer, or `null` to remove'
       },
@@ -100,7 +95,84 @@ const components = [
     }
   },
   {
+    name: 'getCheckeredBackground',
+    props: {
+      theme: {
+        required: true,
+        type: 'DefaultTheme',
+        description: 'Provides information for pattern color and LTR/RTL layout'
+      },
+      size: {
+        required: true,
+        type: 'number',
+        description: 'Provides the pixel size of the checkered pattern'
+      },
+      overlay: {
+        type: 'string',
+        description:
+          'Specifies color with transparency or `linear-gradient()` overlay to apply on top of the checkered pattern'
+      },
+      positionY: {
+        type: 'number',
+        defaultValue: 0,
+        description: 'Adjusts vertical position for starting the pattern'
+      },
+      repeat: {
+        type: "'repeat' | 'repeat-x'",
+        defaultValue: "'repeat'",
+        description:
+          "Sets a repeat value for the pattern; either `'repeat'` or `'repeat-x'` (default `'repeat'`)"
+      }
+    }
+  },
+  {
     name: 'getColor',
+    props: {
+      '[options.theme]': {
+        required: true,
+        type: 'DefaultTheme',
+        defaultValue: 'DEFAULT_THEME',
+        description: 'Provides values used to resolve the desired color'
+      },
+      '[options.variable]': {
+        type: 'string',
+        description:
+          "Specifies a [variable](/components/theme-object#variables) key (`'background.default'`, for example) used to resolve a color value for the theme [color base](/components/theme-object#base)"
+      },
+      '[options.hue]': {
+        type: 'string',
+        description:
+          'Provides a theme object [palette](/components/theme-object#palette) hue or [color](/components/theme-object#hues) key, or any valid CSS color notation'
+      },
+      '[options.shade]': {
+        type: 'number',
+        defaultValue: '700 (light) | 500 (dark)',
+        description: 'Selects a shade for the given hue'
+      },
+      '[options.offset]': {
+        type: 'number',
+        description:
+          'Adjusts the shade by a positive or negative value. Works best used along with a `variable` key to make interaction (`:hover` or `:active`, for example) adjustments.'
+      },
+      '[options.transparency]': {
+        type: 'number',
+        description:
+          'Sets transparency using a theme [opacity](/components/theme-object#opacity) key or an alpha channel between 0 and 1'
+      },
+      '[options.dark]': {
+        type: 'Object',
+        description:
+          'Supplies an object with optional `hue`, `shade`, `offset`, and `transparency` values to be used in dark mode'
+      },
+      '[options.light]': {
+        type: 'Object',
+        description:
+          'Supplies an object with optional `hue`, `shade`, `offset`, and `transparency` values to be used in light mode'
+      }
+    }
+  },
+  {
+    name: 'getColorV8',
     props: {
       hue: {
         required: true,
@@ -131,18 +203,13 @@ const components = [
         required: true,
         type: 'DefaultTheme',
         defaultValue: 'DEFAULT_THEME',
-        description: 'Provides values used to resolve the desired color'
+        description: 'Provides values used to resolve the desired colors'
       },
-      '[options.hue]': {
-        type: 'Object | string',
-        defaultValue: "'primaryHue'",
+      '[options.color]': {
+        type: 'Object',
+        defaultValue: "{ variable: 'border.primaryEmphasis' }",
         description:
-          'Provides a theme object [palette](/components/theme-object#palette) hue or [color](/components/theme-object#colors) key, or any valid CSS color notation'
-      },
-      '[options.shade]': {
-        type: 'number',
-        defaultValue: 600,
-        description: 'Selects a shade for the given `hue`'
+          'Provides an object with [getColor](#getcolor) parameters used to determine the focus ring color'
       },
       '[options.shadowWidth]': {
         type: 'string',
@@ -150,20 +217,15 @@ const components = [
         description:
           'Provides a theme object [shadowWidth](/components/theme-object#shadowwidths) key for the cumulative width of the `box-shadow`'
       },
-      '[options.spacerHue]': {
-        type: 'Object | string',
-        defaultValue: "'background'",
+      '[options.spacerColor]': {
+        type: 'Object',
+        defaultValue: "{ variable: 'background.default' }",
         description:
-          'Provides a theme object [palette](/components/theme-object#palette) hue or [color](/components/theme-object#colors) key, or any valid CSS color notation'
-      },
-      '[options.spacerShade]': {
-        type: 'number',
-        defaultValue: 600,
-        description: 'Selects a shade for the given `spacerHue`'
+          'Provides an object with [getColor](#getcolor) parameters used to determine the spacer color'
       },
       '[options.spacerWidth]': {
         type: 'string',
-        defaultValue: "'sm'",
+        defaultValue: "'xs'",
         description:
           'Provides a theme object [shadowWidth](/components/theme-object#shadowwidths) for the white spacer, or `null` to remove'
       },
@@ -302,16 +364,6 @@ const components = [
         type: 'boolean',
         defaultValue: true,
         description: 'Supplies an optional condition that can be used to prevent evaluation'
-      }
-    }
-  },
-  {
-    name: 'withTheme',
-    props: {
-      Component: {
-        required: true,
-        type: 'Object',
-        description: 'Gets wrapped by a higher-order component with an added `theme` prop'
       }
     }
   }

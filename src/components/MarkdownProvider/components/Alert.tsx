@@ -9,9 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {
   Alert as GardenAlert,
-  IAlertProps as IGardenAlertProps,
-  Paragraph,
-  Title
+  IAlertProps as IGardenAlertProps
 } from '@zendeskgarden/react-notifications';
 
 const StyledAlert = styled(GardenAlert)`
@@ -24,7 +22,7 @@ interface IAlertProps extends IGardenAlertProps {
 
 export const Alert = ({ children, title, ...props }: IAlertProps) => (
   <StyledAlert {...props}>
-    {!!title && <Title>{title}</Title>}
-    <Paragraph>{children}</Paragraph>
+    {!!title && <GardenAlert.Title>{title}</GardenAlert.Title>}
+    <GardenAlert.Paragraph>{children}</GardenAlert.Paragraph>
   </StyledAlert>
 );

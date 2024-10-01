@@ -5,23 +5,43 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, useMemo, PropsWithChildren } from 'react';
+import React, { useState, useMemo, PropsWithChildren } from 'react';
 import { math, rgba } from 'polished';
-import styled, { css } from 'styled-components';
+import styled, { css, DefaultTheme, useTheme } from 'styled-components';
 import { ThemeProvider, DEFAULT_THEME, getColor, PALETTE } from '@zendeskgarden/react-theming';
-import { Close, Notification, Title, useToast } from '@zendeskgarden/react-notifications';
+import { Notification, useToast } from '@zendeskgarden/react-notifications';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { CodeBlock } from '@zendeskgarden/react-typography';
-import { ColorpickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
+import { ColorPickerDialog, IColor } from '@zendeskgarden/react-colorpickers';
 import { IconButton, ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as MarkupStroke } from '@zendeskgarden/svg-icons/src/16/markup-stroke.svg';
+import { ReactComponent as MarkupFill } from '@zendeskgarden/svg-icons/src/16/markup-fill.svg';
 import { ReactComponent as CopyStroke } from '@zendeskgarden/svg-icons/src/16/copy-stroke.svg';
 import { ReactComponent as PaletteStroke } from '@zendeskgarden/svg-icons/src/16/palette-stroke.svg';
 import { ReactComponent as PaletteFill } from '@zendeskgarden/svg-icons/src/16/palette-fill.svg';
 import { ReactComponent as DirectionRtlStroke } from '@zendeskgarden/svg-icons/src/16/direction-rtl-stroke.svg';
+import { ReactComponent as DirectionRtlFill } from '@zendeskgarden/svg-icons/src/16/direction-rtl-fill.svg';
+import { ReactComponent as LightStroke } from '@zendeskgarden/svg-icons/src/16/sun-stroke.svg';
+import { ReactComponent as LightFill } from '@zendeskgarden/svg-icons/src/16/sun-fill.svg';
+import { ReactComponent as DarkStroke } from '@zendeskgarden/svg-icons/src/16/moon-stroke.svg';
+import { ReactComponent as DarkFill } from '@zendeskgarden/svg-icons/src/16/moon-fill.svg';
 import { ReactComponent as CodeSandboxIcon } from './assets/codesandbox-icon.svg';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
 import { copyToClipboard } from './utils/copyToClipboard';
+
+const ModeIcon = ({
+  parentTheme,
+  exampleTheme
+}: {
+  parentTheme: DefaultTheme;
+  exampleTheme: DefaultTheme;
+}) => {
+  if (parentTheme.colors.base === 'dark') {
+    return exampleTheme.colors.base === 'light' ? <LightFill /> : <LightStroke />;
+  }
+
+  return exampleTheme.colors.base === 'dark' ? <DarkFill /> : <DarkStroke />;
+};
 
 const StyledCodeBlock = styled(CodeBlock)`
   border-bottom-left-radius: ${props => math(`${props.theme.borderRadii.md} - 1px`)};
@@ -41,10 +61,11 @@ interface ICodeExampleProps extends PropsWithChildren {
 }
 
 export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => {
+  const parentTheme = useTheme();
+  const [isModeToggled, setIsModeToggled] = useState(false);
   const [isRtl, setIsRtl] = useState(false);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
-  const [color, setColor] = useState<string | IColor>(PALETTE.blue[600]);
-  const focusVisibleRef = useRef(null);
+  const [color, setColor] = useState<string | IColor>(PALETTE.blue[700]);
   const { addToast } = useToast();
   const COPYRIGHT_REGEXP = /\/\*\*\n\s\*\sCopyright[\s\S]*\*\/\n\n/gmu;
 
@@ -53,19 +74,27 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
 
     if (
       typeof color === 'string' ||
-      (color.hex.toLowerCase() === PALETTE.blue[600] && color.alpha === 100)
+      (color.hex.toLowerCase() === PALETTE.blue[700] && color.alpha === 100)
     ) {
       primaryHue = DEFAULT_THEME.colors.primaryHue;
     } else {
       primaryHue = rgba(color.red, color.green, color.blue, color.alpha / 100);
     }
 
+    let base;
+
+    if (parentTheme.colors.base === 'dark') {
+      base = isModeToggled ? 'light' : 'dark';
+    } else {
+      base = isModeToggled ? 'dark' : 'light';
+    }
+
     return {
       ...DEFAULT_THEME,
-      colors: { ...DEFAULT_THEME.colors, primaryHue },
+      colors: { ...DEFAULT_THEME.colors, base, primaryHue },
       rtl: isRtl
     };
-  }, [isRtl, color]);
+  }, [isModeToggled, isRtl, color, parentTheme.colors.base]);
 
   const parameters = useMemo(() => {
     return retrieveCodesandboxParameters(code);
@@ -75,8 +104,8 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
     copyToClipboard(code);
     addToast(({ close }) => (
       <Notification type="success">
-        <Title>Code copied</Title>
-        <Close aria-label="Close" onClick={close} />
+        <Notification.Title>Code copied</Notification.Title>
+        <Notification.Close aria-label="Close" onClick={close} />
       </Notification>
     ));
   };
@@ -85,14 +114,20 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
     <div
       css={css`
         margin-bottom: ${p => p.theme.space.xl};
-        border: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+        border: ${p => p.theme.borders.sm}
+          ${p => getColor({ theme: p.theme, variable: 'border.default' })};
         border-radius: ${p => p.theme.borderRadii.md};
       `}
     >
-      <ThemeProvider theme={exampleTheme} focusVisibleRef={focusVisibleRef}>
+      <ThemeProvider theme={exampleTheme}>
         <div
           css={css`
+            transition: background-color 0.25s ease-in-out;
+            border-top-left-radius: ${props => math(`${props.theme.borderRadii.md} - 1px`)};
+            border-top-right-radius: ${props => math(`${props.theme.borderRadii.md} - 1px`)};
+            background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
             padding: ${p => p.theme.space.md};
+            color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
             direction: ${p => p.theme.rtl && 'rtl'};
           `}
         >
@@ -103,24 +138,27 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
         css={css`
           display: flex;
           justify-content: flex-end;
-          border-top: ${p => p.theme.borders.sm} ${p => getColor('grey', 300, p.theme)};
+          border-top: ${p => p.theme.borders.sm}
+            ${p => getColor({ theme: p.theme, variable: 'border.default' })};
           border-bottom-left-radius: ${p => p.theme.borderRadii.md};
           border-bottom-right-radius: ${p => p.theme.borderRadii.md};
-          background-color: ${p => getColor('grey', 100, p.theme)};
+          background-color: ${p => getColor({ theme: p.theme, variable: 'background.subtle' })};
           padding: ${p => p.theme.space.xxs} ${p => p.theme.space.sm};
         `}
       >
-        <Tooltip content="Toggle RTL">
+        <Tooltip content={`Toggle ${parentTheme.colors.base === 'light' ? 'dark' : 'light'} mode`}>
           <ToggleIconButton
-            onClick={() => setIsRtl(!isRtl)}
-            isPressed={isRtl}
+            onClick={() => {
+              setIsModeToggled(!isModeToggled);
+            }}
+            isPressed={isModeToggled}
             isPill={false}
             focusInset
           >
-            <DirectionRtlStroke />
+            <ModeIcon parentTheme={parentTheme} exampleTheme={exampleTheme} />
           </ToggleIconButton>
         </Tooltip>
-        <ColorpickerDialog color={color} onChange={setColor}>
+        <ColorPickerDialog color={color} onChange={setColor} placement="bottom-end">
           <PaletteIconButton>
             {exampleTheme.colors.primaryHue === DEFAULT_THEME.colors.primaryHue ? (
               <PaletteStroke />
@@ -128,7 +166,19 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
               <PaletteFill style={{ color: exampleTheme.colors.primaryHue }} />
             )}
           </PaletteIconButton>
-        </ColorpickerDialog>
+        </ColorPickerDialog>
+        <Tooltip content="Toggle RTL">
+          <ToggleIconButton
+            onClick={() => {
+              setIsRtl(!isRtl);
+            }}
+            isPressed={isRtl}
+            isPill={false}
+            focusInset
+          >
+            {isRtl ? <DirectionRtlFill /> : <DirectionRtlStroke />}
+          </ToggleIconButton>
+        </Tooltip>
         <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_blank">
           <input type="hidden" name="parameters" value={parameters} />
           <input type="hidden" name="query" value="module=src/Example.tsx" />
@@ -159,7 +209,9 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
         </Tooltip>
         <Tooltip content="View code">
           <ToggleIconButton
-            onClick={() => setIsCodeVisible(!isCodeVisible)}
+            onClick={() => {
+              setIsCodeVisible(!isCodeVisible);
+            }}
             isPressed={isCodeVisible}
             isPill={false}
             focusInset
@@ -167,7 +219,7 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
               margin-left: ${p => p.theme.space.sm};
             `}
           >
-            <MarkupStroke />
+            {isCodeVisible ? <MarkupFill /> : <MarkupStroke />}
           </ToggleIconButton>
         </Tooltip>
       </div>

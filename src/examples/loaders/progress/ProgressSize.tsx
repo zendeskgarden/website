@@ -6,21 +6,21 @@
  */
 
 import React from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Progress } from '@zendeskgarden/react-loaders';
 
 const Example = () => (
-  <Row alignItems="center">
-    <Col textAlign="center">
+  <Grid.Row alignItems="center">
+    <Grid.Col textAlign="center">
       <Progress size="small" value={80} aria-label="Tilling the land" />
-    </Col>
-    <Col textAlign="center">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
       <Progress size="medium" value={80} aria-label="Harvesting crops" />
-    </Col>
-    <Col textAlign="center">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
       <Progress size="large" value={80} aria-label="Tending to plants" />
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

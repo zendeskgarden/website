@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { MD } from '@zendeskgarden/react-typography';
-import { Draggable, DraggableList } from '@zendeskgarden/react-drag-drop';
+import { Draggable, DraggableList } from '@zendeskgarden/react-draggable';
 import styled from 'styled-components';
 
 const items = [
@@ -23,8 +23,8 @@ const StyledHeading = styled(MD)`
 `;
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={4}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={4}>
       <StyledHeading isBold tag="h4">
         Favorites
       </StyledHeading>
@@ -38,8 +38,8 @@ const Example = () => (
           </DraggableList.Item>
         ))}
       </DraggableList>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

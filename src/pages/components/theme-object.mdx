@@ -16,14 +16,15 @@ export function Head(props) {
 <Usage>
   <Use>
 
+    - To toggle between light and dark themes
     - To extend as the theming baseline for a customized [Theme provider](/components/theme-provider)
 
   </Use>
   <Misuse>
 
     - To reference component styling values, use the context `theme`
-    [API](/components/theme-provider#themeprovider) or `withTheme`
-    [utility](/components/utilities#withtheme) instead
+    [API](/components/theme-provider#themeprovider) or `useTheme`
+    [hook](https://styled-components.com/docs/api#usetheme) instead
 
   </Misuse>
 </Usage>
@@ -84,10 +85,21 @@ are used by the responsive [Grid](/components/grid) and the
 
 ### colors
 
-The colors object provides key values for background, foreground, and palette
-hues applied throughout the component system. The `background` and
-`foreground` values determine basic text-on-surface colors. This table
-provides a reference for hue values.
+The colors object provides key values for palette hues used across the component
+system. The `base` value establishes the color scheme for component rendering.
+The color `variables` coincide with a "light" or "dark" `base`, identifying key
+colors with critical semantic meaning in the system. When combined with the
+[getColor](/components/utilities#getcolor) utility, these variables form a
+robust foundation for color usage in Garden and custom
+[extension](/components/theme-provider#extension) components.
+
+#### base
+
+The base specifies either "light" or "dark" for the theme's color scheme.
+
+#### hues
+
+This table provides a reference for key hue values.
 
 <PropSheet
   components={[
@@ -130,6 +142,60 @@ provides a reference for hue values.
   componentName="colors"
   headerName="Name"
 />
+
+#### variables
+
+Garden uses color variable key notation to reference specific hex and RGBA
+values for the current color scheme. Variables can refer to [hues](#hues),
+[palette](#palette) colors, or literal CSS [color
+values](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value). A
+special `rgba(hue.shade, opacity)` notation may be used to reference Garden
+color and [opacity](#opacity) values. The following lists identify color
+variables and expected usage.
+
+- Background
+  - **background.default** default background for main surfaces
+  - **background.raised** background used for raised and floating surfaces
+  - **background.recessed** background that sits below the main surface
+  - **background.subtle** subtle background that sits on the same plane as the main surface
+  - **background.emphasis** strong background, usually for interactive elements
+  - **background.primary** background used for primary layouts
+  - **background.success** background used for success states
+  - **background.warning** background used for warning states
+  - **background.danger** background used for danger states
+  - **background.primaryEmphasis** strong background for primary interaction elements
+  - **background.successEmphasis** strong background for success interaction elements
+  - **background.warningEmphasis** strong background for warning interaction elements
+  - **background.dangerEmphasis** strong background for danger interaction elements
+  - **background.disabled** background used for disabled states
+- Border
+  - **border.default** default layout borders and dividers
+  - **border.emphasis** interactive borders
+  - **border.subtle** inner layout borders and dividers
+  - **border.success** success layout borders
+  - **border.warning** warning layout borders
+  - **border.danger** danger layout borders
+  - **border.primaryEmphasis** strong border for primary interaction elements
+  - **border.successEmphasis** strong border for success interaction elements
+  - **border.warningEmphasis** strong border for warning interaction elements
+  - **border.dangerEmphasis** strong border for danger interaction elements
+  - **border.disabled** border used for disabled states
+- Foreground
+  - **foreground.default** default text
+  - **foreground.subtle** icons and meta information
+  - **foreground.onEmphasis** text on strong backgrounds
+  - **foreground.primary** primary text
+  - **foreground.success** success text
+  - **foreground.warning** warning text
+  - **foreground.danger** danger text
+  - **foreground.successEmphasis** strong success text
+  - **foreground.warningEmphasis** strong warning text
+  - **foreground.dangerEmphasis** strong danger text
+  - **foreground.disabled** disabled text
+- Shadow
+  - **shadow.small** shadow color for smaller components
+  - **shadow.medium** shadow color for medium size components
+  - **shadow.large** shadow color for larger components
 
 ### components
 
@@ -186,6 +252,11 @@ Garden’s [type scale](/components/typography#type-scale). See the
 [`getLineHeight`](/components/utilities#getlineheight) utility for obtaining
 unitless line height values.
 
+### opacity
+
+Opacity values work together with [colors](#colors) to offer standard RGBA
+transparency.
+
 ### palette
 
 This object lets you reference, modify, and extend Garden’s entire
@@ -201,13 +272,13 @@ left-to-right or right-to-left.
 
 The shadows portion of the theme object contains three functions.
 
-- **sm** and **md** each take an RGBA `color` string parameter and are typically used
-  to apply component focus rings. These functions correspond to the values
-  provided by [`shadowWidths`](#shadowwidths).
+- **xs**, **sm**, and **md** each take an RGBA `color` string parameter and are
+  typically used to apply component focus rings. These functions correspond to the
+  values provided by [`shadowWidths`](#shadowwidths).
 - **lg** takes `offsetY`, `blurRadius`, and `color` string parameters used to
   apply a drop shadow under components that float above the surface (modals,
   notifications, etc.). By default, the color variable used is
-  [`chromeHue`](#colors).
+  [`neutralHue`](#colors).
 
 ### shadowWidths
 
@@ -230,3 +301,8 @@ export const pageQuery = graphql`
     ...SidebarPageFragment
   }
 `;
+
+### window
+
+Like [document](#document), the window object is used to support components that
+require HTML `window` context.

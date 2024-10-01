@@ -6,15 +6,23 @@
  */
 
 import React, { useContext } from 'react';
-import styled, { css, ThemeContext, ThemeProps } from 'styled-components';
+import useResizeObserver from 'use-resize-observer';
+import styled, {
+  css,
+  DefaultTheme,
+  ThemeContext,
+  ThemeProps,
+  ThemeProvider
+} from 'styled-components';
 import { math } from 'polished';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { getColor, IGardenTheme } from '@zendeskgarden/react-theming';
+import { Pane, PaneProvider } from '@zendeskgarden/react-grid';
 
-const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<any>) => {
+const colorStyles = (component: 'flower' | 'leaf' | 'pot', { theme }: ThemeProps<DefaultTheme>) => {
   let retVal;
 
   if (component === 'flower') {
-    const color = props.theme.palette.lemon[400];
+    const color = getColor({ theme, hue: 'lemon', light: { shade: 300 }, dark: { shade: 200 } });
 
     retVal = css`
       background-color: ${color};
@@ -25,12 +33,15 @@ const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<any
       }
     `;
   } else if (component === 'leaf') {
+    const color = getColor({ theme, hue: 'green', light: { shade: 500 }, dark: { shade: 400 } });
+
     retVal = css`
-      background-color: ${props.theme.palette.green[400]};
+      background-color: ${color};
     `;
   } else if (component === 'pot') {
-    const backgroundColor = props.theme.palette.pink['M600' as any];
-    const foregroundColor = props.theme.palette.pink['M400' as any];
+    const options = { theme, hue: 'pink' };
+    const backgroundColor = getColor({ ...options, light: { shade: 700 }, dark: { shade: 600 } });
+    const foregroundColor = getColor({ ...options, light: { shade: 600 }, dark: { shade: 700 } });
 
     retVal = css`
       background-color: ${backgroundColor};
@@ -42,12 +53,15 @@ const colorStyles = (component: 'flower' | 'leaf' | 'pot', props: ThemeProps<any
   return retVal;
 };
 
-const sizeStyles = (component: 'flower' | 'leaf' | 'plant' | 'pot', props: ThemeProps<any>) => {
+const sizeStyles = (
+  component: 'flower' | 'leaf' | 'plant' | 'pot',
+  { theme }: ThemeProps<DefaultTheme>
+) => {
   let retVal;
 
   if (component === 'flower') {
-    const borderRadius = math(`${props.theme.borderRadii.md} * 5px`);
-    const size = props.theme.space.base * 10;
+    const borderRadius = math(`${theme.borderRadii.md} * 5px`);
+    const size = theme.space.base * 10;
     const width = size * 3;
 
     retVal = css`
@@ -68,35 +82,35 @@ const sizeStyles = (component: 'flower' | 'leaf' | 'plant' | 'pot', props: Theme
       }
     `;
   } else if (component === 'leaf') {
-    const size = props.theme.space.base * 10;
+    const size = theme.space.base * 10;
 
     retVal = css`
-      border-radius: 80% ${props.theme.borderRadii.md};
+      border-radius: 80% ${theme.borderRadii.md};
       width: ${size}px;
       height: ${size}px;
     `;
   } else if (component === 'plant') {
-    const marginBottom = props.theme.space.base * 5;
-    const top = props.theme.space.base * 6;
-    const position = props.theme.space.base * 10;
+    const marginBottom = theme.space.base * 5;
+    const top = theme.space.base * 6;
+    const position = theme.space.base * 10;
 
     retVal = css`
       margin-bottom: ${marginBottom}px;
 
       & > :first-child {
         top: ${top}px;
-        ${props.theme.rtl ? 'right' : 'left'}: ${position}px;
+        ${theme.rtl ? 'right' : 'left'}: ${position}px;
       }
 
       & > :last-child {
         top: ${top}px;
-        ${props.theme.rtl ? 'left' : 'right'}: ${position}px;
+        ${theme.rtl ? 'left' : 'right'}: ${position}px;
       }
     `;
   } else if (component === 'pot') {
-    const backgroundSize = props.theme.space.base * 6;
-    const borderRadius = math(`${props.theme.borderRadii.md} * 3px`);
-    const size = props.theme.space.base * 24;
+    const backgroundSize = theme.space.base * 6;
+    const borderRadius = math(`${theme.borderRadii.md} * 3px`);
+    const size = theme.space.base * 24;
 
     retVal = css`
       border-radius: ${borderRadius} ${borderRadius} ${math(`${borderRadius} * 2`)}
@@ -162,6 +176,20 @@ const StyledPot = styled.div`
   ${p => colorStyles('pot', p)};
 `;
 
+const StyledPane = styled(Pane)`
+  background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
+`;
+
+const StyledPaneContent = styled(Pane.Content)`
+  ${p => (p.theme.rtl ? 'left' : 'right')}: 0;
+  padding: ${p => p.theme.space.base * 6}px;
+`;
+
+const StyledPanes = styled.div`
+  display: grid;
+  direction: ${p => (p.theme.rtl ? 'rtl' : 'ltr')};
+`;
+
 const FlowerPot = () => {
   const theme = useContext(ThemeContext);
 
@@ -179,12 +207,42 @@ const FlowerPot = () => {
 
 /* Each Garden example is wrapped by a <ThemeProvider> */
 const Example = () => {
+  const { ref, width = 1, height = 1 } = useResizeObserver();
+
+  const reverseTheme = (parentTheme: IGardenTheme): IGardenTheme => ({
+    ...parentTheme,
+    colors: { ...parentTheme.colors, base: parentTheme.colors.base === 'light' ? 'dark' : 'light' }
+  });
+
   return (
-    <Row>
-      <Col>
-        <FlowerPot />
-      </Col>
-    </Row>
+    <div ref={ref}>
+      <PaneProvider
+        totalPanesHeight={height}
+        totalPanesWidth={width}
+        defaultColumnValues={{
+          'column-1': 1,
+          'column-2': 1
+        }}
+      >
+        {({ getGridTemplateColumns }) => (
+          <StyledPanes style={{ gridTemplateColumns: getGridTemplateColumns() }}>
+            <StyledPane>
+              <StyledPaneContent style={{ width }}>
+                <FlowerPot />
+              </StyledPaneContent>
+              <Pane.Splitter layoutKey="column-1" min={0.01} max={2} />
+            </StyledPane>
+            <ThemeProvider theme={reverseTheme}>
+              <StyledPane style={{ overflow: 'hidden' }}>
+                <StyledPaneContent style={{ width, position: 'absolute' }}>
+                  <FlowerPot />
+                </StyledPaneContent>
+              </StyledPane>
+            </ThemeProvider>
+          </StyledPanes>
+        )}
+      </PaneProvider>
+    </div>
   );
 };
 

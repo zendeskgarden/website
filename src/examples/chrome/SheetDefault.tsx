@@ -8,18 +8,18 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Sheet } from '@zendeskgarden/react-chrome';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Field, Toggle, Label } from '@zendeskgarden/react-forms';
+import { Field, Toggle } from '@zendeskgarden/react-forms';
 import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 
 const StyledField = styled(Field)`
   margin: ${props => props.theme.space.md};
 `;
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   border: ${props => props.theme.borderWidths.sm} dashed;
-  border-color: ${props => getColor('neutralHue', 400, props.theme)};
+  border-color: ${({ theme }) => getColor({ theme, variable: 'border.default' })};
 `;
 
 const StyledSheet = styled(Sheet)`
@@ -40,20 +40,21 @@ const Example = () => {
 
   return (
     <Grid gutters={false}>
-      <Row>
-        <Col>
+      <Grid.Row>
+        <Grid.Col>
           <StyledField>
             <Toggle
               checked={isSheetOpen}
-              onChange={() => setIsSheetOpen(!isSheetOpen)}
+              onChange={() => {
+                setIsSheetOpen(!isSheetOpen);
+              }}
               aria-controls={sheetId}
             >
-              <Label>Show Sheet</Label>
+              <Field.Label>Show Sheet</Field.Label>
             </Toggle>
           </StyledField>
-        </Col>
-      </Row>
-
+        </Grid.Col>
+      </Grid.Row>
       <StyledRow justifyContent="end">
         <StyledSheet
           id={sheetId}
@@ -86,13 +87,22 @@ const Example = () => {
               <Button>Action</Button>
             </Sheet.FooterItem>
             <Sheet.FooterItem>
-              <Button isPrimary onClick={() => setIsSheetOpen(false)}>
+              <Button
+                isPrimary
+                onClick={() => {
+                  setIsSheetOpen(false);
+                }}
+              >
                 Close
               </Button>
             </Sheet.FooterItem>
           </Sheet.Footer>
 
-          <Sheet.Close onClick={() => setIsSheetOpen(false)} />
+          <Sheet.Close
+            onClick={() => {
+              setIsSheetOpen(false);
+            }}
+          />
         </StyledSheet>
       </StyledRow>
     </Grid>

@@ -5,108 +5,28 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, useCallback, useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
-import { Table, Row, Cell, Head, HeaderCell, HeaderRow, Body } from '@zendeskgarden/react-tables';
-import { ReactComponent as GripIcon } from '@zendeskgarden/svg-icons/src/12/grip.svg';
+import React, { useCallback, useState } from 'react';
+import styled, { useTheme } from 'styled-components';
+import { Table } from '@zendeskgarden/react-tables';
 import { getColor } from '@zendeskgarden/react-theming';
-
-const DraggableRow = styled(Row)<{ isDraggingOver: boolean }>`
-  ${props =>
-    props.isDraggingOver
-      ? `
-  :hover {
-    background-color: inherit !important;
-  }
-`
-      : ''}
-`;
-
-const DraggableContainer = styled.div`
-  color: ${props => getColor('primaryHue', 600, props.theme)};
-
-  &:hover {
-    color: ${props => getColor('primaryHue', 700, props.theme)};
-  }
-
-  &:focus {
-    outline: none;
-  }
-`;
-
-interface IDraggableCellProps extends PropsWithChildren {
-  isDragOccurring?: boolean;
-}
-
-class DraggableCell extends React.Component<IDraggableCellProps> {
-  ref: HTMLTableCellElement | null = null;
-
-  constructor(args: any) {
-    super(args);
-
-    this.setRef = this.setRef.bind(this);
-  }
-
-  getSnapshotBeforeUpdate(prevProps: IDraggableCellProps) {
-    if (!this.ref) {
-      return null;
-    }
-
-    const isDragStarting = this.props.isDragOccurring && !prevProps.isDragOccurring;
-
-    if (!isDragStarting) {
-      return null;
-    }
-
-    const { width, height } = this.ref.getBoundingClientRect();
-
-    const snapshot = {
-      width,
-      height
-    };
-
-    return snapshot;
-  }
-
-  componentDidUpdate(prevProps: IDraggableCellProps, prevState: any, snapshot: any) {
-    const ref = this.ref;
-
-    if (!ref) {
-      return;
-    }
-
-    if (snapshot) {
-      if (ref.style.width === snapshot.width) {
-        return;
-      }
-
-      ref.style.width = `${snapshot.width}px`;
-      ref.style.height = `${snapshot.height}px`;
-
-      return;
-    }
-
-    if (this.props.isDragOccurring) {
-      return;
-    }
-
-    if (ref.style.width === null) {
-      return;
-    }
-
-    ref.style.removeProperty('height');
-    ref.style.removeProperty('width');
-  }
-
-  setRef(ref: HTMLTableCellElement | null) {
-    this.ref = ref;
-  }
-
-  render() {
-    return <Cell ref={this.setRef}>{this.props.children}</Cell>;
-  }
-}
+import { ReactComponent as GripIcon } from '@zendeskgarden/svg-icons/src/12/grip.svg';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+  verticalListSortingStrategy
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 
 interface IItem {
   id: string;
@@ -148,100 +68,102 @@ const defaultItems: IItem[] = [
   }
 ];
 
-const reorderItems = (list: IItem[], startIndex: number, endIndex: number) => {
-  const result = Array.from(list);
-  const [removed] = result.splice(startIndex, 1);
+const DraggableContainer = styled.div`
+  color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
 
-  result.splice(endIndex, 0, removed);
+  &:focus {
+    outline: none;
+  }
+`;
 
-  return result;
-};
-
-const Example = () => {
-  const [items, setItems] = useState(defaultItems);
-  const [recentDragId, setRecentDragId] = useState<string>();
-
-  useEffect(() => {
-    if (recentDragId) {
-      const draggable = document.getElementById(recentDragId);
-
-      draggable && draggable.focus();
-    }
-  }, [recentDragId]);
-
-  const onDragEnd = useCallback(
-    (result: DropResult) => {
-      if (!result.destination) {
-        return;
-      }
-
-      const newItems = reorderItems(items, result.source.index, result.destination.index);
-
-      setItems(newItems);
-      setRecentDragId(result.draggableId);
-    },
-    [items]
-  );
+const SortableRow = ({ item }: { item: IItem }) => {
+  const theme = useTheme();
+  const {
+    attributes,
+    isDragging,
+    listeners,
+    setActivatorNodeRef,
+    setNodeRef,
+    transform,
+    transition
+  } = useSortable({
+    id: item.id
+  });
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
+    <Table.Row
+      ref={setNodeRef}
+      style={{
+        transform: CSS.Transform.toString(transform),
+        transition,
+        backgroundColor: isDragging
+          ? getColor({
+              variable: 'background.primaryEmphasis',
+              transparency: theme.opacity[300],
+              dark: { offset: -100 },
+              theme
+            })
+          : undefined
+      }}
+    >
+      <Table.Cell style={{ cursor: isDragging ? 'grabbing' : 'grab' }}>
+        <DraggableContainer ref={setActivatorNodeRef} {...attributes} {...listeners}>
+          <GripIcon />
+        </DraggableContainer>
+      </Table.Cell>
+      <Table.Cell>{item.name}</Table.Cell>
+      <Table.Cell>{item.exposure}</Table.Cell>
+      <Table.Cell>{item.soil}</Table.Cell>
+    </Table.Row>
+  );
+};
+
+const Example: React.FC = () => {
+  const [items, setItems] = useState(defaultItems);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates
+    })
+  );
+
+  const handleDragEnd = useCallback((event: DragEndEvent) => {
+    const { active, over } = event;
+
+    if (active.id !== over?.id) {
+      setItems(prevItems => {
+        const oldIndex = prevItems.findIndex(item => item.id === active.id);
+        const newIndex = prevItems.findIndex(item => item.id === over?.id);
+        const newItems = arrayMove(prevItems, oldIndex, newIndex);
+
+        return newItems;
+      });
+    }
+  }, []);
+
+  return (
+    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
       <Table>
-        <Head>
-          <HeaderRow>
-            <HeaderCell isMinimum hidden>
+        <Table.Head>
+          <Table.HeaderRow>
+            <Table.HeaderCell isMinimum hidden>
               Draggable grip
-            </HeaderCell>
-            <HeaderCell>Fruit</HeaderCell>
-            <HeaderCell>Sun exposure</HeaderCell>
-            <HeaderCell>Soil</HeaderCell>
-          </HeaderRow>
-        </Head>
-        <Droppable droppableId="droppable">
-          {(droppableProps, droppableSnapshot) => {
-            return (
-              <Body ref={droppableProps.innerRef}>
-                {items.map((item, index) => (
-                  <Draggable key={item.id} draggableId={item.id} index={index}>
-                    {(provided, snapshot) => (
-                      <DraggableRow
-                        ref={provided.innerRef}
-                        isDraggingOver={droppableSnapshot.isDraggingOver}
-                        isHovered={snapshot.isDragging}
-                        isFocused={
-                          droppableSnapshot.isDraggingOver ? snapshot.isDragging : undefined
-                        }
-                        {...provided.draggableProps.style}
-                        {...provided.draggableProps}
-                      >
-                        <DraggableCell isDragOccurring={snapshot.isDragging}>
-                          <DraggableContainer
-                            id={item.id}
-                            aria-label={item.name}
-                            {...provided.dragHandleProps}
-                          >
-                            <GripIcon />
-                          </DraggableContainer>
-                        </DraggableCell>
-                        <DraggableCell isDragOccurring={snapshot.isDragging}>
-                          {item.name}
-                        </DraggableCell>
-                        <DraggableCell isDragOccurring={snapshot.isDragging}>
-                          {item.exposure}
-                        </DraggableCell>
-                        <DraggableCell isDragOccurring={snapshot.isDragging}>
-                          {item.soil}
-                        </DraggableCell>
-                      </DraggableRow>
-                    )}
-                  </Draggable>
-                ))}
-                {droppableProps.placeholder}
-              </Body>
-            );
-          }}
-        </Droppable>
+            </Table.HeaderCell>
+            <Table.HeaderCell>Fruit</Table.HeaderCell>
+            <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+            <Table.HeaderCell>Soil</Table.HeaderCell>
+          </Table.HeaderRow>
+        </Table.Head>
+        <Table.Body>
+          <SortableContext items={items} strategy={verticalListSortingStrategy}>
+            {items.map(item => (
+              <SortableRow key={item.id} item={item} />
+            ))}
+          </SortableContext>
+        </Table.Body>
       </Table>
-    </DragDropContext>
+    </DndContext>
   );
 };
 

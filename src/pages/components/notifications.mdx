@@ -4,11 +4,12 @@ description: >
   A Notification is a passive status update that keeps users informed of system progress.
 package: '@zendeskgarden/react-notifications'
 components:
-  - notifications/src/elements/content/Close.tsx
   - notifications/src/elements/Notification.tsx
-  - notifications/src/elements/content/Paragraph.tsx
-  - notifications/src/elements/content/Title.tsx
   - notifications/src/elements/toaster/ToastProvider.tsx
+subcomponents:
+  - notifications/src/elements/Close.tsx
+  - notifications/src/elements/Paragraph.tsx
+  - notifications/src/elements/Title.tsx
 ---
 
 import { SEO } from '../../components';
@@ -73,29 +74,29 @@ import TypeCode from '!!raw-loader!../../examples/notifications/notifications/No
 
 ## API
 
-### Close
-
-<Component components={props.data.mdx.components} componentName="close" />
-
-<PropSheet components={props.data.mdx.components} componentName="close" />
-
 ### Notification
 
 <Component components={props.data.mdx.components} componentName="notification" />
 
 <PropSheet components={props.data.mdx.components} componentName="notification" />
 
-### Paragraph
+#### Notification.Close
 
-<Component components={props.data.mdx.components} componentName="paragraph" />
+<Component components={props.data.mdx.subcomponents} componentName="notification.close" />
 
-<PropSheet components={props.data.mdx.components} componentName="paragraph" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="notification.close" />
 
-### Title
+#### Notification.Paragraph
 
-<Component components={props.data.mdx.components} componentName="title" />
+<Component components={props.data.mdx.subcomponents} componentName="notification.paragraph" />
 
-<PropSheet components={props.data.mdx.components} componentName="title" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="notification.paragraph" />
+
+#### Notification.Title
+
+<Component components={props.data.mdx.subcomponents} componentName="notification.title" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="notification.title" />
 
 ### ToastProvider
 

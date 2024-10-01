@@ -7,11 +7,11 @@
 
 import React from 'react';
 import { Accordion } from '@zendeskgarden/react-accordions';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={10}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={10}>
       <Accordion level={4} isBare>
         <Accordion.Section>
           <Accordion.Header>
@@ -41,8 +41,8 @@ const Example = () => (
           </Accordion.Panel>
         </Accordion.Section>
       </Accordion>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

@@ -8,7 +8,7 @@
 import React, { HTMLAttributes, useEffect } from 'react';
 import { css, ThemeProps } from 'styled-components';
 import { math } from 'polished';
-import { getColor, mediaQuery, menuStyles } from '@zendeskgarden/react-theming';
+import { getColorV8, mediaQuery, menuStyles } from '@zendeskgarden/react-theming';
 import { MediaInput } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 
@@ -17,11 +17,11 @@ const searchStyles = (props: ThemeProps<any>) => {
   const positionTop = math(`${theme.space.base * 3.5} + ${theme.borderWidths.sm}`);
   const positionLeft = math(`${theme.space.base * -9} - ${theme.borderWidths.sm}`);
   const positionRight = math(`${theme.space.base * -3} - ${theme.borderWidths.sm}`);
-  const highlightBackgroundColor = getColor('primaryHue', 800, theme, 0.08);
-  const hoverBackgroundColor = getColor('primaryHue', 600, theme, 0.08);
-  const hoverSeparatorColor = getColor('neutralHue', 250, theme);
-  const metaColor = getColor('neutralHue', 600, theme);
-  const separatorColor = getColor('neutralHue', 200, theme);
+  const highlightBackgroundColor = getColorV8('primaryHue', 800, theme, 0.08);
+  const hoverBackgroundColor = getColorV8('primaryHue', 600, theme, 0.08);
+  const hoverSeparatorColor = getColorV8('neutralHue', 250, theme);
+  const metaColor = getColorV8('neutralHue', 600, theme);
+  const separatorColor = getColorV8('neutralHue', 200, theme);
 
   return css`
     ${p =>
@@ -162,6 +162,7 @@ const searchStyles = (props: ThemeProps<any>) => {
 };
 
 declare global {
+  /* eslint-disable-next-line @typescript-eslint/naming-convention */
   interface Window {
     docsearch: any;
   }

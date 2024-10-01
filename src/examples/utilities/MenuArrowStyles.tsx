@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as ArrowIcon } from '@zendeskgarden/svg-icons/src/16/arrow-left-stroke.svg';
 import { arrowStyles, getColor, menuStyles } from '@zendeskgarden/react-theming';
@@ -41,7 +41,8 @@ const StyledMenu = styled.div<{
 
   & > div {
     background-clip: content-box;
-    background-color: ${p => getColor('neutralHue', 100, p.theme)};
+    background-color: ${p =>
+      getColor({ theme: p.theme, variable: 'background.subtle', dark: { offset: -100 } })};
     padding: ${p => p.theme.space.xs};
     height: 100%;
   }
@@ -61,7 +62,7 @@ const StyledMenuWrapper = styled.div<{
     })};
 `;
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   & + & {
     margin-top: ${p => p.theme.space.xs};
   }
@@ -190,64 +191,64 @@ const Example = () => {
   };
 
   return (
-    <Row justifyContent="center" style={{ minWidth: 400 }}>
-      <Col md={7}>
+    <Grid.Row justifyContent="center" style={{ minWidth: 400 }}>
+      <Grid.Col md={7}>
         <StyledRow>
-          <Col textAlign="end">
+          <Grid.Col textAlign="end">
             <ButtonMenu isHidden={hidden['top-left']} onClick={onClick} position="top-left" />
-          </Col>
-          <Col textAlign="center">
+          </Grid.Col>
+          <Grid.Col textAlign="center">
             <ButtonMenu isHidden={hidden.top} onClick={onClick} position="top" />
-          </Col>
-          <Col textAlign="start">
+          </Grid.Col>
+          <Grid.Col textAlign="start">
             <ButtonMenu isHidden={hidden['top-right']} onClick={onClick} position="top-right" />
-          </Col>
+          </Grid.Col>
         </StyledRow>
         <StyledRow>
-          <Col textAlign="start">
+          <Grid.Col textAlign="start">
             <ButtonMenu isHidden={hidden['left-top']} onClick={onClick} position="left-top" />
-          </Col>
-          <Col textAlign="end">
+          </Grid.Col>
+          <Grid.Col textAlign="end">
             <ButtonMenu isHidden={hidden['right-top']} onClick={onClick} position="right-top" />
-          </Col>
+          </Grid.Col>
         </StyledRow>
         <StyledRow>
-          <Col textAlign="start">
+          <Grid.Col textAlign="start">
             <ButtonMenu isHidden={hidden.left} onClick={onClick} position="left" />
-          </Col>
-          <Col textAlign="end">
+          </Grid.Col>
+          <Grid.Col textAlign="end">
             <ButtonMenu isHidden={hidden.right} onClick={onClick} position="right" />
-          </Col>
+          </Grid.Col>
         </StyledRow>
         <StyledRow>
-          <Col textAlign="start">
+          <Grid.Col textAlign="start">
             <ButtonMenu isHidden={hidden['left-bottom']} onClick={onClick} position="left-bottom" />
-          </Col>
-          <Col textAlign="end">
+          </Grid.Col>
+          <Grid.Col textAlign="end">
             <ButtonMenu
               isHidden={hidden['right-bottom']}
               onClick={onClick}
               position="right-bottom"
             />
-          </Col>
+          </Grid.Col>
         </StyledRow>
         <StyledRow>
-          <Col textAlign="end">
+          <Grid.Col textAlign="end">
             <ButtonMenu isHidden={hidden['bottom-left']} onClick={onClick} position="bottom-left" />
-          </Col>
-          <Col textAlign="center">
+          </Grid.Col>
+          <Grid.Col textAlign="center">
             <ButtonMenu isHidden={hidden.bottom} onClick={onClick} position="bottom" />
-          </Col>
-          <Col textAlign="start">
+          </Grid.Col>
+          <Grid.Col textAlign="start">
             <ButtonMenu
               isHidden={hidden['bottom-right']}
               onClick={onClick}
               position="bottom-right"
             />
-          </Col>
+          </Grid.Col>
         </StyledRow>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

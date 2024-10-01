@@ -13,7 +13,7 @@ const Example = () => (
   <Timeline>
     <Timeline.Item>
       <Timeline.OppositeContent>
-        <Span hue="grey">Today 9:00 AM</Span>
+        <Span hue="foreground.subtle">Today 9:00 AM</Span>
       </Timeline.OppositeContent>
       <Timeline.Content>
         <Span isBold>Planted seed</Span>
@@ -21,7 +21,7 @@ const Example = () => (
     </Timeline.Item>
     <Timeline.Item>
       <Timeline.OppositeContent>
-        <Span hue="grey">Feb 08, 9:05 AM</Span>
+        <Span hue="foreground.subtle">Feb 08, 9:05 AM</Span>
       </Timeline.OppositeContent>
       <Timeline.Content>
         <Span isBold>Purchased seed</Span>
@@ -29,7 +29,7 @@ const Example = () => (
     </Timeline.Item>
     <Timeline.Item>
       <Timeline.OppositeContent>
-        <Span hue="grey">Jan 21, 9:13 AM</Span>
+        <Span hue="foreground.subtle">Jan 21, 9:13 AM</Span>
       </Timeline.OppositeContent>
       <Timeline.Content>
         <Span isBold>Arranged layout of garden</Span>
@@ -37,7 +37,7 @@ const Example = () => (
     </Timeline.Item>
     <Timeline.Item>
       <Timeline.OppositeContent>
-        <Span hue="grey">Jan 21, 9:21 AM </Span>
+        <Span hue="foreground.subtle">Jan 21, 9:21 AM </Span>
       </Timeline.OppositeContent>
       <Timeline.Content>
         <Span isBold>Chose a gardening location</Span>

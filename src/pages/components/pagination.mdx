@@ -4,7 +4,7 @@ description: >
   Pagination separates content into pages and allows users to navigate between those pages.
 package: '@zendeskgarden/react-pagination'
 components:
-  - pagination/src/elements/Pagination/Pagination.tsx
+  - pagination/src/elements/OffsetPagination/OffsetPagination.tsx
   - pagination/src/elements/CursorPagination/CursorPagination.tsx
 subcomponents:
   - pagination/src/elements/CursorPagination/components/First.tsx
@@ -83,12 +83,6 @@ import OffsetDefaultCode from '!!raw-loader!../../examples/pagination/OffsetDefa
 
 ## API
 
-### Pagination
-
-<Component components={props.data.mdx.components} componentName="pagination" />
-
-<PropSheet components={props.data.mdx.components} componentName="pagination" />
-
 ### CursorPagination
 
 <Component components={props.data.mdx.components} componentName="cursorPagination" />
@@ -118,6 +112,12 @@ import OffsetDefaultCode from '!!raw-loader!../../examples/pagination/OffsetDefa
 <Component components={props.data.mdx.subcomponents} componentName="cursorPagination.previous" />
 
 <PropSheet components={props.data.mdx.subcomponents} componentName="cursorPagination.previous" />
+
+### OffsetPagination
+
+<Component components={props.data.mdx.components} componentName="offsetPagination" />
+
+<PropSheet components={props.data.mdx.components} componentName="offsetPagination" />
 
 import { graphql } from 'gatsby';
 

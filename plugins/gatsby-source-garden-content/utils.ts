@@ -144,10 +144,7 @@ export function transformNavigation(nav: any, { createNodeId }: { createNodeId: 
         node.url = `${node.id}`;
       }
 
-      node.id = [
-        `[${group}]`,
-        [].concat(parent && parent.title ? parent.title : [], node.title).join('-')
-      ]
+      node.id = [`[${group}]`, [].concat(parent?.title ? parent.title : [], node.title).join('-')]
         .join(':')
         .toLowerCase();
 

@@ -6,8 +6,8 @@
  */
 
 import React, { useState } from 'react';
-import { Field, Label, Checkbox, Fieldset } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Field, Checkbox, Fieldset } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const Example = () => {
   const [pest, setPest] = useState(true);
@@ -15,28 +15,43 @@ const Example = () => {
   const [drought, setDrought] = useState(false);
 
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <Fieldset>
           <Fieldset.Legend>Plant preference</Fieldset.Legend>
           <Field>
-            <Checkbox checked={pest} onChange={() => setPest(!pest)}>
-              <Label>Pest resistant</Label>
+            <Checkbox
+              checked={pest}
+              onChange={() => {
+                setPest(!pest);
+              }}
+            >
+              <Field.Label>Pest resistant</Field.Label>
             </Checkbox>
           </Field>
           <Field>
-            <Checkbox checked={light} onChange={() => setLight(!light)}>
-              <Label>Needs direct light</Label>
+            <Checkbox
+              checked={light}
+              onChange={() => {
+                setLight(!light);
+              }}
+            >
+              <Field.Label>Needs direct light</Field.Label>
             </Checkbox>
           </Field>
           <Field>
-            <Checkbox checked={drought} onChange={() => setDrought(!drought)}>
-              <Label>Drought-tolerant</Label>
+            <Checkbox
+              checked={drought}
+              onChange={() => {
+                setDrought(!drought);
+              }}
+            >
+              <Field.Label>Drought-tolerant</Field.Label>
             </Checkbox>
           </Field>
         </Fieldset>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

@@ -29,16 +29,20 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
     <ul>
       {data.map(heading => (
         <li key={heading.url}>
-          <Anchor href={heading.url}>{heading.title}</Anchor>
+          <Anchor isUnderlined={false} href={heading.url}>
+            {heading.title}
+          </Anchor>
           {!!heading.items && (
             <ul
               css={css`
                 margin-left: ${p => p.theme.space.md};
               `}
             >
-              {heading.items!.map(subHeading => (
+              {heading.items.map(subHeading => (
                 <li key={subHeading.url}>
-                  <Anchor href={subHeading.url}>{subHeading.title}</Anchor>
+                  <Anchor isUnderlined={false} href={subHeading.url}>
+                    {subHeading.title}
+                  </Anchor>
                 </li>
               ))}
             </ul>
@@ -53,18 +57,20 @@ export const TOCBlock: React.FC<{ data: IHeading[] } & HTMLAttributes<HTMLDivEle
 const StyledAnchor = styled(Anchor)<{ isCurrent: boolean }>`
   display: block;
   position: relative;
+  transition: none;
   margin: ${({
     theme: {
       space: { xxs }
     }
-  }) => `${xxs} 0 ${xxs} ${xxs}`};
-  overflow: visible;
+  }) => `${xxs} 0 ${xxs} 0`};
   text-align: left;
 
   &::before {
     position: absolute;
-    left: -${p => math(`(${p.theme.space.xxs} + 1px)`)};
-    border-left: ${p => p.isCurrent && `${p.theme.borders.sm} ${getColor('grey', 800, p.theme)}`};
+    left: 0;
+    border-left: ${p =>
+      p.isCurrent &&
+      `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'foreground.default' })}`};
     height: 100%;
     content: '';
   }
@@ -149,16 +155,23 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
       </StyledSectionHeader>
       <ul
         css={css`
-          border-left: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
+          border-left: ${p => p.theme.borders.sm}
+            ${p => getColor({ theme: p.theme, variable: 'border.subtle' })};
         `}
       >
         {data.map(heading => (
-          <li key={heading.url}>
+          <li
+            key={heading.url}
+            css={css`
+              margin-left: -${p => p.theme.borderWidths.sm};
+            `}
+          >
             <StyledAnchor
+              isUnderlined={false}
               href={heading.url}
               isCurrent={activeHeadingUrl === heading.url}
               css={css`
-                padding-left: ${p => p.theme.space.md};
+                padding-left: ${p => p.theme.space.base * 6}px;
               `}
             >
               {heading.title}
@@ -168,10 +181,11 @@ export const TOC: React.FC<{ data: IHeading[] }> = ({ data }) => {
                 {heading.items.map(subHeading => (
                   <li key={subHeading.url}>
                     <StyledAnchor
+                      isUnderlined={false}
                       href={subHeading.url}
                       isCurrent={activeHeadingUrl === subHeading.url}
                       css={css`
-                        padding-left: ${p => p.theme.space.lg};
+                        padding-left: ${p => p.theme.space.base * 9}px;
                       `}
                     >
                       {subHeading.title}

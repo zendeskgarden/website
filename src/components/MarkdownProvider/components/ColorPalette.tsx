@@ -8,8 +8,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { readableColor } from 'polished';
-import { mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { getColor, mediaQuery, PALETTE } from '@zendeskgarden/react-theming';
+import { Grid } from '@zendeskgarden/react-grid';
 
 const StyledColorHex = styled.figcaption`
   margin-left: auto;
@@ -26,7 +26,13 @@ const StyledColorSwatch = styled.figure<{ color: string }>`
   align-items: center;
   background-color: ${p => p.color};
   padding: ${p => p.theme.space.sm};
-  color: ${p => readableColor(p.color, p.theme.colors.foreground, p.theme.colors.background)};
+  color: ${p =>
+    readableColor(
+      p.color,
+      getColor({ theme: p.theme, hue: 'neutralHue', shade: 900 }),
+      getColor({ theme: p.theme, hue: 'white' }),
+      false /* strict */
+    )};
 `;
 
 const StyledColorTitle = styled.b`
@@ -35,13 +41,13 @@ const StyledColorTitle = styled.b`
   font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.md};
   }
 `;
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   & + & {
     margin-top: ${p => p.theme.space.md};
   }
@@ -104,9 +110,9 @@ export const ColorPalette: React.FC<{ hues: string[] }> = ({ hues }) => {
 
         return (
           <StyledRow key={index}>
-            <Col sm>
+            <Grid.Col sm>
               <Hue hue={hue1} />
-            </Col>
+            </Grid.Col>
             {hue1 !== 'product' && <StyledCol sm>{!!hue2 && <Hue hue={hue2} />}</StyledCol>}
           </StyledRow>
         );

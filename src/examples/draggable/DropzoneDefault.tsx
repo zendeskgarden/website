@@ -29,10 +29,10 @@ import {
   DraggableList,
   Dropzone,
   IDraggableProps
-} from '@zendeskgarden/react-drag-drop';
-import { Row, Col } from '@zendeskgarden/react-grid';
+} from '@zendeskgarden/react-draggable';
+import { Grid } from '@zendeskgarden/react-grid';
 import { MD } from '@zendeskgarden/react-typography';
-import { mediaQuery } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 
 interface IColumnItem {
   id: string;
@@ -133,7 +133,7 @@ const StyledDraggableOverlay = styled.div`
   padding: ${p => p.theme.space.xxs} 0;
 `;
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
@@ -166,7 +166,7 @@ const StyledDraggable = styled(DraggableItem)`
   cursor: default;
 
   &:hover {
-    background-color: ${p => p.theme.colors.background};
+    background-color: ${({ theme }) => getColor({ variable: 'background.default', theme })};
   }
 `;
 
@@ -286,15 +286,15 @@ const Example = () => {
       onDragCancel={onDragCancel}
       measuring={{ droppable: { strategy: MeasuringStrategy.Always } }}
     >
-      <Row justifyContent="center">
-        <Col sm={4}>
+      <Grid.Row justifyContent="center">
+        <Grid.Col sm={4}>
           <StyledHeading isBold>List of produce</StyledHeading>
           <DraggableList>
             {draggableItems.map(item => (
               <DraggableListItem key={item.id} {...item} />
             ))}
           </DraggableList>
-        </Col>
+        </Grid.Col>
         <StyledCol sm={5}>
           <StyledHeading isBold>Favorite fruits</StyledHeading>
           <DroppableColumn
@@ -316,7 +316,7 @@ const Example = () => {
             </StyledDraggableOverlay>
           )}
         </DragOverlay>
-      </Row>
+      </Grid.Row>
     </DndContext>
   );
 };

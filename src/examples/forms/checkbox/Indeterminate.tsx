@@ -7,8 +7,8 @@
 
 import React, { useReducer } from 'react';
 import styled from 'styled-components';
-import { Field, Label, Checkbox } from '@zendeskgarden/react-forms';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Field, Checkbox } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 
 interface ISelectLight {
   type: 'light';
@@ -70,31 +70,41 @@ const Example = () => {
   };
 
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <Field>
           <Checkbox
             onChange={onParentChange}
             checked={!!light && pest}
             indeterminate={!light && !pest ? false : !light || !pest}
           >
-            <Label>Outdoor readiness</Label>
+            <Field.Label>Outdoor readiness</Field.Label>
           </Checkbox>
         </Field>
         <StyledGroup>
           <Field>
-            <Checkbox checked={pest} onChange={() => dispatch({ type: 'pest' })}>
-              <Label isRegular>Pest resistant</Label>
+            <Checkbox
+              checked={pest}
+              onChange={() => {
+                dispatch({ type: 'pest' });
+              }}
+            >
+              <Field.Label isRegular>Pest resistant</Field.Label>
             </Checkbox>
           </Field>
           <Field>
-            <Checkbox checked={light} onChange={() => dispatch({ type: 'light' })}>
-              <Label isRegular>Needs direct light</Label>
+            <Checkbox
+              checked={light}
+              onChange={() => {
+                dispatch({ type: 'light' });
+              }}
+            >
+              <Field.Label isRegular>Needs direct light</Field.Label>
             </Checkbox>
           </Field>
         </StyledGroup>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

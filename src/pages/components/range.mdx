@@ -5,10 +5,11 @@ description: >
 package: '@zendeskgarden/react-forms'
 components:
   - forms/src/elements/common/Field.tsx
+  - forms/src/elements/Range.tsx
+subcomponents:
   - forms/src/elements/common/Hint.tsx
   - forms/src/elements/common/Label.tsx
   - forms/src/elements/common/Message.tsx
-  - forms/src/elements/Range.tsx
 ---
 
 import { SEO } from '../../components';
@@ -27,7 +28,6 @@ export function Head(props) {
 
     - If the choices aren’t in a continuous range, use a [Menu](/components/menu) instead
     - To compare between several options, use a [Radio](/components/radio) instead
-    - To define a range of values, use a [Multi-thumb range](/components/multi-thumb-range) instead
 
   </Misuse>
 </Usage>
@@ -99,10 +99,10 @@ The Range component follows this structure:
 
 ```jsx
 <Field>
-  <Label />
-  <Hint />
+  <Field.Label />
+  <Field.Hint />
   <Range />
-  <Message />
+  <Field.Message />
 </Field>
 ```
 
@@ -111,34 +111,34 @@ The Range component follows this structure:
 <Component components={props.data.mdx.components} componentName="field" />
 
 A Field provides accessibility attributes to its child [Range](#range) field by associating it
-with the corresponding [Label](#label) and [Hint](#hint).
+with the corresponding [Field.Label](#fieldlabel) and [Field.Hint](#fieldhint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
-### Hint
+#### Field.Hint
 
-<Component components={props.data.mdx.components} componentName="hint" />
+<Component components={props.data.mdx.subcomponents} componentName="field.hint" />
 
 Nest the Hint within a [Field](#field) component.
 
-<PropSheet components={props.data.mdx.components} componentName="hint" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.hint" />
 
-### Label
+#### Field.Label
 
-<Component components={props.data.mdx.components} componentName="label" />
+<Component components={props.data.mdx.subcomponents} componentName="field.label" />
 
 Nest the Label within a [Field](#field) component.
 
-<PropSheet components={props.data.mdx.components} componentName="label" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.label" />
 
-### Message
+#### Field.Message
 
-<Component components={props.data.mdx.components} componentName="message" />
+<Component components={props.data.mdx.subcomponents} componentName="field.message" />
 
 The Message component applies appropriate icon and styles based on the validation provided. Nest
 it within a [Field](#field) component.
 
-<PropSheet components={props.data.mdx.components} componentName="message" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.message" />
 
 ### Range
 

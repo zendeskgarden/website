@@ -8,37 +8,37 @@
 import React from 'react';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const Example = () => (
-  <Row alignItems="center">
-    <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]} size="extraextrasmall">
+  <Grid.Row alignItems="center">
+    <Grid.Col textAlign="center">
+      <Avatar backgroundColor={PALETTE.grey[700]} size="extraextrasmall">
         <UserIcon role="img" aria-label="extra extra small user avatar" />
       </Avatar>
-    </Col>
-    <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]} size="extrasmall">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
+      <Avatar backgroundColor={PALETTE.grey[700]} size="extrasmall">
         <UserIcon role="img" aria-label="extra small user avatar" />
       </Avatar>
-    </Col>
-    <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]} size="small">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
+      <Avatar backgroundColor={PALETTE.grey[700]} size="small">
         <UserIcon role="img" aria-label="small user avatar" />
       </Avatar>
-    </Col>
-    <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]} size="medium">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
+      <Avatar backgroundColor={PALETTE.grey[700]} size="medium">
         <UserIcon role="img" aria-label="medium user avatar" />
       </Avatar>
-    </Col>
-    <Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[600]} size="large">
+    </Grid.Col>
+    <Grid.Col textAlign="center">
+      <Avatar backgroundColor={PALETTE.grey[700]} size="large">
         <UserIcon role="img" aria-label="large user avatar" />
       </Avatar>
-    </Col>
-  </Row>
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

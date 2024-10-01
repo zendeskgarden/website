@@ -1,19 +1,19 @@
 ---
 title: Combobox
 description: Combobox is an input plus a listbox that appears beneath it. It searches and filters down options, allowing the user to select.
-package: '@zendeskgarden/react-dropdowns.next'
+package: '@zendeskgarden/react-dropdowns'
 components:
-  - 'dropdowns.next/src/elements/combobox/Combobox.tsx'
-  - 'dropdowns.next/src/elements/combobox/Field.tsx'
-  - 'dropdowns.next/src/elements/combobox/Hint.tsx'
-  - 'dropdowns.next/src/elements/combobox/Label.tsx'
-  - 'dropdowns.next/src/elements/combobox/Message.tsx'
-  - 'dropdowns.next/src/elements/combobox/OptGroup.tsx'
-  - 'dropdowns.next/src/elements/combobox/Option.tsx'
-  - 'dropdowns.next/src/elements/combobox/Tag.tsx'
+  - 'dropdowns/src/elements/combobox/Combobox.tsx'
+  - 'dropdowns/src/elements/combobox/Field.tsx'
+  - 'dropdowns/src/elements/combobox/OptGroup.tsx'
+  - 'dropdowns/src/elements/combobox/Option.tsx'
+  - 'dropdowns/src/elements/combobox/Tag.tsx'
 subcomponents:
-  - 'dropdowns.next/src/elements/combobox/OptionMeta.tsx'
-  - 'dropdowns.next/src/elements/combobox/TagAvatar.tsx'
+  - 'dropdowns/src/elements/combobox/Hint.tsx'
+  - 'dropdowns/src/elements/combobox/Label.tsx'
+  - 'dropdowns/src/elements/combobox/Message.tsx'
+  - 'dropdowns/src/elements/combobox/OptionMeta.tsx'
+  - 'dropdowns/src/elements/combobox/TagAvatar.tsx'
 ---
 
 import { SEO } from '../../components';
@@ -246,7 +246,7 @@ The Combobox component follows this structure:
 
 ```jsx
 <Field>
-  <Label />
+  <Field.Label />
   <Combobox>
     <Option />
     <Option />
@@ -320,34 +320,34 @@ Nest a Combobox within a [Field](#field) component.
 <Component components={props.data.mdx.components} componentName="field" />
 
 A Field provides accessibility attributes to the child [Combobox](#combobox) field by associating it
-with the corresponding [Label](#label) and [Hint](#hint).
+with the corresponding [Field.Label](#fieldlabel) and [Field.Hint](#fieldhint).
 
 <PropSheet components={props.data.mdx.components} componentName="field" />
 
-### Hint
+#### Field.Hint
 
-<Component components={props.data.mdx.components} componentName="hint" />
+<Component components={props.data.mdx.subcomponents} componentName="field.hint" />
 
 Nest a Hint within a [Field](#field) component.
 
-<PropSheet components={props.data.mdx.components} componentName="hint" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.hint" />
 
-### Label
+#### Field.Label
 
-<Component components={props.data.mdx.components} componentName="label" />
+<Component components={props.data.mdx.subcomponents} componentName="field.label" />
 
 Nest a Label within a [Field](#field) component.
 
-<PropSheet components={props.data.mdx.components} componentName="label" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.label" />
 
-### Message
+#### Field.Message
 
-<Component components={props.data.mdx.components} componentName="message" />
+<Component components={props.data.mdx.subcomponents} componentName="field.message" />
 
 The Message component applies appropriate icon and styles based on the validation provided. Nest
 it within a [Field](#field) component.
 
-<PropSheet components={props.data.mdx.components} componentName="message" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="field.message" />
 
 ### Option
 

@@ -6,9 +6,9 @@
  */
 
 import React, { useCallback } from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { IconButton } from '@zendeskgarden/react-buttons';
-import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 
 const Example = () => {
@@ -17,8 +17,8 @@ const Example = () => {
   }, []);
 
   return (
-    <Row justifyContent="center">
-      <Col textAlign="center">
+    <Grid.Row justifyContent="center">
+      <Grid.Col textAlign="center">
         <Menu
           hasArrow
           button={props => (
@@ -32,8 +32,8 @@ const Example = () => {
           <Item value="daisy">Daisy</Item>
           <Item value="honeysuckle">Honeysuckle</Item>
         </Menu>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

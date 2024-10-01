@@ -31,7 +31,7 @@ const StyledPaneContent = styled(Pane.Content)`
 
 const StyledPanesContainer = styled.div`
   & > :first-child {
-    background-color: ${p => getColor('neutralHue', 100, p.theme)};
+    background-color: ${p => getColor({ variable: 'background.subtle', theme: p.theme })};
   }
 
   &:not(:last-child) {

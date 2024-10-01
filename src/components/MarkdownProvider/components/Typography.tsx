@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps } from 'styled-components';
-import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
+import { getColor, getColorV8, getLineHeight } from '@zendeskgarden/react-theming';
 import {
   XXXL,
   XXL,
@@ -22,7 +22,7 @@ import { StyledAnchor } from './Anchor';
 const headerStyles = (p: ThemeProps<any>) => {
   return css`
     margin-bottom: ${p.theme.space.sm};
-    color: ${getColor('chromeHue', 700, p.theme)};
+    color: ${getColorV8('chromeHue', 700, p.theme)};
     font-weight: ${p.theme.fontWeights.semibold};
 
     &:hover ${StyledAnchor} {
@@ -73,13 +73,14 @@ export const StyledH6 = styled(MD).attrs({ tag: 'h6' })`
 
 export const StyledBlockquote = styled(Blockquote)`
   margin-left: ${p => p.theme.space.base * 4}px;
-  color: ${p => getColor('grey', 600, p.theme)};
+  color: ${p => getColorV8('grey', 600, p.theme)};
   font-size: ${p => p.theme.space.base * 4}px;
 `;
 
 export const StyledHr = styled.hr`
   margin: ${p => p.theme.space.md} 0;
-  border-top: ${p => p.theme.borders.sm} ${p => getColor('grey', 200, p.theme)};
+  border-top: ${p => p.theme.borders.sm}
+    ${p => getColor({ theme: p.theme, variable: 'border.subtle' })};
 `;
 
 export const StyledParagraph = styled(Paragraph)`

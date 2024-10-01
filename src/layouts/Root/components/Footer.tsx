@@ -7,14 +7,19 @@
 
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { SELECTOR_FOCUS_VISIBLE, getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import {
+  SELECTOR_FOCUS_VISIBLE,
+  getColor,
+  getColorV8,
+  mediaQuery
+} from '@zendeskgarden/react-theming';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { Link } from './StyledNavigationLink';
 import MaxWidthLayout from 'layouts/MaxWidth';
 
 const StyledFooterItem = styled(Link)`
   margin-right: ${p => p.theme.space.lg};
-  color: ${p => p.theme.palette.white};
+  color: ${({ theme }) => getColor({ hue: 'white', theme })};
 
   &:hover,
   &:focus {
@@ -41,10 +46,10 @@ interface IFooterProps {
 const Footer: React.FC<IFooterProps> = ({ path }) => (
   <footer
     css={css`
-      background-color: ${p => getColor('kale', 700, p.theme)};
+      background-color: ${p => getColorV8('kale', 700, p.theme)};
       padding: ${p => p.theme.space.md};
       line-height: ${p => p.theme.lineHeights.md};
-      color: ${p => p.theme.palette.white};
+      color: ${({ theme }) => getColor({ hue: 'white', theme })};
       font-size: ${p => p.theme.fontSizes.md};
     `}
   >
@@ -77,7 +82,7 @@ const Footer: React.FC<IFooterProps> = ({ path }) => (
             css={css`
               width: ${p => p.theme.iconSizes.lg};
               height: ${p => p.theme.iconSizes.lg};
-              color: ${p => getColor('green', 400, p.theme)};
+              color: ${p => getColorV8('green', 400, p.theme)};
             `}
           />
         </div>
@@ -92,7 +97,7 @@ const Footer: React.FC<IFooterProps> = ({ path }) => (
       <div
         css={css`
           display: flex;
-          border-top: ${p => p.theme.borders.sm} ${p => getColor('kale', 500, p.theme)};
+          border-top: ${p => p.theme.borders.sm} ${p => getColorV8('kale', 500, p.theme)};
           padding-top: ${p => p.theme.space.md};
           padding-bottom: ${p => p.theme.space.lg};
 

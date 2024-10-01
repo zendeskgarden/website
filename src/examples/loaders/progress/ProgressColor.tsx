@@ -6,22 +6,22 @@
  */
 
 import React from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Progress } from '@zendeskgarden/react-loaders';
 
 const Example = () => (
-  <Row>
-    <Col textAlign="center">
-      <Progress color={PALETTE.grey[600]} value={80} aria-label="Fertilizing seeds" />
-    </Col>
-    <Col textAlign="center">
-      <Progress color={PALETTE.blue[600]} value={80} aria-label="Watering all plants" />
-    </Col>
-    <Col textAlign="center">
-      <Progress color={PALETTE.kale[600]} value={80} aria-label="Removing weeds" />
-    </Col>
-  </Row>
+  <Grid.Row>
+    <Grid.Col textAlign="center">
+      <Progress color={PALETTE.grey[700]} value={80} aria-label="Fertilizing seeds" />
+    </Grid.Col>
+    <Grid.Col textAlign="center">
+      <Progress color={PALETTE.blue[700]} value={80} aria-label="Watering all plants" />
+    </Grid.Col>
+    <Grid.Col textAlign="center">
+      <Progress color={PALETTE.kale[700]} value={80} aria-label="Removing weeds" />
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

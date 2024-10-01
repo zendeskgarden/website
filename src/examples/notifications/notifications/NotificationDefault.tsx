@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { Notification, Title, Close } from '@zendeskgarden/react-notifications';
+import { Notification } from '@zendeskgarden/react-notifications';
 
 const Example = () => (
   <Notification type="info">
-    <Title>Info</Title>
+    <Notification.Title>Info</Notification.Title>
     Turnip greens yarrow ricebean endive cauliflower sea kohlrabi amaranth water
-    <Close aria-label="Close Notification" />
+    <Notification.Close aria-label="Close Notification" />
   </Notification>
 );
 

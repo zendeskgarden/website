@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as Icon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -15,19 +15,21 @@ const Example = () => {
   const [pressed, setPressed] = useState(false);
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <Tooltip content="Leaf">
           <ToggleIconButton
             aria-label="leaf"
             isPressed={pressed}
-            onClick={() => setPressed(!pressed)}
+            onClick={() => {
+              setPressed(!pressed);
+            }}
           >
             <Icon />
           </ToggleIconButton>
         </Tooltip>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

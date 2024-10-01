@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { css } from 'styled-components';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { SectionCallout } from './SectionCallout';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { HomeLink } from './HomeLink';
@@ -36,8 +36,8 @@ export const Patterns: React.FC = () => {
           margin-bottom: ${p => p.theme.space.base * 20}px;
         `}
       >
-        <Row alignItems="center" justifyContent="center">
-          <Col
+        <Grid.Row alignItems="center" justifyContent="center">
+          <Grid.Col
             sm={12}
             md={6}
             lg={7}
@@ -54,8 +54,8 @@ export const Patterns: React.FC = () => {
               alt="Garden patterns"
               imgStyle={{ width: 808, maxWidth: '100%', height: 488, maxHeight: '100%' }}
             />
-          </Col>
-          <Col
+          </Grid.Col>
+          <Grid.Col
             sm={12}
             md={6}
             lg={5}
@@ -89,8 +89,8 @@ export const Patterns: React.FC = () => {
                 <HomeLink to="/patterns">Browse the UI patterns</HomeLink>
               </div>
             </SectionCallout>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
       </Grid>
     </MaxWidthLayout>
   );

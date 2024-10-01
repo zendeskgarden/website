@@ -6,27 +6,23 @@
  */
 
 import React, { useCallback, useEffect, useState } from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import {
   Combobox,
   Field,
   IComboboxProps,
   IOptGroupProps,
   IOptionProps,
-  Label,
   OptGroup,
-  Option
-} from '@zendeskgarden/react-dropdowns.next';
-
-interface IOption extends IOptionProps {
-  value: string;
-}
+  Option,
+  OptionValue
+} from '@zendeskgarden/react-dropdowns';
 
 interface IOptGroup extends IOptGroupProps {
-  options: IOption[];
+  options: IOptionProps[];
 }
 
-type Options = (IOption | IOptGroup)[];
+type Options = (IOptionProps | IOptGroup)[];
 
 const OPTIONS: Options = [
   { value: 'Apple' },
@@ -74,7 +70,7 @@ const Example = () => {
       const _options = options === SUB_OPTIONS ? (options[1] as IOptGroup).options : options;
 
       if (!_options.find(option => option.value === state.selectionValue)) {
-        return <Option isHidden value={state.selectionValue} />;
+        return <Option isHidden value={state.selectionValue as OptionValue} />;
       }
     }
 
@@ -91,14 +87,16 @@ const Example = () => {
       }, 200 /* match listbox opacity transition */);
     }
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [state.isExpanded]);
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
-          <Label>Fruit</Label>
+          <Field.Label>Fruit</Field.Label>
           <Combobox isEditable={false} onChange={handleChange} {...state}>
             {renderHiddenSelectedOption()}
             {options.map((option, index) =>
@@ -114,8 +112,8 @@ const Example = () => {
             )}
           </Combobox>
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

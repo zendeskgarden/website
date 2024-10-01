@@ -6,20 +6,25 @@
  */
 
 import React, { useState } from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ToggleButton } from '@zendeskgarden/react-buttons';
 
 const Example = () => {
   const [pressed, setPressed] = useState(false);
 
   return (
-    <Row>
-      <Col textAlign="center">
-        <ToggleButton isPressed={pressed} onClick={() => setPressed(!pressed)}>
+    <Grid.Row>
+      <Grid.Col textAlign="center">
+        <ToggleButton
+          isPressed={pressed}
+          onClick={() => {
+            setPressed(!pressed);
+          }}
+        >
           Sprinklers
         </ToggleButton>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

@@ -6,11 +6,11 @@
  */
 
 import React from 'react';
-import { Well, Title } from '@zendeskgarden/react-notifications';
+import { Well } from '@zendeskgarden/react-notifications';
 
 const Example = () => (
   <Well>
-    <Title>What is a Garden?</Title>
+    <Well.Title>What is a Garden?</Well.Title>
     Turnip greens yarrow endive cauliflower sea lettuce kohlrabi amaranth water
   </Well>
 );

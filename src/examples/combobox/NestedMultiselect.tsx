@@ -6,34 +6,29 @@
  */
 
 import React, { useCallback, useEffect, useState } from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import {
   Combobox,
   Field,
-  Hint,
   IComboboxProps,
   IOptGroupProps,
   IOptionProps,
-  Label,
   OptGroup,
   Option,
   OptionValue
-} from '@zendeskgarden/react-dropdowns.next';
+} from '@zendeskgarden/react-dropdowns';
 
-interface IOption extends IOptionProps {
-  value: string;
-}
 interface IOptGroup extends IOptGroupProps {
-  options: IOption[];
+  options: IOptionProps[];
 }
 
-type Options = (IOption | IOptGroup)[];
+type Options = (IOptionProps | IOptGroup)[];
 
-type SubOptions = Record<any, Options>;
+type SubOptions = Record<OptionValue, Options>;
 
 const OPTIONS: Options = [
   {
-    label: 'Classificiations',
+    legend: 'Classificiations',
     options: [
       { value: 'Alliums', type: 'next' },
       { value: 'Curcubits', type: 'next' },
@@ -115,13 +110,15 @@ const Example = () => {
     if (selectionValue) {
       const selectedValue = selectionValue.find(value => !state.selectionValue.includes(value));
 
-      if (selectedValue in SUB_OPTIONS) {
-        setOptions(SUB_OPTIONS[selectedValue]);
-        _state.activeIndex = 1;
-        _state.selectionValue = state.selectionValue;
-      } else if (selectedValue === 'Classifications') {
-        setOptions(OPTIONS);
-        _state.selectionValue = state.selectionValue;
+      if (selectedValue !== undefined) {
+        if (selectedValue in SUB_OPTIONS) {
+          setOptions(SUB_OPTIONS[selectedValue]);
+          _state.activeIndex = 1;
+          _state.selectionValue = state.selectionValue;
+        } else if (selectedValue === 'Classifications') {
+          setOptions(OPTIONS);
+          _state.selectionValue = state.selectionValue;
+        }
       }
     }
 
@@ -140,7 +137,7 @@ const Example = () => {
     }, []);
     const missingValues = state.selectionValue.filter(value => !values.includes(value));
 
-    return missingValues.map(value => <Option key={value as string} isHidden value={value} />);
+    return missingValues.map(value => <Option key={value} isHidden value={value} />);
   }, [options, state.selectionValue]);
 
   useEffect(() => {
@@ -153,20 +150,22 @@ const Example = () => {
       }, 200 /* match listbox opacity transition */);
     }
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [state.isExpanded]);
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
-          <Label>Vegetables</Label>
-          <Hint>Select your favorites</Hint>
+          <Field.Label>Vegetables</Field.Label>
+          <Field.Hint>Select your favorites</Field.Hint>
           <Combobox isMultiselectable maxHeight="auto" onChange={handleChange} {...state}>
             {renderHiddenSelectedOptions()}
             {options.map((option, index) =>
               'options' in option ? (
-                <OptGroup key={index} aria-label={option['aria-label']} label={option.label}>
+                <OptGroup key={index} aria-label={option['aria-label']} legend={option.legend}>
                   {option.options.map(subOption => (
                     <Option key={subOption.value} {...subOption} />
                   ))}
@@ -177,8 +176,8 @@ const Example = () => {
             )}
           </Combobox>
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

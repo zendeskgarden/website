@@ -6,23 +6,20 @@
  */
 
 import React, { ButtonHTMLAttributes } from 'react';
-import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
+import styled from 'styled-components';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
-import {
-  Body,
-  Cell,
-  Head,
-  HeaderCell,
-  HeaderRow,
-  OverflowButton,
-  Row,
-  Table
-} from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
+
+const StyledContainer = styled.div`
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
 
 const TooltipOverflowButton = React.forwardRef(
   (props: ButtonHTMLAttributes<HTMLButtonElement>, ref: React.Ref<HTMLButtonElement>) => (
     <Tooltip content={props['aria-label']} placement="start">
-      <OverflowButton ref={ref} {...props} />
+      <Table.OverflowButton ref={ref} {...props} />
     </Tooltip>
   )
 );
@@ -40,62 +37,62 @@ const OverflowMenu = () => (
 );
 
 const Example = () => (
-  <div style={{ overflowX: 'auto' }}>
+  <StyledContainer>
     <Table style={{ minWidth: 500 }}>
-      <Head>
-        <HeaderRow>
-          <HeaderCell>Fruit</HeaderCell>
-          <HeaderCell>Sun exposure</HeaderCell>
-          <HeaderCell>Soil type</HeaderCell>
-          <HeaderCell hasOverflow>
+      <Table.Head>
+        <Table.HeaderRow>
+          <Table.HeaderCell>Fruit</Table.HeaderCell>
+          <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+          <Table.HeaderCell>Soil type</Table.HeaderCell>
+          <Table.HeaderCell hasOverflow>
             <OverflowMenu />
-          </HeaderCell>
-        </HeaderRow>
-      </Head>
-      <Body>
-        <Row>
-          <Cell>Raspberries</Cell>
-          <Cell>Partial shade</Cell>
-          <Cell>Moist and slightly acidic</Cell>
-          <Cell hasOverflow>
+          </Table.HeaderCell>
+        </Table.HeaderRow>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>Raspberries</Table.Cell>
+          <Table.Cell>Partial shade</Table.Cell>
+          <Table.Cell>Moist and slightly acidic</Table.Cell>
+          <Table.Cell hasOverflow>
             <OverflowMenu />
-          </Cell>
-        </Row>
-        <Row>
-          <Cell>Strawberries</Cell>
-          <Cell>Full sun</Cell>
-          <Cell>Medium moisture</Cell>
-          <Cell hasOverflow>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Strawberries</Table.Cell>
+          <Table.Cell>Full sun</Table.Cell>
+          <Table.Cell>Medium moisture</Table.Cell>
+          <Table.Cell hasOverflow>
             <OverflowMenu />
-          </Cell>
-        </Row>
-        <Row>
-          <Cell>Grapes</Cell>
-          <Cell>Full sun</Cell>
-          <Cell>Rich and well draining</Cell>
-          <Cell hasOverflow>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Grapes</Table.Cell>
+          <Table.Cell>Full sun</Table.Cell>
+          <Table.Cell>Rich and well draining</Table.Cell>
+          <Table.Cell hasOverflow>
             <OverflowMenu />
-          </Cell>
-        </Row>
-        <Row>
-          <Cell>Cherries</Cell>
-          <Cell>Partial sun</Cell>
-          <Cell>Rich and well draining</Cell>
-          <Cell hasOverflow>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Cherries</Table.Cell>
+          <Table.Cell>Partial sun</Table.Cell>
+          <Table.Cell>Rich and well draining</Table.Cell>
+          <Table.Cell hasOverflow>
             <OverflowMenu />
-          </Cell>
-        </Row>
-        <Row>
-          <Cell>Tomatoes</Cell>
-          <Cell>Partial shade</Cell>
-          <Cell>Well draining</Cell>
-          <Cell hasOverflow>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Tomatoes</Table.Cell>
+          <Table.Cell>Partial shade</Table.Cell>
+          <Table.Cell>Well draining</Table.Cell>
+          <Table.Cell hasOverflow>
             <OverflowMenu />
-          </Cell>
-        </Row>
-      </Body>
+          </Table.Cell>
+        </Table.Row>
+      </Table.Body>
     </Table>
-  </div>
+  </StyledContainer>
 );
 
 export default Example;

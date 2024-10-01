@@ -6,7 +6,13 @@
  */
 
 import React from 'react';
-import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
+import styled from 'styled-components';
+import { Table } from '@zendeskgarden/react-tables';
+
+const StyledContainer = styled.div`
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
 
 interface IRow {
   index: number;
@@ -23,26 +29,26 @@ const rowData: IRow[] = Array.from(Array(10)).map((row, index) => ({
 }));
 
 const Example = () => (
-  <div style={{ overflowX: 'auto' }}>
+  <StyledContainer>
     <Table style={{ minWidth: 500 }}>
-      <Head>
-        <HeaderRow>
-          <HeaderCell>Fruit</HeaderCell>
-          <HeaderCell>Sun exposure</HeaderCell>
-          <HeaderCell>Soil type</HeaderCell>
-        </HeaderRow>
-      </Head>
-      <Body>
+      <Table.Head>
+        <Table.HeaderRow>
+          <Table.HeaderCell>Fruit</Table.HeaderCell>
+          <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+          <Table.HeaderCell>Soil type</Table.HeaderCell>
+        </Table.HeaderRow>
+      </Table.Head>
+      <Table.Body>
         {rowData.map(data => (
-          <Row key={data.index} isStriped={data.index % 2 === 0}>
-            <Cell>{data.fruit}</Cell>
-            <Cell>{data.sun}</Cell>
-            <Cell>{data.soil}</Cell>
-          </Row>
+          <Table.Row key={data.index} isStriped={data.index % 2 === 0}>
+            <Table.Cell>{data.fruit}</Table.Cell>
+            <Table.Cell>{data.sun}</Table.Cell>
+            <Table.Cell>{data.soil}</Table.Cell>
+          </Table.Row>
         ))}
-      </Body>
+      </Table.Body>
     </Table>
-  </div>
+  </StyledContainer>
 );
 
 export default Example;

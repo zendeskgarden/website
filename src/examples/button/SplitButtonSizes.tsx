@@ -7,15 +7,19 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
-import { Menu, Item } from '@zendeskgarden/react-dropdowns.next';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
+`;
+
+const StyledItem = styled(Item)`
+  overflow-wrap: break-word;
 `;
 
 const Example = () => {
@@ -24,8 +28,8 @@ const Example = () => {
   const [largeRotated, setLargeRotated] = useState<boolean>();
 
   return (
-    <Row alignItems="center">
-      <Col textAlign="center" sm>
+    <Grid.Row alignItems="center">
+      <Grid.Col textAlign="center" sm>
         <SplitButton>
           <Button size="small">Harvest</Button>
           <Menu
@@ -37,18 +41,19 @@ const Example = () => {
                 isRotated={smallRotated}
               />
             )}
-            onChange={changes =>
-              changes.isExpanded !== undefined && setSmallRotated(changes.isExpanded)
-            }
+            isCompact
+            onChange={changes => {
+              changes.isExpanded !== undefined && setSmallRotated(changes.isExpanded);
+            }}
             placement="bottom-end"
             zIndex={10000}
           >
-            <Item value="prune">Prune</Item>
-            <Item value="water">Water</Item>
-            <Item value="fertilize">Fertilize</Item>
+            <StyledItem value="prune">Prune</StyledItem>
+            <StyledItem value="water">Water</StyledItem>
+            <StyledItem value="fertilize">Fertilize</StyledItem>
           </Menu>
         </SplitButton>
-      </Col>
+      </Grid.Col>
       <StyledCol textAlign="center" sm>
         <SplitButton>
           <Button size="medium">Harvest</Button>
@@ -61,15 +66,15 @@ const Example = () => {
                 isRotated={mediumRotated}
               />
             )}
-            onChange={changes =>
-              changes.isExpanded !== undefined && setMediumRotated(changes.isExpanded)
-            }
+            onChange={changes => {
+              changes.isExpanded !== undefined && setMediumRotated(changes.isExpanded);
+            }}
             placement="bottom-end"
             zIndex={10000}
           >
-            <Item value="prune">Prune</Item>
-            <Item value="water">Water</Item>
-            <Item value="fertilize">Fertilize</Item>
+            <StyledItem value="prune">Prune</StyledItem>
+            <StyledItem value="water">Water</StyledItem>
+            <StyledItem value="fertilize">Fertilize</StyledItem>
           </Menu>
         </SplitButton>
       </StyledCol>
@@ -85,19 +90,19 @@ const Example = () => {
                 isRotated={largeRotated}
               />
             )}
-            onChange={changes =>
-              changes.isExpanded !== undefined && setLargeRotated(changes.isExpanded)
-            }
+            onChange={changes => {
+              changes.isExpanded !== undefined && setLargeRotated(changes.isExpanded);
+            }}
             placement="bottom-end"
             zIndex={10000}
           >
-            <Item value="prune">Prune</Item>
-            <Item value="water">Water</Item>
-            <Item value="fertilize">Fertilize</Item>
+            <StyledItem value="prune">Prune</StyledItem>
+            <StyledItem value="water">Water</StyledItem>
+            <StyledItem value="fertilize">Fertilize</StyledItem>
           </Menu>
         </SplitButton>
       </StyledCol>
-    </Row>
+    </Grid.Row>
   );
 };
 

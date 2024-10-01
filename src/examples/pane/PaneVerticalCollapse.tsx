@@ -16,13 +16,16 @@ const StyledParagraph = styled(Paragraph)`
   margin-top: ${p => p.theme.space.xs};
 `;
 
+const HEIGHT = '180px';
+
 const StyledPaneContent = styled(Pane.Content)`
-  height: 180px;
+  height: ${HEIGHT};
 `;
 
 const StyledPane = styled(Pane)<{ isSecondary?: boolean }>`
+  background-color: ${p =>
+    p.isSecondary && getColor({ variable: 'background.subtle', theme: p.theme })};
   padding: ${p => p.theme.space.base * 6}px;
-  ${p => p.isSecondary && `background-color: ${getColor('neutralHue', 100, p.theme)}`};
 `;
 
 const Example = () => {
@@ -42,7 +45,7 @@ const Example = () => {
           <div
             style={{
               width,
-              height: '100%',
+              height: HEIGHT,
               display: 'grid',
               gridTemplateColumns: getGridTemplateColumns()
             }}

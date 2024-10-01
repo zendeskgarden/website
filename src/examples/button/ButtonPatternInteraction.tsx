@@ -7,7 +7,7 @@
 
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Dots } from '@zendeskgarden/react-loaders';
 
@@ -37,8 +37,8 @@ const ButtonPatternInteraction = () => {
   }, [isLoading]);
 
   return (
-    <Row>
-      <Col textAlign="center">
+    <Grid.Row>
+      <Grid.Col textAlign="center">
         <Button isPrimary ref={buttonRef}>
           {isLoading ? (
             <Dots delayMS={0} aria-label="Save" size={themeContext.space.base * 5} />
@@ -46,8 +46,8 @@ const ButtonPatternInteraction = () => {
             'Save'
           )}
         </Button>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

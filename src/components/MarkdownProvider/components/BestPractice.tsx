@@ -9,14 +9,14 @@ import React, { PropsWithChildren, ReactNode } from 'react';
 import styled from 'styled-components';
 import { math } from 'polished';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import { Well, Title } from '@zendeskgarden/react-notifications';
-import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Well } from '@zendeskgarden/react-notifications';
+import { Grid } from '@zendeskgarden/react-grid';
+import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
 
-const StyledRow = styled(Row)`
+const StyledRow = styled(Grid.Row)`
   margin-top: ${p => p.theme.space.lg};
   margin-bottom: ${p => p.theme.space.xxl};
 
@@ -26,7 +26,7 @@ const StyledRow = styled(Row)`
   }
 `;
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     &:not(:first-child) {
       margin-top: ${p => `${p.theme.space.base * 6}px`};
@@ -42,7 +42,8 @@ const StyledFigure = styled.figure`
 `;
 
 const StyledImgContainer = styled.div`
-  border: ${p => `${p.theme.borders.sm} ${getColor('neutralHue', 300, p.theme)}`};
+  border: ${p =>
+    `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'border.default' })}`};
   border-bottom: none;
   border-top-left-radius: ${p => p.theme.borderRadii.md};
   border-top-right-radius: ${p => p.theme.borderRadii.md};
@@ -58,10 +59,10 @@ const StyledCaption = styled(p => <Well isRecessed {...p} />).attrs<IStyledCapti
   forwardedAs: p.tag
 }))<IStyledCaptionProps>`
   border: none;
-  border-top: ${p => `${p.theme.borders.md} ${getColor(p.hue, 500, p.theme)}`};
+  border-top: ${p => `${p.theme.borders.md} ${getColorV8(p.hue, 500, p.theme)}`};
   border-radius: 0;
   padding-bottom: ${p => p.theme.space.base * 7}px;
-  color: ${p => p.theme.colors.foreground};
+  color: ${({ theme }) => getColor({ variable: 'foreground.default', theme })};
 
   & > ul {
     list-style-type: none;
@@ -70,7 +71,7 @@ const StyledCaption = styled(p => <Well isRecessed {...p} />).attrs<IStyledCapti
 
     & > li:not(:first-child) {
       margin-top: ${p => p.theme.space.xs};
-      border-top: ${p => `${p.theme.borders.sm} ${getColor('neutralHue', 300, p.theme)}`};
+      border-top: ${p => `${p.theme.borders.sm} ${getColorV8('neutralHue', 300, p.theme)}`};
       padding-top: ${p => p.theme.space.xs};
     }
   }
@@ -80,11 +81,11 @@ const StyledCaption = styled(p => <Well isRecessed {...p} />).attrs<IStyledCapti
   }
 `;
 
-const StyledTitle = styled(p => <Title {...p} />).attrs(p => ({ forwardedAs: p.tag }))`
+const StyledTitle = styled(p => <Well.Title {...p} />).attrs(p => ({ forwardedAs: p.tag }))`
   display: flex;
   align-items: center;
   margin-left: -${p => math(`${p.theme.iconSizes.md} + ${p.theme.space.xs}`)};
-  color: ${p => getColor(p.hue, 600, p.theme)};
+  color: ${p => getColorV8(p.hue, 600, p.theme)};
 
   /* stylelint-disable-next-line no-descending-specificity */
   & + p,

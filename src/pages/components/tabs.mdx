@@ -5,10 +5,11 @@ description: >
   without having to switch contexts.
 package: '@zendeskgarden/react-tabs'
 components:
+  - tabs/src/elements/Tabs.tsx
+subcomponents:
   - tabs/src/elements/Tab.tsx
   - tabs/src/elements/TabList.tsx
   - tabs/src/elements/TabPanel.tsx
-  - tabs/src/elements/Tabs.tsx
 ---
 
 import { SEO } from '../../components';
@@ -73,29 +74,29 @@ import TabsVerticalCode from '!!raw-loader!../../examples/tabs/TabsVertical.tsx'
 
 ## API
 
-### Tab
-
-<Component components={props.data.mdx.components} componentName="tab" />
-
-<PropSheet components={props.data.mdx.components} componentName="tab" />
-
-### TabList
-
-<Component components={props.data.mdx.components} componentName="tabList" />
-
-<PropSheet components={props.data.mdx.components} componentName="tabList" />
-
-### TabPanel
-
-<Component components={props.data.mdx.components} componentName="tabPanel" />
-
-<PropSheet components={props.data.mdx.components} componentName="tabPanel" />
-
 ### Tabs
 
 <Component components={props.data.mdx.components} componentName="tabs" />
 
 <PropSheet components={props.data.mdx.components} componentName="tabs" />
+
+### Tabs.Tab
+
+<Component components={props.data.mdx.subcomponents} componentName="tabs.tab" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tabs.tab" />
+
+#### Tabs.TabList
+
+<Component components={props.data.mdx.subcomponents} componentName="tabs.tablist" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tabs.tablist" />
+
+#### Tabs.TabPanel
+
+<Component components={props.data.mdx.subcomponents} componentName="tabs.tabpanel" />
+
+<PropSheet components={props.data.mdx.subcomponents} componentName="tabs.tabpanel" />
 
 import { graphql } from 'gatsby';
 

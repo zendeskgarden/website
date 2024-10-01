@@ -6,22 +6,22 @@
  */
 
 import React from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Spinner } from '@zendeskgarden/react-loaders';
 
 const Example = () => (
-  <Row>
-    <Col textAlign="center">
-      <Spinner size="32" color={PALETTE.grey[600]} />
-    </Col>
-    <Col textAlign="center">
-      <Spinner size="32" color={PALETTE.blue[600]} />
-    </Col>
-    <Col textAlign="center">
-      <Spinner size="32" color={PALETTE.green[600]} />
-    </Col>
-  </Row>
+  <Grid.Row>
+    <Grid.Col textAlign="center">
+      <Spinner size="32" color={PALETTE.grey[700]} />
+    </Grid.Col>
+    <Grid.Col textAlign="center">
+      <Spinner size="32" color={PALETTE.blue[700]} />
+    </Grid.Col>
+    <Grid.Col textAlign="center">
+      <Spinner size="32" color={PALETTE.green[700]} />
+    </Grid.Col>
+  </Grid.Row>
 );
 
 export default Example;

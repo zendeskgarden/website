@@ -7,22 +7,22 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { mediaQuery } from '@zendeskgarden/react-theming';
-import { Field, Label, Input, InputGroup } from '@zendeskgarden/react-forms';
+import { Field, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { Button } from '@zendeskgarden/react-buttons';
 
-const StyledCol = styled(Col)`
+const StyledCol = styled(Grid.Col)`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.sm};
   }
 `;
 
 const Example = () => (
-  <Row justifyContent="center">
-    <Col sm={5}>
+  <Grid.Row justifyContent="center">
+    <Grid.Col sm={5}>
       <Field>
-        <Label>Plant name generator</Label>
+        <Field.Label>Plant name generator</Field.Label>
         <InputGroup>
           <Input defaultValue="Sheepberry" />
           <Button focusInset isNeutral>
@@ -30,10 +30,10 @@ const Example = () => (
           </Button>
         </InputGroup>
       </Field>
-    </Col>
+    </Grid.Col>
     <StyledCol sm={5}>
       <Field>
-        <Label>Plant name generator</Label>
+        <Field.Label>Plant name generator</Field.Label>
         <InputGroup isCompact>
           <Input isCompact defaultValue="Sheepberry" />
           <Button size="small" focusInset isNeutral>
@@ -42,7 +42,7 @@ const Example = () => (
         </InputGroup>
       </Field>
     </StyledCol>
-  </Row>
+  </Grid.Row>
 );
 
 export default Example;

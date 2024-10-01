@@ -17,7 +17,9 @@ export function Head(props) {
 <Usage>
   <Use>
 
-    - As the root component of the Garden DOM, where it provides global context for [RTL](/components/theme-object#rtl) layout
+    - As the root component of the Garden DOM, where it provides global context
+      for [color](/components/theme-object#colors) mode and
+      [RTL](/components/theme-object#rtl) layout
     - As a nested wrapper for a subset of components that require themed styling
 
   </Use>
@@ -27,7 +29,10 @@ export function Head(props) {
 
 ### Default
 
-The typical usage of a theme provided to styled components.
+The typical usage of a theme provided to styled components. Use the
+[getColor](/components/utilities#getcolor) utility with semantic [color
+variables](/components/theme-object#variables) to ensure custom components work
+well in dark mode.
 
 import Default from '../../examples/theme-provider/ThemeProviderDefault.tsx';
 import DefaultCode from '!!raw-loader!../../examples/theme-provider/ThemeProviderDefault.tsx';
@@ -40,7 +45,7 @@ import DefaultCode from '!!raw-loader!../../examples/theme-provider/ThemeProvide
 
 You can override the default Theme provider for a branded component
 experience. In this example, Garden’s
-[`primaryHue`](/components/theme-object/#colors) is replaced and corners are
+[`primaryHue`](/components/theme-object/#hues) is replaced and corners are
 set to square.
 
 import Branding from '../../examples/theme-provider/ThemeProviderBranding.tsx';
@@ -55,7 +60,7 @@ import BrandingCode from '!!raw-loader!../../examples/theme-provider/ThemeProvid
 The default theme can be extended with custom values. In this example, the
 [`palette`](/components/theme-object/#palette) adds a new deep orange hue
 which replaces Garden’s default
-[`dangerHue`](/components/theme-object/#colors).
+[`dangerHue`](/components/theme-object/#hues).
 
 import Extension from '../../examples/theme-provider/ThemeProviderExtension.tsx';
 import ExtensionCode from '!!raw-loader!../../examples/theme-provider/ThemeProviderExtension.tsx';

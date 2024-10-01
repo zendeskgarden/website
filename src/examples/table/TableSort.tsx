@@ -6,16 +6,13 @@
  */
 
 import React, { useState } from 'react';
-import {
-  Body,
-  Cell,
-  Head,
-  HeaderCell,
-  HeaderRow,
-  Row,
-  SortableCell,
-  Table
-} from '@zendeskgarden/react-tables';
+import styled from 'styled-components';
+import { Table } from '@zendeskgarden/react-tables';
+
+const StyledContainer = styled.div`
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
+`;
 
 interface IRowData {
   id: string;
@@ -69,12 +66,12 @@ const Example = () => {
   const [typeSort, setTypeSort] = useState<Direction>();
 
   return (
-    <div style={{ overflowX: 'auto' }}>
+    <StyledContainer>
       <Table style={{ minWidth: 500 }}>
-        <Head>
-          <HeaderRow>
-            <HeaderCell>Subject</HeaderCell>
-            <SortableCell
+        <Table.Head>
+          <Table.HeaderRow>
+            <Table.HeaderCell>Subject</Table.HeaderCell>
+            <Table.SortableCell
               onClick={() => {
                 if (requesterSort === 'asc') {
                   setRequesterSort('desc');
@@ -89,8 +86,8 @@ const Example = () => {
               sort={requesterSort}
             >
               Requester
-            </SortableCell>
-            <SortableCell
+            </Table.SortableCell>
+            <Table.SortableCell
               onClick={() => {
                 if (typeSort === 'asc') {
                   setTypeSort('desc');
@@ -105,20 +102,20 @@ const Example = () => {
               sort={typeSort}
             >
               Type
-            </SortableCell>
-          </HeaderRow>
-        </Head>
-        <Body>
+            </Table.SortableCell>
+          </Table.HeaderRow>
+        </Table.Head>
+        <Table.Body>
           {sortData(data.slice(), requesterSort, typeSort).map(row => (
-            <Row key={row.id}>
-              <Cell>{row.subject}</Cell>
-              <Cell>{row.requester}</Cell>
-              <Cell>{row.type}</Cell>
-            </Row>
+            <Table.Row key={row.id}>
+              <Table.Cell>{row.subject}</Table.Cell>
+              <Table.Cell>{row.requester}</Table.Cell>
+              <Table.Cell>{row.type}</Table.Cell>
+            </Table.Row>
           ))}
-        </Body>
+        </Table.Body>
       </Table>
-    </div>
+    </StyledContainer>
   );
 };
 

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Body, Cell, Head, HeaderCell, HeaderRow, Row, Table } from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
 import { Paragraph } from '@zendeskgarden/react-typography';
 import { getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
@@ -18,18 +18,20 @@ const rowData = Array.from(Array(10)).map((row, index) => ({
   soil: 'Well draining'
 }));
 
-const StyledHeaderCell = styled(HeaderCell)`
-  box-shadow: inset 0 -1px 0 ${props => getColor('neutralHue', 300, props.theme)};
+const StyledContainer = styled.div`
+  max-height: 400px;
+  overflow-x: auto;
+  color-scheme: only ${p => p.theme.colors.base};
 `;
 
-const StyledHeaderRow = styled(HeaderRow)`
+const StyledHeaderRow = styled(Table.HeaderRow)`
   border-bottom: none;
 `;
 
-const StyledHead = styled(Head)`
+const StyledHead = styled(Table.Head)`
   position: sticky;
   top: 0;
-  background: ${props => props.theme.colors.background};
+  background-color: ${({ theme }) => getColor({ variable: 'background.default', theme })};
 `;
 
 const StyledParagraph = styled(Paragraph)`
@@ -37,24 +39,24 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 const Example = () => (
-  <div style={{ overflowX: 'auto', maxHeight: '400px' }}>
+  <StyledContainer>
     <Table style={{ minWidth: 500 }}>
       <StyledHead>
         <StyledHeaderRow>
-          <StyledHeaderCell>Fruit</StyledHeaderCell>
-          <StyledHeaderCell>Sun exposure</StyledHeaderCell>
-          <StyledHeaderCell>Soil</StyledHeaderCell>
+          <Table.HeaderCell>Fruit</Table.HeaderCell>
+          <Table.HeaderCell>Sun exposure</Table.HeaderCell>
+          <Table.HeaderCell>Soil</Table.HeaderCell>
         </StyledHeaderRow>
       </StyledHead>
-      <Body>
+      <Table.Body>
         {rowData.map(data => (
-          <Row key={data.index} isStriped={data.index % 2 === 0}>
-            <Cell>{data.fruit}</Cell>
-            <Cell>{data.sun}</Cell>
-            <Cell>{data.soil}</Cell>
-          </Row>
+          <Table.Row key={data.index} isStriped={data.index % 2 === 0}>
+            <Table.Cell>{data.fruit}</Table.Cell>
+            <Table.Cell>{data.sun}</Table.Cell>
+            <Table.Cell>{data.soil}</Table.Cell>
+          </Table.Row>
         ))}
-      </Body>
+      </Table.Body>
     </Table>
     <StyledParagraph>
       Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water
@@ -68,7 +70,7 @@ const Example = () => (
       chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko
       chicory celtuce parsley jícama.
     </StyledParagraph>
-  </div>
+  </StyledContainer>
 );
 
 export default Example;

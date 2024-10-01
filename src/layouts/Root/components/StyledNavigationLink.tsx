@@ -6,10 +6,10 @@
  */
 
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import { focusStyles, getColor } from '@zendeskgarden/react-theming';
+import { focusStyles, getColor, getColorV8 } from '@zendeskgarden/react-theming';
 
 interface ILink {
   children: ReactNode;
@@ -17,21 +17,57 @@ interface ILink {
   activeClassName?: string;
 }
 
+/*
+ * Copy Garden `Anchor` styling
+ *
+ * 1. Override bedrock CSS transition
+ */
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const options = { theme, variable: 'foreground.primary' };
+  const color = getColor(options);
+  const hoverColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
+  const activeColor = getColor({ ...options, dark: { offset: -200 }, light: { offset: 200 } });
+  const focusOutlineColor = getColor({ theme, variable: 'border.primaryEmphasis' });
+
+  return css`
+    transition: color 0.25s ease-in-out; /* [1] */
+    color: ${color};
+
+    ${focusStyles({ theme, condition: false, styles: { color, outlineColor: focusOutlineColor } })};
+
+    &:hover {
+      color: ${hoverColor};
+    }
+
+    &:active {
+      color: ${activeColor};
+    }
+  `;
+};
+
+const StyledGatsbyLink = styled(GatsbyLink)`
+  ${colorStyles};
+`;
+
+const StyledOutboundLink = styled(OutboundLink)`
+  ${colorStyles};
+`;
+
 export const Link = ({ children, to, activeClassName, ...props }: ILink) => {
   const internal = /^\/(?!\/)/u.test(to);
 
   if (internal) {
     return (
-      <GatsbyLink to={to} activeClassName={activeClassName} {...props}>
+      <StyledGatsbyLink to={to} activeClassName={activeClassName} {...props}>
         {children}
-      </GatsbyLink>
+      </StyledGatsbyLink>
     );
   }
 
   return (
-    <OutboundLink href={to} {...props}>
+    <StyledOutboundLink href={to} {...props}>
       {children}
-    </OutboundLink>
+    </StyledOutboundLink>
   );
 };
 
@@ -40,7 +76,7 @@ export const StyledNavigationLink = styled(Link).attrs(p => ({
 }))`
   border-radius: ${p => p.theme.borderRadii.md};
   padding: ${p => p.theme.space.base * 1.5}px ${p => p.theme.space.xs};
-  color: ${p => p.theme.colors.foreground};
+  color: ${({ theme }) => getColor({ variable: 'foreground.default', theme })};
 
   &:hover,
   &:focus,
@@ -50,16 +86,16 @@ export const StyledNavigationLink = styled(Link).attrs(p => ({
   }
 
   &.is-current {
-    background-color: ${p => getColor('grey', 800, p.theme, 0.1)};
+    background-color: ${p => getColorV8('grey', 800, p.theme, 0.1)};
   }
 
   &:hover {
-    background-color: ${p => getColor('grey', 800, p.theme, 0.05)};
+    background-color: ${p => getColorV8('grey', 800, p.theme, 0.05)};
   }
 
   ${props => focusStyles({ theme: props.theme })}
 
   &:active {
-    background-color: ${p => getColor('grey', 800, p.theme, 0.2)};
+    background-color: ${p => getColorV8('grey', 800, p.theme, 0.2)};
   }
 `;

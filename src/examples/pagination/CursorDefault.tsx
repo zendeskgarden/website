@@ -13,9 +13,13 @@ const Example = () => {
 
   const pages = [0, 1, 2, 3, 4];
 
-  const onFirst = () => setCursor(0);
+  const onFirst = () => {
+    setCursor(0);
+  };
 
-  const onLast = () => setCursor(pages.length - 1);
+  const onLast = () => {
+    setCursor(pages.length - 1);
+  };
 
   const onNext = () => {
     if (cursor < pages.length - 1) {

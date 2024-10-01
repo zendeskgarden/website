@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { Link, GatsbyLinkProps } from 'gatsby';
+import { GatsbyLinkProps } from 'gatsby';
+import { Link } from '../../../layouts/Root/components/StyledNavigationLink';
 
 export const HomeLink: React.FC<Omit<GatsbyLinkProps<any>, 'ref'>> = ({ children, ...props }) => (
   <Link {...props}>{children} →</Link>

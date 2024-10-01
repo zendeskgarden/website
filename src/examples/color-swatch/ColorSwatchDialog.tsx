@@ -7,71 +7,65 @@
 
 import React, { useState } from 'react';
 import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { convertToMatrix } from '@zendeskgarden/container-utilities';
 import { PALETTE } from '@zendeskgarden/react-theming';
 
 const colors = [
-  { label: 'Blue-200', value: PALETTE.blue[200] },
   { label: 'Blue-300', value: PALETTE.blue[300] },
   { label: 'Blue-400', value: PALETTE.blue[400] },
   { label: 'Blue-500', value: PALETTE.blue[500] },
   { label: 'Blue-600', value: PALETTE.blue[600] },
   { label: 'Blue-700', value: PALETTE.blue[700] },
   { label: 'Blue-800', value: PALETTE.blue[800] },
-  { label: 'Red-200', value: PALETTE.red[200] },
+  { label: 'Blue-900', value: PALETTE.blue[900] },
   { label: 'Red-300', value: PALETTE.red[300] },
   { label: 'Red-400', value: PALETTE.red[400] },
   { label: 'Red-500', value: PALETTE.red[500] },
   { label: 'Red-600', value: PALETTE.red[600] },
   { label: 'Red-700', value: PALETTE.red[700] },
   { label: 'Red-800', value: PALETTE.red[800] },
-  { label: 'Yellow-200', value: PALETTE.yellow[200] },
+  { label: 'Red-900', value: PALETTE.red[900] },
   { label: 'Yellow-300', value: PALETTE.yellow[300] },
   { label: 'Yellow-400', value: PALETTE.yellow[400] },
   { label: 'Yellow-500', value: PALETTE.yellow[500] },
   { label: 'Yellow-600', value: PALETTE.yellow[600] },
   { label: 'Yellow-700', value: PALETTE.yellow[700] },
   { label: 'Yellow-800', value: PALETTE.yellow[800] },
-  { label: 'Green-200', value: PALETTE.green[200] },
+  { label: 'Yellow-900', value: PALETTE.yellow[900] },
   { label: 'Green-300', value: PALETTE.green[300] },
   { label: 'Green-400', value: PALETTE.green[400] },
   { label: 'Green-500', value: PALETTE.green[500] },
   { label: 'Green-600', value: PALETTE.green[600] },
   { label: 'Green-700', value: PALETTE.green[700] },
-  { label: 'Green-800', value: PALETTE.green[800] }
+  { label: 'Green-800', value: PALETTE.green[800] },
+  { label: 'Green-900', value: PALETTE.green[900] }
 ];
 
 const matrix = convertToMatrix(colors, 7);
 
 const Example = () => {
-  const [rowIndex, setRowIndex] = useState(0);
-  const [colIndex, setColIndex] = useState(4);
   const [selectedRowIndex, setSelectedRowIndex] = useState(0);
   const [selectedColIndex, setSelectedColIndex] = useState(4);
-  const onChange = (rowIdx: number, colIdx: number) => {
-    setRowIndex(rowIdx);
-    setColIndex(colIdx);
-  };
-  const onSelect = (rowIdx: number, colIdx: number) => {
-    setSelectedRowIndex(rowIdx);
-    setSelectedColIndex(colIdx);
+  const onSelect = (rowIdx: number | null, colIdx: number | null) => {
+    if (typeof rowIdx === 'number' && typeof colIdx === 'number') {
+      setSelectedRowIndex(rowIdx);
+      setSelectedColIndex(colIdx);
+    }
   };
 
   return (
-    <Row justifyContent="center">
-      <Col size="auto">
+    <Grid.Row justifyContent="center">
+      <Grid.Col size="auto">
         <ColorSwatchDialog
+          name="color-swatch-dialog"
           colors={matrix}
-          onChange={onChange}
           onSelect={onSelect}
-          rowIndex={rowIndex}
-          colIndex={colIndex}
           selectedRowIndex={selectedRowIndex}
           selectedColIndex={selectedColIndex}
         />
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

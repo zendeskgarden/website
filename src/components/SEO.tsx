@@ -103,7 +103,7 @@ export const SEO = ({
       ))}
 
       {[
-        { rel: 'mask-icon', href: '/mask-icon.svg', color: PALETTE.kale[700] },
+        { rel: 'mask-icon', href: '/mask-icon.svg', color: PALETTE.kale[900] },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
         { rel: 'shortcut icon', href: '/favicon.ico' }
       ].map((props, index) => (

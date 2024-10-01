@@ -7,15 +7,8 @@
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import debounce from 'lodash.debounce';
-import { Col, Row } from '@zendeskgarden/react-grid';
-import {
-  Combobox,
-  Field,
-  Hint,
-  IComboboxProps,
-  Label,
-  Option
-} from '@zendeskgarden/react-dropdowns.next';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Combobox, Field, IComboboxProps, Option } from '@zendeskgarden/react-dropdowns';
 
 const OPTIONS = [
   'Asparagus',
@@ -54,15 +47,17 @@ const Example = () => {
   const debounceHandleChange = useMemo(() => debounce(handleChange, 300), [handleChange]);
 
   useEffect(() => {
-    return () => debounceHandleChange.cancel();
+    return () => {
+      debounceHandleChange.cancel();
+    };
   }, [debounceHandleChange]);
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
-          <Label>Seeds</Label>
-          <Hint>Plan your vegetable garden</Hint>
+          <Field.Label>Seeds</Field.Label>
+          <Field.Hint>Plan your vegetable garden</Field.Hint>
           <Combobox
             isAutocomplete
             isMultiselectable
@@ -76,8 +71,8 @@ const Example = () => {
             )}
           </Combobox>
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

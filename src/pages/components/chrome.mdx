@@ -7,25 +7,23 @@ package: '@zendeskgarden/react-chrome'
 components:
   - chrome/src/elements/body/Body.tsx
   - chrome/src/elements/Chrome.tsx
-  - chrome/src/elements/subnav/CollapsibleSubNavItem.tsx
   - chrome/src/elements/body/Content.tsx
   - chrome/src/elements/footer/Footer.tsx
-  - chrome/src/elements/footer/FooterItem.tsx
   - chrome/src/elements/header/Header.tsx
+  - chrome/src/elements/body/Main.tsx
+  - chrome/src/elements/nav/Nav.tsx
+  - chrome/src/elements/body/Sidebar.tsx
+  - chrome/src/elements/SkipNav.tsx
+subcomponents:
+  - chrome/src/elements/footer/FooterItem.tsx
   - chrome/src/elements/header/HeaderItem.tsx
   - chrome/src/elements/header/HeaderItemIcon.tsx
   - chrome/src/elements/header/HeaderItemText.tsx
   - chrome/src/elements/header/HeaderItemWrapper.tsx
-  - chrome/src/elements/body/Main.tsx
-  - chrome/src/elements/nav/Nav.tsx
   - chrome/src/elements/nav/NavItem.tsx
   - chrome/src/elements/nav/NavItemIcon.tsx
   - chrome/src/elements/nav/NavItemText.tsx
-  - chrome/src/elements/body/Sidebar.tsx
-  - chrome/src/elements/SkipNav.tsx
-  - chrome/src/elements/subnav/SubNav.tsx
-  - chrome/src/elements/subnav/SubNavItem.tsx
-  - chrome/src/elements/subnav/SubNavItemText.tsx
+  - chrome/src/elements/nav/NavList.tsx
 ---
 
 import { SEO } from '../../components';
@@ -114,12 +112,6 @@ Chrome uses [26px sized icons](/design/icons/chrome-icons) made specifically for
 
 <PropSheet components={props.data.mdx.components} componentName="chrome" />
 
-### CollapsibleSubNavItem
-
-<Component components={props.data.mdx.components} componentName="collapsibleSubNavItem" />
-
-<PropSheet components={props.data.mdx.components} componentName="collapsibleSubNavItem" />
-
 ### Content
 
 <Component components={props.data.mdx.components} componentName="content" />
@@ -132,11 +124,11 @@ Chrome uses [26px sized icons](/design/icons/chrome-icons) made specifically for
 
 <PropSheet components={props.data.mdx.components} componentName="footer" />
 
-### FooterItem
+#### Footer.Item
 
-<Component components={props.data.mdx.components} componentName="footerItem" />
+<Component components={props.data.mdx.subcomponents} componentName="footer.item" />
 
-<PropSheet components={props.data.mdx.components} componentName="footerItem" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="footer.item" />
 
 ### Header
 
@@ -144,29 +136,29 @@ Chrome uses [26px sized icons](/design/icons/chrome-icons) made specifically for
 
 <PropSheet components={props.data.mdx.components} componentName="header" />
 
-### HeaderItem
+#### Header.Item
 
-<Component components={props.data.mdx.components} componentName="headerItem" />
+<Component components={props.data.mdx.subcomponents} componentName="header.item" />
 
-<PropSheet components={props.data.mdx.components} componentName="headerItem" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="header.item" />
 
-### HeaderItemIcon
+#### Header.ItemIcon
 
-<Component components={props.data.mdx.components} componentName="headerItemIcon" />
+<Component components={props.data.mdx.subcomponents} componentName="header.itemIcon" />
 
-<PropSheet components={props.data.mdx.components} componentName="headerItemIcon" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="header.itemIcon" />
 
-### HeaderItemText
+#### Header.ItemText
 
-<Component components={props.data.mdx.components} componentName="headerItemText" />
+<Component components={props.data.mdx.subcomponents} componentName="header.itemText" />
 
-<PropSheet components={props.data.mdx.components} componentName="headerItemText" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="header.itemText" />
 
-### HeaderItemWrapper
+#### Header.ItemWrapper
 
-<Component components={props.data.mdx.components} componentName="headerItemWrapper" />
+<Component components={props.data.mdx.subcomponents} componentName="header.itemWrapper" />
 
-<PropSheet components={props.data.mdx.components} componentName="headerItemWrapper" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="header.itemWrapper" />
 
 ### Main
 
@@ -180,53 +172,35 @@ Chrome uses [26px sized icons](/design/icons/chrome-icons) made specifically for
 
 <PropSheet components={props.data.mdx.components} componentName="nav" />
 
-### NavItem
+#### Nav.Item
 
-<Component components={props.data.mdx.components} componentName="navItem" />
+<Component components={props.data.mdx.subcomponents} componentName="nav.item" />
 
-<PropSheet components={props.data.mdx.components} componentName="navItem" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="nav.item" />
 
-### NavItemIcon
+#### Nav.ItemIcon
 
-<Component components={props.data.mdx.components} componentName="navItemIcon" />
+<Component components={props.data.mdx.subcomponents} componentName="nav.itemIcon" />
 
-<PropSheet components={props.data.mdx.components} componentName="navItemIcon" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="nav.itemIcon" />
 
-### NavItemText
+#### Nav.ItemText
 
-<Component components={props.data.mdx.components} componentName="navItemText" />
+<Component components={props.data.mdx.subcomponents} componentName="nav.itemText" />
 
-<PropSheet components={props.data.mdx.components} componentName="navItemText" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="nav.itemText" />
 
-### Sidebar
+#### Nav.List
 
-<Component components={props.data.mdx.components} componentName="sidebar" />
+<Component components={props.data.mdx.subcomponents} componentName="nav.list" />
 
-<PropSheet components={props.data.mdx.components} componentName="sidebar" />
+<PropSheet components={props.data.mdx.subcomponents} componentName="nav.list" />
 
 ### SkipNav
 
 <Component components={props.data.mdx.components} componentName="skipNav" />
 
 <PropSheet components={props.data.mdx.components} componentName="skipNav" />
-
-### SubNav
-
-<Component components={props.data.mdx.components} componentName="subNav" />
-
-<PropSheet components={props.data.mdx.components} componentName="subNav" />
-
-### SubNavItem
-
-<Component components={props.data.mdx.components} componentName="subNavItem" />
-
-<PropSheet components={props.data.mdx.components} componentName="subNavItem" />
-
-### SubNavItemText
-
-<Component components={props.data.mdx.components} componentName="subNavItemText" />
-
-<PropSheet components={props.data.mdx.components} componentName="subNavItemText" />
 
 import { graphql } from 'gatsby';
 

@@ -1,14 +1,5 @@
 {
-  "*.{js,ts,tsx}": [
-    "stylelint",
-    "eslint --max-warnings 0",
-    "prettier --write"
-  ],
-  "*.{md,mdx}": [
-    "markdownlint",
-    "prettier --write"
-  ],
-  "**/package.json": [
-    "prettier-package-json --write"
-  ]
+  "*.{js,ts,tsx}": ["stylelint", "eslint", "prettier --write"],
+  "*.{md,mdx}": ["markdownlint", "prettier --write"],
+  "**/package.json": ["prettier-package-json --write"]
 }

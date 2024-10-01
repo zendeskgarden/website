@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Row, Col } from '@zendeskgarden/react-grid';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as Icon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -17,43 +17,49 @@ const Example = () => {
   const [basicPressed, setBasicPressed] = useState(false);
 
   return (
-    <Row alignItems="center">
-      <Col textAlign="center">
+    <Grid.Row alignItems="center">
+      <Grid.Col textAlign="center">
         <Tooltip content="Default leaf">
           <ToggleIconButton
             aria-label="default leaf"
             isPressed={defaultPressed}
-            onClick={() => setDefaultPressed(!defaultPressed)}
+            onClick={() => {
+              setDefaultPressed(!defaultPressed);
+            }}
           >
             <Icon />
           </ToggleIconButton>
         </Tooltip>
-      </Col>
-      <Col textAlign="center">
+      </Grid.Col>
+      <Grid.Col textAlign="center">
         <Tooltip content="Primary leaf">
           <ToggleIconButton
             aria-label="primary leaf"
             isPressed={primaryPressed}
-            onClick={() => setPrimaryPressed(!primaryPressed)}
+            onClick={() => {
+              setPrimaryPressed(!primaryPressed);
+            }}
             isPrimary
           >
             <Icon />
           </ToggleIconButton>
         </Tooltip>
-      </Col>
-      <Col textAlign="center">
+      </Grid.Col>
+      <Grid.Col textAlign="center">
         <Tooltip content="Basic leaf">
           <ToggleIconButton
             aria-label="basic leaf"
             isPressed={basicPressed}
-            onClick={() => setBasicPressed(!basicPressed)}
+            onClick={() => {
+              setBasicPressed(!basicPressed);
+            }}
             isBasic={false}
           >
             <Icon />
           </ToggleIconButton>
         </Tooltip>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

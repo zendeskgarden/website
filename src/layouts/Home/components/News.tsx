@@ -8,19 +8,19 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-import { SELECTOR_FOCUS_VISIBLE, getColor } from '@zendeskgarden/react-theming';
-import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+import { SELECTOR_FOCUS_VISIBLE, getColor, getColorV8 } from '@zendeskgarden/react-theming';
+import { Grid } from '@zendeskgarden/react-grid';
 import { XXL } from '@zendeskgarden/react-typography';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import MaxWidthLayout from 'layouts/MaxWidth';
 
 const StyledNewsAnchor = styled(Anchor)`
   ${SELECTOR_FOCUS_VISIBLE} {
-    color: ${p => getColor('primaryHue', 700, p.theme)};
+    color: ${p => getColorV8('primaryHue', 700, p.theme)};
   }
 
   &:active {
-    color: ${p => getColor('primaryHue', 800, p.theme)};
+    color: ${p => getColorV8('primaryHue', 800, p.theme)};
   }
 `;
 
@@ -48,23 +48,23 @@ export const News: React.FC = () => {
     <div
       css={css`
         position: relative;
-        background-color: ${p => getColor('grey', 200, p.theme)};
+        background-color: ${p => getColorV8('grey', 200, p.theme)};
       `}
     >
       <MaxWidthLayout>
         <Grid gutters="lg">
-          <Row>
-            <Col
+          <Grid.Row>
+            <Grid.Col
               css={css`
                 padding-top: ${p => p.theme.space.xxl};
                 padding-bottom: ${p => p.theme.space.xxl};
               `}
             >
               <StyledSectionHeader>News and Articles</StyledSectionHeader>
-              <Row>
+              <Grid.Row>
                 {allGardenNews.edges.map((edge: any, index: number) => {
                   return (
-                    <Col
+                    <Grid.Col
                       key={`${edge.node.url}-${index}`}
                       sm={4}
                       css={css`
@@ -74,7 +74,8 @@ export const News: React.FC = () => {
                       <StyledNewsAnchor
                         href={edge.node.url}
                         css={css`
-                          color: ${p => p.theme.colors.foreground};
+                          color: ${({ theme }) =>
+                            getColor({ variable: 'foreground.default', theme })};
                           font-weight: ${p => p.theme.fontWeights.semibold};
                         `}
                       >
@@ -82,7 +83,7 @@ export const News: React.FC = () => {
                       </StyledNewsAnchor>
                       <p
                         css={css`
-                          color: ${p => getColor('grey', 700, p.theme)};
+                          color: ${p => getColorV8('grey', 700, p.theme)};
                         `}
                       >
                         Article by{' '}
@@ -90,12 +91,12 @@ export const News: React.FC = () => {
                           {edge.node.author}
                         </StyledNewsAnchor>
                       </p>
-                    </Col>
+                    </Grid.Col>
                   );
                 })}
-              </Row>
-            </Col>
-          </Row>
+              </Grid.Row>
+            </Grid.Col>
+          </Grid.Row>
         </Grid>
       </MaxWidthLayout>
     </div>

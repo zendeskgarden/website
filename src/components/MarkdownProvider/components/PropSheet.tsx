@@ -7,9 +7,9 @@
 
 import React, { ReactElement } from 'react';
 import { css } from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 import { SM, MD, Ellipsis, Code } from '@zendeskgarden/react-typography';
-import { Table, Head, Body, HeaderRow, HeaderCell, Row, Cell } from '@zendeskgarden/react-tables';
+import { Table } from '@zendeskgarden/react-tables';
 import { IComponentData } from '../../../components/types';
 import { Tag } from '@zendeskgarden/react-tags';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
@@ -21,7 +21,7 @@ export const PropSheet: React.FC<{
   components: IComponentData[];
   componentName: string;
   headerName?: string;
-}> = ({ components, componentName, headerName }) => {
+}> = ({ components, componentName, headerName = 'Prop name' }) => {
   const component = components.find(c => c.name.toLowerCase() === componentName.toLowerCase())!;
 
   return (
@@ -40,18 +40,18 @@ export const PropSheet: React.FC<{
               min-width: 700px;
             `}
           >
-            <Head>
-              <HeaderRow>
-                <HeaderCell>{headerName}</HeaderCell>
-                <HeaderCell>Type</HeaderCell>
-                <HeaderCell>Default</HeaderCell>
-                <HeaderCell>Description</HeaderCell>
-              </HeaderRow>
-            </Head>
-            <Body>
+            <Table.Head>
+              <Table.HeaderRow>
+                <Table.HeaderCell>{headerName}</Table.HeaderCell>
+                <Table.HeaderCell>Type</Table.HeaderCell>
+                <Table.HeaderCell>Default</Table.HeaderCell>
+                <Table.HeaderCell>Description</Table.HeaderCell>
+              </Table.HeaderRow>
+            </Table.Head>
+            <Table.Body>
               {Object.keys(component.props).map(name => {
                 const prop = component.props[name];
-                let defaultValue: string | ReactElement = prop.defaultValue || '–';
+                let defaultValue: string | ReactElement = prop.defaultValue;
                 let defaultMonospace = true;
 
                 if (prop.required && !prop.defaultValue) {
@@ -59,58 +59,62 @@ export const PropSheet: React.FC<{
                   defaultMonospace = false;
                 }
 
-                const type =
-                  prop.type.indexOf('=>') === -1 ? (
-                    prop.type
-                  ) : (
-                    <Tooltip
-                      css={`
-                        max-width: 460px;
-                      `}
-                      type="light"
-                      size="small"
-                      placement="top-start"
-                      zIndex={100}
-                      content={<CodeBlock size="small">{prop.type}</CodeBlock>}
-                    >
-                      <Button isLink>func</Button>
-                    </Tooltip>
-                  );
+                const type = prop.type.includes('=>') ? (
+                  <Tooltip
+                    css={`
+                      max-width: 460px;
+                    `}
+                    type="light"
+                    size="small"
+                    placement="top-start"
+                    zIndex={100}
+                    content={<CodeBlock size="small">{prop.type}</CodeBlock>}
+                  >
+                    <Button isLink>func</Button>
+                  </Tooltip>
+                ) : (
+                  prop.type
+                );
 
                 return (
-                  <Row key={`${component.name}-${name}`}>
-                    <Cell>
+                  <Table.Row key={`${component.name}-${name}`}>
+                    <Table.Cell>
                       <MD
                         isMonospace
                         css={css`
-                          color: ${p => getColor('neutralHue', 700, p.theme)};
+                          color: ${p => getColorV8('neutralHue', 700, p.theme)};
                         `}
                       >
                         <Ellipsis>{name}</Ellipsis>
                       </MD>
-                    </Cell>
-                    <Cell>
+                    </Table.Cell>
+                    <Table.Cell>
                       <MD
                         tag="span"
                         isMonospace
                         css={css`
                           word-break: break-word;
-                          color: ${p => getColor('red', 700, p.theme)};
+                          color: ${p => getColorV8('red', 700, p.theme)};
                         `}
                       >
                         {type}
                       </MD>
-                    </Cell>
-                    <Cell>
-                      <MD isMonospace={defaultMonospace}>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <MD
+                        isMonospace={defaultMonospace}
+                        css={css`
+                          word-break: break-word;
+                        `}
+                      >
                         {prop.type === 'DefaultTheme' ? (
                           <Markdown>[DEFAULT_THEME](/components/theme-object)</Markdown>
                         ) : (
                           defaultValue
                         )}
                       </MD>
-                    </Cell>
-                    <Cell>
+                    </Table.Cell>
+                    <Table.Cell>
                       <MD
                         tag="span"
                         css={`
@@ -151,18 +155,14 @@ export const PropSheet: React.FC<{
                           <b>Returns</b> <Markdown>{prop.returns}</Markdown>
                         </SM>
                       )}
-                    </Cell>
-                  </Row>
+                    </Table.Cell>
+                  </Table.Row>
                 );
               })}
-            </Body>
+            </Table.Body>
           </Table>
         </div>
       )}
     </>
   );
-};
-
-PropSheet.defaultProps = {
-  headerName: 'Prop name'
 };

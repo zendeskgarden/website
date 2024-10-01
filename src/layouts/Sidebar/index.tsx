@@ -7,8 +7,7 @@
 
 import React, { PropsWithChildren, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { rgba } from 'polished';
-import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 import { ReactComponent as OverflowStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
@@ -30,11 +29,12 @@ const StyledMobileNavButton = styled.button`
   justify-content: center;
   z-index: 1;
   /* stylelint-disable-next-line color-function-notation */
-  border: ${p => p.theme.borders.sm} ${p => rgba(p.theme.palette.white as string, 0.2)};
+  border: ${p => p.theme.borders.sm}
+    ${({ theme }) => getColor({ hue: 'white', transparency: 0.2, theme })};
   border-radius: 100px;
-  background-color: ${p => getColor('kale', 800, p.theme)};
+  background-color: ${p => getColorV8('kale', 800, p.theme)};
   padding: ${p => p.theme.space.xs};
-  color: ${p => p.theme.colors.background};
+  color: ${({ theme }) => getColor({ hue: 'white', theme })};
 
   &:focus {
     outline: none;
@@ -75,7 +75,8 @@ export const SidebarLayout: React.FC<ISidebarLayoutProps> = ({ children, sidebar
           <div
             css={css`
               flex-grow: 1;
-              background-color: ${p => p.theme.colors.background};
+              background-color: ${({ theme }) =>
+                getColor({ variable: 'background.default', theme })};
               padding: ${p => p.theme.space.lg} ${p => p.theme.space.md};
               max-width: 100vw;
 
@@ -98,7 +99,9 @@ export const SidebarLayout: React.FC<ISidebarLayoutProps> = ({ children, sidebar
           </div>
           {!!isMobileSidebarExpanded && <MobileSidebar sidebar={sidebar} />}
           <StyledMobileNavButton
-            onClick={() => setIsMobileSidebarExpanded(!isMobileSidebarExpanded)}
+            onClick={() => {
+              setIsMobileSidebarExpanded(!isMobileSidebarExpanded);
+            }}
           >
             {isMobileSidebarExpanded ? <CloseStroke /> : <OverflowStroke />}
           </StyledMobileNavButton>
