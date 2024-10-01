@@ -37,7 +37,7 @@ const resolve = require('node:path').resolve;
     const latest = json['dist-tags'].latest;
     const options = { cwd: resolve('react-components') };
 
-    await execa('git', ['fetch', '--all', '--tags'], options);
+    await execa('git', ['fetch', '--all', '--force', '--tags'], options);
     await execa('git', ['checkout', `tags/v${latest}`], options);
 
     spinner.succeed(`Success.\nUpgraded react-components to ${latest}.`);

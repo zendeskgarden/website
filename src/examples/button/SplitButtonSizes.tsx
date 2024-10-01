@@ -18,6 +18,10 @@ const StyledCol = styled(Grid.Col)`
   }
 `;
 
+const StyledItem = styled(Item)`
+  overflow-wrap: break-word;
+`;
+
 const Example = () => {
   const [smallRotated, setSmallRotated] = useState<boolean>();
   const [mediumRotated, setMediumRotated] = useState<boolean>();
@@ -37,15 +41,16 @@ const Example = () => {
                 isRotated={smallRotated}
               />
             )}
+            isCompact
             onChange={changes => {
               changes.isExpanded !== undefined && setSmallRotated(changes.isExpanded);
             }}
             placement="bottom-end"
             zIndex={10000}
           >
-            <Item value="prune">Prune</Item>
-            <Item value="water">Water</Item>
-            <Item value="fertilize">Fertilize</Item>
+            <StyledItem value="prune">Prune</StyledItem>
+            <StyledItem value="water">Water</StyledItem>
+            <StyledItem value="fertilize">Fertilize</StyledItem>
           </Menu>
         </SplitButton>
       </Grid.Col>
@@ -67,9 +72,9 @@ const Example = () => {
             placement="bottom-end"
             zIndex={10000}
           >
-            <Item value="prune">Prune</Item>
-            <Item value="water">Water</Item>
-            <Item value="fertilize">Fertilize</Item>
+            <StyledItem value="prune">Prune</StyledItem>
+            <StyledItem value="water">Water</StyledItem>
+            <StyledItem value="fertilize">Fertilize</StyledItem>
           </Menu>
         </SplitButton>
       </StyledCol>
@@ -91,9 +96,9 @@ const Example = () => {
             placement="bottom-end"
             zIndex={10000}
           >
-            <Item value="prune">Prune</Item>
-            <Item value="water">Water</Item>
-            <Item value="fertilize">Fertilize</Item>
+            <StyledItem value="prune">Prune</StyledItem>
+            <StyledItem value="water">Water</StyledItem>
+            <StyledItem value="fertilize">Fertilize</StyledItem>
           </Menu>
         </SplitButton>
       </StyledCol>
