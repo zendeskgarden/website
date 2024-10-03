@@ -66,7 +66,7 @@ const packageJson = `
     "use-resize-observer": "latest",
     "@dnd-kit/core": "latest",
     "@dnd-kit/sortable": "latest",
-    "@zendeskgarden/container-utilities": "^1.x",
+    "@zendeskgarden/container-utilities": "^2.x",
     "@zendeskgarden/css-bedrock": "^9.x",
     "@zendeskgarden/react-accordions": "^9.x",
     "@zendeskgarden/react-avatars": "^9.x",
