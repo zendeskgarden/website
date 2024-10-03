@@ -90,7 +90,7 @@ const packageJson = `
     "@zendeskgarden/react-theming": "^9.x",
     "@zendeskgarden/react-tooltips": "^9.x",
     "@zendeskgarden/react-typography": "^9.x",
-    "@zendeskgarden/svg-icons": "^6.x"
+    "@zendeskgarden/svg-icons": "^7.x"
   }
 }
 `;
