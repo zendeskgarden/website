@@ -5,19 +5,25 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, HTMLAttributes, useRef, useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import React, { useState, HTMLAttributes, useRef, useEffect, ChangeEventHandler } from 'react';
+import styled, { css, useTheme } from 'styled-components';
 import { Link } from 'gatsby';
 import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
+import { IMenuProps, Item, ItemGroup, Menu } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import { ReactComponent as LightIcon } from '@zendeskgarden/svg-icons/src/16/sun-stroke.svg';
+import { ReactComponent as DarkIcon } from '@zendeskgarden/svg-icons/src/16/moon-stroke.svg';
+import { ReactComponent as SystemIcon } from '@zendeskgarden/svg-icons/src/16/monitor-stroke.svg';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/26/wordmark-garden.svg';
+import { ColorScheme, useColorSchemeContext } from 'components/useColorSchemeContext';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SearchInput } from './SearchInput';
 import { StyledNavigationLink } from './StyledNavigationLink';
+import { Field, Select } from '@zendeskgarden/react-forms';
 
 export const headerBoxShadow = (theme: any) =>
   theme.shadows.lg(
@@ -157,6 +163,12 @@ const StyledMobileNavLink = styled(StyledNavigationLink).attrs({ partiallyActive
 `;
 
 const MobileNav: React.FC = () => {
+  const { colorScheme, setColorScheme } = useColorSchemeContext();
+
+  const handleColorSchemeChange: ChangeEventHandler<HTMLSelectElement> = event => {
+    setColorScheme(event.target.value as ColorScheme);
+  };
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
@@ -179,41 +191,92 @@ const MobileNav: React.FC = () => {
       <StyledMobileNavLink to="/design">Design</StyledMobileNavLink>
       <StyledMobileNavLink to="/components">Components</StyledMobileNavLink>
       <StyledMobileNavLink to="/patterns">Patterns</StyledMobileNavLink>
+      <Field
+        css={css`
+          margin-top: ${p => p.theme.space.base * 2}px;
+          padding: ${p => p.theme.space.base * 1.5}px ${p => p.theme.space.xs};
+        `}
+      >
+        <Field.Label isRegular>Switch themes</Field.Label>
+        <Select defaultValue="system" value={colorScheme} onChange={handleColorSchemeChange}>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="system">System</option>
+        </Select>
+      </Field>
     </div>
   );
 };
 
-const DesktopNav: React.FC = () => (
-  <nav
-    role="navigation"
-    aria-label="Global"
-    css={css`
-      display: flex;
-      flex-grow: 1;
-      justify-content: flex-end;
+const DesktopNav: React.FC = () => {
+  const { colorScheme, setColorScheme } = useColorSchemeContext();
 
-      ${p => mediaQuery('down', 'sm', p.theme)} {
-        display: none;
-      }
-    `}
-  >
-    <StyledDesktopNavItem>
-      <StyledDesktopNavLink to="/content">Content</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
-      <StyledDesktopNavLink to="/design">Design</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
-      <StyledDesktopNavLink to="/components">Components</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
-      <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
-      <SearchInput id="algolia-docsearch" placeholder="Search" />
-    </StyledDesktopNavItem>
-  </nav>
-);
+  const theme = useTheme();
+
+  const handleColorSchemeChange: IMenuProps['onChange'] = changes => {
+    if (changes.value) {
+      setTimeout(() => {
+        setColorScheme(changes.value as ColorScheme);
+      });
+    }
+  };
+
+  return (
+    <nav
+      role="navigation"
+      aria-label="Global"
+      css={css`
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-end;
+
+        ${p => mediaQuery('down', 'sm', p.theme)} {
+          display: none;
+        }
+      `}
+    >
+      <StyledDesktopNavItem>
+        <StyledDesktopNavLink to="/content">Content</StyledDesktopNavLink>
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <StyledDesktopNavLink to="/design">Design</StyledDesktopNavLink>
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <StyledDesktopNavLink to="/components">Components</StyledDesktopNavLink>
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <SearchInput id="algolia-docsearch" placeholder="Search" />
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <Menu
+          button={props => (
+            <IconButton {...props}>
+              {theme.colors.base === 'dark' ? <DarkIcon /> : <LightIcon />}
+            </IconButton>
+          )}
+          onChange={handleColorSchemeChange}
+          placement="bottom-end"
+          selectedItems={[{ value: colorScheme }]}
+        >
+          <ItemGroup aria-label="Switch theme" type="radio">
+            <Item icon={<LightIcon />} value="light">
+              Light
+            </Item>
+            <Item icon={<DarkIcon />} value="dark">
+              Dark
+            </Item>
+            <Item icon={<SystemIcon />} isSelected value="system">
+              System
+            </Item>
+          </ItemGroup>
+        </Menu>
+      </StyledDesktopNavItem>
+    </nav>
+  );
+};
 
 const Header: React.FC = () => {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
