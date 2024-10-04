@@ -19,8 +19,6 @@ interface ILink {
 
 /*
  * Copy Garden `Anchor` styling
- *
- * 1. Override bedrock CSS transition
  */
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const options = { theme, variable: 'foreground.primary' };
@@ -30,7 +28,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const focusOutlineColor = getColor({ theme, variable: 'border.primaryEmphasis' });
 
   return css`
-    transition: color 0.25s ease-in-out; /* [1] */
+    text-decoration: none;
     color: ${color};
 
     ${focusStyles({ theme, condition: false, styles: { color, outlineColor: focusOutlineColor } })};
