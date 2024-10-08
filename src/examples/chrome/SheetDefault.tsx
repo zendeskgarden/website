@@ -27,7 +27,6 @@ const StyledSheet = styled(Sheet)`
     width: 100%;
 
     /* sheet inner wrapper */
-    /* stylelint-disable-next-line selector-max-compound-selectors */
     & > div {
       min-width: 100%;
     }
