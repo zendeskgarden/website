@@ -8,7 +8,7 @@
 import React, { createElement, Fragment, PropsWithChildren, ReactElement, ReactNode } from 'react';
 import { remark } from 'remark';
 import remark2react from 'remark-react';
-import VFile from 'vfile';
+import { VFile } from 'vfile';
 import { Code } from '@zendeskgarden/react-typography';
 import { StyledAnchor as Anchor } from './Anchor';
 import { UL, OL, LI } from './Lists';
@@ -56,7 +56,7 @@ const PROCESSOR = remark().use(remark2react, {
   Fragment
 } as any);
 
-interface IMarkdown extends VFile.VFile {
+interface IMarkdown extends VFile {
   result: ReactElement;
 }
 
