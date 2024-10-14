@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import MD from 'react-markdown';
 import { Code } from '@zendeskgarden/react-typography';
 import { StyledAnchor as Anchor } from './Anchor';
@@ -46,6 +46,6 @@ export const COMPONENTS = {
   tr: TR,
   td: TD,
   th: TH
-};
+} as any;
 
-export const Markdown: React.FC = () => <MD components={COMPONENTS} />;
+export const Markdown: React.FC<PropsWithChildren> = () => <MD components={COMPONENTS} />;
