@@ -31,35 +31,33 @@ const Pre: FC<{ children: any }> = ({ children }) => (
 
 export const MarkdownProvider: FC<PropsWithChildren> = ({ children }) => (
   <MDXProvider
-    components={
-      {
-        /**
-         * Helper components
-         */
-        Alert,
-        CodeExample,
-        ColorPalette,
-        Component,
-        Configuration,
-        ObjectBlock,
-        PropSheet,
-        Usage,
-        Use,
-        Misuse,
-        Do,
-        Dont,
-        Caution,
-        BestPractice,
-        Markdown,
-        OverviewLinks,
-        ImageFigure,
-        /**
-         * Markdown elements
-         */
-        ...COMPONENTS,
-        pre: Pre
-      } as any
-    }
+    components={{
+      /**
+       * Helper components
+       */
+      Alert,
+      CodeExample,
+      ColorPalette,
+      Component,
+      Configuration,
+      ObjectBlock,
+      PropSheet,
+      Usage,
+      Use,
+      Misuse,
+      Do,
+      Dont,
+      Caution,
+      BestPractice,
+      Markdown,
+      OverviewLinks,
+      ImageFigure,
+      /**
+       * Markdown elements
+       */
+      ...COMPONENTS,
+      pre: Pre
+    }}
   >
     {children}
   </MDXProvider>
