@@ -5,10 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { createElement, Fragment, PropsWithChildren, ReactElement, ReactNode } from 'react';
-import { remark } from 'remark';
-import remark2react from 'remark-react';
-import { VFile } from 'vfile';
+import React from 'react';
+import MD from 'react-markdown';
 import { Code } from '@zendeskgarden/react-typography';
 import { StyledAnchor as Anchor } from './Anchor';
 import { UL, OL, LI } from './Lists';
@@ -50,20 +48,4 @@ export const COMPONENTS = {
   th: TH
 };
 
-const PROCESSOR = remark().use(remark2react, {
-  remarkReactComponents: COMPONENTS,
-  createElement,
-  Fragment
-} as any);
-
-interface IMarkdown extends VFile {
-  result: ReactElement;
-}
-
-const toMarkdown = (node: ReactNode) => {
-  const element = (PROCESSOR.processSync(node as string) as unknown as IMarkdown).result;
-
-  return element.props.children;
-};
-
-export const Markdown: React.FC<PropsWithChildren> = ({ children }) => <>{toMarkdown(children)}</>;
+export const Markdown: React.FC = () => <MD components={COMPONENTS} />;
