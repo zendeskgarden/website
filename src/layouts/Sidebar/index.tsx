@@ -28,7 +28,6 @@ const StyledMobileNavButton = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 1;
-  /* stylelint-disable-next-line color-function-notation */
   border: ${p => p.theme.borders.sm}
     ${({ theme }) => getColor({ hue: 'white', transparency: 0.2, theme })};
   border-radius: 100px;

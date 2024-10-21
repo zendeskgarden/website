@@ -87,7 +87,6 @@ const StyledTitle = styled(p => <Well.Title {...p} />).attrs(p => ({ forwardedAs
   margin-left: -${p => math(`${p.theme.iconSizes.md} + ${p.theme.space.xs}`)};
   color: ${p => getColorV8(p.hue, 600, p.theme)};
 
-  /* stylelint-disable-next-line no-descending-specificity */
   & + p,
   & + ul {
     margin-top: ${p => `${p.theme.space.base * 4}px`};

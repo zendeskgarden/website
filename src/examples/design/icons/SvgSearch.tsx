@@ -35,7 +35,7 @@ const StyledCol = styled(Grid.Col).attrs({ forwardedAs: 'li' })`
 `;
 
 const StyledRow = styled(Grid.Row).attrs({ forwardedAs: 'ul' })`
-  /* stylelint-disable-next-line no-empty-source */
+  list-style-type: none;
 `;
 
 interface ISvgNodeProps {

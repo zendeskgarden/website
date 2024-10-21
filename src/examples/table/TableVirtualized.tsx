@@ -49,10 +49,6 @@ const ScrollableHeaderRow = styled(Table.HeaderRow).attrs({ role: 'row' })`
   table-layout: fixed;
 `;
 
-const ScrollableHeaderCell = styled(Table.HeaderCell).attrs({ role: 'columnheader' })`
-  /* stylelint-disable-next-line no-empty-source */
-`;
-
 const ScrollableBody = styled(Table.Body)`
   /* stylelint-disable-next-line declaration-no-important */
   display: block !important;
@@ -64,18 +60,14 @@ const ScrollableRow = styled(Table.Row).attrs({ role: 'row' })`
   table-layout: fixed;
 `;
 
-const ScrollableCell = styled(Table.Cell).attrs({ role: 'cell' })`
-  /* stylelint-disable-next-line no-empty-source */
-`;
-
 const Example = () => (
   <div role="grid" aria-rowcount={rowData.length} aria-colcount={4}>
     <ScrollableTable>
       <ScrollableHead>
         <ScrollableHeaderRow>
-          <ScrollableHeaderCell>Fruit</ScrollableHeaderCell>
-          <ScrollableHeaderCell>Sun exposure</ScrollableHeaderCell>
-          <ScrollableHeaderCell>Soil type</ScrollableHeaderCell>
+          <Table.HeaderCell role="columnheader">Fruit</Table.HeaderCell>
+          <Table.HeaderCell role="columnheader">Sun exposure</Table.HeaderCell>
+          <Table.HeaderCell role="columnheader">Soil type</Table.HeaderCell>
           <StyledSpacerCell aria-hidden />
         </ScrollableHeaderRow>
       </ScrollableHead>
@@ -90,9 +82,15 @@ const Example = () => (
     >
       {({ index, style }) => (
         <ScrollableRow key={rowData[index].id} style={style} aria-rowindex={index + 1}>
-          <ScrollableCell isTruncated>{rowData[index].fruit}</ScrollableCell>
-          <ScrollableCell isTruncated>{rowData[index].sun}</ScrollableCell>
-          <ScrollableCell isTruncated>{rowData[index].soil}</ScrollableCell>
+          <Table.Cell role="cell" isTruncated>
+            {rowData[index].fruit}
+          </Table.Cell>
+          <Table.Cell role="cell" isTruncated>
+            {rowData[index].sun}
+          </Table.Cell>
+          <Table.Cell role="cell" isTruncated>
+            {rowData[index].soil}
+          </Table.Cell>
         </ScrollableRow>
       )}
     </FixedSizeList>
