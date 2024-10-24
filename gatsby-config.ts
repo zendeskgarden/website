@@ -36,7 +36,14 @@ const config: GatsbyConfig = {
     },
     /* generators */
     'gatsby-plugin-netlify',
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        // Trailing slash is required since Algolia docsearch does not crawl redirects
+        resolvePagePath: (page: { path: string }) =>
+          page.path.endsWith('/') ? page.path : `${page.path}/`
+      }
+    },
     /* sources */
     {
       resolve: 'gatsby-source-filesystem',
