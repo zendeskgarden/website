@@ -109,7 +109,7 @@
     "react-is": "18.3.1",
     "react-markdown": "9.0.1",
     "react-window": "1.8.10",
-    "remark-gfm": "1.0.0",
+    "remark-gfm": "4.0.0",
     "smartquotes": "2.3.2",
     "styled-components": "5.3.11",
     "stylelint": "16.10.0",
