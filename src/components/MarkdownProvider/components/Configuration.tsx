@@ -8,7 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { UnorderedList, Span } from '@zendeskgarden/react-typography';
-import { getColor, getColorV8 } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { IComponentData } from '../../../components/types';
 import { StyledAnchor } from './Anchor';
 
@@ -40,11 +40,11 @@ const StyledListItemLabel = styled(Span)`
 
 const StyledDot = styled(Span)`
   margin: 0 ${p => p.theme.space.xs};
-  color: ${p => getColorV8('grey', 600, p.theme)};
+  color: ${p => getColor({ theme: p.theme, variable: 'foreground.subtle' })};
 `;
 
 const StyledMono = styled(Span).attrs({ isMonospace: true })`
-  color: ${p => getColorV8('grey', 700, p.theme)};
+  color: ${p => getColor({ theme: p.theme, variable: 'foreground.subtle' })};
 `;
 
 export const Configuration: React.FC<{

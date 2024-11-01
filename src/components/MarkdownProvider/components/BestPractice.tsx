@@ -11,7 +11,7 @@ import { math } from 'polished';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Well } from '@zendeskgarden/react-notifications';
 import { Grid } from '@zendeskgarden/react-grid';
-import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery, StyledBaseIcon } from '@zendeskgarden/react-theming';
 import { ReactComponent as XStrokeIcon } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { ReactComponent as CheckLgStrokeIcon } from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { ReactComponent as AlertErrorStrokeIcon } from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
@@ -52,15 +52,39 @@ const StyledImgContainer = styled.div`
 `;
 
 interface IStyledCaptionProps {
-  hue: string;
+  type: 'success' | 'warning' | 'danger';
 }
 
-const StyledCaption = styled(p => <Well isRecessed {...p} />).attrs<IStyledCaptionProps>(p => ({
+const getVariable = (type: IStyledCaptionProps['type'], isBorder?: boolean) => {
+  let retVal;
+
+  if (isBorder) {
+    if (type === 'success') {
+      retVal = 'border.successEmphasis';
+    } else if (type === 'warning') {
+      retVal = 'border.warningEmphasis';
+    } else if (type === 'danger') {
+      retVal = 'border.dangerEmphasis';
+    }
+  } else if (type === 'success') {
+    retVal = 'foreground.success';
+  } else if (type === 'warning') {
+    retVal = 'foreground.warning';
+  } else if (type === 'danger') {
+    retVal = 'foreground.danger';
+  }
+
+  return retVal;
+};
+
+const StyledCaption = styled(p => <Well {...p} />).attrs<IStyledCaptionProps>(p => ({
   forwardedAs: p.tag
 }))<IStyledCaptionProps>`
   border: none;
-  border-top: ${p => `${p.theme.borders.md} ${getColorV8(p.hue, 500, p.theme)}`};
+  border-top: ${p =>
+    `${p.theme.borders.md} ${getColor({ theme: p.theme, variable: getVariable(p.type, true /* isBorder */) })}`};
   border-radius: 0;
+  background-color: ${p => getColor({ theme: p.theme, variable: 'background.subtle' })};
   padding-bottom: ${p => p.theme.space.base * 7}px;
   color: ${({ theme }) => getColor({ variable: 'foreground.default', theme })};
 
@@ -71,7 +95,8 @@ const StyledCaption = styled(p => <Well isRecessed {...p} />).attrs<IStyledCapti
 
     & > li:not(:first-child) {
       margin-top: ${p => p.theme.space.xs};
-      border-top: ${p => `${p.theme.borders.sm} ${getColorV8('neutralHue', 300, p.theme)}`};
+      border-top: ${p =>
+        `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'border.default' })}`};
       padding-top: ${p => p.theme.space.xs};
     }
   }
@@ -85,7 +110,7 @@ const StyledTitle = styled(p => <Well.Title {...p} />).attrs(p => ({ forwardedAs
   display: flex;
   align-items: center;
   margin-left: -${p => math(`${p.theme.iconSizes.md} + ${p.theme.space.xs}`)};
-  color: ${p => getColorV8(p.hue, 600, p.theme)};
+  color: ${p => getColor({ theme: p.theme, variable: getVariable(p.type) })};
 
   & + p,
   & + ul {
@@ -97,17 +122,20 @@ const StyledTitle = styled(p => <Well.Title {...p} />).attrs(p => ({ forwardedAs
   }
 `;
 
-interface ICaptionProps extends PropsWithChildren {
-  hue: string;
+const StyledIcon = styled(StyledBaseIcon)`
+  color: ${p => getColor({ theme: p.theme, variable: getVariable(p.type) })};
+`;
+
+interface ICaptionProps extends PropsWithChildren, IStyledCaptionProps {
   title: string;
   icon: ReactNode;
   imageSource?: string | IGatsbyImageData;
 }
 
 const Caption: React.FC<ICaptionProps> = props => (
-  <StyledCaption tag={props.imageSource ? 'figcaption' : undefined} hue={props.hue}>
-    <StyledTitle tag="strong" hue={props.hue}>
-      {props.icon}
+  <StyledCaption tag={props.imageSource ? 'figcaption' : undefined} type={props.type}>
+    <StyledTitle tag="strong" type={props.type}>
+      <StyledIcon type={props.type}>{props.icon}</StyledIcon>
       {props.title}
     </StyledTitle>
     {props.children}
@@ -164,15 +192,15 @@ const Section: React.FC<ISectionProps> = props => {
 };
 
 export const Do: React.FC<ISectionProps> = props => (
-  <Section {...props} title="Do this" hue="successHue" icon={<CheckLgStrokeIcon />} />
+  <Section {...props} title="Do this" type="success" icon={<CheckLgStrokeIcon />} />
 );
 
 export const Dont: React.FC<ISectionProps> = props => (
-  <Section {...props} title="Not this" hue="dangerHue" icon={<XStrokeIcon />} />
+  <Section {...props} title="Not this" type="danger" icon={<XStrokeIcon />} />
 );
 
 export const Caution: React.FC<ISectionProps> = props => (
-  <Section {...props} title="Caution" hue="warningHue" icon={<AlertErrorStrokeIcon />} />
+  <Section {...props} title="Caution" type="warning" icon={<AlertErrorStrokeIcon />} />
 );
 
 interface IBestPracticesProps extends PropsWithChildren {

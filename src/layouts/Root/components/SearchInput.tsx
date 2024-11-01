@@ -8,20 +8,29 @@
 import React, { HTMLAttributes, useEffect } from 'react';
 import { css, ThemeProps } from 'styled-components';
 import { math } from 'polished';
-import { getColorV8, mediaQuery, menuStyles } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery, menuStyles } from '@zendeskgarden/react-theming';
 import { MediaInput } from '@zendeskgarden/react-forms';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 
-const searchStyles = (props: ThemeProps<any>) => {
-  const theme = props.theme;
+const searchStyles = ({ theme }: ThemeProps<any>) => {
   const positionTop = math(`${theme.space.base * 3.5} + ${theme.borderWidths.sm}`);
   const positionLeft = math(`${theme.space.base * -9} - ${theme.borderWidths.sm}`);
   const positionRight = math(`${theme.space.base * -3} - ${theme.borderWidths.sm}`);
-  const highlightBackgroundColor = getColorV8('primaryHue', 800, theme, 0.08);
-  const hoverBackgroundColor = getColorV8('primaryHue', 600, theme, 0.08);
-  const hoverSeparatorColor = getColorV8('neutralHue', 250, theme);
-  const metaColor = getColorV8('neutralHue', 600, theme);
-  const separatorColor = getColorV8('neutralHue', 200, theme);
+  const options = {
+    theme,
+    variable: 'background.primaryEmphasis',
+    transparency: theme.opacity[100]
+  };
+  const highlightBackgroundColor = getColor({
+    ...options,
+    dark: { offset: -200 },
+    light: { offset: 200 }
+  });
+  const hoverBackgroundColor = getColor(options);
+  const hoverBoxShadow = `inset ${theme.shadowWidths.md} 0 ${getColor({ theme, variable: 'background.primaryEmphasis' })}`;
+  const hoverSeparatorColor = getColor({ theme, variable: 'border.subtle' });
+  const metaColor = getColor({ theme, variable: 'foreground.subtle' });
+  const separatorColor = getColor({ theme, variable: 'border.subtle' });
 
   return css`
     ${p =>
@@ -50,6 +59,7 @@ const searchStyles = (props: ThemeProps<any>) => {
 
       & [class^='ds-dataset-'] {
         border: none;
+        background-color: inherit;
         padding: 0;
 
         & .ds-suggestions {
@@ -57,7 +67,9 @@ const searchStyles = (props: ThemeProps<any>) => {
         }
 
         & .algolia-docsearch-suggestion {
+          background-color: inherit;
           padding: 0;
+          text-decoration: none;
           color: inherit;
 
           & .algolia-docsearch-suggestion--highlight {
@@ -119,6 +131,7 @@ const searchStyles = (props: ThemeProps<any>) => {
 
           & .algolia-docsearch-suggestion--title {
             margin: 0;
+            color: inherit;
             font-size: inherit;
             font-weight: ${theme.fontWeights.regular};
           }
@@ -134,6 +147,7 @@ const searchStyles = (props: ThemeProps<any>) => {
 
         & .ds-cursor {
           & .algolia-docsearch-suggestion--wrapper {
+            box-shadow: ${hoverBoxShadow};
             background-color: ${hoverBackgroundColor};
 
             & > *::before {

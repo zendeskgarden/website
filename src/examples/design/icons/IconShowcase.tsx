@@ -8,7 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid } from '@zendeskgarden/react-grid';
-import { getColorV8 } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { ReactComponent as LeafIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { ReactComponent as LightBulbIcon } from '@zendeskgarden/svg-icons/src/16/lightbulb-stroke.svg';
 import { ReactComponent as LightningBoltIcon } from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
@@ -17,7 +17,7 @@ import { ReactComponent as SmileyIcon } from '@zendeskgarden/svg-icons/src/16/sm
 
 const StyledCol = styled(Grid.Col)`
   text-align: center;
-  color: ${p => getColorV8('neutralHue', 600, p.theme)};
+  color: ${p => getColor({ theme: p.theme, variable: 'foreground.subtle' })};
 `;
 
 const Example = () => (

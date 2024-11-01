@@ -27,7 +27,8 @@ const StyledSvgWrapper = styled.div<{ isAnswerBot?: boolean }>`
   align-items: center;
   margin: 0 0 ${p => p.theme.space.sm};
   fill: ${p => p.isAnswerBot && getColor({ theme: p.theme, hue: 'kale', shade: 900 })};
-  color: ${p => p.isAnswerBot && '#d6eef1'};
+  color: ${p =>
+    p.isAnswerBot ? '#d6eef1' : getColor({ theme: p.theme, variable: 'foreground.subtle' })};
 `;
 
 const StyledCol = styled(Grid.Col).attrs({ forwardedAs: 'li' })`
