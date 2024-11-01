@@ -27,7 +27,6 @@ import { ReactComponent as DarkStroke } from '@zendeskgarden/svg-icons/src/16/mo
 import { ReactComponent as DarkFill } from '@zendeskgarden/svg-icons/src/16/moon-fill.svg';
 import { ReactComponent as CodeSandboxIcon } from './assets/codesandbox-icon.svg';
 import { retrieveCodesandboxParameters } from './utils/retrieveCodesandboxParameters';
-import { copyToClipboard } from './utils/copyToClipboard';
 
 const ModeIcon = ({
   parentTheme,
@@ -101,7 +100,8 @@ export const CodeExample: React.FC<ICodeExampleProps> = ({ children, code }) => 
   }, [code]);
 
   const handleCopy = () => {
-    copyToClipboard(code);
+    /* eslint-disable-next-line n/no-unsupported-features/node-builtins */
+    navigator.clipboard.writeText(code);
     addToast(({ close }) => (
       <Notification type="success">
         <Notification.Title>Code copied</Notification.Title>

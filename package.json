@@ -10,7 +10,7 @@
     "postinstall": "husky",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:md",
     "lint:css": "stylelint 'src/**/*.{js,ts,tsx}'",
-    "lint:js": "eslint ./",
+    "lint:js": "eslint ./ --max-warnings 0",
     "lint:md": "markdownlint ./*.md src/**/*.mdx",
     "prepare": "git submodule update --depth 1 --init && npm run build",
     "start": "gatsby develop --open",

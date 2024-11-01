@@ -12,18 +12,13 @@ import { MarkdownProvider } from './MarkdownProvider';
 import { ColorScheme, ColorSchemeContext } from './useColorSchemeContext';
 import { useColorScheme } from './useColorScheme';
 
-const WEBSITE_THEME = {
-  ...DEFAULT_THEME,
-  palette: { ...DEFAULT_THEME.palette, tofu: '#F6F4F4' }
-};
-
 const toastPlacement = {
-  'top-end': { style: { top: WEBSITE_THEME.space.base * 3 } }
+  'top-end': { style: { top: DEFAULT_THEME.space.base * 3 } }
 };
 
 export const Provider: FC<PropsWithChildren> = ({ children }) => {
   const { isSystem, colorScheme, setColorScheme } = useColorScheme();
-  const theme = { ...WEBSITE_THEME, colors: { ...WEBSITE_THEME.colors, base: colorScheme } };
+  const theme = { ...DEFAULT_THEME, colors: { ...DEFAULT_THEME.colors, base: colorScheme } };
 
   const contextValue = useMemo(
     () => ({ colorScheme: isSystem ? 'system' : (colorScheme as ColorScheme), setColorScheme }),

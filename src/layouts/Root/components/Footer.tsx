@@ -45,7 +45,7 @@ interface IFooterProps {
 const Footer: React.FC<IFooterProps> = ({ path }) => (
   <footer
     css={css`
-      background-color: ${p => getColor({ theme: p.theme, hue: 'kale', shade: 900 })};
+      background-color: ${p => getColor({ theme: p.theme, hue: 'chromeHue', shade: 900 })};
       padding: ${p => p.theme.space.md};
       line-height: ${p => p.theme.lineHeights.md};
       color: ${({ theme }) => getColor({ hue: 'white', theme })};

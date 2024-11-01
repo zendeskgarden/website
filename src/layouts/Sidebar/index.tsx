@@ -7,7 +7,8 @@
 
 import React, { PropsWithChildren, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import { IconButton } from '@zendeskgarden/react-buttons';
 import { ReactComponent as OverflowStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
@@ -20,7 +21,7 @@ export interface ISidebarSection {
   items?: ISidebarSection[];
 }
 
-const StyledMobileNavButton = styled.button`
+const StyledMobileNavButton = styled(p => <IconButton isNeutral isPrimary {...p} />)`
   display: none;
   position: fixed;
   right: ${p => p.theme.space.md};
@@ -28,21 +29,6 @@ const StyledMobileNavButton = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 1;
-  border: ${p => p.theme.borders.sm}
-    ${({ theme }) => getColor({ hue: 'white', transparency: 0.2, theme })};
-  border-radius: 100px;
-  background-color: ${p => getColorV8('kale', 800, p.theme)};
-  padding: ${p => p.theme.space.xs};
-  color: ${({ theme }) => getColor({ hue: 'white', theme })};
-
-  &:focus {
-    outline: none;
-  }
-
-  & > svg {
-    width: ${p => p.theme.iconSizes.lg};
-    height: ${p => p.theme.iconSizes.lg};
-  }
 
   ${p => mediaQuery('down', 'md', p.theme)} {
     display: flex;

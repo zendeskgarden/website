@@ -194,7 +194,7 @@ const MobileNav: React.FC = () => {
         position: fixed;
         inset: ${p => p.theme.space.base * 15}px 0 0 0;
         z-index: 3;
-        background-color: ${p => p.theme.palette.tofu};
+        background-color: ${p => getColor({ theme: p.theme, variable: 'background.recessed' })};
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.xxl};
       `}
     >
