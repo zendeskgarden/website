@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
@@ -14,17 +13,17 @@ import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user
 const Example = () => (
   <Grid.Row>
     <Grid.Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[700]}>
+      <Avatar backgroundColor="background.emphasis">
         <UserIcon role="img" aria-label="icon avatar" />
       </Avatar>
     </Grid.Col>
     <Grid.Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[700]}>
+      <Avatar backgroundColor="background.emphasis">
         <img alt="image avatar" src="https://garden.zendesk.com/components/avatar/user.png" />
       </Avatar>
     </Grid.Col>
     <Grid.Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[700]}>
+      <Avatar backgroundColor="background.emphasis">
         <Avatar.Text>ZD</Avatar.Text>
       </Avatar>
     </Grid.Col>
