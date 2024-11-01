@@ -7,8 +7,7 @@
 
 import React, { useState, HTMLAttributes, useRef, useEffect, ChangeEventHandler } from 'react';
 import styled, { css, useTheme } from 'styled-components';
-import { Link } from 'gatsby';
-import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { IMenuProps, Item, ItemGroup, Menu } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
@@ -22,14 +21,20 @@ import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/2
 import { ColorScheme, useColorSchemeContext } from 'components/useColorSchemeContext';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SearchInput } from './SearchInput';
-import { StyledNavigationLink } from './StyledNavigationLink';
+import { Link, StyledNavigationLink } from './StyledNavigationLink';
 import { Field, Select } from '@zendeskgarden/react-forms';
 
 export const headerBoxShadow = (theme: any) =>
   theme.shadows.lg(
     `${theme.space.base * 4}px`,
     `${theme.space.base * 6}px`,
-    getColorV8('neutralHue', 800, theme, 0.05)!
+    getColor({
+      theme,
+      hue: 'neutralHue',
+      shade: 1200,
+      dark: { transparency: theme.opacity[800] },
+      light: { transparency: theme.opacity[200] }
+    })
   );
 
 export const headerHeight = (theme: any) => theme.space.base * 20;
@@ -63,6 +68,12 @@ const StyledHeader = styled.header.attrs({ role: 'banner' })`
   }
 `;
 
+export const StyledGardenIcon = styled(GardenIcon)`
+  width: ${p => p.theme.iconSizes.lg};
+  height: ${p => p.theme.iconSizes.lg};
+  color: ${p => getColor({ theme: p.theme, hue: 'green', shade: 500 })};
+`;
+
 const Logo: React.FC = () => (
   <div
     css={css`
@@ -77,24 +88,24 @@ const Logo: React.FC = () => (
   >
     <Link aria-label="Zendesk Garden" to="/">
       <div
-        css={`
+        css={css`
           display: flex;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
         `}
       >
-        <GardenIcon
-          css={css`
-            width: ${p => p.theme.iconSizes.lg};
-            height: ${p => p.theme.iconSizes.lg};
-            color: ${p => getColorV8('green', 400, p.theme)};
-          `}
-        />
+        <StyledGardenIcon />
         <GardenWordmark
           css={css`
             margin-left: ${p => p.theme.space.xs};
             height: ${p => p.theme.iconSizes.lg};
-            color: ${p => getColorV8('kale', 700, p.theme)};
+            color: ${p =>
+              getColor({
+                theme: p.theme,
+                hue: 'chromeHue',
+                dark: { shade: 300 },
+                light: { shade: 800 }
+              })};
 
             ${p => mediaQuery('down', 'sm', p.theme)} {
               display: none;

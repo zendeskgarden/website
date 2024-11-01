@@ -8,7 +8,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { useLocation } from '@reach/router';
-import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
 import { ISidebarSection } from '..';
 import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
@@ -93,7 +93,12 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
     <nav
       aria-label="Primary"
       css={css`
-        background-color: ${p => p.theme.palette.tofu};
+        background-color: ${p =>
+          getColor({
+            theme: p.theme,
+            dark: { hue: 'neutralHue', shade: 1100 },
+            light: { hue: 'tofu' }
+          })};
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.md} ${p => p.theme.space.lg} 0;
         min-width: 220px;
 
@@ -111,7 +116,12 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
           position: absolute;
           inset: 0 50% 0 0;
           z-index: -1;
-          background-color: ${p => p.theme.palette.tofu};
+          background-color: ${p =>
+            getColor({
+              theme: p.theme,
+              dark: { hue: 'neutralHue', shade: 1100 },
+              light: { hue: 'tofu' }
+            })};
 
           ${p => mediaQuery('down', 'md', p.theme)} {
             display: none;

@@ -6,16 +6,27 @@
  */
 
 import React, { SVGAttributes } from 'react';
-import { css } from 'styled-components';
-import { mediaQuery } from '@zendeskgarden/react-theming';
+import styled, { css } from 'styled-components';
+import { getColor, mediaQuery, StyledBaseIcon } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
-import { LG } from '@zendeskgarden/react-typography';
+import { LG, Span } from '@zendeskgarden/react-typography';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SectionCallout, StyledSectionHeader } from './SectionCallout';
 import { HomeLink } from './HomeLink';
 import { ReactComponent as ComponentsIcon } from '../../../icons/components.svg';
 import { ReactComponent as ContentIcon } from '../../../icons/content.svg';
 import { ReactComponent as DesignIcon } from '../../../icons/design.svg';
+
+const StyledIcon = styled(StyledBaseIcon)`
+  background-color: ${p =>
+    getColor({
+      theme: p.theme,
+      dark: { hue: 'neutralHue', shade: 900 },
+      light: { hue: 'chromeHue', shade: 200 }
+    })};
+  width: 100%;
+  height: auto;
+`;
 
 const FoundationLink: React.FC<{
   group: string;
@@ -30,7 +41,9 @@ const FoundationLink: React.FC<{
       height: 100%;
     `}
   >
-    <Icon style={{ width: '100%', height: 'auto' }} />
+    <StyledIcon>
+      <Icon />
+    </StyledIcon>
     <div
       css={css`
         display: flex;
@@ -54,16 +67,18 @@ const FoundationLink: React.FC<{
       >
         {title}
       </LG>
-      <HomeLink to={url}>
-        Browse{' '}
-        <span
-          css={`
-            text-transform: lowercase;
-          `}
-        >
-          {group}
-        </span>
-      </HomeLink>
+      <Span>
+        <HomeLink to={url}>
+          Browse{' '}
+          <Span
+            css={`
+              text-transform: lowercase;
+            `}
+          >
+            {group}
+          </Span>
+        </HomeLink>
+      </Span>
     </div>
   </div>
 );

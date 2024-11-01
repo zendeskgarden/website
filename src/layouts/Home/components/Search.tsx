@@ -9,7 +9,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { css, ThemeProps } from 'styled-components';
-import { getLineHeight, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColor, getLineHeight, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
 import { LG, XXXL } from '@zendeskgarden/react-typography';
 import MaxWidthLayout from 'layouts/MaxWidth';
@@ -48,7 +48,12 @@ export const Search: React.FC = () => {
     <div
       css={css`
         margin-bottom: ${p => p.theme.space.base * 20}px;
-        background-color: ${p => p.theme.palette.oatMilk};
+        background-color: ${p =>
+          getColor({
+            theme: p.theme,
+            dark: { hue: 'neutralHue', shade: 1200 },
+            light: { hue: 'chromeHue', shade: 200 }
+          })};
       `}
     >
       <MaxWidthLayout>
