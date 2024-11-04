@@ -23,12 +23,12 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
   const { pathname } = useLocation();
 
   useEffect(() => {
-    document.body.style.height = '100vh';
-    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    document.querySelector('header')!.style.position = 'absolute';
 
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.height = '';
+      document.documentElement.style.overflow = '';
+      document.querySelector('header')!.style.position = '';
     };
   }, []);
 

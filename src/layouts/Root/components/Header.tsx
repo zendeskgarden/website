@@ -6,7 +6,7 @@
  */
 
 import React, { useState, HTMLAttributes, useRef, useEffect, ChangeEventHandler } from 'react';
-import styled, { css, useTheme } from 'styled-components';
+import styled, { css, DefaultTheme, ThemeProps, useTheme } from 'styled-components';
 import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { IMenuProps, Item, ItemGroup, Menu } from '@zendeskgarden/react-dropdowns';
@@ -51,11 +51,15 @@ const StyledDesktopNavLink = styled(StyledNavigationLink).attrs({ partiallyActiv
   justify-content: center;
 `;
 
-const StyledHeader = styled.header.attrs({ role: 'banner' })`
+const StyledHeader = styled.header.attrs({ role: 'banner' })<
+  ThemeProps<DefaultTheme> & { isNavigationVisible: boolean }
+>`
+  position: ${p => p.isNavigationVisible && 'absolute'};
   z-index: 1;
   box-shadow: ${p => headerBoxShadow(p.theme)};
   background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
   padding: 0 ${p => p.theme.space.base * 4}px;
+  width: 100%;
   height: ${p => headerHeight(p.theme)}px;
 
   &[data-show-navigation='true'] {
@@ -181,10 +185,10 @@ const MobileNav: React.FC = () => {
   };
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
 
     return () => {
-      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, []);
 
@@ -302,7 +306,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <StyledHeader>
+      <StyledHeader isNavigationVisible={isNavigationVisible}>
         <MaxWidthLayout
           css={css`
             display: flex;
