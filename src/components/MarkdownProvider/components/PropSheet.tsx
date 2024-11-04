@@ -57,6 +57,8 @@ export const PropSheet: React.FC<{
                 if (prop.required && !prop.defaultValue) {
                   defaultValue = <Tag>Required</Tag>;
                   defaultMonospace = false;
+                } else if (prop.defaultValue === "'undefined'") {
+                  defaultValue = '';
                 }
 
                 const type = prop.type.includes('=>') ? (
@@ -109,7 +111,7 @@ export const PropSheet: React.FC<{
                           word-break: break-word;
                         `}
                       >
-                        {prop.type === 'DefaultTheme' ? (
+                        {prop.defaultValue === 'DEFAULT_THEME' ? (
                           <Markdown>[DEFAULT_THEME](/components/theme-object)</Markdown>
                         ) : (
                           defaultValue

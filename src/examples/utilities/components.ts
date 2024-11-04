@@ -45,8 +45,7 @@ const components = [
     props: {
       '[options.theme]': {
         required: true,
-        type: 'DefaultTheme',
-        defaultValue: 'DEFAULT_THEME',
+        type: 'IGardenTheme',
         description: 'Provides values used to resolve the desired colors'
       },
       '[options.color]': {
@@ -99,7 +98,7 @@ const components = [
     props: {
       theme: {
         required: true,
-        type: 'DefaultTheme',
+        type: 'IGardenTheme',
         description: 'Provides information for pattern color and LTR/RTL layout'
       },
       size: {
@@ -130,8 +129,7 @@ const components = [
     props: {
       '[options.theme]': {
         required: true,
-        type: 'DefaultTheme',
-        defaultValue: 'DEFAULT_THEME',
+        type: 'IGardenTheme',
         description: 'Provides values used to resolve the desired color'
       },
       '[options.variable]': {
@@ -201,7 +199,7 @@ const components = [
     props: {
       '[options.theme]': {
         required: true,
-        type: 'DefaultTheme',
+        type: 'IGardenTheme',
         defaultValue: 'DEFAULT_THEME',
         description: 'Provides values used to resolve the desired colors'
       },
