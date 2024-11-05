@@ -6,9 +6,11 @@
  */
 
 (() => {
+  /* eslint-disable-next-line n/no-unsupported-features/node-builtins */
   const colorScheme = window.localStorage.getItem('color-scheme');
 
   if (!['dark', 'light', 'system'].includes(colorScheme)) {
+    /* eslint-disable-next-line n/no-unsupported-features/node-builtins */
     window.localStorage.setItem('color-scheme', 'system');
   }
 })();

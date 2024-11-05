@@ -10,6 +10,7 @@ import { IGardenTheme } from '@zendeskgarden/react-theming';
 import { ColorScheme } from './useColorSchemeContext';
 
 export const useColorScheme = (initialState?: ColorScheme) => {
+  /* eslint-disable-next-line n/no-unsupported-features/node-builtins */
   const localStorage = typeof window === 'undefined' ? undefined : window.localStorage;
   const mediaQuery =
     typeof window === 'undefined' ? undefined : window.matchMedia('(prefers-color-scheme: dark)');
