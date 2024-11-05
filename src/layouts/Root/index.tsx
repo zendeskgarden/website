@@ -32,6 +32,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, p
     // Initial global alert render
     const hidden =
       new Date() > new Date('2025-01-01T00:00:00Z') ||
+      /* eslint-disable-next-line n/no-unsupported-features/node-builtins */
       window.localStorage.getItem('global-alert-v9') === 'hidden';
 
     setIsGlobalAlertVisible(!hidden);
@@ -40,6 +41,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, p
   useEffect(() => {
     // Handle user dismissed global alert
     if (!isGlobalAlertVisible) {
+      /* eslint-disable-next-line n/no-unsupported-features/node-builtins */
       window.localStorage.setItem('global-alert-v9', 'hidden');
     }
   }, [isGlobalAlertVisible]);
