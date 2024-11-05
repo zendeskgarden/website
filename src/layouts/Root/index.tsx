@@ -40,7 +40,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, p
     }
   }, [isGlobalAlertVisible]);
 
-  return typeof window === 'undefined' ? null /* prevent global alert flash */ : (
+  return (
     <div
       css={css`
         display: flex;
