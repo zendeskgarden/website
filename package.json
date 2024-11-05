@@ -62,7 +62,7 @@
     "babel-plugin-styled-components": "2.1.4",
     "cheerio": "1.0.0",
     "codesandbox": "2.2.3",
-    "date-fns": "3.6.0",
+    "date-fns": "4.1.0",
     "dom-helpers": "5.2.1",
     "dotenv": "16.4.5",
     "envalid": "8.0.0",
