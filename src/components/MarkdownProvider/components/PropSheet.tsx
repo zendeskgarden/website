@@ -57,8 +57,6 @@ export const PropSheet: React.FC<{
                 if (prop.required && !prop.defaultValue) {
                   defaultValue = <Tag>Required</Tag>;
                   defaultMonospace = false;
-                } else if (prop.defaultValue === "'undefined'") {
-                  defaultValue = '';
                 }
 
                 const type = prop.type.includes('=>') ? (
