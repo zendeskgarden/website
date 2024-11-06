@@ -74,7 +74,7 @@ export const Link = ({ children, to, activeClassName, ...props }: ILink) => {
 };
 
 const colorOptions = {
-  hue: 'neutralHue',
+  hue: 'primaryHue',
   dark: { shade: 500 },
   light: { shade: 700 }
 };
@@ -100,7 +100,7 @@ export const StyledNavigationLink = styled(Link).attrs(p => ({
       getColor({
         theme: p.theme,
         ...colorOptions,
-        transparency: p.theme.opacity[100]
+        transparency: p.theme.opacity[200]
       })};
   }
 
@@ -109,7 +109,7 @@ export const StyledNavigationLink = styled(Link).attrs(p => ({
       getColor({
         theme: p.theme,
         ...colorOptions,
-        transparency: p.theme.opacity[200]
+        transparency: p.theme.opacity[100]
       })};
   }
 

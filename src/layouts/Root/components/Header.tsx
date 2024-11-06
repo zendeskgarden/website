@@ -32,8 +32,8 @@ export const headerBoxShadow = (theme: any) =>
       theme,
       hue: 'neutralHue',
       shade: 1200,
-      dark: { transparency: theme.opacity[800] },
-      light: { transparency: theme.opacity[200] }
+      dark: { transparency: theme.opacity[200] },
+      light: { transparency: theme.opacity[100] / 2 }
     })
   );
 
@@ -55,16 +55,12 @@ const StyledHeader = styled.header.attrs({ role: 'banner' })<
   ThemeProps<DefaultTheme> & { isNavigationVisible: boolean }
 >`
   position: ${p => p.isNavigationVisible && 'absolute'};
-  z-index: 1;
+  z-index: 4;
   box-shadow: ${p => headerBoxShadow(p.theme)};
-  background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
+  background-color: ${p => getColor({ theme: p.theme, variable: 'background.raised' })};
   padding: 0 ${p => p.theme.space.base * 4}px;
   width: 100%;
   height: ${p => headerHeight(p.theme)}px;
-
-  &[data-show-navigation='true'] {
-    border-bottom-color: ${({ theme }) => getColor({ hue: 'white', theme })};
-  }
 
   ${p => mediaQuery('down', 'sm', p.theme)} {
     padding: 0;
@@ -198,7 +194,7 @@ const MobileNav: React.FC = () => {
         position: fixed;
         inset: ${p => p.theme.space.base * 15}px 0 0 0;
         z-index: 3;
-        background-color: ${p => getColor({ theme: p.theme, variable: 'background.recessed' })};
+        background-color: ${p => getColor({ theme: p.theme, variable: 'background.subtle' })};
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.xxl};
       `}
     >

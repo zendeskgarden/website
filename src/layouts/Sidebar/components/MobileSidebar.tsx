@@ -94,7 +94,7 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
       css={css`
         position: fixed;
         inset: ${p => p.theme.space.base * 20}px 0 0 0;
-        background-color: ${p => getColor({ theme: p.theme, variable: 'background.recessed' })};
+        background-color: ${p => getColor({ theme: p.theme, variable: 'background.subtle' })};
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.xxl};
         overflow: scroll;
 

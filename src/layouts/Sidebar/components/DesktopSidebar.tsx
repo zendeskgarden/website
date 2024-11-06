@@ -13,6 +13,7 @@ import { ISidebarSection } from '..';
 import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 import { NavItemTitle } from './NavItemTitle';
+import { headerBoxShadow } from 'layouts/Root/components/Header';
 
 const StyledSidebarLink = styled(StyledNavigationLink)`
   display: block;
@@ -92,7 +93,7 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
     <nav
       aria-label="Primary"
       css={css`
-        background-color: ${p => getColor({ theme: p.theme, variable: 'background.recessed' })};
+        background-color: ${p => getColor({ theme: p.theme, variable: 'background.subtle' })};
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.md} ${p => p.theme.space.lg} 0;
         min-width: 220px;
 
@@ -110,7 +111,8 @@ export const DesktopSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideb
           position: absolute;
           inset: 0 50% 0 0;
           z-index: -1;
-          background-color: ${p => getColor({ theme: p.theme, variable: 'background.recessed' })};
+          box-shadow: ${p => headerBoxShadow(p.theme)};
+          background-color: ${p => getColor({ theme: p.theme, variable: 'background.subtle' })};
 
           ${p => mediaQuery('down', 'md', p.theme)} {
             display: none;
