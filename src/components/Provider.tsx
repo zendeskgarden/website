@@ -6,6 +6,7 @@
  */
 
 import React, { FC, PropsWithChildren, useMemo } from 'react';
+import { HydrationProvider, useHydrated } from 'react-hydration-provider';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ToastProvider } from '@zendeskgarden/react-notifications';
 import { MarkdownProvider } from './MarkdownProvider';
@@ -14,6 +15,24 @@ import { useColorScheme } from './useColorScheme';
 
 const toastPlacement = {
   'top-end': { style: { top: DEFAULT_THEME.space.base * 3 } }
+};
+
+const Wrapper: FC<PropsWithChildren> = ({ children }) => {
+  const isHydrated = useHydrated();
+
+  return (
+    <div
+      css={`
+        width: 100%;
+        height: 100%;
+      `}
+      /* Control for flash of un-themed SSR content, while continuing to make
+       * server-rendered content available for for search indexing */
+      style={{ visibility: isHydrated ? 'visible' : 'hidden' }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export const Provider: FC<PropsWithChildren> = ({ children }) => {
@@ -25,20 +44,17 @@ export const Provider: FC<PropsWithChildren> = ({ children }) => {
     [isSystem, colorScheme, setColorScheme]
   );
 
-  return typeof window === 'undefined' ? null /* prevent color scheme flash */ : (
-    <ColorSchemeContext.Provider value={contextValue}>
-      <ThemeProvider theme={theme}>
-        <div
-          css={`
-            width: 100%;
-            height: 100%;
-          `}
-        >
-          <ToastProvider placementProps={toastPlacement} zIndex={2}>
-            <MarkdownProvider>{children}</MarkdownProvider>
-          </ToastProvider>
-        </div>
-      </ThemeProvider>
-    </ColorSchemeContext.Provider>
+  return (
+    <HydrationProvider>
+      <ColorSchemeContext.Provider value={contextValue}>
+        <ThemeProvider theme={theme}>
+          <Wrapper>
+            <ToastProvider placementProps={toastPlacement} zIndex={2}>
+              <MarkdownProvider>{children}</MarkdownProvider>
+            </ToastProvider>
+          </Wrapper>
+        </ThemeProvider>
+      </ColorSchemeContext.Provider>
+    </HydrationProvider>
   );
 };
