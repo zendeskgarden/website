@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { FC, PropsWithChildren, useMemo } from 'react';
+import React, { FC, PropsWithChildren, useEffect, useMemo } from 'react';
 import { HydrationProvider, useHydrated } from 'react-hydration-provider';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ToastProvider } from '@zendeskgarden/react-notifications';
@@ -19,6 +19,13 @@ const toastPlacement = {
 
 const Wrapper: FC<PropsWithChildren> = ({ children }) => {
   const isHydrated = useHydrated();
+
+  useEffect(() => {
+    if (isHydrated) {
+      // Clear the SSR background color injected by the `setPreBodyComponents` script
+      document.documentElement.style.backgroundColor = '';
+    }
+  }, [isHydrated]);
 
   return (
     <div
