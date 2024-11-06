@@ -8,12 +8,29 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { css } from 'styled-components';
-import { mediaQuery } from '@zendeskgarden/react-theming';
+import styled, { css } from 'styled-components';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
 import { SectionCallout } from './SectionCallout';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { HomeLink } from './HomeLink';
+
+const StyledBackground = styled.div`
+  position: relative;
+  margin-right: ${p => p.theme.space.base * 6}px;
+  margin-bottom: ${p => p.theme.space.base * 6}px;
+  background-color: ${p =>
+    getColor({
+      theme: p.theme,
+      dark: { hue: 'neutralHue', shade: 900 },
+      light: { hue: 'chromeHue', shade: 200 }
+    })};
+
+  & > div {
+    top: ${p => p.theme.space.base * 6}px;
+    left: ${p => p.theme.space.base * 6}px;
+  }
+`;
 
 export const Patterns: React.FC = () => {
   const { patternsImage } = useStaticQuery(graphql`
@@ -49,11 +66,13 @@ export const Patterns: React.FC = () => {
               }
             `}
           >
-            <GatsbyImage
-              image={patternsImage.childFile.childImageSharp.gatsbyImageData}
-              alt="Garden patterns"
-              imgStyle={{ width: 808, maxWidth: '100%', height: 488, maxHeight: '100%' }}
-            />
+            <StyledBackground>
+              <GatsbyImage
+                image={patternsImage.childFile.childImageSharp.gatsbyImageData}
+                alt="Garden patterns"
+                imgStyle={{ width: 808, maxWidth: '100%', height: 488, maxHeight: '100%' }}
+              />
+            </StyledBackground>
           </Grid.Col>
           <Grid.Col
             sm={12}

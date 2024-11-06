@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { SEO } from 'components/SEO';
 import { useStaticQuery, graphql, HeadProps } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
@@ -16,6 +16,23 @@ import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
 import { XL, LG } from '@zendeskgarden/react-typography';
 import { StyledH1 } from 'components/MarkdownProvider/components/Typography';
+
+const StyledBackground = styled.div`
+  position: relative;
+  margin-right: ${p => p.theme.space.base * 5}px;
+  margin-bottom: ${p => p.theme.space.base * 5}px;
+  background-color: ${p =>
+    getColor({
+      theme: p.theme,
+      dark: { hue: 'neutralHue', shade: 900 },
+      light: { hue: 'chromeHue', shade: 200 }
+    })};
+
+  & > div {
+    top: ${p => p.theme.space.base * 5}px;
+    left: ${p => p.theme.space.base * 5}px;
+  }
+`;
 
 export const Head = (props: HeadProps) => (
   <SEO {...props} pageContext={{ frontmatter: { title: 'Not found' } }} />
@@ -50,18 +67,20 @@ const NotFoundPage: React.FC = () => {
         >
           <Grid.Row justifyContent="center">
             <Grid.Col sm="auto">
-              <GatsbyImage
-                image={notFoundImage.childFile.childImageSharp.gatsbyImageData}
-                alt=""
-                css={css`
-                  ${p => mediaQuery('down', 'xs', p.theme)} {
-                    /* stylelint-disable declaration-no-important */
-                    width: 112px !important;
-                    height: 112px !important;
-                  }
-                `}
-                imgStyle={{ maxWidth: '100%', maxHeight: '100%' }}
-              />
+              <StyledBackground>
+                <GatsbyImage
+                  image={notFoundImage.childFile.childImageSharp.gatsbyImageData}
+                  alt=""
+                  css={css`
+                    ${p => mediaQuery('down', 'xs', p.theme)} {
+                      /* stylelint-disable declaration-no-important */
+                      width: 112px !important;
+                      height: 112px !important;
+                    }
+                  `}
+                  imgStyle={{ maxWidth: '100%', maxHeight: '100%' }}
+                />
+              </StyledBackground>
             </Grid.Col>
             <Grid.Col sm={5}>
               <div
