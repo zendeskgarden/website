@@ -58,11 +58,7 @@ const StyledAnchor = styled(Anchor)<{ isCurrent: boolean }>`
   display: block;
   position: relative;
   transition: none;
-  margin: ${({
-    theme: {
-      space: { xxs }
-    }
-  }) => `${xxs} 0 ${xxs} 0`};
+  margin: ${p => `${p.theme.space.xxs} 0 ${p.theme.space.xxs} 0`};
   text-align: left;
 
   &::before {
@@ -70,7 +66,7 @@ const StyledAnchor = styled(Anchor)<{ isCurrent: boolean }>`
     left: 0;
     border-left: ${p =>
       p.isCurrent &&
-      `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'foreground.default' })}`};
+      `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'border.emphasis' })}`};
     height: 100%;
     content: '';
   }
