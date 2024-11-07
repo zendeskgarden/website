@@ -9,7 +9,8 @@ import React, { ReactNode } from 'react';
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import { focusStyles, getColor } from '@zendeskgarden/react-theming';
+import { focusStyles, getColor, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import { ReactComponent as NewWindowIcon } from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg';
 
 interface ILink {
   children: ReactNode;
@@ -55,6 +56,14 @@ const StyledOutboundLink = styled(OutboundLink)`
   ${colorStyles};
 `;
 
+const StyledExternalIcon = styled(StyledBaseIcon)`
+  margin-bottom: -0.085em;
+  padding-left: 0.25em;
+  box-sizing: content-box;
+  width: 0.85em;
+  height: 0.85em;
+`;
+
 export const Link = ({ children, to, activeClassName, ...props }: ILink) => {
   const internal = /^\/(?!\/)/u.test(to);
 
@@ -67,8 +76,17 @@ export const Link = ({ children, to, activeClassName, ...props }: ILink) => {
   }
 
   return (
-    <StyledOutboundLink href={to} {...props}>
-      {children}
+    <StyledOutboundLink href={to} rel="noopener noreferrer" target="_blank" {...props}>
+      <span
+        css={`
+          display: inline-block;
+        `}
+      >
+        {children}
+      </span>
+      <StyledExternalIcon>
+        <NewWindowIcon />
+      </StyledExternalIcon>
     </StyledOutboundLink>
   );
 };
