@@ -75,7 +75,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, p
         {!!hasSkipNav && (
           <SkipNav
             targetId="main-content"
-            zIndex={2}
+            zIndex={5}
             css={css`
               top: ${p => headerHeight(p.theme) / 2}px;
               box-shadow: ${p => headerBoxShadow(p.theme)};

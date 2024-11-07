@@ -56,7 +56,7 @@ export const Provider: FC<PropsWithChildren> = ({ children }) => {
       <ColorSchemeContext.Provider value={contextValue}>
         <ThemeProvider theme={theme}>
           <Wrapper>
-            <ToastProvider placementProps={toastPlacement} zIndex={2}>
+            <ToastProvider placementProps={toastPlacement} zIndex={5}>
               <MarkdownProvider>{children}</MarkdownProvider>
             </ToastProvider>
           </Wrapper>
