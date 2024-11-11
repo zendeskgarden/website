@@ -6,7 +6,7 @@
  */
 
 import React, { PropsWithChildren, useEffect, useLayoutEffect, useState } from 'react';
-import { css } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
 import { GlobalAlert } from '@zendeskgarden/react-notifications';
 import { Anchor } from '@zendeskgarden/react-buttons';
@@ -18,6 +18,12 @@ interface IRootLayoutProps extends PropsWithChildren {
   hasSkipNav?: boolean;
   path?: string;
 }
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
+  }
+`;
 
 const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, path }) => {
   const [isGlobalAlertVisible, setIsGlobalAlertVisible] = useState(true);
@@ -41,52 +47,55 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children, hasSkipNav = true, p
   }, [isGlobalAlertVisible]);
 
   return (
-    <div
-      css={css`
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
-      `}
-    >
-      {!!isGlobalAlertVisible && (
-        <GlobalAlert type="info">
-          <GlobalAlert.Content>
-            <GlobalAlert.Title>Garden 9 is now available.</GlobalAlert.Title>
-            The website has been updated to the latest major version.{' '}
-            <Anchor href="/components/versions">View previous versions</Anchor>
-          </GlobalAlert.Content>
-          <GlobalAlert.Close
-            aria-label="Close v9 alert"
-            onClick={() => {
-              setIsGlobalAlertVisible(false);
-            }}
-          />
-        </GlobalAlert>
-      )}
-      {!!hasSkipNav && (
-        <SkipNav
-          targetId="main-content"
-          zIndex={2}
-          css={css`
-            top: ${p => headerHeight(p.theme) / 2}px;
-            box-shadow: ${p => headerBoxShadow(p.theme)};
-          `}
-        >
-          Skip to main content
-        </SkipNav>
-      )}
-      <Header />
-      <main
-        css={`
-          flex-grow: 1;
-          flex-shrink: 1;
+    <>
+      <GlobalStyle />
+      <div
+        css={css`
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+          color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
         `}
       >
-        {children}
-      </main>
-      <Footer path={path} />
-    </div>
+        {!!isGlobalAlertVisible && (
+          <GlobalAlert type="info">
+            <GlobalAlert.Content>
+              <GlobalAlert.Title>Garden 9 is now available.</GlobalAlert.Title>
+              The website has been updated to the latest major version.{' '}
+              <Anchor href="/components/versions">View previous versions</Anchor>
+            </GlobalAlert.Content>
+            <GlobalAlert.Close
+              aria-label="Close v9 alert"
+              onClick={() => {
+                setIsGlobalAlertVisible(false);
+              }}
+            />
+          </GlobalAlert>
+        )}
+        {!!hasSkipNav && (
+          <SkipNav
+            targetId="main-content"
+            zIndex={5}
+            css={css`
+              top: ${p => headerHeight(p.theme) / 2}px;
+              box-shadow: ${p => headerBoxShadow(p.theme)};
+            `}
+          >
+            Skip to main content
+          </SkipNav>
+        )}
+        <Header />
+        <main
+          css={`
+            flex-grow: 1;
+            flex-shrink: 1;
+          `}
+        >
+          {children}
+        </main>
+        <Footer path={path} />
+      </div>
+    </>
   );
 };
 

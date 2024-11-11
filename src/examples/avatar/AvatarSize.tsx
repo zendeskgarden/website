@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { Grid } from '@zendeskgarden/react-grid';
 import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
@@ -14,27 +13,27 @@ import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user
 const Example = () => (
   <Grid.Row alignItems="center">
     <Grid.Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[700]} size="extraextrasmall">
+      <Avatar backgroundColor="background.emphasis" size="extraextrasmall">
         <UserIcon role="img" aria-label="extra extra small user avatar" />
       </Avatar>
     </Grid.Col>
     <Grid.Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[700]} size="extrasmall">
+      <Avatar backgroundColor="background.emphasis" size="extrasmall">
         <UserIcon role="img" aria-label="extra small user avatar" />
       </Avatar>
     </Grid.Col>
     <Grid.Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[700]} size="small">
+      <Avatar backgroundColor="background.emphasis" size="small">
         <UserIcon role="img" aria-label="small user avatar" />
       </Avatar>
     </Grid.Col>
     <Grid.Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[700]} size="medium">
+      <Avatar backgroundColor="background.emphasis" size="medium">
         <UserIcon role="img" aria-label="medium user avatar" />
       </Avatar>
     </Grid.Col>
     <Grid.Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[700]} size="large">
+      <Avatar backgroundColor="background.emphasis" size="large">
         <UserIcon role="img" aria-label="large user avatar" />
       </Avatar>
     </Grid.Col>

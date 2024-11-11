@@ -8,7 +8,7 @@
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useLocation } from '@reach/router';
-import { getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { StyledNavigationLink } from 'layouts/Root/components/StyledNavigationLink';
 import { StyledSectionHeader } from 'layouts/Home/components/SectionCallout';
 import { ISidebarSection } from '..';
@@ -23,10 +23,12 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
   const { pathname } = useLocation();
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    document.querySelector('header')!.style.position = 'absolute';
 
     return () => {
-      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.querySelector('header')!.style.position = '';
     };
   }, []);
 
@@ -42,13 +44,7 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
           margin-bottom: ${p => p.theme.space.xxs};
         `}
       >
-        <StyledSectionHeader
-          css={css`
-            color: ${p => getColorV8('kale', 600, p.theme)};
-          `}
-        >
-          {section.title}
-        </StyledSectionHeader>
+        <StyledSectionHeader>{section.title}</StyledSectionHeader>
       </li>
       {section.items?.map(item => {
         const isExpanded = (item.items || []).some(nestedItem => nestedItem.id === pathname);
@@ -98,7 +94,7 @@ export const MobileSidebar: React.FC<{ sidebar: ISidebarSection[] }> = ({ sideba
       css={css`
         position: fixed;
         inset: ${p => p.theme.space.base * 20}px 0 0 0;
-        background-color: ${p => p.theme.palette.tofu};
+        background-color: ${p => getColor({ theme: p.theme, variable: 'background.subtle' })};
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.xxl};
         overflow: scroll;
 

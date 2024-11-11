@@ -15,7 +15,7 @@ import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user
 const Example = () => (
   <Grid.Row>
     <Grid.Col textAlign="center">
-      <Avatar backgroundColor={PALETTE.grey[700]} size="medium">
+      <Avatar backgroundColor="background.emphasis" size="medium">
         <UserIcon role="img" aria-label="User" />
       </Avatar>
     </Grid.Col>

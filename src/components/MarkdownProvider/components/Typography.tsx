@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps } from 'styled-components';
-import { getColor, getColorV8, getLineHeight } from '@zendeskgarden/react-theming';
+import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
 import {
   XXXL,
   XXL,
@@ -22,7 +22,7 @@ import { StyledAnchor } from './Anchor';
 const headerStyles = (p: ThemeProps<any>) => {
   return css`
     margin-bottom: ${p.theme.space.sm};
-    color: ${getColorV8('chromeHue', 700, p.theme)};
+    color: ${getColor({ theme: p.theme, variable: 'foreground.default' })};
     font-weight: ${p.theme.fontWeights.semibold};
 
     &:hover ${StyledAnchor} {
@@ -73,7 +73,7 @@ export const StyledH6 = styled(MD).attrs({ tag: 'h6' })`
 
 export const StyledBlockquote = styled(Blockquote)`
   margin-left: ${p => p.theme.space.base * 4}px;
-  color: ${p => getColorV8('grey', 600, p.theme)};
+  color: ${p => getColor({ theme: p.theme, variable: 'foreground.subtle' })};
   font-size: ${p => p.theme.space.base * 4}px;
 `;
 

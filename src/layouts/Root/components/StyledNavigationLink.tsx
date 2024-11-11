@@ -9,7 +9,8 @@ import React, { ReactNode } from 'react';
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import { focusStyles, getColor, getColorV8 } from '@zendeskgarden/react-theming';
+import { focusStyles, getColor, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import { ReactComponent as NewWindowIcon } from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg';
 
 interface ILink {
   children: ReactNode;
@@ -44,11 +45,23 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 };
 
 const StyledGatsbyLink = styled(GatsbyLink)`
+  border-radius: ${p => p.theme.borderRadii.md};
+
   ${colorStyles};
 `;
 
 const StyledOutboundLink = styled(OutboundLink)`
+  border-radius: ${p => p.theme.borderRadii.md};
+
   ${colorStyles};
+`;
+
+const StyledExternalIcon = styled(StyledBaseIcon)`
+  margin-bottom: -0.085em;
+  padding-left: 0.25em;
+  box-sizing: content-box;
+  width: 0.85em;
+  height: 0.85em;
 `;
 
 export const Link = ({ children, to, activeClassName, ...props }: ILink) => {
@@ -63,16 +76,33 @@ export const Link = ({ children, to, activeClassName, ...props }: ILink) => {
   }
 
   return (
-    <StyledOutboundLink href={to} {...props}>
-      {children}
+    <StyledOutboundLink href={to} rel="noopener noreferrer" target="_blank" {...props}>
+      <span
+        css={`
+          display: inline-block;
+        `}
+      >
+        {children}
+      </span>
+      <StyledExternalIcon>
+        <NewWindowIcon />
+      </StyledExternalIcon>
     </StyledOutboundLink>
   );
+};
+
+const colorOptions = {
+  hue: 'primaryHue',
+  dark: { shade: 500 },
+  light: { shade: 700 }
 };
 
 export const StyledNavigationLink = styled(Link).attrs(p => ({
   activeClassName: p.activeClassName || 'is-current'
 }))`
-  border-radius: ${p => p.theme.borderRadii.md};
+  transition:
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out;
   padding: ${p => p.theme.space.base * 1.5}px ${p => p.theme.space.xs};
   color: ${({ theme }) => getColor({ variable: 'foreground.default', theme })};
 
@@ -84,16 +114,31 @@ export const StyledNavigationLink = styled(Link).attrs(p => ({
   }
 
   &.is-current {
-    background-color: ${p => getColorV8('grey', 800, p.theme, 0.1)};
+    background-color: ${p =>
+      getColor({
+        theme: p.theme,
+        ...colorOptions,
+        transparency: p.theme.opacity[200]
+      })};
   }
 
   &:hover {
-    background-color: ${p => getColorV8('grey', 800, p.theme, 0.05)};
+    background-color: ${p =>
+      getColor({
+        theme: p.theme,
+        ...colorOptions,
+        transparency: p.theme.opacity[100]
+      })};
   }
 
   ${props => focusStyles({ theme: props.theme })}
 
   &:active {
-    background-color: ${p => getColorV8('grey', 800, p.theme, 0.2)};
+    background-color: ${p =>
+      getColor({
+        theme: p.theme,
+        ...colorOptions,
+        transparency: p.theme.opacity[300]
+      })};
   }
 `;

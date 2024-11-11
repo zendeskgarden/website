@@ -5,25 +5,36 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, HTMLAttributes, useRef, useEffect } from 'react';
-import styled, { css } from 'styled-components';
-import { Link } from 'gatsby';
-import { getColor, getColorV8, mediaQuery } from '@zendeskgarden/react-theming';
+import React, { useState, HTMLAttributes, useRef, useEffect, ChangeEventHandler } from 'react';
+import styled, { css, DefaultTheme, ThemeProps, useTheme } from 'styled-components';
+import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
+import { IMenuProps, Item, ItemGroup, Menu } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import { ReactComponent as OverflowVerticalStroke } from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
 import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import { ReactComponent as LightIcon } from '@zendeskgarden/svg-icons/src/16/sun-stroke.svg';
+import { ReactComponent as DarkIcon } from '@zendeskgarden/svg-icons/src/16/moon-stroke.svg';
+import { ReactComponent as SystemIcon } from '@zendeskgarden/svg-icons/src/16/monitor-stroke.svg';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/26/wordmark-garden.svg';
+import { ColorScheme, useColorSchemeContext } from 'components/useColorSchemeContext';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SearchInput } from './SearchInput';
-import { StyledNavigationLink } from './StyledNavigationLink';
+import { Link, StyledNavigationLink } from './StyledNavigationLink';
+import { Field, Select } from '@zendeskgarden/react-forms';
 
 export const headerBoxShadow = (theme: any) =>
   theme.shadows.lg(
     `${theme.space.base * 4}px`,
     `${theme.space.base * 6}px`,
-    getColorV8('neutralHue', 800, theme, 0.05)!
+    getColor({
+      theme,
+      hue: 'neutralHue',
+      shade: 1200,
+      dark: { transparency: theme.opacity[200] },
+      light: { transparency: theme.opacity[100] / 2 }
+    })
   );
 
 export const headerHeight = (theme: any) => theme.space.base * 20;
@@ -40,21 +51,27 @@ const StyledDesktopNavLink = styled(StyledNavigationLink).attrs({ partiallyActiv
   justify-content: center;
 `;
 
-const StyledHeader = styled.header.attrs({ role: 'banner' })`
-  z-index: 1;
+const StyledHeader = styled.header.attrs({ role: 'banner' })<
+  ThemeProps<DefaultTheme> & { isNavigationVisible: boolean }
+>`
+  position: ${p => p.isNavigationVisible && 'absolute'};
+  z-index: 4;
   box-shadow: ${p => headerBoxShadow(p.theme)};
-  background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
+  background-color: ${p => getColor({ theme: p.theme, variable: 'background.raised' })};
   padding: 0 ${p => p.theme.space.base * 4}px;
+  width: 100%;
   height: ${p => headerHeight(p.theme)}px;
-
-  &[data-show-navigation='true'] {
-    border-bottom-color: ${({ theme }) => getColor({ hue: 'white', theme })};
-  }
 
   ${p => mediaQuery('down', 'sm', p.theme)} {
     padding: 0;
     height: ${p => p.theme.space.base * 15}px;
   }
+`;
+
+export const StyledGardenIcon = styled(GardenIcon)`
+  width: ${p => p.theme.iconSizes.lg};
+  height: ${p => p.theme.iconSizes.lg};
+  color: ${p => getColor({ theme: p.theme, hue: 'green', shade: 500 })};
 `;
 
 const Logo: React.FC = () => (
@@ -71,24 +88,24 @@ const Logo: React.FC = () => (
   >
     <Link aria-label="Zendesk Garden" to="/">
       <div
-        css={`
+        css={css`
           display: flex;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
         `}
       >
-        <GardenIcon
-          css={css`
-            width: ${p => p.theme.iconSizes.lg};
-            height: ${p => p.theme.iconSizes.lg};
-            color: ${p => getColorV8('green', 400, p.theme)};
-          `}
-        />
+        <StyledGardenIcon />
         <GardenWordmark
           css={css`
             margin-left: ${p => p.theme.space.xs};
             height: ${p => p.theme.iconSizes.lg};
-            color: ${p => getColorV8('kale', 700, p.theme)};
+            color: ${p =>
+              getColor({
+                theme: p.theme,
+                hue: 'chromeHue',
+                dark: { shade: 300 },
+                light: { shade: 800 }
+              })};
 
             ${p => mediaQuery('down', 'sm', p.theme)} {
               display: none;
@@ -157,11 +174,17 @@ const StyledMobileNavLink = styled(StyledNavigationLink).attrs({ partiallyActive
 `;
 
 const MobileNav: React.FC = () => {
+  const { colorScheme, setColorScheme } = useColorSchemeContext();
+
+  const handleColorSchemeChange: ChangeEventHandler<HTMLSelectElement> = event => {
+    setColorScheme(event.target.value as ColorScheme);
+  };
+
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
 
     return () => {
-      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, []);
 
@@ -171,7 +194,7 @@ const MobileNav: React.FC = () => {
         position: fixed;
         inset: ${p => p.theme.space.base * 15}px 0 0 0;
         z-index: 3;
-        background-color: ${p => p.theme.palette.tofu};
+        background-color: ${p => getColor({ theme: p.theme, variable: 'background.subtle' })};
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.xxl};
       `}
     >
@@ -179,41 +202,92 @@ const MobileNav: React.FC = () => {
       <StyledMobileNavLink to="/design">Design</StyledMobileNavLink>
       <StyledMobileNavLink to="/components">Components</StyledMobileNavLink>
       <StyledMobileNavLink to="/patterns">Patterns</StyledMobileNavLink>
+      <Field
+        css={css`
+          margin-top: ${p => p.theme.space.base * 2}px;
+          padding: ${p => p.theme.space.base * 1.5}px ${p => p.theme.space.xs};
+        `}
+      >
+        <Field.Label isRegular>Switch themes</Field.Label>
+        <Select defaultValue="system" value={colorScheme} onChange={handleColorSchemeChange}>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="system">System</option>
+        </Select>
+      </Field>
     </div>
   );
 };
 
-const DesktopNav: React.FC = () => (
-  <nav
-    role="navigation"
-    aria-label="Global"
-    css={css`
-      display: flex;
-      flex-grow: 1;
-      justify-content: flex-end;
+const DesktopNav: React.FC = () => {
+  const { colorScheme, setColorScheme } = useColorSchemeContext();
 
-      ${p => mediaQuery('down', 'sm', p.theme)} {
-        display: none;
-      }
-    `}
-  >
-    <StyledDesktopNavItem>
-      <StyledDesktopNavLink to="/content">Content</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
-      <StyledDesktopNavLink to="/design">Design</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
-      <StyledDesktopNavLink to="/components">Components</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
-      <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
-    </StyledDesktopNavItem>
-    <StyledDesktopNavItem>
-      <SearchInput id="algolia-docsearch" placeholder="Search" />
-    </StyledDesktopNavItem>
-  </nav>
-);
+  const theme = useTheme();
+
+  const handleColorSchemeChange: IMenuProps['onChange'] = changes => {
+    if (changes.value) {
+      setTimeout(() => {
+        setColorScheme(changes.value as ColorScheme);
+      });
+    }
+  };
+
+  return (
+    <nav
+      role="navigation"
+      aria-label="Global"
+      css={css`
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-end;
+
+        ${p => mediaQuery('down', 'sm', p.theme)} {
+          display: none;
+        }
+      `}
+    >
+      <StyledDesktopNavItem>
+        <StyledDesktopNavLink to="/content">Content</StyledDesktopNavLink>
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <StyledDesktopNavLink to="/design">Design</StyledDesktopNavLink>
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <StyledDesktopNavLink to="/components">Components</StyledDesktopNavLink>
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <StyledDesktopNavLink to="/patterns">Patterns</StyledDesktopNavLink>
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <SearchInput id="algolia-docsearch" placeholder="Search" />
+      </StyledDesktopNavItem>
+      <StyledDesktopNavItem>
+        <Menu
+          button={props => (
+            <IconButton {...props}>
+              {theme.colors.base === 'dark' ? <DarkIcon /> : <LightIcon />}
+            </IconButton>
+          )}
+          onChange={handleColorSchemeChange}
+          placement="bottom-end"
+          selectedItems={[{ value: colorScheme }]}
+        >
+          <ItemGroup aria-label="Switch theme" type="radio">
+            <Item icon={<LightIcon />} value="light">
+              Light
+            </Item>
+            <Item icon={<DarkIcon />} value="dark">
+              Dark
+            </Item>
+            <Item icon={<SystemIcon />} isSelected value="system">
+              System
+            </Item>
+          </ItemGroup>
+        </Menu>
+      </StyledDesktopNavItem>
+    </nav>
+  );
+};
 
 const Header: React.FC = () => {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
@@ -228,7 +302,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <StyledHeader>
+      <StyledHeader isNavigationVisible={isNavigationVisible}>
         <MaxWidthLayout
           css={css`
             display: flex;

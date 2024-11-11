@@ -8,7 +8,17 @@
 import React from 'react';
 import { GatsbyLinkProps } from 'gatsby';
 import { Link } from '../../../layouts/Root/components/StyledNavigationLink';
+import { css } from 'styled-components';
 
 export const HomeLink: React.FC<Omit<GatsbyLinkProps<any>, 'ref'>> = ({ children, ...props }) => (
-  <Link {...props}>{children} →</Link>
+  <Link
+    {...props}
+    css={css`
+      &:hover {
+        text-decoration: underline;
+      }
+    `}
+  >
+    {children} →
+  </Link>
 );

@@ -34,7 +34,8 @@ export default [
       'react/destructuring-assignment': 'off',
       'react/display-name': 'off',
       'react/no-array-index-key': 'off',
-      'react/no-unknown-property': ['error', { ignore: ['css'] }]
+      'react/no-unknown-property': ['error', { ignore: ['css'] }],
+      'react/no-unstable-nested-components': ['error', { allowAsProps: true }]
     }
   },
   {
@@ -64,8 +65,7 @@ export default [
     rules: {
       'no-alert': 'off',
       'jsx-a11y/img-redundant-alt': 'off',
-      'n/no-unsupported-features/es-builtins': ['error', { version: '>=20.0.0' }],
-      'react/no-unstable-nested-components': ['error', { allowAsProps: true }]
+      'n/no-unsupported-features/es-builtins': ['error', { version: '>=20.0.0' }]
     }
   }
 ];
