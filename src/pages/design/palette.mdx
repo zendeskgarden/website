@@ -1,0 +1,75 @@
+---
+title: Palette
+description: >
+  The Zendesk Garden color system is a set of purposeful colors designed with
+  brand personality, usability, and accessibility in mind. The system is
+  broken down into two core palettes: UI and brand.
+---
+
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
+## UI colors
+
+The UI colors are used when creating interface elements. Each color has been
+designed to meet accessibility requirements.
+
+### Primary colors
+
+Primary colors are used for the structure of interfaces, actionable items,
+and validation. Colors in the `600`, `700`, and `800` ranges have a [WCAG
+AA](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+ratio above 4.5:1 against white or `100` backgrounds (excluding
+`yellow-600`). The `800` color range has AAA contrast ratios above 7:1
+against white and `100` backgrounds.
+
+<ColorPalette hues={['grey', 'kale', 'blue', 'green', 'red', 'yellow']} />
+
+### Secondary colors
+
+Secondary colors are used in supplementary UI elements such as icons, tags,
+status badges, and illustrations. Each color has a light and dark hue with a
+default and muted variant. Muted colors are denoted by an `M` prefix, like
+`M400`.
+
+The default color variants should be used for small UI elements when the
+design requires a vibrant color. The muted variants are for applications with
+larger floods of color like data visualization and infographics. Colors in
+the `400` range meet a minimum contrast of 3:1 on white backgrounds
+(excluding `lemon` and `lime-400`). Colors in the `600` range meet a 4.5:1
+contrast ratio on white backgrounds (excluding `lemon`).
+
+<ColorPalette
+  hues={[
+    'purple',
+    'royal',
+    'fuschia',
+    'azure',
+    'pink',
+    'teal',
+    'crimson',
+    'mint',
+    'orange',
+    'lime',
+    'lemon'
+  ]}
+/>
+
+## Brand colors
+
+The brand color palette contains the primary brand colors of Zendesk’s
+product suite. These colors are reserved to denote elements in the UI related
+to Zendesk products.
+
+<ColorPalette hues={['product']} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($slug: String) {
+    ...SidebarPageFragment
+  }
+`;

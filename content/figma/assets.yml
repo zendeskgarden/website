@@ -20,6 +20,20 @@ nodeIds:
   - '111:5374' # components-timeline-correct-hierarchy-dont
   - '336:2968' # components-timeline-nesting-do
   - '25:403' # content-voice-tone-map
+  - '2894:15439' # design-color-principles-purpose-do-this
+  - '2894:15441' # design-color-principles-purpose-not-this
+  - '2895:3222' # design-color-principles-hierarchy-do-this
+  - '2895:3225' # design-color-principles-hierarchy-not-this
+  - '2895:18496' # design-color-principles-elevation-do-this
+  - '2895:18503' # design-color-principles-elevation-not-this
+  - '2895:30143' # design-color-principles-opacity-do-this
+  - '2895:30147' # design-color-principles-opacity-not-this
+  - '2895:30336' # design-color-principles-accessibility-do-this
+  - '2895:30338' # design-color-principles-accessibility-not-this
+  - '2895:31058' # design-color-taxonomy-semantic
+  - '2916:3063' # design-color-taxonomy-primitive
+  - '2895:31080' # design-color-theming-elevation
+  - '2895:31113' # design-color-theming-interaction
   - '722:10550' # design-icons-12px-do
   - '722:10518' # design-icons-16px-do
   - '722:10997' # design-icons-32px-do

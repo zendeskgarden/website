@@ -11,6 +11,7 @@ import { Alert } from './components/Alert';
 import { CodeExample } from './components/CodeExample';
 import { StyledCodeBlock as CodeBlock } from './components/CodeBlock';
 import { ColorPalette } from './components/ColorPalette';
+import { ColorShades } from './components/ColorShades';
 import { Component } from './components/Component';
 import { Configuration } from './components/Configuration';
 import { ObjectBlock } from './components/ObjectBlock';
@@ -38,6 +39,7 @@ export const MarkdownProvider: FC<PropsWithChildren> = ({ children }) => (
       Alert,
       CodeExample,
       ColorPalette,
+      ColorShades,
       Component,
       Configuration,
       ObjectBlock,
