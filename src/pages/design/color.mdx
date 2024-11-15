@@ -25,7 +25,7 @@ Limit their application to avoid clutter. Utilize blue to emphasize interactive 
 | ![green][image3]  | `green`  | Success color, used for validation and notifications about a successful operation                |
 | ![yellow][image4] | `yellow` | Warning color, used for validation and notifications about an incomplete operation               |
 | ![red][image5]    | `red`    | Danger color, used for validation and notifications about a destructive or blocking operation    |
-| ![kale][image6]   | `kale`   | Zendesk brand color, used in [Chrome](https://garden.zendesk.com/components/chrome)              |
+| ![kale][image6]   | `kale`   | Zendesk brand color, used in [Chrome](/components/chrome)                                        |
 
 <BestPractice>
   <Do
@@ -89,12 +89,12 @@ Supplement colors with text and icons to emphasize hierarchy and relevance.
 A common practice is to communicate element hierarchy through levels.
 To present the spatial relationships between elements, Garden uses color, shadows, backdrops, borders, and fills.
 
-| Depth      | Usage                                                                                                                                                                                           |
-| :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `recessed` | Surfaces that sit below the main surface (Well)                                                                                                                                                 |
-| `default`  | Main background surfaces                                                                                                                                                                        |
-| `subtle`   | Surfaces that are positioned on the main surface and need to be emphasized (Alert).                                                                                                             |
-| `raised`   | Surfaces that are floating above the main surface ([Modal](https://garden.zendesk.com/components/modal), [Tooltip modal](https://garden.zendesk.com/components/tooltip-modal), or Notification) |
+| Depth      | Usage                                                                                                                                       |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| `recessed` | Surfaces that sit below the main surface (Well)                                                                                             |
+| `default`  | Main background surfaces                                                                                                                    |
+| `subtle`   | Surfaces that are positioned on the main surface and need to be emphasized (Alert).                                                         |
+| `raised`   | Surfaces that are floating above the main surface ([Modal](/components/modal), [Tooltip modal](/components/tooltip-modal), or Notification) |
 
 <BestPractice>
   <Do
@@ -119,8 +119,8 @@ To present the spatial relationships between elements, Garden uses color, shadow
 
 Colors with opacity applied help visually indicate layering of elements on different backgrounds.
 Opacity is primarily used for colors in backgrounds and follows predefined values.
-Interactive elements ([Basic button](https://garden.zendesk.com/components/button#type)
-or [Table](https://garden.zendesk.com/components/table)) are good examples where opacity can be applied.
+Interactive elements ([Basic button](/components/button#type)
+or [Table](/components/table)) are good examples where opacity can be applied.
 
 <BestPractice>
   <Do
@@ -254,18 +254,18 @@ to specific (Application → Group → Element → Modifier → State).
 - **Modifier** describes variant or prominence (`primary`, `default` or `emphasis`)
 - **State** describes interaction (`hover` or `active`)
 
-| Variable examples                 | Description                                                                                             |
-| :-------------------------------- | :------------------------------------------------------------------------------------------------------ |
-| `color.border.success.emphasis`   | Strong success border color applied to [Input](https://garden.zendesk.com/components/input)             |
-| `color.chrome.foreground.default` | Default text color applied in a [Chrome](https://garden.zendesk.com/components/chrome) component        |
-| `color.background.primary.hover`  | Hover background color applied to a [Primary button](https://garden.zendesk.com/components/button#type) |
+| Variable examples                 | Description                                                                   |
+| :-------------------------------- | :---------------------------------------------------------------------------- |
+| `color.border.success.emphasis`   | Strong success border color applied to [Input](/components/input)             |
+| `color.chrome.foreground.default` | Default text color applied in a [Chrome](/components/chrome) component        |
+| `color.background.primary.hover`  | Hover background color applied to a [Primary button](/components/button#type) |
 
 Always aim to simplify variable names and avoid overspecification.
 Optimize variable names for people using them.
 Use `camelCase` or `.` when stitching parts together to separate categories.
 Keep in mind that variables might follow different best practices whether they are implemented in code or in Figma.
 
-#### **Application guidelines**
+#### Guidelines
 
 Variable color collection set is designed to remain compact, readable and reusable.
 Color variables are grouped into three main categories indicating where it’s applied:
@@ -277,13 +277,13 @@ Color variables are grouped into three main categories indicating where it’s a
 Each of the main categories is supplemented by a modifier that specifies information regarding variant or prominence:
 
 - `Primary` color is used for interactive and actionable elements,
-  such as [Anchor](https://garden.zendesk.com/components/anchor), [Button](https://garden.zendesk.com/components/button),
-  focus indicators, [table selection](https://garden.zendesk.com/components/table#selection) and more.
+  such as [Anchor](/components/anchor), [Button](/components/button),
+  focus indicators, [table selection](/components/table#selection) and more.
 - `Success`, `Warning` and `Danger` are used to emphasize different types of information,
-  such as [danger buttons](https://garden.zendesk.com/components/button#danger),
-  [input validation](https://garden.zendesk.com/components/input#validation),
-  [Notifications](https://garden.zendesk.com/components/notifications) or
-  [Alerts](https://garden.zendesk.com/components/alerts).
+  such as [danger buttons](/components/button#danger),
+  [input validation](/components/input#validation),
+  [Notifications](/components/notifications) or
+  [Alerts](/components/alerts).
 - `Default` often denotes the most used value, with `Subtle` or
   `Emphasis` additions to cover a wider range of specific use cases.
 
@@ -293,61 +293,61 @@ Semantic naming is consistent in Figma and in code `Hover` and
 `Active` states programmatically change color by 100 or 200 shade offset from the base hue.
 Temporary or supporting variables in Figma are marked with an asterisk `*`.
 
-#### **Foreground**
-
-| Light mode             |              | Dark mode              |              | Variable          | Usage                                                                                                                                              |
-| ---------------------- | :----------- | ---------------------- | :----------- | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![grey-900][image21]   | `grey-900`   | ![grey-300][image21]   | `grey-300`   | `default`         | Default [text](https://garden.zendesk.com/components/paragraph)                                                                                    |
-| ![grey-700][image2]    | `grey-700`   | ![grey-500][image2]    | `grey-500`   | `subtle`          | Icons and meta information ([Input hint text](https://garden.zendesk.com/components/input#hint-text))                                              |
-| ![white][image22]      | `white`      | ![grey-1100][image23]  | `grey-1100`  | `onEmphasis`      | Text placed on `emphasis`                                                                                                                          |
-| ![blue-700][image1]    | `blue-700`   | ![blue-600][image24]   | `blue-600`   | `primary`         | Primary text ([Anchor](https://garden.zendesk.com/components/anchor))                                                                              |
-| ![green-700][image25]  | `green-700`  | ![green-600][image26]  | `green-600`  | `success`         | Success text ([validation text](https://garden.zendesk.com/components/input#validation) and [Alert](https://garden.zendesk.com/components/alerts)) |
-| ![yellow-700][image27] | `yellow-700` | ![yellow-600][image28] | `yellow-600` | `warning`         | Warning text ([validation text](https://garden.zendesk.com/components/input#validation) and [Alert](https://garden.zendesk.com/components/alerts)) |
-| ![red-700][image29]    | `red-700`    | ![red-600][image30]    | `red-600`    | `danger`          | Danger text ([validation text](https://garden.zendesk.com/components/input#validation) and [Alert](https://garden.zendesk.com/components/alerts))  |
-| ![green-900][image31]  | `green-900`  | ![green-400][image32]  | `green-400`  | `successEmphasis` | Strong success text (title in [Alert](https://garden.zendesk.com/components/alerts#type))                                                          |
-| ![yellow-900][image33] | `yellow-900` | ![yellow-400][image34] | `yellow-400` | `warningEmphasis` | Strong warning text (title in [Alert](https://garden.zendesk.com/components/alerts#type))                                                          |
-| ![red-900][image35]    | `red-900`    | ![red-400][image36]    | `red-400`    | `dangerEmphasis`  | Strong danger text (title in [Alert](https://garden.zendesk.com/components/alerts#type))                                                           |
-| ![grey-400][image37]   | `grey-400`   | ![grey-700][image38]   | `grey-700`   | `placeholder`     | Placeholder text ([Input](https://garden.zendesk.com/components/input#placeholder))                                                                |
-| ![grey-400][image39]   | `grey-400`   | ![grey-700][image40]   | `grey-700`   | `disabled`        | Disabled text ([Input](https://garden.zendesk.com/components/input#disabled))                                                                      |
-
-#### **Background**
-
-| Light mode                          |                           | Dark mode                            |                            | Variable          | Usage                                                                                                                                                                                                                                                                                                  |
-| ----------------------------------- | :------------------------ | ------------------------------------ | :------------------------- | :---------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![white][image41]                   | `white`                   | ![grey-1100][image42]                | `grey-1100`                | `default`         | Default background used for main surfaces                                                                                                                                                                                                                                                              |
-| ![grey-100][image43]                | `grey-100`                | ![grey-1000][image44]                | `grey-1000`                | `subtle`          | Subtle background that sits on the same plane as the main surface                                                                                                                                                                                                                                      |
-| ![white][image45]                   | `white`                   | ![grey-1000][image46]                | `grey-1000`                | `raised`          | Background used for raised and floating surfaces ([Modal](https://garden.zendesk.com/components/modal), [Tooltip modal](https://garden.zendesk.com/components/tooltip-modal), [Menu](https://garden.zendesk.com/components/menu), [Notification](https://garden.zendesk.com/components/notifications)) |
-| ![grey-100][image47]                | `grey-100`                | ![grey-1200][image48]                | `grey-1200`                | `recessed`        | Background that sits below the main surface                                                                                                                                                                                                                                                            |
-| ![green-100][image49]               | `green-100`               | ![green-1000][image50]               | `green-1000`               | `success`         | Success background ([Alert](https://garden.zendesk.com/components/alerts#type))                                                                                                                                                                                                                        |
-| ![yellow-100][image51]              | `yellow-100`              | ![yellow-1000][image52]              | `yellow-1000`              | `warning`         | Warning background ([Alert](https://garden.zendesk.com/components/alerts#type))                                                                                                                                                                                                                        |
-| ![red-100][image53]                 | `red-100`                 | ![red-1000][image54]                 | `red-1000`                 | `danger`          | Danger background ([Alert](https://garden.zendesk.com/components/alerts#type))                                                                                                                                                                                                                         |
-| ![grey-700][image55]                | `grey-700`                | ![grey-600][image56]                 | `grey-600`                 | `emphasis`        | Strong backgrounds, usually used for interactive elements                                                                                                                                                                                                                                              |
-| ![blue-700][image57]                | `blue-700`                | ![blue-600][image58]                 | `blue-600`                 | `primaryEmphasis` | Strong background for primary interaction elements ([Primary button](https://garden.zendesk.com/components/button#type))                                                                                                                                                                               |
-| ![green-700][image59]               | `green-700`               | ![green-600][image60]                | `green-600`                | `successEmphasis` | Strong background for success interaction elements                                                                                                                                                                                                                                                     |
-| ![yellow-700][image61]              | `yellow-700`              | ![yellow-600][image62]               | `yellow-600`               | `warningEmphasis` | Strong background for warning interaction elements                                                                                                                                                                                                                                                     |
-| ![red-700][image63]                 | `red-700`                 | ![red-600][image64]                  | `red-600`                  | `dangerEmphasis`  | Strong background for danger interaction elements                                                                                                                                                                                                                                                      |
-| ![grey-700 @ opacity-100][image65]  | `grey-700 @ opacity-100`  | ![grey-500 @ opacity-100][image66]   | `grey-500 @ opacity-100`   | `disabled`        | Neutral opacity at shade 100 used for disabled backgrounds ([Disabled input](https://garden.zendesk.com/components/input#disabled))                                                                                                                                                                    |
-| ![grey-900 @ opacity-1000][image67] | `grey-900 @ opacity-1000` | ![grey-1200 @ opacity-1000][image68] | `grey-1200 @ opacity-1000` | `*backdrop`       | Neutral opacity at shade 1000 used as a scrim ([Modal](https://garden.zendesk.com/components/modal))                                                                                                                                                                                                   |
-| ![grey-400 @ opacity-100][image69]  | `grey-400 @ opacity-100`  | ![grey-600 @ opacity-100][image70]   | `grey-600 @ opacity-100`   | `*striped`        | Background for striped tables                                                                                                                                                                                                                                                                          |
-
-#### **Borders**
-
-| Light mode             |              | Dark mode              |              | Variable          | Usage                                                                                                                                                                                                         |
-| ---------------------- | :----------- | ---------------------- | :----------- | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ![grey-300][image71]   | `grey-300`   | ![grey-800][image72]   | `grey-800`   | `default`         | Default layout borders and dividers ([Table header](https://garden.zendesk.com/components/table), [Drawer](https://garden.zendesk.com/components/drawer), [Pane](https://garden.zendesk.com/components/pane)) |
-| ![grey-200][image73]   | `grey-200`   | ![grey-900][image74]   | `grey-900`   | `subtle`          | Inner layout borders and dividers ([Table body](https://garden.zendesk.com/components/table), [Modal](https://garden.zendesk.com/components/modal))                                                           |
-| ![grey-400][image75]   | `grey-400`   | ![grey-700][image76]   | `grey-700`   | `*input`          | Interactive neutral borders ([Input](https://garden.zendesk.com/components/input), [Combobox](https://garden.zendesk.com/components/combobox), [Tiles](https://garden.zendesk.com/components/tiles))          |
-| ![grey-600][image77]   | `grey-600`   | ![grey-600][image77]   | `grey-600`   | `emphasis`        | Interactive neutral borders with 3:1 or higher contrast ([Checkbox](https://garden.zendesk.com/components/checkbox), [Radio](https://garden.zendesk.com/components/radio))                                    |
-| ![green-300][image78]  | `green-300`  | ![green-900][image79]  | `green-900`  | `success`         | Success layout borders ([Alert](https://garden.zendesk.com/components/alerts#type))                                                                                                                           |
-| ![yellow-300][image80] | `yellow-300` | ![yellow-900][image81] | `yellow-900` | `warning`         | Warning layout borders ([Alert](https://garden.zendesk.com/components/alerts#type))                                                                                                                           |
-| ![red-300][image82]    | `red-300`    | ![red-900][image83]    | `red-900`    | `danger`          | Danger layout borders ([Alert](https://garden.zendesk.com/components/alerts#type))                                                                                                                            |
-| ![blue-700][image84]   | `blue-700`   | ![blue-600][image84]   | `blue-600`   | `primaryEmphasis` | Strong primary color (Focus outlines, [Outline buttons](https://garden.zendesk.com/components/button#default))                                                                                                |
-| ![green-700][image85]  | `green-700`  | ![green-600][image86]  | `green-600`  | `successEmphasis` | Strong success border ([Input success validation](https://garden.zendesk.com/components/input#validation))                                                                                                    |
-| ![yellow-700][image87] | `yellow-700` | ![yellow-600][image88] | `yellow-600` | `warningEmphasis` | Strong warning border ([Input warning validation](https://garden.zendesk.com/components/input#validation))                                                                                                    |
-| ![red-700][image89]    | `red-700`    | ![red-600][image90]    | `red-600`    | `dangerEmphasis`  | Strong danger border ([Input danger validation](https://garden.zendesk.com/components/input#validation))                                                                                                      |
-| ![grey-300][image91]   | `grey-300`   | ![grey-800][image72]   | `grey-800`   | `disabled`        | Disabled border ([Disabled input](https://garden.zendesk.com/components/input#disabled))                                                                                                                      |
-
 #### Foreground
+
+| Light mode             |              | Dark mode              |              | Variable          | Usage                                                                                          |
+| ---------------------- | :----------- | ---------------------- | :----------- | :---------------- | :--------------------------------------------------------------------------------------------- |
+| ![grey-900][image21]   | `grey-900`   | ![grey-300][image21]   | `grey-300`   | `default`         | Default [text](/components/paragraph)                                                          |
+| ![grey-700][image2]    | `grey-700`   | ![grey-500][image2]    | `grey-500`   | `subtle`          | Icons and meta information ([Input hint text](/components/input#hint-text))                    |
+| ![white][image22]      | `white`      | ![grey-1100][image23]  | `grey-1100`  | `onEmphasis`      | Text placed on `emphasis`                                                                      |
+| ![blue-700][image1]    | `blue-700`   | ![blue-600][image24]   | `blue-600`   | `primary`         | Primary text ([Anchor](/components/anchor))                                                    |
+| ![green-700][image25]  | `green-700`  | ![green-600][image26]  | `green-600`  | `success`         | Success text ([validation text](/components/input#validation) and [Alert](/components/alerts)) |
+| ![yellow-700][image27] | `yellow-700` | ![yellow-600][image28] | `yellow-600` | `warning`         | Warning text ([validation text](/components/input#validation) and [Alert](/components/alerts)) |
+| ![red-700][image29]    | `red-700`    | ![red-600][image30]    | `red-600`    | `danger`          | Danger text ([validation text](/components/input#validation) and [Alert](/components/alerts))  |
+| ![green-900][image31]  | `green-900`  | ![green-400][image32]  | `green-400`  | `successEmphasis` | Strong success text (title in [Alert](/components/alerts#type))                                |
+| ![yellow-900][image33] | `yellow-900` | ![yellow-400][image34] | `yellow-400` | `warningEmphasis` | Strong warning text (title in [Alert](/components/alerts#type))                                |
+| ![red-900][image35]    | `red-900`    | ![red-400][image36]    | `red-400`    | `dangerEmphasis`  | Strong danger text (title in [Alert](/components/alerts#type))                                 |
+| ![grey-400][image37]   | `grey-400`   | ![grey-700][image38]   | `grey-700`   | `placeholder`     | Placeholder text ([Input](/components/input#placeholder))                                      |
+| ![grey-400][image39]   | `grey-400`   | ![grey-700][image40]   | `grey-700`   | `disabled`        | Disabled text ([Input](/components/input#disabled))                                            |
+
+#### Background
+
+| Light mode                          |                           | Dark mode                            |                            | Variable          | Usage                                                                                                                                                                                          |
+| ----------------------------------- | :------------------------ | ------------------------------------ | :------------------------- | :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![white][image41]                   | `white`                   | ![grey-1100][image42]                | `grey-1100`                | `default`         | Default background used for main surfaces                                                                                                                                                      |
+| ![grey-100][image43]                | `grey-100`                | ![grey-1000][image44]                | `grey-1000`                | `subtle`          | Subtle background that sits on the same plane as the main surface                                                                                                                              |
+| ![white][image45]                   | `white`                   | ![grey-1000][image46]                | `grey-1000`                | `raised`          | Background used for raised and floating surfaces ([Modal](/components/modal), [Tooltip modal](/components/tooltip-modal), [Menu](/components/menu), [Notification](/components/notifications)) |
+| ![grey-100][image47]                | `grey-100`                | ![grey-1200][image48]                | `grey-1200`                | `recessed`        | Background that sits below the main surface                                                                                                                                                    |
+| ![green-100][image49]               | `green-100`               | ![green-1000][image50]               | `green-1000`               | `success`         | Success background ([Alert](/components/alerts#type))                                                                                                                                          |
+| ![yellow-100][image51]              | `yellow-100`              | ![yellow-1000][image52]              | `yellow-1000`              | `warning`         | Warning background ([Alert](/components/alerts#type))                                                                                                                                          |
+| ![red-100][image53]                 | `red-100`                 | ![red-1000][image54]                 | `red-1000`                 | `danger`          | Danger background ([Alert](/components/alerts#type))                                                                                                                                           |
+| ![grey-700][image55]                | `grey-700`                | ![grey-600][image56]                 | `grey-600`                 | `emphasis`        | Strong backgrounds, usually used for interactive elements                                                                                                                                      |
+| ![blue-700][image57]                | `blue-700`                | ![blue-600][image58]                 | `blue-600`                 | `primaryEmphasis` | Strong background for primary interaction elements ([Primary button](/components/button#type))                                                                                                 |
+| ![green-700][image59]               | `green-700`               | ![green-600][image60]                | `green-600`                | `successEmphasis` | Strong background for success interaction elements                                                                                                                                             |
+| ![yellow-700][image61]              | `yellow-700`              | ![yellow-600][image62]               | `yellow-600`               | `warningEmphasis` | Strong background for warning interaction elements                                                                                                                                             |
+| ![red-700][image63]                 | `red-700`                 | ![red-600][image64]                  | `red-600`                  | `dangerEmphasis`  | Strong background for danger interaction elements                                                                                                                                              |
+| ![grey-700 @ opacity-100][image65]  | `grey-700 @ opacity-100`  | ![grey-500 @ opacity-100][image66]   | `grey-500 @ opacity-100`   | `disabled`        | Neutral opacity at shade 100 used for disabled backgrounds ([Disabled input](/components/input#disabled))                                                                                      |
+| ![grey-900 @ opacity-1000][image67] | `grey-900 @ opacity-1000` | ![grey-1200 @ opacity-1000][image68] | `grey-1200 @ opacity-1000` | `*backdrop`       | Neutral opacity at shade 1000 used as a scrim ([Modal](/components/modal))                                                                                                                     |
+| ![grey-400 @ opacity-100][image69]  | `grey-400 @ opacity-100`  | ![grey-600 @ opacity-100][image70]   | `grey-600 @ opacity-100`   | `*striped`        | Background for striped tables                                                                                                                                                                  |
+
+#### Borders
+
+| Light mode             |              | Dark mode              |              | Variable          | Usage                                                                                                                           |
+| ---------------------- | :----------- | ---------------------- | :----------- | :---------------- | :------------------------------------------------------------------------------------------------------------------------------ |
+| ![grey-300][image71]   | `grey-300`   | ![grey-800][image72]   | `grey-800`   | `default`         | Default layout borders and dividers ([Table header](/components/table), [Drawer](/components/drawer), [Pane](/components/pane)) |
+| ![grey-200][image73]   | `grey-200`   | ![grey-900][image74]   | `grey-900`   | `subtle`          | Inner layout borders and dividers ([Table body](/components/table), [Modal](/components/modal))                                 |
+| ![grey-400][image75]   | `grey-400`   | ![grey-700][image76]   | `grey-700`   | `*input`          | Interactive neutral borders ([Input](/components/input), [Combobox](/components/combobox), [Tiles](/components/tiles))          |
+| ![grey-600][image77]   | `grey-600`   | ![grey-600][image77]   | `grey-600`   | `emphasis`        | Interactive neutral borders with 3:1 or higher contrast ([Checkbox](/components/checkbox), [Radio](/components/radio))          |
+| ![green-300][image78]  | `green-300`  | ![green-900][image79]  | `green-900`  | `success`         | Success layout borders ([Alert](/components/alerts#type))                                                                       |
+| ![yellow-300][image80] | `yellow-300` | ![yellow-900][image81] | `yellow-900` | `warning`         | Warning layout borders ([Alert](/components/alerts#type))                                                                       |
+| ![red-300][image82]    | `red-300`    | ![red-900][image83]    | `red-900`    | `danger`          | Danger layout borders ([Alert](/components/alerts#type))                                                                        |
+| ![blue-700][image84]   | `blue-700`   | ![blue-600][image84]   | `blue-600`   | `primaryEmphasis` | Strong primary color (Focus outlines, [Outline buttons](/components/button#default))                                            |
+| ![green-700][image85]  | `green-700`  | ![green-600][image86]  | `green-600`  | `successEmphasis` | Strong success border ([Input success validation](/components/input#validation))                                                |
+| ![yellow-700][image87] | `yellow-700` | ![yellow-600][image88] | `yellow-600` | `warningEmphasis` | Strong warning border ([Input warning validation](/components/input#validation))                                                |
+| ![red-700][image89]    | `red-700`    | ![red-600][image90]    | `red-600`    | `dangerEmphasis`  | Strong danger border ([Input danger validation](/components/input#validation))                                                  |
+| ![grey-300][image91]   | `grey-300`   | ![grey-800][image72]   | `grey-800`   | `disabled`        | Disabled border ([Disabled input](/components/input#disabled))                                                                  |
+
+#### Custom variables
 
 If there is a need to create custom variables, always build upon the taxonomy that exists.
 Use terms that system consumers are familiar with.
