@@ -29,6 +29,7 @@ const contrastRatios = [
 const StyledContainer = styled.div`
   overflow-x: auto;
   color-scheme: only ${p => p.theme.colors.base};
+  margin-bottom: ${p => p.theme.space.lg};
 `;
 
 const StyledTable = styled(Table)`
