@@ -8,7 +8,8 @@
 import React, { useState } from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
-import { ReactComponent as Icon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import { ReactComponent as StrokeIcon } from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import { ReactComponent as FillIcon } from '@zendeskgarden/svg-icons/src/16/leaf-fill.svg';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 const Example = () => {
@@ -27,7 +28,10 @@ const Example = () => {
               setDefaultPressed(!defaultPressed);
             }}
           >
-            <Icon />
+            <svg focusable="false">
+              <FillIcon style={{ opacity: defaultPressed ? 1 : 0 }} />
+              <StrokeIcon style={{ opacity: defaultPressed ? 0 : 1 }} />
+            </svg>
           </ToggleIconButton>
         </Tooltip>
       </Grid.Col>
@@ -41,7 +45,10 @@ const Example = () => {
             }}
             isPrimary
           >
-            <Icon />
+            <svg focusable="false">
+              <FillIcon style={{ opacity: primaryPressed ? 1 : 0 }} />
+              <StrokeIcon style={{ opacity: primaryPressed ? 0 : 1 }} />
+            </svg>
           </ToggleIconButton>
         </Tooltip>
       </Grid.Col>
@@ -55,7 +62,10 @@ const Example = () => {
             }}
             isBasic={false}
           >
-            <Icon />
+            <svg focusable="false">
+              <FillIcon style={{ opacity: basicPressed ? 1 : 0 }} />
+              <StrokeIcon style={{ opacity: basicPressed ? 0 : 1 }} />
+            </svg>
           </ToggleIconButton>
         </Tooltip>
       </Grid.Col>
