@@ -1,7 +1,7 @@
 ---
-title: Color principles
+title: Color
 description: >
-  Use this documentation to understand color principles, color palette, color application and theming in Garden.
+  Color principles, palette, application, light and dark mode considerations in Garden.
 ---
 
 import { SEO } from '../../components';
@@ -9,6 +9,8 @@ import { SEO } from '../../components';
 export function Head(props) {
   return <SEO {...props} />;
 }
+
+## Principles
 
 ### Purpose
 
@@ -177,9 +179,9 @@ This makes the interface clear even for people with color vision impairment.
   </Dont>
 </BestPractice>
 
-## **Color palette**
+## Palette
 
-### Color system / Overview
+### Overview
 
 Each hue within the Garden palette has 12 shades with consistent contrast distribution.
 This means that every shade at the same value (like 500\) will have an identical contrast ratio
@@ -215,7 +217,7 @@ Secondary colors are used in supplementary interface elements such as icons, tag
   ]}
 />
 
-## **Color application**
+## Application
 
 ### Primitive and semantic variables
 
@@ -225,7 +227,7 @@ Garden distinguishes two levels of color variables which serve distinct but comp
 
 - **Primitive variables** represent the **option level**, as the most basic, fundamental values in a design system.
   Their name describes the visual attributes or represent basic values included
-  in the [color palette](#color-palette) (like `red-500` or `blue-100`).
+  in the [color palette](#palette) (like `red-500` or `blue-100`).
   They are a source for higher-level variables and are not applied directly to components.
 
 - **Semantic variables** are built on top of the primitive variables and represent the **context level**.
@@ -345,14 +347,14 @@ Temporary or supporting variables in Figma are marked with an asterisk `*`.
 | ![red-700][image89]    | `red-700`    | ![red-600][image90]    | `red-600`    | `dangerEmphasis`  | Strong danger border ([Input danger validation](https://garden.zendesk.com/components/input#validation))                                                                                                      |
 | ![grey-300][image91]   | `grey-300`   | ![grey-800][image72]   | `grey-800`   | `disabled`        | Disabled border ([Disabled input](https://garden.zendesk.com/components/input#disabled))                                                                                                                      |
 
-#### **Custom variables**
+#### Foreground
 
 If there is a need to create custom variables, always build upon the taxonomy that exists.
 Use terms that system consumers are familiar with.
 
-## **Color in theming**
+## Theming
 
-### **Differences in application**
+### Differences in application
 
 Light mode uses shade 700 as the prevailing shade and dark mode uses shade 600\.
 This change makes the actionable elements stand out in the dark environment.
@@ -360,7 +362,7 @@ Both shades provide comparable color contrast.
 Color shades primarily used in dark mode tend to have less saturation to prevent light bleed.
 Actionable elements with filled backgrounds have dark text to reduce eye fatigue.
 
-### **Interaction**
+### Interaction
 
 Interaction states in light mode increase the shade number (hover is darker than base hue),
 while dark mode does the opposite (hover is lighter than base hue).
@@ -368,7 +370,7 @@ Light and dark modes automatically increase/decrease shades to account for this.
 
 ![Interaction states in dark and light mode](figma:design-color-theming-interaction.png)
 
-### **Elevation**
+### Elevation
 
 Modes differ in their approach to presenting surface elevations.
 In light mode default and raised surfaces are lighter than recessed and subtle surfaces.
@@ -376,14 +378,14 @@ Dark mode surfaces that appear closer to the light source use a lighter tint.
 Recessed surfaces that are further from the light source use a darker shade.
 
 In both modes the raised surface casts a shadow.
-Small shadows are used for [Tooltip](https://garden.zendesk.com/components/tooltip) only.
-Medium shadows are used for components without backdrop ([Tooltip modal](https://garden.zendesk.com/components/tooltip-modalđ),
-[Menu](https://garden.zendesk.com/components/menu)).
-Large shadows are used for components that have a backdrop ([Modal](https://garden.zendesk.com/components/modal) or [Drawer](https://garden.zendesk.com/components/drawer)).
+Small shadows are used for [Tooltip](/components/tooltip) only.
+Medium shadows are used for components without backdrop ([Tooltip dialog](/components/tooltip-dialog),
+[Menu](/components/menu)).
+Large shadows are used for components that have a backdrop ([Modal](/components/modal) or [Drawer](components/drawer)).
 
 ![Representation of elevations in dark and light mode](figma:design-color-theming-elevation.png)
 
-### **Opacity**
+### Opacity
 
 Opacity values are consistent in both light and dark mode.
 Light mode uses shade 700 and dark mode uses shade 500 as the primary shade.
