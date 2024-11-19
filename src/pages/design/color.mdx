@@ -14,18 +14,17 @@ export function Head(props) {
 
 ### Purpose
 
-In the user interface, color carries specific meaning and sets consistent user expectations.
-Use red, green, and yellow to provide status feedback like success, warning, or danger.
-Limit their application to avoid clutter. Utilize blue to emphasize interactive elements.
+In the user interface, color carries specific meaning and sets consistent user
+expectations. Use red, green, and yellow to provide status feedback like
+success, warning, or danger. Limit their application to avoid clutter. Utilize
+blue to emphasize interactive elements.
 
-| Color             |          | Usage                                                                                            |
-| ----------------- | :------- | :----------------------------------------------------------------------------------------------- |
-| ![blue][image1]   | `blue`   | Primary (accent) color, used for interactive elements, active elements, focus outlines, and more |
-| ![grey][image2]   | `grey`   | Neutral color, used for layout and resting elements                                              |
-| ![green][image3]  | `green`  | Success color, used for validation and notifications about a successful operation                |
-| ![yellow][image4] | `yellow` | Warning color, used for validation and notifications about an incomplete operation               |
-| ![red][image5]    | `red`    | Danger color, used for validation and notifications about a destructive or blocking operation    |
-| ![kale][image6]   | `kale`   | Zendesk brand color, used in [Chrome](/components/chrome)                                        |
+import Purpose from '../../examples/design/color/Purpose.tsx';
+import PurposeCode from '!!raw-loader!../../examples/design/color/Purpose.tsx';
+
+<CodeExample code={PurposeCode}>
+  <Purpose />
+</CodeExample>
 
 <BestPractice>
   <Do
@@ -86,8 +85,9 @@ Supplement colors with text and icons to emphasize hierarchy and relevance.
 
 ### Elevation
 
-A common practice is to communicate element hierarchy through levels.
-To present the spatial relationships between elements, Garden uses color, shadows, backdrops, borders, and fills.
+A common practice is to communicate element hierarchy through levels. To
+present the spatial relationships between elements, Garden uses color, shadows,
+backdrops, borders, and fills.
 
 | Depth      | Usage                                                                                                                                       |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -117,10 +117,11 @@ To present the spatial relationships between elements, Garden uses color, shadow
 
 ### Opacity
 
-Colors with opacity applied help visually indicate layering of elements on different backgrounds.
-Opacity is primarily used for colors in backgrounds and follows predefined values.
-Interactive elements ([Basic button](/components/button#type)
-or [Table](/components/table)) are good examples where opacity can be applied.
+Colors with opacity applied help visually indicate layering of elements on
+different backgrounds. Opacity is primarily used for colors in backgrounds and
+follows predefined values. Interactive elements ([Basic
+button](/components/button#type) or [Table](/components/table)) are good
+examples where opacity can be applied.
 
 <BestPractice>
   <Do
@@ -147,14 +148,14 @@ or [Table](/components/table)) are good examples where opacity can be applied.
 
 ### Accessibility
 
-Remember not to rely solely on color to indicate the state or status of a component.
-Use text or icon to support the visual affordance.
-The most effective measure of the color accessibility is the contrast ratio
-(regulated by [WCAG guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum)).
-It refers to the difference in luminance, or brightness, between foreground and background color.
-Text should always conform to 4.5:1 color contrast or higher,
-while graphical elements (like icons) need 3:1 color contrast.
-This makes the interface clear even for people with color vision impairment.
+Remember not to rely solely on color to indicate the state or status of a
+component. Use text or icon to support the visual affordance. The most
+effective measure of the color accessibility is the contrast ratio (regulated by
+[WCAG guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum)). It refers
+to the difference in luminance, or brightness, between foreground and background
+color. Text should always conform to 4.5:1 color contrast or higher, while
+graphical elements (like icons) need 3:1 color contrast. This makes the
+interface clear even for people with color vision impairment.
 
 <BestPractice>
   <Do
@@ -183,23 +184,26 @@ This makes the interface clear even for people with color vision impairment.
 
 ### Overview
 
-Each hue within the Garden palette has 12 shades with consistent contrast distribution.
-This means that every shade at the same value (like 500\) will have an identical contrast ratio
-against the same background.
+Each hue within the Garden palette has 12 shades with consistent contrast
+distribution. This means that every shade at the same value (like 500) will
+have an identical contrast ratio against the same background.
 
-This approach ensures scalability of the system, theming automation, and helps with WCAG compliance.  
-Hue in shade 600 meets minimum 3:1 color contrast requirement against white or shade 100\.
-Hue in shade 700 meets 4.5:1 color contrast. Shades 800 and above meet 7:1 or higher color contrast.
+This approach ensures scalability of the system, theming automation, and helps
+with WCAG compliance. Hue in shade 600 meets minimum 3:1 color contrast
+requirement against white or shade 100. Hue in shade 700 meets 4.5:1 color
+contrast. Shades 800 and above meet 7:1 or higher color contrast.
 
 ### Primary
 
-Primary colors are used for the structure of interfaces, actionable items, and validation.
+Primary colors are used for the structure of interfaces, actionable items, and
+validation.
 
 <ColorShades hues={['grey', 'kale', 'blue', 'green', 'red', 'yellow']} />
 
 ### Secondary
 
-Secondary colors are used in supplementary interface elements such as icons, tags, status badges, and illustrations.
+Secondary colors are used in supplementary interface elements such as icons,
+tags, status badges, and illustrations.
 
 <ColorShades
   hues={[
@@ -221,28 +225,32 @@ Secondary colors are used in supplementary interface elements such as icons, tag
 
 ### Primitive and semantic variables
 
-In a design system, variables define values that you can reuse between different elements.
-This ensures consistency, scalability, and easier maintenance of a design system.
-Garden distinguishes two levels of color variables which serve distinct but complementary purposes:
+In a design system, variables define values that you can reuse between different
+elements. This ensures consistency, scalability, and easier maintenance of a
+design system. Garden distinguishes two levels of color variables which serve
+distinct but complementary purposes:
 
-- **Primitive variables** represent the **option level**, as the most basic, fundamental values in a design system.
-  Their name describes the visual attributes or represent basic values included
-  in the [color palette](#palette) (like `red-500` or `blue-100`).
-  They are a source for higher-level variables and are not applied directly to components.
+- **Primitive variables** represent the **option level**, as the most basic,
+  fundamental values in a design system. Their name describes the visual
+  attributes or represent basic values included in the [color palette](#palette)
+  (like `red-500` or `blue-100`). They are a source for higher-level variables
+  and are not applied directly to components.
 
-- **Semantic variables** are built on top of the primitive variables and represent the **context level**.
-  Their name is descriptive. It carries intended use or meaning rather than appearance (like `border/warning`).
-  Garden uses semantic variables in components, as the only ones supporting theming.
+- **Semantic variables** are built on top of the primitive variables and
+  represent the **context level**. Their name is descriptive. It carries intended
+  use or meaning rather than appearance (like `border/warning`). Garden uses
+  semantic variables in components, as the only ones supporting theming.
 
-![Image showing variables attached to a button component.
-The "foreground.onEmphasis" variable points to the "white" variable indicating the text fill.
-The "background.primary" variable points to the "blue.700" variable, indicating the background fill.](figma:design-color-taxonomy-primitive.png)
+![Image showing variables attached to a button component. The
+"foreground.onEmphasis" variable points to the "white" variable indicating the
+text fill. The "background.primary" variable points to the "blue.700" variable,
+indicating the background fill.](figma:design-color-taxonomy-primitive.png)
 
 ### Taxonomy
 
-Taxonomy is a structured classification system to help understand, apply, and create variables.
-Variable names are composed from different parts, starting from generic
-to specific (Application → Group → Element → Modifier → State).
+Taxonomy is a structured classification system to help understand, apply, and
+create variables. Variable names are composed from different parts, starting
+from generic to specific (Application → Group → Element → Modifier → State).
 
 - **Application** describes the type of variable (`color`)
 - **Group** describes if a variable is part of an object group (`chrome` or `tag`)
@@ -256,10 +264,10 @@ to specific (Application → Group → Element → Modifier → State).
 | `color.chrome.foreground.default` | Default text color applied in a [Chrome](/components/chrome) component        |
 | `color.background.primary.hover`  | Hover background color applied to a [Primary button](/components/button#type) |
 
-Always aim to simplify variable names and avoid overspecification.
-Optimize variable names for people using them.
-Use `camelCase` or `.` when stitching parts together to separate categories.
-Keep in mind that variables might follow different best practices whether they are implemented in code or in Figma.
+Always aim to simplify variable names and avoid overspecification. Optimize
+variable names for people using them. Use `camelCase` or `.` when stitching
+parts together to separate categories. Keep in mind that variables might follow
+different best practices whether they are implemented in code or in Figma.
 
 #### Guidelines
 
@@ -270,199 +278,103 @@ Color variables are grouped into three main categories indicating where it’s a
 - **Backgrounds** used for fill areas
 - **Borders** used for different types of interactive and non-interactive borders
 
-Each of the main categories is supplemented by a modifier that specifies information regarding variant or prominence:
+Each of the main categories is supplemented by a modifier that specifies
+information regarding variant or prominence:
 
-- `Primary` color is used for interactive and actionable elements,
-  such as [Anchor](/components/anchor), [Button](/components/button),
-  focus indicators, [table selection](/components/table#selection) and more.
-- `Success`, `Warning` and `Danger` are used to emphasize different types of information,
-  such as [danger buttons](/components/button#danger),
-  [input validation](/components/input#validation),
-  [Notifications](/components/notifications) or
-  [Alerts](/components/alerts).
-- `Default` often denotes the most used value, with `Subtle` or
-  `Emphasis` additions to cover a wider range of specific use cases.
+- `Primary` color is used for interactive and actionable elements, such as
+  [Anchor](/components/anchor), [Button](/components/button), focus indicators,
+  [table selection](/components/table#selection) and more.
+- `Success`, `Warning` and `Danger` are used to emphasize different types of
+  information, such as [danger buttons](/components/button#danger), [input
+  validation](/components/input#validation),
+  [Notifications](/components/notifications) or [Alerts](/components/alerts).
+- `Default` often denotes the most used value, with `Subtle` or `Emphasis`
+  additions to cover a wider range of specific use cases.
 
 ![Color taxonomy semantic naming](figma:design-color-taxonomy-semantic.png)
 
-Semantic naming is consistent in Figma and in code `Hover` and
-`Active` states programmatically change color by 100 or 200 shade offset from the base hue.
+Semantic naming is consistent in Figma and in code `Hover` and `Active` states
+programmatically change color by 100 or 200 shade offset from the base hue.
 Temporary or supporting variables in Figma are marked with an asterisk `*`.
 
 #### Foreground
 
-| Light mode             |              | Dark mode              |              | Variable          | Usage                                                                                          |
-| ---------------------- | :----------- | ---------------------- | :----------- | :---------------- | :--------------------------------------------------------------------------------------------- |
-| ![grey-900][image21]   | `grey-900`   | ![grey-300][image21]   | `grey-300`   | `default`         | Default [text](/components/paragraph)                                                          |
-| ![grey-700][image2]    | `grey-700`   | ![grey-500][image2]    | `grey-500`   | `subtle`          | Icons and meta information ([Input hint text](/components/input#hint-text))                    |
-| ![white][image22]      | `white`      | ![grey-1100][image23]  | `grey-1100`  | `onEmphasis`      | Text placed on `emphasis`                                                                      |
-| ![blue-700][image1]    | `blue-700`   | ![blue-600][image24]   | `blue-600`   | `primary`         | Primary text ([Anchor](/components/anchor))                                                    |
-| ![green-700][image25]  | `green-700`  | ![green-600][image26]  | `green-600`  | `success`         | Success text ([validation text](/components/input#validation) and [Alert](/components/alerts)) |
-| ![yellow-700][image27] | `yellow-700` | ![yellow-600][image28] | `yellow-600` | `warning`         | Warning text ([validation text](/components/input#validation) and [Alert](/components/alerts)) |
-| ![red-700][image29]    | `red-700`    | ![red-600][image30]    | `red-600`    | `danger`          | Danger text ([validation text](/components/input#validation) and [Alert](/components/alerts))  |
-| ![green-900][image31]  | `green-900`  | ![green-400][image32]  | `green-400`  | `successEmphasis` | Strong success text (title in [Alert](/components/alerts#type))                                |
-| ![yellow-900][image33] | `yellow-900` | ![yellow-400][image34] | `yellow-400` | `warningEmphasis` | Strong warning text (title in [Alert](/components/alerts#type))                                |
-| ![red-900][image35]    | `red-900`    | ![red-400][image36]    | `red-400`    | `dangerEmphasis`  | Strong danger text (title in [Alert](/components/alerts#type))                                 |
-| ![grey-400][image37]   | `grey-400`   | ![grey-700][image38]   | `grey-700`   | `placeholder`     | Placeholder text ([Input](/components/input#placeholder))                                      |
-| ![grey-400][image39]   | `grey-400`   | ![grey-700][image40]   | `grey-700`   | `disabled`        | Disabled text ([Input](/components/input#disabled))                                            |
+import ForegroundVariables from '../../examples/design/color/ForegroundVariables.tsx';
+import ForegroundVariablesCode from '!!raw-loader!../../examples/design/color/ForegroundVariables.tsx';
+
+<CodeExample code={ForegroundVariablesCode}>
+  <ForegroundVariables />
+</CodeExample>
 
 #### Background
 
-| Light mode                          |                           | Dark mode                            |                            | Variable          | Usage                                                                                                                                                                                          |
-| ----------------------------------- | :------------------------ | ------------------------------------ | :------------------------- | :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![white][image41]                   | `white`                   | ![grey-1100][image42]                | `grey-1100`                | `default`         | Default background used for main surfaces                                                                                                                                                      |
-| ![grey-100][image43]                | `grey-100`                | ![grey-1000][image44]                | `grey-1000`                | `subtle`          | Subtle background that sits on the same plane as the main surface                                                                                                                              |
-| ![white][image45]                   | `white`                   | ![grey-1000][image46]                | `grey-1000`                | `raised`          | Background used for raised and floating surfaces ([Modal](/components/modal), [Tooltip modal](/components/tooltip-modal), [Menu](/components/menu), [Notification](/components/notifications)) |
-| ![grey-100][image47]                | `grey-100`                | ![grey-1200][image48]                | `grey-1200`                | `recessed`        | Background that sits below the main surface                                                                                                                                                    |
-| ![green-100][image49]               | `green-100`               | ![green-1000][image50]               | `green-1000`               | `success`         | Success background ([Alert](/components/alerts#type))                                                                                                                                          |
-| ![yellow-100][image51]              | `yellow-100`              | ![yellow-1000][image52]              | `yellow-1000`              | `warning`         | Warning background ([Alert](/components/alerts#type))                                                                                                                                          |
-| ![red-100][image53]                 | `red-100`                 | ![red-1000][image54]                 | `red-1000`                 | `danger`          | Danger background ([Alert](/components/alerts#type))                                                                                                                                           |
-| ![grey-700][image55]                | `grey-700`                | ![grey-600][image56]                 | `grey-600`                 | `emphasis`        | Strong backgrounds, usually used for interactive elements                                                                                                                                      |
-| ![blue-700][image57]                | `blue-700`                | ![blue-600][image58]                 | `blue-600`                 | `primaryEmphasis` | Strong background for primary interaction elements ([Primary button](/components/button#type))                                                                                                 |
-| ![green-700][image59]               | `green-700`               | ![green-600][image60]                | `green-600`                | `successEmphasis` | Strong background for success interaction elements                                                                                                                                             |
-| ![yellow-700][image61]              | `yellow-700`              | ![yellow-600][image62]               | `yellow-600`               | `warningEmphasis` | Strong background for warning interaction elements                                                                                                                                             |
-| ![red-700][image63]                 | `red-700`                 | ![red-600][image64]                  | `red-600`                  | `dangerEmphasis`  | Strong background for danger interaction elements                                                                                                                                              |
-| ![grey-700 @ opacity-100][image65]  | `grey-700 @ opacity-100`  | ![grey-500 @ opacity-100][image66]   | `grey-500 @ opacity-100`   | `disabled`        | Neutral opacity at shade 100 used for disabled backgrounds ([Disabled input](/components/input#disabled))                                                                                      |
-| ![grey-900 @ opacity-1000][image67] | `grey-900 @ opacity-1000` | ![grey-1200 @ opacity-1000][image68] | `grey-1200 @ opacity-1000` | `*backdrop`       | Neutral opacity at shade 1000 used as a scrim ([Modal](/components/modal))                                                                                                                     |
-| ![grey-400 @ opacity-100][image69]  | `grey-400 @ opacity-100`  | ![grey-600 @ opacity-100][image70]   | `grey-600 @ opacity-100`   | `*striped`        | Background for striped tables                                                                                                                                                                  |
+import BackgroundVariables from '../../examples/design/color/BackgroundVariables.tsx';
+import BackgroundVariablesCode from '!!raw-loader!../../examples/design/color/BackgroundVariables.tsx';
+
+<CodeExample code={BackgroundVariablesCode}>
+  <BackgroundVariables />
+</CodeExample>
 
 #### Borders
 
-| Light mode             |              | Dark mode              |              | Variable          | Usage                                                                                                                           |
-| ---------------------- | :----------- | ---------------------- | :----------- | :---------------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| ![grey-300][image71]   | `grey-300`   | ![grey-800][image72]   | `grey-800`   | `default`         | Default layout borders and dividers ([Table header](/components/table), [Drawer](/components/drawer), [Pane](/components/pane)) |
-| ![grey-200][image73]   | `grey-200`   | ![grey-900][image74]   | `grey-900`   | `subtle`          | Inner layout borders and dividers ([Table body](/components/table), [Modal](/components/modal))                                 |
-| ![grey-400][image75]   | `grey-400`   | ![grey-700][image76]   | `grey-700`   | `*input`          | Interactive neutral borders ([Input](/components/input), [Combobox](/components/combobox), [Tiles](/components/tiles))          |
-| ![grey-600][image77]   | `grey-600`   | ![grey-600][image77]   | `grey-600`   | `emphasis`        | Interactive neutral borders with 3:1 or higher contrast ([Checkbox](/components/checkbox), [Radio](/components/radio))          |
-| ![green-300][image78]  | `green-300`  | ![green-900][image79]  | `green-900`  | `success`         | Success layout borders ([Alert](/components/alerts#type))                                                                       |
-| ![yellow-300][image80] | `yellow-300` | ![yellow-900][image81] | `yellow-900` | `warning`         | Warning layout borders ([Alert](/components/alerts#type))                                                                       |
-| ![red-300][image82]    | `red-300`    | ![red-900][image83]    | `red-900`    | `danger`          | Danger layout borders ([Alert](/components/alerts#type))                                                                        |
-| ![blue-700][image84]   | `blue-700`   | ![blue-600][image84]   | `blue-600`   | `primaryEmphasis` | Strong primary color (Focus outlines, [Outline buttons](/components/button#default))                                            |
-| ![green-700][image85]  | `green-700`  | ![green-600][image86]  | `green-600`  | `successEmphasis` | Strong success border ([Input success validation](/components/input#validation))                                                |
-| ![yellow-700][image87] | `yellow-700` | ![yellow-600][image88] | `yellow-600` | `warningEmphasis` | Strong warning border ([Input warning validation](/components/input#validation))                                                |
-| ![red-700][image89]    | `red-700`    | ![red-600][image90]    | `red-600`    | `dangerEmphasis`  | Strong danger border ([Input danger validation](/components/input#validation))                                                  |
-| ![grey-300][image91]   | `grey-300`   | ![grey-800][image72]   | `grey-800`   | `disabled`        | Disabled border ([Disabled input](/components/input#disabled))                                                                  |
+import BorderVariables from '../../examples/design/color/BorderVariables.tsx';
+import BorderVariablesCode from '!!raw-loader!../../examples/design/color/BorderVariables.tsx';
+
+<CodeExample code={BorderVariablesCode}>
+  <BorderVariables />
+</CodeExample>
+
+#### Shadows
+
+import ShadowVariables from '../../examples/design/color/ShadowVariables.tsx';
+import ShadowVariablesCode from '!!raw-loader!../../examples/design/color/ShadowVariables.tsx';
+
+<CodeExample code={ShadowVariablesCode}>
+  <ShadowVariables />
+</CodeExample>
 
 #### Custom variables
 
-If there is a need to create custom variables, always build upon the taxonomy that exists.
-Use terms that system consumers are familiar with.
+If there is a need to create custom variables, always build upon the taxonomy
+that exists. Use terms that system consumers are familiar with.
 
 ## Theming
 
 ### Differences in application
 
-Light mode uses shade 700 as the prevailing shade and dark mode uses shade 600\.
+Light mode uses shade 700 as the prevailing shade and dark mode uses shade 600.
 This change makes the actionable elements stand out in the dark environment.
-Both shades provide comparable color contrast.
-Color shades primarily used in dark mode tend to have less saturation to prevent light bleed.
-Actionable elements with filled backgrounds have dark text to reduce eye fatigue.
+Both shades provide comparable color contrast. Color shades primarily used in
+dark mode tend to have less saturation to prevent light bleed. Actionable
+elements with filled backgrounds have dark text to reduce eye fatigue.
 
 ### Interaction
 
-Interaction states in light mode increase the shade number (hover is darker than base hue),
-while dark mode does the opposite (hover is lighter than base hue).
+Interaction states in light mode increase the shade number (hover is darker than
+base hue), while dark mode does the opposite (hover is lighter than base hue).
 Light and dark modes automatically increase/decrease shades to account for this.
 
 ![Interaction states in dark and light mode](figma:design-color-theming-interaction.png)
 
 ### Elevation
 
-Modes differ in their approach to presenting surface elevations.
-In light mode default and raised surfaces are lighter than recessed and subtle surfaces.
-Dark mode surfaces that appear closer to the light source use a lighter tint.
+Modes differ in their approach to presenting surface elevations. In light mode
+default and raised surfaces are lighter than recessed and subtle surfaces. Dark
+mode surfaces that appear closer to the light source use a lighter tint.
 Recessed surfaces that are further from the light source use a darker shade.
 
-In both modes the raised surface casts a shadow.
-Small shadows are used for [Tooltip](/components/tooltip) only.
-Medium shadows are used for components without backdrop ([Tooltip dialog](/components/tooltip-dialog),
-[Menu](/components/menu)).
-Large shadows are used for components that have a backdrop ([Modal](/components/modal) or [Drawer](components/drawer)).
+In both modes the raised surface casts a shadow. Small shadows are used for
+[Tooltip](/components/tooltip) only. Medium shadows are used for components
+without backdrop ([Tooltip dialog](/components/tooltip-dialog),
+[Menu](/components/menu)). Large shadows are used for components that have a
+backdrop ([Modal](/components/modal) or [Drawer](/components/drawer)).
 
 ![Representation of elevations in dark and light mode](figma:design-color-theming-elevation.png)
 
 ### Opacity
 
-Opacity values are consistent in both light and dark mode.
-Light mode uses shade 700 and dark mode uses shade 500 as the primary shade.
-
-[image1]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDElEQVR4Xr2VyxGDIBCGKSEV4HYYBzjkFjtJOshJ4UYplGAJCYuOE0CJwU125ruA++AHdxkrGLSPExf62khtPc7znDAjrnFpznDRkPp9NHSag84By3Cpb7sTga9qrjALVMaMXAxtGi8yUEGOFef9oKRp3GBT5blDDdlJJs1rZNnCjNGdcDnc848OY9+qzzZJwGfOwOuVblDBRd+xRu1/7xVY1gjKy81wbGWRlL8kcOkiHWb8/SWD6ruVDRJCy8CfId2gAtq5XfxCJpwRSy/CTKT/g4+1VL8kIWwZoDYGjx84hy/cD5wujRtZOEmNXCjLVuWpoX5fzgibab7H0CmMUnxl8alcCOolDT2/YC+8VzGoczmpbwAAAABJRU5ErkJggg==
-[image2]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDklEQVR4XrVVUQ7CIAzlCB7BI/lpAkv25dh+1p1Ab6I34SgegSMoJTAFJmzYveRlyQpteYWWsQxagIMY4Cp6UE0PT/N9OWr8J7ppbCUc431F4Cbr4OMwSz7AfXUgMUyjyzBxVKDmPUDsL4CTI964jcZH7NfCZZ5uqGByEqd5jSy/qIOacAmPhUX/Un1nHxtJiNec8QtAbCCjhBsTG+57BRUGoCxuQHz9GCAxUHL/AI0Mmhg19b5Fllhkc5USAxFty7A9f8FIwbNvF2IHmXBGzL0IIwna96Dn7D1Qr4WFVUzatQdJwbH/5OBOUiNXeWR6oH6bZoS574nma2CL39lRqjBD79C+fuMU5Thhz8/gDZjFC+xF0T9EAAAAAElFTkSuQmCC
-[image3]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABAUlEQVR4Xr1W2xGDIBBkwPynhJQUsBDTQAQrMZ1YiiVQQsIB4+jhCz2zM/sD3HHs4SJjazDPO6+VFlp2XKteaPWNtH6sLiu35oHDtuGCIMEo4Rbb3RvxpqxChUmSLVr+Vi+cbwLegBxJYBZBUpzXI1aeBBxhehKv+SFZlmgnPRG1/MwsOknZjaufWXCecM0ZN+qFJ6joGm5Y5n3PpJNJ0DYXs4cN8CAp/7JBjwcJaa9vsrumJp2gYbAM9zHgCSoOdnGRTO3gRdRmx7HZASgt42awXUcUBA0vwH/WEE+SLRfIslh5AuhJ1hvh7jvWfBdcUHhK/W/LcKrwCyM7kNR7/gp+/L5UJT77+eEAAAAASUVORK5CYII=
-[image4]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDUlEQVR4Xr1VwRWDIAxlBG9w7Ei9FTl1A7tBu4m99YA+R3AUR2CElqRiH2ARbex/718SE8JPDIwl0B2LolXi2pSitxwsn0jFDdoUrzopDmHcIiBoTPpOuEQl6uyDoKqxwjhRktzokl/CfB5aiXLMBOcTJA3zIrDymYAtjG6Cmm+S5Ru58XqiS3GPP/qZ/af62EnC2o45A71CBxW1EjfWyBXzvp49TA9hc3229u9noZGafzlgCI105Gb/JmspbjMOEuLK6M5FETqo+HDrYg+Z7Gaup10EJ5H+DzbXVL2DPtGtjGhdO1A0HPdPCniTLXKpjCfTAXsiV7wRdkgizXMwNr/CKfNvNYANJMWdn8ALAvnd/q3iGfYAAAAASUVORK5CYII=
-[image5]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABE0lEQVR4Xr1W2xWDIAxlhI7QEfoD9lNwoHaDdhO7iQOIMgIjMEJL0Noa8dnYe879AfLgJgYZm4A5pQcj1K3msqiEsp7PQK5czbNC8+zizxyx3SzAqHXaOJwjV/niQCbJLpDhwMk8XZWoK/bXA8gRMVxF8IH9BoTMIwabiG8C+m2UZYyuVxPN5SNy6CdCl32yjxygILQ5K71eeIOKpVB3tqrfVzLIVAlJWVxMyyKLpPxLAIsXCel2LbKGIkMr4Q0qwicQZj7eoKI5t+NiF5kSlXezCCKRfg9cui77N8okJRsZQfsYKAoe5s8UmptskMvLMpo5BuinxfI3wr8nxUDzJQiB/K8JOIAMv5xaWAM5TOpn/gRe2VAp6felaGcAAAAASUVORK5CYII=
-[image6]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA+klEQVR4Xr1W7RGDMAh1hI7QUdio+WWT/DGb2E0cxRE6QguoVwWNH0Xf3bvzQgLJgwOLIgNw7gY+VuBDg2zx+8N8xjevxfgA7+/y3CroUOe0d7jOenMgvhXfUDnJk86UwUl/EwDLMXN4Hyvpl9HpqTYfo3wJa35EliWyr1FOMKEvtelvhuZ3e2U0IpZ5ASE4ZbBjInmaGYMRUSbT5Gq2VPty0ZSXBGjlohlR/guSjKWkDUaklgEuUc/XRhP27eIkmepRLzq52XGQ0rBlyHY9AGwSnqTfCfglR+TaMjIH9EN/x4ygItk49MfgQDxK0cHkVfQLw5WXuOdn8AVVTQXHvvj91QAAAABJRU5ErkJggg==
-[image21]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABD0lEQVR4Xr1VwQ2DMAzMCB2BXwmvJDya9NWNygZlE7oJozACI7S2i5BwAhRwe9J9Yuw453BRagGZuZ0Kd33oMrTahQ74QhYu9LRWhntufMbzVoFJQ1EquEZoovl6I+yKOkwUWiHmVLzeBDnKESduIkrK6xKwc/7xAU5PgvrtlGWO/WQm2vpn4qNjtKEdu4+CQsRrrrS7VDwgxcL5Gofb8oAYUSbh4XJ2KrEoyr9s0PFFQfYKB5EIyND6FvzH11FAjpUy8DMkAiIc7eIXMoEzN6MXSZtdYZnZIc4mSFpG+uGRGDj5zxLwJHvkQln0XOccZOEb3ogc7nuk+TegjQw8pXDLhg4/RW3oqCjIQZ6/gDfmQtspwpE+BwAAAABJRU5ErkJggg==
-[image22]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABmklEQVR4Xr1VbU6DQBDlCBzBG+oN9CZ6E47AP5e2wPjDWGsrVIux2pB137DDxzZtkaIv2aTQnTezb4a3nncEIZE/Seg6itPALDJL25VHMQVRQpeK6MKNOwkEWVIhPLomMd32ToSqqgpTPU0f9GK50pviQ3/vdlrwuf3id0+Ll1YSEzNLrly+DqwcHPA4f9ZlWdakh4DEnUSGw+Vl2Mp5U5a/uTwnsXzNG9nck1jNWRZsHAoUJnJ1eqKm8R3+mJujngtIW52Egnb1/LLdyKFA3zAc4AvD0PfujV5jVS/A5IFTzZIbL7Lz/l4U7r7B2BiuWiZpLmZ7LEBqKzshAT+MDeH9lwSEH2NMkGBr5AYnvoe/bzJGCQ8YrbFQexMsA56PB3wcfcztFFoTpJWydiEy4TM/F1I97ojGi1Rjdtl67cb0xirLpPq8rl4gloGFjb8FCpP4PbsWSMOx4E19Rhd9axzU+s8x2JOwXJII12PbSpAY7zB54pwcc6hyF9BPTVO+I3quYE/zPuDmV1dpwBU2hMSkRo4wJN+Na+MHDSUivTwCeUwAAAAASUVORK5CYII=
-[image23]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABCElEQVR4XrVW7RGDIAxlhPwAK95J2bDdoN3EbuIojsAIbUKpp8Hvxnf3/oD54CUBlVoAIIrKPYyt28K6zlTunRiMvbbGuhuUped2qyAjcjpwuMK62RyIsooZZk5WGS7W3bm/EaIcueEukg/uNyJlnhkcYXaSqPkxWeYYRjXBIr0mPvqP2GXD7PMPBEhtrjTqxTekqCv3VPv6fSdJJiNbXM6OAvBFUZ4fACev44uCDKcWWVORqZX4hhRpBBR4D3xDijjD3+viJJma/i6iSEZ2HkKf/Q+SV0bUfgoSBY/3zxLSSY7IFWYz50g12fxGaGySTPMtiIHwKSUHlGHvFH9haI3kAPDA7Yb4AJIzVIiCba2XAAAAAElFTkSuQmCC
-[image24]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABEElEQVR4Xr1WyRGDMAx0CSmBRzB0Bx2EDpiJzZt0khLyAfOkBEpILHFkEOaMws7sx5YlWRJrhFiAl74uMqtuvjZPqU1t+UaqsoG1QJnI2nj03CpCe6hz2jpcoa/LfHOgIDMRZEidbGATaBNTfyNAORwH99H6oH4RmDk1PsjJTaDmB8syx2bUE6mKh8PoJ8KQfLN3GHAQxlwEuojpBhtVmYg9876XWCapWZtLWQvHIitPCVDTRUY2JzTZjhLd4CJKBmq+Y5ODXlq1cvGPMvm6ygctCm0k1u/BCueQfY/rnU8yJnLdg6XhoD9LaG9yoFy2LLOZU2BPlNn8RsCQTGq+BRAIfk1wysYvXt2tJaj5C/gAr0m3D7JFFAwAAAAASUVORK5CYII=
-[image25]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABAUlEQVR4Xr1W2xGDIBBkwPynhJQUsBDTQAQrMZ1YiiVQQsIB4+jhCz2zM/sD3HHs4SJjazDPO6+VFlp2XKteaPWNtH6sLiu35oHDtuGCIMEo4Rbb3RvxpqxChUmSLVr+Vi+cbwLegBxJYBZBUpzXI1aeBBxhehKv+SFZlmgnPRG1/MwsOknZjaufWXCecM0ZN+qFJ6joGm5Y5n3PpJNJ0DYXs4cN8CAp/7JBjwcJaa9vsrumJp2gYbAM9zHgCSoOdnGRTO3gRdRmx7HZASgt42awXUcUBA0vwH/WEE+SLRfIslh5AuhJ1hvh7jvWfBdcUHhK/W/LcKrwCyM7kNR7/gp+/L5UJT77+eEAAAAASUVORK5CYII=
-[image26]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABAUlEQVR4Xr1V0RGCMAxlBEfgQ8Tt5MtWf2CTgg7iKB2hI2jSAmdThFID7+79pEmavuTSLJtBrqrD6Snr4iFfp05q4NtRGLSV3f2SK5nTuEWcIahP2iecJ/iq6IuwKqyQJlmmMKW6VjSfB3Csw8CVBElpXgtX+URAAoOXoOZpsvyiMF5PwNiGTv8Rh+Sr+tCBgzjmWaluFT1gZJMVbfy8r6WVibe5ATU2mBpZucsFmhr5KMwOTVayoQdctCvD7vyJQw6O62ILmSCnGnfR5ssOcQS9Qsc0But6AFPDG5rXg3tJilwRX+aAfoVH/xE4JIHmMcCL8Ct1U+a9SlsbSGp3/gw+wy8eOcj3f+wAAAAASUVORK5CYII=
-[image27]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDUlEQVR4Xr1VwRWDIAxlBG9w7Ei9FTl1A7tBu4m99YA+R3AUR2CElqRiH2ARbex/718SE8JPDIwl0B2LolXi2pSitxwsn0jFDdoUrzopDmHcIiBoTPpOuEQl6uyDoKqxwjhRktzokl/CfB5aiXLMBOcTJA3zIrDymYAtjG6Cmm+S5Ru58XqiS3GPP/qZ/af62EnC2o45A71CBxW1EjfWyBXzvp49TA9hc3229u9noZGafzlgCI105Gb/JmspbjMOEuLK6M5FETqo+HDrYg+Z7Gaup10EJ5H+DzbXVL2DPtGtjGhdO1A0HPdPCniTLXKpjCfTAXsiV7wRdkgizXMwNr/CKfNvNYANJMWdn8ALAvnd/q3iGfYAAAAASUVORK5CYII=
-[image28]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDklEQVR4Xr2VTxaCIBDGWUC19AjdUB6yaKc3qZtwBDeCS4/AEYohsxop/zT5vffbMDIMHzgw9kW1ZFmrdqUrhAl0gStgC+77sbw+sSOeNymY1CeICaewhTjPXgiq6iscJZrAO7WXON+bWs3LxMRFgKU4b1QI5vjj1eCdgH8rbfmEfzuTphCXxEe/YobqE0ES4JqzRgmJA1RYtauY0/Pv+woMs0pQHi6mg+uJB0nZZIEODxLiNzhkzatEgIbwC8SePwoQ0crDvV38w6Y2vBFDL4KVKP8Hq7gfqn+ItGVokX54KA489p9vgp2ssQts+Vg5FvjnFr0R3Iw8n6N+odxpbmKFz6QdJAVLa5lleN6rbqKrOsJ5JrXVAAAAAElFTkSuQmCC
-[image29]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABE0lEQVR4Xr1W2xWDIAxlhI7QEfoD9lNwoHaDdhO7iQOIMgIjMEJL0Noa8dnYe879AfLgJgYZm4A5pQcj1K3msqiEsp7PQK5czbNC8+zizxyx3SzAqHXaOJwjV/niQCbJLpDhwMk8XZWoK/bXA8gRMVxF8IH9BoTMIwabiG8C+m2UZYyuVxPN5SNy6CdCl32yjxygILQ5K71eeIOKpVB3tqrfVzLIVAlJWVxMyyKLpPxLAIsXCel2LbKGIkMr4Q0qwicQZj7eoKI5t+NiF5kSlXezCCKRfg9cui77N8okJRsZQfsYKAoe5s8UmptskMvLMpo5BuinxfI3wr8nxUDzJQiB/K8JOIAMv5xaWAM5TOpn/gRe2VAp6felaGcAAAAASUVORK5CYII=
-[image30]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABGElEQVR4XrVWSw6DIBD1CD1Cj9RlEzBx1aKbegO9SXsTjuKyHzAcofX5SwS/dHzJiwkDM8MbGAyCGZgoPSieZIrHUodxUX2/oOaxwVjJrzcTiaO9bhFYBAedwyVqltxXByp5cmszdBwt0LxYnNr+BigbOeyFG5lktt8ayNyd7EdnJ9DPU5YpmkFNPkw8Rib9S9lnP2IkIY55oNgltQ1UfHORB2rDefegRADK4g6I248AjoGS+wfQoSjsQUKanYssUGSRuwYa1i2j6fmukYLPc9su1A4y4Y3oexEiKdr7YPrsO6hKr5GJfrTbdQeKgtf9Zw7tTnzkMpOZ24B+294IIR3N1wCL8GuimlPW76q5/UJC0uJU9fwZ/AC0ZPR4ghm4pgAAAABJRU5ErkJggg==
-[image31]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABB0lEQVR4XrVVuxGDMAylTICCEehiXKVMgIKNwgawCdnEozCCR0gsmyNYOOYn3t077iwky0/wHAQeJFWahDlvoiITYZ716vkx5BLWrs/sdXmwFOctApKgwK/gEnm3eiPoaujQUchLqXJrXM9CmLPGkbiJICmuq2E6nyfs4ewkRvNdsvyjtGaiFt6Ol45STLqfBUkInzloX+MAFdXAW5BH4AAhRUA8XMweToAXSXn+BraJkVOeP2TlP60jQEJtGUl1T3CAiqNdRKfIxLrRi+jNjttmB4iKG6VluC+euDw+8LhU/uODOckeuXSOu3OMwcI33BFMzDRfA0garlIxPZX5+5kASbXne/AFDcGVD1NJcP0AAAAASUVORK5CYII=
-[image32]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDElEQVR4Xr1W7RHCIAztCI7ghnUD3cA7wd91A+gEQB2kIzCCJrH2bLAf1NTcvT98hPASXiiKCTs7s7ve66NurNPBtoAHQgUbcUyFuoQ1e75v1nBT55QczqKx1eKDIOKSIuRO5hG1Mwfub2BER7oxC+iD+yXDyPni1eA3Qf5W0jKGOMiJCub2ZdFvgCLpo08mhYBlXiBffEIKyplTkVXvuUCatGxyOVo8gA+K4i8HtHxQEHHbJHtIMpZSMiEFlAx8DMmEEHq52IQmb6teizq5EHsPKJxJA7pISgaX67dJJJz0Z8q6m2TTRf1kLHJu1IBcRo+Aek84X2KvTget1OMX5eNWHl4/jgEdpPkT9gSEb5SWPTgmSAAAAABJRU5ErkJggg==
-[image33]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABEElEQVR4Xr1Wyw2DMAxlhJwSjhwrQSVG4FiJILFJuwFs0m6SURghI7RxPogklF9Nn/SEhBPHfiY2SbKANiOEF7TjBRP1lQ3q+TakEt4p3ttLmoX7VgGbrAPrcJl1Tp+bD4KobISRoxXKOmeP0J8HK0e4cSdpF/rV4DrycPExRpkYzQ/J8o3Sq4kq0mtm0a8Uk+gjIwqrkpAE9AoNeKQ9FFfEBjQK+DQxi+uxydkAGUQGTJ5/gN/E0Cn/UuR+xoBC3TLaEnp+bMTgzbULfoJMjZoRYy+Ck3DvA5Vj9A6YLSNq1w68SBEKnvahXw8mkyNy0fWR6QD6NftmhIg03wJTfD1KxTQre/sFyFGpX5tw3xQffT/Rc6GkE64AAAAASUVORK5CYII=
-[image34]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDUlEQVR4Xr1VbQ6DIAzlCDvCjrJf4G22G8ybOIc7B0fZEfi5RCCOgjED/MS6l7yYWFvaV2kJmUFXXU6G07vmTOiGve2z86QS3hnOrl1VnGO/RXyskws6BJynaVi1+iDIqs8wCbRA2T7ZLY4XwLycHLHjJoKkcVwHn3nqkMOkEq95lixTlEFPWk4fIx/tpfjJPjGiEH5zAnrFBiyqmpZEb/jfMyiIfqI2N6S9/VBBakDkHw4Ihhg65fFNVpyWIwYUupEBlyE2YHEYF/oAmWBHDLPIjQvM+2BjJQsIc2S0zcTiUbzY3XBVF2UcN4CrJEcu6zOZeQzoycYdIRLN1wAO6lepCKryt1+ApG7mz+ALyilaLP0z3S4AAAAASUVORK5CYII=
-[image35]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABB0lEQVR4Xr1VyxWDIBCkBOQEniwtl6A5aQexE9OJpVACJSS7m8T3XPxnzbw3F1YGGHBWqQU0Wmtv8nuZub40LgCfSBiLOHY1rq60Lfi8VeCkjygJrjPvNi9UalfTDhORVUZvXMP1RqjQjnTiLqKlXJeAO+cfH2VyEvTvoC1zjKM7AfHHxEe/ER7JsPukKER85spr1/CCFL2xrap2vfedRJt8Jnq5nEFNDIryLwsEPijIePIl2x7yx7ZJQYgUGRddaF6Q4hAX59hkuyGLKOwE/wfUShrQTTAykrj+QuLCKX+WgCc5YhfOmd05x7sB2e09At574vkWUK+AVlqBwPhUNpAo2EGZv4AX+fPXW+ypuVEAAAAASUVORK5CYII=
-[image36]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABBUlEQVR4Xr1W7RHCIAxlBEdwQ93AbgLUO4su4SgdgYP6X0n6cW2wtNTUd/f+QEnCC30gRAJWykNzvV98aZ5Om9pr8+5oYeylHycrqyNdtwhYBAFGAdMsjVydCKrCCmmQZVonzZnGm6DRQY54YRZBUhoX0VUeLdjCaCeo+TZZ5mgnPXG6Ul8++o3hkIyrjz9gIBxzAXrRCS4GZQrhVcZ5zyXI5HmbS1lDAjrIyr8kqOkgI+3+TXayKqIJJqJlwM9AJ7g42MUuMikjBy/iNjtHza5NcmOzjMiue3A0HP0nhW4n2XKBLLOVU4B+WXdEOCSR5mvQJgpXqcJny7ArfMLAWJAUPT+BD+QK+rFxspR+AAAAAElFTkSuQmCC
-[image37]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA+UlEQVR4Xr2V0RXCIAxFGcER3FA3sJvUDWh/pPVIMwojOIKSlGoNlZaa+s65P6QJ8KBBqYS0hl3dwqlqOvA4z4NouzuO1Vc4aAN7njcrTApF+4Kz2HLxRLiqsMKJQgl8jm7skdf7ULAjTs4Aa/C6JFr5RMIaop2Q52ts+QbaNT4TbW7n6KPfgffq46AIeM0V+sUDUmhjC1Vl3fdsQIkebozDHfBBUf4ygeODYnj7tz9kvEoTARGoZeDPwANSvNpFtYlNUI560cbNjia5yLWMqF0Pkjhw6j8p0U7W2LXkyRyE/mnT5bwREHm+RJgUnlJgu3J9UVtQz0/oCSqK02sEyqlwAAAAAElFTkSuQmCC
-[image38]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDklEQVR4XrVVUQ7CIAzlCB7BI/lpAkv25dh+1p1Ab6I34SgegSMoJTAFJmzYveRlyQpteYWWsQxagIMY4Cp6UE0PT/N9OWr8J7ppbCUc431F4Cbr4OMwSz7AfXUgMUyjyzBxVKDmPUDsL4CTI964jcZH7NfCZZ5uqGByEqd5jSy/qIOacAmPhUX/Un1nHxtJiNec8QtAbCCjhBsTG+57BRUGoCxuQHz9GCAxUHL/AI0Mmhg19b5Fllhkc5USAxFty7A9f8FIwbNvF2IHmXBGzL0IIwna96Dn7D1Qr4WFVUzatQdJwbH/5OBOUiNXeWR6oH6bZoS574nma2CL39lRqjBD79C+fuMU5Thhz8/gDZjFC+xF0T9EAAAAAElFTkSuQmCC
-[image39]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA+UlEQVR4Xr2V0RXCIAxFGcER3FA3sJvUDWh/pPVIMwojOIKSlGoNlZaa+s65P6QJ8KBBqYS0hl3dwqlqOvA4z4NouzuO1Vc4aAN7njcrTApF+4Kz2HLxRLiqsMKJQgl8jm7skdf7ULAjTs4Aa/C6JFr5RMIaop2Q52ts+QbaNT4TbW7n6KPfgffq46AIeM0V+sUDUmhjC1Vl3fdsQIkebozDHfBBUf4ygeODYnj7tz9kvEoTARGoZeDPwANSvNpFtYlNUI560cbNjia5yLWMqF0Pkjhw6j8p0U7W2LXkyRyE/mnT5bwREHm+RJgUnlJgu3J9UVtQz0/oCSqK02sEyqlwAAAAAElFTkSuQmCC
-[image40]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDklEQVR4XrVVUQ7CIAzlCB7BI/lpAkv25dh+1p1Ab6I34SgegSMoJTAFJmzYveRlyQpteYWWsQxagIMY4Cp6UE0PT/N9OWr8J7ppbCUc431F4Cbr4OMwSz7AfXUgMUyjyzBxVKDmPUDsL4CTI964jcZH7NfCZZ5uqGByEqd5jSy/qIOacAmPhUX/Un1nHxtJiNec8QtAbCCjhBsTG+57BRUGoCxuQHz9GCAxUHL/AI0Mmhg19b5Fllhkc5USAxFty7A9f8FIwbNvF2IHmXBGzL0IIwna96Dn7D1Qr4WFVUzatQdJwbH/5OBOUiNXeWR6oH6bZoS574nma2CL39lRqjBD79C+fuMU5Thhz8/gDZjFC+xF0T9EAAAAAElFTkSuQmCC
-[image41]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABmklEQVR4Xr1VbU6DQBDlCBzBG+oN9CZ6E47AP5e2wPjDWGsrVIux2pB137DDxzZtkaIv2aTQnTezb4a3nncEIZE/Seg6itPALDJL25VHMQVRQpeK6MKNOwkEWVIhPLomMd32ToSqqgpTPU0f9GK50pviQ3/vdlrwuf3id0+Ll1YSEzNLrly+DqwcHPA4f9ZlWdakh4DEnUSGw+Vl2Mp5U5a/uTwnsXzNG9nck1jNWRZsHAoUJnJ1eqKm8R3+mJujngtIW52Egnb1/LLdyKFA3zAc4AvD0PfujV5jVS/A5IFTzZIbL7Lz/l4U7r7B2BiuWiZpLmZ7LEBqKzshAT+MDeH9lwSEH2NMkGBr5AYnvoe/bzJGCQ8YrbFQexMsA56PB3wcfcztFFoTpJWydiEy4TM/F1I97ojGi1Rjdtl67cb0xirLpPq8rl4gloGFjb8FCpP4PbsWSMOx4E19Rhd9axzU+s8x2JOwXJII12PbSpAY7zB54pwcc6hyF9BPTVO+I3quYE/zPuDmV1dpwBU2hMSkRo4wJN+Na+MHDSUivTwCeUwAAAAASUVORK5CYII=
-[image42]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABCElEQVR4XrVW7RGDIAxlhPwAK95J2bDdoN3EbuIojsAIbUKpp8Hvxnf3/oD54CUBlVoAIIrKPYyt28K6zlTunRiMvbbGuhuUped2qyAjcjpwuMK62RyIsooZZk5WGS7W3bm/EaIcueEukg/uNyJlnhkcYXaSqPkxWeYYRjXBIr0mPvqP2GXD7PMPBEhtrjTqxTekqCv3VPv6fSdJJiNbXM6OAvBFUZ4fACev44uCDKcWWVORqZX4hhRpBBR4D3xDijjD3+viJJma/i6iSEZ2HkKf/Q+SV0bUfgoSBY/3zxLSSY7IFWYz50g12fxGaGySTPMtiIHwKSUHlGHvFH9haI3kAPDA7Yb4AJIzVIiCba2XAAAAAElFTkSuQmCC
-[image43]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA/klEQVR4Xr2W3RWDIAyFHaEjdEPdoG7SbuIojMCbBnygSQ62GhSVxt5zvofyE+AGQ6sqoxDCzY3jA7zvwDmDhIjlNoB6GIa7nLcrmhSDTgGzOO+fhxfCwDXvcCXQDhZP1Mh4C7Ed6cRTUAwZlxV3nkwoQp6EPS+zZQu7yAn+eK0M+g28JPPdpwMUoGte9X3fyA4tcPMtJbeTHWqQTaCbXImhBWSjKn9ZwMhGRey1SQbo6Dtokw4tqGRY/BiSDiU+5eIKm+iNmNeia4sdifxaGViGLNeTNBLO9SeneJISu/afzEnk36k3Au974vkRcfLxr0m8Zd9TAZgYtOWan9EbIQ5GM5+knO8AAAAASUVORK5CYII=
-[image44]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABBUlEQVR4XrVV0Q2DIBBlBD+bgAnSBNiu3UA2aTdxlI7ACC13oilgVez5khcTDo7jHT4YW0EjZSOU7sXVDFyZl1DmHelhLHxvF2llvm4TsCgmmBKuslX6sXsjqAorXEi0QR9Oec/zJUA5yoWV1H2eFyHGyhcW1LM4CWp+TJZf9ElP2k4/Fyb9x84M39WXEwgI15yBXnmAjtqxmvteTZBJ0DY3Ifz9sEERoOT5G/AuMTFqegaNWAjQcGyydkWAiGgZEj2/DFJwtoszZOLhjZi96HSzA1BaRmHXE4SyBA23Ls+bIJ7kiFzbT+YE0I/XvBHhkhSa70Fs/i3esvlU+PfjmHXo+Sv4AKE4gfRGKhkDAAAAAElFTkSuQmCC
-[image45]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABmklEQVR4Xr1VbU6DQBDlCBzBG+oN9CZ6E47AP5e2wPjDWGsrVIux2pB137DDxzZtkaIv2aTQnTezb4a3nncEIZE/Seg6itPALDJL25VHMQVRQpeK6MKNOwkEWVIhPLomMd32ToSqqgpTPU0f9GK50pviQ3/vdlrwuf3id0+Ll1YSEzNLrly+DqwcHPA4f9ZlWdakh4DEnUSGw+Vl2Mp5U5a/uTwnsXzNG9nck1jNWRZsHAoUJnJ1eqKm8R3+mJujngtIW52Egnb1/LLdyKFA3zAc4AvD0PfujV5jVS/A5IFTzZIbL7Lz/l4U7r7B2BiuWiZpLmZ7LEBqKzshAT+MDeH9lwSEH2NMkGBr5AYnvoe/bzJGCQ8YrbFQexMsA56PB3wcfcztFFoTpJWydiEy4TM/F1I97ojGi1Rjdtl67cb0xirLpPq8rl4gloGFjb8FCpP4PbsWSMOx4E19Rhd9axzU+s8x2JOwXJII12PbSpAY7zB54pwcc6hyF9BPTVO+I3quYE/zPuDmV1dpwBU2hMSkRo4wJN+Na+MHDSUivTwCeUwAAAAASUVORK5CYII=
-[image46]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABBUlEQVR4XrVV0Q2DIBBlBD+bgAnSBNiu3UA2aTdxlI7ACC13oilgVez5khcTDo7jHT4YW0EjZSOU7sXVDFyZl1DmHelhLHxvF2llvm4TsCgmmBKuslX6sXsjqAorXEi0QR9Oec/zJUA5yoWV1H2eFyHGyhcW1LM4CWp+TJZf9ElP2k4/Fyb9x84M39WXEwgI15yBXnmAjtqxmvteTZBJ0DY3Ifz9sEERoOT5G/AuMTFqegaNWAjQcGyydkWAiGgZEj2/DFJwtoszZOLhjZi96HSzA1BaRmHXE4SyBA23Ls+bIJ7kiFzbT+YE0I/XvBHhkhSa70Fs/i3esvlU+PfjmHXo+Sv4AKE4gfRGKhkDAAAAAElFTkSuQmCC
-[image47]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA/klEQVR4Xr2W3RWDIAyFHaEjdEPdoG7SbuIojMCbBnygSQ62GhSVxt5zvofyE+AGQ6sqoxDCzY3jA7zvwDmDhIjlNoB6GIa7nLcrmhSDTgGzOO+fhxfCwDXvcCXQDhZP1Mh4C7Ed6cRTUAwZlxV3nkwoQp6EPS+zZQu7yAn+eK0M+g28JPPdpwMUoGte9X3fyA4tcPMtJbeTHWqQTaCbXImhBWSjKn9ZwMhGRey1SQbo6Dtokw4tqGRY/BiSDiU+5eIKm+iNmNeia4sdifxaGViGLNeTNBLO9SeneJISu/afzEnk36k3Au974vkRcfLxr0m8Zd9TAZgYtOWan9EbIQ5GM5+knO8AAAAASUVORK5CYII=
-[image48]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA+UlEQVR4XrVW7RGDIAzlJ1LJOYIb6gbtJrpJR3EERmiTlPM04GfDu3t/AgnhJUaM2UGDcADPyvt35WFyHj6RgW0P6Ky1rfQ7hG2algIsAh7QD6cPqgA6yjANcsiAvr2MtwLJkXG8Rowh4zJi5qnDDSY3Ic3dPVm2GFY1QcOY2fQXqUmW2ScbNEhtbrCXe7mgxhpe5lq/XyPL5HSLKznRAdKoyvIHiCGmzVC2yDUVGVtJLmiRPoHfzM8sanAeF2Vk8sM8i4oPO4LmyGDtc1ApOM2fPcSb3JErbGYuEWty+h9B/Z5ofgb8usCnCQWgDOeA+PWzDeXgmb+DL7FlCUPgvIbcAAAAAElFTkSuQmCC
-[image49]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABAUlEQVR4Xr2W0RGDIAyGHcERuqFu0G7SbsIoLFDMtVDFJ2sQvRosKo39774XYgIG/DHLIoIOcmhf58oa0SN7ugENOAbWFNDAieatCpN8UV8wjmrNdfNEYOvCrzAotAIoa0pabybfDpq4C6xB6zoNKw8TUgjeZOh5Ulu+AbM9uTfP28JDvyI+Vh8EWcBjnqnalDTAhWr0Jat2nPcEBE7AubkUiRPQQVb+MoGkg4zA8ZuMR2khwIKzDADIaYCLyS6qA9oE/R0xeZG3C8bvQc/NDqXsg80yArsexbHhzn9i8m+S0C69fmWOwv6pfXeECHq+RZiEvyZYgNx4EsewHc7zI3oD/qsnsnQzELgAAAAASUVORK5CYII=
-[image50]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABBElEQVR4Xr1Vyw2DMAzNESk55IgESDkU6HbtBmQTuklH6QgZoY3NRySm/Gr6pCehONiO7bwIsQBttFZV3qgyf8oqe/nvd0+Ha3V+S0xq4v9WkVxTAw4mDhcpy6LdHAiywgxnHK3QyTq7x/4CKCgH/XEvm9gvos883nyI5CRY82Nl+UYX9ERWxWNm02/0QzLNnm5gIIy5gHrFBkZasWfedxPKpHibGxBuPwQgBk6eHyASMW66vzTZEgMTUTK0MaD5xMjBUS7OKJMss3bUotPFDiAvfJJB5HqA4mm4jf0G6E9ypFzrT+YA6Im/gNvfCD8kpOZbgIHgKe2mbDwV3v5uzaLmL+AD4yFWSvVOMsAAAAAASUVORK5CYII=
-[image51]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA/klEQVR4Xr1WUQ7CIAzdETyCN9Qb6E30JhxliTL9JNv4r7RgJoXhmHVNXkzW0ZbX+rqmKRiYdgdjd4JRKxh0634hwNAz+ziAee75ua+GhyjAFLAM210WJ6KqfIVpoDIM9PrI40UW6OAHK9GdeFyyUHnmwArwmwTO19AyBxP1BIbbNfPSr1Cf1XOnDNyYN8hX4pBCfz+7yamY93ooTCDZ3BhWt5ggdQhigwSxiEnDbNBkN0oZhwxQMrzmZ5wSeMsF/IMmtyMmLZIWu4GJHSWRlAw7s3hglGi405+ShZvU04W0zFXOjXpStyNUwvkSo0R+leJny3Qr/+9XRClqfsFeGL8gQk1F1/cAAAAASUVORK5CYII=
-[image52]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDUlEQVR4Xr1VWw6CMBDsEfgo6g+FTxMp4WZyA70J3qRH4Qg9gnYqEtjyEhcnmZB0u4/Olq0QM8iiKCrU4aaT2Lhvo1X8bGl1irX4ej5FGfVbBJwQtBdwnklcr06EqnyFNMgybaGOFY03gJcjdPyKiEHjerSVBw5bGJzEa75NlinaQU9ckx4jm36ju2X96sMNDCzdNRcXJStq4GKu5B3yGGpgI2TSvM2lbJCALrLyHwkGQ4ybdtcm56k0AleJGriIX0CUbuhTAxfL7PQeFzvJVHezCJk07/9gu+o/KBhHhtd+DBwN9/NnDu1JtshlJyunaHuy+o3IE2kCzdcATnhKEQAV9oI2WIMcuObUr48Xp454qedcOtsAAAAASUVORK5CYII=
-[image53]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA+0lEQVR4Xr1W0RHDIAh1hI7QDdsN2k3STRwlI3io/1TQXiqxSUxouHuXO4mAD+6pMQuGzl0whAf6YBH8mL5Y4Hgtxlv65yr3rRpt4gBTwBXEYXMiripX2Ai0CIcAdxmvskKH3NiHFEPGZSuVzzfsgTxJ4XwPLb/gqp6kCXk1fjoK+129dOogjbkhvmYOLQA8DXbNezcsJdBsrkAcKUHDoYczEvhRLirCndDkNEoNhw5IMljzpUMLH7nAv9AUh0mLtMUOfC12OYmiZEBsXzwI4XjDUwwZt7Jykn66iJZflUvjnvTdEXbG+RbLifgqpWfLdKr8hLFMKWn+gr0BE9Q6ZvLf2A4AAAAASUVORK5CYII=
-[image54]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABCElEQVR4Xr1W7Q2CMBDtCIRi2p+OYQIlbCQb6Ca6CaMwAiNo34koV749fMkLSY+73kd5RakJFFEU5Ym9uMRW7mBr/3wQtWmwlsXmfIrskfvNovBOFPQdcI7a3hZvlPus2gzDQJOEjyl5vB7adgw4Lydi8LgEynzAYRtZJdTzTW0Zo2l6M/FDuocv/czqk31oFCGOuUpjU3KDFLPEXpVbc97Xs1Kyw2XUtkYFoUGQf9jgW8TEaZpdh5xhyDhK3CDFFJKBj4EbpNjJhdujTf6O6LRIXOw0EztAUjKo90OQGDjpzxSoki3t8j6jmXO8ZrL8jsB5D3q+BNgIvyYI0KvKf/1YQztI8yfwBGpDiXuzLPflAAAAAElFTkSuQmCC
-[image55]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDklEQVR4XrVVUQ7CIAzlCB7BI/lpAkv25dh+1p1Ab6I34SgegSMoJTAFJmzYveRlyQpteYWWsQxagIMY4Cp6UE0PT/N9OWr8J7ppbCUc431F4Cbr4OMwSz7AfXUgMUyjyzBxVKDmPUDsL4CTI964jcZH7NfCZZ5uqGByEqd5jSy/qIOacAmPhUX/Un1nHxtJiNec8QtAbCCjhBsTG+57BRUGoCxuQHz9GCAxUHL/AI0Mmhg19b5Fllhkc5USAxFty7A9f8FIwbNvF2IHmXBGzL0IIwna96Dn7D1Qr4WFVUzatQdJwbH/5OBOUiNXeWR6oH6bZoS574nma2CL39lRqjBD79C+fuMU5Thhz8/gDZjFC+xF0T9EAAAAAElFTkSuQmCC
-[image56]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABBElEQVR4XrVVwRGDIBCkhJSQDrWDOCM89SafiORhOqEUS6CExEPH0YOoKOzMfg5vOfbwYGwDBXQ3Ae8HB6UFtD2H9jvR2FgtswKaO83bBSahwEJwh6o7vJGoVTZWSEV2aXjV5lRvhdEOJzGIqEF1LabKnYRTpCcZPT9lyz+aVU943Xw8H12k0svqPR9cJ15zxqtXThdisayagoXd91AONvG4zaXscQMajMr0G5AhFpsmcZOlZniV3IVIxJGBP4OzEInzuEhjk+rmWZR82CGGYMyR4X94SrjecNSguivw8SRn7MIcf+UUtidBb4TUjudHgEniKTMUmCq0ggJkjzG0w878DfwACzLsmKlLvrkAAAAASUVORK5CYII=
-[image57]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDElEQVR4Xr2VyxGDIBCGKSEV4HYYBzjkFjtJOshJ4UYplGAJCYuOE0CJwU125ruA++AHdxkrGLSPExf62khtPc7znDAjrnFpznDRkPp9NHSag84By3Cpb7sTga9qrjALVMaMXAxtGi8yUEGOFef9oKRp3GBT5blDDdlJJs1rZNnCjNGdcDnc848OY9+qzzZJwGfOwOuVblDBRd+xRu1/7xVY1gjKy81wbGWRlL8kcOkiHWb8/SWD6ruVDRJCy8CfId2gAtq5XfxCJpwRSy/CTKT/g4+1VL8kIWwZoDYGjx84hy/cD5wujRtZOEmNXCjLVuWpoX5fzgibab7H0CmMUnxl8alcCOolDT2/YC+8VzGoczmpbwAAAABJRU5ErkJggg==
-[image58]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABEElEQVR4Xr1WyRGDMAx0CSmBRzB0Bx2EDpiJzZt0khLyAfOkBEpILHFkEOaMws7sx5YlWRJrhFiAl74uMqtuvjZPqU1t+UaqsoG1QJnI2nj03CpCe6hz2jpcoa/LfHOgIDMRZEidbGATaBNTfyNAORwH99H6oH4RmDk1PsjJTaDmB8syx2bUE6mKh8PoJ8KQfLN3GHAQxlwEuojpBhtVmYg9876XWCapWZtLWQvHIitPCVDTRUY2JzTZjhLd4CJKBmq+Y5ODXlq1cvGPMvm6ygctCm0k1u/BCueQfY/rnU8yJnLdg6XhoD9LaG9yoFy2LLOZU2BPlNn8RsCQTGq+BRAIfk1wysYvXt2tJaj5C/gAr0m3D7JFFAwAAAAASUVORK5CYII=
-[image59]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABAUlEQVR4Xr1W2xGDIBBkwPynhJQUsBDTQAQrMZ1YiiVQQsIB4+jhCz2zM/sD3HHs4SJjazDPO6+VFlp2XKteaPWNtH6sLiu35oHDtuGCIMEo4Rbb3RvxpqxChUmSLVr+Vi+cbwLegBxJYBZBUpzXI1aeBBxhehKv+SFZlmgnPRG1/MwsOknZjaufWXCecM0ZN+qFJ6joGm5Y5n3PpJNJ0DYXs4cN8CAp/7JBjwcJaa9vsrumJp2gYbAM9zHgCSoOdnGRTO3gRdRmx7HZASgt42awXUcUBA0vwH/WEE+SLRfIslh5AuhJ1hvh7jvWfBdcUHhK/W/LcKrwCyM7kNR7/gp+/L5UJT77+eEAAAAASUVORK5CYII=
-[image60]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABAUlEQVR4Xr1V0RGCMAxlBEfgQ8Tt5MtWf2CTgg7iKB2hI2jSAmdThFID7+79pEmavuTSLJtBrqrD6Snr4iFfp05q4NtRGLSV3f2SK5nTuEWcIahP2iecJ/iq6IuwKqyQJlmmMKW6VjSfB3Csw8CVBElpXgtX+URAAoOXoOZpsvyiMF5PwNiGTv8Rh+Sr+tCBgzjmWaluFT1gZJMVbfy8r6WVibe5ATU2mBpZucsFmhr5KMwOTVayoQdctCvD7vyJQw6O62ILmSCnGnfR5ssOcQS9Qsc0But6AFPDG5rXg3tJilwRX+aAfoVH/xE4JIHmMcCL8Ct1U+a9SlsbSGp3/gw+wy8eOcj3f+wAAAAASUVORK5CYII=
-[image61]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDUlEQVR4Xr1VwRWDIAxlBG9w7Ei9FTl1A7tBu4m99YA+R3AUR2CElqRiH2ARbex/718SE8JPDIwl0B2LolXi2pSitxwsn0jFDdoUrzopDmHcIiBoTPpOuEQl6uyDoKqxwjhRktzokl/CfB5aiXLMBOcTJA3zIrDymYAtjG6Cmm+S5Ru58XqiS3GPP/qZ/af62EnC2o45A71CBxW1EjfWyBXzvp49TA9hc3229u9noZGafzlgCI105Gb/JmspbjMOEuLK6M5FETqo+HDrYg+Z7Gaup10EJ5H+DzbXVL2DPtGtjGhdO1A0HPdPCniTLXKpjCfTAXsiV7wRdkgizXMwNr/CKfNvNYANJMWdn8ALAvnd/q3iGfYAAAAASUVORK5CYII=
-[image62]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDklEQVR4Xr2VTxaCIBDGWUC19AjdUB6yaKc3qZtwBDeCS4/AEYohsxop/zT5vffbMDIMHzgw9kW1ZFmrdqUrhAl0gStgC+77sbw+sSOeNymY1CeICaewhTjPXgiq6iscJZrAO7WXON+bWs3LxMRFgKU4b1QI5vjj1eCdgH8rbfmEfzuTphCXxEe/YobqE0ES4JqzRgmJA1RYtauY0/Pv+woMs0pQHi6mg+uJB0nZZIEODxLiNzhkzatEgIbwC8SePwoQ0crDvV38w6Y2vBFDL4KVKP8Hq7gfqn+ItGVokX54KA489p9vgp2ssQts+Vg5FvjnFr0R3Iw8n6N+odxpbmKFz6QdJAVLa5lleN6rbqKrOsJ5JrXVAAAAAElFTkSuQmCC
-[image63]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABE0lEQVR4Xr1W2xWDIAxlhI7QEfoD9lNwoHaDdhO7iQOIMgIjMEJL0Noa8dnYe879AfLgJgYZm4A5pQcj1K3msqiEsp7PQK5czbNC8+zizxyx3SzAqHXaOJwjV/niQCbJLpDhwMk8XZWoK/bXA8gRMVxF8IH9BoTMIwabiG8C+m2UZYyuVxPN5SNy6CdCl32yjxygILQ5K71eeIOKpVB3tqrfVzLIVAlJWVxMyyKLpPxLAIsXCel2LbKGIkMr4Q0qwicQZj7eoKI5t+NiF5kSlXezCCKRfg9cui77N8okJRsZQfsYKAoe5s8UmptskMvLMpo5BuinxfI3wr8nxUDzJQiB/K8JOIAMv5xaWAM5TOpn/gRe2VAp6felaGcAAAAASUVORK5CYII=
-[image64]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABGElEQVR4XrVWSw6DIBD1CD1Cj9RlEzBx1aKbegO9SXsTjuKyHzAcofX5SwS/dHzJiwkDM8MbGAyCGZgoPSieZIrHUodxUX2/oOaxwVjJrzcTiaO9bhFYBAedwyVqltxXByp5cmszdBwt0LxYnNr+BigbOeyFG5lktt8ayNyd7EdnJ9DPU5YpmkFNPkw8Rib9S9lnP2IkIY55oNgltQ1UfHORB2rDefegRADK4g6I248AjoGS+wfQoSjsQUKanYssUGSRuwYa1i2j6fmukYLPc9su1A4y4Y3oexEiKdr7YPrsO6hKr5GJfrTbdQeKgtf9Zw7tTnzkMpOZ24B+294IIR3N1wCL8GuimlPW76q5/UJC0uJU9fwZ/AC0ZPR4ghm4pgAAAABJRU5ErkJggg==
-[image65]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDElEQVR4XrVWywrDIBA0PaUhEJr2g/oDOXpoD0EQhKan0EN79M+tI01oVvLWgYHgY11nzShjEzDGJJXSGVfvgsu2vKnXBcQ32q5CpFrrA503C0xCgC7gHHmj88ULCaHT/2yXsq6fZ87bI403gLJy0IlrCUlpXAdkTgdvpbcTp/kGWcYIuQY14U2T00F7iUPSZ087QxHH3GovgmlPWSmVsTXnfS2dTCGLS3l/fE6MNoZm/AW4lNEkwv8QuciqsP6jdvvPGH+WYRLaEYq9XcSQCXdE70WhzQ6xvAvINgSzDM+uO4QouPOfKWAnW+RyD4GxzClcTVbcETjvnuZLgEmwcwQYPltkiTZI6jx/Al8tQG3RptdTjQAAAABJRU5ErkJggg==
-[image66]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABB0lEQVR4XrVVyw7CIBBET7UxIVY/mC/gpE02aUI86IGrH+CnodNq07J9SN1OMhceyzK7DEpNIISwIXrkRF5bWxVE9xNYVb7AmHMuM8Zs432zMCZsEeAbcI6Xi9//fJBzz6zJkAea4vl8PVrrd3G8Hho5+OY0PvI4bg1kzhcvI7sJNF8iyxghV68mKFK86H963WbPJ2WINlfo5XhCjpSrlH5P51smyeLGLMvbQcWD0lz/gK6JSRPvYeUik1ZoJT4hQ2vt7uP5fFKCrV2sIRPsp/UiabNDLPYBSVpGrf0QZApOwx/OF7jJErmwZzTzGKhJ2h9Bmmn+C3BQUxvS3Vs1r5805Kg9fwIvWOWikM61ZOEAAAAASUVORK5CYII=
-[image67]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABFUlEQVR4Xr1VyxWCMBCkAQrQBsLnlMSDgWchNGAb0oZ1UAANWJSZBVQShICL895c8tlsZjeTKJqBECLOVXHNlLmnyjSpKh5EbVqMJSdTCSmP7r5FpFofuqB9wAVm6lwHH5TbrJChG2SR0rSJNJUbbwTI4W1cScRw4xIo84kNW+jdBJpvkuUbrVyjmtgi3bxFPxJN8s5+YgEHhSjjCL3sTnAxQcHX9PtakkysxfVomsgf5OU/DvgwMW7a97BrkRMUGa3kTnCRLAOPwZ3gopBlZxd7yJSpon55UaovvGanYXZ99gOgl7dwIz27HsBRcPKfOdBNtsilA77MAaiJzST4j0C/e5qHgA6ydo4A41uZBmOQgzx/Bk+nMoJpwVXXIAAAAABJRU5ErkJggg==
-[image68]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA/klEQVR4Xr1W3RmCMAzklZTQF150MxdgDV3DORjABRzKXhCFtPwUg/d991Ka0F7ChaJYQNM0TMwtVXwnxx1x/QTLih9YK527ENFZx60iBJ0k6TvhKqv6tvlFOJWcUCdZIWIQq/NNIHIkgvPIrc4rED2jzfsY3QSa75FljpJrXJNQpKve9DNDk3xOHz00ItrcVPuYoeBZ/Z5LyGRZ3AS7IrFoyj+8YGRi1oT8xxfZxn/S7C1DPD9+aMLBLg6RKcyIrxcdbXaAc7WZZZQh1yT5AGJvUHCfHjgDcJM9cvUjc+bkGv3Qz5gRaBKt+RZI8WHn+EUZ3wpfv3Seb8XzF/ACDymuocZtyCEAAAAASUVORK5CYII=
-[image69]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABCElEQVR4XrVWyw6DIBC0nmxj0tT2g/s9HHqhBxNN9mDCyX/wUyhDWqOLL+y6yVwEhmV2GUyShbDWnrTWF1VVV1WWhSZ6AKUxBb4RUfa0NuXrVsMRpyD4Ea5BEeWbN0JWyJCTrOFV13el1JnzjQJy8IXRcByc1wcyDybvRHASaL5HljlArlFNXPY5n/Qv0CR99nxQCmhzUe0DoOAx/R4LL5NkcTneTXNL+EdpHL/B0MSkgftwfJFF/GcG3jK8508MSqC3iyNkwhvRe5G02YEreICo68QsQxkz/fDotv2/4I6D844CJ9kjl/8RmMucB2oS80agSQLNt8R3owwEw1Ph9vvOc3J4z1+ID9DGUaG5TDGuAAAAAElFTkSuQmCC
-[image70]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA/UlEQVR4XrVWQQqDMBC0PbWlUGr7UX+wJ/EgOVUhUMhTUyZS0ZGo0XVhLok72cwmE7NsJrz3JxF7qyr7EDF5Xds3YMw378bcRUTOnLcYSALBn3AJTdPcVy+EqlAhkyyhLD+vojBX5hsF5ODEVICDeUOgcv54KyY7gX5bZIkBco16gibxR3uBQ9JXz5NawDFX1Z4RGp5y3lMRZNJsLqNt22fGg9o4foGhiWkD9+H4Jmv4TwzBMnAZeEILvV0cIRPsp/cibbMD1+QBck7PMoyJPDzW7m84OJh3FNjJFrmQE62cA/qlvBHdH8bKR38YSIKdg2C4K9x+jEGO4Pkz8QOcRVec6JaldAAAAABJRU5ErkJggg==
-[image71]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABBUlEQVR4Xr1V0RWDIAx0BEfohu0G7SbtJozAX0EFM0JHaAnCqwaLorH33v0ICeGCl6rKQALUjYWrNr1wBMd34EsbENrCWQGcaNwiMCgkjQmzbAzcVx+EVQ0VpolybDCmsxeab4IgRxJcQsxB83qEypOATaQ3CZoXy/KLKNekJ6o1D7ppP0GMq5/ZsJ9Syrp6Or3oAhdVZ2+VLnjv5XQyacbmzhDwAPqRlX85AOhHLuL/cHyT8SmlC0xEy0DPTxaYqFSwC32ATDgjvl6keM1Oo9nF6iNYLYPadQRHw73/5BBuskWu5ZEZgfqpti+ZESLRfA1884dRKnyF34Tgkzo5pISaxo3xASe7n32qp/znAAAAAElFTkSuQmCC
-[image72]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABFElEQVR4Xr1V3RGCMAxmBEZwC1ueeoUHbXlgE9lANtFNGIURGEGbFtGG/xL87r7jriFp8gWSKJqBEEWcSHXnqa55qhrzfHVs3Vl+Y5fihP0WAU4uQB9wlkmqH6svgqy6DAeBFthyeS1xPA9JZuXAjpsIkuK4Fl3mA4cg4ko6zUNkmWLr9YSl+jny0l7Wv9ljIwmFEHF0lrrEBioyqSrT3PXfewDriEvS5mI2UAE+JOU/LlANPiRke2iTGTSZZarCBjLCyICZPzAQkYmLGxf8AJlgR3xnkbmJ9H8wsfrsP+CUIyPT44uHZfnuhjOZVziuB1tJiFzgM5U5Bui3ZUfA9z7QfA1s890qrf2qVGODGkntzJ/BG4xYO92TGGMeAAAAAElFTkSuQmCC
-[image73]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABCElEQVR4Xr1V2w3CMAzMCB2BDekGsAlsklH8R16NMgL00haoU/qSy0mnSnHs2BfXUWoGRKlyIV6sb7T1kdrvE3ShSVjzMZ6NSSfutwg4dUG7gEt0vrmtPghZ9RkWgebYHpKsDTWPN0IvR+G8hYjB42Ygc755N3kl0G+PLL8IuUZ3Ypy/800C1O/sJ4wiRJsrG0LNDVI0LlyV3dDvO6hV7t/SIMRIqGDCIMd/HBCJL0oR8h9/yWilCYMMMTIopaowCNEY040Le4BMeCM+s6g9SfJ/6IZdn/2AhxUcGXxcD5C48Dx/5oBK9si16skcAP02vhG60HwN4OR9fkr1uKpIOWgrBxFV3O8bL3ze8pE+8Xi/AAAAAElFTkSuQmCC
-[image74]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABD0lEQVR4Xr1VwQ2DMAzMCB2BXwmvJDya9NWNygZlE7oJozACI7S2i5BwAhRwe9J9Yuw453BRagGZuZ0Kd33oMrTahQ74QhYu9LRWhntufMbzVoFJQ1EquEZoovl6I+yKOkwUWiHmVLzeBDnKESduIkrK6xKwc/7xAU5PgvrtlGWO/WQm2vpn4qNjtKEdu4+CQsRrrrS7VDwgxcL5Gofb8oAYUSbh4XJ2KrEoyr9s0PFFQfYKB5EIyND6FvzH11FAjpUy8DMkAiIc7eIXMoEzN6MXSZtdYZnZIc4mSFpG+uGRGDj5zxLwJHvkQln0XOccZOEb3ogc7nuk+TegjQw8pXDLhg4/RW3oqCjIQZ6/gDfmQtspwpE+BwAAAABJRU5ErkJggg==
-[image75]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA+UlEQVR4Xr2V0RXCIAxFGcER3FA3sJvUDWh/pPVIMwojOIKSlGoNlZaa+s65P6QJ8KBBqYS0hl3dwqlqOvA4z4NouzuO1Vc4aAN7njcrTApF+4Kz2HLxRLiqsMKJQgl8jm7skdf7ULAjTs4Aa/C6JFr5RMIaop2Q52ts+QbaNT4TbW7n6KPfgffq46AIeM0V+sUDUmhjC1Vl3fdsQIkebozDHfBBUf4ygeODYnj7tz9kvEoTARGoZeDPwANSvNpFtYlNUI560cbNjia5yLWMqF0Pkjhw6j8p0U7W2LXkyRyE/mnT5bwREHm+RJgUnlJgu3J9UVtQz0/oCSqK02sEyqlwAAAAAElFTkSuQmCC
-[image76]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDklEQVR4XrVVUQ7CIAzlCB7BI/lpAkv25dh+1p1Ab6I34SgegSMoJTAFJmzYveRlyQpteYWWsQxagIMY4Cp6UE0PT/N9OWr8J7ppbCUc431F4Cbr4OMwSz7AfXUgMUyjyzBxVKDmPUDsL4CTI964jcZH7NfCZZ5uqGByEqd5jSy/qIOacAmPhUX/Un1nHxtJiNec8QtAbCCjhBsTG+57BRUGoCxuQHz9GCAxUHL/AI0Mmhg19b5Fllhkc5USAxFty7A9f8FIwbNvF2IHmXBGzL0IIwna96Dn7D1Qr4WFVUzatQdJwbH/5OBOUiNXeWR6oH6bZoS574nma2CL39lRqjBD79C+fuMU5Thhz8/gDZjFC+xF0T9EAAAAAElFTkSuQmCC
-[image77]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABBElEQVR4XrVVwRGDIBCkhJSQDrWDOCM89SafiORhOqEUS6CExEPH0YOoKOzMfg5vOfbwYGwDBXQ3Ae8HB6UFtD2H9jvR2FgtswKaO83bBSahwEJwh6o7vJGoVTZWSEV2aXjV5lRvhdEOJzGIqEF1LabKnYRTpCcZPT9lyz+aVU943Xw8H12k0svqPR9cJ15zxqtXThdisayagoXd91AONvG4zaXscQMajMr0G5AhFpsmcZOlZniV3IVIxJGBP4OzEInzuEhjk+rmWZR82CGGYMyR4X94SrjecNSguivw8SRn7MIcf+UUtidBb4TUjudHgEniKTMUmCq0ggJkjzG0w878DfwACzLsmKlLvrkAAAAASUVORK5CYII=
-[image78]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABD0lEQVR4Xr1VyxWDIBCkBEuwQ9NB0onphKNiDh5FcuApPHOkhMRFYwKo8YOZ9+bCwrDMwoLQDHKeBzdxP2eC4UyWPBPls6fSYw2LkkcR2ut+IuFFqAU+gvOULF68USscdRmOCM1TpRU92XoGOjuchasIGrauRp+5s2ALnZN0nm+yZYrKqAmpy+vIpJ1k+Dv7kQn7CdccgV92wBdJVVyguNgO+GNrU+a3uCbb1w8buAGP/MMGZhPzTXVwkSlGcJXcgB/qlpFzHtgBXxzaxSE2yTIeetHhzQ6QSn8tA7QM8TeI2F9w0LB1DfQn2WKXmszcBtSE1MWKP4Jix/Ml0MVv4CulGDIcBCXlMAZ26J4/gxcFHIjGNA4CBQAAAABJRU5ErkJggg==
-[image79]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABB0lEQVR4XrVVuxGDMAylTICCEehiXKVMgIKNwgawCdnEozCCR0gsmyNYOOYn3t077iwky0/wHAQeJFWahDlvoiITYZ716vkx5BLWrs/sdXmwFOctApKgwK/gEnm3eiPoaujQUchLqXJrXM9CmLPGkbiJICmuq2E6nyfs4ewkRvNdsvyjtGaiFt6Ol45STLqfBUkInzloX+MAFdXAW5BH4AAhRUA8XMweToAXSXn+BraJkVOeP2TlP60jQEJtGUl1T3CAiqNdRKfIxLrRi+jNjttmB4iKG6VluC+euDw+8LhU/uODOckeuXSOu3OMwcI33BFMzDRfA0garlIxPZX5+5kASbXne/AFDcGVD1NJcP0AAAAASUVORK5CYII=
-[image80]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABC0lEQVR4Xr2VyxWDIBBFKcES0mHsIOnE7BzJIiVQgpuIS0uwAp0w+MkRFD8Z8865G3CG4YGDEAFhnkRYPm+tlqrVWWVASyFrGkMtr5inFzduVRTUJ+0SroCFTDYvRFV1FfqJwkDdaIjdfBN1driB+6Acbl4rW/lMwBG8nVjPD9myBNSTM2ne2cP/6Fek+lbvTfJA19xUD7E7wUVTpHex577vx9jEe7gelZgZZOUvC1TuIB9Qn3zIoARdJX+CB9syMH9F7gQXWPbt4gybsIRk7EW0Euv/YHKN1Q/ibBleux7EceC2/4Rkd3LELhOzWLkr8q/R6Y43ApTn+RZRUPeUgpruCioaIztszw/oA4b3d7C5591oAAAAAElFTkSuQmCC
-[image81]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABEElEQVR4Xr1Wyw2DMAxlhJwSjhwrQSVG4FiJILFJuwFs0m6SURghI7RxPogklF9Nn/SEhBPHfiY2SbKANiOEF7TjBRP1lQ3q+TakEt4p3ttLmoX7VgGbrAPrcJl1Tp+bD4KobISRoxXKOmeP0J8HK0e4cSdpF/rV4DrycPExRpkYzQ/J8o3Sq4kq0mtm0a8Uk+gjIwqrkpAE9AoNeKQ9FFfEBjQK+DQxi+uxydkAGUQGTJ5/gN/E0Cn/UuR+xoBC3TLaEnp+bMTgzbULfoJMjZoRYy+Ck3DvA5Vj9A6YLSNq1w68SBEKnvahXw8mkyNy0fWR6QD6NftmhIg03wJTfD1KxTQre/sFyFGpX5tw3xQffT/Rc6GkE64AAAAASUVORK5CYII=
-[image82]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABB0lEQVR4Xr1WSxKDIAz1CD1Cb1hv0N7E3oQjuKgVWHEEFpW6tDzGMmPw39g38zYJCeEFg1k2A1uWp1bq67tWwtXKuKfqwKZSFjbPiy3lmcYtAkEhaZ9wmbpYvRGqQoVpkiVqnCqn+QZwXo40cBshKc0bgMrp4r1MTgL99skyRW0HPWkqeU8X/UZcklg9dXIR19xXX+fUwcaHvKG5InEwMcjkWJub0GQjRlb+ZQNDjXzU9tgmV77JL3+VqIOLfjrkYeZTBxdb2Y+LY2TSRZxF2Inze8DgjNV/wTkygvZjYGk45s8cwkl2yAVZJiungH5b3gifWCSarwGC+p8AQV48Axsk7TDzZ/ABd1y9i7PYFkUAAAAASUVORK5CYII=
-[image83]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABB0lEQVR4Xr1VyxWDIBCkBOQEniwtl6A5aQexE9OJpVACJSS7m8T3XPxnzbw3F1YGGHBWqQU0Wmtv8nuZub40LgCfSBiLOHY1rq60Lfi8VeCkjygJrjPvNi9UalfTDhORVUZvXMP1RqjQjnTiLqKlXJeAO+cfH2VyEvTvoC1zjKM7AfHHxEe/ER7JsPukKER85spr1/CCFL2xrap2vfedRJt8Jnq5nEFNDIryLwsEPijIePIl2x7yx7ZJQYgUGRddaF6Q4hAX59hkuyGLKOwE/wfUShrQTTAykrj+QuLCKX+WgCc5YhfOmd05x7sB2e09At574vkWUK+AVlqBwPhUNpAo2EGZv4AX+fPXW+ypuVEAAAAASUVORK5CYII=
-[image84]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDElEQVR4Xr2VyxGDIBCGKSEV4HYYBzjkFjtJOshJ4UYplGAJCYuOE0CJwU125ruA++AHdxkrGLSPExf62khtPc7znDAjrnFpznDRkPp9NHSag84By3Cpb7sTga9qrjALVMaMXAxtGi8yUEGOFef9oKRp3GBT5blDDdlJJs1rZNnCjNGdcDnc848OY9+qzzZJwGfOwOuVblDBRd+xRu1/7xVY1gjKy81wbGWRlL8kcOkiHWb8/SWD6ruVDRJCy8CfId2gAtq5XfxCJpwRSy/CTKT/g4+1VL8kIWwZoDYGjx84hy/cD5wujRtZOEmNXCjLVuWpoX5fzgibab7H0CmMUnxl8alcCOolDT2/YC+8VzGoczmpbwAAAABJRU5ErkJggg==
-[image85]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABAUlEQVR4Xr1W2xGDIBBkwPynhJQUsBDTQAQrMZ1YiiVQQsIB4+jhCz2zM/sD3HHs4SJjazDPO6+VFlp2XKteaPWNtH6sLiu35oHDtuGCIMEo4Rbb3RvxpqxChUmSLVr+Vi+cbwLegBxJYBZBUpzXI1aeBBxhehKv+SFZlmgnPRG1/MwsOknZjaufWXCecM0ZN+qFJ6joGm5Y5n3PpJNJ0DYXs4cN8CAp/7JBjwcJaa9vsrumJp2gYbAM9zHgCSoOdnGRTO3gRdRmx7HZASgt42awXUcUBA0vwH/WEE+SLRfIslh5AuhJ1hvh7jvWfBdcUHhK/W/LcKrwCyM7kNR7/gp+/L5UJT77+eEAAAAASUVORK5CYII=
-[image86]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABAUlEQVR4Xr1V0RGCMAxlBEfgQ8Tt5MtWf2CTgg7iKB2hI2jSAmdThFID7+79pEmavuTSLJtBrqrD6Snr4iFfp05q4NtRGLSV3f2SK5nTuEWcIahP2iecJ/iq6IuwKqyQJlmmMKW6VjSfB3Csw8CVBElpXgtX+URAAoOXoOZpsvyiMF5PwNiGTv8Rh+Sr+tCBgzjmWaluFT1gZJMVbfy8r6WVibe5ATU2mBpZucsFmhr5KMwOTVayoQdctCvD7vyJQw6O62ILmSCnGnfR5ssOcQS9Qsc0But6AFPDG5rXg3tJilwRX+aAfoVH/xE4JIHmMcCL8Ct1U+a9SlsbSGp3/gw+wy8eOcj3f+wAAAAASUVORK5CYII=
-[image87]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDUlEQVR4Xr1VwRWDIAxlBG9w7Ei9FTl1A7tBu4m99YA+R3AUR2CElqRiH2ARbex/718SE8JPDIwl0B2LolXi2pSitxwsn0jFDdoUrzopDmHcIiBoTPpOuEQl6uyDoKqxwjhRktzokl/CfB5aiXLMBOcTJA3zIrDymYAtjG6Cmm+S5Ru58XqiS3GPP/qZ/af62EnC2o45A71CBxW1EjfWyBXzvp49TA9hc3229u9noZGafzlgCI105Gb/JmspbjMOEuLK6M5FETqo+HDrYg+Z7Gaup10EJ5H+DzbXVL2DPtGtjGhdO1A0HPdPCniTLXKpjCfTAXsiV7wRdkgizXMwNr/CKfNvNYANJMWdn8ALAvnd/q3iGfYAAAAASUVORK5CYII=
-[image88]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABDklEQVR4Xr2VTxaCIBDGWUC19AjdUB6yaKc3qZtwBDeCS4/AEYohsxop/zT5vffbMDIMHzgw9kW1ZFmrdqUrhAl0gStgC+77sbw+sSOeNymY1CeICaewhTjPXgiq6iscJZrAO7WXON+bWs3LxMRFgKU4b1QI5vjj1eCdgH8rbfmEfzuTphCXxEe/YobqE0ES4JqzRgmJA1RYtauY0/Pv+woMs0pQHi6mg+uJB0nZZIEODxLiNzhkzatEgIbwC8SePwoQ0crDvV38w6Y2vBFDL4KVKP8Hq7gfqn+ItGVokX54KA489p9vgp2ssQts+Vg5FvjnFr0R3Iw8n6N+odxpbmKFz6QdJAVLa5lleN6rbqKrOsJ5JrXVAAAAAElFTkSuQmCC
-[image89]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABE0lEQVR4Xr1W2xWDIAxlhI7QEfoD9lNwoHaDdhO7iQOIMgIjMEJL0Noa8dnYe879AfLgJgYZm4A5pQcj1K3msqiEsp7PQK5czbNC8+zizxyx3SzAqHXaOJwjV/niQCbJLpDhwMk8XZWoK/bXA8gRMVxF8IH9BoTMIwabiG8C+m2UZYyuVxPN5SNy6CdCl32yjxygILQ5K71eeIOKpVB3tqrfVzLIVAlJWVxMyyKLpPxLAIsXCel2LbKGIkMr4Q0qwicQZj7eoKI5t+NiF5kSlXezCCKRfg9cui77N8okJRsZQfsYKAoe5s8UmptskMvLMpo5BuinxfI3wr8nxUDzJQiB/K8JOIAMv5xaWAM5TOpn/gRe2VAp6felaGcAAAAASUVORK5CYII=
-[image90]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABGElEQVR4XrVWSw6DIBD1CD1Cj9RlEzBx1aKbegO9SXsTjuKyHzAcofX5SwS/dHzJiwkDM8MbGAyCGZgoPSieZIrHUodxUX2/oOaxwVjJrzcTiaO9bhFYBAedwyVqltxXByp5cmszdBwt0LxYnNr+BigbOeyFG5lktt8ayNyd7EdnJ9DPU5YpmkFNPkw8Rib9S9lnP2IkIY55oNgltQ1UfHORB2rDefegRADK4g6I248AjoGS+wfQoSjsQUKanYssUGSRuwYa1i2j6fmukYLPc9su1A4y4Y3oexEiKdr7YPrsO6hKr5GJfrTbdQeKgtf9Zw7tTnzkMpOZ24B+294IIR3N1wCL8GuimlPW76q5/UJC0uJU9fwZ/AC0ZPR4ghm4pgAAAABJRU5ErkJggg==
-[image91]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABBUlEQVR4Xr1V0RWDIAx0BEfohu0G7SbtJozAX0EFM0JHaAnCqwaLorH33v0ICeGCl6rKQALUjYWrNr1wBMd34EsbENrCWQGcaNwiMCgkjQmzbAzcVx+EVQ0VpolybDCmsxeab4IgRxJcQsxB83qEypOATaQ3CZoXy/KLKNekJ6o1D7ppP0GMq5/ZsJ9Syrp6Or3oAhdVZ2+VLnjv5XQyacbmzhDwAPqRlX85AOhHLuL/cHyT8SmlC0xEy0DPTxaYqFSwC32ATDgjvl6keM1Oo9nF6iNYLYPadQRHw73/5BBuskWu5ZEZgfqpti+ZESLRfA1884dRKnyF34Tgkzo5pISaxo3xASe7n32qp/znAAAAAElFTkSuQmCC
+Opacity values are consistent in both light and dark mode. Light mode uses
+shade 700 and dark mode uses shade 500 as the primary shade.
 
 import { graphql } from 'gatsby';
 

@@ -44,17 +44,6 @@ const StyledHeaderCell = styled(Table.HeaderCell)`
   min-width: 50px;
 `;
 
-const VisuallyHidden = styled.span`
-  position: fixed;
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  white-space: nowrap;
-`;
-
 type Hues = Exclude<keyof typeof PALETTE, 'black' | 'white' | 'product'>;
 
 export const ColorShades: React.FC<{ hues: Hues[] }> = ({ hues }) => {
@@ -86,7 +75,7 @@ export const ColorShades: React.FC<{ hues: Hues[] }> = ({ hues }) => {
 
                   return (
                     <Table.Cell key={shade} style={{ background: color }}>
-                      <VisuallyHidden>{color}</VisuallyHidden>
+                      <Span hidden>{color}</Span>
                     </Table.Cell>
                   );
                 })}
