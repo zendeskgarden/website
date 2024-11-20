@@ -89,12 +89,12 @@ A common practice is to communicate element hierarchy through levels. To
 present the spatial relationships between elements, Garden uses color, shadows,
 backdrops, borders, and fills.
 
-| Depth      | Usage                                                                                                                                       |
-| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| `recessed` | Surfaces that sit below the main surface (Well)                                                                                             |
-| `default`  | Main background surfaces                                                                                                                    |
-| `subtle`   | Surfaces that are positioned on the main surface and need to be emphasized (Alert).                                                         |
-| `raised`   | Surfaces that are floating above the main surface ([Modal](/components/modal), [Tooltip modal](/components/tooltip-modal), or Notification) |
+| Depth      | Usage                                                                                                                                                                      |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `recessed` | Surfaces that sit below the main surface ([Well](/components/well))                                                                                                        |
+| `default`  | Main background surfaces                                                                                                                                                   |
+| `subtle`   | Surfaces that are positioned on the main surface and need to be emphasized ([Alert](/components/alerts)).                                                                  |
+| `raised`   | Surfaces that are floating above the main surface ([Modal](/components/modal), [Tooltip dialog](/components/tooltip-dialog), or [Notification](/components/notifications)) |
 
 <BestPractice>
   <Do
@@ -189,8 +189,8 @@ distribution. This means that every shade at the same value (like 500) will
 have an identical contrast ratio against the same background.
 
 This approach ensures scalability of the system, theming automation, and helps
-with WCAG compliance. Hue in shade 600 meets minimum 3:1 color contrast
-requirement against white or shade 100. Hue in shade 700 meets 4.5:1 color
+with WCAG compliance. Hues in shade 600 meet minimum 3:1 color contrast
+requirement against white or shade 100. Hues in shade 700 meet 4.5:1 color
 contrast. Shades 800 and above meet 7:1 or higher color contrast.
 
 ### Primary
@@ -232,13 +232,13 @@ distinct but complementary purposes:
 
 - **Primitive variables** represent the **option level**, as the most basic,
   fundamental values in a design system. Their name describes the visual
-  attributes or represent basic values included in the [color palette](#palette)
-  (like `red-500` or `blue-100`). They are a source for higher-level variables
-  and are not applied directly to components.
+  attributes or represent basic values included in the [color
+  palette](/design/palette) (like `red-500` or `blue-100`). They are a source for
+  higher-level variables and are not applied directly to components.
 
 - **Semantic variables** are built on top of the primitive variables and
   represent the **context level**. Their name is descriptive. It carries intended
-  use or meaning rather than appearance (like `border/warning`). Garden uses
+  use or meaning rather than appearance (like `border.warning`). Garden uses
   semantic variables in components, as the only ones supporting theming.
 
 ![Image showing variables attached to a button component. The
@@ -271,19 +271,21 @@ different best practices whether they are implemented in code or in Figma.
 
 #### Guidelines
 
-Variable color collection set is designed to remain compact, readable and reusable.
-Color variables are grouped into three main categories indicating where it’s applied:
+Garden's variable color collection set is designed to remain compact, readable,
+and reusable. Color variables are grouped into three main categories indicating
+where they are applied:
 
-- **Foreground** used for text and icons,
-- **Backgrounds** used for fill areas
-- **Borders** used for different types of interactive and non-interactive borders
+- **Foreground** is used for text and icons
+- **Background** is used for fill areas
+- **Border** is used for different types of interactive and non-interactive borders
 
 Each of the main categories is supplemented by a modifier that specifies
 information regarding variant or prominence:
 
 - `Primary` color is used for interactive and actionable elements, such as
-  [Anchor](/components/anchor), [Button](/components/button), focus indicators,
-  [table selection](/components/table#selection) and more.
+  [Anchor](/components/anchor), [Button](/components/button), [focus
+  indicators](/components/utilities#focusstyles), [table
+  selection](/components/table#selection) and more.
 - `Success`, `Warning` and `Danger` are used to emphasize different types of
   information, such as [danger buttons](/components/button#danger), [input
   validation](/components/input#validation),
@@ -294,8 +296,9 @@ information regarding variant or prominence:
 ![Color taxonomy semantic naming](figma:design-color-taxonomy-semantic.png)
 
 Semantic naming is consistent in Figma and in code `Hover` and `Active` states
-programmatically change color by 100 or 200 shade offset from the base hue.
-Temporary or supporting variables in Figma are marked with an asterisk `*`.
+[programmatically](/components/utilities#getcolor) change color by 100 or 200
+shade offset from the base hue. Temporary or supporting variables in Figma are
+marked with an asterisk `*`.
 
 #### Foreground
 

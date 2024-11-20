@@ -10,6 +10,7 @@ import styled, { useTheme } from 'styled-components';
 import { Table } from '@zendeskgarden/react-tables';
 import { Code } from '@zendeskgarden/react-typography';
 import { getColor } from '@zendeskgarden/react-theming';
+import { Markdown } from 'components/MarkdownProvider/components/Markdown';
 
 const StyledContainer = styled.div`
   overflow-x: auto;
@@ -102,7 +103,9 @@ const Example = () => {
             <Table.Cell>
               <Code>kale</Code>
             </Table.Cell>
-            <Table.Cell>Zendesk brand color, used in [Chrome](/components/chrome)</Table.Cell>
+            <Table.Cell>
+              <Markdown>Zendesk brand color, used in [Chrome](/components/chrome)</Markdown>
+            </Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>

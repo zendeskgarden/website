@@ -9,7 +9,7 @@ import React from 'react';
 import styled, { useTheme } from 'styled-components';
 import { DEFAULT_THEME, getColor, IGardenTheme } from '@zendeskgarden/react-theming';
 import { Table } from '@zendeskgarden/react-tables';
-import { Code, LG } from '@zendeskgarden/react-typography';
+import { Code, MD } from '@zendeskgarden/react-typography';
 import { Markdown } from 'components/MarkdownProvider/components/Markdown';
 
 const StyledContainer = styled.div`
@@ -81,7 +81,7 @@ const Example = () => {
     <StyledContainer>
       <Table isReadOnly style={{ minWidth: 500 }}>
         <Table.Caption>
-          <LG>Use the dark/light mode toggle to view corresponding color variables</LG>
+          <MD>Use the dark/light mode toggle to view corresponding color variables</MD>
         </Table.Caption>
         <Table.Head>
           <Table.HeaderRow>

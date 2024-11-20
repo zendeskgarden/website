@@ -14,7 +14,7 @@ import {
   IGardenTheme
 } from '@zendeskgarden/react-theming';
 import { Table } from '@zendeskgarden/react-tables';
-import { Code, LG } from '@zendeskgarden/react-typography';
+import { Code, MD } from '@zendeskgarden/react-typography';
 import { Markdown } from 'components/MarkdownProvider/components/Markdown';
 
 const StyledContainer = styled.div`
@@ -72,7 +72,7 @@ const USAGE: Record<string, string> = {
   default: 'Default background used for main surfaces',
   subtle: 'Subtle background that sits on the same plane as the main surface',
   raised:
-    'Background used for raised and floating surfaces ([Modal](/components/modal), [Tooltip modal](/components/tooltip-modal), [Menu](/components/menu), [Notification](/components/notifications))',
+    'Background used for raised and floating surfaces ([Modal](/components/modal), [Tooltip dialog](/components/tooltip-dialog), [Menu](/components/menu), [Notification](/components/notifications))',
   recessed: 'Background that sits below the main surface',
   success: 'Success background ([Alert](/components/alerts#type))',
   warning: 'Warning background ([Alert](/components/alerts#type))',
@@ -116,7 +116,7 @@ const Example = () => {
     <StyledContainer>
       <Table isReadOnly style={{ minWidth: 500 }}>
         <Table.Caption>
-          <LG>Use the dark/light mode toggle to view corresponding color variables</LG>
+          <MD>Use the dark/light mode toggle to view corresponding color variables</MD>
         </Table.Caption>
         <Table.Head>
           <Table.HeaderRow>
