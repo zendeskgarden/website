@@ -14,7 +14,6 @@ import MaxWidthLayout from 'layouts/MaxWidth';
 import { SectionCallout, StyledSectionHeader } from './SectionCallout';
 import { HomeLink } from './HomeLink';
 import { ReactComponent as ComponentsIcon } from '../../../icons/components.svg';
-import { ReactComponent as ContentIcon } from '../../../icons/content.svg';
 import { ReactComponent as DesignIcon } from '../../../icons/design.svg';
 
 const StyledIcon = styled(StyledBaseIcon)`
@@ -117,22 +116,7 @@ export const Foundation: React.FC = () => (
             <Grid.Col
               xs={12}
               sm={6}
-              lg={4}
-              css={css`
-                margin-bottom: ${p => p.theme.space.lg};
-              `}
-            >
-              <FoundationLink
-                group="Content"
-                title="The principles of language for writing products"
-                url="/content"
-                Icon={ContentIcon}
-              />
-            </Grid.Col>
-            <Grid.Col
-              xs={12}
-              sm={6}
-              lg={4}
+              lg={6}
               css={css`
                 margin-bottom: ${p => p.theme.space.lg};
               `}
@@ -147,7 +131,7 @@ export const Foundation: React.FC = () => (
             <Grid.Col
               xs={12}
               sm={6}
-              lg={4}
+              lg={6}
               css={css`
                 margin-bottom: ${p => p.theme.space.lg};
               `}
