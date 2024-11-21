@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Option, Tag } from '@zendeskgarden/react-dropdowns';
+import { Combobox, Field, Option, OptionValue, Tag } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as AvatarIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const OPTIONS = [
@@ -26,7 +26,7 @@ const OPTIONS = [
 ];
 
 const Example = () => {
-  const getTagProps = (option: string) => {
+  const getTagProps = (option: OptionValue) => {
     const children = (
       <>
         <Tag.Avatar>
@@ -39,7 +39,7 @@ const Example = () => {
     );
 
     return {
-      'aria-label': 'Press delete or backspace to remove',
+      'aria-label': `${option}, press delete or backspace to remove`,
       children,
       isPill: true,
       removeLabel: 'Remove'

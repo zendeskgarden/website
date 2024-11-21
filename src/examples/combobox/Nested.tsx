@@ -17,6 +17,7 @@ import {
   Option,
   OptionValue
 } from '@zendeskgarden/react-dropdowns';
+import { Span } from '@zendeskgarden/react-typography';
 
 interface IOptGroup extends IOptGroupProps {
   options: IOptionProps[];
@@ -24,19 +25,23 @@ interface IOptGroup extends IOptGroupProps {
 
 type Options = (IOptionProps | IOptGroup)[];
 
+type SubOptions = Record<OptionValue, Options>;
+
 const OPTIONS: Options = [
   { value: 'Apple' },
   { value: 'Berry', type: 'next' },
   { value: 'Orange' }
 ];
 
-const SUB_OPTIONS: Options = [
-  { value: 'Fruits', type: 'previous' },
-  {
-    'aria-label': 'Berries',
-    options: [{ value: 'Strawberry' }, { value: 'Loganberry' }, { value: 'Boysenberry' }]
-  }
-];
+const SUB_OPTIONS: SubOptions = {
+  Berry: [
+    { value: 'Fruits', type: 'previous' },
+    {
+      'aria-label': 'Berries',
+      options: [{ value: 'Strawberry' }, { value: 'Loganberry' }, { value: 'Boysenberry' }]
+    }
+  ]
+};
 
 const Example = () => {
   const [options, setOptions] = useState(OPTIONS);
@@ -51,26 +56,60 @@ const Example = () => {
   });
 
   const handleChange: IComboboxProps['onChange'] = changes => {
-    if (changes.selectionValue === 'Berry') {
-      setOptions(SUB_OPTIONS);
-    } else if (changes.selectionValue === 'Fruits') {
+    const selectionValue = changes.selectionValue as OptionValue;
+
+    if (selectionValue in SUB_OPTIONS) {
+      setOptions(SUB_OPTIONS[selectionValue]);
+    } else if (selectionValue === 'Fruits') {
       setOptions(OPTIONS);
     } else {
       setState({
         inputValue: changes.inputValue || state.inputValue,
         isExpanded: changes.isExpanded === undefined ? state.isExpanded : changes.isExpanded,
-        selectionValue:
-          changes.selectionValue === undefined ? state.selectionValue : changes.selectionValue
+        selectionValue: selectionValue === undefined ? state.selectionValue : selectionValue
       });
     }
   };
 
-  const renderHiddenSelectedOption = useCallback(() => {
-    if (state.selectionValue !== null) {
-      const _options = options === SUB_OPTIONS ? (options[1] as IOptGroup).options : options;
+  const hasSelection = useCallback(
+    (value: OptionValue) => {
+      let retVal = false;
 
-      if (!_options.find(option => option.value === state.selectionValue)) {
-        return <Option isHidden value={state.selectionValue as OptionValue} />;
+      if (value in SUB_OPTIONS) {
+        const option = SUB_OPTIONS[value].find(_option => 'options' in _option);
+
+        if (option) {
+          const values: OptionValue[] = option.options.map(subOption => subOption.value);
+
+          if (values.includes(state.selectionValue as OptionValue)) {
+            retVal = true;
+          }
+        }
+      }
+
+      return retVal;
+    },
+    [state.selectionValue]
+  );
+
+  const renderHiddenSelectedOption = useCallback(() => {
+    const selectionValue = state.selectionValue as OptionValue;
+
+    if (selectionValue !== null) {
+      const values = options.reduce<OptionValue[]>((_values, option) => {
+        if ('options' in option) {
+          const subValues = option.options.map(subOption => subOption.value);
+
+          _values.push(...subValues);
+        } else {
+          _values.push(option.value);
+        }
+
+        return _values;
+      }, []);
+
+      if (!values.includes(selectionValue)) {
+        return <Option isHidden value={selectionValue} />;
       }
     }
 
@@ -103,11 +142,25 @@ const Example = () => {
               'options' in option ? (
                 <OptGroup key={index} aria-label={option['aria-label']}>
                   {option.options.map(subOption => (
-                    <Option key={subOption.value} {...subOption} />
+                    <Option
+                      key={subOption.value}
+                      hasSelection={hasSelection(subOption.value)}
+                      {...subOption}
+                    >
+                      {subOption.value}
+                      {hasSelection(subOption.value) && (
+                        <Span hidden>&nbsp;(contains selected option)</Span>
+                      )}
+                    </Option>
                   ))}
                 </OptGroup>
               ) : (
-                <Option key={option.value} {...option} />
+                <Option key={option.value} hasSelection={hasSelection(option.value)} {...option}>
+                  {option.value}
+                  {hasSelection(option.value) && (
+                    <Span hidden>&nbsp;(contains selected option)</Span>
+                  )}
+                </Option>
               )
             )}
           </Combobox>

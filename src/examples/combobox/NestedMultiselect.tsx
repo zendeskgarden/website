@@ -17,6 +17,7 @@ import {
   Option,
   OptionValue
 } from '@zendeskgarden/react-dropdowns';
+import { Span } from '@zendeskgarden/react-typography';
 
 interface IOptGroup extends IOptGroupProps {
   options: IOptionProps[];
@@ -39,6 +40,7 @@ const OPTIONS: Options = [
     ]
   }
 ];
+
 const SUB_OPTIONS: SubOptions = {
   Alliums: [
     { value: 'Classifications', type: 'previous' },
@@ -125,12 +127,35 @@ const Example = () => {
     setState(_state);
   };
 
+  const hasSelection = useCallback(
+    (value: OptionValue) => {
+      let retVal = false;
+
+      if (value in SUB_OPTIONS) {
+        const option = SUB_OPTIONS[value].find(_option => 'options' in _option);
+
+        if (option) {
+          const values: OptionValue[] = option.options.map(subOption => subOption.value);
+
+          if (state.selectionValue.some(selectionValue => values.includes(selectionValue))) {
+            retVal = true;
+          }
+        }
+      }
+
+      return retVal;
+    },
+    [state.selectionValue]
+  );
+
   const renderHiddenSelectedOptions = useCallback(() => {
     const values = options.reduce<OptionValue[]>((_values, option) => {
       if ('options' in option) {
         const subValues = option.options.map(subOption => subOption.value);
 
         _values.push(...subValues);
+      } else {
+        _values.push(option.value);
       }
 
       return _values;
@@ -167,11 +192,25 @@ const Example = () => {
               'options' in option ? (
                 <OptGroup key={index} aria-label={option['aria-label']} legend={option.legend}>
                   {option.options.map(subOption => (
-                    <Option key={subOption.value} {...subOption} />
+                    <Option
+                      key={subOption.value}
+                      hasSelection={hasSelection(subOption.value)}
+                      {...subOption}
+                    >
+                      {subOption.value}
+                      {hasSelection(subOption.value) && (
+                        <Span hidden>&nbsp;(contains one or more selected options)</Span>
+                      )}
+                    </Option>
                   ))}
                 </OptGroup>
               ) : (
-                <Option key={option.value} {...option} />
+                <Option key={option.value} hasSelection={hasSelection(option.value)} {...option}>
+                  {option.value}
+                  {hasSelection(option.value) && (
+                    <Span hidden>&nbsp;(contains one or more selected options)</Span>
+                  )}
+                </Option>
               )
             )}
           </Combobox>
