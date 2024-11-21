@@ -6,6 +6,8 @@
   items:
     - id: /design/color
       title: Color
+    - id: /design/palette
+      title: Palette
     - title: Icons
       items:
         - id: /design/icons

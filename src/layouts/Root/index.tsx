@@ -21,6 +21,7 @@ interface IRootLayoutProps extends PropsWithChildren {
 
 const GlobalStyle = createGlobalStyle`
   html {
+    color-scheme: only ${p => p.theme.colors.base};
     background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
   }
 `;

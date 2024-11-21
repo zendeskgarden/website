@@ -1,0 +1,62 @@
+---
+title: Palette
+description: >
+  The Zendesk Garden color system is a set of purposeful colors designed with
+  brand personality, usability, and accessibility in mind. The system is
+  broken down into two core palettes: UI and brand.
+---
+
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
+## UI colors
+
+The UI colors are used when creating interface elements. Each color has been
+designed to meet accessibility requirements.
+
+### Primary colors
+
+Primary colors are used for the structure of interfaces, actionable items,
+and validation.
+
+<ColorPalette hues={['grey', 'kale', 'blue', 'green', 'red', 'yellow']} />
+
+### Secondary colors
+
+Secondary colors are used in supplementary UI elements such as icons, tags,
+status badges, and illustrations.
+
+<ColorPalette
+  hues={[
+    'purple',
+    'royal',
+    'fuschia',
+    'azure',
+    'pink',
+    'teal',
+    'crimson',
+    'mint',
+    'orange',
+    'lime',
+    'lemon'
+  ]}
+/>
+
+## Brand colors
+
+The brand color palette contains the primary brand colors of Zendesk’s
+product suite. These colors are reserved to denote elements in the UI related
+to Zendesk products.
+
+<ColorPalette hues={['product']} />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($slug: String) {
+    ...SidebarPageFragment
+  }
+`;

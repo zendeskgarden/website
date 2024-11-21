@@ -1,9 +1,7 @@
 ---
 title: Color
 description: >
-  The Zendesk Garden color system is a set of purposeful colors designed with
-  brand personality, usability, and accessibility in mind. The system is
-  broken down into two core palettes: UI and brand.
+  Color principles, palette, application, light and dark mode considerations in Garden.
 ---
 
 import { SEO } from '../../components';
@@ -12,37 +10,202 @@ export function Head(props) {
   return <SEO {...props} />;
 }
 
-## UI colors
+## Principles
 
-The UI colors are used when creating interface elements. Each color has been
-designed to meet accessibility requirements.
+### Purpose
 
-### Primary colors
+In the user interface, color carries specific meaning and sets consistent user
+expectations. Use red, green, and yellow to provide status feedback like
+success, warning, or danger. Limit their application to avoid clutter. Utilize
+blue to emphasize interactive elements.
 
-Primary colors are used for the structure of interfaces, actionable items,
-and validation. Colors in the `600`, `700`, and `800` ranges have a [WCAG
-AA](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
-ratio above 4.5:1 against white or `100` backgrounds (excluding
-`yellow-600`). The `800` color range has AAA contrast ratios above 7:1
-against white and `100` backgrounds.
+import Purpose from '../../examples/design/color/Purpose.tsx';
+import PurposeCode from '!!raw-loader!../../examples/design/color/Purpose.tsx';
 
-<ColorPalette hues={['grey', 'kale', 'blue', 'green', 'red', 'yellow']} />
+<CodeExample code={PurposeCode}>
+  <Purpose />
+</CodeExample>
 
-### Secondary colors
+<BestPractice>
+  <Do
+    imageIsFreeForm
+    imageSource={
+      props.data.DesignColorPrinciplesPurposeDoThis.childFile.childImageSharp.gatsbyImageData
+    }
+  >
 
-Secondary colors are used in supplementary UI elements such as icons, tags,
-status badges, and illustrations. Each color has a light and dark hue with a
-default and muted variant. Muted colors are denoted by an `M` prefix, like
-`M400`.
+    - Use appropriate hue to communicate function
 
-The default color variants should be used for small UI elements when the
-design requires a vibrant color. The muted variants are for applications with
-larger floods of color like data visualization and infographics. Colors in
-the `400` range meet a minimum contrast of 3:1 on white backgrounds
-(excluding `lemon` and `lime-400`). Colors in the `600` range meet a 4.5:1
-contrast ratio on white backgrounds (excluding `lemon`).
+  </Do>
+  <Dont
+    imageIsFreeForm
+    imageSource={
+      props.data.DesignColorPrinciplesPurposeNotThis.childFile.childImageSharp.gatsbyImageData
+    }
+  >
 
-<ColorPalette
+    - Don’t use hue that is not aligned with the expected action.
+
+  </Dont>
+</BestPractice>
+
+### Hierarchy
+
+Color is a powerful tool for presenting the hierarchy of elements on a screen.
+It helps highlight key elements that require interaction and dim the secondary ones.
+
+Primary color (blue) is dedicated to buttons, links, and selection states.
+Neutral shades (grey) are commonly used for non-interactive foregrounds, backgrounds,
+and borders (except for validation cases).
+This distinction helps users easily understand which areas on the screen are responsible for completing a task.
+Supplement colors with text and icons to emphasize hierarchy and relevance.
+
+<BestPractice>
+  <Do
+    imageIsFreeForm
+    imageSource={
+      props.data.DesignColorPrinciplesHierarchyDoThis.childFile.childImageSharp.gatsbyImageData
+    }
+  >
+
+    - Draw user’s attention to only what is important to achieve their goals
+
+  </Do>
+  <Dont
+    imageIsFreeForm
+    imageSource={
+      props.data.DesignColorPrinciplesHierarchyNotThis.childFile.childImageSharp.gatsbyImageData
+    }
+  >
+
+    - Don’t use color to decorate or to distract users
+
+  </Dont>
+</BestPractice>
+
+### Elevation
+
+A common practice is to communicate element hierarchy through levels. To
+present the spatial relationships between elements, Garden uses color, shadows,
+backdrops, borders, and fills.
+
+| Depth      | Usage                                                                                                                                                                      |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `recessed` | Surfaces that sit below the main surface ([Well](/components/well))                                                                                                        |
+| `default`  | Main background surfaces                                                                                                                                                   |
+| `subtle`   | Surfaces that are positioned on the main surface and need to be emphasized ([Alert](/components/alerts)).                                                                  |
+| `raised`   | Surfaces that are floating above the main surface ([Modal](/components/modal), [Tooltip dialog](/components/tooltip-dialog), or [Notification](/components/notifications)) |
+
+<BestPractice>
+  <Do
+    imageIsFreeForm
+    imageSource={props.data.DesignColorPrinciplesElevationDoThis.childFile.childImageSharp.gatsbyImageData}
+  >
+
+    - Use color to communicate depth.
+
+  </Do>
+  <Dont
+    imageIsFreeForm
+    imageSource={props.data.DesignColorPrinciplesElevationNotThis.childFile.childImageSharp.gatsbyImageData}
+  >
+
+    - Don’t add shadow on elements that should not be elevated.
+
+  </Dont>
+</BestPractice>
+
+### Opacity
+
+Colors with opacity applied help visually indicate layering of elements on
+different backgrounds. Opacity is primarily used for colors in backgrounds and
+follows predefined values. Interactive elements ([Basic
+button](/components/button#type) or [Table](/components/table)) are good
+examples where opacity can be applied.
+
+<BestPractice>
+  <Do
+    imageIsFreeForm
+    imageSource={
+      props.data.DesignColorPrinciplesOpacityDoThis.childFile.childImageSharp.gatsbyImageData
+    }
+  >
+
+    - Use opacity to layer colors together.
+
+  </Do>
+  <Dont
+    imageIsFreeForm
+    imageSource={
+      props.data.DesignColorPrinciplesOpacityNotThis.childFile.childImageSharp.gatsbyImageData
+    }
+  >
+
+    - Don’t use opacity in a way where other elements will become unusable.
+
+  </Dont>
+</BestPractice>
+
+### Accessibility
+
+Remember not to rely solely on color to indicate the state or status of a
+component. Use text or icon to support the visual affordance. The most
+effective measure of the color accessibility is the contrast ratio (regulated by
+[WCAG guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum)). It refers
+to the difference in luminance, or brightness, between foreground and background
+color. Text should always conform to 4.5:1 color contrast or higher, while
+graphical elements (like icons) need 3:1 color contrast. This makes the
+interface clear even for people with color vision impairment.
+
+<BestPractice>
+  <Do
+    imageIsFreeForm
+    imageSource={
+      props.data.DesignColorPrinciplesAccessibilityDoThis.childFile.childImageSharp.gatsbyImageData
+    }
+  >
+
+    - Use shades that pass color contrast requirements and provide additional visual clues outside of color
+
+  </Do>
+  <Dont
+    imageIsFreeForm
+    imageSource={
+      props.data.DesignColorPrinciplesAccessibilityNotThis.childFile.childImageSharp.gatsbyImageData
+    }
+  >
+
+    - Don’t use color alone to indicate state or status.
+
+  </Dont>
+</BestPractice>
+
+## Palette
+
+### Overview
+
+Each hue within the Garden palette has 12 shades with consistent contrast
+distribution. This means that every shade at the same value (like 500) will
+have an identical contrast ratio against the same background.
+
+This approach ensures scalability of the system, theming automation, and helps
+with WCAG compliance. Hues in shade 600 meet minimum 3:1 color contrast
+requirement against white or shade 100. Hues in shade 700 meet 4.5:1 color
+contrast. Shades 800 and above meet 7:1 or higher color contrast.
+
+### Primary
+
+Primary colors are used for the structure of interfaces, actionable items, and
+validation.
+
+<ColorShades hues={['grey', 'kale', 'blue', 'green', 'red', 'yellow']} />
+
+### Secondary
+
+Secondary colors are used in supplementary interface elements such as icons,
+tags, status badges, and illustrations.
+
+<ColorShades
   hues={[
     'purple',
     'royal',
@@ -58,18 +221,290 @@ contrast ratio on white backgrounds (excluding `lemon`).
   ]}
 />
 
-## Brand colors
+## Application
 
-The brand color palette contains the primary brand colors of Zendesk’s
-product suite. These colors are reserved to denote elements in the UI related
-to Zendesk products.
+### Primitive and semantic variables
 
-<ColorPalette hues={['product']} />
+In a design system, variables define values that you can reuse between different
+elements. This ensures consistency, scalability, and easier maintenance of a
+design system. Garden distinguishes two levels of color variables which serve
+distinct but complementary purposes:
+
+- **Primitive variables** represent the **option level**, as the most basic,
+  fundamental values in a design system. Their name describes the visual
+  attributes or represent basic values included in the [color
+  palette](/design/palette) (like `red-500` or `blue-100`). They are a source for
+  higher-level variables and are not applied directly to components.
+
+- **Semantic variables** are built on top of the primitive variables and
+  represent the **context level**. Their name is descriptive. It carries intended
+  use or meaning rather than appearance (like `border.warning`). Garden uses
+  semantic variables in components, as the only ones supporting theming.
+
+![Image showing variables attached to a button component. The
+"foreground.onEmphasis" variable points to the "white" variable indicating the
+text fill. The "background.primary" variable points to the "blue.700" variable,
+indicating the background fill.](figma:design-color-taxonomy-primitive.png)
+
+### Taxonomy
+
+Taxonomy is a structured classification system to help understand, apply, and
+create variables. Variable names are composed from different parts, starting
+from generic to specific (Application → Group → Element → Modifier → State).
+
+- **Application** describes the type of variable (`color`)
+- **Group** describes if a variable is part of an object group (`chrome` or `tag`)
+- **Element** describes where the variable is applied (`background`, `foreground` or `border`)
+- **Modifier** describes variant or prominence (`primary`, `default` or `emphasis`)
+- **State** describes interaction (`hover` or `active`)
+
+| Variable examples                 | Description                                                                   |
+| :-------------------------------- | :---------------------------------------------------------------------------- |
+| `color.border.success.emphasis`   | Strong success border color applied to [Input](/components/input)             |
+| `color.chrome.foreground.default` | Default text color applied in a [Chrome](/components/chrome) component        |
+| `color.background.primary.hover`  | Hover background color applied to a [Primary button](/components/button#type) |
+
+Always aim to simplify variable names and avoid overspecification. Optimize
+variable names for people using them. Use `camelCase` or `.` when stitching
+parts together to separate categories. Keep in mind that variables might follow
+different best practices whether they are implemented in code or in Figma.
+
+#### Guidelines
+
+Garden's variable color collection set is designed to remain compact, readable,
+and reusable. Color variables are grouped into three main categories indicating
+where they are applied:
+
+- **Foreground** is used for text and icons
+- **Background** is used for fill areas
+- **Border** is used for different types of interactive and non-interactive borders
+
+Each of the main categories is supplemented by a modifier that specifies
+information regarding variant or prominence:
+
+- `Primary` color is used for interactive and actionable elements, such as
+  [Anchor](/components/anchor), [Button](/components/button), [focus
+  indicators](/components/utilities#focusstyles), [table
+  selection](/components/table#selection) and more.
+- `Success`, `Warning` and `Danger` are used to emphasize different types of
+  information, such as [danger buttons](/components/button#danger), [input
+  validation](/components/input#validation),
+  [Notifications](/components/notifications) or [Alerts](/components/alerts).
+- `Default` often denotes the most used value, with `Subtle` or `Emphasis`
+  additions to cover a wider range of specific use cases.
+
+![Color taxonomy semantic naming](figma:design-color-taxonomy-semantic.png)
+
+Semantic naming is consistent in Figma and in code `Hover` and `Active` states
+[programmatically](/components/utilities#getcolor) change color by 100 or 200
+shade offset from the base hue. Temporary or supporting variables in Figma are
+marked with an asterisk `*`.
+
+#### Foreground
+
+import ForegroundVariables from '../../examples/design/color/ForegroundVariables.tsx';
+import ForegroundVariablesCode from '!!raw-loader!../../examples/design/color/ForegroundVariables.tsx';
+
+<CodeExample code={ForegroundVariablesCode}>
+  <ForegroundVariables />
+</CodeExample>
+
+#### Background
+
+import BackgroundVariables from '../../examples/design/color/BackgroundVariables.tsx';
+import BackgroundVariablesCode from '!!raw-loader!../../examples/design/color/BackgroundVariables.tsx';
+
+<CodeExample code={BackgroundVariablesCode}>
+  <BackgroundVariables />
+</CodeExample>
+
+#### Borders
+
+import BorderVariables from '../../examples/design/color/BorderVariables.tsx';
+import BorderVariablesCode from '!!raw-loader!../../examples/design/color/BorderVariables.tsx';
+
+<CodeExample code={BorderVariablesCode}>
+  <BorderVariables />
+</CodeExample>
+
+#### Shadows
+
+import ShadowVariables from '../../examples/design/color/ShadowVariables.tsx';
+import ShadowVariablesCode from '!!raw-loader!../../examples/design/color/ShadowVariables.tsx';
+
+<CodeExample code={ShadowVariablesCode}>
+  <ShadowVariables />
+</CodeExample>
+
+#### Custom variables
+
+If there is a need to create custom variables, always build upon the taxonomy
+that exists. Use terms that system consumers are familiar with.
+
+## Theming
+
+### Differences in application
+
+Light mode uses shade 700 as the prevailing shade and dark mode uses shade 600.
+This change makes the actionable elements stand out in the dark environment.
+Both shades provide comparable color contrast. Color shades primarily used in
+dark mode tend to have less saturation to prevent light bleed. Actionable
+elements with filled backgrounds have dark text to reduce eye fatigue.
+
+### Interaction
+
+Interaction states in light mode increase the shade number (hover is darker than
+base hue), while dark mode does the opposite (hover is lighter than base hue).
+Light and dark modes automatically increase/decrease shades to account for this.
+
+![Interaction states in dark and light mode](figma:design-color-theming-interaction.png)
+
+### Elevation
+
+Modes differ in their approach to presenting surface elevations. In light mode
+default and raised surfaces are lighter than recessed and subtle surfaces. Dark
+mode surfaces that appear closer to the light source use a lighter tint.
+Recessed surfaces that are further from the light source use a darker shade.
+
+In both modes the raised surface casts a shadow. Small shadows are used for
+[Tooltip](/components/tooltip) only. Medium shadows are used for components
+without backdrop ([Tooltip dialog](/components/tooltip-dialog),
+[Menu](/components/menu)). Large shadows are used for components that have a
+backdrop ([Modal](/components/modal) or [Drawer](/components/drawer)).
+
+![Representation of elevations in dark and light mode](figma:design-color-theming-elevation.png)
+
+### Opacity
+
+Opacity values are consistent in both light and dark mode. Light mode uses
+shade 700 and dark mode uses shade 500 as the primary shade.
 
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
   query ($slug: String) {
     ...SidebarPageFragment
+    DesignColorPrinciplesPurposeDoThis: gardenFigmaAsset(
+      name: { eq: "design-color-principles-purpose-do-this" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 320)
+        }
+      }
+    }
+    DesignColorPrinciplesPurposeNotThis: gardenFigmaAsset(
+      name: { eq: "design-color-principles-purpose-not-this" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 320)
+        }
+      }
+    }
+    DesignColorPrinciplesHierarchyDoThis: gardenFigmaAsset(
+      name: { eq: "design-color-principles-hierarchy-do-this" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 360)
+        }
+      }
+    }
+    DesignColorPrinciplesHierarchyNotThis: gardenFigmaAsset(
+      name: { eq: "design-color-principles-hierarchy-not-this" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 360)
+        }
+      }
+    }
+    DesignColorPrinciplesElevationDoThis: gardenFigmaAsset(
+      name: { eq: "design-color-principles-elevation-do-this" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    DesignColorPrinciplesElevationNotThis: gardenFigmaAsset(
+      name: { eq: "design-color-principles-elevation-not-this" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    DesignColorPrinciplesOpacityDoThis: gardenFigmaAsset(
+      name: { eq: "design-color-principles-opacity-do-this" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    DesignColorPrinciplesOpacityNotThis: gardenFigmaAsset(
+      name: { eq: "design-color-principles-opacity-not-this" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    DesignColorPrinciplesAccessibilityDoThis: gardenFigmaAsset(
+      name: { eq: "design-color-principles-accessibility-do-this" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    DesignColorPrinciplesAccessibilityNotThis: gardenFigmaAsset(
+      name: { eq: "design-color-principles-accessibility-not-this" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    DesignColorTaxonomy: gardenFigmaAsset(name: { eq: "design-color-taxonomy-semantic" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 294)
+        }
+      }
+    }
+    DesignColorTaxonomyPrimitive: gardenFigmaAsset(
+      name: { eq: "design-color-taxonomy-primitive" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 160)
+        }
+      }
+    }
+    DesignColorThemingElevation: gardenFigmaAsset(name: { eq: "design-color-theming-elevation" }) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 400)
+        }
+      }
+    }
+    DesignColorThemingInteraction: gardenFigmaAsset(
+      name: { eq: "design-color-theming-interaction" }
+    ) {
+      childFile {
+        childImageSharp {
+          gatsbyImageData(height: 480)
+        }
+      }
+    }
   }
 `;
