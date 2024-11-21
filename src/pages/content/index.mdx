@@ -10,7 +10,9 @@ export function Head(props) {
   return <SEO {...props} />;
 }
 
-<OverviewLinks nav={props.data.mdx.navigation} />
+import { Alert } from '@zendeskgarden/react-notifications';
+
+<Alert type="warning">Content guidance has been moved to the internal Zendesk space</Alert>
 
 import { graphql } from 'gatsby';
 

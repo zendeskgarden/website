@@ -34,6 +34,41 @@ export const createPages: GatsbyNode['createPages'] = ({ actions }) => {
     fromPath: `/components/select-native`,
     toPath: `/components/select`
   });
+
+  createRedirect({
+    fromPath: '/components/tooltip-modal',
+    toPath: '/components/tooltip-dialog'
+  });
+
+  createRedirect({
+    fromPath: '/content/principles',
+    toPath: '/content'
+  });
+
+  createRedirect({
+    fromPath: '/content/voice-and-tone',
+    toPath: '/content'
+  });
+
+  createRedirect({
+    fromPath: '/content/grammar',
+    toPath: '/content'
+  });
+
+  createRedirect({
+    fromPath: '/content/punctuation',
+    toPath: '/content'
+  });
+
+  createRedirect({
+    fromPath: '/content/word-list',
+    toPath: '/content'
+  });
+
+  createRedirect({
+    fromPath: '/content/actionable-language',
+    toPath: '/content'
+  });
 };
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNode }) => {

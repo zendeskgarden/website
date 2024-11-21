@@ -198,7 +198,6 @@ const MobileNav: React.FC = () => {
         padding: ${p => p.theme.space.lg} ${p => p.theme.space.xxl};
       `}
     >
-      <StyledMobileNavLink to="/content">Content</StyledMobileNavLink>
       <StyledMobileNavLink to="/design">Design</StyledMobileNavLink>
       <StyledMobileNavLink to="/components">Components</StyledMobileNavLink>
       <StyledMobileNavLink to="/patterns">Patterns</StyledMobileNavLink>
@@ -246,9 +245,6 @@ const DesktopNav: React.FC = () => {
         }
       `}
     >
-      <StyledDesktopNavItem>
-        <StyledDesktopNavLink to="/content">Content</StyledDesktopNavLink>
-      </StyledDesktopNavItem>
       <StyledDesktopNavItem>
         <StyledDesktopNavLink to="/design">Design</StyledDesktopNavLink>
       </StyledDesktopNavItem>
