@@ -41,33 +41,33 @@ export const createPages: GatsbyNode['createPages'] = ({ actions }) => {
   });
 
   createRedirect({
-    fromPath: '/components/content/principles',
-    toPath: '/components/content'
+    fromPath: '/content/principles',
+    toPath: '/content'
   });
 
   createRedirect({
-    fromPath: '/components/content/voice-and-tone',
-    toPath: '/components/content'
+    fromPath: '/content/voice-and-tone',
+    toPath: '/content'
   });
 
   createRedirect({
-    fromPath: '/components/content/grammar',
-    toPath: '/components/content'
+    fromPath: '/content/grammar',
+    toPath: '/content'
   });
 
   createRedirect({
-    fromPath: '/components/content/punctuation',
-    toPath: '/components/content'
+    fromPath: '/content/punctuation',
+    toPath: '/content'
   });
 
   createRedirect({
-    fromPath: '/components/content/word-list',
-    toPath: '/components/content'
+    fromPath: '/content/word-list',
+    toPath: '/content'
   });
 
   createRedirect({
-    fromPath: '/components/content/actionable-language',
-    toPath: '/components/content'
+    fromPath: '/content/actionable-language',
+    toPath: '/content'
   });
 };
 
