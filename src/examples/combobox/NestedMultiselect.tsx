@@ -6,6 +6,7 @@
  */
 
 import React, { useCallback, useEffect, useState } from 'react';
+import { Span } from '@zendeskgarden/react-typography';
 import { Grid } from '@zendeskgarden/react-grid';
 import {
   Combobox,
@@ -17,7 +18,6 @@ import {
   Option,
   OptionValue
 } from '@zendeskgarden/react-dropdowns';
-import { Span } from '@zendeskgarden/react-typography';
 
 interface IOptGroup extends IOptGroupProps {
   options: IOptionProps[];
