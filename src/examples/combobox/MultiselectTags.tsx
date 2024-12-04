@@ -34,7 +34,7 @@ const Example = () => {
             <AvatarIcon />
           </span>
         </Tag.Avatar>{' '}
-        {option.split(' ')[0]}
+        <span>{option.split(' ')[0]}</span>
       </>
     );
 
