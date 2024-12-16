@@ -41,9 +41,24 @@ const components = [
     }
   },
   {
+    name: 'componentStyles',
+    props: {
+      'options.theme': {
+        required: true,
+        type: 'DefaultTheme',
+        description: 'Provides `components` object used to resolve the given component ID'
+      },
+      '[options.componentId]': {
+        type: 'string',
+        description:
+          'Specifies the lookup ID for `theme.components` styles. The ID will be inferred from the `data-garden-id` attribute if not provided.'
+      }
+    }
+  },
+  {
     name: 'focusStyles',
     props: {
-      '[options.theme]': {
+      'options.theme': {
         required: true,
         type: 'IGardenTheme',
         description: 'Provides values used to resolve the desired colors'
@@ -127,7 +142,7 @@ const components = [
   {
     name: 'getColor',
     props: {
-      '[options.theme]': {
+      'options.theme': {
         required: true,
         type: 'IGardenTheme',
         description: 'Provides values used to resolve the desired color'
@@ -197,7 +212,7 @@ const components = [
   {
     name: 'getFocusBoxShadow',
     props: {
-      '[options.theme]': {
+      'options.theme': {
         required: true,
         type: 'IGardenTheme',
         defaultValue: 'DEFAULT_THEME',
@@ -316,22 +331,6 @@ const components = [
         type: 'string',
         description:
           "Indicates a CSS class or attribute selector which, when applied to the wrapper, animates the menu's appearance"
-      }
-    }
-  },
-  {
-    name: 'retrieveComponentStyles',
-    props: {
-      id: {
-        required: true,
-        type: 'string',
-        description:
-          "Specifies the unique ID used to retrieve CSS styles from the theme's [components](/components/theme-object#components) object"
-      },
-      props: {
-        required: true,
-        type: 'Partial<ThemeProps<Partial<DefaultTheme>>>',
-        description: 'Provides component props which contain the context `theme` object'
       }
     }
   },
