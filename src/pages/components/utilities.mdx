@@ -6,12 +6,11 @@ description: >
 package: '@zendeskgarden/react-theming'
 components:
   - theming/src/utils/arrowStyles.ts
+  - theming/src/utils/componentStyles.ts
   - theming/src/utils/getColor.ts
   - theming/src/utils/getLineHeight.ts
   - theming/src/utils/mediaQuery.ts
   - theming/src/utils/menuStyles.ts
-  - theming/src/utils/retrieveComponentStyles.ts
-  - theming/src/utils/withTheme.ts
 ---
 
 import { SEO } from '../../components';
@@ -50,6 +49,47 @@ are applied must be wrapped in a positioned box (`relative`, `absolute`, or
 `fixed`) that has a `z-index` greater than or equal to zero.
 
 <PropSheet components={COMPONENTS} componentName="arrowStyles" headerName="Parameter" />
+
+### componentStyles
+
+Retrieve customized CSS for themable component styling overrides. This
+example demonstrates how to construct a custom styled component that permits
+customizations via the theme's
+[components](/components/theme-object#components) object.
+
+```jsx
+import styled, { css, useTheme } from 'styled-components';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+
+const StyledCustomComponent = styled.div`
+  display: flex;
+  align-items: center;
+
+  /* CSS provided on the theme will be rendered inline */
+  ${componentStyles};
+`;
+
+export const CustomComponent = props => {
+  const theme = useTheme();
+  const customTheme = {
+    ...theme,
+    components: {
+      'custom.component': css`
+        background-color: ${p =>
+          getColor({ theme: p.theme, variable: 'background.primaryEmphasis' })};
+      `
+    }
+  };
+
+  return (
+    <ThemeProvider theme={customTheme}>
+      <StyledCustomComponent {...props} data-garden-id="custom.component" />
+    </ThemeProvider>
+  );
+};
+```
+
+<PropSheet components={COMPONENTS} componentName="componentStyles" headerName="Parameter" />
 
 ### focusStyles
 
@@ -123,33 +163,6 @@ positioned wrapper (for example via [Floating UI](https://floating-ui.com/))
 which contains a child menu component.
 
 <PropSheet components={COMPONENTS} componentName="menuStyles" headerName="Parameter" />
-
-### retrieveComponentStyles
-
-Retrieve customized CSS for themable component styling overrides. This
-example demonstrates how to construct a custom styled component that permits
-customizations via the theme's
-[components](/components/theme-object#components) object.
-
-```jsx
-import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-
-const COMPONENT_ID = 'custom.component';
-
-export const StyledCustomComponent = styled.div.attrs({
-  /* Render component ID attribute for reference */
-  'data-custom-id': COMPONENT_ID
-})`
-  display: flex;
-  align-items: center;
-
-  /* CSS provided on the theme will be rendered inline */
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
-`;
-```
-
-<PropSheet components={COMPONENTS} componentName="retrieveComponentStyles" headerName="Parameter" />
 
 ### useText
 
