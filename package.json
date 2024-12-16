@@ -58,7 +58,7 @@
     "@zendeskgarden/react-typography": "9.4.0",
     "@zendeskgarden/scripts": "2.4.3",
     "@zendeskgarden/stylelint-config": "22.0.0",
-    "@zendeskgarden/svg-icons": "7.3.0",
+    "@zendeskgarden/svg-icons": "7.5.0",
     "babel-plugin-styled-components": "2.1.4",
     "cheerio": "1.0.0",
     "codesandbox": "2.2.3",
