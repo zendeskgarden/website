@@ -10,8 +10,8 @@ import { HydrationProvider, useHydrated } from 'react-hydration-provider';
 import {
   ThemeProvider,
   DEFAULT_THEME,
-  ColorSchemeProvider,
-  useColorScheme
+  useColorScheme,
+  ColorSchemeProvider
 } from '@zendeskgarden/react-theming';
 import { ToastProvider } from '@zendeskgarden/react-notifications';
 import { MarkdownProvider } from './MarkdownProvider';
@@ -60,12 +60,10 @@ const ThemedProvider: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-export const Provider: FC<PropsWithChildren> = ({ children }) => {
-  return (
-    <HydrationProvider>
-      <ColorSchemeProvider>
-        <ThemedProvider>{children}</ThemedProvider>
-      </ColorSchemeProvider>
-    </HydrationProvider>
-  );
-};
+export const Provider: FC<PropsWithChildren> = ({ children }) => (
+  <HydrationProvider>
+    <ColorSchemeProvider>
+      <ThemedProvider>{children}</ThemedProvider>
+    </ColorSchemeProvider>
+  </HydrationProvider>
+);
