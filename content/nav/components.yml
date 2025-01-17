@@ -12,6 +12,8 @@
       title: Containers
     - title: Theming
       items:
+        - id: /components/color-scheme-provider
+          title: Color scheme provider
         - id: /components/palette
           title: Palette
         - id: /components/theme-object

@@ -1,0 +1,65 @@
+---
+title: Color scheme provider
+description: >
+  The Color scheme provider provides current color scheme data and persistence
+  to all of the components it contains.
+package: '@zendeskgarden/react-theming'
+components:
+  - theming/src/elements/ColorSchemeProvider.tsx
+---
+
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
+<Usage>
+  <Use>
+
+    - To determine a user's current color scheme
+    - To update and store a user's color scheme preference (light, dark, or system)
+
+  </Use>
+  <Misuse>
+
+    - To apply dark or light mode styling to components, set `colors.base` on
+    the [Theme object](/components/theme-object#base) instead
+
+  </Misuse>
+</Usage>
+
+## How to use it
+
+### Default
+
+The typical usage of a color scheme provided to and updated by a wrapped
+application.
+
+import Default from '../../examples/color-scheme-provider/ColorSchemeProviderDefault.tsx';
+import DefaultCode from '!!raw-loader!../../examples/color-scheme-provider/ColorSchemeProviderDefault.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### ColorSchemeProvider
+
+Provides context for the current color scheme. The `useColorScheme` hook can be
+used within this context to access and update the current color scheme.
+
+<PropSheet components={props.data.mdx.components} componentName="colorSchemeProvider" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($slug: String) {
+    ...SidebarPageFragment
+  }
+`;

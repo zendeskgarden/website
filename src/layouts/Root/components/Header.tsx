@@ -7,7 +7,7 @@
 
 import React, { useState, HTMLAttributes, useRef, useEffect, ChangeEventHandler } from 'react';
 import styled, { css, DefaultTheme, ThemeProps, useTheme } from 'styled-components';
-import { getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import { ColorScheme, getColor, mediaQuery, useColorScheme } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { IMenuProps, Item, ItemGroup, Menu } from '@zendeskgarden/react-dropdowns';
 import { ReactComponent as SearchStroke } from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
@@ -18,7 +18,6 @@ import { ReactComponent as DarkIcon } from '@zendeskgarden/svg-icons/src/16/moon
 import { ReactComponent as SystemIcon } from '@zendeskgarden/svg-icons/src/16/monitor-stroke.svg';
 import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/26/wordmark-garden.svg';
-import { ColorScheme, useColorSchemeContext } from 'components/useColorSchemeContext';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SearchInput } from './SearchInput';
 import { Link, StyledNavigationLink } from './StyledNavigationLink';
@@ -174,7 +173,7 @@ const StyledMobileNavLink = styled(StyledNavigationLink).attrs({ partiallyActive
 `;
 
 const MobileNav: React.FC = () => {
-  const { colorScheme, setColorScheme } = useColorSchemeContext();
+  const { colorScheme, isSystem, setColorScheme } = useColorScheme();
 
   const handleColorSchemeChange: ChangeEventHandler<HTMLSelectElement> = event => {
     setColorScheme(event.target.value as ColorScheme);
@@ -208,7 +207,11 @@ const MobileNav: React.FC = () => {
         `}
       >
         <Field.Label isRegular>Switch themes</Field.Label>
-        <Select defaultValue="system" value={colorScheme} onChange={handleColorSchemeChange}>
+        <Select
+          defaultValue="system"
+          value={isSystem ? 'system' : colorScheme}
+          onChange={handleColorSchemeChange}
+        >
           <option value="light">Light</option>
           <option value="dark">Dark</option>
           <option value="system">System</option>
@@ -219,8 +222,7 @@ const MobileNav: React.FC = () => {
 };
 
 const DesktopNav: React.FC = () => {
-  const { colorScheme, setColorScheme } = useColorSchemeContext();
-
+  const { colorScheme, isSystem, setColorScheme } = useColorScheme();
   const theme = useTheme();
 
   const handleColorSchemeChange: IMenuProps['onChange'] = changes => {
@@ -266,7 +268,7 @@ const DesktopNav: React.FC = () => {
           )}
           onChange={handleColorSchemeChange}
           placement="bottom-end"
-          selectedItems={[{ value: colorScheme }]}
+          selectedItems={[{ value: isSystem ? 'system' : colorScheme }]}
         >
           <ItemGroup aria-label="Switch theme" type="radio">
             <Item icon={<LightIcon />} value="light">
