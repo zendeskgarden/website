@@ -67,7 +67,7 @@
     "dotenv": "16.4.5",
     "envalid": "8.0.0",
     "eslint": "9.14.0",
-    "eslint-config-prettier": "9.1.0",
+    "eslint-config-prettier": "10.1.5",
     "execa": "9.5.1",
     "gatsby": "5.14.0",
     "gatsby-node-helpers": "1.2.1",
