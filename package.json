@@ -34,7 +34,7 @@
     "@types/styled-components": "5.1.34",
     "@zendeskgarden/container-utilities": "2.0.2",
     "@zendeskgarden/css-bedrock": "10.0.1",
-    "@zendeskgarden/eslint-config": "44.0.1",
+    "@zendeskgarden/eslint-config": "45.0.0",
     "@zendeskgarden/react-accordions": "9.10.1",
     "@zendeskgarden/react-avatars": "9.10.1",
     "@zendeskgarden/react-breadcrumbs": "9.10.1",
