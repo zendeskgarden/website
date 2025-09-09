@@ -9,7 +9,7 @@ import React from 'react';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { Grid } from '@zendeskgarden/react-grid';
-import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
+import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/16/zendesk-stroke.svg';
 import { ReactComponent as UserIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const Example = () => (
