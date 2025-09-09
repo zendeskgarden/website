@@ -1,0 +1,59 @@
+---
+title: Kbd
+
+description: Use Kbd to style and format inline fragments of keyboard input.
+package: '@zendeskgarden/react-typography'
+components:
+  - typography/src/elements/Kbd.tsx
+---
+
+import { SEO } from '../../components';
+
+export function Head(props) {
+  return <SEO {...props} />;
+}
+
+## How to use it
+
+### Default
+
+Use Kbd to style and format `<kbd>` elements.
+
+import Default from '../../examples/typography/kbd/Default.tsx';
+import DefaultCode from '!!raw-loader!../../examples/typography/kbd/Default.tsx';
+
+<CodeExample code={DefaultCode}>
+  <Default />
+</CodeExample>
+
+### Size
+
+Kbd comes in small, medium, and large. By default, size is inherited from
+the parent element.
+
+import Size from '../../examples/typography/kbd/Size.tsx';
+import SizeCode from '!!raw-loader!../../examples/typography/kbd/Size.tsx';
+
+<CodeExample code={SizeCode}>
+  <Size />
+</CodeExample>
+
+## Configuration
+
+<Configuration reactPackage={props.data.mdx.package} components={props.data.mdx.components} />
+
+## API
+
+### Kbd
+
+<Component components={props.data.mdx.components} componentName="kbd" />
+
+<PropSheet components={props.data.mdx.components} componentName="kbd" />
+
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query ($slug: String) {
+    ...SidebarPageFragment
+  }
+`;

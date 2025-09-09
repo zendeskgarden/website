@@ -134,6 +134,8 @@
       items:
         - title: Code
           id: /components/code
+        - title: Kbd
+          id: /components/kbd
         - title: Lists
           id: /components/lists
         - title: Paragraph
