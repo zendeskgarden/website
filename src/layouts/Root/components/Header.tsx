@@ -16,8 +16,8 @@ import { ReactComponent as CloseStroke } from '@zendeskgarden/svg-icons/src/16/x
 import { ReactComponent as LightIcon } from '@zendeskgarden/svg-icons/src/16/sun-stroke.svg';
 import { ReactComponent as DarkIcon } from '@zendeskgarden/svg-icons/src/16/moon-stroke.svg';
 import { ReactComponent as SystemIcon } from '@zendeskgarden/svg-icons/src/16/monitor-stroke.svg';
-import { ReactComponent as GardenIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
-import { ReactComponent as GardenWordmark } from '@zendeskgarden/svg-icons/src/26/wordmark-garden.svg';
+import { ReactComponent as GardenIcon } from '../../../icons/garden.svg';
+import { ReactComponent as GardenWordmark } from '../../../icons/wordmark-garden.svg';
 import MaxWidthLayout from 'layouts/MaxWidth';
 import { SearchInput } from './SearchInput';
 import { Link, StyledNavigationLink } from './StyledNavigationLink';
