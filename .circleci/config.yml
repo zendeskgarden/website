@@ -6,7 +6,7 @@ references:
   executor: &executor
     executor:
       name: node/default
-      tag: 22
+      tag: '22'
 
   workspace_root: &workspace_root ~/project
 
