@@ -6,10 +6,7 @@ references:
   executor: &executor
     executor:
       name: node/default
-      # Locked to Node 22.11 due to dependency incompatibility with LTS/Node 24
-      # See available tags: https://hub.docker.com/r/cimg/node/tags
-      # TODO: Update to LTS when dependencies are compatible
-      tag: '22.21'
+      tag: lts
 
   workspace_root: &workspace_root ~/project
 
