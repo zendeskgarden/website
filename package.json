@@ -124,6 +124,7 @@
   },
   "overrides": {
     "msgpackr": "1.11.8",
-    "ordered-binary": "1.6.0"
+    "ordered-binary": "1.6.0",
+    "react-docgen-typescript": "2.2.2"
   }
 }
