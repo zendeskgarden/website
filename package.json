@@ -121,5 +121,9 @@
     "use-resize-observer": "9.1.0",
     "vfile": "6.0.3",
     "yaml": "2.6.0"
+  },
+  "overrides": {
+    "msgpackr": "1.11.8",
+    "ordered-binary": "1.6.0"
   }
 }
