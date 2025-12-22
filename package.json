@@ -63,7 +63,7 @@
     "cheerio": "1.1.2",
     "codesandbox": "2.2.3",
     "date-fns": "4.1.0",
-    "dom-helpers": "5.2.1",
+    "dom-helpers": "6.0.1",
     "dotenv": "16.6.1",
     "envalid": "8.1.1",
     "eslint": "9.39.2",
