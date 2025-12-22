@@ -40,8 +40,17 @@ export default [
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
-    ...typeScriptPlugin,
-    ...typeScriptTypeCheckedPlugin,
+    plugins: {
+      ...typeScriptPlugin.plugins,
+      ...typeScriptTypeCheckedPlugin.plugins
+    },
+    languageOptions: {
+      ...typeScriptPlugin.languageOptions,
+      parser: typeScriptTypeCheckedPlugin.languageOptions.parser,
+      parserOptions: {
+        ...typeScriptPlugin.languageOptions.parserOptions
+      }
+    },
     rules: {
       ...typeScriptPlugin.rules,
       ...typeScriptTypeCheckedPlugin.rules,
