@@ -294,7 +294,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     if (isSearchVisible) {
-      inputRef.current && inputRef.current.focus();
+      inputRef.current?.focus();
     }
   }, [isSearchVisible]);
 

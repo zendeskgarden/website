@@ -39,7 +39,7 @@ const Example = () => {
 
   const storeRef = useCallback((ref: HTMLButtonElement | null) => {
     if (ref) {
-      buttonRefs.current[ref.textContent!] = ref;
+      buttonRefs.current[ref.textContent] = ref;
     }
   }, []);
 
