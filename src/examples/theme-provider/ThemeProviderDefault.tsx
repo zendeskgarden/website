@@ -45,7 +45,8 @@ const colorStyles = (component: 'flower' | 'leaf' | 'pot', { theme }: ThemeProps
 
     retVal = css`
       background-color: ${backgroundColor};
-      background-image: radial-gradient(${foregroundColor} 25%, transparent 0),
+      background-image:
+        radial-gradient(${foregroundColor} 25%, transparent 0),
         radial-gradient(${foregroundColor} 25%, transparent 0);
     `;
   }

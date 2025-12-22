@@ -116,19 +116,19 @@ export async function fetchFigmaImages({
   scale: number;
 }) {
   const chunks = chunk(nodeIds, 20);
-  let images: Record<string, string> = {};
 
-  for await (const value of chunks) {
+  const imagePromises = chunks.map(async value => {
     const idsParam = value.join(',');
     const { images: _images } = await fetchFigmaAPI(
       `images/${fileId}?ids=${idsParam}&scale=${scale}`,
-      {
-        figmaApiToken
-      }
+      { figmaApiToken }
     );
 
-    images = { ...images, ..._images };
-  }
+    return _images;
+  });
+
+  const imageResults = await Promise.all(imagePromises);
+  const images = imageResults.reduce((acc, curr) => ({ ...acc, ...curr }), {});
 
   return { images };
 }
