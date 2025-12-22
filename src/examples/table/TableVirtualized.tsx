@@ -7,11 +7,11 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import getScrollbarSize from 'dom-helpers/scrollbarSize';
+import { scrollbarSize } from 'dom-helpers';
 import { FixedSizeList } from 'react-window';
 import { Table } from '@zendeskgarden/react-tables';
 
-const SCROLLBAR_SIZE = getScrollbarSize();
+const SCROLLBAR_SIZE = scrollbarSize();
 
 const StyledSpacerCell = styled(Table.HeaderCell)`
   padding: 0;
