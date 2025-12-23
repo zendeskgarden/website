@@ -40,15 +40,16 @@ export default [
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
-    plugins: {
-      ...typeScriptPlugin.plugins,
-      ...typeScriptTypeCheckedPlugin.plugins
-    },
+    // Merge TypeScript plugins while preserving parserOptions.projectService from typeScriptPlugin
+    // which is required for type-checked rules to work properly
+    ...typeScriptPlugin,
+    ...typeScriptTypeCheckedPlugin,
     languageOptions: {
       ...typeScriptPlugin.languageOptions,
-      parser: typeScriptTypeCheckedPlugin.languageOptions.parser,
+      ...typeScriptTypeCheckedPlugin.languageOptions,
       parserOptions: {
-        ...typeScriptPlugin.languageOptions.parserOptions
+        ...typeScriptPlugin.languageOptions.parserOptions,
+        ...typeScriptTypeCheckedPlugin.languageOptions.parserOptions
       }
     },
     rules: {
