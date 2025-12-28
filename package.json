@@ -114,7 +114,7 @@
     "smartquotes": "2.3.2",
     "styled-components": "5.3.11",
     "stylelint": "16.26.1",
-    "stylelint-order": "6.0.4",
+    "stylelint-order": "7.0.1",
     "svgo": "3.3.2",
     "typescript": "5.9.3",
     "unist-util-visit": "5.0.0",
