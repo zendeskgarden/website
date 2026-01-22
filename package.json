@@ -90,7 +90,7 @@
     "gatsby-transformer-sharp": "5.15.0",
     "husky": "9.1.7",
     "lint-staged": "15.5.2",
-    "lodash": "4.17.21",
+    "lodash": "4.17.23",
     "lodash.debounce": "4.0.8",
     "markdownlint-cli": "0.47.0",
     "ora": "8.2.0",
