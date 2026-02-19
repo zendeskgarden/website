@@ -49,6 +49,17 @@ interface AccessibilityEntry {
   content: string;
 }
 
+interface ComponentData {
+  name: string;
+  description: string;
+  package: string;
+  version: string;
+  props: Record<string, unknown>;
+  extends?: string;
+  path: string;
+  subcomponents: string[];
+}
+
 /* ---------------------------------------------------------------------------
  * extractPages
  * --------------------------------------------------------------------------- */
@@ -181,6 +192,99 @@ function extractAccessibility(
 }
 
 /* ---------------------------------------------------------------------------
+ * extractComponents
+ * --------------------------------------------------------------------------- */
+
+async function extractComponents(
+  pages: PageData[]
+): Promise<ComponentData[]> {
+  try {
+    // Dynamically import the docgen utilities from the Gatsby plugin.
+    // These depend on @zendeskgarden/scripts which may not be available.
+    const utilsPath = path.join(
+      ROOT,
+      'plugins/gatsby-source-garden-docgen/utils.mjs'
+    );
+    const utils = (await import(utilsPath)) as {
+      generateGardenReactPackages: () => Array<{
+        name: string;
+        version: string;
+        description: string;
+        id: string;
+      }>;
+      generateGardenReactDoctypes: () => Promise<
+        Array<{
+          name: string;
+          description: string;
+          props: Record<string, unknown>;
+          extends?: string;
+          path: string;
+          packageName: string;
+          subcomponents: string[];
+        }>
+      >;
+    };
+
+    const packages = utils.generateGardenReactPackages();
+    const doctypes = await utils.generateGardenReactDoctypes();
+
+    // Build a lookup from package name to version
+    const packageVersions = new Map<string, string>();
+
+    for (const pkg of packages) {
+      packageVersions.set(pkg.name, pkg.version);
+    }
+
+    return doctypes.map(component => ({
+      name: component.name,
+      description: component.description ?? '',
+      package: component.packageName,
+      version: packageVersions.get(component.packageName) ?? '',
+      props: component.props ?? {},
+      ...(component.extends ? { extends: component.extends } : {}),
+      path: component.path,
+      subcomponents: component.subcomponents ?? []
+    }));
+  } catch (error) {
+    // Fallback: build a simpler component list from MDX frontmatter data.
+    // This handles cases where @zendeskgarden/scripts is not installed.
+    const message =
+      error instanceof Error ? error.message : String(error);
+
+    console.warn(
+      `  ⚠ Docgen import failed: ${message}\n` +
+        '  → Falling back to frontmatter-based component list'
+    );
+
+    const components: ComponentData[] = [];
+
+    for (const page of pages) {
+      if (!page.package) continue;
+
+      // Use the page's component list or derive a name from the page title
+      const componentNames =
+        page.components && page.components.length > 0
+          ? page.components
+          : [page.title];
+
+      for (const name of componentNames) {
+        components.push({
+          name,
+          description: page.description,
+          package: page.package,
+          version: '',
+          props: {},
+          path: page.filePath,
+          subcomponents: page.subcomponents ?? []
+        });
+      }
+    }
+
+    return components;
+  }
+}
+
+/* ---------------------------------------------------------------------------
  * main
  * --------------------------------------------------------------------------- */
 
@@ -225,6 +329,14 @@ async function main(): Promise<void> {
   console.log(
     `  -> ${Object.keys(accessibility).length} accessibility entries extracted`
   );
+
+  console.log('Extracting components...');
+  const components = await extractComponents(pages);
+  fs.writeFileSync(
+    path.join(DATA_DIR, 'components.json'),
+    JSON.stringify(components, null, 2)
+  );
+  console.log(`  -> ${components.length} components extracted`);
 
   console.log('\nDone. Data written to', DATA_DIR);
 }
