@@ -5,11 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { randomUUID } from 'node:crypto';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
-import { isInitializeRequest } from '@modelcontextprotocol/sdk/types.js';
 import express from 'express';
+import cors from 'cors';
 import { z } from 'zod';
 import { loadGardenData } from './data/loader.js';
 import type { GardenData } from './data/loader.js';
@@ -413,98 +412,54 @@ async function main(): Promise<void> {
   /* Express app ----------------------------------------------------------- */
   const app = express();
 
+  app.use(cors());
   app.use(express.json());
 
-  /* Session management ---------------------------------------------------- */
-  const transports = new Map<string, StreamableHTTPServerTransport>();
-
-  /* POST /mcp — handle MCP requests -------------------------------------- */
+  /* POST /mcp — stateless: new server + transport per request ------------ */
   app.post('/mcp', async (req, res) => {
-    const sessionId = req.headers['mcp-session-id'] as string | undefined;
-    let transport: StreamableHTTPServerTransport;
+    const server = new McpServer({
+      name: 'garden-mcp-server',
+      version: '0.1.0'
+    });
 
-    if (sessionId && transports.has(sessionId)) {
-      transport = transports.get(sessionId)!;
-    } else if (!sessionId && isInitializeRequest(req.body)) {
-      transport = new StreamableHTTPServerTransport({
-        sessionIdGenerator: () => randomUUID(),
-        onsessioninitialized: (sid) => {
-          transports.set(sid, transport);
-        }
-      });
+    registerTools(server, data);
 
-      transport.onclose = () => {
-        if (transport.sessionId) {
-          transports.delete(transport.sessionId);
-        }
-      };
+    const transport = new StreamableHTTPServerTransport({
+      sessionIdGenerator: undefined
+    });
 
-      const server = new McpServer({
-        name: 'garden-mcp-server',
-        version: '0.1.0'
-      });
-
-      registerTools(server, data);
-
-      await server.connect(transport);
-    } else {
-      res.status(400).json({
-        jsonrpc: '2.0',
-        error: {
-          code: -32000,
-          message: 'Bad Request: No valid session ID provided.'
-        },
-        id: null
-      });
-
-      return;
-    }
+    await server.connect(transport);
 
     await transport.handleRequest(req, res, req.body);
+
+    res.on('close', () => {
+      transport.close();
+      server.close();
+    });
   });
 
-  /* GET /mcp — handle SSE streams ---------------------------------------- */
-  app.get('/mcp', async (req, res) => {
-    const sessionId = req.headers['mcp-session-id'] as string | undefined;
-
-    if (!sessionId || !transports.has(sessionId)) {
-      res.status(400).json({
-        jsonrpc: '2.0',
-        error: {
-          code: -32000,
-          message: 'Bad Request: No valid session ID provided.'
-        },
-        id: null
-      });
-
-      return;
-    }
-
-    const transport = transports.get(sessionId)!;
-
-    await transport.handleRequest(req, res);
+  /* GET /mcp — not supported in stateless mode --------------------------- */
+  app.get('/mcp', (_req, res) => {
+    res.status(405).json({
+      jsonrpc: '2.0',
+      error: {
+        code: -32000,
+        message: 'Method not allowed. Use POST for MCP requests.'
+      },
+      id: null
+    });
   });
 
-  /* DELETE /mcp — close sessions ------------------------------------------ */
-  app.delete('/mcp', async (req, res) => {
-    const sessionId = req.headers['mcp-session-id'] as string | undefined;
-
-    if (!sessionId || !transports.has(sessionId)) {
-      res.status(400).json({
-        jsonrpc: '2.0',
-        error: {
-          code: -32000,
-          message: 'Bad Request: No valid session ID provided.'
-        },
-        id: null
-      });
-
-      return;
-    }
-
-    const transport = transports.get(sessionId)!;
-
-    await transport.handleRequest(req, res);
+  /* DELETE /mcp — not supported in stateless mode ------------------------ */
+  app.delete('/mcp', (_req, res) => {
+    res.status(405).json({
+      jsonrpc: '2.0',
+      error: {
+        code: -32000,
+        message: 'Method not allowed. Stateless server has no sessions.'
+      },
+      id: null
+    });
   });
 
   /* GET /health ----------------------------------------------------------- */

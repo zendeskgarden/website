@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",
+    "cors": "^2.8.6",
     "express": "^4.21.0",
     "glob": "^11.0.0",
     "gray-matter": "^4.0.3",
@@ -19,6 +20,7 @@
     "zod": "^3.25.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.0.0",
