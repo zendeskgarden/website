@@ -5,3 +5,5 @@ src/gatsby-types.d.ts
 yarn.lock
 *.log
 .cache/
+mcp-server/data/
+mcp-server/dist/
