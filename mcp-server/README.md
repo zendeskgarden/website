@@ -46,7 +46,7 @@ Add to your project's `.mcp.json`:
 {
   "mcpServers": {
     "garden": {
-      "type": "url",
+      "type": "http",
       "url": "http://localhost:8383/mcp"
     }
   }
