@@ -2,8 +2,6 @@
 
 This document defines mandatory security requirements for all AI coding assistants operating in this repository.
 
-**Authority:** Derived from [Zendesk Minimum Baseline Security Standard](https://docs.google.com/document/d/17GZ9TpjKCt6WCdw3yxL44Ra_YscbOBVnVkUVGgx5Hz0/) and internal security policies.
-
 ---
 
 ## Core Security Mandate
@@ -65,14 +63,3 @@ Stop and involve a human if a task requires:
 - Disabling certificate validation or TLS
 - Using deprecated cryptographic algorithms
 - Modifying Netlify or CI/CD configuration in ways that bypass security controls
-
----
-
-## References
-
-- [Minimum Baseline Security Standard](https://docs.google.com/document/d/17GZ9TpjKCt6WCdw3yxL44Ra_YscbOBVnVkUVGgx5Hz0/)
-- [Cryptography Standards](https://techmenu.zende.sk/standards/cryptography-standards/)
-
----
-
-**Questions?** Reach out to the Security team or file a ticket via the Security Engagement process.
