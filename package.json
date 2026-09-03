@@ -95,7 +95,7 @@
     "markdownlint-cli": "0.47.0",
     "ora": "8.2.0",
     "polished": "4.3.1",
-    "postcss": "8.5.6",
+    "postcss": "8.5.23",
     "postcss-scss": "4.0.9",
     "postcss-styled": "0.34.0",
     "postcss-styled-syntax": "0.7.1",
