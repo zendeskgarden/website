@@ -124,6 +124,9 @@
   },
   "overrides": {
     "msgpackr": "1.11.8",
-    "ordered-binary": "1.6.0"
+    "ordered-binary": "1.6.0",
+    "cacache": {
+      "tar": "7.5.22"
+    }
   }
 }
