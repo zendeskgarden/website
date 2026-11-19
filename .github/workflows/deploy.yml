@@ -28,7 +28,9 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version-file: '.nvmrc'
+          # `netlifyDeploy` from @zendeskgarden/scripts runs netlify-cli@15.11.0,
+          # which crashes on Node 26. Return to `.nvmrc` once scripts supports Node 26.
+          node-version: '24'
           cache: 'npm'
 
       - name: build
