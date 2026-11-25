@@ -3,12 +3,6 @@ name: Deployment
 on:
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
   workflow_dispatch:
-    inputs:
-      branch:
-        description: 'The branch to deploy'
-        default: 'main'
-        required: false
-        type: string
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -18,12 +12,12 @@ env:
 
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.branch }}
           submodules: true
 
       - uses: actions/setup-node@v6
